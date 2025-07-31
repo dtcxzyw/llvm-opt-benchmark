@@ -1385,7 +1385,7 @@ define internal fastcc void @print_nego(ptr noundef readonly captures(none) %0, 
   %11 = zext nneg i8 %6 to i64
   %12 = getelementptr [13 x i32], ptr @ppr_to_ps, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
-  %14 = icmp samesign ult i8 %6, 7
+  %14 = icmp eq i32 %13, -1
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
@@ -2791,7 +2791,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_perio
   %35 = zext nneg i32 %29 to i64
   %36 = getelementptr [13 x i32], ptr @ppr_to_ps, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
-  %38 = icmp samesign ult i32 %29, 7
+  %38 = icmp eq i32 %37, -1
   br i1 %38, label %.thread, label %39
 
 .thread:                                          ; preds = %27, %34
@@ -3016,7 +3016,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_min_p
   %34 = zext nneg i32 %28 to i64
   %35 = getelementptr [13 x i32], ptr @ppr_to_ps, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
-  %37 = icmp samesign ult i32 %28, 7
+  %37 = icmp eq i32 %36, -1
   br i1 %37, label %.thread, label %38
 
 .thread:                                          ; preds = %26, %33

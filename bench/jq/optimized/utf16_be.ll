@@ -320,46 +320,45 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %2, %19
-  %.01424 = phi ptr [ %21, %19 ], [ %0, %2 ]
+.lr.ph:                                           ; preds = %2, %18
+  %.01424 = phi ptr [ %20, %18 ], [ %0, %2 ]
   %4 = load i8, ptr %.01424, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_UTF16, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
-  %8 = and i64 %5, 252
-  %9 = icmp eq i64 %8, 216
-  br i1 %9, label %10, label %16
+  %8 = icmp eq i32 %7, 4
+  br i1 %8, label %9, label %15
 
-10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.01424, i64 2
-  %.not19 = icmp ult ptr %11, %1
-  br i1 %.not19, label %12, label %.thread
+9:                                                ; preds = %.lr.ph
+  %10 = getelementptr inbounds nuw i8, ptr %.01424, i64 2
+  %.not19 = icmp ult ptr %10, %1
+  br i1 %.not19, label %11, label %.thread
 
-12:                                               ; preds = %10
-  %13 = load i8, ptr %11, align 1, !tbaa !4
-  %14 = and i8 %13, -4
-  %15 = icmp eq i8 %14, -36
-  br i1 %15, label %19, label %.thread
+11:                                               ; preds = %9
+  %12 = load i8, ptr %10, align 1, !tbaa !4
+  %13 = and i8 %12, -4
+  %14 = icmp eq i8 %13, -36
+  br i1 %14, label %18, label %.thread
 
-16:                                               ; preds = %.lr.ph
-  %17 = and i8 %4, -4
-  %18 = icmp eq i8 %17, -36
-  br i1 %18, label %.thread, label %19
+15:                                               ; preds = %.lr.ph
+  %16 = and i8 %4, -4
+  %17 = icmp eq i8 %16, -36
+  br i1 %17, label %.thread, label %18
 
-19:                                               ; preds = %12, %16
-  %20 = sext i32 %7 to i64
-  %21 = getelementptr inbounds i8, ptr %.01424, i64 %20
-  %22 = icmp ult ptr %21, %1
-  br i1 %22, label %.lr.ph, label %._crit_edge
+18:                                               ; preds = %11, %15
+  %19 = sext i32 %7 to i64
+  %20 = getelementptr inbounds i8, ptr %.01424, i64 %19
+  %21 = icmp ult ptr %20, %1
+  br i1 %21, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %19, %2
-  %.014.lcssa = phi ptr [ %0, %2 ], [ %21, %19 ]
+._crit_edge:                                      ; preds = %18, %2
+  %.014.lcssa = phi ptr [ %0, %2 ], [ %20, %18 ]
   %.not = icmp eq ptr %.014.lcssa, %1
   %. = zext i1 %.not to i32
   br label %.thread
 
-.thread:                                          ; preds = %16, %12, %10, %._crit_edge
-  %.2 = phi i32 [ %., %._crit_edge ], [ 0, %10 ], [ 0, %12 ], [ 0, %16 ]
+.thread:                                          ; preds = %15, %11, %9, %._crit_edge
+  %.2 = phi i32 [ %., %._crit_edge ], [ 0, %9 ], [ 0, %11 ], [ 0, %15 ]
   ret i32 %.2
 }
 

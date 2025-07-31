@@ -44,50 +44,48 @@ define internal range(i32 -400, 5) i32 @gb18030_code_to_mbclen(i32 noundef %0) #
   %3 = lshr i32 %0, 24
   %4 = add nsw i32 %3, -129
   %5 = icmp ult i32 %4, 126
-  br i1 %5, label %6, label %27
+  br i1 %5, label %6, label %25
 
 6:                                                ; preds = %2
   %7 = lshr i32 %0, 16
   %8 = and i32 %7, 254
   %9 = add nsw i32 %8, -48
   %10 = icmp ult i32 %9, 10
-  br i1 %10, label %28, label %27
+  br i1 %10, label %26, label %25
 
 11:                                               ; preds = %1
   %.not15 = icmp samesign ult i32 %0, 65536
-  br i1 %.not15, label %12, label %28
+  br i1 %.not15, label %12, label %26
 
 12:                                               ; preds = %11
   %.not16 = icmp samesign ult i32 %0, 256
-  br i1 %.not16, label %25, label %13
+  br i1 %.not16, label %23, label %13
 
 13:                                               ; preds = %12
   %14 = lshr i32 %0, 8
   %15 = add nsw i32 %14, -129
   %16 = icmp ult i32 %15, 126
-  br i1 %16, label %17, label %27
+  br i1 %16, label %17, label %25
 
 17:                                               ; preds = %13
   %18 = and i32 %0, 255
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !4
-  %22 = add nsw i32 %18, -255
-  %23 = icmp ult i32 %22, -126
-  %24 = icmp ne i8 %21, 1
-  %or.cond.not = select i1 %23, i1 %24, i1 false
-  br i1 %or.cond.not, label %27, label %28
+  %22 = and i8 %21, -3
+  %or.cond.not = icmp eq i8 %22, 1
+  br i1 %or.cond.not, label %26, label %25
 
-25:                                               ; preds = %12
-  %26 = add nsw i32 %0, -129
-  %.not17 = icmp ult i32 %26, 126
-  br i1 %.not17, label %27, label %28
+23:                                               ; preds = %12
+  %24 = add nsw i32 %0, -129
+  %.not17 = icmp ult i32 %24, 126
+  br i1 %.not17, label %25, label %26
 
-27:                                               ; preds = %17, %25, %13, %2, %6
-  br label %28
+25:                                               ; preds = %17, %23, %13, %2, %6
+  br label %26
 
-28:                                               ; preds = %17, %25, %11, %6, %27
-  %.014 = phi i32 [ -400, %27 ], [ 2, %17 ], [ 4, %6 ], [ -400, %11 ], [ 1, %25 ]
+26:                                               ; preds = %17, %23, %11, %6, %25
+  %.014 = phi i32 [ -400, %25 ], [ 2, %17 ], [ 4, %6 ], [ -400, %11 ], [ 1, %23 ]
   ret i32 %.014
 }
 

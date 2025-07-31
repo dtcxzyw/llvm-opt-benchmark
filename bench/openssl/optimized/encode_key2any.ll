@@ -465,12 +465,13 @@ define internal range(i32 0, 2) i32 @rsa_to_type_specific_keypair_der_does_selec
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp samesign ult i64 %.01117.i, 2
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 3
+  %10 = icmp ne i32 %9, 0
+  %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1020,8 +1021,8 @@ define internal range(i32 0, 2) i32 @ec_to_type_specific_no_pub_der_does_selecti
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = and i64 %.01117.i, 9223372036854775805
-  %10 = icmp eq i64 %9, 0
+  %9 = and i32 %7, 133
+  %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
@@ -1202,8 +1203,8 @@ define internal range(i32 0, 2) i32 @sm2_to_type_specific_no_pub_der_does_select
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = and i64 %.01117.i, 9223372036854775805
-  %10 = icmp eq i64 %9, 0
+  %9 = and i32 %7, 133
+  %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
@@ -1384,12 +1385,13 @@ define internal range(i32 0, 2) i32 @rsa_to_type_specific_keypair_pem_does_selec
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp samesign ult i64 %.01117.i, 2
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 3
+  %10 = icmp ne i32 %9, 0
+  %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1955,8 +1957,8 @@ define internal range(i32 0, 2) i32 @ec_to_type_specific_no_pub_pem_does_selecti
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = and i64 %.01117.i, 9223372036854775805
-  %10 = icmp eq i64 %9, 0
+  %9 = and i32 %7, 133
+  %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
@@ -2098,8 +2100,8 @@ define internal range(i32 0, 2) i32 @sm2_to_type_specific_no_pub_pem_does_select
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = and i64 %.01117.i, 9223372036854775805
-  %10 = icmp eq i64 %9, 0
+  %9 = and i32 %7, 133
+  %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
@@ -10978,12 +10980,13 @@ define internal range(i32 0, 2) i32 @rsa_to_RSA_der_does_selection(ptr readnone 
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp samesign ult i64 %.01117.i, 2
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 3
+  %10 = icmp ne i32 %9, 0
+  %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -11059,12 +11062,13 @@ define internal range(i32 0, 2) i32 @rsa_to_RSA_pem_does_selection(ptr readnone 
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp samesign ult i64 %.01117.i, 2
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 3
+  %10 = icmp ne i32 %9, 0
+  %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -12104,8 +12108,8 @@ define internal range(i32 0, 2) i32 @ec_to_EC_der_does_selection(ptr readnone ca
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = and i64 %.01117.i, 9223372036854775805
-  %10 = icmp eq i64 %9, 0
+  %9 = and i32 %7, 133
+  %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
@@ -12286,8 +12290,8 @@ define internal range(i32 0, 2) i32 @ec_to_EC_pem_does_selection(ptr readnone ca
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = and i64 %.01117.i, 9223372036854775805
-  %10 = icmp eq i64 %9, 0
+  %9 = and i32 %7, 133
+  %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
@@ -12429,8 +12433,8 @@ define internal range(i32 0, 2) i32 @sm2_to_SM2_der_does_selection(ptr readnone 
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = and i64 %.01117.i, 9223372036854775805
-  %10 = icmp eq i64 %9, 0
+  %9 = and i32 %7, 133
+  %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
@@ -12611,8 +12615,8 @@ define internal range(i32 0, 2) i32 @sm2_to_SM2_pem_does_selection(ptr readnone 
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = and i64 %.01117.i, 9223372036854775805
-  %10 = icmp eq i64 %9, 0
+  %9 = and i32 %7, 133
+  %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
@@ -12754,12 +12758,13 @@ define internal range(i32 0, 2) i32 @rsa_to_PKCS1_der_does_selection(ptr readnon
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp samesign ult i64 %.01117.i, 2
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 3
+  %10 = icmp ne i32 %9, 0
+  %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -12835,12 +12840,13 @@ define internal range(i32 0, 2) i32 @rsa_to_PKCS1_pem_does_selection(ptr readnon
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp samesign ult i64 %.01117.i, 2
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 3
+  %10 = icmp ne i32 %9, 0
+  %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -13009,12 +13015,13 @@ define internal range(i32 0, 2) i32 @rsapss_to_PKCS1_der_does_selection(ptr read
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp samesign ult i64 %.01117.i, 2
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 3
+  %10 = icmp ne i32 %9, 0
+  %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -13090,12 +13097,13 @@ define internal range(i32 0, 2) i32 @rsapss_to_PKCS1_pem_does_selection(ptr read
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = icmp samesign ult i64 %.01117.i, 2
-  %10 = zext i1 %9 to i32
+  %9 = and i32 %7, 3
+  %10 = icmp ne i32 %9, 0
+  %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
 key2any_check_selection.exit:                     ; preds = %4, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %.loopexit.split.loop.exit.i ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -13762,8 +13770,8 @@ define internal range(i32 0, 2) i32 @ec_to_X9_62_der_does_selection(ptr readnone
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = and i64 %.01117.i, 9223372036854775805
-  %10 = icmp eq i64 %9, 0
+  %9 = and i32 %7, 133
+  %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 
@@ -13944,8 +13952,8 @@ define internal range(i32 0, 2) i32 @ec_to_X9_62_pem_does_selection(ptr readnone
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = and i64 %.01117.i, 9223372036854775805
-  %10 = icmp eq i64 %9, 0
+  %9 = and i32 %7, 133
+  %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
   br label %key2any_check_selection.exit
 

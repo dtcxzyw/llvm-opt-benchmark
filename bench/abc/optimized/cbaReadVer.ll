@@ -289,13 +289,14 @@ define void @Prs_NtkAddVerilogDirectives(ptr noundef readonly captures(none) %0)
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [18 x ptr], ptr @s_VerTypes, i64 0, i64 %indvars.iv
-  %5 = load ptr, ptr %4, align 8, !tbaa !3
-  %6 = load ptr, ptr %2, align 8, !tbaa !8
-  %7 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %6, ptr noundef %5, ptr noundef null) #28
+  %4 = phi ptr [ @.str.39, %1 ], [ %8, %3 ]
+  %5 = load ptr, ptr %2, align 8, !tbaa !3
+  %6 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %5, ptr noundef nonnull %4, ptr noundef null) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = icmp eq i64 %indvars.iv.next, 17
-  br i1 %8, label %9, label %3, !llvm.loop !18
+  %7 = getelementptr inbounds nuw [18 x ptr], ptr @s_VerTypes, i64 0, i64 %indvars.iv.next
+  %8 = load ptr, ptr %7, align 8, !tbaa !17
+  %exitcond = icmp eq i64 %indvars.iv.next, 17
+  br i1 %exitcond, label %9, label %3, !llvm.loop !18
 
 9:                                                ; preds = %3
   ret void
@@ -1232,7 +1233,7 @@ Prs_ManReadName.exit:                             ; preds = %251, %.preheader.i1
   %263 = phi ptr [ %storemerge.i143, %.preheader.i142 ], [ %storemerge15.i, %251 ]
   %.0.i146 = phi ptr [ %.val81290293, %.preheader.i142 ], [ %250, %251 ]
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %265 = load ptr, ptr %264, align 8, !tbaa !8
+  %265 = load ptr, ptr %264, align 8, !tbaa !3
   %266 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %265, ptr noundef nonnull %.0.i146, ptr noundef nonnull %263, ptr noundef null) #28
   %267 = icmp eq i32 %266, 0
   br i1 %267, label %Prs_ManReadName.exit.thread, label %268
@@ -1467,7 +1468,7 @@ define void @Prs_ManPrintModules(ptr noundef readonly captures(none) %0) local_u
 
 7:                                                ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
   %.val39 = load ptr, ptr %6, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i32, ptr %.val39, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !23
@@ -1498,7 +1499,7 @@ define void @Prs_ManPrintModules(ptr noundef readonly captures(none) %0) local_u
 
 20:                                               ; preds = %.lr.ph47, %25
   %indvars.iv54 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next55, %25 ]
-  %21 = load ptr, ptr %4, align 8, !tbaa !8
+  %21 = load ptr, ptr %4, align 8, !tbaa !3
   %.val40 = load ptr, ptr %19, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i32, ptr %.val40, i64 %indvars.iv54
   %23 = load i32, ptr %22, align 4, !tbaa !23
@@ -1529,7 +1530,7 @@ define void @Prs_ManPrintModules(ptr noundef readonly captures(none) %0) local_u
 
 33:                                               ; preds = %.lr.ph51, %38
   %indvars.iv57 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next58, %38 ]
-  %34 = load ptr, ptr %4, align 8, !tbaa !8
+  %34 = load ptr, ptr %4, align 8, !tbaa !3
   %.val41 = load ptr, ptr %32, align 8, !tbaa !22
   %35 = getelementptr inbounds nuw i32, ptr %.val41, i64 %indvars.iv57
   %36 = load i32, ptr %35, align 4, !tbaa !23
@@ -1601,7 +1602,7 @@ define ptr @Prs_ManReadVerilog(ptr noundef %0) local_unnamed_addr #0 {
 25:                                               ; preds = %6, %1
   %26 = tail call ptr @Abc_NamStart(i32 noundef 1000, i32 noundef 24) #28
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %26, ptr %27, align 8, !tbaa !8
+  store ptr %26, ptr %27, align 8, !tbaa !3
   %28 = tail call ptr @Abc_NamStart(i32 noundef 100, i32 noundef 24) #28
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %28, ptr %29, align 8, !tbaa !35
@@ -1695,13 +1696,14 @@ Prs_ManAlloc.exit.thread:                         ; preds = %3
 
 67:                                               ; preds = %67, %47
   %indvars.iv.i = phi i64 [ 1, %47 ], [ %indvars.iv.next.i, %67 ]
-  %68 = getelementptr inbounds nuw [18 x ptr], ptr @s_VerTypes, i64 0, i64 %indvars.iv.i
-  %69 = load ptr, ptr %68, align 8, !tbaa !3
-  %70 = load ptr, ptr %27, align 8, !tbaa !8
-  %71 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %70, ptr noundef %69, ptr noundef null) #28
+  %68 = phi ptr [ @.str.39, %47 ], [ %72, %67 ]
+  %69 = load ptr, ptr %27, align 8, !tbaa !3
+  %70 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %69, ptr noundef nonnull %68, ptr noundef null) #28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %72 = icmp eq i64 %indvars.iv.next.i, 17
-  br i1 %72, label %Prs_NtkAddVerilogDirectives.exit, label %67, !llvm.loop !18
+  %71 = getelementptr inbounds nuw [18 x ptr], ptr @s_VerTypes, i64 0, i64 %indvars.iv.next.i
+  %72 = load ptr, ptr %71, align 8, !tbaa !17
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 17
+  br i1 %exitcond.i, label %Prs_NtkAddVerilogDirectives.exit, label %67, !llvm.loop !18
 
 Prs_NtkAddVerilogDirectives.exit:                 ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -1974,7 +1976,7 @@ Prs_ManUtilSkipSpaces.exit146.i.i:                ; preds = %118, %113, %111, %.
 Prs_ManReadName.exit.i.i:                         ; preds = %131, %.preheader.i147.i.i
   %144 = phi ptr [ %storemerge.i.i.i, %.preheader.i147.i.i ], [ %storemerge15.i.i.i, %131 ]
   %.0.i148.i.i = phi ptr [ %.promoted21.i125249.i.i, %.preheader.i147.i.i ], [ %130, %131 ]
-  %145 = load ptr, ptr %27, align 8, !tbaa !8
+  %145 = load ptr, ptr %27, align 8, !tbaa !3
   %146 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %145, ptr noundef nonnull %.0.i148.i.i, ptr noundef nonnull %144, ptr noundef null) #28
   %.not98.i.i = icmp eq i32 %146, 6
   br i1 %.not98.i.i, label %148, label %Prs_ManReadName.exit.thread.i.i
@@ -2129,7 +2131,7 @@ Prs_ManUtilSkipSpaces.exit171.i.i:                ; preds = %148, %Prs_ManUtilSk
 Prs_ManReadName.exit.i:                           ; preds = %.preheader.i12.i, %175
   %188 = phi ptr [ %storemerge15.i.i, %175 ], [ %storemerge.i.i, %.preheader.i12.i ]
   %.0.i15.i = phi ptr [ %174, %175 ], [ %177, %.preheader.i12.i ]
-  %189 = load ptr, ptr %27, align 8, !tbaa !8
+  %189 = load ptr, ptr %27, align 8, !tbaa !3
   %190 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %189, ptr noundef nonnull %.0.i15.i, ptr noundef nonnull %188, ptr noundef null) #28
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %Prs_ManReadName.exit.thread.i, label %193
@@ -2140,7 +2142,7 @@ Prs_ManReadName.exit.thread.i:                    ; preds = %Prs_ManReadName.exi
   br label %Prs_ManReadDesign.exit
 
 193:                                              ; preds = %Prs_ManReadName.exit.i
-  %194 = load ptr, ptr %27, align 8, !tbaa !8
+  %194 = load ptr, ptr %27, align 8, !tbaa !3
   %195 = tail call ptr @Abc_NamStr(ptr noundef %194, i32 noundef %190) #28
   br label %196
 
@@ -2157,7 +2159,7 @@ Prs_ManReadName.exit.thread.i:                    ; preds = %Prs_ManReadName.exi
 201:                                              ; preds = %196
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %202 = getelementptr inbounds nuw [100 x ptr], ptr @s_VerNames, i64 0, i64 %indvars.iv.next.i.i
-  %203 = load ptr, ptr %202, align 8, !tbaa !3
+  %203 = load ptr, ptr %202, align 8, !tbaa !17
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 55
   br i1 %exitcond.i.i, label %Prs_ManIsKnownModule.exit.thread.i, label %196, !llvm.loop !60
 
@@ -2524,7 +2526,7 @@ Prs_ManErrorPrint.exit:                           ; preds = %Prs_ManReadDesign.e
 
 326:                                              ; preds = %Prs_ManErrorPrint.exit.thread, %Prs_ManErrorPrint.exit
   %.017 = phi ptr [ %325, %Prs_ManErrorPrint.exit ], [ null, %Prs_ManErrorPrint.exit.thread ]
-  %327 = load ptr, ptr %27, align 8, !tbaa !8
+  %327 = load ptr, ptr %27, align 8, !tbaa !3
   %.not.i24 = icmp eq ptr %327, null
   br i1 %.not.i24, label %329, label %328
 
@@ -10013,7 +10015,7 @@ Cba_NtkCleanMap2.exit825:                         ; preds = %556, %.critedge544
 563:                                              ; preds = %Cba_NtkCleanMap2.exit825, %563
   %indvars.iv1284 = phi i64 [ 0, %Cba_NtkCleanMap2.exit825 ], [ %indvars.iv.next1285, %563 ]
   %564 = getelementptr inbounds nuw ptr, ptr %403, i64 %indvars.iv1284
-  %565 = load ptr, ptr %564, align 8, !tbaa !3
+  %565 = load ptr, ptr %564, align 8, !tbaa !17
   %.val630 = load ptr, ptr %0, align 8, !tbaa !78
   %566 = getelementptr i8, ptr %.val630, i64 16
   %.val630.val = load ptr, ptr %566, align 8, !tbaa !82
@@ -10922,7 +10924,7 @@ Cba_NtkCleanMap2.exit876:                         ; preds = %950, %941
 .lr.ph1233:                                       ; preds = %.lr.ph1233.preheader, %.lr.ph1233
   %indvars.iv1296 = phi i64 [ 0, %.lr.ph1233.preheader ], [ %indvars.iv.next1297, %.lr.ph1233 ]
   %960 = getelementptr inbounds nuw ptr, ptr %926, i64 %indvars.iv1296
-  %961 = load ptr, ptr %960, align 8, !tbaa !3
+  %961 = load ptr, ptr %960, align 8, !tbaa !17
   %.val629 = load ptr, ptr %0, align 8, !tbaa !78
   %962 = getelementptr i8, ptr %.val629, i64 16
   %.val629.val = load ptr, ptr %962, align 8, !tbaa !82
@@ -11898,7 +11900,7 @@ Cba_ObjName.exit983:                              ; preds = %1338, %._crit_edge.
 .lr.ph1240:                                       ; preds = %.lr.ph1240.preheader, %.lr.ph1240
   %indvars.iv1305 = phi i64 [ 0, %.lr.ph1240.preheader ], [ %indvars.iv.next1306, %.lr.ph1240 ]
   %1378 = getelementptr inbounds nuw ptr, ptr %.011341167, i64 %indvars.iv1305
-  %1379 = load ptr, ptr %1378, align 8, !tbaa !3
+  %1379 = load ptr, ptr %1378, align 8, !tbaa !17
   %.val628 = load ptr, ptr %0, align 8, !tbaa !78
   %1380 = getelementptr i8, ptr %.val628, i64 16
   %.val628.val = load ptr, ptr %1380, align 8, !tbaa !82
@@ -13897,7 +13899,7 @@ define internal fastcc i32 @Prs_ManReadName(ptr noundef captures(none) %0) unnam
   %19 = phi ptr [ %storemerge15, %6 ], [ %storemerge, %.preheader ]
   %.0 = phi ptr [ %5, %6 ], [ %3, %.preheader ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !8
+  %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %21, ptr noundef nonnull %.0, ptr noundef nonnull %19, ptr noundef null) #28
   br label %23
 
@@ -15227,7 +15229,7 @@ define internal fastcc void @Prs_ManInitializeNtk(ptr noundef nonnull captures(n
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 2, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = tail call ptr @Abc_NamRef(ptr noundef %7) #28
   %9 = load ptr, ptr %4, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -15502,7 +15504,7 @@ Prs_ManUtilSkipComments.exit.i:                   ; preds = %.lr.ph38.i.i, %37
 Prs_ManReadName.exit:                             ; preds = %.preheader.i94, %48
   %61 = phi ptr [ %storemerge15.i, %48 ], [ %storemerge.i, %.preheader.i94 ]
   %.0.i95 = phi ptr [ %47, %48 ], [ %.val92, %.preheader.i94 ]
-  %62 = load ptr, ptr %43, align 8, !tbaa !8
+  %62 = load ptr, ptr %43, align 8, !tbaa !3
   %63 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %62, ptr noundef nonnull %.0.i95, ptr noundef nonnull %61, ptr noundef null) #28
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %Prs_ManReadName.exit.thread, label %66
@@ -15775,7 +15777,7 @@ Prs_ManReadName.exit161:                          ; preds = %.preheader.i148, %1
   %.3418 = phi i32 [ %.3, %123 ], [ %.3419, %.preheader.i148 ]
   %136 = phi ptr [ %storemerge15.i158, %123 ], [ %storemerge.i150, %.preheader.i148 ]
   %.0.i156 = phi ptr [ %122, %123 ], [ %125, %.preheader.i148 ]
-  %137 = load ptr, ptr %43, align 8, !tbaa !8
+  %137 = load ptr, ptr %43, align 8, !tbaa !3
   %138 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %137, ptr noundef nonnull %.0.i156, ptr noundef nonnull %136, ptr noundef null) #28
   switch i32 %138, label %177 [
     i32 0, label %Prs_ManReadName.exit161.thread
@@ -16560,7 +16562,7 @@ Prs_ManReadName.exit:                             ; preds = %.preheader.i99, %54
   %67 = phi ptr [ %storemerge15.i, %54 ], [ %storemerge.i, %.preheader.i99 ]
   %.0.i100 = phi ptr [ %53, %54 ], [ %56, %.preheader.i99 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %69 = load ptr, ptr %68, align 8, !tbaa !8
+  %69 = load ptr, ptr %68, align 8, !tbaa !3
   %70 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %69, ptr noundef nonnull %.0.i100, ptr noundef nonnull %67, ptr noundef null) #28
   %71 = icmp eq i32 %70, 15
   br i1 %71, label %72, label %Prs_ManReadName.exit142
@@ -16735,7 +16737,7 @@ Prs_ManUtilSkipComments.exit.i114:                ; preds = %.lr.ph38.i.i116, %9
   %.2479 = phi i32 [ %.2, %104 ], [ %.2480, %.preheader.i129 ]
   %117 = phi ptr [ %storemerge15.i139, %104 ], [ %storemerge.i131, %.preheader.i129 ]
   %.0.i137 = phi ptr [ %103, %104 ], [ %106, %.preheader.i129 ]
-  %118 = load ptr, ptr %68, align 8, !tbaa !8
+  %118 = load ptr, ptr %68, align 8, !tbaa !3
   %119 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %118, ptr noundef nonnull %.0.i137, ptr noundef nonnull %117, ptr noundef null) #28
   br label %Prs_ManReadName.exit142
 
@@ -16916,7 +16918,7 @@ Prs_ManUtilSkipComments.exit.i156:                ; preds = %.lr.ph38.i.i158, %1
   %.4490 = phi i32 [ %.4, %153 ], [ %.4489, %.preheader.i171 ]
   %166 = phi ptr [ %storemerge15.i181, %153 ], [ %storemerge.i173, %.preheader.i171 ]
   %.0.i179 = phi ptr [ %152, %153 ], [ %155, %.preheader.i171 ]
-  %167 = load ptr, ptr %68, align 8, !tbaa !8
+  %167 = load ptr, ptr %68, align 8, !tbaa !3
   %168 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %167, ptr noundef nonnull %.0.i179, ptr noundef nonnull %166, ptr noundef null) #28
   br label %Prs_ManReadName.exit184
 
@@ -17405,7 +17407,7 @@ Prs_ManUtilSkipComments.exit.i247:                ; preds = %.lr.ph38.i.i249, %2
 .loopexit.i268:                                   ; preds = %.preheader.i261, %303
   %316 = phi ptr [ %storemerge15.i271, %303 ], [ %storemerge.i263, %.preheader.i261 ]
   %.0.i269 = phi ptr [ %302, %303 ], [ %305, %.preheader.i261 ]
-  %317 = load ptr, ptr %174, align 8, !tbaa !8
+  %317 = load ptr, ptr %174, align 8, !tbaa !3
   %318 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %317, ptr noundef nonnull %.0.i269, ptr noundef nonnull %316, ptr noundef null) #28
   br label %.backedge
 
@@ -19568,7 +19570,7 @@ Prs_ManReadName.exit:                             ; preds = %.preheader.i, %12
   %25 = phi ptr [ %storemerge15.i, %12 ], [ %storemerge.i, %.preheader.i ]
   %.0.i31 = phi ptr [ %11, %12 ], [ %6, %.preheader.i ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !8
+  %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %27, ptr noundef nonnull %.0.i31, ptr noundef nonnull %25, ptr noundef null) #28
   store i32 %28, ptr %3, align 8, !tbaa !155
   %29 = icmp eq i32 %28, 0
@@ -20003,7 +20005,7 @@ Prs_ManReadName.exit:                             ; preds = %.preheader.i82, %56
   %69 = phi ptr [ %storemerge15.i, %56 ], [ %storemerge.i, %.preheader.i82 ]
   %.0.i83 = phi ptr [ %55, %56 ], [ %58, %.preheader.i82 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !8
+  %71 = load ptr, ptr %70, align 8, !tbaa !3
   %72 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %71, ptr noundef nonnull %.0.i83, ptr noundef nonnull %69, ptr noundef null) #28
   %.not47 = icmp eq i32 %72, 0
   %.val56.pre = load ptr, ptr %3, align 8, !tbaa !24
@@ -20284,7 +20286,7 @@ Prs_ManUtilSkipComments.exit.i121:                ; preds = %.lr.ph38.i.i123, %1
 Prs_ManReadName.exit.i:                           ; preds = %.preheader.i.i, %131
   %144 = phi ptr [ %storemerge15.i.i, %131 ], [ %storemerge.i.i, %.preheader.i.i ]
   %.0.i.i = phi ptr [ %130, %131 ], [ %128, %.preheader.i.i ]
-  %145 = load ptr, ptr %126, align 8, !tbaa !8
+  %145 = load ptr, ptr %126, align 8, !tbaa !3
   %146 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %145, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %144, ptr noundef null) #28
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %Prs_ManReadName.exit.thread.i, label %149
@@ -20741,7 +20743,7 @@ Prs_ManUtilSkipSpaces.exit120.i:                  ; preds = %.preheader.i102.i, 
 
 .loopexit.thread:                                 ; preds = %105, %.loopexit
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %258 = load ptr, ptr %257, align 8, !tbaa !8
+  %258 = load ptr, ptr %257, align 8, !tbaa !3
   %259 = tail call ptr @Abc_NamStr(ptr noundef %258, i32 noundef %1) #28
   %260 = tail call fastcc i32 @Prs_ManIsVerilogPrim(ptr noundef %259)
   %.not52 = icmp eq i32 %260, 0
@@ -21662,95 +21664,95 @@ attributes #33 = { "function-inline-cost-multiplier"="2" }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !4, i64 0}
-!4 = !{!"p1 omnipotent char", !5, i64 0}
-!5 = !{!"any pointer", !6, i64 0}
-!6 = !{!"omnipotent char", !7, i64 0}
-!7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!9, !10, i64 32}
-!9 = !{!"Prs_Man_t_", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !10, i64 32, !10, i64 40, !11, i64 48, !12, i64 56, !13, i64 64, !14, i64 72, !16, i64 88, !16, i64 104, !16, i64 120, !16, i64 136, !16, i64 152, !16, i64 168, !16, i64 184, !15, i64 200, !15, i64 204, !15, i64 208, !15, i64 212, !6, i64 216}
-!10 = !{!"p1 _ZTS10Abc_Nam_t_", !5, i64 0}
-!11 = !{!"p1 _ZTS14Hash_IntMan_t_", !5, i64 0}
-!12 = !{!"p1 _ZTS10Prs_Ntk_t_", !5, i64 0}
-!13 = !{!"p1 _ZTS10Vec_Ptr_t_", !5, i64 0}
-!14 = !{!"Vec_Str_t_", !15, i64 0, !15, i64 4, !4, i64 8}
-!15 = !{!"int", !6, i64 0}
-!16 = !{!"Vec_Int_t_", !15, i64 0, !15, i64 4, !17, i64 8}
-!17 = !{!"p1 int", !5, i64 0}
+!3 = !{!4, !9, i64 32}
+!4 = !{!"Prs_Man_t_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !9, i64 32, !9, i64 40, !10, i64 48, !11, i64 56, !12, i64 64, !13, i64 72, !15, i64 88, !15, i64 104, !15, i64 120, !15, i64 136, !15, i64 152, !15, i64 168, !15, i64 184, !14, i64 200, !14, i64 204, !14, i64 208, !14, i64 212, !7, i64 216}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 _ZTS10Abc_Nam_t_", !6, i64 0}
+!10 = !{!"p1 _ZTS14Hash_IntMan_t_", !6, i64 0}
+!11 = !{!"p1 _ZTS10Prs_Ntk_t_", !6, i64 0}
+!12 = !{!"p1 _ZTS10Vec_Ptr_t_", !6, i64 0}
+!13 = !{!"Vec_Str_t_", !14, i64 0, !14, i64 4, !5, i64 8}
+!14 = !{!"int", !7, i64 0}
+!15 = !{!"Vec_Int_t_", !14, i64 0, !14, i64 4, !16, i64 8}
+!16 = !{!"p1 int", !6, i64 0}
+!17 = !{!5, !5, i64 0}
 !18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!16, !15, i64 4}
-!21 = !{!16, !15, i64 0}
-!22 = !{!16, !17, i64 8}
-!23 = !{!15, !15, i64 0}
-!24 = !{!9, !4, i64 24}
-!25 = !{!6, !6, i64 0}
-!26 = !{!9, !4, i64 16}
+!20 = !{!15, !14, i64 4}
+!21 = !{!15, !14, i64 0}
+!22 = !{!15, !16, i64 8}
+!23 = !{!14, !14, i64 0}
+!24 = !{!4, !5, i64 24}
+!25 = !{!7, !7, i64 0}
+!26 = !{!4, !5, i64 16}
 !27 = distinct !{!27, !19}
 !28 = distinct !{!28, !19}
 !29 = distinct !{!29, !19}
 !30 = distinct !{!30, !19}
-!31 = !{!9, !12, i64 56}
+!31 = !{!4, !11, i64 56}
 !32 = distinct !{!32, !19}
 !33 = distinct !{!33, !19}
 !34 = distinct !{!34, !19}
-!35 = !{!9, !10, i64 40}
+!35 = !{!4, !9, i64 40}
 !36 = distinct !{!36, !19}
 !37 = distinct !{!37, !19}
-!38 = !{!9, !15, i64 204}
+!38 = !{!4, !14, i64 204}
 !39 = distinct !{!39, !19}
 !40 = distinct !{!40, !19}
 !41 = distinct !{!41, !19}
 !42 = distinct !{!42, !19}
 !43 = distinct !{!43, !19}
-!44 = !{!9, !4, i64 0}
-!45 = !{!9, !4, i64 8}
+!44 = !{!4, !5, i64 0}
+!45 = !{!4, !5, i64 8}
 !46 = distinct !{!46, !19}
 !47 = distinct !{!47, !19}
 !48 = !{!49, !50, i64 0}
-!49 = !{!"Hash_IntMan_t_", !50, i64 0, !50, i64 8, !15, i64 16}
-!50 = !{!"p1 _ZTS10Vec_Int_t_", !5, i64 0}
+!49 = !{!"Hash_IntMan_t_", !50, i64 0, !50, i64 8, !14, i64 16}
+!50 = !{!"p1 _ZTS10Vec_Int_t_", !6, i64 0}
 !51 = !{!49, !50, i64 8}
-!52 = !{!49, !15, i64 16}
-!53 = !{!9, !11, i64 48}
-!54 = !{!55, !15, i64 4}
-!55 = !{!"Vec_Ptr_t_", !15, i64 0, !15, i64 4, !5, i64 8}
-!56 = !{!55, !15, i64 0}
-!57 = !{!55, !5, i64 8}
-!58 = !{!9, !13, i64 64}
+!52 = !{!49, !14, i64 16}
+!53 = !{!4, !10, i64 48}
+!54 = !{!55, !14, i64 4}
+!55 = !{!"Vec_Ptr_t_", !14, i64 0, !14, i64 4, !6, i64 8}
+!56 = !{!55, !14, i64 0}
+!57 = !{!55, !6, i64 8}
+!58 = !{!4, !12, i64 64}
 !59 = distinct !{!59, !19}
 !60 = distinct !{!60, !19}
 !61 = distinct !{!61, !19}
-!62 = !{!63, !15, i64 0}
-!63 = !{!"Prs_Ntk_t_", !15, i64 0, !15, i64 4, !15, i64 4, !15, i64 4, !15, i64 4, !15, i64 4, !15, i64 4, !10, i64 8, !10, i64 16, !11, i64 24, !16, i64 32, !16, i64 48, !16, i64 64, !16, i64 80, !16, i64 96, !16, i64 112, !16, i64 128, !16, i64 144, !16, i64 160, !16, i64 176, !16, i64 192, !16, i64 208, !16, i64 224}
+!62 = !{!63, !14, i64 0}
+!63 = !{!"Prs_Ntk_t_", !14, i64 0, !14, i64 4, !14, i64 4, !14, i64 4, !14, i64 4, !14, i64 4, !14, i64 4, !9, i64 8, !9, i64 16, !10, i64 24, !15, i64 32, !15, i64 48, !15, i64 64, !15, i64 80, !15, i64 96, !15, i64 112, !15, i64 128, !15, i64 144, !15, i64 160, !15, i64 176, !15, i64 192, !15, i64 208, !15, i64 224}
 !64 = distinct !{!64, !19}
-!65 = !{!14, !4, i64 8}
-!66 = !{!14, !15, i64 4}
-!67 = !{!14, !15, i64 0}
+!65 = !{!13, !5, i64 8}
+!66 = !{!13, !14, i64 4}
+!67 = !{!13, !14, i64 0}
 !68 = !{!69, !70, i64 0}
 !69 = !{!"timespec", !70, i64 0, !70, i64 8}
-!70 = !{!"long", !6, i64 0}
+!70 = !{!"long", !7, i64 0}
 !71 = !{!69, !70, i64 8}
-!72 = !{!5, !5, i64 0}
-!73 = !{!63, !10, i64 8}
+!72 = !{!6, !6, i64 0}
+!73 = !{!63, !9, i64 8}
 !74 = distinct !{!74, !19}
-!75 = !{!63, !10, i64 16}
-!76 = !{!63, !11, i64 24}
+!75 = !{!63, !9, i64 16}
+!76 = !{!63, !10, i64 24}
 !77 = distinct !{!77, !19}
 !78 = !{!79, !80, i64 0}
-!79 = !{!"Cba_Ntk_t_", !80, i64 0, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 20, !15, i64 20, !16, i64 24, !16, i64 40, !16, i64 56, !16, i64 72, !14, i64 88, !16, i64 104, !16, i64 120, !16, i64 136, !16, i64 152, !16, i64 168, !16, i64 184, !16, i64 200, !16, i64 216, !16, i64 232, !16, i64 248, !16, i64 264, !16, i64 280, !16, i64 296, !16, i64 312, !16, i64 328, !16, i64 344, !16, i64 360, !16, i64 376, !13, i64 392, !16, i64 400, !16, i64 416}
-!80 = !{!"p1 _ZTS10Cba_Man_t_", !5, i64 0}
-!81 = !{!79, !15, i64 12}
-!82 = !{!83, !10, i64 16}
-!83 = !{!"Cba_Man_t_", !4, i64 0, !4, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !11, i64 40, !16, i64 48, !16, i64 64, !16, i64 80, !16, i64 96, !6, i64 112, !6, i64 832, !6, i64 1192, !15, i64 1552, !55, i64 1560, !15, i64 1576, !14, i64 1584, !14, i64 1600, !5, i64 1616}
+!79 = !{!"Cba_Ntk_t_", !80, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 20, !14, i64 20, !15, i64 24, !15, i64 40, !15, i64 56, !15, i64 72, !13, i64 88, !15, i64 104, !15, i64 120, !15, i64 136, !15, i64 152, !15, i64 168, !15, i64 184, !15, i64 200, !15, i64 216, !15, i64 232, !15, i64 248, !15, i64 264, !15, i64 280, !15, i64 296, !15, i64 312, !15, i64 328, !15, i64 344, !15, i64 360, !15, i64 376, !12, i64 392, !15, i64 400, !15, i64 416}
+!80 = !{!"p1 _ZTS10Cba_Man_t_", !6, i64 0}
+!81 = !{!79, !14, i64 12}
+!82 = !{!83, !9, i64 16}
+!83 = !{!"Cba_Man_t_", !5, i64 0, !5, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !10, i64 40, !15, i64 48, !15, i64 64, !15, i64 80, !15, i64 96, !7, i64 112, !7, i64 832, !7, i64 1192, !14, i64 1552, !55, i64 1560, !14, i64 1576, !13, i64 1584, !13, i64 1600, !6, i64 1616}
 !84 = distinct !{!84, !19}
 !85 = distinct !{!85, !19}
 !86 = distinct !{!86, !19}
-!87 = !{!83, !11, i64 40}
-!88 = !{!83, !10, i64 24}
-!89 = !{!90, !15, i64 0}
-!90 = !{!"Hash_IntObj_t_", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12}
-!91 = !{!90, !15, i64 4}
+!87 = !{!83, !10, i64 40}
+!88 = !{!83, !9, i64 24}
+!89 = !{!90, !14, i64 0}
+!90 = !{!"Hash_IntObj_t_", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
+!91 = !{!90, !14, i64 4}
 !92 = distinct !{!92, !19}
 !93 = distinct !{!93, !19}
 !94 = distinct !{!94, !19}
@@ -21774,12 +21776,12 @@ attributes #33 = { "function-inline-cost-multiplier"="2" }
 !112 = distinct !{!112, !19}
 !113 = distinct !{!113, !19}
 !114 = distinct !{!114, !19}
-!115 = !{!116, !4, i64 8}
-!116 = !{!"Prs_VerInfo_t_", !15, i64 0, !15, i64 4, !4, i64 8, !6, i64 16}
-!117 = !{!116, !15, i64 4}
-!118 = !{!116, !15, i64 0}
-!119 = !{!83, !10, i64 32}
-!120 = !{!79, !15, i64 8}
+!115 = !{!116, !5, i64 8}
+!116 = !{!"Prs_VerInfo_t_", !14, i64 0, !14, i64 4, !5, i64 8, !7, i64 16}
+!117 = !{!116, !14, i64 4}
+!118 = !{!116, !14, i64 0}
+!119 = !{!83, !9, i64 32}
+!120 = !{!79, !14, i64 8}
 !121 = distinct !{!121, !19}
 !122 = distinct !{!122, !19}
 !123 = distinct !{!123, !19}
@@ -21795,9 +21797,9 @@ attributes #33 = { "function-inline-cost-multiplier"="2" }
 !133 = distinct !{!133, !19}
 !134 = distinct !{!134, !19}
 !135 = distinct !{!135, !19}
-!136 = !{!83, !4, i64 0}
-!137 = !{!83, !4, i64 8}
-!138 = !{!83, !15, i64 1552}
+!136 = !{!83, !5, i64 0}
+!137 = !{!83, !5, i64 8}
+!138 = !{!83, !14, i64 1552}
 !139 = distinct !{!139, !19}
 !140 = distinct !{!140, !19}
 !141 = distinct !{!141, !19}
@@ -21805,7 +21807,7 @@ attributes #33 = { "function-inline-cost-multiplier"="2" }
 !143 = distinct !{!143, !19}
 !144 = distinct !{!144, !19}
 !145 = distinct !{!145, !19}
-!146 = !{!90, !15, i64 12}
+!146 = !{!90, !14, i64 12}
 !147 = distinct !{!147, !19}
 !148 = distinct !{!148, !19}
 !149 = !{!50, !50, i64 0}
@@ -21814,18 +21816,18 @@ attributes #33 = { "function-inline-cost-multiplier"="2" }
 !152 = distinct !{!152, !19}
 !153 = distinct !{!153, !19}
 !154 = distinct !{!154, !19}
-!155 = !{!9, !15, i64 208}
-!156 = !{!9, !15, i64 212}
+!155 = !{!4, !14, i64 208}
+!156 = !{!4, !14, i64 212}
 !157 = distinct !{!157, !19}
 !158 = distinct !{!158, !19}
 !159 = distinct !{!159, !19}
 !160 = distinct !{!160, !19}
 !161 = distinct !{!161, !19}
-!162 = !{!163, !4, i64 8}
-!163 = !{!"Prs_VerPrim_t_", !15, i64 0, !4, i64 8}
-!164 = !{!163, !15, i64 0}
+!162 = !{!163, !5, i64 8}
+!163 = !{!"Prs_VerPrim_t_", !14, i64 0, !5, i64 8}
+!164 = !{!163, !14, i64 0}
 !165 = !{!166, !166, i64 0}
-!166 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!166 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
 !167 = !{!168}
 !168 = distinct !{!168, !169, !"vprintf: argument 0"}
 !169 = distinct !{!169, !"vprintf"}

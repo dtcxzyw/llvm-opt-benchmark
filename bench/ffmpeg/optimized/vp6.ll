@@ -4563,9 +4563,9 @@ define internal range(i32 -1094995529, 1) i32 @vp6_parse_coeff_huffman(ptr nound
 
 19:                                               ; preds = %1, %.loopexit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %.loopexit ]
-  %.091139 = phi i32 [ 0, %1 ], [ %spec.select, %.loopexit ]
+  %.091140 = phi i32 [ 0, %1 ], [ %spec.select, %.loopexit ]
   %20 = icmp samesign ugt i64 %indvars.iv, 3
-  %spec.select = select i1 %20, i32 1, i32 %.091139
+  %spec.select = select i1 %20, i32 1, i32 %.091140
   %21 = zext nneg i32 %spec.select to i64
   %22 = getelementptr inbounds nuw [2 x %struct.VLC], ptr %5, i64 0, i64 %21
   %invariant.gep = getelementptr [2 x i32], ptr %6, i64 0, i64 %21
@@ -4573,10 +4573,10 @@ define internal range(i32 -1094995529, 1) i32 @vp6_parse_coeff_huffman(ptr nound
   %24 = getelementptr inbounds nuw [2 x [3 x [4 x %struct.VLC]]], ptr %15, i64 0, i64 %21
   br label %25
 
-25:                                               ; preds = %277, %19
-  %.093 = phi i32 [ 0, %19 ], [ %267, %277 ]
-  %.086 = phi i32 [ 0, %19 ], [ %.288, %277 ]
-  %.077 = phi ptr [ %22, %19 ], [ %281, %277 ]
+25:                                               ; preds = %269, %19
+  %.093 = phi i32 [ 0, %19 ], [ %267, %269 ]
+  %.086 = phi i32 [ 0, %19 ], [ %.288, %269 ]
+  %.077 = phi ptr [ %22, %19 ], [ %275, %269 ]
   %26 = icmp slt i32 %.093, 2
   br i1 %26, label %27, label %32
 
@@ -4591,13 +4591,13 @@ define internal range(i32 -1094995529, 1) i32 @vp6_parse_coeff_huffman(ptr nound
   %31 = add i32 %29, -1
   store i32 %31, ptr %gep, align 4, !tbaa !97
   %.not105 = icmp eq i32 %.093, 0
-  br i1 %.not105, label %.thread, label %.loopexit
+  br i1 %.not105, label %.thread, label %.loopexit.loopexit
 
 32:                                               ; preds = %27, %25
   %.val = load i32, ptr %7, align 8, !tbaa !141
-  %.val109 = load i32, ptr %8, align 4, !tbaa !138
-  %.not133 = icmp sgt i32 %.val109, %.val
-  br i1 %.not133, label %33, label %.loopexit134
+  %.val110 = load i32, ptr %8, align 4, !tbaa !138
+  %.not134 = icmp sgt i32 %.val110, %.val
+  br i1 %.not134, label %33, label %.loopexit135
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %.077, i64 8
@@ -4766,8 +4766,8 @@ get_vlc2.exit:                                    ; preds = %33, %54
   br label %vp6_get_nb_null.exit
 
 vp6_get_nb_null.exit:                             ; preds = %112, %123, %135
-  %.0.i110 = phi i32 [ %134, %123 ], [ %160, %135 ], [ %120, %112 ]
-  store i32 %.0.i110, ptr %invariant.gep, align 4, !tbaa !97
+  %.0.i111 = phi i32 [ %134, %123 ], [ %160, %135 ], [ %120, %112 ]
+  store i32 %.0.i111, ptr %invariant.gep, align 4, !tbaa !97
   br label %.thread
 
 161:                                              ; preds = %get_vlc2.exit
@@ -4786,7 +4786,7 @@ vp6_get_nb_null.exit:                             ; preds = %112, %123, %135
   %172 = add i32 %75, 2
   %173 = tail call i32 @llvm.umin.i32(i32 %36, i32 %172)
   store i32 %173, ptr %7, align 8, !tbaa !141
-  switch i32 %171, label %vp6_get_nb_null.exit113 [
+  switch i32 %171, label %vp6_get_nb_null.exit114 [
     i32 2, label %174
     i32 3, label %186
   ]
@@ -4804,7 +4804,7 @@ vp6_get_nb_null.exit:                             ; preds = %112, %123, %135
   %184 = tail call i32 @llvm.umin.i32(i32 %36, i32 %183)
   store i32 %184, ptr %7, align 8, !tbaa !141
   %185 = add nuw nsw i32 %182, 2
-  br label %vp6_get_nb_null.exit113
+  br label %vp6_get_nb_null.exit114
 
 186:                                              ; preds = %163
   %187 = lshr i32 %173, 3
@@ -4813,34 +4813,34 @@ vp6_get_nb_null.exit:                             ; preds = %112, %123, %135
   %190 = load i8, ptr %189, align 1, !tbaa !61
   %191 = icmp slt i32 %173, %36
   %192 = zext i1 %191 to i32
-  %spec.select.i.i111 = add i32 %173, %192
+  %spec.select.i.i112 = add i32 %173, %192
   %193 = zext i8 %190 to i32
   %194 = and i32 %173, 7
   %195 = shl nuw nsw i32 %193, %194
-  store i32 %spec.select.i.i111, ptr %7, align 8, !tbaa !141
+  store i32 %spec.select.i.i112, ptr %7, align 8, !tbaa !141
   %196 = lshr i32 %195, 5
   %197 = and i32 %196, 4
   %198 = add nuw nsw i32 %197, 6
   %199 = or disjoint i32 %197, 2
-  %200 = lshr i32 %spec.select.i.i111, 3
+  %200 = lshr i32 %spec.select.i.i112, 3
   %201 = zext nneg i32 %200 to i64
   %202 = getelementptr inbounds nuw i8, ptr %37, i64 %201
   %203 = load i32, ptr %202, align 1, !tbaa !61
   %204 = tail call i32 @llvm.bswap.i32(i32 %203)
-  %205 = and i32 %spec.select.i.i111, 7
+  %205 = and i32 %spec.select.i.i112, 7
   %206 = shl i32 %204, %205
   %207 = sub nuw nsw i32 32, %199
   %208 = lshr i32 %206, %207
-  %209 = add i32 %199, %spec.select.i.i111
+  %209 = add i32 %199, %spec.select.i.i112
   %210 = tail call i32 @llvm.umin.i32(i32 %36, i32 %209)
   store i32 %210, ptr %7, align 8, !tbaa !141
   %211 = add nuw nsw i32 %198, %208
-  br label %vp6_get_nb_null.exit113
+  br label %vp6_get_nb_null.exit114
 
-vp6_get_nb_null.exit113:                          ; preds = %163, %174, %186
-  %.0.i112 = phi i32 [ %185, %174 ], [ %211, %186 ], [ %171, %163 ]
+vp6_get_nb_null.exit114:                          ; preds = %163, %174, %186
+  %.0.i113 = phi i32 [ %185, %174 ], [ %211, %186 ], [ %171, %163 ]
   %212 = getelementptr inbounds nuw [2 x i32], ptr %16, i64 0, i64 %21
-  store i32 %.0.i112, ptr %212, align 4, !tbaa !97
+  store i32 %.0.i113, ptr %212, align 4, !tbaa !97
   br label %.loopexit
 
 213:                                              ; preds = %get_vlc2.exit
@@ -4919,41 +4919,37 @@ vp6_get_nb_null.exit113:                          ; preds = %163, %174, %186
   %.082 = phi i32 [ 1, %30 ], [ 1, %vp6_get_nb_null.exit ], [ %111, %100 ], [ %98, %77 ], [ 1, %257 ]
   %267 = add nsw i32 %.082, %.093
   %268 = icmp sgt i32 %267, 63
-  br i1 %268, label %.loopexit, label %269
+  br i1 %268, label %.loopexit.loopexit, label %269
 
 269:                                              ; preds = %.thread
   %270 = sext i32 %267 to i64
-  %271 = add nsw i64 %270, -22
-  %272 = icmp ult i64 %271, 42
-  br i1 %272, label %277, label %273
-
-273:                                              ; preds = %269
-  %274 = getelementptr inbounds [64 x i8], ptr @vp6_coeff_groups, i64 0, i64 %270
-  %275 = load i8, ptr %274, align 1, !tbaa !61
-  %276 = zext i8 %275 to i64
-  br label %277
-
-277:                                              ; preds = %273, %269
-  %278 = phi i64 [ %276, %273 ], [ 3, %269 ]
-  %279 = zext nneg i32 %.288 to i64
-  %280 = getelementptr inbounds nuw [3 x [4 x %struct.VLC]], ptr %24, i64 0, i64 %279
-  %281 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %280, i64 0, i64 %278
+  %271 = getelementptr inbounds [64 x i8], ptr @vp6_coeff_groups, i64 0, i64 %270
+  %272 = load i8, ptr %271, align 1, !tbaa !61
+  %narrow = tail call i8 @llvm.umin.i8(i8 %272, i8 3)
+  %spec.select106 = zext nneg i8 %narrow to i64
+  %273 = zext nneg i32 %.288 to i64
+  %274 = getelementptr inbounds nuw [3 x [4 x %struct.VLC]], ptr %24, i64 0, i64 %273
+  %275 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %274, i64 0, i64 %spec.select106
   br label %25
 
-.loopexit:                                        ; preds = %.thread, %30, %161, %vp6_get_nb_null.exit113
-  %.194.ph = phi i32 [ 1, %vp6_get_nb_null.exit113 ], [ %.093, %161 ], [ %.093, %30 ], [ %267, %.thread ]
-  %282 = tail call i32 @llvm.smin.i32(i32 %.194.ph, i32 63)
-  %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds [64 x i8], ptr %17, i64 0, i64 %283
-  %285 = load i8, ptr %284, align 1, !tbaa !61
-  %286 = zext i8 %285 to i32
-  %287 = getelementptr inbounds nuw [6 x i32], ptr %18, i64 0, i64 %indvars.iv
-  store i32 %286, ptr %287, align 4, !tbaa !97
+.loopexit.loopexit:                               ; preds = %30, %.thread
+  %.194.ph.ph = phi i32 [ %267, %.thread ], [ %.093, %30 ]
+  %276 = tail call i32 @llvm.smin.i32(i32 %.194.ph.ph, i32 63)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %161, %vp6_get_nb_null.exit114
+  %.194.ph = phi i32 [ 1, %vp6_get_nb_null.exit114 ], [ %.093, %161 ], [ %276, %.loopexit.loopexit ]
+  %277 = sext i32 %.194.ph to i64
+  %278 = getelementptr inbounds [64 x i8], ptr %17, i64 0, i64 %277
+  %279 = load i8, ptr %278, align 1, !tbaa !61
+  %280 = zext i8 %279 to i32
+  %281 = getelementptr inbounds nuw [6 x i32], ptr %18, i64 0, i64 %indvars.iv
+  store i32 %280, ptr %281, align 4, !tbaa !97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.loopexit134, label %19, !llvm.loop !155
+  br i1 %exitcond.not, label %.loopexit135, label %19, !llvm.loop !155
 
-.loopexit134:                                     ; preds = %.loopexit, %32
+.loopexit135:                                     ; preds = %.loopexit, %32
   %.3 = phi i32 [ -1094995529, %32 ], [ 0, %.loopexit ]
   ret i32 %.3
 }
@@ -5017,6 +5013,9 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umin.i8(i8, i8) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9

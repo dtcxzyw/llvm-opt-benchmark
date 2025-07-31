@@ -3781,7 +3781,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   %.066.ph = phi i32 [ 20, %39 ], [ 20, %39 ], [ 19, %27 ], [ 21, %43 ], [ 21, %43 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.066.ph, ptr %47, align 4
-  br label %57
+  br label %56
 
 48:                                               ; preds = %43
   %49 = zext i32 %37 to i64
@@ -3791,41 +3791,40 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   store i32 %51, ptr %52, align 4
   %53 = load ptr, ptr @type_bool, align 8
   %54 = icmp eq ptr %30, %53
-  %55 = add i32 %37, -3
-  %56 = icmp ult i32 %55, 10
-  %or.cond = and i1 %56, %54
-  br i1 %or.cond, label %cast_is_allowed.exit, label %57
+  %55 = icmp eq i32 %51, 3
+  %or.cond = select i1 %54, i1 %55, i1 false
+  br i1 %or.cond, label %cast_is_allowed.exit, label %56
 
-57:                                               ; preds = %.thread, %48
+56:                                               ; preds = %.thread, %48
   %.06676 = phi i32 [ %.066.ph, %.thread ], [ %51, %48 ]
   store ptr %30, ptr %4, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, %34
-  br i1 %60, label %.loopexit, label %61
+  %57 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, %34
+  br i1 %59, label %.loopexit, label %60
 
-61:                                               ; preds = %57
-  %62 = load i32, ptr %59, align 8
-  %63 = icmp eq i32 %62, 23
-  br i1 %63, label %64, label %.preheader
+60:                                               ; preds = %56
+  %61 = load i32, ptr %58, align 8
+  %62 = icmp eq i32 %61, 23
+  br i1 %62, label %63, label %.preheader
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %59, i64 56
-  %66 = load ptr, ptr %65, align 8
-  %67 = load i32, ptr %66, align 8
-  switch i32 %67, label %.preheader [
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 56
+  %65 = load ptr, ptr %64, align 8
+  %66 = load i32, ptr %65, align 8
+  switch i32 %66, label %.preheader [
     i32 33, label %.loopexit
     i32 37, label %.loopexit
   ]
 
-.preheader:                                       ; preds = %61, %64
-  br label %68
+.preheader:                                       ; preds = %60, %63
+  br label %67
 
-68:                                               ; preds = %.preheader, %.backedge
-  %69 = phi i32 [ %.pre78, %.backedge ], [ %62, %.preheader ]
-  %.060 = phi ptr [ %.060.be, %.backedge ], [ %59, %.preheader ]
-  switch i32 %69, label %.critedge72 [
-    i32 31, label %70
+67:                                               ; preds = %.preheader, %.backedge
+  %68 = phi i32 [ %.pre78, %.backedge ], [ %61, %.preheader ]
+  %.060 = phi ptr [ %.060.be, %.backedge ], [ %58, %.preheader ]
+  switch i32 %68, label %.critedge72 [
+    i32 31, label %69
     i32 40, label %.backedge
     i32 33, label %.backedge
     i32 34, label %.backedge
@@ -3836,67 +3835,67 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
     i32 23, label %.backedge
   ]
 
-70:                                               ; preds = %68
+69:                                               ; preds = %67
   br label %.backedge
 
-.backedge:                                        ; preds = %68, %68, %68, %68, %68, %68, %70
-  %.sink79 = phi i64 [ 8, %70 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.060, i64 %.sink79
-  %.060.be = load ptr, ptr %71, align 8
+.backedge:                                        ; preds = %67, %67, %67, %67, %67, %67, %69
+  %.sink79 = phi i64 [ 8, %69 ], [ 56, %67 ], [ 56, %67 ], [ 56, %67 ], [ 56, %67 ], [ 56, %67 ], [ 56, %67 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.060, i64 %.sink79
+  %.060.be = load ptr, ptr %70, align 8
   %.pre78 = load i32, ptr %.060.be, align 8
-  br label %68
+  br label %67
 
-.critedge72:                                      ; preds = %68
-  %72 = zext i32 %62 to i64
-  %73 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %72
-  %74 = load i32, ptr %73, align 4
+.critedge72:                                      ; preds = %67
+  %71 = zext i32 %61 to i64
+  %72 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %71
+  %73 = load i32, ptr %72, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %68, %68, %64, %64, %57, %.critedge72
-  %.061 = phi i32 [ %74, %.critedge72 ], [ 19, %57 ], [ 20, %64 ], [ 20, %64 ], [ 21, %68 ], [ 21, %68 ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.061, ptr %75, align 8
-  %76 = load ptr, ptr %58, align 8
-  %77 = icmp eq ptr %76, %31
-  br i1 %77, label %cast_is_allowed.exit, label %78
+.loopexit:                                        ; preds = %67, %67, %63, %63, %56, %.critedge72
+  %.061 = phi i32 [ %73, %.critedge72 ], [ 19, %56 ], [ 20, %63 ], [ 20, %63 ], [ 21, %67 ], [ 21, %67 ]
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %.061, ptr %74, align 8
+  %75 = load ptr, ptr %57, align 8
+  %76 = icmp eq ptr %75, %31
+  br i1 %76, label %cast_is_allowed.exit, label %77
 
-78:                                               ; preds = %.loopexit
-  %79 = icmp eq i32 %.061, -1
-  %80 = icmp eq i32 %.06676, -1
-  %or.cond.i = select i1 %79, i1 true, i1 %80
-  br i1 %or.cond.i, label %.thread.i, label %81
+77:                                               ; preds = %.loopexit
+  %78 = icmp eq i32 %.061, -1
+  %79 = icmp eq i32 %.06676, -1
+  %or.cond.i = select i1 %78, i1 true, i1 %79
+  br i1 %or.cond.i, label %.thread.i, label %80
 
-81:                                               ; preds = %78
-  %82 = sext i32 %.061 to i64
-  %83 = getelementptr inbounds [23 x [23 x ptr]], ptr @cast_rules, i64 0, i64 %82
-  %84 = sext i32 %.06676 to i64
-  %85 = getelementptr inbounds [23 x ptr], ptr %83, i64 0, i64 %84
-  %86 = load ptr, ptr %85, align 8
-  %.not.i = icmp eq ptr %86, null
-  br i1 %.not.i, label %.thread.i, label %97
+80:                                               ; preds = %77
+  %81 = sext i32 %.061 to i64
+  %82 = getelementptr inbounds [23 x [23 x ptr]], ptr @cast_rules, i64 0, i64 %81
+  %83 = sext i32 %.06676 to i64
+  %84 = getelementptr inbounds [23 x ptr], ptr %82, i64 0, i64 %83
+  %85 = load ptr, ptr %84, align 8
+  %.not.i = icmp eq ptr %85, null
+  br i1 %.not.i, label %.thread.i, label %96
 
-.thread.i:                                        ; preds = %81, %78
-  br i1 %2, label %cast_is_allowed.exit, label %87
+.thread.i:                                        ; preds = %80, %77
+  br i1 %2, label %cast_is_allowed.exit, label %86
 
-87:                                               ; preds = %.thread.i
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = load ptr, ptr %89, align 8
-  %92 = tail call ptr @type_quoted_error_string(ptr noundef %91) #10
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %94 = load ptr, ptr %93, align 8
-  %95 = tail call ptr @type_quoted_error_string(ptr noundef %94) #10
-  %96 = load i64, ptr %90, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %96, ptr noundef nonnull @.str.9, ptr noundef %92, ptr noundef %95) #10
+86:                                               ; preds = %.thread.i
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = load ptr, ptr %88, align 8
+  %91 = tail call ptr @type_quoted_error_string(ptr noundef %90) #10
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %93 = load ptr, ptr %92, align 8
+  %94 = tail call ptr @type_quoted_error_string(ptr noundef %93) #10
+  %95 = load i64, ptr %89, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %95, ptr noundef nonnull @.str.9, ptr noundef %91, ptr noundef %94) #10
   br label %cast_is_allowed.exit
 
-97:                                               ; preds = %81
-  %98 = tail call zeroext i1 %86(ptr noundef nonnull %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #10
+96:                                               ; preds = %80
+  %97 = tail call zeroext i1 %85(ptr noundef nonnull %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #10
   br label %cast_is_allowed.exit
 
-cast_is_allowed.exit:                             ; preds = %97, %87, %.thread.i, %.loopexit, %48, %report_cast_error.exit, %12
-  %.062 = phi i1 [ false, %12 ], [ false, %report_cast_error.exit ], [ true, %48 ], [ %98, %97 ], [ true, %.loopexit ], [ false, %87 ], [ false, %.thread.i ]
+cast_is_allowed.exit:                             ; preds = %96, %86, %.thread.i, %.loopexit, %48, %report_cast_error.exit, %12
+  %.062 = phi i1 [ false, %12 ], [ false, %report_cast_error.exit ], [ true, %48 ], [ %97, %96 ], [ true, %.loopexit ], [ false, %86 ], [ false, %.thread.i ]
   ret i1 %.062
 }
 

@@ -2303,28 +2303,26 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
   %exitcond42.not.i.i = icmp eq i64 %indvars.iv.next40.i.i, 28
   br i1 %exitcond42.not.i.i, label %.preheader.i.i, label %16, !llvm.loop !75
 
-.preheader.i.i:                                   ; preds = %16, %30
-  %indvars.iv43.i.i = phi i64 [ %indvars.iv.next44.i.i, %30 ], [ 0, %16 ]
-  %22 = shl nuw nsw i64 1, %indvars.iv43.i.i
-  %23 = and i64 %22, 2147483586
-  %.not.i.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i, label %30, label %24
+.preheader.i.i:                                   ; preds = %16, %29
+  %indvars.iv43.i.i = phi i64 [ %indvars.iv.next44.i.i, %29 ], [ 0, %16 ]
+  %22 = getelementptr inbounds nuw [31 x i8], ptr @__const._ZN5ZXing5AztecL11InitCharMapEv.punctTable, i64 0, i64 %indvars.iv43.i.i
+  %23 = load i8, ptr %22, align 1, !tbaa !31
+  %24 = icmp sgt i8 %23, 0
+  br i1 %24, label %25, label %29
 
-24:                                               ; preds = %.preheader.i.i
-  %25 = getelementptr inbounds nuw [31 x i8], ptr @__const._ZN5ZXing5AztecL11InitCharMapEv.punctTable, i64 0, i64 %indvars.iv43.i.i
-  %26 = load i8, ptr %25, align 1, !tbaa !31
-  %27 = zext nneg i8 %26 to i64
-  %28 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 1024), i64 0, i64 %27
-  %29 = trunc nuw nsw i64 %indvars.iv43.i.i to i8
-  store i8 %29, ptr %28, align 1, !tbaa !31
-  br label %30
+25:                                               ; preds = %.preheader.i.i
+  %26 = zext nneg i8 %23 to i64
+  %27 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, i64 1024), i64 0, i64 %26
+  %28 = trunc nuw nsw i64 %indvars.iv43.i.i to i8
+  store i8 %28, ptr %27, align 1, !tbaa !31
+  br label %29
 
-30:                                               ; preds = %24, %.preheader.i.i
+29:                                               ; preds = %25, %.preheader.i.i
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
   %exitcond46.not.i.i = icmp eq i64 %indvars.iv.next44.i.i, 31
   br i1 %exitcond46.not.i.i, label %__cxx_global_var_init.exit, label %.preheader.i.i, !llvm.loop !76
 
-__cxx_global_var_init.exit:                       ; preds = %30
+__cxx_global_var_init.exit:                       ; preds = %29
   store ptr @_ZZN5ZXing5AztecL11InitCharMapEvE7charmap, ptr @_ZN5ZXing5Aztec8CHAR_MAPE, align 8, !tbaa !43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i8 -1, i64 36, i1 false), !tbaa !31
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing5AztecL14InitShiftTableEvE5table, i64 4), align 1, !tbaa !31

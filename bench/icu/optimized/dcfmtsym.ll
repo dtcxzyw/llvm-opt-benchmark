@@ -3166,94 +3166,92 @@ define internal void @_ZN6icu_7712_GLOBAL__N_117DecFmtSymDataSink3putEPKcRNS_13R
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
-  %.02132 = phi i32 [ 0, %.preheader.lr.ph ], [ %49, %.critedge ]
+  %.02132 = phi i32 [ 0, %.preheader.lr.ph ], [ %47, %.critedge ]
   %19 = load ptr, ptr %8, align 8
   br label %20
 
-20:                                               ; preds = %.preheader, %48
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %48 ]
-  %21 = shl nuw nsw i64 1, %indvars.iv
-  %22 = and i64 %21, 134030132
-  %.not25.not = icmp eq i64 %22, 0
-  br i1 %.not25.not, label %23, label %48
+20:                                               ; preds = %.preheader, %46
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %46 ]
+  %21 = getelementptr inbounds nuw [29 x ptr], ptr @_ZN6icu_77L18gNumberElementKeysE, i64 0, i64 %indvars.iv
+  %22 = load ptr, ptr %21, align 8, !tbaa !48
+  %.not25 = icmp eq ptr %22, null
+  br i1 %.not25, label %46, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw [29 x ptr], ptr @_ZN6icu_77L18gNumberElementKeysE, i64 0, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !48
-  %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %25) #21
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %48
+  %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %22) #21
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %46
 
-28:                                               ; preds = %23
-  %29 = trunc nuw nsw i64 %indvars.iv to i32
-  %30 = getelementptr inbounds nuw [29 x i8], ptr %17, i64 0, i64 %indvars.iv
-  %31 = load i8, ptr %30, align 1, !tbaa !17
-  %.not26 = icmp eq i8 %31, 0
-  br i1 %.not26, label %32, label %.critedge
+26:                                               ; preds = %23
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
+  %28 = getelementptr inbounds nuw [29 x i8], ptr %17, i64 0, i64 %indvars.iv
+  %29 = load i8, ptr %28, align 1, !tbaa !17
+  %.not26 = icmp eq i8 %29, 0
+  br i1 %.not26, label %30, label %.critedge
 
-32:                                               ; preds = %28
-  store i8 1, ptr %30, align 1, !tbaa !17
-  %33 = load ptr, ptr %18, align 8, !tbaa !34
+30:                                               ; preds = %26
+  store i8 1, ptr %28, align 1, !tbaa !17
+  %31 = load ptr, ptr %18, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18, !noalias !71
   store i32 0, ptr %6, align 4, !tbaa !12, !noalias !71
-  %34 = load ptr, ptr %2, align 8, !tbaa !15, !noalias !71
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %36 = load ptr, ptr %35, align 8, !noalias !71
-  %37 = call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !71
-  store ptr %37, ptr %7, align 8, !tbaa !53, !noalias !71
-  %38 = load i32, ptr %6, align 4, !tbaa !12, !noalias !71
-  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext 1, ptr noundef nonnull %7, i32 noundef %38)
-          to label %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit unwind label %39
+  %32 = load ptr, ptr %2, align 8, !tbaa !15, !noalias !71
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %34 = load ptr, ptr %33, align 8, !noalias !71
+  %35 = call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !71
+  store ptr %35, ptr %7, align 8, !tbaa !53, !noalias !71
+  %36 = load i32, ptr %6, align 4, !tbaa !12, !noalias !71
+  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext 1, ptr noundef nonnull %7, i32 noundef %36)
+          to label %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit unwind label %37
 
-common.resume:                                    ; preds = %46, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %47, %46 ]
+common.resume:                                    ; preds = %44, %37
+  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %45, %44 ]
   resume { ptr, i32 } %common.resume.op
 
-39:                                               ; preds = %32
-  %40 = landingpad { ptr, i32 }
+37:                                               ; preds = %30
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %41 = load ptr, ptr %7, align 8, !tbaa !53, !noalias !71
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %41) #18, !srcloc !55
+  %39 = load ptr, ptr %7, align 8, !tbaa !53, !noalias !71
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %39) #18, !srcloc !55
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18, !noalias !71
   br label %common.resume
 
-_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit: ; preds = %32
-  %42 = load ptr, ptr %7, align 8, !tbaa !53, !noalias !71
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %42) #18, !srcloc !55
+_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit: ; preds = %30
+  %40 = load ptr, ptr %7, align 8, !tbaa !53, !noalias !71
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %40) #18, !srcloc !55
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18, !noalias !71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  invoke void @_ZN6icu_7720DecimalFormatSymbols9setSymbolENS0_19ENumberFormatSymbolERKNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(2579) %33, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext 1)
-          to label %43 unwind label %46
+  invoke void @_ZN6icu_7720DecimalFormatSymbols9setSymbolENS0_19ENumberFormatSymbolERKNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(2579) %31, i32 noundef %27, ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext 1)
+          to label %41 unwind label %44
 
-43:                                               ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit
+41:                                               ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #18
-  %44 = load i32, ptr %4, align 4, !tbaa !13
-  %45 = icmp slt i32 %44, 1
-  br i1 %45, label %.critedge, label %.loopexit
+  %42 = load i32, ptr %4, align 4, !tbaa !13
+  %43 = icmp slt i32 %42, 1
+  br i1 %43, label %.critedge, label %.loopexit
 
-46:                                               ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit
-  %47 = landingpad { ptr, i32 }
+44:                                               ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #18
   br label %common.resume
 
-48:                                               ; preds = %20, %23
+46:                                               ; preds = %20, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 29
   br i1 %exitcond.not, label %.critedge, label %20, !llvm.loop !74
 
-.critedge:                                        ; preds = %48, %28, %43
-  %49 = add nuw nsw i32 %.02132, 1
-  %50 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %9, i32 noundef %49, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %.not24 = icmp eq i8 %50, 0
+.critedge:                                        ; preds = %46, %26, %41
+  %47 = add nuw nsw i32 %.02132, 1
+  %48 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %9, i32 noundef %47, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %.not24 = icmp eq i8 %48, 0
   br i1 %.not24, label %.loopexit, label %.preheader, !llvm.loop !75
 
-.loopexit:                                        ; preds = %43, %.critedge, %.preheader28, %5
+.loopexit:                                        ; preds = %41, %.critedge, %.preheader28, %5
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #18
   ret void
 }

@@ -117,47 +117,35 @@ define dso_local noundef ptr @php_quot_print_decode(ptr noundef readonly capture
   br i1 %53, label %.preheader.preheader, label %74
 
 .preheader.preheader:                             ; preds = %52
-  switch i8 %27, label %.preheader._crit_edge [
-    i8 32, label %.lr.ph129.preheader
-    i8 9, label %.lr.ph129.preheader
+  %54 = icmp eq i32 %32, 32
+  br i1 %54, label %.lr.ph129, label %.preheader._crit_edge
+
+.lr.ph129:                                        ; preds = %.preheader.preheader, %57
+  %.3128 = phi ptr [ %58, %57 ], [ %24, %.preheader.preheader ]
+  %.372127 = phi i64 [ %55, %57 ], [ %23, %.preheader.preheader ]
+  %55 = add i64 %.372127, -1
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %63, label %57
+
+57:                                               ; preds = %.lr.ph129
+  %58 = getelementptr inbounds nuw i8, ptr %.3128, i64 1
+  %59 = load i8, ptr %58, align 1, !tbaa !4
+  %60 = zext i8 %59 to i64
+  %61 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %60
+  %62 = load i32, ptr %61, align 4, !tbaa !14
+  switch i32 %62, label %.preheader._crit_edge [
+    i32 64, label %63
+    i32 32, label %.lr.ph129
   ]
 
-.lr.ph129.preheader:                              ; preds = %.preheader.preheader, %.preheader.preheader
-  br label %.lr.ph129
-
-.preheader:                                       ; preds = %56
-  switch i8 %58, label %.preheader._crit_edge [
-    i8 32, label %.lr.ph129.backedge
-    i8 9, label %.lr.ph129.backedge
-  ]
-
-.lr.ph129.backedge:                               ; preds = %.preheader, %.preheader
-  br label %.lr.ph129
-
-.lr.ph129:                                        ; preds = %.lr.ph129.backedge, %.lr.ph129.preheader
-  %.3128 = phi ptr [ %24, %.lr.ph129.preheader ], [ %57, %.lr.ph129.backedge ]
-  %.372127 = phi i64 [ %23, %.lr.ph129.preheader ], [ %54, %.lr.ph129.backedge ]
-  %54 = add i64 %.372127, -1
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %63, label %56
-
-56:                                               ; preds = %.lr.ph129
-  %57 = getelementptr inbounds nuw i8, ptr %.3128, i64 1
-  %58 = load i8, ptr %57, align 1, !tbaa !4
-  %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %59
-  %61 = load i32, ptr %60, align 4, !tbaa !14
-  %62 = icmp eq i32 %61, 64
-  br i1 %62, label %63, label %.preheader
-
-63:                                               ; preds = %56, %.lr.ph129
+63:                                               ; preds = %57, %.lr.ph129
   tail call void @_efree(ptr noundef nonnull %16) #9
   br label %83
 
-.preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
-  %.lcssa = phi i8 [ %27, %.preheader.preheader ], [ %58, %.preheader ]
-  %.372.lcssa = phi i64 [ %23, %.preheader.preheader ], [ %54, %.preheader ]
-  %.3.lcssa = phi ptr [ %24, %.preheader.preheader ], [ %57, %.preheader ]
+.preheader._crit_edge:                            ; preds = %57, %.preheader.preheader
+  %.lcssa = phi i8 [ %27, %.preheader.preheader ], [ %59, %57 ]
+  %.372.lcssa = phi i64 [ %23, %.preheader.preheader ], [ %55, %57 ]
+  %.3.lcssa = phi ptr [ %24, %.preheader.preheader ], [ %58, %57 ]
   %64 = icmp eq i8 %.lcssa, 13
   %65 = icmp ugt i64 %.372.lcssa, 1
   %or.cond = and i1 %65, %64

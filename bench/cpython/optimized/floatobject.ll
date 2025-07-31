@@ -6094,18 +6094,15 @@ thread-pre-split:                                 ; preds = %20, %22
   %.v204 = select i1 %88, ptr %89, ptr %91
   %92 = getelementptr i8, ptr %.v204, i64 %90
   %93 = load i8, ptr %92, align 1, !tbaa !28
-  %.not188216 = icmp eq i8 %93, 48
-  br i1 %.not188216, label %._crit_edge, label %.lr.ph219.preheader
-
-.lr.ph219.preheader:                              ; preds = %82
   %94 = zext i8 %93 to i64
   %95 = getelementptr [256 x i32], ptr @_CHAR_TO_HEX, i64 0, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !53
-  br label %.lr.ph219
+  %.not188216 = icmp eq i32 %96, 0
+  br i1 %.not188216, label %._crit_edge, label %.lr.ph219
 
-.lr.ph219:                                        ; preds = %.lr.ph219.preheader, %.lr.ph219
-  %.0155218 = phi i32 [ %98, %.lr.ph219 ], [ %96, %.lr.ph219.preheader ]
-  %.0156217 = phi i64 [ %97, %.lr.ph219 ], [ %87, %.lr.ph219.preheader ]
+.lr.ph219:                                        ; preds = %82, %.lr.ph219
+  %.0155218 = phi i32 [ %98, %.lr.ph219 ], [ %96, %82 ]
+  %.0156217 = phi i64 [ %97, %.lr.ph219 ], [ %87, %82 ]
   %97 = add i64 %.0156217, 1
   %98 = sdiv i32 %.0155218, 2
   %.0155218.off = add i32 %.0155218, 1

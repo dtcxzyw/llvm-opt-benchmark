@@ -12028,16 +12028,16 @@ _ZN2cvL5gfMulEhh.exit218:                         ; preds = %353
   %369 = zext i8 %368 to i16
   %.lhs.trunc.i216 = add nuw nsw i16 %369, %365
   %370 = urem i16 %.lhs.trunc.i216, 255
-  %371 = icmp eq i8 %.0107364, 0
-  %372 = icmp eq i16 %370, 0
-  %or.cond.i219 = or i1 %371, %372
-  br i1 %or.cond.i219, label %_ZN2cvL5gfMulEhh.exit222, label %373
+  %371 = zext nneg i16 %370 to i64
+  %372 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %371
+  %373 = load i8, ptr %372, align 1, !tbaa !61
+  %374 = icmp eq i8 %.0107364, 0
+  %375 = icmp eq i8 %373, 1
+  %or.cond.i219 = or i1 %374, %375
+  br i1 %or.cond.i219, label %_ZN2cvL5gfMulEhh.exit222, label %376
 
-373:                                              ; preds = %_ZN2cvL5gfMulEhh.exit218
-  %374 = zext nneg i16 %370 to i64
-  %375 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %374
-  %376 = load i8, ptr %375, align 1, !tbaa !61
-  %377 = xor i8 %376, 1
+376:                                              ; preds = %_ZN2cvL5gfMulEhh.exit218
+  %377 = xor i8 %373, 1
   %378 = zext i8 %.0107364 to i64
   %379 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %378
   %380 = load i8, ptr %379, align 1, !tbaa !61
@@ -12053,8 +12053,8 @@ _ZN2cvL5gfMulEhh.exit218:                         ; preds = %353
   %389 = load i8, ptr %388, align 1, !tbaa !61
   br label %_ZN2cvL5gfMulEhh.exit222
 
-_ZN2cvL5gfMulEhh.exit222:                         ; preds = %373, %_ZN2cvL5gfMulEhh.exit218, %353
-  %.1108 = phi i8 [ %.0107364, %353 ], [ %389, %373 ], [ 0, %_ZN2cvL5gfMulEhh.exit218 ]
+_ZN2cvL5gfMulEhh.exit222:                         ; preds = %376, %_ZN2cvL5gfMulEhh.exit218, %353
+  %.1108 = phi i8 [ %.0107364, %353 ], [ %389, %376 ], [ 0, %_ZN2cvL5gfMulEhh.exit218 ]
   %390 = add nuw i64 %.0102365, 1
   %exitcond398.not = icmp eq i64 %390, %umax397
   br i1 %exitcond398.not, label %332, label %353, !llvm.loop !339

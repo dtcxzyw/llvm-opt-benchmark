@@ -1450,9 +1450,9 @@ define internal i32 @dissect_gsm_sms(ptr noundef %0, ptr noundef %1, ptr noundef
 28:                                               ; preds = %11
   %29 = load i32, ptr %5, align 4
   %30 = sext i32 %29 to i64
-  %31 = and i64 %30, 2305843009213693951
-  %32 = add nsw i64 %31, -6
-  %33 = icmp ult i64 %32, 3
+  %31 = getelementptr [9 x ptr], ptr @gsm_sms_msg_fcn, i64 0, i64 %30
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %28
@@ -1460,15 +1460,13 @@ define internal i32 @dissect_gsm_sms(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.thread
 
 36:                                               ; preds = %28
-  %37 = getelementptr [9 x ptr], ptr @gsm_sms_msg_fcn, i64 0, i64 %30
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef %0, ptr noundef %1, ptr noundef %26, i32 noundef 0, ptr noundef %3)
+  call void %32(ptr noundef %0, ptr noundef %1, ptr noundef %26, i32 noundef 0, ptr noundef %3)
   br label %.thread
 
 .thread:                                          ; preds = %4, %34, %36, %11
-  %39 = call i32 @tvb_captured_length(ptr noundef %0)
+  %37 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  ret i32 %39
+  ret i32 %37
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -58776,7 +58776,7 @@ _ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_2
   %733 = icmp eq i32 %.sroa.11747.01418, 2
   %734 = zext i1 %733 to i32
   %spec.select = add nuw nsw i32 %.sroa.17752.01419, %734
-  %735 = icmp ult i32 %.sroa.11747.01418, 2
+  %735 = icmp ne i32 %732, 0
   %736 = icmp ne i32 %spec.select, 1
   %or.cond992 = select i1 %735, i1 true, i1 %736
   br i1 %or.cond992, label %_ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEneERKSN_.exit.thread, label %.preheader1019.preheader

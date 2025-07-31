@@ -5347,10 +5347,8 @@ _ZNK6icu_7714TimeZoneFormat23createTimeZoneForOffsetEi.exit517: ; preds = %323, 
           to label %326 unwind label %339
 
 326:                                              ; preds = %325
-  %327 = icmp sge i32 %.3348, %39
-  %or.cond.not = icmp ugt i32 %1, 19
-  %or.cond = or i1 %327, %or.cond.not
-  br i1 %or.cond, label %351, label %328
+  %327 = icmp slt i32 %.3348, %39
+  br i1 %327, label %328, label %351
 
 328:                                              ; preds = %326
   store i32 %31, ptr %83, align 8, !tbaa !67

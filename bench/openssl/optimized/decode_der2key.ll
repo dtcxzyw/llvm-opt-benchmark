@@ -1159,8 +1159,8 @@ define internal range(i32 0, 2) i32 @type_specific_no_pub_der2ec_does_selection(
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = and i64 %.0103.i, 9223372036854775805
-  %11 = icmp eq i64 %10, 0
+  %10 = and i32 %7, 133
+  %11 = icmp ne i32 %10, 0
   %12 = zext i1 %11 to i32
   br label %der2key_check_selection.exit
 
@@ -1204,8 +1204,8 @@ define internal range(i32 0, 2) i32 @EC_der2ec_does_selection(ptr readnone captu
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = and i64 %.0103.i, 9223372036854775805
-  %11 = icmp eq i64 %10, 0
+  %10 = and i32 %7, 133
+  %11 = icmp ne i32 %10, 0
   %12 = zext i1 %11 to i32
   br label %der2key_check_selection.exit
 
@@ -1689,8 +1689,8 @@ define internal range(i32 0, 2) i32 @type_specific_no_pub_der2sm2_does_selection
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = and i64 %.0103.i, 9223372036854775805
-  %11 = icmp eq i64 %10, 0
+  %10 = and i32 %7, 133
+  %11 = icmp ne i32 %10, 0
   %12 = zext i1 %11 to i32
   br label %der2key_check_selection.exit
 
@@ -2086,12 +2086,13 @@ define internal range(i32 0, 2) i32 @type_specific_keypair_der2rsa_does_selectio
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp samesign ult i64 %.0103.i, 2
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 3
+  %11 = icmp ne i32 %10, 0
+  %12 = zext i1 %11 to i32
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ %12, %9 ], [ 1, %2 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2130,12 +2131,13 @@ define internal range(i32 0, 2) i32 @RSA_der2rsa_does_selection(ptr readnone cap
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp samesign ult i64 %.0103.i, 2
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 3
+  %11 = icmp ne i32 %10, 0
+  %12 = zext i1 %11 to i32
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ %12, %9 ], [ 1, %2 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 

@@ -6584,46 +6584,45 @@ define internal ptr @lxb_html_tokenizer_state_char_ref_decimal(ptr noundef captu
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 220
   br label %5
 
-5:                                                ; preds = %.lr.ph, %25
-  %.01723 = phi ptr [ %1, %.lr.ph ], [ %26, %25 ]
+5:                                                ; preds = %.lr.ph, %24
+  %.01723 = phi ptr [ %1, %.lr.ph ], [ %25, %24 ]
   %6 = load i8, ptr %.01723, align 1, !tbaa !30
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_num, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !30
   %10 = zext i8 %9 to i32
-  %11 = add nsw i64 %7, -58
-  %12 = icmp ult i64 %11, -10
-  br i1 %12, label %13, label %19
+  %11 = icmp eq i8 %9, -1
+  br i1 %11, label %12, label %18
 
-13:                                               ; preds = %5
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !34
-  store ptr %15, ptr %0, align 8, !tbaa !28
-  %16 = load i8, ptr %.01723, align 1, !tbaa !30
-  %17 = icmp eq i8 %16, 59
-  %spec.select.idx = zext i1 %17 to i64
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
+  store ptr %14, ptr %0, align 8, !tbaa !28
+  %15 = load i8, ptr %.01723, align 1, !tbaa !30
+  %16 = icmp eq i8 %15, 59
+  %spec.select.idx = zext i1 %16 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.01723, i64 %spec.select.idx
-  %18 = tail call fastcc ptr @lxb_html_tokenizer_state_char_ref_numeric_end(ptr noundef nonnull %0, ptr noundef nonnull %spec.select, ptr noundef %2)
+  %17 = tail call fastcc ptr @lxb_html_tokenizer_state_char_ref_numeric_end(ptr noundef nonnull %0, ptr noundef nonnull %spec.select, ptr noundef %2)
   br label %.loopexit
 
-19:                                               ; preds = %5
-  %20 = load i32, ptr %4, align 4, !tbaa !74
-  %21 = icmp ult i32 %20, 1114112
-  br i1 %21, label %22, label %25
+18:                                               ; preds = %5
+  %19 = load i32, ptr %4, align 4, !tbaa !74
+  %20 = icmp ult i32 %19, 1114112
+  br i1 %20, label %21, label %24
 
-22:                                               ; preds = %19
-  %23 = mul nuw nsw i32 %20, 10
-  %24 = add nuw nsw i32 %23, %10
-  store i32 %24, ptr %4, align 4, !tbaa !74
-  br label %25
+21:                                               ; preds = %18
+  %22 = mul nuw nsw i32 %19, 10
+  %23 = add nuw nsw i32 %22, %10
+  store i32 %23, ptr %4, align 4, !tbaa !74
+  br label %24
 
-25:                                               ; preds = %22, %19
-  %26 = getelementptr inbounds nuw i8, ptr %.01723, i64 1
-  %.not = icmp eq ptr %26, %2
+24:                                               ; preds = %21, %18
+  %25 = getelementptr inbounds nuw i8, ptr %.01723, i64 1
+  %.not = icmp eq ptr %25, %2
   br i1 %.not, label %.loopexit, label %5
 
-.loopexit:                                        ; preds = %25, %3, %13
-  %.0 = phi ptr [ %18, %13 ], [ %1, %3 ], [ %26, %25 ]
+.loopexit:                                        ; preds = %24, %3, %12
+  %.0 = phi ptr [ %17, %12 ], [ %1, %3 ], [ %25, %24 ]
   ret ptr %.0
 }
 

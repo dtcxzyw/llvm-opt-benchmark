@@ -21389,42 +21389,42 @@ define internal fastcc void @edit_show_help(ptr noundef nonnull %0, ptr noundef 
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !137
   tail call fastcc void @term_write_n(ptr noundef %6, ptr noundef nonnull @.str.296, i64 noundef 1)
-  br label %7
-
-7:                                                ; preds = %2, %21
-  %8 = phi ptr [ @.str.3, %2 ], [ %24, %21 ]
-  %.018 = phi i64 [ 0, %2 ], [ %22, %21 ]
-  %9 = or disjoint i64 %.018, 1
-  %10 = getelementptr inbounds nuw [104 x ptr], ptr @help, i64 0, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !56
-  %12 = load i8, ptr %8, align 1, !tbaa !4
-  %13 = icmp eq i8 %12, 0
-  %14 = load ptr, ptr %3, align 8, !tbaa !133
-  br i1 %13, label %16, label %17
+  br label %8
 
 .critedge:                                        ; preds = %21
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   tail call fastcc void @edit_refresh(ptr noundef %0, ptr noundef %1)
   ret void
 
-16:                                               ; preds = %7
-  tail call void (ptr, ptr, ...) @bbcode_printf(ptr noundef %14, ptr noundef nonnull @.str.318, ptr noundef %11)
+8:                                                ; preds = %21, %2
+  %9 = phi ptr [ @.str.3, %2 ], [ %24, %21 ]
+  %.019 = phi i64 [ 0, %2 ], [ %22, %21 ]
+  %10 = or disjoint i64 %.019, 1
+  %11 = getelementptr inbounds nuw [104 x ptr], ptr @help, i64 0, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
+  %13 = load i8, ptr %9, align 1, !tbaa !4
+  %14 = icmp eq i8 %13, 0
+  %15 = load ptr, ptr %3, align 8, !tbaa !133
+  br i1 %14, label %16, label %17
+
+16:                                               ; preds = %8
+  tail call void (ptr, ptr, ...) @bbcode_printf(ptr noundef %15, ptr noundef nonnull @.str.318, ptr noundef nonnull %12)
   br label %21
 
-17:                                               ; preds = %7
-  %18 = load i8, ptr %11, align 1, !tbaa !4
+17:                                               ; preds = %8
+  %18 = load i8, ptr %12, align 1, !tbaa !4
   %19 = icmp eq i8 %18, 0
   %20 = select i1 %19, ptr @.str.3, ptr @.str.320
-  tail call void (ptr, ptr, ...) @bbcode_printf(ptr noundef %14, ptr noundef nonnull @.str.319, ptr noundef nonnull %8, ptr noundef nonnull %20, ptr noundef nonnull %11)
+  tail call void (ptr, ptr, ...) @bbcode_printf(ptr noundef %15, ptr noundef nonnull @.str.319, ptr noundef nonnull %9, ptr noundef nonnull %20, ptr noundef nonnull %12)
   br label %21
 
 21:                                               ; preds = %16, %17
-  %22 = add nuw nsw i64 %.018, 2
+  %22 = add nuw nsw i64 %.019, 2
   %23 = getelementptr inbounds nuw [104 x ptr], ptr @help, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 16, !tbaa !56
-  %25 = icmp eq i64 %22, 102
-  br i1 %25, label %.critedge, label %7, !llvm.loop !337
+  %.not = icmp eq ptr %24, null
+  br i1 %.not, label %.critedge, label %8, !llvm.loop !337
 }
 
 ; Function Attrs: nounwind uwtable

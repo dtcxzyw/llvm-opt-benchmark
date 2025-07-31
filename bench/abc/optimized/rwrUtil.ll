@@ -638,16 +638,17 @@ define noalias noundef ptr @Rwr_ManGetPractical(ptr noundef readonly captures(no
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw [136 x i16], ptr @s_RwrPracticalClasses, i64 0, i64 %indvars.iv
-  %6 = load i16, ptr %5, align 2, !tbaa !39
-  %7 = zext i16 %6 to i64
-  %8 = getelementptr inbounds nuw i8, ptr %calloc, i64 %7
-  store i8 1, ptr %8, align 1, !tbaa !47
+  %5 = phi i16 [ 1, %1 ], [ %9, %4 ]
+  %6 = zext i16 %5 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 %6
+  store i8 1, ptr %7, align 1, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = icmp eq i64 %indvars.iv.next, 135
-  br i1 %9, label %10, label %4
+  %8 = getelementptr inbounds nuw [136 x i16], ptr @s_RwrPracticalClasses, i64 0, i64 %indvars.iv.next
+  %9 = load i16, ptr %8, align 2, !tbaa !39
+  %10 = icmp eq i16 %9, 0
+  br i1 %10, label %11, label %4
 
-10:                                               ; preds = %4
+11:                                               ; preds = %4
   ret ptr %calloc
 }
 

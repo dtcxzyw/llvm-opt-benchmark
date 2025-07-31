@@ -6052,18 +6052,16 @@ thread-pre-split:                                 ; preds = %133, %138, %145, %1
   %.3243.ph = phi i32 [ 0, %132 ], [ 0, %ebml_read_length.exit.thread ], [ 0, %145 ], [ 0, %148 ], [ 3, %138 ], [ 0, %133 ]
   %.1239.ph = phi i32 [ %.0238, %132 ], [ %.0238, %ebml_read_length.exit.thread ], [ %.0238, %145 ], [ -1, %148 ], [ %.0238, %138 ], [ %.0238, %133 ]
   %.pr342 = load i8, ptr %111, align 4, !tbaa !406
-  %.pre = add i8 %.pr342, -7
   br label %150
 
 150:                                              ; preds = %thread-pre-split, %146
-  %.pre-phi = phi i8 [ %.pre, %thread-pre-split ], [ %.off, %146 ]
   %151 = phi i8 [ %.pr342, %thread-pre-split ], [ %147, %146 ]
   %.3243 = phi i32 [ %.3243.ph, %thread-pre-split ], [ 0, %146 ]
   %.1239 = phi i32 [ %.1239.ph, %thread-pre-split ], [ %.0238, %146 ]
   %152 = zext i8 %151 to i64
   %153 = getelementptr inbounds nuw [10 x i64], ptr @ebml_parse.max_lengths, i64 0, i64 %152
   %154 = load i64, ptr %153, align 8, !tbaa !61
-  %.not296 = icmp ult i8 %.pre-phi, 3
+  %.not296 = icmp eq i64 %154, 0
   br i1 %.not296, label %165, label %155
 
 155:                                              ; preds = %150

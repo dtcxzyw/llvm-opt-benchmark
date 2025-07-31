@@ -1619,37 +1619,39 @@ define hidden noundef zeroext i1 @tls_get_cipher_info(ptr noundef %0, i16 nounde
   %30 = sext i32 %29 to i64
   %31 = getelementptr [5 x i32], ptr @tls_get_cipher_info.gcry_mds, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
-  %33 = icmp ne i32 %26, 0
-  %34 = icmp ne i32 %29, 4
-  %or.cond3.not = and i1 %33, %34
-  br i1 %or.cond3.not, label %35, label %.thread
+  %33 = icmp ne i32 %25, -1
+  %34 = icmp ne i32 %26, 0
+  %or.cond.not48 = select i1 %33, i1 %34, i1 false
+  %35 = icmp ne i32 %32, -1
+  %or.cond3.not = select i1 %or.cond.not48, i1 %35, i1 false
+  br i1 %or.cond3.not, label %36, label %.thread
 
-35:                                               ; preds = %20
+36:                                               ; preds = %20
   %.not42 = icmp eq ptr %2, null
-  br i1 %.not42, label %37, label %36
+  br i1 %.not42, label %38, label %37
 
-36:                                               ; preds = %35
+37:                                               ; preds = %36
   store i32 %26, ptr %2, align 4
-  br label %37
+  br label %38
 
-37:                                               ; preds = %36, %35
+38:                                               ; preds = %37, %36
   %.not43 = icmp eq ptr %3, null
-  br i1 %.not43, label %39, label %38
+  br i1 %.not43, label %40, label %39
 
-38:                                               ; preds = %37
+39:                                               ; preds = %38
   store i32 %25, ptr %3, align 4
-  br label %39
+  br label %40
 
-39:                                               ; preds = %38, %37
+40:                                               ; preds = %39, %38
   %.not44 = icmp eq ptr %4, null
-  br i1 %.not44, label %.thread, label %40
+  br i1 %.not44, label %.thread, label %41
 
-40:                                               ; preds = %39
+41:                                               ; preds = %40
   store i32 %32, ptr %4, align 4
   br label %.thread
 
-.thread:                                          ; preds = %9, %7, %17, %39, %40, %20
-  %.2 = phi i1 [ false, %17 ], [ true, %39 ], [ true, %40 ], [ false, %20 ], [ false, %7 ], [ false, %9 ]
+.thread:                                          ; preds = %9, %7, %17, %40, %41, %20
+  %.2 = phi i1 [ false, %17 ], [ true, %40 ], [ true, %41 ], [ false, %20 ], [ false, %7 ], [ false, %9 ]
   ret i1 %.2
 }
 
@@ -1850,8 +1852,8 @@ define hidden noundef zeroext i1 @tls13_exporter(ptr noundef %0, i1 noundef zero
   %26 = getelementptr [5 x i32], ptr @tls_get_cipher_info.gcry_mds, i64 0, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = icmp ne i32 %21, 0
-  %29 = icmp ne i32 %24, 4
-  %or.cond3.not.i = and i1 %28, %29
+  %29 = icmp ne i32 %27, -1
+  %or.cond3.not.i = select i1 %28, i1 %29, i1 false
   br i1 %or.cond3.not.i, label %tls_get_cipher_info.exit, label %tls_get_cipher_info.exit.thread
 
 tls_get_cipher_info.exit:                         ; preds = %20

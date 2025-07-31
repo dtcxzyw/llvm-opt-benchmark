@@ -249,49 +249,47 @@ define void @av_channel_description_bprint(ptr noundef %0, i32 noundef %1) local
 4:                                                ; preds = %2
   %5 = add nsw i32 %1, -1024
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %5) #16
-  br label %20
+  br label %18
 
 6:                                                ; preds = %2
   %7 = icmp ult i32 %1, 63
-  br i1 %7, label %8, label %15
+  br i1 %7, label %8, label %13
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %1 to i64
-  %10 = shl nuw nsw i64 1, %9
-  %11 = and i64 %10, 2305807825378213888
-  %.not.not = icmp eq i64 %11, 0
-  br i1 %.not.not, label %12, label %15
+  %10 = getelementptr inbounds nuw [63 x %struct.channel_name], ptr @channel_names, i64 0, i64 %9, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !13
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw [63 x %struct.channel_name], ptr @channel_names, i64 0, i64 %9, i32 1
-  %14 = load ptr, ptr %13, align 8, !tbaa !13
-  tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %14) #16
-  br label %20
+  tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %11) #16
+  br label %18
 
-15:                                               ; preds = %8, %6
-  switch i32 %1, label %19 [
-    i32 -1, label %16
-    i32 768, label %17
-    i32 512, label %18
+13:                                               ; preds = %8, %6
+  switch i32 %1, label %17 [
+    i32 -1, label %14
+    i32 768, label %15
+    i32 512, label %16
   ]
 
-16:                                               ; preds = %15
+14:                                               ; preds = %13
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str.7) #16
-  br label %20
+  br label %18
 
-17:                                               ; preds = %15
+15:                                               ; preds = %13
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str.8) #16
-  br label %20
+  br label %18
 
-18:                                               ; preds = %15
+16:                                               ; preds = %13
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str.9) #16
-  br label %20
+  br label %18
 
-19:                                               ; preds = %15
+17:                                               ; preds = %13
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %1) #16
-  br label %20
+  br label %18
 
-20:                                               ; preds = %12, %17, %19, %18, %16, %4
+18:                                               ; preds = %12, %15, %17, %16, %14, %4
   ret void
 }
 

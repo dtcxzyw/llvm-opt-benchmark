@@ -1056,18 +1056,22 @@ define internal noundef range(i32 -22, 1) i32 @ahci_scr_read(ptr noundef readonl
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.thread, label %26
 
-26:                                               ; preds = %21, %19
+26:                                               ; preds = %19, %21
   %27 = getelementptr [5 x i32], ptr @ahci_scr_offset.offset, i64 0, i64 %17
   %28 = load i32, ptr %27, align 4
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr i8, ptr %16, i64 %29
-  %31 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %30) #12, !srcloc !11
-  store i32 %31, ptr %2, align 4
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.thread, label %30
+
+30:                                               ; preds = %26
+  %31 = sext i32 %28 to i64
+  %32 = getelementptr i8, ptr %16, i64 %31
+  %33 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %32) #12, !srcloc !11
+  store i32 %33, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %3, %21, %26
-  %32 = phi i32 [ 0, %26 ], [ -22, %21 ], [ -22, %3 ]
-  ret i32 %32
+.thread:                                          ; preds = %3, %21, %30, %26
+  %34 = phi i32 [ 0, %30 ], [ -22, %26 ], [ -22, %21 ], [ -22, %3 ]
+  ret i32 %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1100,17 +1104,21 @@ define internal noundef range(i32 -22, 1) i32 @ahci_scr_write(ptr noundef readon
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.thread, label %26
 
-26:                                               ; preds = %21, %19
+26:                                               ; preds = %19, %21
   %27 = getelementptr [5 x i32], ptr @ahci_scr_offset.offset, i64 0, i64 %17
   %28 = load i32, ptr %27, align 4
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr i8, ptr %16, i64 %29
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %2, ptr elementtype(i32) %30) #12, !srcloc !10
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.thread, label %30
+
+30:                                               ; preds = %26
+  %31 = sext i32 %28 to i64
+  %32 = getelementptr i8, ptr %16, i64 %31
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %2, ptr elementtype(i32) %32) #12, !srcloc !10
   br label %.thread
 
-.thread:                                          ; preds = %3, %21, %26
-  %31 = phi i32 [ 0, %26 ], [ -22, %21 ], [ -22, %3 ]
-  ret i32 %31
+.thread:                                          ; preds = %3, %21, %30, %26
+  %33 = phi i32 [ 0, %30 ], [ -22, %26 ], [ -22, %21 ], [ -22, %3 ]
+  ret i32 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -235,51 +235,53 @@ declare i32 @onigenc_always_true_is_allowed_reverse_match(ptr noundef, ptr nound
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) #2 {
   %3 = icmp ult ptr %0, %1
-  br i1 %3, label %.lr.ph21, label %.loopexit15
+  br i1 %3, label %.lr.ph, label %.loopexit15
 
-.lr.ph21:                                         ; preds = %2, %.loopexit
+.lr.ph:                                           ; preds = %2, %.loopexit
   %.01220 = phi ptr [ %.1, %.loopexit ], [ %0, %2 ]
   %4 = load i8, ptr %.01220, align 1, !tbaa !4
   %.not = icmp slt i8 %4, -64
   br i1 %.not, label %.loopexit15, label %5
 
-5:                                                ; preds = %.lr.ph21
+5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.01220, i64 1
-  %7 = add i8 %4, 64
-  %or.cond = icmp ult i8 %7, 53
-  br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
+  %7 = zext i8 %4 to i64
+  %8 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %7
+  %9 = load i32, ptr %8, align 4, !tbaa !7
+  %10 = icmp sgt i32 %9, 1
+  br i1 %10, label %.preheader.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %5
-  %8 = zext i8 %4 to i64
-  %9 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !7
-  %smax = tail call i32 @llvm.smax.i32(i32 %10, i32 2)
-  br label %.lr.ph
+.preheader.preheader:                             ; preds = %5
+  %scevgep = getelementptr i8, ptr %.01220, i64 2
+  %11 = zext nneg i32 %9 to i64
+  %12 = getelementptr i8, ptr %scevgep, i64 %11
+  %scevgep24 = getelementptr i8, ptr %12, i64 -2
+  br label %.preheader
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %15
-  %.01119 = phi i32 [ %17, %15 ], [ 1, %.lr.ph.preheader ]
-  %.218 = phi ptr [ %16, %15 ], [ %6, %.lr.ph.preheader ]
-  %11 = icmp eq ptr %.218, %1
-  br i1 %11, label %.loopexit15, label %12
+.preheader:                                       ; preds = %.preheader.preheader, %17
+  %.01119 = phi i32 [ %19, %17 ], [ 1, %.preheader.preheader ]
+  %.218 = phi ptr [ %18, %17 ], [ %6, %.preheader.preheader ]
+  %13 = icmp eq ptr %.218, %1
+  br i1 %13, label %.loopexit15, label %14
 
-12:                                               ; preds = %.lr.ph
-  %13 = load i8, ptr %.218, align 1, !tbaa !4
-  %14 = icmp slt i8 %13, -64
-  br i1 %14, label %15, label %.loopexit15
+14:                                               ; preds = %.preheader
+  %15 = load i8, ptr %.218, align 1, !tbaa !4
+  %16 = icmp slt i8 %15, -64
+  br i1 %16, label %17, label %.loopexit15
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %.218, i64 1
-  %17 = add nuw nsw i32 %.01119, 1
-  %exitcond.not = icmp eq i32 %17, %smax
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %.218, i64 1
+  %19 = add nuw nsw i32 %.01119, 1
+  %exitcond.not = icmp eq i32 %19, %9
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
-.loopexit:                                        ; preds = %15, %5
-  %.1 = phi ptr [ %6, %5 ], [ %16, %15 ]
-  %18 = icmp ult ptr %.1, %1
-  br i1 %18, label %.lr.ph21, label %.loopexit15, !llvm.loop !16
+.loopexit:                                        ; preds = %17, %5
+  %.1 = phi ptr [ %6, %5 ], [ %scevgep24, %17 ]
+  %20 = icmp ult ptr %.1, %1
+  br i1 %20, label %.lr.ph, label %.loopexit15, !llvm.loop !16
 
-.loopexit15:                                      ; preds = %.lr.ph21, %.loopexit, %12, %.lr.ph, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %12 ], [ 0, %.lr.ph21 ], [ 1, %.loopexit ]
+.loopexit15:                                      ; preds = %.lr.ph, %.loopexit, %14, %.preheader, %2
+  %.0 = phi i32 [ 1, %2 ], [ 0, %.preheader ], [ 0, %14 ], [ 0, %.lr.ph ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -288,9 +290,6 @@ declare i32 @onigenc_unicode_mbc_case_fold(ptr noundef, i32 noundef, ptr noundef
 declare i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @onigenc_unicode_ctype_code_range(i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

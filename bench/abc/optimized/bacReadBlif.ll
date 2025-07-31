@@ -123,13 +123,14 @@ Psr_ManAlloc.exit.thread:                         ; preds = %1
 
 31:                                               ; preds = %31, %4
   %indvars.iv.i = phi i64 [ 1, %4 ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr inbounds nuw [12 x ptr], ptr @s_BlifTypes, i64 0, i64 %indvars.iv.i
-  %33 = load ptr, ptr %32, align 8, !tbaa !26
-  %34 = load ptr, ptr %25, align 8, !tbaa !20
-  %35 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %34, ptr noundef %33, ptr noundef null) #18
+  %32 = phi ptr [ @.str.8, %4 ], [ %36, %31 ]
+  %33 = load ptr, ptr %25, align 8, !tbaa !20
+  %34 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %33, ptr noundef nonnull %32, ptr noundef null) #18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %36 = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %36, label %Psr_NtkAddBlifDirectives.exit, label %31, !llvm.loop !27
+  %35 = getelementptr inbounds nuw [12 x ptr], ptr @s_BlifTypes, i64 0, i64 %indvars.iv.next.i
+  %36 = load ptr, ptr %35, align 8, !tbaa !26
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %exitcond.i, label %Psr_NtkAddBlifDirectives.exit, label %31, !llvm.loop !27
 
 Psr_NtkAddBlifDirectives.exit:                    ; preds = %31
   %37 = load ptr, ptr %23, align 8, !tbaa !19

@@ -5141,16 +5141,13 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i: ; preds = %_ZNKSt7__cxx1112ba
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %119, i8 noundef signext 0)
   %120 = load ptr, ptr %1, align 8, !tbaa !35
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 %118
-  %.not.i9.i73 = icmp samesign ult i16 %68, 2
-  br i1 %.not.i9.i73, label %.loopexit342, label %.lr.ph371.preheader
-
-.lr.ph371.preheader:                              ; preds = %116
   %122 = and i32 %71, 16777215
-  br label %.lr.ph371
+  %.not19.i.i76368 = icmp eq i32 %122, 0
+  br i1 %.not19.i.i76368, label %.loopexit342, label %.lr.ph371
 
-.lr.ph371:                                        ; preds = %.lr.ph371.preheader, %.lr.ph371
-  %.0.i.i75370 = phi i32 [ %125, %.lr.ph371 ], [ %122, %.lr.ph371.preheader ]
-  %.1.i.i74369 = phi ptr [ %124, %.lr.ph371 ], [ %121, %.lr.ph371.preheader ]
+.lr.ph371:                                        ; preds = %116, %.lr.ph371
+  %.0.i.i75370 = phi i32 [ %125, %.lr.ph371 ], [ %122, %116 ]
+  %.1.i.i74369 = phi ptr [ %124, %.lr.ph371 ], [ %121, %116 ]
   %123 = trunc i32 %.0.i.i75370 to i8
   %124 = getelementptr inbounds nuw i8, ptr %.1.i.i74369, i64 1
   store i8 %123, ptr %.1.i.i74369, align 1, !tbaa !34
@@ -5251,7 +5248,7 @@ _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit: ; 
 
 170:                                              ; preds = %166
   %171 = select i1 %167, i32 22576, i32 30768
-  %.not.i91 = icmp samesign ult i16 %68, 2
+  %.not.i91 = icmp eq i32 %71, 0
   %172 = shl nuw nsw i32 %171, 8
   %173 = select i1 %.not.i91, i32 %171, i32 %172
   %174 = or i32 %173, %71
@@ -5367,7 +5364,7 @@ _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit95: 
 227:                                              ; preds = %225
   %228 = icmp eq i8 %73, 6
   %229 = select i1 %228, i32 16944, i32 25136
-  %.not.i96 = icmp samesign ult i16 %68, 2
+  %.not.i96 = icmp eq i32 %71, 0
   %230 = shl nuw nsw i32 %229, 8
   %231 = select i1 %.not.i96, i32 %229, i32 %230
   %232 = or i32 %231, %71
@@ -5548,7 +5545,7 @@ _ZZN3fmt2v86detail9write_intISt20back_insert_iteratorINSt7__cxx1112basic_stringI
   br i1 %or.cond.i.i17, label %327, label %331
 
 327:                                              ; preds = %324
-  %.not.i101 = icmp samesign ult i16 %68, 2
+  %.not.i101 = icmp eq i32 %71, 0
   %328 = select i1 %.not.i101, i32 48, i32 12288
   %329 = or i32 %328, %71
   %330 = add i32 %329, 16777216
@@ -5865,16 +5862,13 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i113: ; preds = %_ZNKSt7__cxx111
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %497, i8 noundef signext 0)
   %498 = load ptr, ptr %1, align 8, !tbaa !35
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 %496
-  %.not.i9.i = icmp samesign ult i16 %445, 2
-  br i1 %.not.i9.i, label %.loopexit, label %.lr.ph391.preheader
-
-.lr.ph391.preheader:                              ; preds = %494
   %500 = and i32 %448, 16777215
-  br label %.lr.ph391
+  %.not19.i.i388 = icmp eq i32 %500, 0
+  br i1 %.not19.i.i388, label %.loopexit, label %.lr.ph391
 
-.lr.ph391:                                        ; preds = %.lr.ph391.preheader, %.lr.ph391
-  %.0.i.i390 = phi i32 [ %503, %.lr.ph391 ], [ %500, %.lr.ph391.preheader ]
-  %.1.i.i389 = phi ptr [ %502, %.lr.ph391 ], [ %499, %.lr.ph391.preheader ]
+.lr.ph391:                                        ; preds = %494, %.lr.ph391
+  %.0.i.i390 = phi i32 [ %503, %.lr.ph391 ], [ %500, %494 ]
+  %.1.i.i389 = phi ptr [ %502, %.lr.ph391 ], [ %499, %494 ]
   %501 = trunc i32 %.0.i.i390 to i8
   %502 = getelementptr inbounds nuw i8, ptr %.1.i.i389, i64 1
   store i8 %501, ptr %.1.i.i389, align 1, !tbaa !34
@@ -5975,7 +5969,7 @@ _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit126:
 
 548:                                              ; preds = %544
   %549 = select i1 %545, i32 22576, i32 30768
-  %.not.i127 = icmp samesign ult i16 %445, 2
+  %.not.i127 = icmp eq i32 %448, 0
   %550 = shl nuw nsw i32 %549, 8
   %551 = select i1 %.not.i127, i32 %549, i32 %550
   %552 = or i32 %551, %448
@@ -6092,7 +6086,7 @@ _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit134:
 606:                                              ; preds = %604
   %607 = icmp eq i8 %450, 6
   %608 = select i1 %607, i32 16944, i32 25136
-  %.not.i135 = icmp samesign ult i16 %445, 2
+  %.not.i135 = icmp eq i32 %448, 0
   %609 = shl nuw nsw i32 %608, 8
   %610 = select i1 %.not.i135, i32 %608, i32 %609
   %611 = or i32 %610, %448
@@ -6275,7 +6269,7 @@ _ZZN3fmt2v86detail9write_intISt20back_insert_iteratorINSt7__cxx1112basic_stringI
   br i1 %or.cond.i.i, label %707, label %._crit_edge
 
 707:                                              ; preds = %704
-  %.not.i144 = icmp samesign ult i16 %445, 2
+  %.not.i144 = icmp eq i32 %448, 0
   %708 = select i1 %.not.i144, i32 48, i32 12288
   %709 = or i32 %708, %448
   %710 = add i32 %709, 16777216

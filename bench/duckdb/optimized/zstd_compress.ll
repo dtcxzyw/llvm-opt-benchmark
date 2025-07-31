@@ -3057,12 +3057,12 @@ _ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i: ; pre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
   %11 = icmp ne i64 %indvars.iv.i, 3
   %12 = zext i1 %11 to i64
-  %13 = icmp samesign ult i64 %indvars.iv.i, 2
+  %13 = icmp ult i64 %10, 131073
   %14 = zext i1 %13 to i64
-  %15 = add nuw nsw i64 %12, %14
-  %16 = icmp eq i64 %indvars.iv.i, 0
-  %17 = zext i1 %16 to i64
-  %18 = add nuw nsw i64 %15, %17
+  %15 = icmp eq i64 %indvars.iv.i, 0
+  %16 = zext i1 %15 to i64
+  %17 = add nuw nsw i64 %16, %12
+  %18 = add nuw nsw i64 %17, %14
   %gep = getelementptr inbounds nuw [4 x [23 x %"struct.duckdb_zstd::ZSTD_compressionParameters"]], ptr %invariant.gep, i64 0, i64 %18
   %.sroa.0.sroa.0.0.copyload.i = load i32, ptr %gep, align 4, !tbaa !62, !noalias !154
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %gep, i64 4

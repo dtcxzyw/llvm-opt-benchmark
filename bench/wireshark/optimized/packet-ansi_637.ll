@@ -853,7 +853,7 @@ define internal i32 @dissect_ansi_637_tele(ptr noundef %0, ptr noundef %1, ptr n
   %47 = zext i8 %46 to i32
   %48 = call ptr @try_val_to_str_idx_ext(i32 noundef %47, ptr noundef nonnull @ansi_tele_param_strings_ext, ptr noundef nonnull %5)
   %.not14.i = icmp eq ptr %48, null
-  br i1 %.not14.i, label %77, label %49
+  br i1 %.not14.i, label %76, label %49
 
 49:                                               ; preds = %.lr.ph.i
   %50 = load i32, ptr %5, align 4
@@ -879,41 +879,40 @@ define internal i32 @dissect_ansi_637_tele(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i.i, label %dissect_ansi_637_tele_param.exit.i, label %68
 
 68:                                               ; preds = %49
-  %69 = and i32 %50, -2
-  %70 = icmp eq i32 %69, 22
-  br i1 %70, label %71, label %73
+  %69 = icmp eq ptr %55, null
+  br i1 %69, label %70, label %72
 
-71:                                               ; preds = %68
-  %72 = call ptr @proto_tree_add_expert(ptr noundef %56, ptr noundef %1, ptr noundef nonnull @ei_ansi_637_no_tele_parameter_dissector, ptr noundef %0, i32 noundef %63, i32 noundef %62)
+70:                                               ; preds = %68
+  %71 = call ptr @proto_tree_add_expert(ptr noundef %56, ptr noundef %1, ptr noundef nonnull @ei_ansi_637_no_tele_parameter_dissector, ptr noundef %0, i32 noundef %63, i32 noundef %62)
   br label %dissect_ansi_637_tele_param.exit.i
 
-73:                                               ; preds = %68
-  %74 = load i32, ptr @ansi_637_trans_tele_id, align 4
-  %75 = icmp eq i32 %74, 65535
-  %76 = icmp eq i8 %46, 1
-  %or.cond.i.i = and i1 %76, %75
+72:                                               ; preds = %68
+  %73 = load i32, ptr @ansi_637_trans_tele_id, align 4
+  %74 = icmp eq i32 %73, 65535
+  %75 = icmp eq i8 %46, 1
+  %or.cond.i.i = and i1 %75, %74
   %spec.select.i.i = select i1 %or.cond.i.i, ptr @tele_param_user_data_cmas, ptr %55
   call void %spec.select.i.i(ptr noundef %0, ptr noundef %1, ptr noundef %56, i32 noundef %62, i32 noundef %63, ptr noundef nonnull %7)
   br label %dissect_ansi_637_tele_param.exit.i
 
-dissect_ansi_637_tele_param.exit.i:               ; preds = %73, %71, %49
-  %.1.i = phi i32 [ %63, %49 ], [ %64, %73 ], [ %64, %71 ]
+dissect_ansi_637_tele_param.exit.i:               ; preds = %72, %70, %49
+  %.1.i = phi i32 [ %63, %49 ], [ %64, %72 ], [ %64, %70 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   %.not.i = icmp eq i32 %45, %.1.i
   br i1 %.not.i, label %dissect_ansi_637_tele_message.exit, label %.lr.ph.i, !llvm.loop !11
 
-77:                                               ; preds = %.lr.ph.i
+76:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  %78 = sub i32 %45, %.018.i
-  %79 = call ptr @proto_tree_add_expert(ptr noundef %43, ptr noundef %1, ptr noundef nonnull @ei_ansi_637_unknown_tele_parameter, ptr noundef %0, i32 noundef %.018.i, i32 noundef %78)
+  %77 = sub i32 %45, %.018.i
+  %78 = call ptr @proto_tree_add_expert(ptr noundef %43, ptr noundef %1, ptr noundef nonnull @ei_ansi_637_unknown_tele_parameter, ptr noundef %0, i32 noundef %.018.i, i32 noundef %77)
   br label %dissect_ansi_637_tele_message.exit
 
-dissect_ansi_637_tele_message.exit:               ; preds = %dissect_ansi_637_tele_param.exit.i, %77, %41, %4
-  %80 = call i32 @tvb_captured_length(ptr noundef %0)
+dissect_ansi_637_tele_message.exit:               ; preds = %dissect_ansi_637_tele_param.exit.i, %76, %41, %4
+  %79 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #7
-  ret i32 %80
+  ret i32 %79
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1005,7 +1004,7 @@ define internal i32 @dissect_ansi_637_trans(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i, label %dissect_ansi_637_trans_param.exit, label %57
 
 57:                                               ; preds = %38
-  %58 = icmp eq i32 %39, 9
+  %58 = icmp eq ptr %44, null
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %57

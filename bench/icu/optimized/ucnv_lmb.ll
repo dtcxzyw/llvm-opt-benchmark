@@ -1654,7 +1654,7 @@ define internal fastcc void @_ZL16_LMBCSOpenWorkerP10UConverterP18UConverterLoad
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !3
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %60, label %9
+  br i1 %.not, label %58, label %9
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5) #8
@@ -1668,133 +1668,131 @@ define internal fastcc void @_ZL16_LMBCSOpenWorkerP10UConverterP18UConverterLoad
   store i8 %11, ptr %12, align 8, !tbaa !59
   br label %13
 
-13:                                               ; preds = %9, %24
-  %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %24 ]
+13:                                               ; preds = %9, %22
+  %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %22 ]
   %14 = load i32, ptr %2, align 4, !tbaa !16
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.critedge29, label %16
 
 16:                                               ; preds = %13
-  %17 = shl nuw nsw i64 1, %indvars.iv
-  %18 = and i64 %17, 63104
-  %.not27.not = icmp eq i64 %18, 0
-  br i1 %.not27.not, label %19, label %24
+  %17 = getelementptr inbounds nuw [20 x ptr], ptr @_ZL20OptGroupByteToCPName, i64 0, i64 %indvars.iv
+  %18 = load ptr, ptr %17, align 8, !tbaa !61
+  %.not27 = icmp eq ptr %18, null
+  br i1 %.not27, label %22, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw [20 x ptr], ptr @_ZL20OptGroupByteToCPName, i64 0, i64 %indvars.iv
-  %21 = load ptr, ptr %20, align 8, !tbaa !61
-  %22 = call ptr @ucnv_loadSharedData_77(ptr noundef %21, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %23 = getelementptr inbounds nuw [20 x ptr], ptr %7, i64 0, i64 %indvars.iv
-  store ptr %22, ptr %23, align 8, !tbaa !12
-  br label %24
+  %20 = call ptr @ucnv_loadSharedData_77(ptr noundef nonnull %18, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %21 = getelementptr inbounds nuw [20 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  store ptr %20, ptr %21, align 8, !tbaa !12
+  br label %22
 
-24:                                               ; preds = %16, %19
+22:                                               ; preds = %16, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
   br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !62
 
-.critedge:                                        ; preds = %24
+.critedge:                                        ; preds = %22
   %.pre = load i32, ptr %2, align 4, !tbaa !16
-  %25 = icmp slt i32 %.pre, 1
-  br i1 %25, label %26, label %.critedge29
+  %23 = icmp slt i32 %.pre, 1
+  br i1 %23, label %24, label %.critedge29
 
-26:                                               ; preds = %.critedge
-  %27 = load i8, ptr %10, align 8, !tbaa !59
-  %.not26 = icmp eq i8 %27, 0
-  br i1 %.not26, label %38, label %.critedge29
+24:                                               ; preds = %.critedge
+  %25 = load i8, ptr %10, align 8, !tbaa !59
+  %.not26 = icmp eq i8 %25, 0
+  br i1 %.not26, label %36, label %.critedge29
 
-.critedge29:                                      ; preds = %13, %26, %.critedge
-  %28 = load ptr, ptr %8, align 8, !tbaa !3
-  %.not.i = icmp eq ptr %28, null
+.critedge29:                                      ; preds = %13, %24, %.critedge
+  %26 = load ptr, ptr %8, align 8, !tbaa !3
+  %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %_ZL11_LMBCSCloseP10UConverter.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.critedge29, %32
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %.critedge29 ]
-  %29 = getelementptr inbounds nuw [20 x ptr], ptr %28, i64 0, i64 %indvars.iv.i
-  %30 = load ptr, ptr %29, align 8, !tbaa !12
-  %.not13.i = icmp eq ptr %30, null
-  br i1 %.not13.i, label %32, label %31
+.preheader.i:                                     ; preds = %.critedge29, %30
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %.critedge29 ]
+  %27 = getelementptr inbounds nuw [20 x ptr], ptr %26, i64 0, i64 %indvars.iv.i
+  %28 = load ptr, ptr %27, align 8, !tbaa !12
+  %.not13.i = icmp eq ptr %28, null
+  br i1 %.not13.i, label %30, label %29
 
-31:                                               ; preds = %.preheader.i
-  call void @ucnv_unloadSharedDataIfReady_77(ptr noundef nonnull %30)
-  br label %32
+29:                                               ; preds = %.preheader.i
+  call void @ucnv_unloadSharedDataIfReady_77(ptr noundef nonnull %28)
+  br label %30
 
-32:                                               ; preds = %31, %.preheader.i
+30:                                               ; preds = %29, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond.not.i, label %33, label %.preheader.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %31, label %.preheader.i, !llvm.loop !13
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  %35 = load i8, ptr %34, align 2, !tbaa !15
-  %.not12.i = icmp eq i8 %35, 0
-  br i1 %.not12.i, label %36, label %_ZL11_LMBCSCloseP10UConverter.exit
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 62
+  %33 = load i8, ptr %32, align 2, !tbaa !15
+  %.not12.i = icmp eq i8 %33, 0
+  br i1 %.not12.i, label %34, label %_ZL11_LMBCSCloseP10UConverter.exit
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %8, align 8, !tbaa !3
-  call void @uprv_free_77(ptr noundef %37)
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %8, align 8, !tbaa !3
+  call void @uprv_free_77(ptr noundef %35)
   store ptr null, ptr %8, align 8, !tbaa !3
   br label %_ZL11_LMBCSCloseP10UConverter.exit
 
-_ZL11_LMBCSCloseP10UConverter.exit:               ; preds = %.critedge29, %33, %36
+_ZL11_LMBCSCloseP10UConverter.exit:               ; preds = %.critedge29, %31, %34
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #8
-  br label %61
+  br label %59
 
-38:                                               ; preds = %26
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 160
-  store i8 %3, ptr %39, align 8, !tbaa !48
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !63
-  %.not.i30 = icmp eq ptr %41, null
-  br i1 %.not.i30, label %_ZL15FindLMBCSLocalePKc.exit, label %42
+36:                                               ; preds = %24
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  store i8 %3, ptr %37, align 8, !tbaa !48
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %39 = load ptr, ptr %38, align 8, !tbaa !63
+  %.not.i30 = icmp eq ptr %39, null
+  br i1 %.not.i30, label %_ZL15FindLMBCSLocalePKc.exit, label %40
 
-42:                                               ; preds = %38
-  %43 = load i8, ptr %41, align 1, !tbaa !42
-  %.not17.i = icmp eq i8 %43, 0
+40:                                               ; preds = %36
+  %41 = load i8, ptr %39, align 1, !tbaa !42
+  %.not17.i = icmp eq i8 %41, 0
   br i1 %.not17.i, label %_ZL15FindLMBCSLocalePKc.exit, label %.preheader.i31
 
-.preheader.i31:                                   ; preds = %42, %56
-  %44 = phi ptr [ %58, %56 ], [ @.str.13, %42 ]
-  %.020.i = phi ptr [ %57, %56 ], [ @_ZL17LocaleLMBCSGrpMap, %42 ]
-  %45 = load i8, ptr %44, align 1, !tbaa !42
-  %46 = icmp eq i8 %45, %43
-  br i1 %46, label %47, label %54
+.preheader.i31:                                   ; preds = %40, %54
+  %42 = phi ptr [ %56, %54 ], [ @.str.13, %40 ]
+  %.020.i = phi ptr [ %55, %54 ], [ @_ZL17LocaleLMBCSGrpMap, %40 ]
+  %43 = load i8, ptr %42, align 1, !tbaa !42
+  %44 = icmp eq i8 %43, %41
+  br i1 %44, label %45, label %52
 
-47:                                               ; preds = %.preheader.i31
-  %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #10
-  %49 = call i32 @strncmp(ptr noundef nonnull %44, ptr noundef nonnull readonly %41, i64 noundef %48) #10
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %56
+45:                                               ; preds = %.preheader.i31
+  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #10
+  %47 = call i32 @strncmp(ptr noundef nonnull %42, ptr noundef nonnull readonly %39, i64 noundef %46) #10
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %54
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
-  %53 = load i8, ptr %52, align 8, !tbaa !64
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
+  %51 = load i8, ptr %50, align 8, !tbaa !64
   br label %_ZL15FindLMBCSLocalePKc.exit
 
-54:                                               ; preds = %.preheader.i31
-  %55 = icmp sgt i8 %45, %43
-  br i1 %55, label %_ZL15FindLMBCSLocalePKc.exit, label %56
+52:                                               ; preds = %.preheader.i31
+  %53 = icmp sgt i8 %43, %41
+  br i1 %53, label %_ZL15FindLMBCSLocalePKc.exit, label %54
 
-56:                                               ; preds = %54, %47
-  %57 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !66
-  %.not18.i = icmp eq ptr %58, null
+54:                                               ; preds = %52, %45
+  %55 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
+  %56 = load ptr, ptr %55, align 8, !tbaa !66
+  %.not18.i = icmp eq ptr %56, null
   br i1 %.not18.i, label %_ZL15FindLMBCSLocalePKc.exit, label %.preheader.i31, !llvm.loop !67
 
-_ZL15FindLMBCSLocalePKc.exit:                     ; preds = %54, %56, %38, %42, %51
-  %.012.i = phi i8 [ %53, %51 ], [ 0, %42 ], [ 0, %38 ], [ 1, %56 ], [ 1, %54 ]
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 161
-  store i8 %.012.i, ptr %59, align 1, !tbaa !38
+_ZL15FindLMBCSLocalePKc.exit:                     ; preds = %52, %54, %36, %40, %49
+  %.012.i = phi i8 [ %51, %49 ], [ 0, %40 ], [ 0, %36 ], [ 1, %54 ], [ 1, %52 ]
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 161
+  store i8 %.012.i, ptr %57, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #8
-  br label %61
+  br label %59
 
-60:                                               ; preds = %4
+58:                                               ; preds = %4
   store i32 7, ptr %2, align 4, !tbaa !16
-  br label %61
+  br label %59
 
-61:                                               ; preds = %60, %_ZL15FindLMBCSLocalePKc.exit, %_ZL11_LMBCSCloseP10UConverter.exit
+59:                                               ; preds = %58, %_ZL15FindLMBCSLocalePKc.exit, %_ZL11_LMBCSCloseP10UConverter.exit
   ret void
 }
 

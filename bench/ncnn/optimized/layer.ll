@@ -7344,10 +7344,8 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
   %21 = zext nneg i32 %0 to i64
   %22 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %21, i32 1
   %23 = load ptr, ptr %22, align 8, !tbaa !68
-  switch i32 %0, label %24 [
-    i32 34, label %_ZN4ncnn16create_layer_cpuEi.exit.thread
-    i32 1, label %_ZN4ncnn16create_layer_cpuEi.exit.thread
-  ]
+  %.not20.i = icmp eq ptr %23, null
+  br i1 %.not20.i, label %_ZN4ncnn16create_layer_cpuEi.exit.thread, label %24
 
 24:                                               ; preds = %20, %19
   %.11523.i = phi ptr [ %23, %20 ], [ %.014.i, %19 ]
@@ -7430,8 +7428,8 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
   store i8 0, ptr %77, align 8, !tbaa !80
   br label %_ZN4ncnn16create_layer_cpuEi.exit.thread
 
-_ZN4ncnn16create_layer_cpuEi.exit.thread:         ; preds = %20, %20, %1, %24
-  %.0 = phi ptr [ %27, %24 ], [ null, %1 ], [ null, %20 ], [ null, %20 ]
+_ZN4ncnn16create_layer_cpuEi.exit.thread:         ; preds = %20, %1, %24
+  %.0 = phi ptr [ %27, %24 ], [ null, %1 ], [ null, %20 ]
   ret ptr %.0
 }
 
@@ -7458,21 +7456,19 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   br i1 %or.cond.i, label %_ZN4ncnn18create_layer_naiveEi.exit, label %9
 
 9:                                                ; preds = %_ZN4ncnn14layer_to_indexEPKc.exit
-  switch i32 %8, label %10 [
-    i32 34, label %_ZN4ncnn18create_layer_naiveEi.exit
-    i32 1, label %_ZN4ncnn18create_layer_naiveEi.exit
-  ]
+  %10 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %_ZN4ncnn18create_layer_naiveEi.exit, label %12
 
-10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i, i32 1
-  %12 = load ptr, ptr %11, align 8, !tbaa !68
-  %13 = tail call noundef ptr %12(ptr noundef null)
+12:                                               ; preds = %9
+  %13 = tail call noundef ptr %11(ptr noundef null)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 %8, ptr %14, align 8, !tbaa !51
   br label %_ZN4ncnn18create_layer_naiveEi.exit
 
-_ZN4ncnn18create_layer_naiveEi.exit:              ; preds = %7, %10, %9, %9, %_ZN4ncnn14layer_to_indexEPKc.exit
-  %.0 = phi ptr [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ %13, %10 ], [ null, %9 ], [ null, %9 ], [ null, %7 ]
+_ZN4ncnn18create_layer_naiveEi.exit:              ; preds = %7, %12, %9, %_ZN4ncnn14layer_to_indexEPKc.exit
+  %.0 = phi ptr [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ %13, %12 ], [ null, %9 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -7482,22 +7478,20 @@ define hidden noundef ptr @_ZN4ncnn18create_layer_naiveEi(i32 noundef %0) local_
   br i1 %or.cond, label %9, label %2
 
 2:                                                ; preds = %1
-  switch i32 %0, label %3 [
-    i32 34, label %9
-    i32 1, label %9
-  ]
+  %3 = zext nneg i32 %0 to i64
+  %4 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %3, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !68
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %9, label %6
 
-3:                                                ; preds = %2
-  %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %4, i32 1
-  %6 = load ptr, ptr %5, align 8, !tbaa !68
-  %7 = tail call noundef ptr %6(ptr noundef null)
+6:                                                ; preds = %2
+  %7 = tail call noundef ptr %5(ptr noundef null)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 %0, ptr %8, align 8, !tbaa !51
   br label %9
 
-9:                                                ; preds = %3, %2, %2, %1
-  %.0 = phi ptr [ null, %1 ], [ %7, %3 ], [ null, %2 ], [ null, %2 ]
+9:                                                ; preds = %6, %2, %1
+  %.0 = phi ptr [ null, %1 ], [ %7, %6 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -7549,10 +7543,8 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i, i32 1
   %19 = load ptr, ptr %18, align 8, !tbaa !68
-  switch i32 %8, label %.thread.i [
-    i32 34, label %_ZN4ncnn16create_layer_cpuEi.exit
-    i32 1, label %_ZN4ncnn16create_layer_cpuEi.exit
-  ]
+  %.not20.i = icmp eq ptr %19, null
+  br i1 %.not20.i, label %_ZN4ncnn16create_layer_cpuEi.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %17, %15
   %.11523.i = phi ptr [ %19, %17 ], [ %.014.i, %15 ]
@@ -7561,8 +7553,8 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   store i32 %8, ptr %21, align 8, !tbaa !51
   br label %_ZN4ncnn16create_layer_cpuEi.exit
 
-_ZN4ncnn16create_layer_cpuEi.exit:                ; preds = %7, %.thread.i, %17, %17, %_ZN4ncnn14layer_to_indexEPKc.exit
-  %.0 = phi ptr [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ %20, %.thread.i ], [ null, %17 ], [ null, %17 ], [ null, %7 ]
+_ZN4ncnn16create_layer_cpuEi.exit:                ; preds = %7, %.thread.i, %17, %_ZN4ncnn14layer_to_indexEPKc.exit
+  %.0 = phi ptr [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ %20, %.thread.i ], [ null, %17 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -7615,20 +7607,18 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef %0) local_un
   %21 = zext nneg i32 %0 to i64
   %22 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %21, i32 1
   %23 = load ptr, ptr %22, align 8, !tbaa !68
-  switch i32 %0, label %.thread [
-    i32 34, label %26
-    i32 1, label %26
-  ]
+  %.not20 = icmp eq ptr %23, null
+  br i1 %.not20, label %26, label %.thread
 
-.thread:                                          ; preds = %20, %19
+.thread:                                          ; preds = %19, %20
   %.11523 = phi ptr [ %23, %20 ], [ %.014, %19 ]
   %24 = tail call noundef ptr %.11523(ptr noundef null)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i32 %0, ptr %25, align 8, !tbaa !51
   br label %26
 
-26:                                               ; preds = %20, %20, %.thread, %1
-  %.0 = phi ptr [ null, %1 ], [ %24, %.thread ], [ null, %20 ], [ null, %20 ]
+26:                                               ; preds = %.thread, %20, %1
+  %.0 = phi ptr [ null, %1 ], [ %24, %.thread ], [ null, %20 ]
   ret ptr %.0
 }
 

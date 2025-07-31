@@ -72,20 +72,24 @@ define dso_local range(i32 -128, 128) i32 @snd_pcm_format_unsigned(i32 noundef %
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
   %5 = shl nuw nsw i64 1, %4
-  %.fr2 = freeze i64 %5
-  %6 = and i64 %.fr2, 263884971687936
+  %6 = and i64 %5, 263884971687936
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %3
-  %9 = lshr i64 8739796604171058, %4
-  %10 = trunc i64 %9 to i32
-  %11 = and i32 %10, 1
+  %9 = getelementptr [53 x %struct.pcm_format_data], ptr @pcm_formats, i64 0, i64 %4, i32 3
+  %10 = load i8, ptr %9, align 1
+  %.fr = freeze i8 %10
+  %11 = sext i8 %.fr to i32
+  %12 = icmp slt i8 %.fr, 0
+  %13 = icmp eq i8 %.fr, 0
+  %14 = zext i1 %13 to i32
+  %spec.select = select i1 %12, i32 %11, i32 %14
   br label %.thread
 
 .thread:                                          ; preds = %8, %3, %1
-  %12 = phi i32 [ -22, %1 ], [ -22, %3 ], [ %11, %8 ]
-  ret i32 %12
+  %15 = phi i32 [ -22, %1 ], [ -22, %3 ], [ %spec.select, %8 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
@@ -142,20 +146,24 @@ define dso_local range(i32 -128, 128) i32 @snd_pcm_format_big_endian(i32 noundef
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
   %5 = shl nuw nsw i64 1, %4
-  %.fr2 = freeze i64 %5
-  %6 = and i64 %.fr2, 263884970655747
+  %6 = and i64 %5, 263884970655747
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %3
-  %9 = lshr i64 6767126648629928, %4
-  %10 = trunc i64 %9 to i32
-  %11 = and i32 %10, 1
+  %9 = getelementptr [53 x %struct.pcm_format_data], ptr @pcm_formats, i64 0, i64 %4, i32 2
+  %10 = load i8, ptr %9, align 2
+  %.fr = freeze i8 %10
+  %11 = sext i8 %.fr to i32
+  %12 = icmp slt i8 %.fr, 0
+  %13 = icmp eq i8 %.fr, 0
+  %14 = zext i1 %13 to i32
+  %spec.select = select i1 %12, i32 %11, i32 %14
   br label %.thread
 
 .thread:                                          ; preds = %8, %3, %1
-  %12 = phi i32 [ -22, %1 ], [ -22, %3 ], [ %11, %8 ]
-  ret i32 %12
+  %15 = phi i32 [ -22, %1 ], [ -22, %3 ], [ %spec.select, %8 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)

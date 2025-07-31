@@ -49343,82 +49343,80 @@ define internal fastcc noundef zeroext i1 @update_parameter_state(ptr noundef %0
   %6 = getelementptr [165 x i32], ptr @parameters_ordering, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %45, label %9
+  br i1 %8, label %43, label %9
 
 9:                                                ; preds = %3
   %10 = load i32, ptr %2, align 4, !tbaa !7
   %11 = icmp eq i32 %10, 6
-  %12 = icmp eq i32 %4, 55
-  %13 = icmp eq i32 %4, 123
-  %14 = or i1 %12, %13
-  %or.cond = and i1 %14, %11
-  br i1 %or.cond, label %15, label %16
+  %12 = icmp eq i32 %7, 7
+  %or.cond = and i1 %12, %11
+  br i1 %or.cond, label %13, label %14
 
-15:                                               ; preds = %9
+13:                                               ; preds = %9
   store i32 5, ptr %2, align 4, !tbaa !7
-  br label %45
+  br label %43
 
-16:                                               ; preds = %9
-  %17 = icmp eq i32 %10, 5
-  %or.cond3 = and i1 %14, %17
-  br i1 %or.cond3, label %45, label %18
+14:                                               ; preds = %9
+  %15 = icmp eq i32 %10, 5
+  %or.cond3 = and i1 %12, %15
+  br i1 %or.cond3, label %43, label %16
+
+16:                                               ; preds = %14
+  %17 = icmp eq i32 %4, 161
+  %brmerge.not = and i1 %17, %15
+  br i1 %brmerge.not, label %18, label %23
 
 18:                                               ; preds = %16
-  %19 = icmp eq i32 %4, 161
-  %brmerge.not = and i1 %19, %17
-  br i1 %brmerge.not, label %20, label %25
+  %19 = getelementptr i8, ptr %1, i64 8
+  %.val38 = load ptr, ptr %19, align 8, !tbaa !125
+  %20 = getelementptr i8, ptr %1, i64 16
+  %.val39 = load ptr, ptr %20, align 8, !tbaa !126
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %22 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %21, ptr noundef %.val38, ptr noundef %.val39, i32 noundef 211) #31
+  br label %43
 
-20:                                               ; preds = %18
-  %21 = getelementptr i8, ptr %1, i64 8
-  %.val38 = load ptr, ptr %21, align 8, !tbaa !125
-  %22 = getelementptr i8, ptr %1, i64 16
-  %.val39 = load ptr, ptr %22, align 8, !tbaa !126
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %24 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %23, ptr noundef %.val38, ptr noundef %.val39, i32 noundef 211) #31
-  br label %45
+23:                                               ; preds = %16
+  %24 = icmp eq i32 %4, 157
+  %25 = add i32 %10, -2
+  %or.cond33 = icmp ult i32 %25, 4
+  %or.cond40 = and i1 %24, %or.cond33
+  br i1 %or.cond40, label %26, label %32
 
-25:                                               ; preds = %18
-  %26 = icmp eq i32 %4, 157
-  %27 = add i32 %10, -2
-  %or.cond33 = icmp ult i32 %27, 4
-  %or.cond40 = and i1 %26, %or.cond33
-  br i1 %or.cond40, label %28, label %34
+26:                                               ; preds = %23
+  %27 = select i1 %15, i32 203, i32 209
+  %28 = getelementptr i8, ptr %1, i64 8
+  %.val36 = load ptr, ptr %28, align 8, !tbaa !125
+  %29 = getelementptr i8, ptr %1, i64 16
+  %.val37 = load ptr, ptr %29, align 8, !tbaa !126
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %31 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %30, ptr noundef %.val36, ptr noundef %.val37, i32 noundef range(i32 2, 289) %27) #31
+  br label %43
 
-28:                                               ; preds = %25
-  %29 = select i1 %17, i32 203, i32 209
-  %30 = getelementptr i8, ptr %1, i64 8
-  %.val36 = load ptr, ptr %30, align 8, !tbaa !125
-  %31 = getelementptr i8, ptr %1, i64 16
-  %.val37 = load ptr, ptr %31, align 8, !tbaa !126
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %33 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %32, ptr noundef %.val36, ptr noundef %.val37, i32 noundef range(i32 2, 289) %29) #31
-  br label %45
+32:                                               ; preds = %23
+  %33 = icmp eq i32 %10, 1
+  %34 = icmp ugt i32 %7, %10
+  %or.cond34 = or i1 %33, %34
+  br i1 %or.cond34, label %35, label %40
 
-34:                                               ; preds = %25
-  %35 = icmp eq i32 %10, 1
-  %36 = icmp ugt i32 %7, %10
-  %or.cond34 = or i1 %35, %36
-  br i1 %or.cond34, label %37, label %42
+35:                                               ; preds = %32
+  %36 = getelementptr i8, ptr %1, i64 8
+  %.val = load ptr, ptr %36, align 8, !tbaa !125
+  %37 = getelementptr i8, ptr %1, i64 16
+  %.val35 = load ptr, ptr %37, align 8, !tbaa !126
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %39 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %38, ptr noundef %.val, ptr noundef %.val35, i32 noundef 209) #31
+  br label %43
 
-37:                                               ; preds = %34
-  %38 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %38, align 8, !tbaa !125
-  %39 = getelementptr i8, ptr %1, i64 16
-  %.val35 = load ptr, ptr %39, align 8, !tbaa !126
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %41 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %40, ptr noundef %.val, ptr noundef %.val35, i32 noundef 209) #31
-  br label %45
+40:                                               ; preds = %32
+  %41 = icmp ult i32 %7, %10
+  br i1 %41, label %42, label %43
 
-42:                                               ; preds = %34
-  %43 = icmp ult i32 %7, %10
-  br i1 %43, label %44, label %45
-
-44:                                               ; preds = %42
+42:                                               ; preds = %40
   store i32 %7, ptr %2, align 4, !tbaa !7
-  br label %45
+  br label %43
 
-45:                                               ; preds = %42, %44, %16, %3, %37, %28, %20, %15
-  %.0 = phi i1 [ true, %15 ], [ false, %20 ], [ false, %28 ], [ false, %37 ], [ true, %3 ], [ true, %16 ], [ true, %44 ], [ true, %42 ]
+43:                                               ; preds = %40, %42, %14, %3, %35, %26, %18, %13
+  %.0 = phi i1 [ true, %13 ], [ false, %18 ], [ false, %26 ], [ false, %35 ], [ true, %3 ], [ true, %14 ], [ true, %42 ], [ true, %40 ]
   ret i1 %.0
 }
 

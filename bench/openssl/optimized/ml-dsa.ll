@@ -80,22 +80,22 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef %0, i64 no
   %16 = getelementptr inbounds nuw [6 x %struct.op_table_entry], ptr @ops, i64 0, i64 %15, i32 2
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   call void %17(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
-  %.not = icmp samesign ult i8 %14, 2
-  br i1 %.not, label %23, label %18
+  %18 = getelementptr inbounds nuw [6 x %struct.op_table_entry], ptr @ops, i64 0, i64 %15, i32 3
+  %19 = load ptr, ptr %18, align 8, !tbaa !15
+  %.not = icmp eq ptr %19, null
+  br i1 %.not, label %23, label %20
 
-18:                                               ; preds = %10
-  %19 = getelementptr inbounds nuw [6 x %struct.op_table_entry], ptr @ops, i64 0, i64 %15, i32 3
-  %20 = load ptr, ptr %19, align 8, !tbaa !15
+20:                                               ; preds = %10
   %21 = load ptr, ptr %5, align 8, !tbaa !4
   %22 = load ptr, ptr %6, align 8, !tbaa !4
-  call void %20(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %21, ptr noundef %22, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
+  call void %19(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %21, ptr noundef %22, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %.pre = load ptr, ptr %7, align 8, !tbaa !4
   %.pre8 = load ptr, ptr %8, align 8, !tbaa !4
   br label %23
 
-23:                                               ; preds = %10, %18
-  %24 = phi ptr [ null, %10 ], [ %.pre8, %18 ]
-  %25 = phi ptr [ null, %10 ], [ %.pre, %18 ]
+23:                                               ; preds = %10, %20
+  %24 = phi ptr [ null, %10 ], [ %.pre8, %20 ]
+  %25 = phi ptr [ null, %10 ], [ %.pre, %20 ]
   %26 = load ptr, ptr %5, align 8, !tbaa !4
   %27 = load ptr, ptr %6, align 8, !tbaa !4
   call void @EVP_PKEY_free(ptr noundef %26) #6

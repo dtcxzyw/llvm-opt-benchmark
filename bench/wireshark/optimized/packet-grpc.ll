@@ -232,46 +232,49 @@ define hidden void @proto_reg_handoff_grpc() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr [4 x ptr], ptr @__const.proto_reg_handoff_grpc.content_types, i64 0, i64 %indvars.iv
-  %3 = load ptr, ptr %2, align 8
+  %2 = phi ptr [ @.str.33, %0 ], [ %6, %1 ]
+  %3 = load ptr, ptr @grpc_handle, align 8
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.40, ptr noundef nonnull %2, ptr noundef %3)
   %4 = load ptr, ptr @grpc_handle, align 8
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.40, ptr noundef %3, ptr noundef %4)
-  %5 = load ptr, ptr @grpc_handle, align 8
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.41, ptr noundef %3, ptr noundef %5)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.41, ptr noundef nonnull %2, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %.preheader17, label %1, !llvm.loop !6
+  %5 = getelementptr [4 x ptr], ptr @__const.proto_reg_handoff_grpc.content_types, i64 0, i64 %indvars.iv.next
+  %6 = load ptr, ptr %5, align 8
+  %exitcond = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond, label %.preheader17, label %1, !llvm.loop !6
 
 .preheader17:                                     ; preds = %1, %.preheader17
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %.preheader17 ], [ 0, %1 ]
-  %6 = getelementptr [3 x ptr], ptr @__const.proto_reg_handoff_grpc.content_types_web, i64 0, i64 %indvars.iv22
-  %7 = load ptr, ptr %6, align 8
+  %7 = phi ptr [ %11, %.preheader17 ], [ @.str.36, %1 ]
   %8 = load ptr, ptr @grpc_web_handle, align 8
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.40, ptr noundef %7, ptr noundef %8)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.40, ptr noundef nonnull %7, ptr noundef %8)
   %9 = load ptr, ptr @grpc_web_handle, align 8
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.41, ptr noundef %7, ptr noundef %9)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.41, ptr noundef nonnull %7, ptr noundef %9)
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %.not15 = icmp eq i64 %indvars.iv.next23, 2
-  br i1 %.not15, label %.preheader, label %.preheader17, !llvm.loop !8
+  %10 = getelementptr [3 x ptr], ptr @__const.proto_reg_handoff_grpc.content_types_web, i64 0, i64 %indvars.iv.next23
+  %11 = load ptr, ptr %10, align 8
+  %exitcond25 = icmp eq i64 %indvars.iv.next23, 2
+  br i1 %exitcond25, label %.preheader, label %.preheader17, !llvm.loop !8
 
 .preheader:                                       ; preds = %.preheader17, %.preheader
-  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.preheader ], [ 0, %.preheader17 ]
-  %10 = getelementptr [3 x ptr], ptr @__const.proto_reg_handoff_grpc.content_types_web_text, i64 0, i64 %indvars.iv25
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr @grpc_web_text_handle, align 8
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.40, ptr noundef %11, ptr noundef %12)
+  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %.preheader ], [ 0, %.preheader17 ]
+  %12 = phi ptr [ %16, %.preheader ], [ @.str.38, %.preheader17 ]
   %13 = load ptr, ptr @grpc_web_text_handle, align 8
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.41, ptr noundef %11, ptr noundef %13)
-  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %.not16 = icmp eq i64 %indvars.iv.next26, 2
-  br i1 %.not16, label %14, label %.preheader, !llvm.loop !9
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.40, ptr noundef nonnull %12, ptr noundef %13)
+  %14 = load ptr, ptr @grpc_web_text_handle, align 8
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.41, ptr noundef nonnull %12, ptr noundef %14)
+  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
+  %15 = getelementptr [3 x ptr], ptr @__const.proto_reg_handoff_grpc.content_types_web_text, i64 0, i64 %indvars.iv.next27
+  %16 = load ptr, ptr %15, align 8
+  %exitcond29 = icmp eq i64 %indvars.iv.next27, 2
+  br i1 %exitcond29, label %17, label %.preheader, !llvm.loop !9
 
-14:                                               ; preds = %.preheader
-  %15 = tail call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.42)
-  store i32 %15, ptr @proto_http, align 4
-  %16 = load i32, ptr @proto_grpc, align 4
-  %17 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.43, i32 noundef %16)
-  store ptr %17, ptr @data_text_lines_handle, align 8
+17:                                               ; preds = %.preheader
+  %18 = tail call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.42)
+  store i32 %18, ptr @proto_http, align 4
+  %19 = load i32, ptr @proto_grpc, align 4
+  %20 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.43, i32 noundef %19)
+  store ptr %20, ptr @data_text_lines_handle, align 8
   ret void
 }
 

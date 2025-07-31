@@ -683,31 +683,28 @@ define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr nound
   call void @tap_queue_packet(i32 noundef %49, ptr noundef %1, ptr noundef %47)
   %50 = icmp ult i32 %18, 2
   %or.cond = select i1 %30, i1 true, i1 %50
-  br i1 %or.cond, label %65, label %51
+  br i1 %or.cond, label %63, label %51
 
 51:                                               ; preds = %46
   %52 = load i32, ptr %5, align 4
   %53 = sext i32 %52 to i64
-  %54 = and i64 %53, 2305843009213693951
-  %55 = shl nuw i64 1, %54
-  %56 = and i64 %55, 13343
-  %.not59 = icmp eq i64 %56, 0
-  br i1 %.not59, label %61, label %57
+  %54 = getelementptr [14 x ptr], ptr @bssmap_le_msg_fcn, i64 0, i64 %53
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %61
 
 57:                                               ; preds = %51
   %58 = load i32, ptr @hf_gsm_bssmap_le_message_elements, align 4
   %59 = add i32 %18, -1
   %60 = call ptr @proto_tree_add_item(ptr noundef %.051, i32 noundef %58, ptr noundef %0, i32 noundef 1, i32 noundef %59, i32 noundef 0)
-  br label %65
+  br label %63
 
 61:                                               ; preds = %51
-  %62 = getelementptr [14 x ptr], ptr @bssmap_le_msg_fcn, i64 0, i64 %53
-  %63 = load ptr, ptr %62, align 8
-  %64 = add i32 %18, -1
-  call void %63(ptr noundef %0, ptr noundef %.051, ptr noundef %1, i32 noundef 1, i32 noundef %64)
-  br label %65
+  %62 = add i32 %18, -1
+  call void %55(ptr noundef %0, ptr noundef %.051, ptr noundef %1, i32 noundef 1, i32 noundef %62)
+  br label %63
 
-65:                                               ; preds = %57, %61, %46
+63:                                               ; preds = %57, %61, %46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
   ret i32 %18
 }

@@ -11527,7 +11527,7 @@ define internal i32 @dissect_ec_ccch(ptr noundef %0, ptr noundef %1, ptr noundef
   %11 = call ptr @try_val_to_str_idx(i32 noundef %10, ptr noundef nonnull @gsm_a_dtap_msg_rr_ec_ccch_strings, ptr noundef nonnull %5)
   %12 = load i32, ptr @hf_gsm_a_dtap_msg_rr_ec_ccch_type, align 4
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %.thread, label %20
+  br i1 %.not.i, label %.thread, label %18
 
 .thread:                                          ; preds = %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
@@ -11536,28 +11536,36 @@ define internal i32 @dissect_ec_ccch(ptr noundef %0, ptr noundef %1, ptr noundef
   %15 = load i32, ptr @ett_ec_ccch_msg, align 4
   %16 = call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
   %17 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %16, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %10, ptr noundef nonnull @.str.3065, ptr noundef nonnull @.str.3066)
-  %18 = load i32, ptr @hf_gsm_a_rr_message_elements, align 4
-  %19 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0)
-  br label %30
+  br label %29
 
-20:                                               ; preds = %4
-  %21 = load i32, ptr %5, align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr [5 x ptr], ptr @dtap_msg_rr_ec_ccch_fcn, i64 0, i64 %22
-  %24 = load ptr, ptr %23, align 8
+18:                                               ; preds = %4
+  %19 = load i32, ptr %5, align 4
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr [5 x ptr], ptr @dtap_msg_rr_ec_ccch_fcn, i64 0, i64 %20
+  %22 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  %25 = load i32, ptr @proto_a_ec_ccch, align 4
-  %26 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.3075, ptr noundef nonnull %11)
-  %27 = call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef 0)
-  %28 = load ptr, ptr %7, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.3064, ptr noundef nonnull %11)
-  %29 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %27, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %10, ptr noundef nonnull @.str.3065, ptr noundef nonnull %11)
-  call void %24(ptr noundef %0, ptr noundef %27, ptr noundef %1, i32 noundef 0, i32 noundef %6)
-  br label %30
+  %23 = load i32, ptr @proto_a_ec_ccch, align 4
+  %24 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.3075, ptr noundef nonnull %11)
+  %25 = call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef 0)
+  %26 = load ptr, ptr %7, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.3064, ptr noundef nonnull %11)
+  %27 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %25, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %10, ptr noundef nonnull @.str.3065, ptr noundef nonnull %11)
+  %28 = icmp eq ptr %22, null
+  br i1 %28, label %29, label %32
 
-30:                                               ; preds = %20, %.thread
-  %31 = call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %31
+29:                                               ; preds = %.thread, %18
+  %.044 = phi ptr [ %16, %.thread ], [ %25, %18 ]
+  %30 = load i32, ptr @hf_gsm_a_rr_message_elements, align 4
+  %31 = call ptr @proto_tree_add_item(ptr noundef %.044, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0)
+  br label %33
+
+32:                                               ; preds = %18
+  call void %22(ptr noundef %0, ptr noundef %25, ptr noundef %1, i32 noundef 0, i32 noundef %6)
+  br label %33
+
+33:                                               ; preds = %32, %29
+  %34 = call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %34
 }
 
 ; Function Attrs: null_pointer_is_valid

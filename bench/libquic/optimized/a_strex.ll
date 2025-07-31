@@ -389,225 +389,223 @@ define internal fastcc i32 @do_print_ex(ptr noundef readonly captures(none) %0, 
 
 29:                                               ; preds = %27
   %30 = zext nneg i32 %.fr to i64
-  %31 = shl nuw nsw i64 1, %30
-  %32 = and i64 %31, 707260415
-  %.not107 = icmp eq i64 %32, 0
-  br i1 %.not107, label %88, label %.thread86
+  %31 = getelementptr inbounds nuw [31 x i8], ptr @tag2nbyte, i64 0, i64 %30
+  %32 = load i8, ptr %31, align 1, !tbaa !18
+  %33 = icmp eq i8 %32, -1
+  br i1 %33, label %.thread86, label %89
 
 .thread86:                                        ; preds = %27, %29
-  %33 = and i64 %2, 256
-  %.not70 = icmp eq i64 %33, 0
+  %34 = and i64 %2, 256
+  %.not70 = icmp eq i64 %34, 0
   br i1 %.not70, label %.thread100, label %.thread88
 
 .thread88:                                        ; preds = %.thread86, %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
-  %34 = tail call i32 %0(ptr noundef %1, ptr noundef nonnull @.str.12, i32 noundef 1) #10, !callees !8
-  %.not.i = icmp eq i32 %34, 0
-  br i1 %.not.i, label %do_dump.exit.thread, label %35
+  %35 = tail call i32 %0(ptr noundef %1, ptr noundef nonnull @.str.12, i32 noundef 1) #10, !callees !8
+  %.not.i = icmp eq i32 %35, 0
+  br i1 %.not.i, label %do_dump.exit.thread, label %36
 
-35:                                               ; preds = %.thread88
-  %36 = and i64 %2, 512
-  %.not24.i = icmp eq i64 %36, 0
-  br i1 %.not24.i, label %37, label %61
+36:                                               ; preds = %.thread88
+  %37 = and i64 %2, 512
+  %.not24.i = icmp eq i64 %37, 0
+  br i1 %.not24.i, label %38, label %62
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !23
-  %40 = load i32, ptr %3, align 8, !tbaa !24
-  %.fr44.i = freeze i32 %40
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !23
+  %41 = load i32, ptr %3, align 8, !tbaa !24
+  %.fr44.i = freeze i32 %41
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #10
   %.not.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i, label %do_hex_dump.exit.i, label %41
+  br i1 %.not.i.i, label %do_hex_dump.exit.i, label %42
 
-41:                                               ; preds = %37
-  %42 = sext i32 %.fr44.i to i64
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
+42:                                               ; preds = %38
+  %43 = sext i32 %.fr44.i to i64
+  %44 = getelementptr inbounds i8, ptr %40, i64 %43
   %.not1417.i.i = icmp eq i32 %.fr44.i, 0
   br i1 %.not1417.i.i, label %do_dump.exit.thread96, label %.lr.ph.i.i
 
-do_dump.exit.thread96:                            ; preds = %41
+do_dump.exit.thread96:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
-  %44 = add nsw i32 %.057, 1
+  %45 = add nsw i32 %.057, 1
   br label %.thread
 
-.lr.ph.i.i:                                       ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  br label %48
+.lr.ph.i.i:                                       ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  br label %49
 
-46:                                               ; preds = %48
-  %47 = getelementptr inbounds nuw i8, ptr %.01218.i.i, i64 1
-  %.not14.i.i = icmp eq ptr %47, %43
-  br i1 %.not14.i.i, label %do_hex_dump.exit.i, label %48, !llvm.loop !25
+47:                                               ; preds = %49
+  %48 = getelementptr inbounds nuw i8, ptr %.01218.i.i, i64 1
+  %.not14.i.i = icmp eq ptr %48, %44
+  br i1 %.not14.i.i, label %do_hex_dump.exit.i, label %49, !llvm.loop !25
 
-48:                                               ; preds = %46, %.lr.ph.i.i
-  %.01218.i.i = phi ptr [ %39, %.lr.ph.i.i ], [ %47, %46 ]
-  %49 = load i8, ptr %.01218.i.i, align 1, !tbaa !18
-  %50 = lshr i8 %49, 4
-  %51 = zext nneg i8 %50 to i64
-  %52 = getelementptr inbounds nuw [17 x i8], ptr @do_hex_dump.hexdig, i64 0, i64 %51
-  %53 = load i8, ptr %52, align 1, !tbaa !18
-  store i8 %53, ptr %6, align 1, !tbaa !18
-  %54 = and i8 %49, 15
-  %55 = zext nneg i8 %54 to i64
-  %56 = getelementptr inbounds nuw [17 x i8], ptr @do_hex_dump.hexdig, i64 0, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !18
-  store i8 %57, ptr %45, align 1, !tbaa !18
-  %58 = call i32 %0(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 2) #10, !callees !8
-  %.not15.i.i = icmp eq i32 %58, 0
-  br i1 %.not15.i.i, label %do_hex_dump.exit.thread.i, label %46
+49:                                               ; preds = %47, %.lr.ph.i.i
+  %.01218.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %48, %47 ]
+  %50 = load i8, ptr %.01218.i.i, align 1, !tbaa !18
+  %51 = lshr i8 %50, 4
+  %52 = zext nneg i8 %51 to i64
+  %53 = getelementptr inbounds nuw [17 x i8], ptr @do_hex_dump.hexdig, i64 0, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !18
+  store i8 %54, ptr %6, align 1, !tbaa !18
+  %55 = and i8 %50, 15
+  %56 = zext nneg i8 %55 to i64
+  %57 = getelementptr inbounds nuw [17 x i8], ptr @do_hex_dump.hexdig, i64 0, i64 %56
+  %58 = load i8, ptr %57, align 1, !tbaa !18
+  store i8 %58, ptr %46, align 1, !tbaa !18
+  %59 = call i32 %0(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 2) #10, !callees !8
+  %.not15.i.i = icmp eq i32 %59, 0
+  br i1 %.not15.i.i, label %do_hex_dump.exit.thread.i, label %47
 
-do_hex_dump.exit.thread.i:                        ; preds = %48
+do_hex_dump.exit.thread.i:                        ; preds = %49
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
   br label %do_dump.exit.thread
 
-do_hex_dump.exit.i:                               ; preds = %46, %37
-  %59 = shl i32 %.fr44.i, 1
+do_hex_dump.exit.i:                               ; preds = %47, %38
+  %60 = shl i32 %.fr44.i, 1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
-  %60 = icmp slt i32 %59, 0
-  br i1 %60, label %do_dump.exit.thread, label %do_dump.exit
+  %61 = icmp slt i32 %60, 0
+  br i1 %61, label %do_dump.exit.thread, label %do_dump.exit
 
-61:                                               ; preds = %35
-  %62 = load i32, ptr %12, align 4, !tbaa !19
-  store i32 %62, ptr %7, align 8, !tbaa !26
-  %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %3, ptr %63, align 8, !tbaa !18
-  %64 = call i32 @i2d_ASN1_TYPE(ptr noundef nonnull %7, ptr noundef null) #10
-  %.fr43.i = freeze i32 %64
-  %65 = sext i32 %.fr43.i to i64
-  %66 = call noalias ptr @malloc(i64 noundef %65) #12
-  %.not25.i = icmp eq ptr %66, null
-  br i1 %.not25.i, label %do_dump.exit.thread, label %67
+62:                                               ; preds = %36
+  %63 = load i32, ptr %12, align 4, !tbaa !19
+  store i32 %63, ptr %7, align 8, !tbaa !26
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %3, ptr %64, align 8, !tbaa !18
+  %65 = call i32 @i2d_ASN1_TYPE(ptr noundef nonnull %7, ptr noundef null) #10
+  %.fr43.i = freeze i32 %65
+  %66 = sext i32 %.fr43.i to i64
+  %67 = call noalias ptr @malloc(i64 noundef %66) #12
+  %.not25.i = icmp eq ptr %67, null
+  br i1 %.not25.i, label %do_dump.exit.thread, label %68
 
-67:                                               ; preds = %61
-  store ptr %66, ptr %8, align 8, !tbaa !28
-  %68 = call i32 @i2d_ASN1_TYPE(ptr noundef nonnull %7, ptr noundef nonnull %8) #10
+68:                                               ; preds = %62
+  store ptr %67, ptr %8, align 8, !tbaa !28
+  %69 = call i32 @i2d_ASN1_TYPE(ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #10
   %.not.i27.i = icmp eq ptr %1, null
-  br i1 %.not.i27.i, label %do_hex_dump.exit35.i, label %69
+  br i1 %.not.i27.i, label %do_hex_dump.exit35.i, label %70
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %66, i64 %65
+70:                                               ; preds = %68
+  %71 = getelementptr inbounds i8, ptr %67, i64 %66
   %.not1417.i28.i = icmp eq i32 %.fr43.i, 0
   br i1 %.not1417.i28.i, label %do_hex_dump.exit35.i.thread, label %.lr.ph.i29.i
 
-do_hex_dump.exit35.i.thread:                      ; preds = %69
+do_hex_dump.exit35.i.thread:                      ; preds = %70
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10
-  call void @free(ptr noundef nonnull %66) #10
+  call void @free(ptr noundef nonnull %67) #10
   br label %do_dump.exit
 
-.lr.ph.i29.i:                                     ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  br label %74
+.lr.ph.i29.i:                                     ; preds = %70
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  br label %75
 
-72:                                               ; preds = %74
-  %73 = getelementptr inbounds nuw i8, ptr %.01218.i30.i, i64 1
-  %.not14.i32.i = icmp eq ptr %73, %70
-  br i1 %.not14.i32.i, label %do_hex_dump.exit35.i, label %74, !llvm.loop !25
+73:                                               ; preds = %75
+  %74 = getelementptr inbounds nuw i8, ptr %.01218.i30.i, i64 1
+  %.not14.i32.i = icmp eq ptr %74, %71
+  br i1 %.not14.i32.i, label %do_hex_dump.exit35.i, label %75, !llvm.loop !25
 
-74:                                               ; preds = %72, %.lr.ph.i29.i
-  %.01218.i30.i = phi ptr [ %66, %.lr.ph.i29.i ], [ %73, %72 ]
-  %75 = load i8, ptr %.01218.i30.i, align 1, !tbaa !18
-  %76 = lshr i8 %75, 4
-  %77 = zext nneg i8 %76 to i64
-  %78 = getelementptr inbounds nuw [17 x i8], ptr @do_hex_dump.hexdig, i64 0, i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !18
-  store i8 %79, ptr %5, align 1, !tbaa !18
-  %80 = and i8 %75, 15
-  %81 = zext nneg i8 %80 to i64
-  %82 = getelementptr inbounds nuw [17 x i8], ptr @do_hex_dump.hexdig, i64 0, i64 %81
-  %83 = load i8, ptr %82, align 1, !tbaa !18
-  store i8 %83, ptr %71, align 1, !tbaa !18
-  %84 = call i32 %0(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef 2) #10, !callees !8
-  %.not15.i31.i = icmp eq i32 %84, 0
-  br i1 %.not15.i31.i, label %do_hex_dump.exit35.thread.i, label %72
+75:                                               ; preds = %73, %.lr.ph.i29.i
+  %.01218.i30.i = phi ptr [ %67, %.lr.ph.i29.i ], [ %74, %73 ]
+  %76 = load i8, ptr %.01218.i30.i, align 1, !tbaa !18
+  %77 = lshr i8 %76, 4
+  %78 = zext nneg i8 %77 to i64
+  %79 = getelementptr inbounds nuw [17 x i8], ptr @do_hex_dump.hexdig, i64 0, i64 %78
+  %80 = load i8, ptr %79, align 1, !tbaa !18
+  store i8 %80, ptr %5, align 1, !tbaa !18
+  %81 = and i8 %76, 15
+  %82 = zext nneg i8 %81 to i64
+  %83 = getelementptr inbounds nuw [17 x i8], ptr @do_hex_dump.hexdig, i64 0, i64 %82
+  %84 = load i8, ptr %83, align 1, !tbaa !18
+  store i8 %84, ptr %72, align 1, !tbaa !18
+  %85 = call i32 %0(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef 2) #10, !callees !8
+  %.not15.i31.i = icmp eq i32 %85, 0
+  br i1 %.not15.i31.i, label %do_hex_dump.exit35.thread.i, label %73
 
-do_hex_dump.exit35.thread.i:                      ; preds = %74
+do_hex_dump.exit35.thread.i:                      ; preds = %75
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10
-  call void @free(ptr noundef %66) #10
+  call void @free(ptr noundef %67) #10
   br label %do_dump.exit.thread
 
-do_hex_dump.exit35.i:                             ; preds = %72, %67
-  %85 = shl i32 %.fr43.i, 1
+do_hex_dump.exit35.i:                             ; preds = %73, %68
+  %86 = shl i32 %.fr43.i, 1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10
-  call void @free(ptr noundef %66) #10
-  %86 = icmp slt i32 %85, 0
-  br i1 %86, label %do_dump.exit.thread, label %do_dump.exit
+  call void @free(ptr noundef %67) #10
+  %87 = icmp slt i32 %86, 0
+  br i1 %87, label %do_dump.exit.thread, label %do_dump.exit
 
-do_dump.exit.thread:                              ; preds = %.thread88, %61, %do_hex_dump.exit.i, %do_hex_dump.exit.thread.i, %do_hex_dump.exit35.i, %do_hex_dump.exit35.thread.i
+do_dump.exit.thread:                              ; preds = %.thread88, %62, %do_hex_dump.exit.i, %do_hex_dump.exit.thread.i, %do_hex_dump.exit35.i, %do_hex_dump.exit35.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
   br label %.thread
 
 do_dump.exit:                                     ; preds = %do_hex_dump.exit35.i.thread, %do_hex_dump.exit.i, %do_hex_dump.exit35.i
-  %.0.i.in = phi i32 [ %59, %do_hex_dump.exit.i ], [ %85, %do_hex_dump.exit35.i ], [ 0, %do_hex_dump.exit35.i.thread ]
+  %.0.i.in = phi i32 [ %60, %do_hex_dump.exit.i ], [ %86, %do_hex_dump.exit35.i ], [ 0, %do_hex_dump.exit35.i.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
   %.0.i = add i32 %.057, 1
-  %87 = add i32 %.0.i, %.0.i.in
+  %88 = add i32 %.0.i, %.0.i.in
   br label %.thread
 
-88:                                               ; preds = %29
-  %89 = getelementptr inbounds nuw [31 x i8], ptr @tag2nbyte, i64 0, i64 %30
-  %90 = load i8, ptr %89, align 1, !tbaa !18
-  %91 = sext i8 %90 to i32
+89:                                               ; preds = %29
+  %90 = sext i8 %32 to i32
   %.not72 = icmp eq i32 %.fr, 12
-  %92 = or i32 %91, 8
-  %spec.select = select i1 %.not72, i32 1, i32 %92
+  %91 = or i32 %90, 8
+  %spec.select = select i1 %.not72, i32 1, i32 %91
   br label %.thread100
 
-.thread100:                                       ; preds = %25, %.thread86, %88
-  %.05993105 = phi i32 [ %91, %88 ], [ 1, %.thread86 ], [ 1, %25 ]
-  %93 = phi i32 [ %spec.select, %88 ], [ 9, %.thread86 ], [ 9, %25 ]
+.thread100:                                       ; preds = %25, %.thread86, %89
+  %.05993105 = phi i32 [ %90, %89 ], [ 1, %.thread86 ], [ 1, %25 ]
+  %92 = phi i32 [ %spec.select, %89 ], [ 9, %.thread86 ], [ 9, %25 ]
   %.not71106.in = and i64 %2, 16
   %.not71106 = icmp eq i64 %.not71106.in, 0
-  %.261 = select i1 %.not71106, i32 %.05993105, i32 %93
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !23
-  %96 = load i32, ptr %3, align 8, !tbaa !24
-  %97 = call fastcc i32 @do_buf(ptr noundef %95, i32 noundef %96, i32 noundef %.261, i8 noundef zeroext %11, ptr noundef nonnull %9, ptr noundef %0, ptr noundef null)
-  %98 = icmp slt i32 %97, 0
-  br i1 %98, label %.thread, label %99
+  %.261 = select i1 %.not71106, i32 %.05993105, i32 %92
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %94 = load ptr, ptr %93, align 8, !tbaa !23
+  %95 = load i32, ptr %3, align 8, !tbaa !24
+  %96 = call fastcc i32 @do_buf(ptr noundef %94, i32 noundef %95, i32 noundef %.261, i8 noundef zeroext %11, ptr noundef nonnull %9, ptr noundef %0, ptr noundef null)
+  %97 = icmp slt i32 %96, 0
+  br i1 %97, label %.thread, label %98
 
-99:                                               ; preds = %.thread100
-  %100 = add nsw i32 %97, %.057
-  %101 = load i8, ptr %9, align 1, !tbaa !18
-  %.not73 = icmp eq i8 %101, 0
-  %102 = add nsw i32 %100, 2
-  %spec.select79 = select i1 %.not73, i32 %100, i32 %102
+98:                                               ; preds = %.thread100
+  %99 = add nsw i32 %96, %.057
+  %100 = load i8, ptr %9, align 1, !tbaa !18
+  %.not73 = icmp eq i8 %100, 0
+  %101 = add nsw i32 %99, 2
+  %spec.select79 = select i1 %.not73, i32 %99, i32 %101
   %.not74 = icmp eq ptr %1, null
-  br i1 %.not74, label %.thread, label %103
+  br i1 %.not74, label %.thread, label %102
 
-103:                                              ; preds = %99
-  br i1 %.not73, label %106, label %104
+102:                                              ; preds = %98
+  br i1 %.not73, label %105, label %103
 
-104:                                              ; preds = %103
-  %105 = call i32 %0(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i32 noundef 1) #10, !callees !8
-  %.not76 = icmp eq i32 %105, 0
-  br i1 %.not76, label %.thread, label %106
+103:                                              ; preds = %102
+  %104 = call i32 %0(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i32 noundef 1) #10, !callees !8
+  %.not76 = icmp eq i32 %104, 0
+  br i1 %.not76, label %.thread, label %105
 
-106:                                              ; preds = %104, %103
-  %107 = load ptr, ptr %94, align 8, !tbaa !23
-  %108 = load i32, ptr %3, align 8, !tbaa !24
-  %109 = call fastcc i32 @do_buf(ptr noundef %107, i32 noundef %108, i32 noundef %.261, i8 noundef zeroext %11, ptr noundef null, ptr noundef %0, ptr noundef nonnull %1)
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %.thread, label %111
+105:                                              ; preds = %103, %102
+  %106 = load ptr, ptr %93, align 8, !tbaa !23
+  %107 = load i32, ptr %3, align 8, !tbaa !24
+  %108 = call fastcc i32 @do_buf(ptr noundef %106, i32 noundef %107, i32 noundef %.261, i8 noundef zeroext %11, ptr noundef null, ptr noundef %0, ptr noundef nonnull %1)
+  %109 = icmp slt i32 %108, 0
+  br i1 %109, label %.thread, label %110
 
-111:                                              ; preds = %106
-  br i1 %.not73, label %114, label %112
+110:                                              ; preds = %105
+  br i1 %.not73, label %113, label %111
 
-112:                                              ; preds = %111
-  %113 = call i32 %0(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i32 noundef 1) #10, !callees !8
-  %.not78 = icmp eq i32 %113, 0
-  br i1 %.not78, label %.thread, label %114
+111:                                              ; preds = %110
+  %112 = call i32 %0(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i32 noundef 1) #10, !callees !8
+  %.not78 = icmp eq i32 %112, 0
+  br i1 %.not78, label %.thread, label %113
 
-114:                                              ; preds = %112, %111
+113:                                              ; preds = %111, %110
   br label %.thread
 
-.thread:                                          ; preds = %do_dump.exit, %15, %do_dump.exit.thread, %do_dump.exit.thread96, %112, %106, %104, %99, %.thread100, %20, %114
-  %.1 = phi i32 [ %spec.select79, %114 ], [ -1, %20 ], [ -1, %.thread100 ], [ %spec.select79, %99 ], [ -1, %104 ], [ -1, %106 ], [ -1, %112 ], [ -1, %do_dump.exit.thread ], [ %87, %do_dump.exit ], [ %44, %do_dump.exit.thread96 ], [ -1, %15 ]
+.thread:                                          ; preds = %do_dump.exit, %15, %do_dump.exit.thread, %do_dump.exit.thread96, %111, %105, %103, %98, %.thread100, %20, %113
+  %.1 = phi i32 [ %spec.select79, %113 ], [ -1, %20 ], [ -1, %.thread100 ], [ %spec.select79, %98 ], [ -1, %103 ], [ -1, %105 ], [ -1, %111 ], [ -1, %do_dump.exit.thread ], [ %88, %do_dump.exit ], [ %45, %do_dump.exit.thread96 ], [ -1, %15 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #10
   ret i32 %.1
 }
@@ -626,44 +624,42 @@ define hidden i32 @ASN1_STRING_to_UTF8(ptr noundef writeonly captures(none) %0, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   store ptr %3, ptr %4, align 8, !tbaa !29
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %26, label %5
+  br i1 %.not, label %25, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !19
   %or.cond = icmp ugt i32 %7, 30
-  br i1 %or.cond, label %26, label %8
+  br i1 %or.cond, label %25, label %8
 
 8:                                                ; preds = %5
   %9 = zext nneg i32 %7 to i64
-  %10 = shl nuw nsw i64 1, %9
-  %11 = and i64 %10, 707260415
-  %.not18 = icmp eq i64 %11, 0
-  br i1 %.not18, label %12, label %26
+  %10 = getelementptr inbounds nuw [31 x i8], ptr @tag2nbyte, i64 0, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !18
+  %12 = icmp eq i8 %11, -1
+  br i1 %12, label %25, label %13
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw [31 x i8], ptr @tag2nbyte, i64 0, i64 %9
-  %14 = load i8, ptr %13, align 1, !tbaa !18
-  %15 = sext i8 %14 to i32
-  %16 = or i32 %15, 4096
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+13:                                               ; preds = %8
+  %14 = sext i8 %11 to i32
+  %15 = or i32 %14, 4096
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %3, align 8, !tbaa !24
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  %19 = load ptr, ptr %18, align 8, !tbaa !23
-  %20 = load i32, ptr %1, align 8, !tbaa !24
-  %21 = call i32 @ASN1_mbstring_copy(ptr noundef nonnull %4, ptr noundef %19, i32 noundef %20, i32 noundef %16, i64 noundef 8192) #10
-  %22 = icmp slt i32 %21, 0
-  br i1 %22, label %26, label %23
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  %18 = load ptr, ptr %17, align 8, !tbaa !23
+  %19 = load i32, ptr %1, align 8, !tbaa !24
+  %20 = call i32 @ASN1_mbstring_copy(ptr noundef nonnull %4, ptr noundef %18, i32 noundef %19, i32 noundef %15, i64 noundef 8192) #10
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %25, label %22
 
-23:                                               ; preds = %12
-  %24 = load ptr, ptr %17, align 8, !tbaa !23
-  store ptr %24, ptr %0, align 8, !tbaa !28
-  %25 = load i32, ptr %3, align 8, !tbaa !24
-  br label %26
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %16, align 8, !tbaa !23
+  store ptr %23, ptr %0, align 8, !tbaa !28
+  %24 = load i32, ptr %3, align 8, !tbaa !24
+  br label %25
 
-26:                                               ; preds = %12, %8, %5, %2, %23
-  %.0 = phi i32 [ %25, %23 ], [ -1, %2 ], [ -1, %5 ], [ -1, %8 ], [ %21, %12 ]
+25:                                               ; preds = %13, %8, %5, %2, %22
+  %.0 = phi i32 [ %24, %22 ], [ -1, %2 ], [ -1, %5 ], [ -1, %8 ], [ %20, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
   ret i32 %.0

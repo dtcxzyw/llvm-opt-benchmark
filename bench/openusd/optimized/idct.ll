@@ -5,20 +5,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.txfm_param = type { i8, i8, i32, i32, i32, i8, i32 }
 
+@tx_size_2d = internal unnamed_addr constant [20 x i32] [i32 16, i32 64, i32 256, i32 1024, i32 4096, i32 32, i32 32, i32 128, i32 128, i32 512, i32 512, i32 2048, i32 2048, i32 64, i32 64, i32 256, i32 256, i32 1024, i32 1024, i32 0], align 16
 @tx_size_wide = internal unnamed_addr constant [19 x i32] [i32 4, i32 8, i32 16, i32 32, i32 64, i32 4, i32 8, i32 8, i32 16, i32 16, i32 32, i32 32, i32 64, i32 4, i32 16, i32 8, i32 32, i32 16, i32 64], align 16
 @tx_size_high = internal unnamed_addr constant [19 x i32] [i32 4, i32 8, i32 16, i32 32, i32 64, i32 8, i32 4, i32 16, i32 8, i32 32, i32 16, i32 64, i32 32, i32 16, i32 4, i32 32, i32 8, i32 64, i32 16], align 16
+@txsize_sqr_up_map = internal unnamed_addr constant [19 x i8] c"\00\01\02\03\04\01\01\02\02\03\03\04\04\02\02\03\03\04\04", align 16
 @av1_ext_tx_set_lookup = internal unnamed_addr constant [2 x [2 x i8]] [[2 x i8] c"\03\02", [2 x i8] c"\05\04"], align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden range(i32 0, 3) i32 @av1_get_tx_scale(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = zext i8 %0 to i64
-  %3 = lshr i64 400920, %2
-  %4 = trunc nuw nsw i64 %3 to i32
-  %5 = and i32 %4, 1
-  %6 = lshr i64 6160, %2
-  %7 = trunc nuw nsw i64 %6 to i32
-  %8 = and i32 %7, 1
-  %9 = add nuw nsw i32 %5, %8
+  %3 = getelementptr inbounds nuw [20 x i32], ptr @tx_size_2d, i64 0, i64 %2
+  %4 = load i32, ptr %3, align 4
+  %5 = icmp sgt i32 %4, 256
+  %6 = zext i1 %5 to i32
+  %7 = icmp sgt i32 %4, 1024
+  %8 = zext i1 %7 to i32
+  %9 = add nuw nsw i32 %6, %8
   ret i32 %9
 }
 
@@ -659,7 +661,7 @@ define hidden void @av1_inverse_transform_block(ptr noundef readonly captures(no
   %10 = alloca [4096 x i16], align 32
   %11 = alloca %struct.txfm_param, align 4
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %82, label %12
+  br i1 %.not, label %83, label %12
 
 12:                                               ; preds = %9
   store i8 %3, ptr %11, align 4
@@ -705,122 +707,121 @@ define hidden void @av1_inverse_transform_block(ptr noundef readonly captures(no
 is_inter_block.exit.i:                            ; preds = %34, %12
   %39 = phi i32 [ 1, %12 ], [ %38, %34 ]
   %40 = zext i8 %4 to i64
-  %41 = shl nuw i64 1, %40
-  %42 = and i64 %41, 399376
-  %.not.i16.i = icmp eq i64 %42, 0
-  br i1 %.not.i16.i, label %43, label %init_txfm_param.exit
+  %41 = getelementptr inbounds nuw [19 x i8], ptr @txsize_sqr_up_map, i64 0, i64 %40
+  %42 = load i8, ptr %41, align 1
+  %43 = icmp ugt i8 %42, 3
+  br i1 %43, label %init_txfm_param.exit, label %44
 
-43:                                               ; preds = %is_inter_block.exit.i
-  %44 = and i64 %41, 99848
-  %.not11.i.i = icmp eq i64 %44, 0
-  br i1 %.not11.i.i, label %47, label %45
+44:                                               ; preds = %is_inter_block.exit.i
+  %45 = icmp eq i8 %42, 3
+  br i1 %45, label %46, label %48
 
-45:                                               ; preds = %43
-  %46 = trunc nuw nsw i32 %39 to i8
+46:                                               ; preds = %44
+  %47 = trunc nuw nsw i32 %39 to i8
   br label %init_txfm_param.exit
 
-47:                                               ; preds = %43
-  %.not12.i.i = icmp eq i32 %8, 0
-  br i1 %.not12.i.i, label %50, label %48
+48:                                               ; preds = %44
+  %.not.i16.i = icmp eq i32 %8, 0
+  br i1 %.not.i16.i, label %51, label %49
 
-48:                                               ; preds = %47
-  %.not13.i.i = icmp eq i32 %39, 0
-  %49 = select i1 %.not13.i.i, i8 2, i8 1
+49:                                               ; preds = %48
+  %.not11.i.i = icmp eq i32 %39, 0
+  %50 = select i1 %.not11.i.i, i8 2, i8 1
   br label %init_txfm_param.exit
 
-50:                                               ; preds = %47
-  %51 = zext nneg i32 %39 to i64
-  %52 = getelementptr inbounds nuw [2 x [2 x i8]], ptr @av1_ext_tx_set_lookup, i64 0, i64 %51
-  %53 = lshr i64 394756, %40
-  %54 = and i64 %53, 1
-  %55 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 0, i64 %54
-  %56 = load i8, ptr %55, align 1
+51:                                               ; preds = %48
+  %52 = zext nneg i32 %39 to i64
+  %53 = getelementptr inbounds nuw [2 x [2 x i8]], ptr @av1_ext_tx_set_lookup, i64 0, i64 %52
+  %54 = lshr i64 394756, %40
+  %55 = and i64 %54, 1
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 0, i64 %55
+  %57 = load i8, ptr %56, align 1
   br label %init_txfm_param.exit
 
-init_txfm_param.exit:                             ; preds = %is_inter_block.exit.i, %45, %48, %50
-  %.0.i.i = phi i8 [ %46, %45 ], [ %49, %48 ], [ %56, %50 ], [ 0, %is_inter_block.exit.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i8 %.0.i.i, ptr %57, align 4
+init_txfm_param.exit:                             ; preds = %is_inter_block.exit.i, %46, %49, %51
+  %.0.i.i = phi i8 [ %47, %46 ], [ %50, %49 ], [ %57, %51 ], [ 0, %is_inter_block.exit.i ]
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i8 %.0.i.i, ptr %58, align 4
   %.not12 = icmp eq i32 %.lobit.i.i, 0
-  br i1 %.not12, label %59, label %58
-
-58:                                               ; preds = %init_txfm_param.exit
-  call void @av1_highbd_inv_txfm_add_c(ptr noundef %1, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %11)
-  br label %82
+  br i1 %.not12, label %60, label %59
 
 59:                                               ; preds = %init_txfm_param.exit
+  call void @av1_highbd_inv_txfm_add_c(ptr noundef %1, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %11)
+  br label %83
+
+60:                                               ; preds = %init_txfm_param.exit
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %10)
-  %60 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide, i64 0, i64 %40
-  %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high, i64 0, i64 %40
-  %63 = load i32, ptr %62, align 4
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %61, i32 1)
-  %64 = sext i32 %6 to i64
-  %smax49.i = tail call i32 @llvm.smax.i32(i32 %63, i32 1)
+  %61 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide, i64 0, i64 %40
+  %62 = load i32, ptr %61, align 4
+  %63 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high, i64 0, i64 %40
+  %64 = load i32, ptr %63, align 4
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %62, i32 1)
+  %65 = sext i32 %6 to i64
+  %smax49.i = tail call i32 @llvm.smax.i32(i32 %64, i32 1)
   %wide.trip.count50.i = zext nneg i32 %smax49.i to i64
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
   br label %.preheader35.us.i
 
-.preheader35.us.i:                                ; preds = %._crit_edge.us.i, %59
-  %indvars.iv46.i = phi i64 [ 0, %59 ], [ %indvars.iv.next47.i, %._crit_edge.us.i ]
-  %65 = mul nsw i64 %indvars.iv46.i, %64
-  %66 = shl nsw i64 %indvars.iv46.i, 6
-  %invariant.gep.i = getelementptr i8, ptr %5, i64 %65
-  br label %67
+.preheader35.us.i:                                ; preds = %._crit_edge.us.i, %60
+  %indvars.iv46.i = phi i64 [ 0, %60 ], [ %indvars.iv.next47.i, %._crit_edge.us.i ]
+  %66 = mul nsw i64 %indvars.iv46.i, %65
+  %67 = shl nsw i64 %indvars.iv46.i, 6
+  %invariant.gep.i = getelementptr i8, ptr %5, i64 %66
+  br label %68
 
-67:                                               ; preds = %67, %.preheader35.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader35.us.i ], [ %indvars.iv.next.i, %67 ]
+68:                                               ; preds = %68, %.preheader35.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader35.us.i ], [ %indvars.iv.next.i, %68 ]
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %68 = load i8, ptr %gep.i, align 1
-  %69 = zext i8 %68 to i16
-  %70 = add nuw nsw i64 %indvars.iv.i, %66
-  %71 = getelementptr inbounds nuw [4096 x i16], ptr %10, i64 0, i64 %70
-  store i16 %69, ptr %71, align 2
+  %69 = load i8, ptr %gep.i, align 1
+  %70 = zext i8 %69 to i16
+  %71 = add nuw nsw i64 %indvars.iv.i, %67
+  %72 = getelementptr inbounds nuw [4096 x i16], ptr %10, i64 0, i64 %71
+  store i16 %70, ptr %72, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %67, !llvm.loop !4
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %68, !llvm.loop !4
 
-._crit_edge.us.i:                                 ; preds = %67
+._crit_edge.us.i:                                 ; preds = %68
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count50.i
   br i1 %exitcond51.not.i, label %.preheader.us.preheader.i, label %.preheader35.us.i, !llvm.loop !6
 
 .preheader.us.preheader.i:                        ; preds = %._crit_edge.us.i
-  %72 = ptrtoint ptr %10 to i64
-  %73 = lshr exact i64 %72, 1
-  %74 = inttoptr i64 %73 to ptr
-  call void @av1_highbd_inv_txfm_add_c(ptr noundef %1, ptr noundef nonnull %74, i32 noundef 64, ptr noundef nonnull readonly %11)
+  %73 = ptrtoint ptr %10 to i64
+  %74 = lshr exact i64 %73, 1
+  %75 = inttoptr i64 %74 to ptr
+  call void @av1_highbd_inv_txfm_add_c(ptr noundef %1, ptr noundef nonnull %75, i32 noundef 64, ptr noundef nonnull readonly %11)
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us42.i, %.preheader.us.preheader.i
   %indvars.iv58.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next59.i, %._crit_edge.us42.i ]
-  %75 = shl nsw i64 %indvars.iv58.i, 6
-  %76 = mul nsw i64 %indvars.iv58.i, %64
-  %invariant.gep64.i = getelementptr i8, ptr %5, i64 %76
-  br label %77
+  %76 = shl nsw i64 %indvars.iv58.i, 6
+  %77 = mul nsw i64 %indvars.iv58.i, %65
+  %invariant.gep64.i = getelementptr i8, ptr %5, i64 %77
+  br label %78
 
-77:                                               ; preds = %77, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %77 ]
-  %78 = add nuw nsw i64 %indvars.iv52.i, %75
-  %79 = getelementptr inbounds nuw [4096 x i16], ptr %10, i64 0, i64 %78
-  %80 = load i16, ptr %79, align 2
-  %81 = trunc i16 %80 to i8
+78:                                               ; preds = %78, %.preheader.us.i
+  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %78 ]
+  %79 = add nuw nsw i64 %indvars.iv52.i, %76
+  %80 = getelementptr inbounds nuw [4096 x i16], ptr %10, i64 0, i64 %79
+  %81 = load i16, ptr %80, align 2
+  %82 = trunc i16 %81 to i8
   %gep65.i = getelementptr i8, ptr %invariant.gep64.i, i64 %indvars.iv52.i
-  store i8 %81, ptr %gep65.i, align 1
+  store i8 %82, ptr %gep65.i, align 1
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count.i
-  br i1 %exitcond57.not.i, label %._crit_edge.us42.i, label %77, !llvm.loop !8
+  br i1 %exitcond57.not.i, label %._crit_edge.us42.i, label %78, !llvm.loop !8
 
-._crit_edge.us42.i:                               ; preds = %77
+._crit_edge.us42.i:                               ; preds = %78
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next59.i, %wide.trip.count50.i
   br i1 %exitcond63.not.i, label %av1_inv_txfm_add_c.exit, label %.preheader.us.i, !llvm.loop !9
 
 av1_inv_txfm_add_c.exit:                          ; preds = %._crit_edge.us42.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %10)
-  br label %82
+  br label %83
 
-82:                                               ; preds = %9, %av1_inv_txfm_add_c.exit, %58
+83:                                               ; preds = %9, %av1_inv_txfm_add_c.exit, %59
   ret void
 }
 

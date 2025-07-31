@@ -24,6 +24,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.autofs_dev_ioctl_init = private unnamed_addr constant [22 x i8] c"autofs_dev_ioctl_init\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"autofs\00", align 1
 @_dev_ioctl_fops = internal constant %struct.file_operations { ptr null, ptr @noop_llseek, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @autofs_dev_ioctl, ptr @autofs_dev_ioctl_compat, ptr null, i64 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
+@.str.2 = private unnamed_addr constant [45 x i8] c"\014autofs4:pid:%d:%s: unknown command 0x%08x\0A\00", align 1
+@__func__._autofs_dev_ioctl = private unnamed_addr constant [18 x i8] c"_autofs_dev_ioctl\00", align 1
 @autofs_fs_type = external dso_local global %struct.file_system_type, align 8
 @.str.4 = private unnamed_addr constant [85 x i8] c"\014autofs4:pid:%d:%s: invalid device control module version supplied for cmd(0x%08x)\0A\00", align 1
 @__func__.validate_dev_ioctl = private unnamed_addr constant [19 x i8] c"validate_dev_ioctl\00", align 1
@@ -91,7 +93,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
   %9 = add nsw i32 %6, -127
   %10 = icmp ult i32 %9, -14
   %11 = select i1 %8, i1 true, i1 %10
-  br i1 %11, label %133, label %12
+  br i1 %11, label %141, label %12
 
 12:                                               ; preds = %3
   switch i32 %6, label %13 [
@@ -101,7 +103,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
 
 13:                                               ; preds = %12
   %14 = tail call zeroext i1 @capable(i32 noundef 21) #10
-  br i1 %14, label %15, label %133
+  br i1 %14, label %15, label %141
 
 15:                                               ; preds = %13, %12, %12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
@@ -131,7 +133,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
   %29 = ptrtoint ptr %28 to i64
   %30 = trunc i64 %29 to i32
-  br label %133
+  br label %141
 
 31:                                               ; preds = %25
   %32 = load i32, ptr %19, align 8
@@ -216,97 +218,109 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
   %82 = zext nneg i32 %81 to i64
   %83 = getelementptr [14 x ptr], ptr @lookup_dev_ioctl._ioctls, i64 0, i64 %82
   %84 = load ptr, ptr %83, align 8
-  switch i32 %6, label %85 [
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %86, label %92
+
+86:                                               ; preds = %.thread13
+  %87 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
+  %88 = inttoptr i64 %87 to ptr
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1320
+  %90 = load i32, ptr %89, align 8
+  %91 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %90, ptr noundef nonnull @__func__._autofs_dev_ioctl, i32 noundef %1) #12
+  br label %.thread15
+
+92:                                               ; preds = %.thread13
+  switch i32 %6, label %93 [
     i32 117, label %.thread23
     i32 116, label %.thread23
     i32 113, label %.thread23
   ]
 
-85:                                               ; preds = %.thread13
-  %86 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  %87 = load i32, ptr %86, align 4
-  %88 = call ptr @fget(i32 noundef %87) #10
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %90, label %92
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %26, i64 12
+  %95 = load i32, ptr %94, align 4
+  %96 = call ptr @fget(i32 noundef %95) #10
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %98, label %100
 
-90:                                               ; preds = %85
-  %91 = icmp eq i32 %6, 126
-  br i1 %91, label %122, label %.thread15
+98:                                               ; preds = %93
+  %99 = icmp eq i32 %6, 126
+  br i1 %99, label %130, label %.thread15
 
-92:                                               ; preds = %85
-  %93 = getelementptr inbounds nuw i8, ptr %88, i64 168
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
-  %98 = load ptr, ptr %97, align 8
-  %99 = icmp eq ptr %98, @autofs_fs_type
-  br i1 %99, label %101, label %100
+100:                                              ; preds = %93
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 168
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 40
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 40
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp eq ptr %106, @autofs_fs_type
+  br i1 %107, label %109, label %108
 
-100:                                              ; preds = %92
-  call void @fput(ptr noundef nonnull %88) #10
+108:                                              ; preds = %100
+  call void @fput(ptr noundef nonnull %96) #10
   br label %.thread15
 
-101:                                              ; preds = %92
-  %102 = getelementptr inbounds nuw i8, ptr %96, i64 872
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 40
-  %105 = load i32, ptr %104, align 8
-  %106 = and i32 %105, 1
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %108, label %.thread16
+109:                                              ; preds = %100
+  %110 = getelementptr inbounds nuw i8, ptr %104, i64 872
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 40
+  %113 = load i32, ptr %112, align 8
+  %114 = and i32 %113, 1
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %116, label %.thread16
 
-108:                                              ; preds = %101
-  %109 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
-  %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1880
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr i8, ptr %112, i64 376
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %116 = load ptr, ptr %115, align 8
-  %117 = icmp ne ptr %114, %116
-  %118 = icmp ne i32 %6, 121
-  %119 = and i1 %118, %117
-  br i1 %119, label %120, label %.thread16
+116:                                              ; preds = %109
+  %117 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
+  %118 = inttoptr i64 %117 to ptr
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 1880
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr i8, ptr %120, i64 376
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %124 = load ptr, ptr %123, align 8
+  %125 = icmp ne ptr %122, %124
+  %126 = icmp ne i32 %6, 121
+  %127 = and i1 %126, %125
+  br i1 %127, label %128, label %.thread16
 
-120:                                              ; preds = %108
-  call void @fput(ptr noundef nonnull %88) #10
+128:                                              ; preds = %116
+  call void @fput(ptr noundef nonnull %96) #10
   br label %.thread15
 
-.thread23:                                        ; preds = %.thread13, %.thread13, %.thread13
-  %121 = call i32 %84(ptr noundef null, ptr noundef null, ptr noundef %26) #10
-  br label %125
-
-122:                                              ; preds = %90
-  %123 = call i32 %84(ptr noundef null, ptr noundef null, ptr noundef %26) #10
-  br label %125
-
-.thread16:                                        ; preds = %101, %108
-  %124 = call i32 %84(ptr noundef nonnull %88, ptr noundef %103, ptr noundef %26) #10
-  call void @fput(ptr noundef nonnull %88) #10
-  br label %125
-
-125:                                              ; preds = %122, %.thread23, %.thread16
-  %126 = phi i32 [ %121, %.thread23 ], [ %124, %.thread16 ], [ %123, %122 ]
-  %127 = icmp sgt i32 %126, -1
-  br i1 %127, label %128, label %.thread15
-
-128:                                              ; preds = %125
-  %129 = call i64 @_copy_to_user(ptr noundef %5, ptr noundef %26, i64 noundef 24) #10
-  %130 = icmp eq i64 %129, 0
-  %131 = select i1 %130, i32 %126, i32 -14
-  br label %.thread15
-
-.thread15:                                        ; preds = %75, %75, %75, %69, %60, %40, %100, %120, %90, %128, %125
-  %132 = phi i32 [ %126, %125 ], [ %131, %128 ], [ -22, %100 ], [ -13, %120 ], [ -9, %90 ], [ -22, %40 ], [ -22, %60 ], [ -22, %69 ], [ -22, %75 ], [ -22, %75 ], [ -22, %75 ]
-  call void @kfree(ptr noundef %26) #10
+.thread23:                                        ; preds = %92, %92, %92
+  %129 = call i32 %84(ptr noundef null, ptr noundef null, ptr noundef %26) #10
   br label %133
 
-133:                                              ; preds = %.thread15, %.thread27, %13, %3
-  %134 = phi i32 [ %30, %.thread27 ], [ %132, %.thread15 ], [ -25, %3 ], [ -1, %13 ]
-  %135 = sext i32 %134 to i64
-  ret i64 %135
+130:                                              ; preds = %98
+  %131 = call i32 %84(ptr noundef null, ptr noundef null, ptr noundef %26) #10
+  br label %133
+
+.thread16:                                        ; preds = %109, %116
+  %132 = call i32 %84(ptr noundef nonnull %96, ptr noundef %111, ptr noundef %26) #10
+  call void @fput(ptr noundef nonnull %96) #10
+  br label %133
+
+133:                                              ; preds = %130, %.thread23, %.thread16
+  %134 = phi i32 [ %129, %.thread23 ], [ %132, %.thread16 ], [ %131, %130 ]
+  %135 = icmp sgt i32 %134, -1
+  br i1 %135, label %136, label %.thread15
+
+136:                                              ; preds = %133
+  %137 = call i64 @_copy_to_user(ptr noundef %5, ptr noundef %26, i64 noundef 24) #10
+  %138 = icmp eq i64 %137, 0
+  %139 = select i1 %138, i32 %134, i32 -14
+  br label %.thread15
+
+.thread15:                                        ; preds = %75, %75, %75, %69, %60, %40, %108, %128, %98, %136, %133, %86
+  %140 = phi i32 [ %134, %133 ], [ -25, %86 ], [ %139, %136 ], [ -22, %108 ], [ -13, %128 ], [ -9, %98 ], [ -22, %40 ], [ -22, %60 ], [ -22, %69 ], [ -22, %75 ], [ -22, %75 ], [ -22, %75 ]
+  call void @kfree(ptr noundef %26) #10
+  br label %141
+
+141:                                              ; preds = %.thread15, %.thread27, %13, %3
+  %142 = phi i32 [ %30, %.thread27 ], [ %140, %.thread15 ], [ -25, %3 ], [ -1, %13 ]
+  %143 = sext i32 %142 to i64
+  ret i64 %143
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

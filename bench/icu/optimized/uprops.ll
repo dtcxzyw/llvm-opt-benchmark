@@ -581,7 +581,7 @@ declare i32 @ucptrie_getRange_77(ptr noundef, i32 noundef, i32 noundef, i32 noun
 ; Function Attrs: mustprogress uwtable
 define zeroext i1 @u_hasIDType_77(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 11
-  br i1 %3, label %19, label %4
+  br i1 %3, label %18, label %4
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
@@ -590,23 +590,22 @@ define zeroext i1 @u_hasIDType_77(i32 noundef %0, i32 noundef %1) local_unnamed_
   %8 = zext i8 %7 to i32
   %9 = tail call i32 @u_getUnicodeProperties_77(i32 noundef %0, i32 noundef 2)
   %10 = lshr i32 %9, 26
-  %11 = add nsw i64 %5, -10
-  %.not = icmp ult i64 %11, -6
-  br i1 %.not, label %17, label %12
+  %.not = icmp sgt i8 %7, -1
+  br i1 %.not, label %16, label %11
 
-12:                                               ; preds = %4
-  %13 = icmp ult i32 %9, -1073741824
-  %14 = and i32 %10, %8
-  %15 = icmp ne i32 %14, 0
-  %16 = select i1 %13, i1 %15, i1 false
-  br label %19
+11:                                               ; preds = %4
+  %12 = icmp ult i32 %9, -1073741824
+  %13 = and i32 %10, %8
+  %14 = icmp ne i32 %13, 0
+  %15 = select i1 %12, i1 %14, i1 false
+  br label %18
 
-17:                                               ; preds = %4
-  %18 = icmp eq i32 %10, %8
-  br label %19
+16:                                               ; preds = %4
+  %17 = icmp eq i32 %10, %8
+  br label %18
 
-19:                                               ; preds = %12, %17, %2
-  %.0 = phi i1 [ false, %2 ], [ %16, %12 ], [ %18, %17 ]
+18:                                               ; preds = %11, %16, %2
+  %.0 = phi i1 [ false, %2 ], [ %15, %11 ], [ %17, %16 ]
   ret i1 %.0
 }
 

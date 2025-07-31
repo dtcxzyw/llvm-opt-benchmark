@@ -6099,7 +6099,7 @@ define internal fastcc void @dissect_nas_eps_esm_msg(ptr noundef %0, ptr noundef
   call void @col_append_sep_str(ptr noundef %25, i32 noundef 25, ptr noundef null, ptr noundef nonnull %17)
   %26 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef 0)
   %27 = add nuw nsw i32 %3, 3
-  %28 = icmp eq i32 %20, 27
+  %28 = icmp eq ptr %23, null
   br i1 %28, label %31, label %37
 
 29:                                               ; preds = %4
@@ -7879,8 +7879,8 @@ define internal fastcc void @dissect_nas_eps_emm_msg(ptr noundef %0, ptr noundef
   %24 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0)
   %25 = load i32, ptr %7, align 4
   switch i32 %25, label %26 [
-    i32 4, label %60
-    i32 2, label %60
+    i32 4, label %58
+    i32 2, label %58
   ]
 
 26:                                               ; preds = %19
@@ -7899,7 +7899,7 @@ define internal fastcc void @dissect_nas_eps_emm_msg(ptr noundef %0, ptr noundef
   %35 = zext i8 %34 to i32
   %36 = call ptr @try_val_to_str_idx_ext(i32 noundef %35, ptr noundef nonnull @nas_msg_emm_strings_ext, ptr noundef nonnull %6)
   %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %50, label %37
+  br i1 %.not.i, label %48, label %37
 
 37:                                               ; preds = %33
   %38 = load i32, ptr @hf_nas_eps_msg_emm_type, align 4
@@ -7913,34 +7913,31 @@ define internal fastcc void @dissect_nas_eps_emm_msg(ptr noundef %0, ptr noundef
   call void @col_append_sep_str(ptr noundef %44, i32 noundef 25, ptr noundef null, ptr noundef nonnull %36)
   %45 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0)
   %46 = add nuw nsw i32 %.0, 1
-  %47 = and i64 %40, 2305843009213693951
-  %48 = shl nuw i64 1, %47
-  %49 = and i64 %48, 4295262496
-  %.not60 = icmp eq i64 %49, 0
-  br i1 %.not60, label %58, label %52
+  %47 = icmp eq ptr %42, null
+  br i1 %47, label %50, label %56
 
-50:                                               ; preds = %33
+48:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
-  %51 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_nas_eps_unknown_msg_type, ptr noundef %0, i32 noundef %.0, i32 noundef 1, ptr noundef nonnull @.str.958, i32 noundef %35)
-  br label %60
+  %49 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_nas_eps_unknown_msg_type, ptr noundef %0, i32 noundef %.0, i32 noundef 1, ptr noundef nonnull @.str.958, i32 noundef %35)
+  br label %58
 
-52:                                               ; preds = %37
-  %53 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %46)
-  %.not55 = icmp eq i32 %53, 0
-  br i1 %.not55, label %60, label %54
+50:                                               ; preds = %37
+  %51 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %46)
+  %.not55 = icmp eq i32 %51, 0
+  br i1 %.not55, label %58, label %52
 
-54:                                               ; preds = %52
-  %55 = load i32, ptr @hf_nas_eps_msg_elems, align 4
-  %56 = sub i32 %8, %46
-  %57 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %55, ptr noundef %0, i32 noundef %46, i32 noundef %56, i32 noundef 0)
-  br label %60
+52:                                               ; preds = %50
+  %53 = load i32, ptr @hf_nas_eps_msg_elems, align 4
+  %54 = sub i32 %8, %46
+  %55 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef %46, i32 noundef %54, i32 noundef 0)
+  br label %58
 
-58:                                               ; preds = %37
-  %59 = sub i32 %8, %46
-  call void %42(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %46, i32 noundef %59)
-  br label %60
+56:                                               ; preds = %37
+  %57 = sub i32 %8, %46
+  call void %42(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %46, i32 noundef %57)
+  br label %58
 
-60:                                               ; preds = %58, %54, %52, %19, %19, %50
+58:                                               ; preds = %56, %52, %50, %19, %19, %48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
   ret void
 }

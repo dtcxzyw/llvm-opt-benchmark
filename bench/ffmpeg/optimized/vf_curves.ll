@@ -328,73 +328,68 @@ parse_psfile.exit:                                ; preds = %38, %75, %79, %.lr.
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %98 = load ptr, ptr %97, align 8, !tbaa !22
   %.not57 = icmp eq ptr %98, null
-  br i1 %.not57, label %99, label %108
+  br i1 %.not57, label %99, label %106
 
 99:                                               ; preds = %96
   %100 = load i32, ptr %86, align 8, !tbaa !35
   %101 = sext i32 %100 to i64
-  %102 = shl nuw i64 1, %101
-  %103 = and i64 %102, 1017
-  %.not58.not = icmp eq i64 %103, 0
-  br i1 %.not58.not, label %104, label %108
+  %102 = getelementptr inbounds [11 x %struct.anon], ptr @curves_presets, i64 0, i64 %101, i32 1
+  %103 = load ptr, ptr %102, align 8, !tbaa !38
+  %.not58 = icmp eq ptr %103, null
+  br i1 %.not58, label %106, label %104
 
 104:                                              ; preds = %99
-  %105 = getelementptr inbounds [11 x %struct.anon], ptr @curves_presets, i64 0, i64 %101, i32 1
-  %106 = load ptr, ptr %105, align 8, !tbaa !38
-  %107 = call noalias ptr @av_strdup(ptr noundef %106) #13
-  store ptr %107, ptr %97, align 8, !tbaa !22
-  %.not59 = icmp eq ptr %107, null
-  br i1 %.not59, label %.loopexit71, label %108
+  %105 = call noalias ptr @av_strdup(ptr noundef nonnull %103) #13
+  store ptr %105, ptr %97, align 8, !tbaa !22
+  %.not59 = icmp eq ptr %105, null
+  br i1 %.not59, label %.loopexit71, label %106
 
-108:                                              ; preds = %96, %99, %104
-  %109 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %110 = load ptr, ptr %109, align 8, !tbaa !22
-  %.not60 = icmp eq ptr %110, null
-  br i1 %.not60, label %111, label %120
+106:                                              ; preds = %96, %99, %104
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %108 = load ptr, ptr %107, align 8, !tbaa !22
+  %.not60 = icmp eq ptr %108, null
+  br i1 %.not60, label %109, label %116
 
-111:                                              ; preds = %108
-  %112 = load i32, ptr %86, align 8, !tbaa !35
-  %113 = sext i32 %112 to i64
-  %114 = shl nuw i64 1, %113
-  %115 = and i64 %114, 1017
-  %.not61.not = icmp eq i64 %115, 0
-  br i1 %.not61.not, label %116, label %120
+109:                                              ; preds = %106
+  %110 = load i32, ptr %86, align 8, !tbaa !35
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds [11 x %struct.anon], ptr @curves_presets, i64 0, i64 %111, i32 2
+  %113 = load ptr, ptr %112, align 16, !tbaa !39
+  %.not61 = icmp eq ptr %113, null
+  br i1 %.not61, label %116, label %114
 
-116:                                              ; preds = %111
-  %117 = getelementptr inbounds [11 x %struct.anon], ptr @curves_presets, i64 0, i64 %113, i32 2
-  %118 = load ptr, ptr %117, align 16, !tbaa !39
-  %119 = call noalias ptr @av_strdup(ptr noundef %118) #13
-  store ptr %119, ptr %109, align 8, !tbaa !22
-  %.not62 = icmp eq ptr %119, null
-  br i1 %.not62, label %.loopexit71, label %120
+114:                                              ; preds = %109
+  %115 = call noalias ptr @av_strdup(ptr noundef nonnull %113) #13
+  store ptr %115, ptr %107, align 8, !tbaa !22
+  %.not62 = icmp eq ptr %115, null
+  br i1 %.not62, label %.loopexit71, label %116
 
-120:                                              ; preds = %108, %111, %116
-  %121 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %122 = load ptr, ptr %121, align 8, !tbaa !22
-  %.not63 = icmp eq ptr %122, null
-  br i1 %.not63, label %123, label %131
+116:                                              ; preds = %106, %109, %114
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %118 = load ptr, ptr %117, align 8, !tbaa !22
+  %.not63 = icmp eq ptr %118, null
+  br i1 %.not63, label %119, label %126
 
-123:                                              ; preds = %120
-  %124 = load i32, ptr %86, align 8, !tbaa !35
-  %125 = sext i32 %124 to i64
-  %126 = add nsw i64 %125, -10
-  %.not64 = icmp ult i64 %126, -7
-  br i1 %.not64, label %131, label %127
+119:                                              ; preds = %116
+  %120 = load i32, ptr %86, align 8, !tbaa !35
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds [11 x %struct.anon], ptr @curves_presets, i64 0, i64 %121, i32 3
+  %123 = load ptr, ptr %122, align 8, !tbaa !40
+  %.not64 = icmp eq ptr %123, null
+  br i1 %.not64, label %126, label %124
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds nuw [11 x %struct.anon], ptr @curves_presets, i64 0, i64 %125, i32 3
-  %129 = load ptr, ptr %128, align 8, !tbaa !40
-  %130 = call noalias ptr @av_strdup(ptr noundef %129) #13
-  store ptr %130, ptr %121, align 8, !tbaa !22
-  %.not65 = icmp eq ptr %130, null
-  br i1 %.not65, label %.loopexit71, label %131
+124:                                              ; preds = %119
+  %125 = call noalias ptr @av_strdup(ptr noundef nonnull %123) #13
+  store ptr %125, ptr %117, align 8, !tbaa !22
+  %.not65 = icmp eq ptr %125, null
+  br i1 %.not65, label %.loopexit71, label %126
 
-131:                                              ; preds = %127, %123, %120
+126:                                              ; preds = %124, %119, %116
   store i32 0, ptr %86, align 8, !tbaa !35
   br label %.loopexit71
 
-.loopexit71:                                      ; preds = %12, %parse_psfile.exit.thread, %85, %131, %127, %116, %104, %94, %parse_psfile.exit
-  %.0 = phi i32 [ %.029.i, %parse_psfile.exit ], [ -12, %94 ], [ -12, %104 ], [ -12, %116 ], [ -12, %127 ], [ 0, %131 ], [ 0, %85 ], [ %21, %parse_psfile.exit.thread ], [ -12, %12 ]
+.loopexit71:                                      ; preds = %12, %parse_psfile.exit.thread, %85, %126, %124, %114, %104, %94, %parse_psfile.exit
+  %.0 = phi i32 [ %.029.i, %parse_psfile.exit ], [ -12, %94 ], [ -12, %104 ], [ -12, %114 ], [ -12, %124 ], [ 0, %126 ], [ 0, %85 ], [ %21, %parse_psfile.exit.thread ], [ -12, %12 ]
   ret i32 %.0
 }
 

@@ -354,7 +354,7 @@ define i32 @utf8_appendCharSafeBody_77(ptr noundef writeonly captures(none) %0, 
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw [6 x i32], ptr @_ZL15utf8_errorValue, i64 0, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !3
-  %83 = icmp eq i32 %79, 0
+  %83 = icmp ult i32 %82, 128
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %75
@@ -363,13 +363,13 @@ define i32 @utf8_appendCharSafeBody_77(ptr noundef writeonly captures(none) %0, 
   br label %108
 
 86:                                               ; preds = %75
-  %87 = icmp samesign ult i32 %73, 3
+  %87 = icmp ult i32 %82, 2048
   br i1 %87, label %88, label %92
 
 88:                                               ; preds = %86
   %89 = lshr i32 %82, 6
-  %90 = trunc i32 %89 to i8
-  %91 = or i8 %90, -64
+  %90 = trunc nuw nsw i32 %89 to i8
+  %91 = or disjoint i8 %90, -64
   br label %101
 
 92:                                               ; preds = %86

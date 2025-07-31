@@ -1886,7 +1886,7 @@ define internal fastcc void @tcg_gen_atomic_cmpxchg_i32_int(ptr noundef %0, ptr 
 
 14:                                               ; preds = %6
   tail call fastcc void @tcg_gen_nonatomic_cmpxchg_i32_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5)
-  br label %73
+  br label %70
 
 15:                                               ; preds = %6
   %16 = and i32 %5, 224
@@ -1948,62 +1948,58 @@ tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment
   %38 = and i32 %.1.i, 23
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr inbounds nuw [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %39
-  %41 = load ptr, ptr %40, align 8
-  %42 = shl nuw nsw i64 1, %39
-  %43 = and i64 %42, 1966111
-  %44 = icmp ne i64 %43, 0
-  tail call void @llvm.assume(i1 %44)
-  %45 = trunc i64 %4 to i32
-  %46 = shl i32 %.1.i, 4
-  %47 = and i32 %46, -144
-  %48 = or i32 %47, %45
-  %49 = getelementptr inbounds nuw i8, ptr %8, i64 60
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %59
+  %41 = load ptr, ptr %40, align 8, !nonnull !5, !noundef !5
+  %42 = trunc i64 %4 to i32
+  %43 = shl i32 %.1.i, 4
+  %44 = and i32 %43, -144
+  %45 = or i32 %44, %42
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 60
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %56
 
-52:                                               ; preds = %tcg_canonicalize_memop.exit
-  %53 = tail call ptr @tcg_temp_ebb_new_i64() #6
-  %54 = load ptr, ptr %7, align 8
-  %55 = ptrtoint ptr %1 to i64
-  %56 = ptrtoint ptr %54 to i64
-  %57 = sub i64 %55, %56
-  %58 = inttoptr i64 %57 to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %53, ptr noundef %58) #6
+49:                                               ; preds = %tcg_canonicalize_memop.exit
+  %50 = tail call ptr @tcg_temp_ebb_new_i64() #6
+  %51 = load ptr, ptr %7, align 8
+  %52 = ptrtoint ptr %1 to i64
+  %53 = ptrtoint ptr %51 to i64
+  %54 = sub i64 %52, %53
+  %55 = inttoptr i64 %54 to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %50, ptr noundef %55) #6
   br label %maybe_extend_addr64.exit
 
-59:                                               ; preds = %tcg_canonicalize_memop.exit
-  %60 = ptrtoint ptr %1 to i64
-  %61 = ptrtoint ptr %8 to i64
-  %62 = sub i64 %60, %61
-  %63 = inttoptr i64 %62 to ptr
+56:                                               ; preds = %tcg_canonicalize_memop.exit
+  %57 = ptrtoint ptr %1 to i64
+  %58 = ptrtoint ptr %8 to i64
+  %59 = sub i64 %57, %58
+  %60 = inttoptr i64 %59 to ptr
   br label %maybe_extend_addr64.exit
 
-maybe_extend_addr64.exit:                         ; preds = %52, %59
-  %.0.i = phi ptr [ %53, %52 ], [ %63, %59 ]
-  %64 = load ptr, ptr @tcg_env, align 8
-  %65 = tail call ptr @tcg_constant_i32(i32 noundef %48) #6
-  tail call void %41(ptr noundef %0, ptr noundef %64, ptr noundef %.0.i, ptr noundef %2, ptr noundef %3, ptr noundef %65) #6
-  %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 60
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %maybe_free_addr64.exit
+maybe_extend_addr64.exit:                         ; preds = %49, %56
+  %.0.i = phi ptr [ %50, %49 ], [ %60, %56 ]
+  %61 = load ptr, ptr @tcg_env, align 8
+  %62 = tail call ptr @tcg_constant_i32(i32 noundef %45) #6
+  tail call void %41(ptr noundef %0, ptr noundef %61, ptr noundef %.0.i, ptr noundef %2, ptr noundef %3, ptr noundef %62) #6
+  %63 = load ptr, ptr %7, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 60
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %maybe_free_addr64.exit
 
-70:                                               ; preds = %maybe_extend_addr64.exit
+67:                                               ; preds = %maybe_extend_addr64.exit
   tail call void @tcg_temp_free_i64(ptr noundef %.0.i) #6
   br label %maybe_free_addr64.exit
 
-maybe_free_addr64.exit:                           ; preds = %maybe_extend_addr64.exit, %70
-  %71 = and i32 %.1.i, 8
-  %.not22 = icmp eq i32 %71, 0
-  br i1 %.not22, label %73, label %72
+maybe_free_addr64.exit:                           ; preds = %maybe_extend_addr64.exit, %67
+  %68 = and i32 %.1.i, 8
+  %.not22 = icmp eq i32 %68, 0
+  br i1 %.not22, label %70, label %69
 
-72:                                               ; preds = %maybe_free_addr64.exit
+69:                                               ; preds = %maybe_free_addr64.exit
   tail call void @tcg_gen_ext_i32(ptr noundef %0, ptr noundef %0, i32 noundef %.1.i)
-  br label %73
+  br label %70
 
-73:                                               ; preds = %maybe_free_addr64.exit, %72, %14
+70:                                               ; preds = %maybe_free_addr64.exit, %69, %14
   ret void
 }
 
@@ -2076,7 +2072,7 @@ define dso_local void @tcg_gen_atomic_cmpxchg_i64_chk(ptr noundef %0, ptr nounde
 21:                                               ; preds = %7
   %22 = and i32 %5, 3
   %23 = icmp eq i32 %22, 3
-  br i1 %23, label %24, label %67
+  br i1 %23, label %24, label %73
 
 24:                                               ; preds = %21
   %25 = and i32 %5, 224
@@ -2116,66 +2112,79 @@ check_max_alignment.exit.i.i:                     ; preds = %31, %memop_alignmen
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds nuw [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
-  %43 = trunc i64 %4 to i32
-  %44 = shl i32 %spec.select.i.i, 4
-  %45 = and i32 %44, -208
-  %46 = or i32 %45, %43
-  %47 = icmp eq i32 %6, 0
-  br i1 %47, label %48, label %55
+  %.not40.i = icmp eq ptr %42, null
+  br i1 %.not40.i, label %68, label %43
 
-48:                                               ; preds = %check_max_alignment.exit.i.i
-  %49 = tail call ptr @tcg_temp_ebb_new_i64() #6
-  %50 = load ptr, ptr %8, align 8
-  %51 = ptrtoint ptr %1 to i64
-  %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  %54 = inttoptr i64 %53 to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %49, ptr noundef %54) #6
+43:                                               ; preds = %check_max_alignment.exit.i.i
+  %44 = trunc i64 %4 to i32
+  %45 = shl i32 %spec.select.i.i, 4
+  %46 = and i32 %45, -208
+  %47 = or i32 %46, %44
+  %48 = icmp eq i32 %6, 0
+  br i1 %48, label %49, label %56
+
+49:                                               ; preds = %43
+  %50 = tail call ptr @tcg_temp_ebb_new_i64() #6
+  %51 = load ptr, ptr %8, align 8
+  %52 = ptrtoint ptr %1 to i64
+  %53 = ptrtoint ptr %51 to i64
+  %54 = sub i64 %52, %53
+  %55 = inttoptr i64 %54 to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %50, ptr noundef %55) #6
   br label %maybe_extend_addr64.exit.i
 
-55:                                               ; preds = %check_max_alignment.exit.i.i
-  %56 = ptrtoint ptr %1 to i64
-  %57 = ptrtoint ptr %9 to i64
-  %58 = sub i64 %56, %57
-  %59 = inttoptr i64 %58 to ptr
+56:                                               ; preds = %43
+  %57 = ptrtoint ptr %1 to i64
+  %58 = ptrtoint ptr %9 to i64
+  %59 = sub i64 %57, %58
+  %60 = inttoptr i64 %59 to ptr
   br label %maybe_extend_addr64.exit.i
 
-maybe_extend_addr64.exit.i:                       ; preds = %55, %48
-  %.0.i.i = phi ptr [ %49, %48 ], [ %59, %55 ]
-  %60 = load ptr, ptr @tcg_env, align 8
-  %61 = tail call ptr @tcg_constant_i32(i32 noundef %46) #6
-  tail call void %42(ptr noundef %0, ptr noundef %60, ptr noundef %.0.i.i, ptr noundef %2, ptr noundef %3, ptr noundef %61) #6
-  %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 60
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %tcg_gen_atomic_cmpxchg_i64_int.exit
+maybe_extend_addr64.exit.i:                       ; preds = %56, %49
+  %.0.i.i = phi ptr [ %50, %49 ], [ %60, %56 ]
+  %61 = load ptr, ptr @tcg_env, align 8
+  %62 = tail call ptr @tcg_constant_i32(i32 noundef %47) #6
+  tail call void %42(ptr noundef %0, ptr noundef %61, ptr noundef %.0.i.i, ptr noundef %2, ptr noundef %3, ptr noundef %62) #6
+  %63 = load ptr, ptr %8, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 60
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %tcg_gen_atomic_cmpxchg_i64_int.exit
 
-66:                                               ; preds = %maybe_extend_addr64.exit.i
+67:                                               ; preds = %maybe_extend_addr64.exit.i
   tail call void @tcg_temp_free_i64(ptr noundef %.0.i.i) #6
   br label %tcg_gen_atomic_cmpxchg_i64_int.exit
 
-67:                                               ; preds = %21
-  %68 = tail call ptr @tcg_temp_ebb_new_i32() #6
-  %69 = tail call ptr @tcg_temp_ebb_new_i32() #6
-  %70 = tail call ptr @tcg_temp_ebb_new_i32() #6
-  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %68, ptr noundef %2) #6
-  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %69, ptr noundef %3) #6
-  %71 = and i32 %5, -13
-  tail call fastcc void @tcg_gen_atomic_cmpxchg_i32_int(ptr noundef %70, ptr noundef %1, ptr noundef %68, ptr noundef %69, i64 noundef %4, i32 noundef %71)
-  tail call void @tcg_temp_free_i32(ptr noundef %68) #6
-  tail call void @tcg_temp_free_i32(ptr noundef %69) #6
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %0, ptr noundef %70) #6
-  tail call void @tcg_temp_free_i32(ptr noundef %70) #6
-  %72 = and i32 %5, 8
-  %.not39.i = icmp eq i32 %72, 0
-  br i1 %.not39.i, label %tcg_gen_atomic_cmpxchg_i64_int.exit, label %73
+68:                                               ; preds = %check_max_alignment.exit.i.i
+  %69 = load ptr, ptr @tcg_env, align 8
+  %70 = load ptr, ptr @helper_info_exit_atomic, align 8
+  %71 = ptrtoint ptr %69 to i64
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 %71
+  tail call void @tcg_gen_call1(ptr noundef %70, ptr noundef nonnull @helper_info_exit_atomic, ptr noundef null, ptr noundef %72) #6
+  tail call void @tcg_gen_movi_i64(ptr noundef %0, i64 noundef 0) #6
+  br label %tcg_gen_atomic_cmpxchg_i64_int.exit
 
-73:                                               ; preds = %67
+73:                                               ; preds = %21
+  %74 = tail call ptr @tcg_temp_ebb_new_i32() #6
+  %75 = tail call ptr @tcg_temp_ebb_new_i32() #6
+  %76 = tail call ptr @tcg_temp_ebb_new_i32() #6
+  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %74, ptr noundef %2) #6
+  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %75, ptr noundef %3) #6
+  %77 = and i32 %5, -13
+  tail call fastcc void @tcg_gen_atomic_cmpxchg_i32_int(ptr noundef %76, ptr noundef %1, ptr noundef %74, ptr noundef %75, i64 noundef %4, i32 noundef %77)
+  tail call void @tcg_temp_free_i32(ptr noundef %74) #6
+  tail call void @tcg_temp_free_i32(ptr noundef %75) #6
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %0, ptr noundef %76) #6
+  tail call void @tcg_temp_free_i32(ptr noundef %76) #6
+  %78 = and i32 %5, 8
+  %.not39.i = icmp eq i32 %78, 0
+  br i1 %.not39.i, label %tcg_gen_atomic_cmpxchg_i64_int.exit, label %79
+
+79:                                               ; preds = %73
   tail call void @tcg_gen_ext_i64(ptr noundef %0, ptr noundef %0, i32 noundef %5)
   br label %tcg_gen_atomic_cmpxchg_i64_int.exit
 
-tcg_gen_atomic_cmpxchg_i64_int.exit:              ; preds = %20, %maybe_extend_addr64.exit.i, %66, %67, %73
+tcg_gen_atomic_cmpxchg_i64_int.exit:              ; preds = %20, %maybe_extend_addr64.exit.i, %67, %68, %73, %79
   ret void
 }
 
@@ -2256,45 +2265,62 @@ define dso_local void @tcg_gen_atomic_cmpxchg_i128_chk(ptr noundef %0, ptr nound
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 16
-  %26 = trunc i64 %4 to i32
-  %27 = shl i32 %5, 4
-  %28 = or i32 %27, %26
-  %29 = icmp eq i32 %6, 0
-  br i1 %29, label %30, label %37
+  %.not19.i = icmp eq ptr %25, null
+  br i1 %.not19.i, label %50, label %26
 
-30:                                               ; preds = %21
-  %31 = tail call ptr @tcg_temp_ebb_new_i64() #6
-  %32 = load ptr, ptr %8, align 8
-  %33 = ptrtoint ptr %1 to i64
-  %34 = ptrtoint ptr %32 to i64
-  %35 = sub i64 %33, %34
-  %36 = inttoptr i64 %35 to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %31, ptr noundef %36) #6
+26:                                               ; preds = %21
+  %27 = trunc i64 %4 to i32
+  %28 = shl i32 %5, 4
+  %29 = or i32 %28, %27
+  %30 = icmp eq i32 %6, 0
+  br i1 %30, label %31, label %38
+
+31:                                               ; preds = %26
+  %32 = tail call ptr @tcg_temp_ebb_new_i64() #6
+  %33 = load ptr, ptr %8, align 8
+  %34 = ptrtoint ptr %1 to i64
+  %35 = ptrtoint ptr %33 to i64
+  %36 = sub i64 %34, %35
+  %37 = inttoptr i64 %36 to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %32, ptr noundef %37) #6
   br label %maybe_extend_addr64.exit.i
 
-37:                                               ; preds = %21
-  %38 = ptrtoint ptr %1 to i64
-  %39 = ptrtoint ptr %9 to i64
-  %40 = sub i64 %38, %39
-  %41 = inttoptr i64 %40 to ptr
+38:                                               ; preds = %26
+  %39 = ptrtoint ptr %1 to i64
+  %40 = ptrtoint ptr %9 to i64
+  %41 = sub i64 %39, %40
+  %42 = inttoptr i64 %41 to ptr
   br label %maybe_extend_addr64.exit.i
 
-maybe_extend_addr64.exit.i:                       ; preds = %37, %30
-  %.0.i.i = phi ptr [ %31, %30 ], [ %41, %37 ]
-  %42 = load ptr, ptr @tcg_env, align 8
-  %43 = tail call ptr @tcg_constant_i32(i32 noundef %28) #6
-  tail call void %25(ptr noundef %0, ptr noundef %42, ptr noundef %.0.i.i, ptr noundef %2, ptr noundef %3, ptr noundef %43) #6
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 60
-  %46 = load i32, ptr %45, align 4
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %tcg_gen_atomic_cmpxchg_i128_int.exit
+maybe_extend_addr64.exit.i:                       ; preds = %38, %31
+  %.0.i.i = phi ptr [ %32, %31 ], [ %42, %38 ]
+  %43 = load ptr, ptr @tcg_env, align 8
+  %44 = tail call ptr @tcg_constant_i32(i32 noundef %29) #6
+  tail call void %25(ptr noundef %0, ptr noundef %43, ptr noundef %.0.i.i, ptr noundef %2, ptr noundef %3, ptr noundef %44) #6
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 60
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %tcg_gen_atomic_cmpxchg_i128_int.exit
 
-48:                                               ; preds = %maybe_extend_addr64.exit.i
+49:                                               ; preds = %maybe_extend_addr64.exit.i
   tail call void @tcg_temp_free_i64(ptr noundef %.0.i.i) #6
   br label %tcg_gen_atomic_cmpxchg_i128_int.exit
 
-tcg_gen_atomic_cmpxchg_i128_int.exit:             ; preds = %20, %maybe_extend_addr64.exit.i, %48
+50:                                               ; preds = %21
+  %51 = load ptr, ptr @tcg_env, align 8
+  %52 = load ptr, ptr @helper_info_exit_atomic, align 8
+  %53 = ptrtoint ptr %51 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 %53
+  tail call void @tcg_gen_call1(ptr noundef %52, ptr noundef nonnull @helper_info_exit_atomic, ptr noundef null, ptr noundef %54) #6
+  tail call void @tcg_gen_movi_i64(ptr noundef %0, i64 noundef 0) #6
+  %55 = ptrtoint ptr %0 to i64
+  %56 = add nuw nsw i64 %55, 56
+  %57 = inttoptr i64 %56 to ptr
+  tail call void @tcg_gen_movi_i64(ptr noundef nonnull %57, i64 noundef 0) #6
+  br label %tcg_gen_atomic_cmpxchg_i128_int.exit
+
+tcg_gen_atomic_cmpxchg_i128_int.exit:             ; preds = %20, %maybe_extend_addr64.exit.i, %49, %50
   ret void
 }
 
