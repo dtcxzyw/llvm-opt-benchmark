@@ -550,26 +550,26 @@ Vec_PtrFree.exit:                                 ; preds = %43
   tail call void @free(ptr noundef nonnull %5) #24
   %93 = load i8, ptr %.161, align 1, !tbaa !8
   switch i8 %93, label %.loopexit [
-    i8 59, label %98
+    i8 59, label %97
     i8 35, label %.preheader.preheader
   ]
 
 .preheader.preheader:                             ; preds = %Vec_PtrFree.exit
   %.060.lcssa84 = ptrtoint ptr %.060 to i64
   %94 = ptrtoint ptr %.161 to i64
-  %95 = sub i64 %94, %.060.lcssa84
-  %96 = getelementptr i8, ptr %.060, i64 %indvars.iv82
-  %97 = getelementptr i8, ptr %96, i64 %95
-  %scevgep = getelementptr i8, ptr %97, i64 1
+  %reass.sub = sub i64 %94, %.060.lcssa84
+  %95 = getelementptr i8, ptr %.060, i64 %indvars.iv82
+  %96 = getelementptr i8, ptr %95, i64 %reass.sub
+  %scevgep = getelementptr i8, ptr %96, i64 1
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %scevgep)
   %scevgep86 = getelementptr i8, ptr %scevgep, i64 %strlen
   br label %.loopexit
 
-98:                                               ; preds = %Vec_PtrFree.exit
+97:                                               ; preds = %Vec_PtrFree.exit
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader.preheader, %Vec_PtrFree.exit, %98
-  %.3 = phi ptr [ %21, %98 ], [ %.161, %Vec_PtrFree.exit ], [ %scevgep86, %.preheader.preheader ]
+.loopexit:                                        ; preds = %.preheader.preheader, %Vec_PtrFree.exit, %97
+  %.3 = phi ptr [ %21, %97 ], [ %.161, %Vec_PtrFree.exit ], [ %scevgep86, %.preheader.preheader ]
   ret ptr %.3
 }
 
