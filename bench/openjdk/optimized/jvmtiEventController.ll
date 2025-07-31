@@ -2054,27 +2054,27 @@ _ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit:
   tail call void @_ZN12JvmtiEnvBase19set_event_callbacksEPK19jvmtiEventCallbacksi(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1, i32 noundef %2) #15
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %42
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %41
 
-42:                                               ; preds = %_ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit, %42
+41:                                               ; preds = %_ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit, %41
   %indvars.iv = phi i64 [ 50, %_ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit ], [ %indvars.iv.next, %42 ]
   %.022 = phi i64 [ %40, %_ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit ], [ %.1, %42 ]
-  %43 = add nsw i64 %indvars.iv, -47
-  %44 = shl nuw i64 1, %43
-  %45 = getelementptr ptr, ptr %41, i64 %indvars.iv
-  %46 = getelementptr i8, ptr %45, i64 -400
+  %42 = add nsw i64 %indvars.iv, -47
+  %43 = shl nuw i64 1, %42
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
+  %46 = getelementptr i8, ptr %gep, i64 -400
   %47 = load ptr, ptr %46, align 8
   %.not20 = icmp eq ptr %47, null
-  %48 = or i64 %44, %.022
+  %48 = or i64 %43, %.022
   %49 = xor i64 %44, -1
   %50 = and i64 %.022, %49
   %.1 = select i1 %.not20, i64 %50, i64 %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 89
-  br i1 %exitcond.not, label %51, label %42, !llvm.loop !18
+  br i1 %exitcond.not, label %48, label %41, !llvm.loop !18
 
-51:                                               ; preds = %42
+48:                                               ; preds = %41
   store i64 %.1, ptr %39, align 8
   tail call void @_ZN27JvmtiEventControllerPrivate17recompute_enabledEv()
   ret void

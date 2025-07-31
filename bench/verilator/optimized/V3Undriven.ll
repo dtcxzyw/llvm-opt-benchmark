@@ -799,7 +799,7 @@ _ZN14VNVisitorConst12iterateConstEP7AstNode.exit: ; preds = %_ZN12VNUser2InUseC2
 8:                                                ; preds = %_ZN12VNUser1InUseC2Ev.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  br label %21
+  br label %20
 
 10:                                               ; preds = %_ZN12VNUser2InUseC2Ev.exit
   %11 = landingpad { ptr, i32 }
@@ -815,8 +815,8 @@ _ZN14VNVisitorConst12iterateConstEP7AstNode.exit: ; preds = %_ZN12VNUser2InUseC2
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIP16UndrivenVarEntrySaIS1_EED2Ev.exit.i, label %14
 
 14:                                               ; preds = %12
-  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %15 = getelementptr inbounds i8, ptr %.ptr, i64 -8
+  %gep = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %15 = getelementptr inbounds i8, ptr %gep, i64 -8
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
@@ -825,17 +825,17 @@ _ZN14VNVisitorConst12iterateConstEP7AstNode.exit: ; preds = %_ZN12VNUser2InUseC2
   br label %_ZNSt6vectorIP16UndrivenVarEntrySaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIP16UndrivenVarEntrySaIS1_EED2Ev.exit.i: ; preds = %14, %12
-  %20 = icmp eq i64 %.add, 16
-  br i1 %20, label %_ZNSt5arrayISt6vectorIP16UndrivenVarEntrySaIS2_EELm3EED2Ev.exit, label %12
+  %19 = icmp eq i64 %.add, 16
+  br i1 %19, label %_ZNSt5arrayISt6vectorIP16UndrivenVarEntrySaIS2_EELm3EED2Ev.exit, label %12
 
 _ZNSt5arrayISt6vectorIP16UndrivenVarEntrySaIS2_EELm3EED2Ev.exit: ; preds = %_ZNSt6vectorIP16UndrivenVarEntrySaIS1_EED2Ev.exit.i
   tail call void @_ZN12VNUser2InUseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #22
-  br label %21
+  br label %20
 
-21:                                               ; preds = %_ZNSt5arrayISt6vectorIP16UndrivenVarEntrySaIS2_EELm3EED2Ev.exit, %8
+20:                                               ; preds = %_ZNSt5arrayISt6vectorIP16UndrivenVarEntrySaIS2_EELm3EED2Ev.exit, %8
   %.pn = phi { ptr, i32 } [ %11, %_ZNSt5arrayISt6vectorIP16UndrivenVarEntrySaIS2_EELm3EED2Ev.exit ], [ %9, %8 ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN12VNUser1InUseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #22
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN12VNUser1InUseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #22
   resume { ptr, i32 } %.pn
 }
 
@@ -867,21 +867,21 @@ define linkonce_odr dso_local void @_ZN15UndrivenVisitorD2Ev(ptr noundef nonnull
   %.idx = phi i64 [ %.add, %_ZNSt6vectorIP16UndrivenVarEntrySaIS1_EED2Ev.exit.i ], [ 88, %._crit_edge ]
   %.add = add nsw i64 %.idx, -24
   %.ptr17 = getelementptr inbounds i8, ptr %0, i64 %.add
-  %10 = load ptr, ptr %.ptr17, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIP16UndrivenVarEntrySaIS1_EED2Ev.exit.i, label %11
+  %11 = load ptr, ptr %.ptr17, align 8, !tbaa !60
+  %.not.i.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIP16UndrivenVarEntrySaIS1_EED2Ev.exit.i, label %12
 
-11:                                               ; preds = %.preheader
-  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %12 = getelementptr inbounds i8, ptr %.ptr, i64 -8
+12:                                               ; preds = %.preheader
+  %gep = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %12 = getelementptr inbounds i8, ptr %gep, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !64
   %14 = ptrtoint ptr %13 to i64
-  %15 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %11 to i64
   %16 = sub i64 %14, %15
-  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %16) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %16) #23
   br label %_ZNSt6vectorIP16UndrivenVarEntrySaIS1_EED2Ev.exit.i
 
-_ZNSt6vectorIP16UndrivenVarEntrySaIS1_EED2Ev.exit.i: ; preds = %11, %.preheader
+_ZNSt6vectorIP16UndrivenVarEntrySaIS1_EED2Ev.exit.i: ; preds = %12, %.preheader
   %17 = icmp eq i64 %.add, 16
   br i1 %17, label %_ZNSt5arrayISt6vectorIP16UndrivenVarEntrySaIS2_EELm3EED2Ev.exit, label %.preheader
 

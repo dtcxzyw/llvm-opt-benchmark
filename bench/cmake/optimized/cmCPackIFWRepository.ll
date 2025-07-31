@@ -3433,16 +3433,16 @@ define linkonce_odr dso_local void @_ZN24cmCPackIFWUpdatesPatcher12StartElementE
   %.010.i = phi i64 [ %13, %.lr.ph.i ], [ 0, %3 ]
   %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %.010.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !95
-  store ptr %11, ptr %4, align 8, !tbaa !95
-  %12 = load ptr, ptr %5, align 8, !tbaa !121
-  call void @_ZN11cmXMLWriter9AttributeIPKcEEvS2_RKT_(ptr noundef nonnull align 8 dereferenceable(83) %12, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %gep.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %10 = load ptr, ptr %gep.i, align 8, !tbaa !95
+  store ptr %10, ptr %4, align 8, !tbaa !95
+  %11 = load ptr, ptr %5, align 8, !tbaa !121
+  call void @_ZN11cmXMLWriter9AttributeIPKcEEvS2_RKT_(ptr noundef nonnull align 8 dereferenceable(83) %11, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  %13 = add i64 %.010.i, 2
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %13
-  %15 = load ptr, ptr %14, align 8, !tbaa !95
-  %.not.i = icmp eq ptr %15, null
+  %12 = add i64 %.010.i, 2
+  %13 = getelementptr inbounds nuw ptr, ptr %2, i64 %12
+  %14 = load ptr, ptr %13, align 8, !tbaa !95
+  %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN24cmCPackIFWUpdatesPatcher13StartFragmentEPPKc.exit, label %.lr.ph.i, !llvm.loop !122
 
 _ZN24cmCPackIFWUpdatesPatcher13StartFragmentEPPKc.exit: ; preds = %.lr.ph.i, %3

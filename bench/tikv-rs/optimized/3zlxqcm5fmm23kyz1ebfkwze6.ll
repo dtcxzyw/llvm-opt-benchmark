@@ -564,9 +564,9 @@ define noundef nonnull ptr @_ZN10tikv_alloc5trace11MemoryTrace9sub_trace17h27ae4
   %.sroa.01.15.vec.insert.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %14
 
-14:                                               ; preds = %32, %6
-  %.sroa.9.0.i.i.i = phi i64 [ 0, %6 ], [ %33, %32 ]
-  %.pn.i.i = phi i64 [ %8, %6 ], [ %34, %32 ]
+14:                                               ; preds = %30, %6
+  %.sroa.9.0.i.i.i = phi i64 [ 0, %6 ], [ %31, %32 ]
+  %.pn.i.i = phi i64 [ %8, %6 ], [ %32, %32 ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i, %12
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.01.0.i.i.i
   %.sroa.0.0.copyload.i5.i.i = load <16 x i8>, ptr %15, align 1, !noalias !83
@@ -582,44 +582,44 @@ define noundef nonnull ptr @_ZN10tikv_alloc5trace11MemoryTrace9sub_trace17h27ae4
   %20 = add i64 %.sroa.01.0.i.i.i, %19
   %21 = and i64 %20, %12
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds { { ptr, [1 x i64] }, ptr }, ptr %13, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 -24
+  %gep.i.i = getelementptr inbounds { { ptr, [1 x i64] }, ptr }, ptr %13, i64 %22
+  %24 = getelementptr inbounds i8, ptr %gep.i.i, i64 -24
   %25 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h64cc8b0324c6d16eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24), !noalias !84
   br i1 %25, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb4e6d01e5a603591E.exit", label %29, !prof !87
 
-._crit_edge.i.i:                                  ; preds = %29, %14
+._crit_edge.i.i:; preds = %29, %14
   %26 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i, splat (i8 -1)
   %27 = bitcast <16 x i1> %26 to i16
   %28 = icmp eq i16 %27, 0
   br i1 %28, label %32, label %select.unfold, !prof !19
 
-29:                                               ; preds = %.lr.ph.i.i
+29:; preds = %.lr.ph.i.i
   %30 = add i16 %.sroa.06.0.i12.i.i, -1
   %31 = and i16 %30, %.sroa.06.0.i12.i.i
   %.not.i.not.i.i = icmp eq i16 %31, 0
   br i1 %.not.i.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-32:                                               ; preds = %._crit_edge.i.i
-  %33 = add i64 %.sroa.9.0.i.i.i, 16
-  %34 = add i64 %.sroa.01.0.i.i.i, %33
+30:                                               ; preds = %._crit_edge.i.i
+  %31 = add i64 %.sroa.9.0.i.i.i, 16
+  %32 = add i64 %.sroa.01.0.i.i.i, %31
   br label %14
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb4e6d01e5a603591E.exit": ; preds = %.lr.ph.i.i
-  %35 = getelementptr inbounds i8, ptr %23, i64 -8
-  %36 = load ptr, ptr %35, align 8, !nonnull !12, !noundef !12
+  %33 = getelementptr inbounds i8, ptr %23, i64 -8
+  %36 = load ptr, ptr %33, align 8, !nonnull !12, !noundef !12
   %37 = atomicrmw add ptr %36, i64 1 monotonic, align 8
   %38 = icmp slt i64 %37, 0
-  br i1 %38, label %41, label %39
+  br i1 %38, label %40, label %39
 
 select.unfold:                                    ; preds = %._crit_edge.i.i, %2
   tail call void @_ZN4core6option13unwrap_failed17h6d92321daa037fa0E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6061f5929ed42ce63391d20b5e0ca064.41) #15
   unreachable
 
-39:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb4e6d01e5a603591E.exit"
-  %40 = load ptr, ptr %35, align 8, !nonnull !12, !noundef !12
-  ret ptr %40
+38:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb4e6d01e5a603591E.exit"
+  %39 = load ptr, ptr %35, align 8, !nonnull !12, !noundef !12
+  ret ptr %39
 
-41:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb4e6d01e5a603591E.exit"
+40:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb4e6d01e5a603591E.exit"
   tail call void @llvm.trap()
   unreachable
 }

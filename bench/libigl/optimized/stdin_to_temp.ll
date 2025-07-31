@@ -27,20 +27,20 @@ define dso_local noundef zeroext i1 @_ZN3igl13stdin_to_tempEPP8_IO_FILE(ptr noun
 5:                                                ; preds = %1
   %6 = load ptr, ptr @stderr, align 8, !tbaa !4
   %7 = tail call i64 @fwrite(ptr nonnull @.str, i64 41, i64 1, ptr %6) #4
-  br label %35
+  br label %31
 
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #5
   %9 = load ptr, ptr @_ZSt3cin, align 8, !tbaa !9
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %11
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %gep7 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %gep7, i64 32
   %14 = load i32, ptr %13, align 8, !tbaa !11
   %.not6 = icmp eq i32 %14, 0
   br i1 %.not6, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %8, %30
+.lr.ph:; preds = %8, %30
   %15 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin)
   %16 = trunc i32 %15 to i8
   store i8 %16, ptr %2, align 1, !tbaa !22
@@ -53,23 +53,23 @@ define dso_local noundef zeroext i1 @_ZN3igl13stdin_to_tempEPP8_IO_FILE(ptr noun
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %._crit_edge.loopexit
 
-24:                                               ; preds = %.lr.ph
+24:; preds = %.lr.ph
   %25 = load ptr, ptr %0, align 8, !tbaa !4
   %26 = call i64 @fwrite(ptr noundef nonnull %2, i64 noundef 1, i64 noundef 1, ptr noundef %25)
   %.not = icmp eq i64 %26, 1
   br i1 %.not, label %30, label %27
 
-27:                                               ; preds = %24
+27:           ; preds = %24
   %28 = load ptr, ptr @stderr, align 8, !tbaa !4
   %29 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 36, i64 1, ptr %28) #4
-  br label %33
+  br label %29
 
 30:                                               ; preds = %24
   %.pre = load ptr, ptr @_ZSt3cin, align 8, !tbaa !9
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 -24
-  %.pre9 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert10 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %.pre9
-  %.phi.trans.insert11 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert10, i64 32
+  %.pre11 = load i64, ptr %.phi.trans.insert, align 8
+  %gep.phi.trans.insert = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %.pre11
+  %.phi.trans.insert11 = getelementptr inbounds nuw i8, ptr %gep.phi.trans.insert, i64 32
   %.pre12 = load i32, ptr %.phi.trans.insert11, align 8, !tbaa !11
   %31 = icmp eq i32 %.pre12, 0
   br i1 %31, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !23
@@ -79,17 +79,17 @@ define dso_local noundef zeroext i1 @_ZN3igl13stdin_to_tempEPP8_IO_FILE(ptr noun
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
-  %32 = phi ptr [ %.pre13, %._crit_edge.loopexit ], [ %3, %8 ]
-  tail call void @rewind(ptr noundef %32)
-  br label %33
+  %28 = phi ptr [ %.pre13, %._crit_edge.loopexit ], [ %3, %8 ]
+  tail call void @rewind(ptr noundef %28)
+  br label %29
 
-33:                                               ; preds = %._crit_edge, %27
-  %34 = phi i1 [ true, %._crit_edge ], [ false, %27 ]
+29:                                               ; preds = %._crit_edge, %27
+  %30 = phi i1 [ true, %._crit_edge ], [ false, %27 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #5
-  br label %35
+  br label %31
 
-35:                                               ; preds = %33, %5
-  %.0 = phi i1 [ false, %5 ], [ %34, %33 ]
+31:                                               ; preds = %29, %5
+  %.0 = phi i1 [ false, %5 ], [ %30, %33 ]
   ret i1 %.0
 }
 

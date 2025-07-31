@@ -1563,8 +1563,8 @@ define range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr noundef readonly captur
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %.015.in = load i8, ptr %21, align 1, !tbaa !35
+  %gep = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %.015.in = load i8, ptr %gep, align 1, !tbaa !35
   %.015 = and i8 %.015.in, -4
   %.not17 = icmp eq i8 %.015, 0
   br i1 %.not17, label %.thread, label %.lr.ph, !llvm.loop !96

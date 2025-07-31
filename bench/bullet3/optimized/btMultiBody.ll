@@ -280,7 +280,7 @@ define dso_local void @_ZN11btMultiBodyC2EifRK9btVector3bbb(ptr noundef nonnull 
   %70 = sext i32 %1 to i64
   %71 = mul nsw i64 %70, 688
   %72 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %71, i32 noundef 16)
-          to label %.noexc unwind label %131
+          to label %.noexc unwind label %130
 
 .noexc:                                           ; preds = %69
   %.pre.i = load i32, ptr %21, align 4, !tbaa !37
@@ -331,7 +331,7 @@ _ZNK20btAlignedObjectArrayI15btMultibodyLinkE4copyEiiPS0_.exit.i.i: ; preds = %7
 
 92:                                               ; preds = %_ZNK20btAlignedObjectArrayI15btMultibodyLinkE4copyEiiPS0_.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %89)
-          to label %_ZN20btAlignedObjectArrayI15btMultibodyLinkE10deallocateEv.exit.i.i unwind label %131
+          to label %_ZN20btAlignedObjectArrayI15btMultibodyLinkE10deallocateEv.exit.i.i unwind label %130
 
 _ZN20btAlignedObjectArrayI15btMultibodyLinkE10deallocateEv.exit.i.i: ; preds = %92, %_ZNK20btAlignedObjectArrayI15btMultibodyLinkE4copyEiiPS0_.exit.i.i
   store i8 1, ptr %19, align 8, !tbaa !35
@@ -441,7 +441,7 @@ _ZN20btAlignedObjectArrayI15btMultibodyLinkE10deallocateEv.exit.i.i: ; preds = %
   %103 = sext i32 %98 to i64
   %104 = mul nsw i64 %103, 48
   %105 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %104, i32 noundef 16)
-          to label %.noexc36 unwind label %133
+          to label %.noexc36 unwind label %132
 
 .noexc36:                                         ; preds = %102
   %.pre.i27 = load i32, ptr %41, align 4, !tbaa !49
@@ -483,7 +483,7 @@ _ZNK20btAlignedObjectArrayI11btMatrix3x3E4copyEiiPS0_.exit.i.i: ; preds = %108, 
 
 119:                                              ; preds = %_ZNK20btAlignedObjectArrayI11btMatrix3x3E4copyEiiPS0_.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %116)
-          to label %_ZN20btAlignedObjectArrayI11btMatrix3x3E10deallocateEv.exit.i.i unwind label %133
+          to label %_ZN20btAlignedObjectArrayI11btMatrix3x3E10deallocateEv.exit.i.i unwind label %132
 
 _ZN20btAlignedObjectArrayI11btMatrix3x3E10deallocateEv.exit.i.i: ; preds = %119, %_ZNK20btAlignedObjectArrayI11btMatrix3x3E4copyEiiPS0_.exit.i.i
   store i8 1, ptr %39, align 8, !tbaa !47
@@ -510,59 +510,59 @@ _ZN11btMultiBody21clearConstraintForcesEv.exit.thread: ; preds = %.loopexit
 
 123:                                              ; preds = %123, %.lr.ph.i38
   %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.i38 ], [ %indvars.iv.next.i41, %123 ]
-  %124 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %122, i64 %indvars.iv.i40, i32 17
+  %gep.i = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %122, i64 %indvars.iv.i40, i32 17
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, %wide.trip.count.i39
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %124, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %gep.i, i8 0, i64 32, i1 false)
   br i1 %exitcond.not.i42, label %_ZN11btMultiBody21clearConstraintForcesEv.exit, label %123, !llvm.loop !74
 
 _ZN11btMultiBody21clearConstraintForcesEv.exit:   ; preds = %123
   %.pr = load i32, ptr %21, align 4, !tbaa !37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %18, i8 0, i64 32, i1 false)
-  %125 = icmp sgt i32 %.pr, 0
-  br i1 %125, label %.lr.ph.i43, label %_ZN11btMultiBody21clearForcesAndTorquesEv.exit
+  %124 = icmp sgt i32 %.pr, 0
+  br i1 %124, label %.lr.ph.i43, label %_ZN11btMultiBody21clearForcesAndTorquesEv.exit
 
 .lr.ph.i43:                                       ; preds = %_ZN11btMultiBody21clearConstraintForcesEv.exit
-  %126 = load ptr, ptr %20, align 8, !tbaa !36
+  %125 = load ptr, ptr %20, align 8, !tbaa !36
   %wide.trip.count.i44 = zext nneg i32 %.pr to i64
-  br label %127
+  br label %126
 
-127:                                              ; preds = %127, %.lr.ph.i43
+126:                                              ; preds = %126, %.lr.ph.i43
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.i43 ], [ %indvars.iv.next.i46, %127 ]
-  %128 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %126, i64 %indvars.iv.i45
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 400
-  %130 = getelementptr inbounds nuw i8, ptr %128, i64 520
+  %127 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %125, i64 %indvars.iv.i45
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 400
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 520
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, %wide.trip.count.i44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %129, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, i8 0, i64 24, i1 false)
-  br i1 %exitcond.not.i47, label %_ZN11btMultiBody21clearForcesAndTorquesEv.exit, label %127, !llvm.loop !75
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %128, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, i8 0, i64 24, i1 false)
+  br i1 %exitcond.not.i47, label %_ZN11btMultiBody21clearForcesAndTorquesEv.exit, label %126, !llvm.loop !75
 
-_ZN11btMultiBody21clearForcesAndTorquesEv.exit:   ; preds = %127, %_ZN11btMultiBody21clearConstraintForcesEv.exit, %_ZN11btMultiBody21clearConstraintForcesEv.exit.thread
+_ZN11btMultiBody21clearForcesAndTorquesEv.exit:   ; preds = %126, %_ZN11btMultiBody21clearConstraintForcesEv.exit, %_ZN11btMultiBody21clearConstraintForcesEv.exit.thread
   ret void
 
-131:                                              ; preds = %92, %69
-  %132 = landingpad { ptr, i32 }
+130:                                              ; preds = %92, %69
+  %131 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.15)
   call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %.sroa.33)
-  br label %135
+  br label %134
 
-133:                                              ; preds = %119, %102
-  %134 = landingpad { ptr, i32 }
+132:                                              ; preds = %119, %102
+  %133 = landingpad { ptr, i32 }
           cleanup
-  br label %135
+  br label %134
 
-135:                                              ; preds = %133, %131
-  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %132, %131 ]
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  tail call void @_ZN20btAlignedObjectArrayI11btMatrix3x3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %136) #27
-  tail call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %137) #27
+134:                                              ; preds = %132, %130
+  %.pn = phi { ptr, i32 } [ %133, %133 ], [ %131, %131 ]
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  tail call void @_ZN20btAlignedObjectArrayI11btMatrix3x3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %135) #27
+  tail call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %136) #27
   tail call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %138) #27
   tail call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %139) #27
   tail call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %140) #27
@@ -592,10 +592,10 @@ define dso_local void @_ZN11btMultiBody21clearConstraintForcesEv(ptr noundef non
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %7, i64 %indvars.iv, i32 17
+  %gep = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %7, i64 %indvars.iv, i32 17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %gep, i8 0, i64 32, i1 false)
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !74
 }
 

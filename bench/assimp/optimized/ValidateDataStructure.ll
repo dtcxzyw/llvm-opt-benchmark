@@ -1660,19 +1660,19 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit.preheader: ; preds = %._
   %33 = and i32 %26, 8
   %34 = icmp eq i32 %33, 0
   %wide.trip.count323 = zext i32 %23 to i64
-  br i1 %.not171, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not171, label %35, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit.us
+35:                                               ; preds = %.lr.ph, %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit.us
   %indvars.iv320 = phi i64 [ %indvars.iv.next321, %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit.us ], [ 0, %.lr.ph ]
-  %35 = getelementptr inbounds nuw %struct.aiFace, ptr %25, i64 %indvars.iv320, i32 1
-  %36 = load ptr, ptr %35, align 8
+  %gep = getelementptr inbounds nuw %struct.aiFace, ptr %25, i64 %indvars.iv320, i32 1
+  %36 = load ptr, ptr %gep, align 8
   %.not172.us = icmp eq ptr %36, null
   br i1 %.not172.us, label %.split.us, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit.us
 
-_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit.us: ; preds = %.lr.ph.split.us
+_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit.us: ; preds = %35
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %exitcond324.not = icmp eq i64 %indvars.iv.next321, %wide.trip.count323
-  br i1 %exitcond324.not, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
+  br i1 %exitcond324.not, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit._crit_edge, label %35, !llvm.loop !13
 
 37:                                               ; preds = %._crit_edge.i
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #24
@@ -1754,7 +1754,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit._crit_edge: ; preds = %_
   %.not172 = icmp eq ptr %62, null
   br i1 %.not172, label %.split.us, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit
 
-.split.us:                                        ; preds = %60, %.lr.ph.split.us
+.split.us:                                        ; preds = %60, %35
   %.us-phi.in = phi i64 [ %indvars.iv320, %.lr.ph.split.us ], [ %indvars.iv, %60 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.35, i32 noundef %.us-phi) #24

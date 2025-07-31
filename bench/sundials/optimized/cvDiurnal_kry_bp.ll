@@ -123,9 +123,9 @@ check_retval.exit56:                              ; preds = %14
   %34 = fsub double 1.000000e+00, %33
   %35 = fmul double %33, %33
   %36 = call double @llvm.fmuladd.f64(double %35, double 5.000000e-01, double %34)
-  %invariant.gep.i.idx = mul nuw nsw i64 %indvars.iv32.i, 160
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %26, i64 %invariant.gep.i.idx
-  %37 = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 8
+  %37 = mul nuw nsw i64 %indvars.iv32.i, 160
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %26, i64 %37
+  %gep37.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 8
   br label %38
 
 38:                                               ; preds = %38, %27
@@ -146,7 +146,7 @@ check_retval.exit56:                              ; preds = %14
   store double %49, ptr %gep.i, align 8, !tbaa !19
   %51 = fmul double %47, 1.000000e+12
   %52 = fmul double %36, %51
-  %53 = getelementptr inbounds nuw double, ptr %37, i64 %50
+  %53 = getelementptr inbounds nuw double, ptr %gep37.i, i64 %50
   store double %52, ptr %53, align 8, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
@@ -329,7 +329,7 @@ define internal fastcc void @SetInitialProfiles(ptr noundef %0, double noundef %
   %4 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #10
   br label %5
 
-5:                                                ; preds = %3, %34
+5:                                                ; preds = %3, %32
   %indvars.iv32 = phi i64 [ 0, %3 ], [ %indvars.iv.next33, %34 ]
   %6 = trunc nuw nsw i64 %indvars.iv32 to i32
   %7 = uitofp nneg i32 %6 to double
@@ -342,40 +342,40 @@ define internal fastcc void @SetInitialProfiles(ptr noundef %0, double noundef %
   %14 = tail call double @llvm.fmuladd.f64(double %13, double 5.000000e-01, double %12)
   %15 = mul nuw nsw i64 %indvars.iv32, 20
   %invariant.gep = getelementptr inbounds nuw double, ptr %4, i64 %15
-  %16 = getelementptr inbounds nuw double, ptr %4, i64 %15
+  %gep37 = getelementptr inbounds nuw double, ptr %4, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %18
 
-18:                                               ; preds = %5, %18
+18:; preds = %5, %18
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %18 ]
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = uitofp nneg i32 %19 to double
   %21 = tail call double @llvm.fmuladd.f64(double %20, double %1, double 0.000000e+00)
   %22 = fadd double %21, -1.000000e+01
-  %23 = fmul double %22, 1.000000e-01
-  %24 = fmul double %23, %23
+  %22 = fmul double %22, 1.000000e-01
+  %24 = fmul double %23, %22
   %25 = fsub double 1.000000e+00, %24
   %26 = fmul double %24, %24
   %27 = tail call double @llvm.fmuladd.f64(double %26, double 5.000000e-01, double %25)
-  %28 = fmul double %27, 1.000000e+06
+  %27 = fmul double %27, 1.000000e+06
   %29 = fmul double %14, %28
   %30 = shl nuw nsw i64 %indvars.iv, 1
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %30
   store double %29, ptr %gep, align 8, !tbaa !19
-  %31 = fmul double %27, 1.000000e+12
+  %30 = fmul double %27, 1.000000e+12
   %32 = fmul double %14, %31
   %33 = getelementptr inbounds nuw double, ptr %17, i64 %30
   store double %32, ptr %33, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %34, label %18
+  br i1 %exitcond.not, label %32, label %18
 
-34:                                               ; preds = %18
+32:                                               ; preds = %18
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 10
-  br i1 %exitcond35.not, label %35, label %5
+  br i1 %exitcond35.not, label %33, label %5
 
-35:                                               ; preds = %34
+33:                                               ; preds = %32
   ret void
 }
 

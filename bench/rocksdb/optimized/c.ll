@@ -14006,7 +14006,7 @@ define void @rocksdb_batched_multi_get_cf(ptr noundef readonly captures(none) %0
 
 .loopexit79:                                      ; preds = %.preheader78, %55
   tail call void @_ZdaPvm(ptr noundef nonnull %28, i64 noundef %27) #45
-  br label %119
+  br label %118
 
 .lr.ph:                                           ; preds = %46, %.lr.ph
   %.04783 = phi i64 [ %64, %.lr.ph ], [ 0, %46 ]
@@ -14061,7 +14061,7 @@ define void @rocksdb_batched_multi_get_cf(ptr noundef readonly captures(none) %0
   %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %70, i64 noundef 96) #45
-  br label %119
+  br label %118
 
 85:                                               ; preds = %65
   %86 = getelementptr inbounds nuw ptr, ptr %6, i64 %.084
@@ -14153,8 +14153,8 @@ _ZN7rocksdb13PinnableSliceD2Ev.exit:              ; preds = %_ZNKSt7__cxx1112bas
 .preheader:                                       ; preds = %.loopexit76, %_ZN7rocksdb6StatusD2Ev.exit
   %.idx68 = phi i64 [ %.add69, %_ZN7rocksdb6StatusD2Ev.exit ], [ %.add70, %.loopexit76 ]
   %.add69 = add nsw i64 %.idx68, -16
-  %.ptr71 = getelementptr inbounds i8, ptr %41, i64 %.add69
-  %116 = getelementptr inbounds nuw i8, ptr %.ptr71, i64 8
+  %gep = getelementptr inbounds i8, ptr %41, i64 %.add69
+  %116 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !25
   %.not.i.i = icmp eq ptr %117, null
   br i1 %.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -14165,14 +14165,14 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %.preheader, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   store ptr null, ptr %116, align 8, !tbaa !25
-  %118 = icmp eq i64 %.add69, 8
-  br i1 %118, label %.loopexit, label %.preheader
+  %117 = icmp eq i64 %.add69, 8
+  br i1 %117, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %.loopexit76
   call void @_ZdaPvm(ptr noundef nonnull %41, i64 noundef %.add70) #45
   ret void
 
-119:                                              ; preds = %83, %.loopexit79
+118:                                              ; preds = %83, %.loopexit79
   %.pn = phi { ptr, i32 } [ %84, %83 ], [ %56, %.loopexit79 ]
   resume { ptr, i32 } %.pn
 }

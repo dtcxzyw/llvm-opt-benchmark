@@ -133,9 +133,9 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   %.sroa.01.15.vec.insert.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %12
 
-12:                                               ; preds = %30, %3
-  %.sroa.9.0.i.i = phi i64 [ 0, %3 ], [ %31, %30 ]
-  %.pn.i = phi i64 [ %6, %3 ], [ %32, %30 ]
+12:                                               ; preds = %28, %3
+  %.sroa.9.0.i.i = phi i64 [ 0, %3 ], [ %29, %30 ]
+  %.pn.i = phi i64 [ %6, %3 ], [ %30, %30 ]
   %.sroa.01.0.i.i = and i64 %.pn.i, %10
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.01.0.i.i
   %.sroa.0.0.copyload.i5.i = load <16 x i8>, ptr %13, align 1, !noalias !20
@@ -151,30 +151,30 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   %18 = add i64 %.sroa.01.0.i.i, %17
   %19 = and i64 %18, %10
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds { i32, [1 x i32], { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %11, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 -192
+  %gep.i = getelementptr inbounds { i32, [1 x i32], { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %11, i64 %20
+  %22 = getelementptr inbounds i8, ptr %gep.i, i64 -192
   %.val3.i.i = load i32, ptr %22, align 4, !noalias !21, !noundef !10
   %23 = icmp eq i32 %.val3.i.i, %2
   br i1 %23, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he6ef1cbf5b7c82e0E.exit", label %27, !prof !24
 
-._crit_edge.i:                                    ; preds = %27, %12
+._crit_edge.i:; preds = %27, %12
   %24 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i, splat (i8 -1)
   %25 = bitcast <16 x i1> %24 to i16
   %26 = icmp eq i16 %25, 0
   br i1 %26, label %30, label %35, !prof !25
 
-27:                                               ; preds = %.lr.ph.i
+27:; preds = %.lr.ph.i
   %28 = add i16 %.sroa.06.0.i12.i, -1
   %29 = and i16 %28, %.sroa.06.0.i12.i
   %.not.i.not.i = icmp eq i16 %29, 0
   br i1 %.not.i.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-30:                                               ; preds = %._crit_edge.i
-  %31 = add i64 %.sroa.9.0.i.i, 16
-  %32 = add i64 %.sroa.01.0.i.i, %31
+28:                                               ; preds = %._crit_edge.i
+  %29 = add i64 %.sroa.9.0.i.i, 16
+  %30 = add i64 %.sroa.01.0.i.i, %29
   br label %12
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he6ef1cbf5b7c82e0E.exit": ; preds = %.lr.ph.i
+31:                                               ; preds = %.lr.ph.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -192,7 +192,7 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store i32 %36, ptr %.sroa.5.0..sroa_idx, align 8
   br label %37
 
-37:                                               ; preds = %35, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he6ef1cbf5b7c82e0E.exit"
+37:                                               ; preds = %35, %31
   ret void
 }
 

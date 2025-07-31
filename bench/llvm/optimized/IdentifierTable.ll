@@ -20161,8 +20161,8 @@ _ZNK5clang8Selector14getNameForSlotEj.exit.us:    ; preds = %_ZNK5clang8Selector
 
 _ZNK5clang8Selector14getNameForSlotEj.exit.us.thread: ; preds = %_ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i.us
   %27 = zext i32 %.0920.us to i64
-  %.sroa.2.0..sroa_idx.us30 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1, i64 %27, i32 1
-  %.sroa.2.0.copyload.us31 = load i64, ptr %.sroa.2.0..sroa_idx.us30, align 8, !tbaa !53
+  %gep55 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1, i64 %27, i32 1
+  %.sroa.2.0.copyload.us31 = load i64, ptr %gep55, align 8, !tbaa !53
   %.not.i.i12.us32 = icmp eq i64 %.sroa.2.0.copyload.us31, 0
   br i1 %.not.i.i12.us32, label %_ZN4llvmneENS_9StringRefES0_.exit.thread16.us, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
@@ -20202,8 +20202,8 @@ _ZNK5clang8Selector14getNameForSlotEj.exit:       ; preds = %_ZNK5clang8Selector
   br i1 %.not.i.i12, label %40, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZNK5clang8Selector14getNameForSlotEj.exit.thread: ; preds = %_ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i
-  %.sroa.2.0..sroa_idx42 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1, i64 %31, i32 1
-  %.sroa.2.0.copyload43 = load i64, ptr %.sroa.2.0..sroa_idx42, align 8, !tbaa !53
+  %gep = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1, i64 %31, i32 1
+  %.sroa.2.0.copyload43 = load i64, ptr %gep, align 8, !tbaa !53
   %.not.i.i1244 = icmp eq i64 %.sroa.2.0.copyload43, 0
   br i1 %.not.i.i1244, label %_ZN4llvmneENS_9StringRefES0_.exit.thread16, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 

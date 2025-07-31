@@ -711,8 +711,8 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTState13DoApplyAct
   br i1 %93, label %"_ZSt6any_ofIPKSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EEZNKS1_20ultimate_tic_tac_toe16UltimateTTTState22AllLocalStatesTerminalEvE3$_0EbT_SB_T0_.exit.loopexit.i", label %94
 
 94:                                               ; preds = %89
-  %.ptr5.i = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.ptr.i, i64 16
-  %.val30.i.i.i.i.i.i = load ptr, ptr %.ptr5.i, align 8
+  %gep = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.ptr.i, i64 16
+  %.val30.i.i.i.i.i.i = load ptr, ptr %gep, align 8
   %95 = load ptr, ptr %.val30.i.i.i.i.i.i, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 88
   %97 = load ptr, ptr %96, align 8

@@ -304,7 +304,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !55, !nonnull !12, !noundef !12
   %7 = icmp eq ptr %4, %6
-  br i1 %7, label %91, label %8
+  br i1 %7, label %90, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -422,8 +422,8 @@ _ZN9hashbrown3map9make_hash17hacb2b4ab98fa14ebE.exit.i.i: ; preds = %25, %23
   %68 = add i64 %.sroa.04.0.i.i.i.i, %66
   %69 = and i64 %68, %48
   %70 = sub nsw i64 0, %69
-  %71 = getelementptr inbounds { ptr, ptr }, ptr %49, i64 %70
-  %72 = getelementptr inbounds i8, ptr %71, i64 -16
+  %gep.i.i.i = getelementptr inbounds { ptr, ptr }, ptr %49, i64 %70
+  %72 = getelementptr inbounds i8, ptr %gep.i.i.i, i64 -16
   %.val2.i.i.i.i = load ptr, ptr %72, align 8, !noalias !108, !nonnull !12, !align !60, !noundef !12
   %73 = getelementptr inbounds nuw i8, ptr %.val2.i.i.i.i, i64 23
   %74 = load i8, ptr %73, align 1, !range !104, !alias.scope !111, !noalias !114, !noundef !12
@@ -439,32 +439,32 @@ _ZN9hashbrown3map9make_hash17hacb2b4ab98fa14ebE.exit.i.i: ; preds = %25, %23
   %81 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h51f5f87aee17eeb1E"(ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i.i.i, i64 noundef %.sroa.01.0.i.i.i.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %spec.select.i1.i.i.i.i.i.i, i64 noundef %.sroa.01.0.i3.i.i.i.i.i.i), !noalias !108
   br i1 %81, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd9419dcfe13ab5b8E.exit.i", label %62
 
-82:                                               ; preds = %62
+82:; preds = %62
   %83 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i, splat (i8 -1)
   %84 = bitcast <16 x i1> %83 to i16
   %85 = icmp eq i16 %84, 0
   br i1 %85, label %86, label %"_ZN9polars_io7parquet5write6writer24get_column_write_options28_$u7b$$u7b$closure$u7d$$u7d$17h9a2b64d34db69debE.exit"
 
-86:                                               ; preds = %82
-  %87 = add i64 %.sroa.08.0.i.i.i.i, 16
+86:; preds = %82
+  %86 = add i64 %.sroa.08.0.i.i.i.i, 16
   %88 = add i64 %87, %.sroa.04.0.i.i.i.i
   br label %58
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd9419dcfe13ab5b8E.exit.i": ; preds = %63
-  %89 = getelementptr inbounds i8, ptr %71, i64 -8
-  %90 = load ptr, ptr %89, align 8, !noalias !117, !nonnull !12, !align !60, !noundef !12
+  %87 = getelementptr inbounds i8, ptr %71, i64 -8
+  %90 = load ptr, ptr %87, align 8, !noalias !117, !nonnull !12, !align !60, !noundef !12
   br label %"_ZN9polars_io7parquet5write6writer24get_column_write_options28_$u7b$$u7b$closure$u7d$$u7d$17h9a2b64d34db69debE.exit"
 
 "_ZN9polars_io7parquet5write6writer24get_column_write_options28_$u7b$$u7b$closure$u7d$$u7d$17h9a2b64d34db69debE.exit": ; preds = %82, %8, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd9419dcfe13ab5b8E.exit.i"
   %.sroa.0.0.i2 = phi ptr [ %90, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd9419dcfe13ab5b8E.exit.i" ], [ null, %8 ], [ null, %82 ]
   call void @_ZN9polars_io7parquet5write6writer27to_column_write_options_rec17h466c9293dd13da55E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %10, ptr noalias noundef readonly align 8 dereferenceable_or_null(80) %.sroa.0.0.i2)
-  br label %92
+  br label %91
 
-91:                                               ; preds = %2
+90:                                               ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %92
+  br label %91
 
-92:                                               ; preds = %91, %"_ZN9polars_io7parquet5write6writer24get_column_write_options28_$u7b$$u7b$closure$u7d$$u7d$17h9a2b64d34db69debE.exit"
+91:                                               ; preds = %90, %"_ZN9polars_io7parquet5write6writer24get_column_write_options28_$u7b$$u7b$closure$u7d$$u7d$17h9a2b64d34db69debE.exit"
   ret void
 }
 

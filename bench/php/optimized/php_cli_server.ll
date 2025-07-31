@@ -2460,36 +2460,36 @@ define internal void @add_response_header(ptr noundef readonly captures(none) %0
   ]
 
 .critedge3:                                       ; preds = %.preheader, %.preheader
-  %16 = add nsw i64 %.07182, -1
-  %17 = icmp sgt i64 %.07182, 1
-  br i1 %17, label %.preheader, label %.critedge
+  %15 = add nsw i64 %.07182, -1
+  %16 = icmp sgt i64 %.07182, 1
+  br i1 %16, label %.preheader, label %.critedge
 
-18:                                               ; preds = %.preheader
-  %19 = add nuw nsw i64 %.07182, 1
-  %20 = icmp samesign ugt i64 %.07182, 32767
-  br i1 %20, label %21, label %23, !prof !62
+17:                                               ; preds = %.preheader
+  %18 = add nuw nsw i64 %.07182, 1
+  %19 = icmp samesign ugt i64 %.07182, 32767
+  br i1 %19, label %20, label %22, !prof !62
 
-21:                                               ; preds = %18
-  %22 = tail call noalias ptr @_emalloc(i64 noundef %19) #31
-  br label %25
+20:                                               ; preds = %17
+  %21 = tail call noalias ptr @_emalloc(i64 noundef %18) #31
+  br label %24
 
-23:                                               ; preds = %18
-  %24 = alloca i8, i64 %19, align 16
-  br label %25
+22:                                               ; preds = %17
+  %23 = alloca i8, i64 %18, align 16
+  br label %24
 
-25:                                               ; preds = %21, %23
-  %26 = phi ptr [ %24, %23 ], [ %22, %21 ]
-  %27 = load ptr, ptr %0, align 8, !tbaa !61
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %27, i64 %.07182, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %.07182
-  store i8 0, ptr %28, align 1, !tbaa !4
+24:                                               ; preds = %20, %22
+  %25 = phi ptr [ %23, %23 ], [ %21, %21 ]
+  %26 = load ptr, ptr %0, align 8, !tbaa !61
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %26, i64 %.07182, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %.07182
+  store i8 0, ptr %27, align 1, !tbaa !4
   br label %.critedge5
 
-.critedge5:                                       ; preds = %.critedge5.backedge, %25
-  %.0 = phi ptr [ %7, %25 ], [ %29, %.critedge5.backedge ]
-  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %30 = load i8, ptr %29, align 1, !tbaa !4
-  switch i8 %30, label %31 [
+.critedge5:                                       ; preds = %.critedge5.backedge, %24
+  %.0 = phi ptr [ %7, %25 ], [ %28, %.critedge5.backedge ]
+  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !4
+  switch i8 %29, label %31 [
     i8 32, label %.critedge5.backedge
     i8 9, label %.critedge5.backedge
   ]
@@ -2497,21 +2497,21 @@ define internal void @add_response_header(ptr noundef readonly captures(none) %0
 .critedge5.backedge:                              ; preds = %.critedge5, %.critedge5
   br label %.critedge5
 
-31:                                               ; preds = %.critedge5
-  %32 = and i64 %.07182, 4294967295
-  %33 = load i64, ptr %3, align 8, !tbaa !59
-  %34 = ptrtoint ptr %29 to i64
-  %35 = ptrtoint ptr %27 to i64
-  %.neg = sub i64 %35, %34
-  %36 = add i64 %.neg, %33
-  call void @add_assoc_stringl_ex(ptr noundef %1, ptr noundef nonnull %26, i64 noundef %32, ptr noundef nonnull %29, i64 noundef %36) #29
-  br i1 %20, label %37, label %.critedge, !prof !63
+30:                                               ; preds = %.critedge5
+  %31 = and i64 %.07182, 4294967295
+  %32 = load i64, ptr %3, align 8, !tbaa !59
+  %33 = ptrtoint ptr %28 to i64
+  %34 = ptrtoint ptr %26 to i64
+  %.neg = sub i64 %34, %33
+  %35 = add i64 %.neg, %32
+  call void @add_assoc_stringl_ex(ptr noundef %1, ptr noundef nonnull %25, i64 noundef %31, ptr noundef nonnull %28, i64 noundef %35) #29
+  br i1 %19, label %36, label %.critedge, !prof !63
 
-37:                                               ; preds = %31
-  call void @_efree(ptr noundef nonnull %26) #29
+36:                                               ; preds = %30
+  call void @_efree(ptr noundef nonnull %25) #29
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge3, %5, %31, %37, %2
+.critedge:                                        ; preds = %.critedge3, %5, %30, %36, %2
   ret void
 }
 

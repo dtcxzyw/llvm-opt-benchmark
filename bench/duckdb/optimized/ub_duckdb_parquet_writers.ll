@@ -2678,29 +2678,29 @@ define internal fastcc void @_ZN6duckdbL19WriteParquetDecimalENS_9hugeint_tEPh(i
   %exitcond.not = icmp eq i64 %29, 8
   br i1 %exitcond.not, label %.preheader, label %23, !llvm.loop !132
 
-30:                                               ; preds = %.preheader
-  br i1 %10, label %41, label %38
+30:                                               ; preds = %31
+  br i1 %10, label %40, label %38
 
-.preheader:                                       ; preds = %23, %.preheader
+31:                                               ; preds = %23, %.preheader
   %.01618 = phi i64 [ %37, %.preheader ], [ 0, %23 ]
-  %31 = shl nuw nsw i64 %.01618, 3
-  %32 = sub nuw nsw i64 56, %31
-  %33 = lshr i64 %21, %32
-  %34 = trunc i64 %33 to i8
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 %.01618
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %32 = shl nuw nsw i64 %.01618, 3
+  %33 = sub nuw nsw i64 56, %32
+  %34 = lshr i64 %21, %33
+  %35 = trunc i64 %34 to i8
+  %gep = getelementptr inbounds nuw i8, ptr %2, i64 %.01618
+  %36 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   store i8 %34, ptr %36, align 1, !tbaa !115
   %37 = add nuw nsw i64 %.01618, 1
   %exitcond19.not = icmp eq i64 %37, 8
   br i1 %exitcond19.not, label %30, label %.preheader, !llvm.loop !133
 
-38:                                               ; preds = %30
+38:; preds = %30
   %39 = load i8, ptr %2, align 1, !tbaa !115
   %40 = or i8 %39, -128
   store i8 %40, ptr %2, align 1, !tbaa !115
   br label %41
 
-41:                                               ; preds = %38, %30
+40:                                               ; preds = %38, %30
   ret void
 }
 

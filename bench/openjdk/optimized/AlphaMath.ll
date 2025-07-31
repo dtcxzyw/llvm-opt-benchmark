@@ -40,7 +40,7 @@ define hidden void @initAlphaTables() local_unnamed_addr #0 {
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %._crit_edge ], [ 1, %12 ]
   %indvar = phi i64 [ %indvar.next, %._crit_edge ], [ 0, %12 ]
   %13 = mul nuw nsw i64 %indvar, 257
-  %14 = getelementptr i8, ptr @div8table, i64 %13
+  %gep = getelementptr i8, ptr @div8table, i64 %13
   %scevgep = getelementptr i8, ptr %14, i64 257
   %15 = sub nsw i64 255, %indvar
   %16 = trunc nuw nsw i64 %indvars.iv52 to i32
@@ -50,26 +50,26 @@ define hidden void @initAlphaTables() local_unnamed_addr #0 {
   %20 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %indvars.iv52
   br label %21
 
-21:                                               ; preds = %.preheader35, %21
+20:                                               ; preds = %.preheader35, %20
   %indvars.iv48 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next49, %21 ]
-  %.040 = phi i32 [ 8388608, %.preheader35 ], [ %25, %21 ]
-  %22 = lshr i32 %.040, 24
-  %23 = trunc nuw i32 %22 to i8
-  %24 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 0, i64 %indvars.iv48
-  store i8 %23, ptr %24, align 1
-  %25 = add i32 %.040, %19
+  %.040 = phi i32 [ 8388608, %.preheader35 ], [ %24, %21 ]
+  %21 = lshr i32 %.040, 24
+  %22 = trunc nuw i32 %21 to i8
+  %23 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 0, i64 %indvars.iv48
+  store i8 %22, ptr %23, align 1
+  %24 = add i32 %.040, %19
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, %indvars.iv52
-  br i1 %exitcond51.not, label %._crit_edge, label %21, !llvm.loop !9
+  br i1 %exitcond51.not, label %._crit_edge, label %20, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %21
+._crit_edge:                                      ; preds = %20
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 -1, i64 %15, i1 false)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond58.not = icmp eq i64 %indvar.next, 255
-  br i1 %exitcond58.not, label %26, label %.preheader35, !llvm.loop !10
+  br i1 %exitcond58.not, label %25, label %.preheader35, !llvm.loop !10
 
-26:                                               ; preds = %._crit_edge
+25:                                               ; preds = %._crit_edge
   ret void
 }
 

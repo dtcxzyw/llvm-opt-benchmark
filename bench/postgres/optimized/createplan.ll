@@ -8353,18 +8353,18 @@ define internal fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef readonl
   %.019 = phi ptr [ %32, %31 ], [ %29, %.lr.ph47 ]
   %34 = trunc i64 %indvars.iv50 to i16
   %35 = tail call ptr @makeTargetEntry(ptr noundef %.019, i16 noundef signext %34, ptr noundef null, i1 noundef zeroext false) #12
-  %36 = getelementptr i32, ptr %.fr, i64 %indvars.iv50
-  %37 = getelementptr i8, ptr %36, i64 -4
+  %gep = getelementptr i32, ptr %.fr, i64 %indvars.iv50
+  %37 = getelementptr i8, ptr %gep, i64 -4
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i32 %38, ptr %39, align 8
   %40 = tail call ptr @lappend(ptr noundef %.03144, ptr noundef %35) #12
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = load i32, ptr %9, align 4
-  %42 = sext i32 %41 to i64
-  %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph47, label %._crit_edge
+  %39 = load i32, ptr %9, align 4
+  %40 = sext i32 %39 to i64
+  %41 = icmp slt i64 %indvars.iv.next, %40
+  br i1 %41, label %.lr.ph47, label %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable

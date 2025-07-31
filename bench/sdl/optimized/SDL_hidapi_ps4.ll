@@ -1275,7 +1275,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 
 20:                                               ; preds = %16, %HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit
   %21 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #9
-  br label %287
+  br label %284
 
 22:                                               ; preds = %16
   %23 = load ptr, ptr %6, align 8
@@ -1605,26 +1605,26 @@ HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i: ; preds = %36, %29, %22
   br i1 %exitcond.not.i, label %.loopexit.i, label %236, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %236, %.loopexit.i.i
-  %239 = getelementptr inbounds nuw i8, ptr %23, i64 36
-  %240 = getelementptr inbounds nuw i8, ptr %23, i64 110
-  %241 = getelementptr inbounds nuw i8, ptr %23, i64 112
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %243 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %244 = getelementptr inbounds nuw i8, ptr %23, i64 106
-  %245 = getelementptr inbounds nuw i8, ptr %23, i64 108
-  br label %246
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %23, i64 36
+  %239 = getelementptr inbounds nuw i8, ptr %23, i64 110
+  %240 = getelementptr inbounds nuw i8, ptr %23, i64 112
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 34
+  %243 = getelementptr inbounds nuw i8, ptr %23, i64 106
+  %244 = getelementptr inbounds nuw i8, ptr %23, i64 108
+  br label %245
 
-246:                                              ; preds = %284, %.loopexit.i
+245:                                              ; preds = %284, %.loopexit.i
   %indvars.iv35.i = phi i64 [ 0, %.loopexit.i ], [ %indvars.iv.next36.i, %284 ]
-  %247 = shl nuw nsw i64 %indvars.iv35.i, 3
-  %248 = getelementptr inbounds nuw i8, ptr %239, i64 %247
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 4
+  %246 = shl nuw nsw i64 %indvars.iv35.i, 3
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %246
+  %249 = getelementptr inbounds nuw i8, ptr %gep.i, i64 4
   %250 = load float, ptr %249, align 4
   %251 = fpext float %250 to double
   %252 = icmp samesign ult i64 %indvars.iv35.i, 3
   br i1 %252, label %253, label %269
 
-253:                                              ; preds = %246
+253:   ; preds = %246
   %254 = load i16, ptr %244, align 2
   %255 = uitofp i16 %254 to double
   %256 = load i16, ptr %245, align 4
@@ -1637,50 +1637,50 @@ HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i: ; preds = %36, %29, %22
   %263 = icmp eq i16 %262, 1356
   br i1 %263, label %264, label %284
 
-264:                                              ; preds = %253
+264:; preds = %253
   %265 = load i16, ptr %243, align 2
   %266 = icmp eq i16 %265, 1477
   br i1 %266, label %267, label %284
 
-267:                                              ; preds = %264
+267:; preds = %264
   %268 = fmul double %261, 2.000000e+00
   br label %284
 
-269:                                              ; preds = %246
+269:; preds = %246
   %270 = load i16, ptr %240, align 2
   %271 = uitofp i16 %270 to double
   %272 = load i16, ptr %241, align 8
   %273 = uitofp i16 %272 to double
   %274 = fdiv double %271, %273
-  %275 = fmul double %274, 0x40239D0140000000
+  %273 = fmul double %274, 0x40239D0140000000
   %276 = fmul double %275, %251
-  %277 = load i16, ptr %242, align 8
+  %277 = load i16, ptr %241, align 8
   %278 = icmp eq i16 %277, 1356
   br i1 %278, label %279, label %284
 
-279:                                              ; preds = %269
+279:; preds = %269
   %280 = load i16, ptr %243, align 2
   %281 = icmp eq i16 %280, 1477
   br i1 %281, label %282, label %284
 
-282:                                              ; preds = %279
+282:; preds = %279
   %283 = fmul double %276, -2.000000e+00
   br label %284
 
-284:                                              ; preds = %282, %279, %269, %267, %264, %253
+284: ; preds = %282, %279, %269, %267, %264, %253
   %.0.i = phi double [ %268, %267 ], [ %261, %264 ], [ %261, %253 ], [ %283, %282 ], [ %276, %279 ], [ %276, %269 ]
   %285 = fptrunc double %.0.i to float
   store float %285, ptr %249, align 4
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 6
-  br i1 %exitcond38.not.i, label %.critedge, label %246, !llvm.loop !12
+  br i1 %exitcond38.not.i, label %.critedge, label %245, !llvm.loop !12
 
 .critedge:                                        ; preds = %284, %15
-  %286 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 %5, ptr %286, align 8
-  br label %287
+  %283 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i8 %5, ptr %283, align 8
+  br label %284
 
-287:                                              ; preds = %.critedge, %20
+284:                                              ; preds = %.critedge, %20
   %.0 = phi i1 [ true, %.critedge ], [ %21, %20 ]
   ret i1 %.0
 }

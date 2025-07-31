@@ -282,13 +282,13 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %27 = add i64 %.sroa.01.0.i.i.i, %24
   %28 = and i64 %27, %12
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds { { i64, i64, i64 }, {} }, ptr %13, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 -24
+  %gep.i.i = getelementptr inbounds { { i64, i64, i64 }, {} }, ptr %13, i64 %29
+  %31 = getelementptr inbounds i8, ptr %gep.i.i, i64 -24
   %32 = tail call noundef zeroext i1 @"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.llvm.9547364939642047668"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31), !noalias !55
   br i1 %32, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h00469f1610d01657E.llvm.9619877368797972682.exit", label %18
 
-33:                                               ; preds = %19
-  %34 = add i64 %.sroa.9.0.i.i.i, 16
+33:; preds = %19
+  %33 = add i64 %.sroa.9.0.i.i.i, 16
   %35 = add i64 %.sroa.01.0.i.i.i, %34
   br label %14
 
@@ -584,17 +584,17 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3ra
   %22 = add i64 %.sroa.01.0.i.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { { i64, i64, i64 }, {} }, ptr %8, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 -24
+  %gep.i = getelementptr inbounds { { i64, i64, i64 }, {} }, ptr %8, i64 %24
+  %26 = getelementptr inbounds i8, ptr %gep.i, i64 -24
   %27 = tail call noundef zeroext i1 @"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.llvm.9547364939642047668"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26), !noalias !102
   br i1 %27, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hc422854ac84c7db5E.llvm.9619877368797972682.exit", label %13
 
-28:                                               ; preds = %14
-  %29 = add i64 %.sroa.9.0.i.i, 16
+28:; preds = %14
+  %28 = add i64 %.sroa.9.0.i.i, 16
   %30 = add i64 %.sroa.01.0.i.i, %29
   br label %9
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hc422854ac84c7db5E.llvm.9619877368797972682.exit": ; preds = %14, %17
+29:                                               ; preds = %14, %17
   %.0.i = phi ptr [ %25, %17 ], [ null, %14 ]
   %31 = icmp eq ptr %.0.i, null
   %32 = getelementptr inbounds i8, ptr %.0.i, i64 -24
@@ -643,17 +643,17 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hc422
   %22 = add i64 %.sroa.01.0.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { { i64, i64, i64 }, {} }, ptr %8, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 -24
+  %gep = getelementptr inbounds { { i64, i64, i64 }, {} }, ptr %8, i64 %24
+  %26 = getelementptr inbounds i8, ptr %gep, i64 -24
   %27 = tail call noundef zeroext i1 @"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.llvm.9547364939642047668"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26), !noalias !113
   br i1 %27, label %_ZN9hashbrown3raw13RawTableInner10find_inner17h161d71df3565f810E.llvm.9619877368797972682.exit.thread, label %13
 
-28:                                               ; preds = %14
-  %29 = add i64 %.sroa.9.0.i, 16
+28:; preds = %14
+  %28 = add i64 %.sroa.9.0.i, 16
   %30 = add i64 %.sroa.01.0.i, %29
   br label %9
 
-_ZN9hashbrown3raw13RawTableInner10find_inner17h161d71df3565f810E.llvm.9619877368797972682.exit.thread: ; preds = %14, %17
+29:                                               ; preds = %14, %17
   %.0 = phi ptr [ %25, %17 ], [ null, %14 ]
   ret ptr %.0
 }
