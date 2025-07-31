@@ -2365,139 +2365,138 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_best_target(ptr noundef %0, i32 n
 
 hwloc_get_obj_by_type.exit.lr.ph:                 ; preds = %.preheader
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  switch i32 %1, label %hwloc_get_obj_by_type.exit [
+  switch i32 %1, label %hwloc_get_obj_by_type.exit.preheader [
     i32 0, label %hwloc_get_obj_by_type.exit.us
     i32 1, label %hwloc_get_obj_by_type.exit.us115
   ]
 
-hwloc_get_obj_by_type.exit.us:                    ; preds = %hwloc_get_obj_by_type.exit.lr.ph, %40
-  %24 = phi i32 [ %42, %40 ], [ %22, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %.038103.us = phi i32 [ %41, %40 ], [ %1, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %.069102.us = phi i32 [ %.170.ph.us, %40 ], [ %1, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %.073101.us = phi ptr [ %.174.ph.us, %40 ], [ null, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %.080100.us = phi i64 [ %.181.ph.us, %40 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %25 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %24, i32 noundef %.038103.us) #31
-  %.not51.us = icmp eq ptr %25, null
-  br i1 %.not51.us, label %hwloc__update_best_target.exit, label %26
+hwloc_get_obj_by_type.exit.preheader:             ; preds = %hwloc_get_obj_by_type.exit.lr.ph
+  %24 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %22, i32 noundef 0) #31
+  %.not51199 = icmp eq ptr %24, null
+  br i1 %.not51199, label %hwloc__update_best_target.exit, label %hwloc__memattr_get_convenience_value.exit
 
-26:                                               ; preds = %hwloc_get_obj_by_type.exit.us
-  %27 = load i32, ptr %25, align 8, !tbaa !87
-  %.not10.i.us = icmp eq i32 %27, 14
-  br i1 %.not10.i.us, label %30, label %28
+hwloc_get_obj_by_type.exit.us:                    ; preds = %hwloc_get_obj_by_type.exit.lr.ph, %41
+  %25 = phi i32 [ %43, %41 ], [ %22, %hwloc_get_obj_by_type.exit.lr.ph ]
+  %.038103.us = phi i32 [ %42, %41 ], [ %1, %hwloc_get_obj_by_type.exit.lr.ph ]
+  %.069102.us = phi i32 [ %.170.ph.us, %41 ], [ %1, %hwloc_get_obj_by_type.exit.lr.ph ]
+  %.073101.us = phi ptr [ %.174.ph.us, %41 ], [ null, %hwloc_get_obj_by_type.exit.lr.ph ]
+  %.080100.us = phi i64 [ %.181.ph.us, %41 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
+  %26 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %.038103.us) #31
+  %.not51.us = icmp eq ptr %26, null
+  br i1 %.not51.us, label %hwloc__update_best_target.exit, label %27
 
-28:                                               ; preds = %26
-  %29 = tail call ptr @__errno_location() #32
-  store i32 22, ptr %29, align 4, !tbaa !60
+27:                                               ; preds = %hwloc_get_obj_by_type.exit.us
+  %28 = load i32, ptr %26, align 8, !tbaa !87
+  %.not10.i.us = icmp eq i32 %28, 14
+  br i1 %.not10.i.us, label %31, label %29
+
+29:                                               ; preds = %27
+  %30 = tail call ptr @__errno_location() #32
+  store i32 22, ptr %30, align 4, !tbaa !60
   br label %hwloc__memattr_get_convenience_value.exit.us
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %32 = load ptr, ptr %31, align 8, !tbaa !88
-  %33 = load i64, ptr %32, align 8, !tbaa !48
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %33 = load ptr, ptr %32, align 8, !tbaa !88
+  %34 = load i64, ptr %33, align 8, !tbaa !48
   br label %hwloc__memattr_get_convenience_value.exit.us
 
-hwloc__memattr_get_convenience_value.exit.us:     ; preds = %30, %28
-  %.068.us = phi i64 [ %33, %30 ], [ 0, %28 ]
+hwloc__memattr_get_convenience_value.exit.us:     ; preds = %31, %29
+  %.068.us = phi i64 [ %34, %31 ], [ 0, %29 ]
   %.not.i55.us = icmp eq i32 %.069102.us, 0
-  br i1 %.not.i55.us, label %39, label %34
+  br i1 %.not.i55.us, label %40, label %35
 
-34:                                               ; preds = %hwloc__memattr_get_convenience_value.exit.us
-  %35 = load i64, ptr %23, align 8, !tbaa !36
-  %36 = and i64 %35, 1
-  %.not10.i56.us = icmp eq i64 %36, 0
-  br i1 %.not10.i56.us, label %38, label %37
+35:                                               ; preds = %hwloc__memattr_get_convenience_value.exit.us
+  %36 = load i64, ptr %23, align 8, !tbaa !36
+  %37 = and i64 %36, 1
+  %.not10.i56.us = icmp eq i64 %37, 0
+  br i1 %.not10.i56.us, label %39, label %38
 
-37:                                               ; preds = %34
+38:                                               ; preds = %35
   %.not12.i.us = icmp ugt i64 %.068.us, %.080100.us
-  br i1 %.not12.i.us, label %39, label %40
+  br i1 %.not12.i.us, label %40, label %41
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   %.not11.i.us = icmp ult i64 %.068.us, %.080100.us
-  br i1 %.not11.i.us, label %39, label %40
+  br i1 %.not11.i.us, label %40, label %41
 
-39:                                               ; preds = %38, %37, %hwloc__memattr_get_convenience_value.exit.us
-  br label %40
+40:                                               ; preds = %39, %38, %hwloc__memattr_get_convenience_value.exit.us
+  br label %41
 
-40:                                               ; preds = %39, %38, %37
-  %.181.ph.us = phi i64 [ %.080100.us, %37 ], [ %.080100.us, %38 ], [ %.068.us, %39 ]
-  %.174.ph.us = phi ptr [ %.073101.us, %37 ], [ %.073101.us, %38 ], [ %25, %39 ]
-  %.170.ph.us = phi i32 [ %.069102.us, %37 ], [ %.069102.us, %38 ], [ 1, %39 ]
-  %41 = add i32 %.038103.us, 1
-  %42 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef 14) #30
-  %switch.i.us = icmp ugt i32 %42, -3
+41:                                               ; preds = %40, %39, %38
+  %.181.ph.us = phi i64 [ %.080100.us, %38 ], [ %.080100.us, %39 ], [ %.068.us, %40 ]
+  %.174.ph.us = phi ptr [ %.073101.us, %38 ], [ %.073101.us, %39 ], [ %26, %40 ]
+  %.170.ph.us = phi i32 [ %.069102.us, %38 ], [ %.069102.us, %39 ], [ 1, %40 ]
+  %42 = add i32 %.038103.us, 1
+  %43 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef 14) #30
+  %switch.i.us = icmp ugt i32 %43, -3
   br i1 %switch.i.us, label %hwloc__update_best_target.exit.thread, label %hwloc_get_obj_by_type.exit.us, !llvm.loop !106
 
-hwloc_get_obj_by_type.exit.us115:                 ; preds = %hwloc_get_obj_by_type.exit.lr.ph, %59
-  %43 = phi i32 [ %61, %59 ], [ %22, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %.038103.us116 = phi i32 [ %60, %59 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %.069102.us117 = phi i32 [ %.170.ph.us129, %59 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %.073101.us118 = phi ptr [ %.174.ph.us128, %59 ], [ null, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %.080100.us119 = phi i64 [ %.181.ph.us127, %59 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %44 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %43, i32 noundef %.038103.us116) #31
-  %.not51.us120 = icmp eq ptr %44, null
-  br i1 %.not51.us120, label %hwloc__update_best_target.exit, label %45
+hwloc_get_obj_by_type.exit.us115:                 ; preds = %hwloc_get_obj_by_type.exit.lr.ph, %60
+  %44 = phi i32 [ %62, %60 ], [ %22, %hwloc_get_obj_by_type.exit.lr.ph ]
+  %.038103.us116 = phi i32 [ %61, %60 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
+  %.069102.us117 = phi i32 [ %.170.ph.us129, %60 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
+  %.073101.us118 = phi ptr [ %.174.ph.us128, %60 ], [ null, %hwloc_get_obj_by_type.exit.lr.ph ]
+  %.080100.us119 = phi i64 [ %.181.ph.us127, %60 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
+  %45 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %44, i32 noundef %.038103.us116) #31
+  %.not51.us120 = icmp eq ptr %45, null
+  br i1 %.not51.us120, label %hwloc__update_best_target.exit, label %46
 
-45:                                               ; preds = %hwloc_get_obj_by_type.exit.us115
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 184
-  %47 = load ptr, ptr %46, align 8, !tbaa !81
-  %.not.i.us = icmp eq ptr %47, null
-  br i1 %.not.i.us, label %51, label %48
+46:                                               ; preds = %hwloc_get_obj_by_type.exit.us115
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 184
+  %48 = load ptr, ptr %47, align 8, !tbaa !81
+  %.not.i.us = icmp eq ptr %48, null
+  br i1 %.not.i.us, label %52, label %49
 
-48:                                               ; preds = %45
-  %49 = tail call i32 @hwloc_bitmap_weight(ptr noundef nonnull %47) #31
-  %50 = sext i32 %49 to i64
+49:                                               ; preds = %46
+  %50 = tail call i32 @hwloc_bitmap_weight(ptr noundef nonnull %48) #31
+  %51 = sext i32 %50 to i64
   br label %hwloc__memattr_get_convenience_value.exit.us121
 
-51:                                               ; preds = %45
-  %52 = tail call ptr @__errno_location() #32
-  store i32 22, ptr %52, align 4, !tbaa !60
+52:                                               ; preds = %46
+  %53 = tail call ptr @__errno_location() #32
+  store i32 22, ptr %53, align 4, !tbaa !60
   br label %hwloc__memattr_get_convenience_value.exit.us121
 
-hwloc__memattr_get_convenience_value.exit.us121:  ; preds = %51, %48
-  %.068.us122 = phi i64 [ 0, %51 ], [ %50, %48 ]
+hwloc__memattr_get_convenience_value.exit.us121:  ; preds = %52, %49
+  %.068.us122 = phi i64 [ 0, %52 ], [ %51, %49 ]
   %.not.i55.us123 = icmp eq i32 %.069102.us117, 0
-  br i1 %.not.i55.us123, label %58, label %53
+  br i1 %.not.i55.us123, label %59, label %54
 
-53:                                               ; preds = %hwloc__memattr_get_convenience_value.exit.us121
-  %54 = load i64, ptr %23, align 8, !tbaa !36
-  %55 = and i64 %54, 1
-  %.not10.i56.us124 = icmp eq i64 %55, 0
-  br i1 %.not10.i56.us124, label %57, label %56
+54:                                               ; preds = %hwloc__memattr_get_convenience_value.exit.us121
+  %55 = load i64, ptr %23, align 8, !tbaa !36
+  %56 = and i64 %55, 1
+  %.not10.i56.us124 = icmp eq i64 %56, 0
+  br i1 %.not10.i56.us124, label %58, label %57
 
-56:                                               ; preds = %53
+57:                                               ; preds = %54
   %.not12.i.us125 = icmp ugt i64 %.068.us122, %.080100.us119
-  br i1 %.not12.i.us125, label %58, label %59
+  br i1 %.not12.i.us125, label %59, label %60
 
-57:                                               ; preds = %53
+58:                                               ; preds = %54
   %.not11.i.us126 = icmp ult i64 %.068.us122, %.080100.us119
-  br i1 %.not11.i.us126, label %58, label %59
+  br i1 %.not11.i.us126, label %59, label %60
 
-58:                                               ; preds = %57, %56, %hwloc__memattr_get_convenience_value.exit.us121
-  br label %59
+59:                                               ; preds = %58, %57, %hwloc__memattr_get_convenience_value.exit.us121
+  br label %60
 
-59:                                               ; preds = %58, %57, %56
-  %.181.ph.us127 = phi i64 [ %.080100.us119, %56 ], [ %.080100.us119, %57 ], [ %.068.us122, %58 ]
-  %.174.ph.us128 = phi ptr [ %.073101.us118, %56 ], [ %.073101.us118, %57 ], [ %44, %58 ]
-  %.170.ph.us129 = phi i32 [ %.069102.us117, %56 ], [ %.069102.us117, %57 ], [ 1, %58 ]
-  %60 = add i32 %.038103.us116, 1
-  %61 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef 14) #30
-  %switch.i.us130 = icmp ugt i32 %61, -3
+60:                                               ; preds = %59, %58, %57
+  %.181.ph.us127 = phi i64 [ %.080100.us119, %57 ], [ %.080100.us119, %58 ], [ %.068.us122, %59 ]
+  %.174.ph.us128 = phi ptr [ %.073101.us118, %57 ], [ %.073101.us118, %58 ], [ %45, %59 ]
+  %.170.ph.us129 = phi i32 [ %.069102.us117, %57 ], [ %.069102.us117, %58 ], [ 1, %59 ]
+  %61 = add i32 %.038103.us116, 1
+  %62 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef 14) #30
+  %switch.i.us130 = icmp ugt i32 %62, -3
   br i1 %switch.i.us130, label %hwloc__update_best_target.exit.thread, label %hwloc_get_obj_by_type.exit.us115, !llvm.loop !107
 
-hwloc_get_obj_by_type.exit:                       ; preds = %hwloc_get_obj_by_type.exit.lr.ph, %hwloc__memattr_get_convenience_value.exit
-  %62 = phi i32 [ %65, %hwloc__memattr_get_convenience_value.exit ], [ %22, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %.038103 = phi i32 [ %64, %hwloc__memattr_get_convenience_value.exit ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %.069102 = phi i32 [ %spec.select185, %hwloc__memattr_get_convenience_value.exit ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %.073101 = phi ptr [ %spec.select, %hwloc__memattr_get_convenience_value.exit ], [ null, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %63 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %62, i32 noundef %.038103) #31
-  %.not51 = icmp eq ptr %63, null
+hwloc_get_obj_by_type.exit:                       ; preds = %hwloc__memattr_get_convenience_value.exit
+  %63 = add i32 %.038103200, 1
+  %64 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %65, i32 noundef %63) #31
+  %.not51 = icmp eq ptr %64, null
   br i1 %.not51, label %hwloc__update_best_target.exit, label %hwloc__memattr_get_convenience_value.exit
 
-hwloc__memattr_get_convenience_value.exit:        ; preds = %hwloc_get_obj_by_type.exit
-  %.not.i55 = icmp eq i32 %.069102, 0
-  %spec.select = select i1 %.not.i55, ptr %63, ptr %.073101
-  %spec.select185 = tail call i32 @llvm.umax.i32(i32 %.069102, i32 1)
-  %64 = add i32 %.038103, 1
+hwloc__memattr_get_convenience_value.exit:        ; preds = %hwloc_get_obj_by_type.exit.preheader, %hwloc_get_obj_by_type.exit
+  %.038103200 = phi i32 [ %63, %hwloc_get_obj_by_type.exit ], [ 0, %hwloc_get_obj_by_type.exit.preheader ]
   %65 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef 14) #30
   %switch.i = icmp ugt i32 %65, -3
   br i1 %switch.i, label %hwloc__update_best_target.exit.thread, label %hwloc_get_obj_by_type.exit
@@ -2581,16 +2580,16 @@ hwloc__update_best_target.exit61:                 ; preds = %79, %92, %91, %90
   %95 = icmp samesign ult i64 %indvars.iv.next, %94
   br i1 %95, label %74, label %hwloc__update_best_target.exit, !llvm.loop !108
 
-hwloc__update_best_target.exit:                   ; preds = %hwloc_get_obj_by_type.exit.us115, %hwloc_get_obj_by_type.exit.us, %hwloc_get_obj_by_type.exit, %hwloc__update_best_target.exit61
-  %.282 = phi i64 [ %.484, %hwloc__update_best_target.exit61 ], [ 0, %hwloc_get_obj_by_type.exit ], [ %.080100.us, %hwloc_get_obj_by_type.exit.us ], [ %.080100.us119, %hwloc_get_obj_by_type.exit.us115 ]
-  %.275 = phi ptr [ %.477, %hwloc__update_best_target.exit61 ], [ %.073101, %hwloc_get_obj_by_type.exit ], [ %.073101.us, %hwloc_get_obj_by_type.exit.us ], [ %.073101.us118, %hwloc_get_obj_by_type.exit.us115 ]
-  %.271 = phi i32 [ %.4, %hwloc__update_best_target.exit61 ], [ %.069102, %hwloc_get_obj_by_type.exit ], [ %.069102.us, %hwloc_get_obj_by_type.exit.us ], [ %.069102.us117, %hwloc_get_obj_by_type.exit.us115 ]
+hwloc__update_best_target.exit:                   ; preds = %hwloc_get_obj_by_type.exit.us115, %hwloc_get_obj_by_type.exit.us, %hwloc_get_obj_by_type.exit, %hwloc__update_best_target.exit61, %hwloc_get_obj_by_type.exit.preheader
+  %.282 = phi i64 [ 0, %hwloc_get_obj_by_type.exit.preheader ], [ %.484, %hwloc__update_best_target.exit61 ], [ 0, %hwloc_get_obj_by_type.exit ], [ %.080100.us, %hwloc_get_obj_by_type.exit.us ], [ %.080100.us119, %hwloc_get_obj_by_type.exit.us115 ]
+  %.275 = phi ptr [ null, %hwloc_get_obj_by_type.exit.preheader ], [ %.477, %hwloc__update_best_target.exit61 ], [ %24, %hwloc_get_obj_by_type.exit ], [ %.073101.us, %hwloc_get_obj_by_type.exit.us ], [ %.073101.us118, %hwloc_get_obj_by_type.exit.us115 ]
+  %.271 = phi i32 [ 0, %hwloc_get_obj_by_type.exit.preheader ], [ %.4, %hwloc__update_best_target.exit61 ], [ 1, %hwloc_get_obj_by_type.exit ], [ %.069102.us, %hwloc_get_obj_by_type.exit.us ], [ %.069102.us117, %hwloc_get_obj_by_type.exit.us115 ]
   %.not52 = icmp eq i32 %.271, 0
   br i1 %.not52, label %hwloc__update_best_target.exit.thread167, label %hwloc__update_best_target.exit.thread
 
-hwloc__update_best_target.exit.thread:            ; preds = %59, %40, %hwloc__memattr_get_convenience_value.exit, %hwloc__update_best_target.exit
-  %.275165 = phi ptr [ %.275, %hwloc__update_best_target.exit ], [ %spec.select, %hwloc__memattr_get_convenience_value.exit ], [ %.174.ph.us, %40 ], [ %.174.ph.us128, %59 ]
-  %.282164 = phi i64 [ %.282, %hwloc__update_best_target.exit ], [ 0, %hwloc__memattr_get_convenience_value.exit ], [ %.181.ph.us, %40 ], [ %.181.ph.us127, %59 ]
+hwloc__update_best_target.exit.thread:            ; preds = %60, %41, %hwloc__memattr_get_convenience_value.exit, %hwloc__update_best_target.exit
+  %.275165 = phi ptr [ %.275, %hwloc__update_best_target.exit ], [ %24, %hwloc__memattr_get_convenience_value.exit ], [ %.174.ph.us, %41 ], [ %.174.ph.us128, %60 ]
+  %.282164 = phi i64 [ %.282, %hwloc__update_best_target.exit ], [ 0, %hwloc__memattr_get_convenience_value.exit ], [ %.181.ph.us, %41 ], [ %.181.ph.us127, %60 ]
   store ptr %.275165, ptr %4, align 8, !tbaa !80
   %.not53 = icmp eq ptr %5, null
   br i1 %.not53, label %98, label %96
@@ -4660,9 +4659,6 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #27
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #28
