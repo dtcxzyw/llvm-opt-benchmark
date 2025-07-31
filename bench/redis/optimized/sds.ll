@@ -18,9 +18,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [4 x i8] c"\\%c\00", align 1
 @.str.17 = private unnamed_addr constant [7 x i8] c"\\x%02x\00", align 1
 @switch.table._sdsnewlen.2 = private unnamed_addr constant [4 x i64] [i64 31, i64 255, i64 65535, i64 4294967295], align 8
-@switch.table._sdsMakeRoomFor.3 = private unnamed_addr constant [4 x i64] [i64 3, i64 5, i64 9, i64 17], align 8
 @switch.table.sdsAllocSize = private unnamed_addr constant [5 x i64] [i64 1, i64 3, i64 5, i64 9, i64 17], align 8
-@switch.table.sdstemplate.7 = private unnamed_addr constant [5 x i64] [i64 -1, i64 -3, i64 -5, i64 -9, i64 -17], align 8
+@switch.table.sdstemplate.6 = private unnamed_addr constant [5 x i64] [i64 -1, i64 -3, i64 -5, i64 -9, i64 -17], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_sdsnewlen(ptr noundef readonly captures(address) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -372,7 +371,7 @@ define dso_local void @sdsfree(ptr noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit
 
@@ -402,7 +401,7 @@ define dso_local void @sdsfreegeneric(ptr noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
@@ -607,7 +606,7 @@ sdslen.exit:                                      ; preds = %37, %40, %43, %47, 
 
 switch.lookup:                                    ; preds = %sdslen.exit
   %59 = zext nneg i8 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %59
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %59
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit
 
@@ -641,193 +640,186 @@ sdsHdrSize.exit:                                  ; preds = %sdslen.exit, %switc
 
 72:                                               ; preds = %68, %70, %64
   %.050 = phi i64 [ %69, %68 ], [ %71, %70 ], [ %61, %64 ]
-  %73 = icmp ult i64 %.050, 32
-  br i1 %73, label %sdsReqType.exit, label %74
+  %73 = icmp ult i64 %.050, 256
+  br i1 %73, label %sdsHdrSize.exit61, label %74
 
 74:                                               ; preds = %72
-  %75 = icmp ult i64 %.050, 256
-  br i1 %75, label %sdsReqType.exit, label %76
+  %75 = icmp ult i64 %.050, 65536
+  br i1 %75, label %sdsHdrSize.exit61, label %76
 
 76:                                               ; preds = %74
-  %77 = icmp ult i64 %.050, 65536
-  br i1 %77, label %sdsReqType.exit, label %78
+  %77 = icmp ult i64 %.050, 4294967296
+  %spec.select = select i1 %77, i8 3, i8 4
+  %spec.select88 = select i1 %77, i64 9, i64 17
+  br label %sdsHdrSize.exit61
 
-78:                                               ; preds = %76
-  %79 = icmp ult i64 %.050, 4294967296
-  %..i = select i1 %79, i8 3, i8 4
-  br label %sdsReqType.exit
-
-sdsReqType.exit:                                  ; preds = %72, %74, %76, %78
-  %.0.i59 = phi i8 [ 0, %72 ], [ 1, %74 ], [ 2, %76 ], [ %..i, %78 ]
-  %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.0.i59, i8 1)
-  %switch.tableidx = add nsw i8 %spec.store.select, -1
-  %80 = zext i8 %switch.tableidx to i64
-  %switch.gep81 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._sdsMakeRoomFor.3, i64 0, i64 %80
-  %switch.load82 = load i64, ptr %switch.gep81, align 8
-  %81 = add i64 %.050, 1
-  %82 = add i64 %81, %switch.load82
-  %83 = icmp ugt i64 %82, %61
-  br i1 %83, label %85, label %84, !prof !5
-
-default.unreachable68:                            ; preds = %93
+default.unreachable68:                            ; preds = %90
   unreachable
 
-84:                                               ; preds = %sdsReqType.exit
+sdsHdrSize.exit61:                                ; preds = %76, %72, %74
+  %.0.i5970 = phi i8 [ 2, %74 ], [ 1, %72 ], [ %spec.select, %76 ]
+  %.0.i60 = phi i64 [ 5, %74 ], [ 3, %72 ], [ %spec.select88, %76 ]
+  %78 = add i64 %.050, 1
+  %79 = add i64 %78, %.0.i60
+  %80 = icmp ugt i64 %79, %61
+  br i1 %80, label %82, label %81, !prof !5
+
+81:                                               ; preds = %sdsHdrSize.exit61
   tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 252) #25
   tail call void @abort() #26
   unreachable
 
-85:                                               ; preds = %sdsReqType.exit
-  %86 = icmp eq i8 %7, %spec.store.select
-  br i1 %86, label %87, label %90
+82:                                               ; preds = %sdsHdrSize.exit61
+  %83 = icmp eq i8 %7, %.0.i5970
+  br i1 %83, label %84, label %87
 
-87:                                               ; preds = %85
-  %88 = call ptr @zrealloc_usable(ptr noundef %60, i64 noundef %82, ptr noundef nonnull %4) #25
+84:                                               ; preds = %82
+  %85 = call ptr @zrealloc_usable(ptr noundef %60, i64 noundef %79, ptr noundef nonnull %4) #25
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %sdssetalloc.exit, label %sdssetlen.exit
+
+87:                                               ; preds = %82
+  %88 = call ptr @zmalloc_usable(i64 noundef %79, ptr noundef nonnull %4) #25
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %sdssetalloc.exit, label %sdssetlen.exit
+  br i1 %89, label %sdssetalloc.exit, label %90
 
-90:                                               ; preds = %85
-  %91 = call ptr @zmalloc_usable(i64 noundef %82, ptr noundef nonnull %4) #25
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %sdssetalloc.exit, label %93
-
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 %switch.load82
-  %95 = add nuw i64 %.0.i57, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %94, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %95, i1 false)
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 %.0.i60
+  %92 = add nuw i64 %.0.i57, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %91, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %92, i1 false)
   call void @zfree(ptr noundef nonnull %60) #25
-  %96 = getelementptr inbounds i8, ptr %94, i64 -1
-  store i8 %spec.store.select, ptr %96, align 1, !tbaa !13
-  switch i8 %spec.store.select, label %default.unreachable68 [
+  %93 = getelementptr inbounds i8, ptr %91, i64 -1
+  store i8 %.0.i5970, ptr %93, align 1, !tbaa !13
+  switch i8 %.0.i5970, label %default.unreachable68 [
     i8 4, label %sdssetlen.exit.thread
-    i8 1, label %sdssetlen.exit.thread75
-    i8 2, label %sdssetlen.exit.thread77
-    i8 3, label %sdssetlen.exit.thread71
+    i8 1, label %sdssetlen.exit.thread83
+    i8 2, label %sdssetlen.exit.thread85
+    i8 3, label %sdssetlen.exit.thread79
   ]
 
-sdssetlen.exit.thread75:                          ; preds = %93
-  %97 = trunc i64 %.0.i57 to i8
-  %98 = getelementptr inbounds i8, ptr %94, i64 -3
-  store i8 %97, ptr %98, align 1, !tbaa !13
-  %99 = load i64, ptr %4, align 8, !tbaa !11
-  %100 = xor i64 %switch.load82, -1
-  %101 = add i64 %99, %100
-  store i64 %101, ptr %4, align 8, !tbaa !11
+sdssetlen.exit.thread83:                          ; preds = %90
+  %94 = trunc i64 %.0.i57 to i8
+  %95 = getelementptr inbounds i8, ptr %91, i64 -3
+  store i8 %94, ptr %95, align 1, !tbaa !13
+  %96 = load i64, ptr %4, align 8, !tbaa !11
+  %97 = xor i64 %.0.i60, -1
+  %98 = add i64 %96, %97
+  store i64 %98, ptr %4, align 8, !tbaa !11
   br label %sdsTypeMaxSize.exit
 
-sdssetlen.exit.thread77:                          ; preds = %93
-  %102 = trunc i64 %.0.i57 to i16
-  %103 = getelementptr inbounds i8, ptr %94, i64 -5
-  store i16 %102, ptr %103, align 1, !tbaa !14
-  %104 = load i64, ptr %4, align 8, !tbaa !11
-  %105 = xor i64 %switch.load82, -1
-  %106 = add i64 %104, %105
-  store i64 %106, ptr %4, align 8, !tbaa !11
+sdssetlen.exit.thread85:                          ; preds = %90
+  %99 = trunc i64 %.0.i57 to i16
+  %100 = getelementptr inbounds i8, ptr %91, i64 -5
+  store i16 %99, ptr %100, align 1, !tbaa !14
+  %101 = load i64, ptr %4, align 8, !tbaa !11
+  %102 = xor i64 %.0.i60, -1
+  %103 = add i64 %101, %102
+  store i64 %103, ptr %4, align 8, !tbaa !11
   br label %sdsTypeMaxSize.exit
 
-sdssetlen.exit.thread71:                          ; preds = %93
-  %107 = trunc i64 %.0.i57 to i32
-  %108 = getelementptr inbounds i8, ptr %94, i64 -9
-  store i32 %107, ptr %108, align 1, !tbaa !16
-  %109 = load i64, ptr %4, align 8, !tbaa !11
-  %110 = xor i64 %switch.load82, -1
-  %111 = add i64 %109, %110
-  store i64 %111, ptr %4, align 8, !tbaa !11
+sdssetlen.exit.thread79:                          ; preds = %90
+  %104 = trunc i64 %.0.i57 to i32
+  %105 = getelementptr inbounds i8, ptr %91, i64 -9
+  store i32 %104, ptr %105, align 1, !tbaa !16
+  %106 = load i64, ptr %4, align 8, !tbaa !11
+  %107 = xor i64 %.0.i60, -1
+  %108 = add i64 %106, %107
+  store i64 %108, ptr %4, align 8, !tbaa !11
   br label %sdsTypeMaxSize.exit
 
-sdssetlen.exit.thread:                            ; preds = %93
-  %112 = getelementptr inbounds i8, ptr %94, i64 -17
-  store i64 %.0.i57, ptr %112, align 1, !tbaa !11
-  %113 = load i64, ptr %4, align 8, !tbaa !11
-  %114 = xor i64 %switch.load82, -1
-  %115 = add i64 %113, %114
+sdssetlen.exit.thread:                            ; preds = %90
+  %109 = getelementptr inbounds i8, ptr %91, i64 -17
+  store i64 %.0.i57, ptr %109, align 1, !tbaa !11
+  %110 = load i64, ptr %4, align 8, !tbaa !11
+  %111 = xor i64 %.0.i60, -1
+  %112 = add i64 %110, %111
   br label %sdsTypeMaxSize.exit.thread.sink.split
 
-sdssetlen.exit:                                   ; preds = %87
-  %116 = getelementptr inbounds nuw i8, ptr %88, i64 %switch.load82
-  %117 = load i64, ptr %4, align 8, !tbaa !11
-  %118 = xor i64 %switch.load82, -1
-  %119 = add i64 %117, %118
-  store i64 %119, ptr %4, align 8, !tbaa !11
-  switch i8 %spec.store.select, label %sdsTypeMaxSize.exit.thread [
-    i8 3, label %121
+sdssetlen.exit:                                   ; preds = %84
+  %113 = getelementptr inbounds nuw i8, ptr %85, i64 %.0.i60
+  %114 = load i64, ptr %4, align 8, !tbaa !11
+  %115 = xor i64 %.0.i60, -1
+  %116 = add i64 %114, %115
+  store i64 %116, ptr %4, align 8, !tbaa !11
+  switch i8 %.0.i5970, label %sdsTypeMaxSize.exit.thread [
+    i8 3, label %118
     i8 1, label %sdsTypeMaxSize.exit
-    i8 2, label %120
+    i8 2, label %117
   ]
 
-120:                                              ; preds = %sdssetlen.exit
+117:                                              ; preds = %sdssetlen.exit
   br label %sdsTypeMaxSize.exit
 
-121:                                              ; preds = %sdssetlen.exit
+118:                                              ; preds = %sdssetlen.exit
   br label %sdsTypeMaxSize.exit
 
-sdsTypeMaxSize.exit:                              ; preds = %sdssetlen.exit.thread71, %sdssetlen.exit.thread77, %sdssetlen.exit.thread75, %sdssetlen.exit, %120, %121
-  %122 = phi i64 [ %119, %sdssetlen.exit ], [ %101, %sdssetlen.exit.thread75 ], [ %106, %sdssetlen.exit.thread77 ], [ %119, %120 ], [ %111, %sdssetlen.exit.thread71 ], [ %119, %121 ]
-  %.04973 = phi ptr [ %116, %sdssetlen.exit ], [ %94, %sdssetlen.exit.thread75 ], [ %94, %sdssetlen.exit.thread77 ], [ %116, %120 ], [ %94, %sdssetlen.exit.thread71 ], [ %116, %121 ]
-  %.0.i62 = phi i64 [ 255, %sdssetlen.exit ], [ 255, %sdssetlen.exit.thread75 ], [ 65535, %sdssetlen.exit.thread77 ], [ 65535, %120 ], [ 4294967295, %sdssetlen.exit.thread71 ], [ 4294967295, %121 ]
-  %123 = icmp ugt i64 %122, %.0.i62
-  br i1 %123, label %124, label %sdsTypeMaxSize.exit.thread
+sdsTypeMaxSize.exit:                              ; preds = %sdssetlen.exit.thread79, %sdssetlen.exit.thread85, %sdssetlen.exit.thread83, %sdssetlen.exit, %117, %118
+  %119 = phi i64 [ %116, %sdssetlen.exit ], [ %98, %sdssetlen.exit.thread83 ], [ %103, %sdssetlen.exit.thread85 ], [ %116, %117 ], [ %108, %sdssetlen.exit.thread79 ], [ %116, %118 ]
+  %.04981 = phi ptr [ %113, %sdssetlen.exit ], [ %91, %sdssetlen.exit.thread83 ], [ %91, %sdssetlen.exit.thread85 ], [ %113, %117 ], [ %91, %sdssetlen.exit.thread79 ], [ %113, %118 ]
+  %.0.i62 = phi i64 [ 255, %sdssetlen.exit ], [ 255, %sdssetlen.exit.thread83 ], [ 65535, %sdssetlen.exit.thread85 ], [ 65535, %117 ], [ 4294967295, %sdssetlen.exit.thread79 ], [ 4294967295, %118 ]
+  %120 = icmp ugt i64 %119, %.0.i62
+  br i1 %120, label %121, label %sdsTypeMaxSize.exit.thread
 
-124:                                              ; preds = %sdsTypeMaxSize.exit
-  switch i8 %spec.store.select, label %default.unreachable66 [
-    i8 3, label %126
+121:                                              ; preds = %sdsTypeMaxSize.exit
+  switch i8 %.0.i5970, label %default.unreachable66 [
+    i8 3, label %123
     i8 1, label %sdsTypeMaxSize.exit.thread.sink.split
-    i8 2, label %125
+    i8 2, label %122
   ]
 
-125:                                              ; preds = %124
+122:                                              ; preds = %121
   br label %sdsTypeMaxSize.exit.thread.sink.split
 
-126:                                              ; preds = %124
+123:                                              ; preds = %121
   br label %sdsTypeMaxSize.exit.thread.sink.split
 
-default.unreachable66:                            ; preds = %124
+default.unreachable66:                            ; preds = %121
   unreachable
 
-sdsTypeMaxSize.exit.thread.sink.split:            ; preds = %126, %125, %124, %sdssetlen.exit.thread
-  %.sink = phi i64 [ %115, %sdssetlen.exit.thread ], [ 65535, %125 ], [ 4294967295, %126 ], [ 255, %124 ]
-  %.04970.ph = phi ptr [ %94, %sdssetlen.exit.thread ], [ %.04973, %125 ], [ %.04973, %126 ], [ %.04973, %124 ]
+sdsTypeMaxSize.exit.thread.sink.split:            ; preds = %123, %122, %121, %sdssetlen.exit.thread
+  %.sink = phi i64 [ %112, %sdssetlen.exit.thread ], [ 65535, %122 ], [ 4294967295, %123 ], [ 255, %121 ]
+  %.04978.ph = phi ptr [ %91, %sdssetlen.exit.thread ], [ %.04981, %122 ], [ %.04981, %123 ], [ %.04981, %121 ]
   store i64 %.sink, ptr %4, align 8, !tbaa !11
   br label %sdsTypeMaxSize.exit.thread
 
 sdsTypeMaxSize.exit.thread:                       ; preds = %sdsTypeMaxSize.exit.thread.sink.split, %sdssetlen.exit, %sdsTypeMaxSize.exit
-  %.04970 = phi ptr [ %116, %sdssetlen.exit ], [ %.04973, %sdsTypeMaxSize.exit ], [ %.04970.ph, %sdsTypeMaxSize.exit.thread.sink.split ]
-  %127 = phi i64 [ %119, %sdssetlen.exit ], [ %122, %sdsTypeMaxSize.exit ], [ %.sink, %sdsTypeMaxSize.exit.thread.sink.split ]
-  %128 = getelementptr inbounds i8, ptr %.04970, i64 -1
-  %129 = load i8, ptr %128, align 1, !tbaa !13
-  %130 = and i8 %129, 7
-  switch i8 %130, label %sdssetalloc.exit [
-    i8 4, label %140
-    i8 1, label %131
-    i8 2, label %134
-    i8 3, label %137
+  %.04978 = phi ptr [ %113, %sdssetlen.exit ], [ %.04981, %sdsTypeMaxSize.exit ], [ %.04978.ph, %sdsTypeMaxSize.exit.thread.sink.split ]
+  %124 = phi i64 [ %116, %sdssetlen.exit ], [ %119, %sdsTypeMaxSize.exit ], [ %.sink, %sdsTypeMaxSize.exit.thread.sink.split ]
+  %125 = getelementptr inbounds i8, ptr %.04978, i64 -1
+  %126 = load i8, ptr %125, align 1, !tbaa !13
+  %127 = and i8 %126, 7
+  switch i8 %127, label %sdssetalloc.exit [
+    i8 4, label %137
+    i8 1, label %128
+    i8 2, label %131
+    i8 3, label %134
   ]
 
+128:                                              ; preds = %sdsTypeMaxSize.exit.thread
+  %129 = trunc i64 %124 to i8
+  %130 = getelementptr inbounds i8, ptr %.04978, i64 -2
+  store i8 %129, ptr %130, align 1, !tbaa !13
+  br label %sdssetalloc.exit
+
 131:                                              ; preds = %sdsTypeMaxSize.exit.thread
-  %132 = trunc i64 %127 to i8
-  %133 = getelementptr inbounds i8, ptr %.04970, i64 -2
-  store i8 %132, ptr %133, align 1, !tbaa !13
+  %132 = trunc i64 %124 to i16
+  %133 = getelementptr inbounds i8, ptr %.04978, i64 -3
+  store i16 %132, ptr %133, align 1, !tbaa !14
   br label %sdssetalloc.exit
 
 134:                                              ; preds = %sdsTypeMaxSize.exit.thread
-  %135 = trunc i64 %127 to i16
-  %136 = getelementptr inbounds i8, ptr %.04970, i64 -3
-  store i16 %135, ptr %136, align 1, !tbaa !14
+  %135 = trunc i64 %124 to i32
+  %136 = getelementptr inbounds i8, ptr %.04978, i64 -5
+  store i32 %135, ptr %136, align 1, !tbaa !16
   br label %sdssetalloc.exit
 
 137:                                              ; preds = %sdsTypeMaxSize.exit.thread
-  %138 = trunc i64 %127 to i32
-  %139 = getelementptr inbounds i8, ptr %.04970, i64 -5
-  store i32 %138, ptr %139, align 1, !tbaa !16
+  %138 = getelementptr inbounds i8, ptr %.04978, i64 -9
+  store i64 %124, ptr %138, align 1, !tbaa !11
   br label %sdssetalloc.exit
 
-140:                                              ; preds = %sdsTypeMaxSize.exit.thread
-  %141 = getelementptr inbounds i8, ptr %.04970, i64 -9
-  store i64 %127, ptr %141, align 1, !tbaa !11
-  br label %sdssetalloc.exit
-
-sdssetalloc.exit:                                 ; preds = %140, %137, %134, %131, %sdsTypeMaxSize.exit.thread, %90, %87, %sdsavail.exit
-  %.0 = phi ptr [ %0, %sdsavail.exit ], [ null, %87 ], [ null, %90 ], [ %.04970, %sdsTypeMaxSize.exit.thread ], [ %.04970, %131 ], [ %.04970, %134 ], [ %.04970, %137 ], [ %.04970, %140 ]
+sdssetalloc.exit:                                 ; preds = %137, %134, %131, %128, %sdsTypeMaxSize.exit.thread, %87, %84, %sdsavail.exit
+  %.0 = phi ptr [ %0, %sdsavail.exit ], [ null, %84 ], [ null, %87 ], [ %.04978, %sdsTypeMaxSize.exit.thread ], [ %.04978, %128 ], [ %.04978, %131 ], [ %.04978, %134 ], [ %.04978, %137 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
   ret ptr %.0
 }
@@ -1210,7 +1202,7 @@ define dso_local ptr @sdsAllocPtr(ptr noundef readonly captures(ret: address, pr
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit
 
@@ -3771,7 +3763,7 @@ define dso_local ptr @sdssplitlen(ptr noundef readonly captures(address) %0, i64
 
 switch.lookup:                                    ; preds = %80
   %85 = zext nneg i8 %83 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %85
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %85
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
@@ -3831,7 +3823,7 @@ define dso_local void @sdsfreesplitres(ptr noundef %0, i32 noundef %1) local_unn
 
 switch.lookup:                                    ; preds = %7
   %12 = zext nneg i8 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
@@ -5688,7 +5680,7 @@ sdscatlen.exit:                                   ; preds = %306, %sdssetlen.exi
 
 switch.lookup:                                    ; preds = %376
   %381 = zext nneg i8 %379 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %381
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %381
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
@@ -5720,7 +5712,7 @@ sdsfree.exit:                                     ; preds = %.lr.ph152, %sdsHdrS
 
 switch.lookup219:                                 ; preds = %385
   %390 = zext nneg i8 %388 to i64
-  %switch.gep220 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %390
+  %switch.gep220 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %390
   %switch.load221 = load i64, ptr %switch.gep220, align 8
   br label %sdsfree.exit127
 
@@ -6607,7 +6599,7 @@ sdssetlen.exit.i.i53:                             ; preds = %158, %155, %152, %1
 
 switch.lookup:                                    ; preds = %170
   %175 = zext nneg i8 %173 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %175
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %175
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
@@ -6727,7 +6719,7 @@ sdscat.exit60:                                    ; preds = %sdssetlen.exit.i.i5
 
 switch.lookup98:                                  ; preds = %sdscat.exit60
   %227 = zext nneg i8 %225 to i64
-  %switch.gep99 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %227
+  %switch.gep99 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %227
   %switch.load100 = load i64, ptr %switch.gep99, align 8
   br label %sdsfree.exit63
 
@@ -6758,7 +6750,7 @@ sdscat.exit:                                      ; preds = %sdssetlen.exit.i.i5
 
 switch.lookup101:                                 ; preds = %233
   %238 = zext nneg i8 %236 to i64
-  %switch.gep102 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %238
+  %switch.gep102 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %238
   %switch.load103 = load i64, ptr %switch.gep102, align 8
   br label %sdsHdrSize.exit.i64
 

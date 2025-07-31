@@ -3160,11 +3160,11 @@ define dso_local range(i32 -2147483648, 1) i32 @irq_chip_pm_put(ptr noundef read
 
 9:                                                ; preds = %5
   %10 = tail call i32 @__pm_runtime_idle(ptr noundef nonnull %7, i32 noundef 5) #8
+  %11 = tail call i32 @llvm.smin.i32(i32 %10, i32 0)
   br label %.thread
 
 .thread:                                          ; preds = %1, %9, %5
-  %11 = phi i32 [ %10, %9 ], [ 0, %5 ], [ 0, %1 ]
-  %12 = tail call i32 @llvm.smin.i32(i32 %11, i32 0)
+  %12 = phi i32 [ %11, %9 ], [ 0, %5 ], [ 0, %1 ]
   ret i32 %12
 }
 

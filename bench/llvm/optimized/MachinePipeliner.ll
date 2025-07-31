@@ -6445,29 +6445,32 @@ _ZN4llvm11SmallVectorINS_7NodeSetELj8EEC2ERKS2_.exit: ; preds = %_ZN4llvm17Swing
   %.1.i = phi i32 [ %spec.select.i, %104 ], [ %.021.i, %.lr.ph.i32 ]
   %109 = getelementptr inbounds nuw i8, ptr %.01720.i, i64 80
   %.not.i34 = icmp eq ptr %109, %101
-  br i1 %.not.i34, label %_ZN4llvm17SwingSchedulerDAG15calculateRecMIIERNS_11SmallVectorINS_7NodeSetELj8EEE.exit, label %.lr.ph.i32
+  br i1 %.not.i34, label %_ZN4llvm17SwingSchedulerDAG15calculateRecMIIERNS_11SmallVectorINS_7NodeSetELj8EEE.exit.loopexit, label %.lr.ph.i32
 
-_ZN4llvm17SwingSchedulerDAG15calculateRecMIIERNS_11SmallVectorINS_7NodeSetELj8EEE.exit: ; preds = %108, %_ZN4llvm11SmallVectorINS_7NodeSetELj8EEC2ERKS2_.exit
-  %.0.lcssa.i = phi i32 [ 0, %_ZN4llvm11SmallVectorINS_7NodeSetELj8EEC2ERKS2_.exit ], [ %.1.i, %108 ]
+_ZN4llvm17SwingSchedulerDAG15calculateRecMIIERNS_11SmallVectorINS_7NodeSetELj8EEE.exit.loopexit: ; preds = %108
+  %110 = call i32 @llvm.umax.i32(i32 %97, i32 %.1.i)
+  br label %_ZN4llvm17SwingSchedulerDAG15calculateRecMIIERNS_11SmallVectorINS_7NodeSetELj8EEE.exit
+
+_ZN4llvm17SwingSchedulerDAG15calculateRecMIIERNS_11SmallVectorINS_7NodeSetELj8EEE.exit: ; preds = %_ZN4llvm17SwingSchedulerDAG15calculateRecMIIERNS_11SmallVectorINS_7NodeSetELj8EEE.exit.loopexit, %_ZN4llvm11SmallVectorINS_7NodeSetELj8EEC2ERKS2_.exit
+  %.0.lcssa.i = phi i32 [ %97, %_ZN4llvm11SmallVectorINS_7NodeSetELj8EEC2ERKS2_.exit ], [ %110, %_ZN4llvm17SwingSchedulerDAG15calculateRecMIIERNS_11SmallVectorINS_7NodeSetELj8EEE.exit.loopexit ]
   call void @_ZN4llvm17SwingSchedulerDAG8fuseRecsERNS_11SmallVectorINS_7NodeSetELj8EEE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(656) %32)
-  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL10SwpForceII, i64 120), align 8, !tbaa !56
-  %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit.thread, label %_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit
+  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL10SwpForceII, i64 120), align 8, !tbaa !56
+  %112 = icmp sgt i32 %111, 0
+  br i1 %112, label %_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit.thread, label %_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit
 
 _ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit:     ; preds = %_ZN4llvm17SwingSchedulerDAG15calculateRecMIIERNS_11SmallVectorINS_7NodeSetELj8EEE.exit
-  %112 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL15SwpIgnoreRecMII, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
-  %113 = trunc nuw i8 %112 to i1
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 3336
-  %115 = load i32, ptr %114, align 8, !tbaa !637
-  %.not.i35 = icmp eq i32 %115, 0
-  %116 = call i32 @llvm.umax.i32(i32 %97, i32 %.0.lcssa.i)
-  %.sroa.speculated.i = select i1 %113, i32 %97, i32 %116
-  %.sink.i.ph = select i1 %.not.i35, i32 %.sroa.speculated.i, i32 %115
+  %113 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL15SwpIgnoreRecMII, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
+  %114 = trunc nuw i8 %113 to i1
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 3336
+  %116 = load i32, ptr %115, align 8, !tbaa !637
+  %.not.i35 = icmp eq i32 %116, 0
+  %.sroa.speculated.i = select i1 %114, i32 %97, i32 %.0.lcssa.i
+  %.sink.i.ph = select i1 %.not.i35, i32 %.sroa.speculated.i, i32 %116
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 3296
   store i32 %.sink.i.ph, ptr %117, align 8, !tbaa !665
   %118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16SwpIISearchRange, i64 120), align 8
   %119 = add i32 %118, %.sroa.speculated.i
-  %.sink.i37 = select i1 %.not.i35, i32 %119, i32 %115
+  %.sink.i37 = select i1 %.not.i35, i32 %119, i32 %116
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 3300
   store i32 %.sink.i37, ptr %120, align 4, !tbaa !666
   %121 = icmp eq i32 %.sink.i.ph, 0
@@ -6475,9 +6478,9 @@ _ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit:     ; preds = %_ZN4llvm17SwingSche
 
 _ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit.thread: ; preds = %_ZN4llvm17SwingSchedulerDAG15calculateRecMIIERNS_11SmallVectorINS_7NodeSetELj8EEE.exit
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 3296
-  store i32 %110, ptr %122, align 8, !tbaa !665
+  store i32 %111, ptr %122, align 8, !tbaa !665
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 3300
-  store i32 %110, ptr %123, align 4, !tbaa !666
+  store i32 %111, ptr %123, align 4, !tbaa !666
   br label %231
 
 124:                                              ; preds = %_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit
@@ -6740,7 +6743,7 @@ _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i: ; preds = %230, %_ZN4llvm23
   br label %"_ZN4llvm32MachineOptimizationRemarkEmitter4emitIZNS_17SwingSchedulerDAG8scheduleEvE3$_0EEvT_PDTclfL0p_EE.exit"
 
 231:                                              ; preds = %_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit.thread, %_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit
-  %.sink.i402405 = phi i32 [ %110, %_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit.thread ], [ %.sink.i.ph, %_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit ]
+  %.sink.i402405 = phi i32 [ %111, %_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit.thread ], [ %.sink.i.ph, %_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit ]
   %232 = phi ptr [ %122, %_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit.thread ], [ %117, %_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv.exit ]
   %233 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL9SwpMaxMii, i64 120), align 8, !tbaa !56
   %.not = icmp ne i32 %233, -1

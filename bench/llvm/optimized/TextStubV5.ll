@@ -7792,16 +7792,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i15.i:        ; preds = %3
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i23.i:        ; preds = %3
   %bcmp.i.i.i24.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(25) %1, ptr noundef nonnull dereferenceable(25) @.str.44, i64 25)
   %8 = icmp eq i32 %bcmp.i.i.i24.i, 0
-  %spec.select.i = select i1 %8, i64 4294967312, i64 0
+  %9 = select i1 %8, i32 16, i32 0
   br label %"_ZZN12_GLOBAL__N_110StubParser8getFlagsEPKN4llvm4json6ObjectEENK3$_0clENS1_9StringRefE.exit"
 
 "_ZZN12_GLOBAL__N_110StubParser8getFlagsEPKN4llvm4json6ObjectEENK3$_0clENS1_9StringRefE.exit": ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15.i, %.thread43.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23.i
-  %.sroa.12.3.i = phi i64 [ 0, %.thread43.i ], [ 4294967304, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15.i ], [ 0, %3 ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23.i ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ]
-  %spec.select.i45.i = tail call i64 @llvm.umax.i64(i64 %.sroa.12.3.i, i64 4294967296)
-  %spec.select.i.i = trunc i64 %spec.select.i45.i to i32
-  %9 = load i32, ptr %.val, align 4, !tbaa !301
-  %10 = or i32 %9, %spec.select.i.i
-  store i32 %10, ptr %.val, align 4, !tbaa !301
+  %.sroa.12.3.i = phi i32 [ 0, %.thread43.i ], [ 8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15.i ], [ 0, %3 ], [ %9, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ]
+  %10 = load i32, ptr %.val, align 4, !tbaa !301
+  %11 = or i32 %10, %.sroa.12.3.i
+  store i32 %11, ptr %.val, align 4, !tbaa !301
   ret void
 }
 

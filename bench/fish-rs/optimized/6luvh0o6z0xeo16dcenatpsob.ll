@@ -47613,10 +47613,11 @@ _ZN10widestring9utfstring11Utf32String6remove17hb840bfe953bd9d4aE.exit.i: ; pred
 
 .noexc50:                                         ; preds = %103
   %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.smax.i64(i64 %104, i64 0)
+  %105 = call i64 @llvm.umin.i64(i64 %.sroa.0.0.sroa.speculated.i.i.i, i64 %.sroa.09.042.i)
   br label %_ZN4fish12wcstringutil20fish_wcwidth_visible17he5c00ad01533ff22E.exit.i
 
 _ZN4fish12wcstringutil20fish_wcwidth_visible17he5c00ad01533ff22E.exit.i: ; preds = %.noexc50, %69
-  %105 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %.noexc50 ], [ 0, %69 ]
+  %.sroa.0.0.sroa.speculated.i21.i = phi i64 [ %105, %.noexc50 ], [ 0, %69 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4104)
   %106 = load i64, ptr %.sroa.5.0..sroa_idx78, align 8, !alias.scope !4107, !noalias !4097, !noundef !3
   %107 = icmp ult i64 %106, 2305843009213693952
@@ -47625,7 +47626,7 @@ _ZN4fish12wcstringutil20fish_wcwidth_visible17he5c00ad01533ff22E.exit.i: ; preds
   br i1 %108, label %_ZN10widestring9utfstring11Utf32String6remove17hb840bfe953bd9d4aE.exit22.i, label %.invoke206
 
 _ZN10widestring9utfstring11Utf32String6remove17hb840bfe953bd9d4aE.exit22.i: ; preds = %_ZN4fish12wcstringutil20fish_wcwidth_visible17he5c00ad01533ff22E.exit.i
-  %109 = call i64 @llvm.usub.sat.i64(i64 %.sroa.09.042.i, i64 %105)
+  %109 = sub i64 %.sroa.09.042.i, %.sroa.0.0.sroa.speculated.i21.i
   %110 = load ptr, ptr %.sroa.4.0..sroa_idx77, align 8, !alias.scope !4107, !noalias !4097, !nonnull !3, !noundef !3
   %111 = add nuw nsw i64 %.sroa.0.043.i, 1
   %112 = getelementptr inbounds nuw i32, ptr %110, i64 %.sroa.0.043.i

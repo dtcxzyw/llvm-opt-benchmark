@@ -8808,16 +8808,16 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate.exit.i: ; pred
 
 _ZN14arrow_vendored4dateL7tolowerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.i: ; preds = %.lr.ph.i.i
   %.pre440.i = load i64, ptr %488, align 8, !tbaa !29, !noalias !236
+  %546 = call i64 @llvm.umin.i64(i64 %.pre440.i, i64 4)
   br label %_ZN14arrow_vendored4dateL7tolowerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
 
 _ZN14arrow_vendored4dateL7tolowerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %_ZN14arrow_vendored4dateL7tolowerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.i, %539
-  %546 = phi i64 [ %.pre440.i, %_ZN14arrow_vendored4dateL7tolowerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.i ], [ 0, %539 ]
+  %.sroa.speculated.i.i = phi i64 [ %546, %_ZN14arrow_vendored4dateL7tolowerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.i ], [ 0, %539 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37) #32, !noalias !236
   store ptr %489, ptr %37, align 8, !tbaa !37, !noalias !236
   store i32 1885431148, ptr %489, align 8, !noalias !236
   store i64 4, ptr %490, align 8, !tbaa !29, !noalias !236
   store i8 0, ptr %508, align 4, !tbaa !30, !noalias !236
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %546, i64 4)
   %547 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEmmRKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %36, i64 noundef 0, i64 noundef %.sroa.speculated.i.i, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, i64 noundef %.sroa.speculated.i.i)
           to label %548 unwind label %840, !noalias !236
 

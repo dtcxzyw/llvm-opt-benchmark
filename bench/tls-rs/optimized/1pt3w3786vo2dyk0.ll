@@ -3463,32 +3463,32 @@ default.unreachable:                              ; preds = %2
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %16 = load i16, ptr %15, align 2, !alias.scope !790, !noalias !793
+  %17 = tail call i16 @llvm.bswap.i16(i16 %16)
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i"
 
 "_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i": ; preds = %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %2
-  %.0.i.i = phi i16 [ 24, %5 ], [ 25, %6 ], [ 29, %7 ], [ 30, %8 ], [ 256, %9 ], [ 257, %10 ], [ 258, %11 ], [ 259, %12 ], [ 260, %13 ], [ %16, %14 ], [ 23, %2 ]
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = load i64, ptr %17, align 8, !alias.scope !795, !noalias !804, !noundef !4
-  %19 = load i64, ptr %1, align 8, !alias.scope !795, !noalias !804, !noundef !4
-  %20 = sub i64 %19, %18
-  %21 = icmp ult i64 %20, 2
-  br i1 %21, label %22, label %"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit"
+  %.0.i.i = phi i16 [ 6144, %5 ], [ 6400, %6 ], [ 7424, %7 ], [ 7680, %8 ], [ 1, %9 ], [ 257, %10 ], [ 513, %11 ], [ 769, %12 ], [ 1025, %13 ], [ %17, %14 ], [ 5888, %2 ]
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %19 = load i64, ptr %18, align 8, !alias.scope !795, !noalias !804, !noundef !4
+  %20 = load i64, ptr %1, align 8, !alias.scope !795, !noalias !804, !noundef !4
+  %21 = sub i64 %20, %19
+  %22 = icmp ult i64 %21, 2
+  br i1 %22, label %23, label %"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit"
 
-22:                                               ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %18, i64 noundef 2), !noalias !804
-  %.pre.i.i.i.i = load i64, ptr %17, align 8, !alias.scope !807, !noalias !804
+23:                                               ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i"
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %19, i64 noundef 2), !noalias !804
+  %.pre.i.i.i.i = load i64, ptr %18, align 8, !alias.scope !807, !noalias !804
   br label %"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit"
 
-"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit": ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i", %22
-  %23 = phi i64 [ %18, %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i" ], [ %.pre.i.i.i.i, %22 ]
-  %24 = tail call i16 @llvm.bswap.i16(i16 %.0.i.i)
+"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit": ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i", %23
+  %24 = phi i64 [ %19, %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i" ], [ %.pre.i.i.i.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !807, !noalias !804, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds i8, ptr %26, i64 %23
-  store i16 %24, ptr %27, align 1, !noalias !808
-  %28 = load i64, ptr %17, align 8, !alias.scope !807, !noalias !804, !noundef !4
+  %27 = getelementptr inbounds i8, ptr %26, i64 %24
+  store i16 %.0.i.i, ptr %27, align 1, !noalias !808
+  %28 = load i64, ptr %18, align 8, !alias.scope !807, !noalias !804, !noundef !4
   %29 = add i64 %28, 2
-  store i64 %29, ptr %17, align 8, !alias.scope !807, !noalias !804
+  store i64 %29, ptr %18, align 8, !alias.scope !807, !noalias !804
   tail call void @llvm.experimental.noalias.scope.decl(metadata !809)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !812)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3503,7 +3503,7 @@ default.unreachable:                              ; preds = %2
 
 38:                                               ; preds = %"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %29, i64 noundef 2), !noalias !825
-  %.pre.i.i.i.i.i = load i64, ptr %17, align 8, !alias.scope !829, !noalias !825
+  %.pre.i.i.i.i.i = load i64, ptr %18, align 8, !alias.scope !829, !noalias !825
   br label %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
 
 "_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i": ; preds = %38, %"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit"
@@ -3512,9 +3512,9 @@ default.unreachable:                              ; preds = %2
   %41 = load ptr, ptr %25, align 8, !alias.scope !829, !noalias !825, !nonnull !4, !noundef !4
   %42 = getelementptr inbounds i8, ptr %41, i64 %39
   store i16 %40, ptr %42, align 1, !noalias !830
-  %43 = load i64, ptr %17, align 8, !alias.scope !829, !noalias !825, !noundef !4
+  %43 = load i64, ptr %18, align 8, !alias.scope !829, !noalias !825, !noundef !4
   %44 = add i64 %43, 2
-  store i64 %44, ptr %17, align 8, !alias.scope !829, !noalias !825
+  store i64 %44, ptr %18, align 8, !alias.scope !829, !noalias !825
   %45 = load i64, ptr %1, align 8, !alias.scope !831, !noalias !838, !noundef !4
   %46 = sub i64 %45, %44
   %47 = icmp ugt i64 %33, %46
@@ -3522,7 +3522,7 @@ default.unreachable:                              ; preds = %2
 
 48:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %44, i64 noundef %33), !noalias !838
-  %.pre.i.i.i.i1 = load i64, ptr %17, align 8, !alias.scope !840, !noalias !838
+  %.pre.i.i.i.i1 = load i64, ptr %18, align 8, !alias.scope !840, !noalias !838
   br label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 "_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit": ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i", %48
@@ -3530,9 +3530,9 @@ default.unreachable:                              ; preds = %2
   %50 = load ptr, ptr %25, align 8, !alias.scope !840, !noalias !838, !nonnull !4, !noundef !4
   %51 = getelementptr inbounds i8, ptr %50, i64 %49
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %31, i64 %33, i1 false), !noalias !809
-  %52 = load i64, ptr %17, align 8, !alias.scope !840, !noalias !838, !noundef !4
+  %52 = load i64, ptr %18, align 8, !alias.scope !840, !noalias !838, !noundef !4
   %53 = add i64 %52, %33
-  store i64 %53, ptr %17, align 8, !alias.scope !840, !noalias !838
+  store i64 %53, ptr %18, align 8, !alias.scope !840, !noalias !838
   ret void
 }
 
@@ -5837,29 +5837,29 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
 95:                                               ; preds = %84
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %97 = load i16, ptr %96, align 4, !alias.scope !1364, !noalias !1367
+  %98 = tail call i16 @llvm.bswap.i16(i16 %97)
   br label %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
 
 "_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i": ; preds = %95, %94, %93, %92, %91, %90, %89, %88, %87, %84
-  %.0.i.i = phi i16 [ 768, %87 ], [ 769, %88 ], [ 770, %89 ], [ 771, %90 ], [ 772, %91 ], [ -257, %92 ], [ -259, %93 ], [ -260, %94 ], [ %97, %95 ], [ 512, %84 ]
-  %98 = load i64, ptr %1, align 8, !alias.scope !1370, !noalias !1379, !noundef !4
-  %99 = sub i64 %98, %44
-  %100 = icmp ult i64 %99, 2
-  br i1 %100, label %101, label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
+  %.0.i.i = phi i16 [ 3, %87 ], [ 259, %88 ], [ 515, %89 ], [ 771, %90 ], [ 1027, %91 ], [ -2, %92 ], [ -514, %93 ], [ -770, %94 ], [ %98, %95 ], [ 2, %84 ]
+  %99 = load i64, ptr %1, align 8, !alias.scope !1370, !noalias !1379, !noundef !4
+  %100 = sub i64 %99, %44
+  %101 = icmp ult i64 %100, 2
+  br i1 %101, label %102, label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
 
-101:                                              ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
+102:                                              ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %44, i64 noundef 2)
           to label %.noexc12 unwind label %114
 
-.noexc12:                                         ; preds = %101
+.noexc12:                                         ; preds = %102
   %.pre.i.i.i.i11 = load i64, ptr %23, align 8, !alias.scope !1382, !noalias !1379
   br label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
 
 "_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit": ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i", %.noexc12
-  %102 = phi i64 [ %44, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i" ], [ %.pre.i.i.i.i11, %.noexc12 ]
-  %103 = tail call i16 @llvm.bswap.i16(i16 %.0.i.i)
+  %103 = phi i64 [ %44, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i" ], [ %.pre.i.i.i.i11, %.noexc12 ]
   %104 = load ptr, ptr %31, align 8, !alias.scope !1382, !noalias !1379, !nonnull !4, !noundef !4
-  %105 = getelementptr inbounds i8, ptr %104, i64 %102
-  store i16 %103, ptr %105, align 1, !noalias !1383
+  %105 = getelementptr inbounds i8, ptr %104, i64 %103
+  store i16 %.0.i.i, ptr %105, align 1, !noalias !1383
   br label %.sink.split
 
 106:                                              ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
@@ -5891,7 +5891,7 @@ _ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5fb09f64b0E.llvm.1593
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %113, ptr nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 %.sroa.3.0.i.i.i, i1 false), !noalias !1408
   br label %.sink.split
 
-114:                                              ; preds = %129, %110, %101, %83, %69, %58, %75, %73, %47
+114:                                              ; preds = %129, %110, %102, %83, %69, %58, %75, %73, %47
   %115 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN83_$LT$rustls..msgs..codec..LengthPrefixedBuffer$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1e05688e67d428c5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
@@ -6432,32 +6432,32 @@ default.unreachable:                              ; preds = %2
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %15 = load i16, ptr %14, align 2, !alias.scope !1500, !noalias !1503
+  %16 = tail call i16 @llvm.bswap.i16(i16 %15)
   br label %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
 
 "_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i": ; preds = %13, %12, %11, %10, %9, %8, %7, %6, %5, %2
-  %.0.i.i = phi i16 [ 768, %5 ], [ 769, %6 ], [ 770, %7 ], [ 771, %8 ], [ 772, %9 ], [ -257, %10 ], [ -259, %11 ], [ -260, %12 ], [ %15, %13 ], [ 512, %2 ]
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i64, ptr %16, align 8, !alias.scope !1505, !noalias !1514, !noundef !4
-  %18 = load i64, ptr %1, align 8, !alias.scope !1505, !noalias !1514, !noundef !4
-  %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, 2
-  br i1 %20, label %21, label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
+  %.0.i.i = phi i16 [ 3, %5 ], [ 259, %6 ], [ 515, %7 ], [ 771, %8 ], [ 1027, %9 ], [ -2, %10 ], [ -514, %11 ], [ -770, %12 ], [ %16, %13 ], [ 2, %2 ]
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %18 = load i64, ptr %17, align 8, !alias.scope !1505, !noalias !1514, !noundef !4
+  %19 = load i64, ptr %1, align 8, !alias.scope !1505, !noalias !1514, !noundef !4
+  %20 = sub i64 %19, %18
+  %21 = icmp ult i64 %20, 2
+  br i1 %21, label %22, label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
 
-21:                                               ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %17, i64 noundef 2), !noalias !1514
-  %.pre.i.i.i.i = load i64, ptr %16, align 8, !alias.scope !1517, !noalias !1514
+22:                                               ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %18, i64 noundef 2), !noalias !1514
+  %.pre.i.i.i.i = load i64, ptr %17, align 8, !alias.scope !1517, !noalias !1514
   br label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
 
-"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit": ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i", %21
-  %22 = phi i64 [ %17, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i" ], [ %.pre.i.i.i.i, %21 ]
-  %23 = tail call i16 @llvm.bswap.i16(i16 %.0.i.i)
+"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit": ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i", %22
+  %23 = phi i64 [ %18, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i" ], [ %.pre.i.i.i.i, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8, !alias.scope !1517, !noalias !1514, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i8, ptr %25, i64 %22
-  store i16 %23, ptr %26, align 1, !noalias !1518
-  %27 = load i64, ptr %16, align 8, !alias.scope !1517, !noalias !1514, !noundef !4
+  %26 = getelementptr inbounds i8, ptr %25, i64 %23
+  store i16 %.0.i.i, ptr %26, align 1, !noalias !1518
+  %27 = load i64, ptr %17, align 8, !alias.scope !1517, !noalias !1514, !noundef !4
   %28 = add i64 %27, 2
-  store i64 %28, ptr %16, align 8, !alias.scope !1517, !noalias !1514
+  store i64 %28, ptr %17, align 8, !alias.scope !1517, !noalias !1514
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load i64, ptr %1, align 8, !alias.scope !1519, !noalias !1528, !noundef !4
   %31 = sub i64 %30, %28
@@ -6466,7 +6466,7 @@ default.unreachable:                              ; preds = %2
 
 33:                                               ; preds = %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %28, i64 noundef 32), !noalias !1528
-  %.pre.i.i.i = load i64, ptr %16, align 8, !alias.scope !1531, !noalias !1528
+  %.pre.i.i.i = load i64, ptr %17, align 8, !alias.scope !1531, !noalias !1528
   br label %"_ZN78_$LT$rustls..msgs..handshake..Random$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7e81ef7812d4f133E.exit"
 
 "_ZN78_$LT$rustls..msgs..handshake..Random$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7e81ef7812d4f133E.exit": ; preds = %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit", %33
@@ -6474,9 +6474,9 @@ default.unreachable:                              ; preds = %2
   %35 = load ptr, ptr %24, align 8, !alias.scope !1531, !noalias !1528, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds i8, ptr %35, i64 %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %36, ptr noundef nonnull readonly align 8 dereferenceable(32) %29, i64 32, i1 false)
-  %37 = load i64, ptr %16, align 8, !alias.scope !1531, !noalias !1528, !noundef !4
+  %37 = load i64, ptr %17, align 8, !alias.scope !1531, !noalias !1528, !noundef !4
   %38 = add i64 %37, 32
-  store i64 %38, ptr %16, align 8, !alias.scope !1531, !noalias !1528
+  store i64 %38, ptr %17, align 8, !alias.scope !1531, !noalias !1528
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1532)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1535)
@@ -6489,7 +6489,7 @@ default.unreachable:                              ; preds = %2
 
 45:                                               ; preds = %"_ZN78_$LT$rustls..msgs..handshake..Random$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7e81ef7812d4f133E.exit"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3114d753502b12b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %38), !noalias !1532
-  %.pre.i.i = load i64, ptr %16, align 8, !alias.scope !1537, !noalias !1532
+  %.pre.i.i = load i64, ptr %17, align 8, !alias.scope !1537, !noalias !1532
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.15934541666227088301.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.15934541666227088301.exit.i": ; preds = %45, %"_ZN78_$LT$rustls..msgs..handshake..Random$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7e81ef7812d4f133E.exit"
@@ -6497,9 +6497,9 @@ default.unreachable:                              ; preds = %2
   %47 = load ptr, ptr %24, align 8, !alias.scope !1537, !noalias !1532, !nonnull !4, !noundef !4
   %48 = getelementptr inbounds i8, ptr %47, i64 %46
   store i8 %42, ptr %48, align 1, !noalias !1532
-  %49 = load i64, ptr %16, align 8, !alias.scope !1537, !noalias !1532, !noundef !4
+  %49 = load i64, ptr %17, align 8, !alias.scope !1537, !noalias !1532, !noundef !4
   %50 = add i64 %49, 1
-  store i64 %50, ptr %16, align 8, !alias.scope !1537, !noalias !1532
+  store i64 %50, ptr %17, align 8, !alias.scope !1537, !noalias !1532
   %51 = icmp ugt i64 %41, 32
   br i1 %51, label %52, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i"
 
@@ -6515,7 +6515,7 @@ default.unreachable:                              ; preds = %2
 
 56:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %50, i64 noundef %41), !noalias !1550
-  %.pre.i.i.i1 = load i64, ptr %16, align 8, !alias.scope !1552, !noalias !1550
+  %.pre.i.i.i1 = load i64, ptr %17, align 8, !alias.scope !1552, !noalias !1550
   br label %"_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8b0b79a73b06e2b5E.exit"
 
 "_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8b0b79a73b06e2b5E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i", %56
@@ -6523,9 +6523,9 @@ default.unreachable:                              ; preds = %2
   %58 = load ptr, ptr %24, align 8, !alias.scope !1552, !noalias !1550, !nonnull !4, !noundef !4
   %59 = getelementptr inbounds i8, ptr %58, i64 %57
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull readonly align 8 dereferenceable(40) %39, i64 %41, i1 false)
-  %60 = load i64, ptr %16, align 8, !alias.scope !1552, !noalias !1550, !noundef !4
+  %60 = load i64, ptr %17, align 8, !alias.scope !1552, !noalias !1550, !noundef !4
   %61 = add i64 %60, %41
-  store i64 %61, ptr %16, align 8, !alias.scope !1552, !noalias !1550
+  store i64 %61, ptr %17, align 8, !alias.scope !1552, !noalias !1550
   tail call void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h951d244848a788b7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h60bcec29718235a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %62, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
@@ -8618,29 +8618,29 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
 51:                                               ; preds = %39
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %53 = load i16, ptr %52, align 2, !alias.scope !1937, !noalias !1940
+  %54 = tail call i16 @llvm.bswap.i16(i16 %53)
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i"
 
 "_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i": ; preds = %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %39
-  %.0.i.i = phi i16 [ 24, %42 ], [ 25, %43 ], [ 29, %44 ], [ 30, %45 ], [ 256, %46 ], [ 257, %47 ], [ 258, %48 ], [ 259, %49 ], [ 260, %50 ], [ %53, %51 ], [ 23, %39 ]
-  %54 = load i64, ptr %1, align 8, !alias.scope !1942, !noalias !1951, !noundef !4
-  %55 = sub i64 %54, %36
-  %56 = icmp ult i64 %55, 2
-  br i1 %56, label %57, label %"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit"
+  %.0.i.i = phi i16 [ 6144, %42 ], [ 6400, %43 ], [ 7424, %44 ], [ 7680, %45 ], [ 1, %46 ], [ 257, %47 ], [ 513, %48 ], [ 769, %49 ], [ 1025, %50 ], [ %54, %51 ], [ 5888, %39 ]
+  %55 = load i64, ptr %1, align 8, !alias.scope !1942, !noalias !1951, !noundef !4
+  %56 = sub i64 %55, %36
+  %57 = icmp ult i64 %56, 2
+  br i1 %57, label %58, label %"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit"
 
-57:                                               ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i"
+58:                                               ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i"
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %36, i64 noundef 2)
           to label %.noexc unwind label %115
 
-.noexc:                                           ; preds = %57
+.noexc:                                           ; preds = %58
   %.pre.i.i.i.i3 = load i64, ptr %15, align 8, !alias.scope !1954, !noalias !1951
   br label %"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit"
 
 "_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit": ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i", %.noexc
-  %58 = phi i64 [ %36, %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i" ], [ %.pre.i.i.i.i3, %.noexc ]
-  %59 = tail call i16 @llvm.bswap.i16(i16 %.0.i.i)
+  %59 = phi i64 [ %36, %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i" ], [ %.pre.i.i.i.i3, %.noexc ]
   %60 = load ptr, ptr %23, align 8, !alias.scope !1954, !noalias !1951, !nonnull !4, !noundef !4
-  %61 = getelementptr inbounds i8, ptr %60, i64 %58
-  store i16 %59, ptr %61, align 1, !noalias !1955
+  %61 = getelementptr inbounds i8, ptr %60, i64 %59
+  store i16 %.0.i.i, ptr %61, align 1, !noalias !1955
   br label %117
 
 62:                                               ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
@@ -8738,29 +8738,29 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
 96:                                               ; preds = %85
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %98 = load i16, ptr %97, align 2, !alias.scope !1988, !noalias !1991
+  %99 = tail call i16 @llvm.bswap.i16(i16 %98)
   br label %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
 
 "_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i": ; preds = %96, %95, %94, %93, %92, %91, %90, %89, %88, %85
-  %.0.i.i8 = phi i16 [ 768, %88 ], [ 769, %89 ], [ 770, %90 ], [ 771, %91 ], [ 772, %92 ], [ -257, %93 ], [ -259, %94 ], [ -260, %95 ], [ %98, %96 ], [ 512, %85 ]
-  %99 = load i64, ptr %1, align 8, !alias.scope !1993, !noalias !2002, !noundef !4
-  %100 = sub i64 %99, %36
-  %101 = icmp ult i64 %100, 2
-  br i1 %101, label %102, label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
+  %.0.i.i8 = phi i16 [ 3, %88 ], [ 259, %89 ], [ 515, %90 ], [ 771, %91 ], [ 1027, %92 ], [ -2, %93 ], [ -514, %94 ], [ -770, %95 ], [ %99, %96 ], [ 2, %85 ]
+  %100 = load i64, ptr %1, align 8, !alias.scope !1993, !noalias !2002, !noundef !4
+  %101 = sub i64 %100, %36
+  %102 = icmp ult i64 %101, 2
+  br i1 %102, label %103, label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
 
-102:                                              ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
+103:                                              ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %36, i64 noundef 2)
           to label %.noexc11 unwind label %115
 
-.noexc11:                                         ; preds = %102
+.noexc11:                                         ; preds = %103
   %.pre.i.i.i.i9 = load i64, ptr %15, align 8, !alias.scope !2005, !noalias !2002
   br label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
 
 "_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit": ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i", %.noexc11
-  %103 = phi i64 [ %36, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i" ], [ %.pre.i.i.i.i9, %.noexc11 ]
-  %104 = tail call i16 @llvm.bswap.i16(i16 %.0.i.i8)
+  %104 = phi i64 [ %36, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i" ], [ %.pre.i.i.i.i9, %.noexc11 ]
   %105 = load ptr, ptr %23, align 8, !alias.scope !2005, !noalias !2002, !nonnull !4, !noundef !4
-  %106 = getelementptr inbounds i8, ptr %105, i64 %103
-  store i16 %104, ptr %106, align 1, !noalias !2006
+  %106 = getelementptr inbounds i8, ptr %105, i64 %104
+  store i16 %.0.i.i8, ptr %106, align 1, !noalias !2006
   br label %117
 
 107:                                              ; preds = %_ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit
@@ -8792,7 +8792,7 @@ _ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5fb09f64b0E.llvm.1593
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %114, ptr nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 %.sroa.3.0.i.i.i, i1 false), !noalias !2031
   br label %117
 
-115:                                              ; preds = %111, %102, %81, %71, %57
+115:                                              ; preds = %111, %103, %81, %71, %58
   %116 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN83_$LT$rustls..msgs..codec..LengthPrefixedBuffer$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1e05688e67d428c5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
@@ -9258,32 +9258,32 @@ default.unreachable:                              ; preds = %2
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %15 = load i16, ptr %14, align 2, !alias.scope !2136, !noalias !2139
+  %16 = tail call i16 @llvm.bswap.i16(i16 %15)
   br label %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
 
 "_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i": ; preds = %13, %12, %11, %10, %9, %8, %7, %6, %5, %2
-  %.0.i.i = phi i16 [ 768, %5 ], [ 769, %6 ], [ 770, %7 ], [ 771, %8 ], [ 772, %9 ], [ -257, %10 ], [ -259, %11 ], [ -260, %12 ], [ %15, %13 ], [ 512, %2 ]
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i64, ptr %16, align 8, !alias.scope !2141, !noalias !2150, !noundef !4
-  %18 = load i64, ptr %1, align 8, !alias.scope !2141, !noalias !2150, !noundef !4
-  %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, 2
-  br i1 %20, label %21, label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
+  %.0.i.i = phi i16 [ 3, %5 ], [ 259, %6 ], [ 515, %7 ], [ 771, %8 ], [ 1027, %9 ], [ -2, %10 ], [ -514, %11 ], [ -770, %12 ], [ %16, %13 ], [ 2, %2 ]
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %18 = load i64, ptr %17, align 8, !alias.scope !2141, !noalias !2150, !noundef !4
+  %19 = load i64, ptr %1, align 8, !alias.scope !2141, !noalias !2150, !noundef !4
+  %20 = sub i64 %19, %18
+  %21 = icmp ult i64 %20, 2
+  br i1 %21, label %22, label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
 
-21:                                               ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %17, i64 noundef 2), !noalias !2150
-  %.pre.i.i.i.i = load i64, ptr %16, align 8, !alias.scope !2153, !noalias !2150
+22:                                               ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %18, i64 noundef 2), !noalias !2150
+  %.pre.i.i.i.i = load i64, ptr %17, align 8, !alias.scope !2153, !noalias !2150
   br label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
 
-"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit": ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i", %21
-  %22 = phi i64 [ %17, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i" ], [ %.pre.i.i.i.i, %21 ]
-  %23 = tail call i16 @llvm.bswap.i16(i16 %.0.i.i)
+"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit": ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i", %22
+  %23 = phi i64 [ %18, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i" ], [ %.pre.i.i.i.i, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8, !alias.scope !2153, !noalias !2150, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i8, ptr %25, i64 %22
-  store i16 %23, ptr %26, align 1, !noalias !2154
-  %27 = load i64, ptr %16, align 8, !alias.scope !2153, !noalias !2150, !noundef !4
+  %26 = getelementptr inbounds i8, ptr %25, i64 %23
+  store i16 %.0.i.i, ptr %26, align 1, !noalias !2154
+  %27 = load i64, ptr %17, align 8, !alias.scope !2153, !noalias !2150, !noundef !4
   %28 = add i64 %27, 2
-  store i64 %28, ptr %16, align 8, !alias.scope !2153, !noalias !2150
+  store i64 %28, ptr %17, align 8, !alias.scope !2153, !noalias !2150
   %29 = load i64, ptr %1, align 8, !alias.scope !2155, !noalias !2164, !noundef !4
   %30 = sub i64 %29, %28
   %31 = icmp ult i64 %30, 32
@@ -9291,7 +9291,7 @@ default.unreachable:                              ; preds = %2
 
 32:                                               ; preds = %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %28, i64 noundef 32), !noalias !2164
-  %.pre.i.i.i = load i64, ptr %16, align 8, !alias.scope !2167, !noalias !2164
+  %.pre.i.i.i = load i64, ptr %17, align 8, !alias.scope !2167, !noalias !2164
   br label %"_ZN78_$LT$rustls..msgs..handshake..Random$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7e81ef7812d4f133E.exit"
 
 "_ZN78_$LT$rustls..msgs..handshake..Random$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7e81ef7812d4f133E.exit": ; preds = %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit", %32
@@ -9299,9 +9299,9 @@ default.unreachable:                              ; preds = %2
   %34 = load ptr, ptr %24, align 8, !alias.scope !2167, !noalias !2164, !nonnull !4, !noundef !4
   %35 = getelementptr inbounds i8, ptr %34, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %35, ptr noundef nonnull readonly align 1 dereferenceable(32) @_ZN6rustls4msgs9handshake26HELLO_RETRY_REQUEST_RANDOM17h03756670a89c9641E, i64 32, i1 false)
-  %36 = load i64, ptr %16, align 8, !alias.scope !2167, !noalias !2164, !noundef !4
+  %36 = load i64, ptr %17, align 8, !alias.scope !2167, !noalias !2164, !noundef !4
   %37 = add i64 %36, 32
-  store i64 %37, ptr %16, align 8, !alias.scope !2167, !noalias !2164
+  store i64 %37, ptr %17, align 8, !alias.scope !2167, !noalias !2164
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2168)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2171)
@@ -9314,7 +9314,7 @@ default.unreachable:                              ; preds = %2
 
 44:                                               ; preds = %"_ZN78_$LT$rustls..msgs..handshake..Random$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7e81ef7812d4f133E.exit"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3114d753502b12b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %37), !noalias !2168
-  %.pre.i.i = load i64, ptr %16, align 8, !alias.scope !2173, !noalias !2168
+  %.pre.i.i = load i64, ptr %17, align 8, !alias.scope !2173, !noalias !2168
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.15934541666227088301.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.15934541666227088301.exit.i": ; preds = %44, %"_ZN78_$LT$rustls..msgs..handshake..Random$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7e81ef7812d4f133E.exit"
@@ -9322,9 +9322,9 @@ default.unreachable:                              ; preds = %2
   %46 = load ptr, ptr %24, align 8, !alias.scope !2173, !noalias !2168, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds i8, ptr %46, i64 %45
   store i8 %41, ptr %47, align 1, !noalias !2168
-  %48 = load i64, ptr %16, align 8, !alias.scope !2173, !noalias !2168, !noundef !4
+  %48 = load i64, ptr %17, align 8, !alias.scope !2173, !noalias !2168, !noundef !4
   %49 = add i64 %48, 1
-  store i64 %49, ptr %16, align 8, !alias.scope !2173, !noalias !2168
+  store i64 %49, ptr %17, align 8, !alias.scope !2173, !noalias !2168
   %50 = icmp ugt i64 %40, 32
   br i1 %50, label %51, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i"
 
@@ -9340,7 +9340,7 @@ default.unreachable:                              ; preds = %2
 
 55:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %49, i64 noundef %40), !noalias !2186
-  %.pre.i.i.i1 = load i64, ptr %16, align 8, !alias.scope !2188, !noalias !2186
+  %.pre.i.i.i1 = load i64, ptr %17, align 8, !alias.scope !2188, !noalias !2186
   br label %"_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8b0b79a73b06e2b5E.exit"
 
 "_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8b0b79a73b06e2b5E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i", %55
@@ -9348,9 +9348,9 @@ default.unreachable:                              ; preds = %2
   %57 = load ptr, ptr %24, align 8, !alias.scope !2188, !noalias !2186, !nonnull !4, !noundef !4
   %58 = getelementptr inbounds i8, ptr %57, i64 %56
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr nonnull readonly align 8 dereferenceable(40) %38, i64 %40, i1 false)
-  %59 = load i64, ptr %16, align 8, !alias.scope !2188, !noalias !2186, !noundef !4
+  %59 = load i64, ptr %17, align 8, !alias.scope !2188, !noalias !2186, !noundef !4
   %60 = add i64 %59, %40
-  store i64 %60, ptr %16, align 8, !alias.scope !2188, !noalias !2186
+  store i64 %60, ptr %17, align 8, !alias.scope !2188, !noalias !2186
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 68
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2189)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2192)
@@ -9365,7 +9365,7 @@ default.unreachable:                              ; preds = %2
 
 69:                                               ; preds = %"_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8b0b79a73b06e2b5E.exit"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %60, i64 noundef 2), !noalias !2205
-  %.pre.i.i.i.i2 = load i64, ptr %16, align 8, !alias.scope !2208, !noalias !2205
+  %.pre.i.i.i.i2 = load i64, ptr %17, align 8, !alias.scope !2208, !noalias !2205
   br label %"_ZN73_$LT$rustls..enums..CipherSuite$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hc2231c5ae319a851E.exit"
 
 "_ZN73_$LT$rustls..enums..CipherSuite$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hc2231c5ae319a851E.exit": ; preds = %"_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8b0b79a73b06e2b5E.exit", %69
@@ -9374,16 +9374,16 @@ default.unreachable:                              ; preds = %2
   %72 = load ptr, ptr %24, align 8, !alias.scope !2208, !noalias !2205, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %70
   store i16 %71, ptr %73, align 1, !noalias !2209
-  %74 = load i64, ptr %16, align 8, !alias.scope !2208, !noalias !2205, !noundef !4
+  %74 = load i64, ptr %17, align 8, !alias.scope !2208, !noalias !2205, !noundef !4
   %75 = add i64 %74, 2
-  store i64 %75, ptr %16, align 8, !alias.scope !2208, !noalias !2205
+  store i64 %75, ptr %17, align 8, !alias.scope !2208, !noalias !2205
   %76 = load i64, ptr %1, align 8, !alias.scope !2210, !noalias !2217, !noundef !4
   %77 = icmp eq i64 %75, %76
   br i1 %77, label %78, label %"_ZN79_$LT$rustls..msgs..enums..Compression$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h0a5bf5642be7212cE.exit"
 
 78:                                               ; preds = %"_ZN73_$LT$rustls..enums..CipherSuite$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hc2231c5ae319a851E.exit"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3114d753502b12b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %75), !noalias !2217
-  %.pre.i.i.i4 = load i64, ptr %16, align 8, !alias.scope !2210, !noalias !2217
+  %.pre.i.i.i4 = load i64, ptr %17, align 8, !alias.scope !2210, !noalias !2217
   br label %"_ZN79_$LT$rustls..msgs..enums..Compression$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h0a5bf5642be7212cE.exit"
 
 "_ZN79_$LT$rustls..msgs..enums..Compression$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h0a5bf5642be7212cE.exit": ; preds = %"_ZN73_$LT$rustls..enums..CipherSuite$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hc2231c5ae319a851E.exit", %78
@@ -9391,9 +9391,9 @@ default.unreachable:                              ; preds = %2
   %80 = load ptr, ptr %24, align 8, !alias.scope !2210, !noalias !2217, !nonnull !4, !noundef !4
   %81 = getelementptr inbounds i8, ptr %80, i64 %79
   store i8 0, ptr %81, align 1, !noalias !2217
-  %82 = load i64, ptr %16, align 8, !alias.scope !2210, !noalias !2217, !noundef !4
+  %82 = load i64, ptr %17, align 8, !alias.scope !2210, !noalias !2217, !noundef !4
   %83 = add i64 %82, 1
-  store i64 %83, ptr %16, align 8, !alias.scope !2210, !noalias !2217
+  store i64 %83, ptr %17, align 8, !alias.scope !2210, !noalias !2217
   tail call void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h29d49608d82d37e7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   ret void
 }
@@ -9900,32 +9900,32 @@ default.unreachable:                              ; preds = %"_ZN73_$LT$rustls..
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %15 = load i16, ptr %14, align 2, !alias.scope !2306, !noalias !2309
+  %16 = tail call i16 @llvm.bswap.i16(i16 %15)
   br label %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
 
 "_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i": ; preds = %13, %12, %11, %10, %9, %8, %7, %6, %5, %2
-  %.0.i.i = phi i16 [ 768, %5 ], [ 769, %6 ], [ 770, %7 ], [ 771, %8 ], [ 772, %9 ], [ -257, %10 ], [ -259, %11 ], [ -260, %12 ], [ %15, %13 ], [ 512, %2 ]
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i64, ptr %16, align 8, !alias.scope !2311, !noalias !2320, !noundef !4
-  %18 = load i64, ptr %1, align 8, !alias.scope !2311, !noalias !2320, !noundef !4
-  %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, 2
-  br i1 %20, label %21, label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
+  %.0.i.i = phi i16 [ 3, %5 ], [ 259, %6 ], [ 515, %7 ], [ 771, %8 ], [ 1027, %9 ], [ -2, %10 ], [ -514, %11 ], [ -770, %12 ], [ %16, %13 ], [ 2, %2 ]
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %18 = load i64, ptr %17, align 8, !alias.scope !2311, !noalias !2320, !noundef !4
+  %19 = load i64, ptr %1, align 8, !alias.scope !2311, !noalias !2320, !noundef !4
+  %20 = sub i64 %19, %18
+  %21 = icmp ult i64 %20, 2
+  br i1 %21, label %22, label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
 
-21:                                               ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %17, i64 noundef 2), !noalias !2320
-  %.pre.i.i.i.i = load i64, ptr %16, align 8, !alias.scope !2323, !noalias !2320
+22:                                               ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %18, i64 noundef 2), !noalias !2320
+  %.pre.i.i.i.i = load i64, ptr %17, align 8, !alias.scope !2323, !noalias !2320
   br label %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
 
-"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit": ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i", %21
-  %22 = phi i64 [ %17, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i" ], [ %.pre.i.i.i.i, %21 ]
-  %23 = tail call i16 @llvm.bswap.i16(i16 %.0.i.i)
+"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit": ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i", %22
+  %23 = phi i64 [ %18, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i" ], [ %.pre.i.i.i.i, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8, !alias.scope !2323, !noalias !2320, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i8, ptr %25, i64 %22
-  store i16 %23, ptr %26, align 1, !noalias !2324
-  %27 = load i64, ptr %16, align 8, !alias.scope !2323, !noalias !2320, !noundef !4
+  %26 = getelementptr inbounds i8, ptr %25, i64 %23
+  store i16 %.0.i.i, ptr %26, align 1, !noalias !2324
+  %27 = load i64, ptr %17, align 8, !alias.scope !2323, !noalias !2320, !noundef !4
   %28 = add i64 %27, 2
-  store i64 %28, ptr %16, align 8, !alias.scope !2323, !noalias !2320
+  store i64 %28, ptr %17, align 8, !alias.scope !2323, !noalias !2320
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i64, ptr %1, align 8, !alias.scope !2325, !noalias !2334, !noundef !4
   %31 = sub i64 %30, %28
@@ -9934,7 +9934,7 @@ default.unreachable:                              ; preds = %"_ZN73_$LT$rustls..
 
 33:                                               ; preds = %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %28, i64 noundef 32), !noalias !2334
-  %.pre.i.i.i = load i64, ptr %16, align 8, !alias.scope !2337, !noalias !2334
+  %.pre.i.i.i = load i64, ptr %17, align 8, !alias.scope !2337, !noalias !2334
   br label %"_ZN78_$LT$rustls..msgs..handshake..Random$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7e81ef7812d4f133E.exit"
 
 "_ZN78_$LT$rustls..msgs..handshake..Random$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7e81ef7812d4f133E.exit": ; preds = %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h84ad71d2109cd0a0E.exit", %33
@@ -9942,9 +9942,9 @@ default.unreachable:                              ; preds = %"_ZN73_$LT$rustls..
   %35 = load ptr, ptr %24, align 8, !alias.scope !2337, !noalias !2334, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds i8, ptr %35, i64 %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %36, ptr noundef nonnull readonly align 8 dereferenceable(32) %29, i64 32, i1 false)
-  %37 = load i64, ptr %16, align 8, !alias.scope !2337, !noalias !2334, !noundef !4
+  %37 = load i64, ptr %17, align 8, !alias.scope !2337, !noalias !2334, !noundef !4
   %38 = add i64 %37, 32
-  store i64 %38, ptr %16, align 8, !alias.scope !2337, !noalias !2334
+  store i64 %38, ptr %17, align 8, !alias.scope !2337, !noalias !2334
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2338)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2341)
@@ -9957,7 +9957,7 @@ default.unreachable:                              ; preds = %"_ZN73_$LT$rustls..
 
 45:                                               ; preds = %"_ZN78_$LT$rustls..msgs..handshake..Random$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7e81ef7812d4f133E.exit"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3114d753502b12b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %38), !noalias !2338
-  %.pre.i.i = load i64, ptr %16, align 8, !alias.scope !2343, !noalias !2338
+  %.pre.i.i = load i64, ptr %17, align 8, !alias.scope !2343, !noalias !2338
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.15934541666227088301.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.15934541666227088301.exit.i": ; preds = %45, %"_ZN78_$LT$rustls..msgs..handshake..Random$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7e81ef7812d4f133E.exit"
@@ -9965,9 +9965,9 @@ default.unreachable:                              ; preds = %"_ZN73_$LT$rustls..
   %47 = load ptr, ptr %24, align 8, !alias.scope !2343, !noalias !2338, !nonnull !4, !noundef !4
   %48 = getelementptr inbounds i8, ptr %47, i64 %46
   store i8 %42, ptr %48, align 1, !noalias !2338
-  %49 = load i64, ptr %16, align 8, !alias.scope !2343, !noalias !2338, !noundef !4
+  %49 = load i64, ptr %17, align 8, !alias.scope !2343, !noalias !2338, !noundef !4
   %50 = add i64 %49, 1
-  store i64 %50, ptr %16, align 8, !alias.scope !2343, !noalias !2338
+  store i64 %50, ptr %17, align 8, !alias.scope !2343, !noalias !2338
   %51 = icmp ugt i64 %41, 32
   br i1 %51, label %52, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i"
 
@@ -9983,7 +9983,7 @@ default.unreachable:                              ; preds = %"_ZN73_$LT$rustls..
 
 56:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %50, i64 noundef %41), !noalias !2356
-  %.pre.i.i.i1 = load i64, ptr %16, align 8, !alias.scope !2358, !noalias !2356
+  %.pre.i.i.i1 = load i64, ptr %17, align 8, !alias.scope !2358, !noalias !2356
   br label %"_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8b0b79a73b06e2b5E.exit"
 
 "_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8b0b79a73b06e2b5E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i", %56
@@ -9991,9 +9991,9 @@ default.unreachable:                              ; preds = %"_ZN73_$LT$rustls..
   %58 = load ptr, ptr %24, align 8, !alias.scope !2358, !noalias !2356, !nonnull !4, !noundef !4
   %59 = getelementptr inbounds i8, ptr %58, i64 %57
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull readonly align 8 dereferenceable(40) %39, i64 %41, i1 false)
-  %60 = load i64, ptr %16, align 8, !alias.scope !2358, !noalias !2356, !noundef !4
+  %60 = load i64, ptr %17, align 8, !alias.scope !2358, !noalias !2356, !noundef !4
   %61 = add i64 %60, %41
-  store i64 %61, ptr %16, align 8, !alias.scope !2358, !noalias !2356
+  store i64 %61, ptr %17, align 8, !alias.scope !2358, !noalias !2356
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 100
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2359)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2362)
@@ -10008,7 +10008,7 @@ default.unreachable:                              ; preds = %"_ZN73_$LT$rustls..
 
 70:                                               ; preds = %"_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8b0b79a73b06e2b5E.exit"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %61, i64 noundef 2), !noalias !2374
-  %.pre.i.i.i.i2 = load i64, ptr %16, align 8, !alias.scope !2377, !noalias !2374
+  %.pre.i.i.i.i2 = load i64, ptr %17, align 8, !alias.scope !2377, !noalias !2374
   br label %"_ZN73_$LT$rustls..enums..CipherSuite$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hc2231c5ae319a851E.exit"
 
 "_ZN73_$LT$rustls..enums..CipherSuite$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hc2231c5ae319a851E.exit": ; preds = %"_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8b0b79a73b06e2b5E.exit", %70
@@ -10017,9 +10017,9 @@ default.unreachable:                              ; preds = %"_ZN73_$LT$rustls..
   %73 = load ptr, ptr %24, align 8, !alias.scope !2377, !noalias !2374, !nonnull !4, !noundef !4
   %74 = getelementptr inbounds i8, ptr %73, i64 %71
   store i16 %72, ptr %74, align 1, !noalias !2378
-  %75 = load i64, ptr %16, align 8, !alias.scope !2377, !noalias !2374, !noundef !4
+  %75 = load i64, ptr %17, align 8, !alias.scope !2377, !noalias !2374, !noundef !4
   %76 = add i64 %75, 2
-  store i64 %76, ptr %16, align 8, !alias.scope !2377, !noalias !2374
+  store i64 %76, ptr %17, align 8, !alias.scope !2377, !noalias !2374
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2379)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2382)
@@ -10047,7 +10047,7 @@ default.unreachable:                              ; preds = %"_ZN73_$LT$rustls..
 
 85:                                               ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit.i"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3114d753502b12b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %76), !noalias !2390
-  %.pre.i.i.i4 = load i64, ptr %16, align 8, !alias.scope !2385, !noalias !2390
+  %.pre.i.i.i4 = load i64, ptr %17, align 8, !alias.scope !2385, !noalias !2390
   br label %"_ZN79_$LT$rustls..msgs..enums..Compression$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h0a5bf5642be7212cE.exit"
 
 "_ZN79_$LT$rustls..msgs..enums..Compression$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h0a5bf5642be7212cE.exit": ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit.i", %85
@@ -10055,9 +10055,9 @@ default.unreachable:                              ; preds = %"_ZN73_$LT$rustls..
   %87 = load ptr, ptr %24, align 8, !alias.scope !2385, !noalias !2390, !nonnull !4, !noundef !4
   %88 = getelementptr inbounds i8, ptr %87, i64 %86
   store i8 %.0.i.i3, ptr %88, align 1, !noalias !2390
-  %89 = load i64, ptr %16, align 8, !alias.scope !2385, !noalias !2390, !noundef !4
+  %89 = load i64, ptr %17, align 8, !alias.scope !2385, !noalias !2390, !noundef !4
   %90 = add i64 %89, 1
-  store i64 %90, ptr %16, align 8, !alias.scope !2385, !noalias !2390
+  store i64 %90, ptr %17, align 8, !alias.scope !2385, !noalias !2390
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %92 = load i64, ptr %91, align 8, !noundef !4
   %93 = icmp eq i64 %92, 0
@@ -11867,26 +11867,26 @@ default.unreachable:                              ; preds = %"_ZN79_$LT$rustls..
 31:                                               ; preds = %"_ZN79_$LT$rustls..msgs..enums..ECCurveType$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h6b26c68d4dd4282bE.exit"
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %33 = load i16, ptr %32, align 2, !alias.scope !2864, !noalias !2867
+  %34 = tail call i16 @llvm.bswap.i16(i16 %33)
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i"
 
 "_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i": ; preds = %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %"_ZN79_$LT$rustls..msgs..enums..ECCurveType$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h6b26c68d4dd4282bE.exit"
-  %.0.i.i1 = phi i16 [ 24, %22 ], [ 25, %23 ], [ 29, %24 ], [ 30, %25 ], [ 256, %26 ], [ 257, %27 ], [ 258, %28 ], [ 259, %29 ], [ 260, %30 ], [ %33, %31 ], [ 23, %"_ZN79_$LT$rustls..msgs..enums..ECCurveType$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h6b26c68d4dd4282bE.exit" ]
-  %34 = load i64, ptr %1, align 8, !alias.scope !2869, !noalias !2878, !noundef !4
-  %35 = sub i64 %34, %20
-  %36 = icmp ult i64 %35, 2
-  br i1 %36, label %37, label %"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit"
+  %.0.i.i1 = phi i16 [ 6144, %22 ], [ 6400, %23 ], [ 7424, %24 ], [ 7680, %25 ], [ 1, %26 ], [ 257, %27 ], [ 513, %28 ], [ 769, %29 ], [ 1025, %30 ], [ %34, %31 ], [ 5888, %"_ZN79_$LT$rustls..msgs..enums..ECCurveType$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h6b26c68d4dd4282bE.exit" ]
+  %35 = load i64, ptr %1, align 8, !alias.scope !2869, !noalias !2878, !noundef !4
+  %36 = sub i64 %35, %20
+  %37 = icmp ult i64 %36, 2
+  br i1 %37, label %38, label %"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit"
 
-37:                                               ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i"
+38:                                               ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %20, i64 noundef 2), !noalias !2878
   %.pre.i.i.i.i = load i64, ptr %10, align 8, !alias.scope !2881, !noalias !2878
   br label %"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit"
 
-"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit": ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i", %37
-  %38 = phi i64 [ %20, %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i" ], [ %.pre.i.i.i.i, %37 ]
-  %39 = tail call i16 @llvm.bswap.i16(i16 %.0.i.i1)
+"_ZN78_$LT$rustls..msgs..enums..NamedGroup$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17he5332c7a12302f04E.exit": ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i", %38
+  %39 = phi i64 [ %20, %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i" ], [ %.pre.i.i.i.i, %38 ]
   %40 = load ptr, ptr %16, align 8, !alias.scope !2881, !noalias !2878, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds i8, ptr %40, i64 %38
-  store i16 %39, ptr %41, align 1, !noalias !2882
+  %41 = getelementptr inbounds i8, ptr %40, i64 %39
+  store i16 %.0.i.i1, ptr %41, align 1, !noalias !2882
   %42 = load i64, ptr %10, align 8, !alias.scope !2881, !noalias !2878, !noundef !4
   %43 = add i64 %42, 2
   store i64 %43, ptr %10, align 8, !alias.scope !2881, !noalias !2878
@@ -17921,32 +17921,32 @@ default.unreachable:                              ; preds = %"_ZN75_$LT$rustls..
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %8 = load i16, ptr %7, align 2, !alias.scope !4359, !noalias !4362
+  %9 = tail call i16 @llvm.bswap.i16(i16 %8)
   br label %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKdf$GT$$u20$for$u20$u16$GT$4from17hccff936ebbc6a2d6E.exit.i"
 
 "_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKdf$GT$$u20$for$u20$u16$GT$4from17hccff936ebbc6a2d6E.exit.i": ; preds = %6, %5, %4, %2
-  %.0.i.i = phi i16 [ 2, %4 ], [ 3, %5 ], [ %8, %6 ], [ 1, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load i64, ptr %9, align 8, !alias.scope !4365, !noalias !4374, !noundef !4
-  %11 = load i64, ptr %1, align 8, !alias.scope !4365, !noalias !4374, !noundef !4
-  %12 = sub i64 %11, %10
-  %13 = icmp ult i64 %12, 2
-  br i1 %13, label %14, label %"_ZN75_$LT$rustls..msgs..enums..HpkeKdf$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hb48c18d29a808db2E.exit"
+  %.0.i.i = phi i16 [ 512, %4 ], [ 768, %5 ], [ %9, %6 ], [ 256, %2 ]
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = load i64, ptr %10, align 8, !alias.scope !4365, !noalias !4374, !noundef !4
+  %12 = load i64, ptr %1, align 8, !alias.scope !4365, !noalias !4374, !noundef !4
+  %13 = sub i64 %12, %11
+  %14 = icmp ult i64 %13, 2
+  br i1 %14, label %15, label %"_ZN75_$LT$rustls..msgs..enums..HpkeKdf$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hb48c18d29a808db2E.exit"
 
-14:                                               ; preds = %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKdf$GT$$u20$for$u20$u16$GT$4from17hccff936ebbc6a2d6E.exit.i"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %10, i64 noundef 2), !noalias !4374
-  %.pre.i.i.i.i = load i64, ptr %9, align 8, !alias.scope !4377, !noalias !4374
+15:                                               ; preds = %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKdf$GT$$u20$for$u20$u16$GT$4from17hccff936ebbc6a2d6E.exit.i"
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %11, i64 noundef 2), !noalias !4374
+  %.pre.i.i.i.i = load i64, ptr %10, align 8, !alias.scope !4377, !noalias !4374
   br label %"_ZN75_$LT$rustls..msgs..enums..HpkeKdf$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hb48c18d29a808db2E.exit"
 
-"_ZN75_$LT$rustls..msgs..enums..HpkeKdf$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hb48c18d29a808db2E.exit": ; preds = %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKdf$GT$$u20$for$u20$u16$GT$4from17hccff936ebbc6a2d6E.exit.i", %14
-  %15 = phi i64 [ %10, %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKdf$GT$$u20$for$u20$u16$GT$4from17hccff936ebbc6a2d6E.exit.i" ], [ %.pre.i.i.i.i, %14 ]
-  %16 = tail call i16 @llvm.bswap.i16(i16 %.0.i.i)
+"_ZN75_$LT$rustls..msgs..enums..HpkeKdf$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hb48c18d29a808db2E.exit": ; preds = %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKdf$GT$$u20$for$u20$u16$GT$4from17hccff936ebbc6a2d6E.exit.i", %15
+  %16 = phi i64 [ %11, %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKdf$GT$$u20$for$u20$u16$GT$4from17hccff936ebbc6a2d6E.exit.i" ], [ %.pre.i.i.i.i, %15 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !4377, !noalias !4374, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds i8, ptr %18, i64 %15
-  store i16 %16, ptr %19, align 1, !noalias !4378
-  %20 = load i64, ptr %9, align 8, !alias.scope !4377, !noalias !4374, !noundef !4
+  %19 = getelementptr inbounds i8, ptr %18, i64 %16
+  store i16 %.0.i.i, ptr %19, align 1, !noalias !4378
+  %20 = load i64, ptr %10, align 8, !alias.scope !4377, !noalias !4374, !noundef !4
   %21 = add i64 %20, 2
-  store i64 %21, ptr %9, align 8, !alias.scope !4377, !noalias !4374
+  store i64 %21, ptr %10, align 8, !alias.scope !4377, !noalias !4374
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4379)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4382)
@@ -17971,29 +17971,29 @@ default.unreachable:                              ; preds = %"_ZN75_$LT$rustls..
 27:                                               ; preds = %"_ZN75_$LT$rustls..msgs..enums..HpkeKdf$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hb48c18d29a808db2E.exit"
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %29 = load i16, ptr %28, align 2, !alias.scope !4379, !noalias !4382
+  %30 = tail call i16 @llvm.bswap.i16(i16 %29)
   br label %"_ZN6rustls4msgs5enums90_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeAead$GT$$u20$for$u20$u16$GT$4from17h8d8b87dd40e2b251E.exit.i"
 
 "_ZN6rustls4msgs5enums90_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeAead$GT$$u20$for$u20$u16$GT$4from17h8d8b87dd40e2b251E.exit.i": ; preds = %27, %26, %25, %24, %"_ZN75_$LT$rustls..msgs..enums..HpkeKdf$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hb48c18d29a808db2E.exit"
-  %.0.i.i1 = phi i16 [ 2, %24 ], [ 3, %25 ], [ -1, %26 ], [ %29, %27 ], [ 1, %"_ZN75_$LT$rustls..msgs..enums..HpkeKdf$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hb48c18d29a808db2E.exit" ]
-  %30 = load i64, ptr %1, align 8, !alias.scope !4385, !noalias !4394, !noundef !4
-  %31 = sub i64 %30, %21
-  %32 = icmp ult i64 %31, 2
-  br i1 %32, label %33, label %"_ZN76_$LT$rustls..msgs..enums..HpkeAead$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hd6259b8a2dbd0221E.exit"
+  %.0.i.i1 = phi i16 [ 512, %24 ], [ 768, %25 ], [ -1, %26 ], [ %30, %27 ], [ 256, %"_ZN75_$LT$rustls..msgs..enums..HpkeKdf$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hb48c18d29a808db2E.exit" ]
+  %31 = load i64, ptr %1, align 8, !alias.scope !4385, !noalias !4394, !noundef !4
+  %32 = sub i64 %31, %21
+  %33 = icmp ult i64 %32, 2
+  br i1 %33, label %34, label %"_ZN76_$LT$rustls..msgs..enums..HpkeAead$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hd6259b8a2dbd0221E.exit"
 
-33:                                               ; preds = %"_ZN6rustls4msgs5enums90_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeAead$GT$$u20$for$u20$u16$GT$4from17h8d8b87dd40e2b251E.exit.i"
+34:                                               ; preds = %"_ZN6rustls4msgs5enums90_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeAead$GT$$u20$for$u20$u16$GT$4from17h8d8b87dd40e2b251E.exit.i"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %21, i64 noundef 2), !noalias !4394
-  %.pre.i.i.i.i2 = load i64, ptr %9, align 8, !alias.scope !4397, !noalias !4394
+  %.pre.i.i.i.i2 = load i64, ptr %10, align 8, !alias.scope !4397, !noalias !4394
   br label %"_ZN76_$LT$rustls..msgs..enums..HpkeAead$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hd6259b8a2dbd0221E.exit"
 
-"_ZN76_$LT$rustls..msgs..enums..HpkeAead$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hd6259b8a2dbd0221E.exit": ; preds = %"_ZN6rustls4msgs5enums90_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeAead$GT$$u20$for$u20$u16$GT$4from17h8d8b87dd40e2b251E.exit.i", %33
-  %34 = phi i64 [ %21, %"_ZN6rustls4msgs5enums90_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeAead$GT$$u20$for$u20$u16$GT$4from17h8d8b87dd40e2b251E.exit.i" ], [ %.pre.i.i.i.i2, %33 ]
-  %35 = tail call i16 @llvm.bswap.i16(i16 %.0.i.i1)
+"_ZN76_$LT$rustls..msgs..enums..HpkeAead$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hd6259b8a2dbd0221E.exit": ; preds = %"_ZN6rustls4msgs5enums90_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeAead$GT$$u20$for$u20$u16$GT$4from17h8d8b87dd40e2b251E.exit.i", %34
+  %35 = phi i64 [ %21, %"_ZN6rustls4msgs5enums90_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeAead$GT$$u20$for$u20$u16$GT$4from17h8d8b87dd40e2b251E.exit.i" ], [ %.pre.i.i.i.i2, %34 ]
   %36 = load ptr, ptr %17, align 8, !alias.scope !4397, !noalias !4394, !nonnull !4, !noundef !4
-  %37 = getelementptr inbounds i8, ptr %36, i64 %34
-  store i16 %35, ptr %37, align 1, !noalias !4398
-  %38 = load i64, ptr %9, align 8, !alias.scope !4397, !noalias !4394, !noundef !4
+  %37 = getelementptr inbounds i8, ptr %36, i64 %35
+  store i16 %.0.i.i1, ptr %37, align 1, !noalias !4398
+  %38 = load i64, ptr %10, align 8, !alias.scope !4397, !noalias !4394, !noundef !4
   %39 = add i64 %38, 2
-  store i64 %39, ptr %9, align 8, !alias.scope !4397, !noalias !4394
+  store i64 %39, ptr %10, align 8, !alias.scope !4397, !noalias !4394
   ret void
 }
 
@@ -18168,26 +18168,26 @@ default.unreachable:                              ; preds = %"_ZN49_$LT$u8$u20$a
 22:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit"
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %24 = load i16, ptr %23, align 2, !alias.scope !4444, !noalias !4447
+  %25 = tail call i16 @llvm.bswap.i16(i16 %24)
   br label %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKem$GT$$u20$for$u20$u16$GT$4from17hee9db0fe43c7f552E.exit.i"
 
 "_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKem$GT$$u20$for$u20$u16$GT$4from17hee9db0fe43c7f552E.exit.i": ; preds = %22, %21, %20, %19, %18, %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit"
-  %.0.i.i = phi i16 [ 17, %18 ], [ 18, %19 ], [ 32, %20 ], [ 33, %21 ], [ %24, %22 ], [ 16, %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit" ]
-  %25 = load i64, ptr %1, align 8, !alias.scope !4450, !noalias !4459, !noundef !4
-  %26 = sub i64 %25, %15
-  %27 = icmp ult i64 %26, 2
-  br i1 %27, label %28, label %"_ZN75_$LT$rustls..msgs..enums..HpkeKem$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hb0d9bf6d28892080E.exit"
+  %.0.i.i = phi i16 [ 4352, %18 ], [ 4608, %19 ], [ 8192, %20 ], [ 8448, %21 ], [ %25, %22 ], [ 4096, %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit" ]
+  %26 = load i64, ptr %1, align 8, !alias.scope !4450, !noalias !4459, !noundef !4
+  %27 = sub i64 %26, %15
+  %28 = icmp ult i64 %27, 2
+  br i1 %28, label %29, label %"_ZN75_$LT$rustls..msgs..enums..HpkeKem$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hb0d9bf6d28892080E.exit"
 
-28:                                               ; preds = %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKem$GT$$u20$for$u20$u16$GT$4from17hee9db0fe43c7f552E.exit.i"
+29:                                               ; preds = %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKem$GT$$u20$for$u20$u16$GT$4from17hee9db0fe43c7f552E.exit.i"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %15, i64 noundef 2), !noalias !4459
   %.pre.i.i.i.i = load i64, ptr %5, align 8, !alias.scope !4462, !noalias !4459
   br label %"_ZN75_$LT$rustls..msgs..enums..HpkeKem$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hb0d9bf6d28892080E.exit"
 
-"_ZN75_$LT$rustls..msgs..enums..HpkeKem$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hb0d9bf6d28892080E.exit": ; preds = %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKem$GT$$u20$for$u20$u16$GT$4from17hee9db0fe43c7f552E.exit.i", %28
-  %29 = phi i64 [ %15, %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKem$GT$$u20$for$u20$u16$GT$4from17hee9db0fe43c7f552E.exit.i" ], [ %.pre.i.i.i.i, %28 ]
-  %30 = tail call i16 @llvm.bswap.i16(i16 %.0.i.i)
+"_ZN75_$LT$rustls..msgs..enums..HpkeKem$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hb0d9bf6d28892080E.exit": ; preds = %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKem$GT$$u20$for$u20$u16$GT$4from17hee9db0fe43c7f552E.exit.i", %29
+  %30 = phi i64 [ %15, %"_ZN6rustls4msgs5enums89_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..HpkeKem$GT$$u20$for$u20$u16$GT$4from17hee9db0fe43c7f552E.exit.i" ], [ %.pre.i.i.i.i, %29 ]
   %31 = load ptr, ptr %11, align 8, !alias.scope !4462, !noalias !4459, !nonnull !4, !noundef !4
-  %32 = getelementptr inbounds i8, ptr %31, i64 %29
-  store i16 %30, ptr %32, align 1, !noalias !4463
+  %32 = getelementptr inbounds i8, ptr %31, i64 %30
+  store i16 %.0.i.i, ptr %32, align 1, !noalias !4463
   %33 = load i64, ptr %5, align 8, !alias.scope !4462, !noalias !4459, !noundef !4
   %34 = add i64 %33, 2
   store i64 %34, ptr %5, align 8, !alias.scope !4462, !noalias !4459

@@ -965,29 +965,30 @@ put_ebml_void.exit.i.i110:                        ; preds = %.lr.ph.i.i.i.i107, 
   %.264.i = phi i32 [ %.163194.i, %354 ], [ %spec.select.i, %360 ], [ %.163194.i, %365 ], [ %.163194.i, %370 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %376 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %376, label %354, label %._crit_edge.i113, !llvm.loop !91
+  br i1 %376, label %354, label %._crit_edge.loopexit.i, !llvm.loop !91
 
-._crit_edge.i113:                                 ; preds = %375, %349
-  %.178.lcssa.i = phi i32 [ -1, %349 ], [ %.279.i, %375 ]
-  %.072.lcssa.i = phi i32 [ -1, %349 ], [ %.173.i, %375 ]
-  %.070.lcssa.i = phi i32 [ -1, %349 ], [ %.171.i, %375 ]
-  %.068.lcssa.i = phi i32 [ -1, %349 ], [ %.169.i, %375 ]
-  %.166.lcssa.i = phi i32 [ -1, %349 ], [ %.267.i, %375 ]
-  %.163.lcssa.i = phi i32 [ -1, %349 ], [ %.264.i, %375 ]
-  %377 = call i32 @llvm.smax.i32(i32 %.163.lcssa.i, i32 %.072.lcssa.i)
-  %378 = call i32 @llvm.smax.i32(i32 %.166.lcssa.i, i32 %.070.lcssa.i)
-  %.not82.i = icmp eq i32 %348, 1
-  %379 = call i32 @llvm.smax.i32(i32 %.178.lcssa.i, i32 %.068.lcssa.i)
-  %.3.i = select i1 %.not82.i, i32 %.178.lcssa.i, i32 %379
+._crit_edge.loopexit.i:                           ; preds = %375
+  %377 = call i32 @llvm.smax.i32(i32 %.264.i, i32 %.173.i)
+  %378 = call i32 @llvm.smax.i32(i32 %.267.i, i32 %.171.i)
+  %379 = call i32 @llvm.smax.i32(i32 %.279.i, i32 %.169.i)
   %380 = zext i32 %378 to i64
   %381 = zext i32 %377 to i64
+  br label %._crit_edge.i113
+
+._crit_edge.i113:                                 ; preds = %._crit_edge.loopexit.i, %349
+  %.178.lcssa.i = phi i32 [ -1, %349 ], [ %.279.i, %._crit_edge.loopexit.i ]
+  %.068.lcssa.i = phi i32 [ -1, %349 ], [ %379, %._crit_edge.loopexit.i ]
+  %.166.lcssa.i = phi i64 [ 4294967295, %349 ], [ %380, %._crit_edge.loopexit.i ]
+  %.163.lcssa.i = phi i64 [ 4294967295, %349 ], [ %381, %._crit_edge.loopexit.i ]
+  %.not82.i = icmp eq i32 %348, 1
+  %.3.i = select i1 %.not82.i, i32 %.178.lcssa.i, i32 %.068.lcssa.i
   %382 = zext i32 %.3.i to i64
   br label %383
 
 383:                                              ; preds = %._crit_edge.i113, %346
   %.077.i = phi i64 [ %382, %._crit_edge.i113 ], [ 4294967295, %346 ]
-  %.065.i = phi i64 [ %380, %._crit_edge.i113 ], [ 4294967295, %346 ]
-  %.062.i = phi i64 [ %381, %._crit_edge.i113 ], [ 4294967295, %346 ]
+  %.065.i = phi i64 [ %.166.lcssa.i, %._crit_edge.i113 ], [ 4294967295, %346 ]
+  %.062.i = phi i64 [ %.163.lcssa.i, %._crit_edge.i113 ], [ 4294967295, %346 ]
   %.not213.i = icmp eq i32 %.pre.i112, 0
   br i1 %.not213.i, label %mkv_write_tracks.exit, label %.lr.ph211.i
 

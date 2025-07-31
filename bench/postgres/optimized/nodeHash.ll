@@ -1348,7 +1348,7 @@ tailrecurse:                                      ; preds = %65, %9
 66:                                               ; preds = %65
   %67 = add nsw i64 %16, 8
   %.not90 = icmp ugt i64 %.2, %67
-  br i1 %.not90, label %68, label %75
+  br i1 %.not90, label %68, label %77
 
 68:                                               ; preds = %66
   %69 = udiv i64 %.2, %67
@@ -1358,18 +1358,18 @@ tailrecurse:                                      ; preds = %65, %9
   %73 = sub nuw nsw i64 64, %72
   %74 = shl nuw i64 1, %73
   %.0.i91 = select i1 %71, i64 %69, i64 %74
-  br label %75
+  %75 = tail call i64 @llvm.umin.i64(i64 %.0.i91, i64 %47)
+  %76 = trunc nuw nsw i64 %75 to i32
+  br label %77
 
-75:                                               ; preds = %68, %66
-  %.082 = phi i64 [ %.0.i91, %68 ], [ 1, %66 ]
-  %76 = tail call i64 @llvm.umin.i64(i64 %.082, i64 %47)
-  %77 = trunc nuw nsw i64 %76 to i32
-  %78 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %77)
+77:                                               ; preds = %68, %66
+  %.082 = phi i32 [ %76, %68 ], [ 1, %66 ]
+  %78 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.082)
   %79 = icmp samesign ult i32 %78, 2
-  %80 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %77, i1 true)
+  %80 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.082, i1 true)
   %81 = xor i32 %80, 31
   %82 = shl nuw nsw i32 2, %81
-  %.0.i92 = select i1 %79, i32 %77, i32 %82
+  %.0.i92 = select i1 %79, i32 %.082, i32 %82
   %83 = zext nneg i32 %.0.i92 to i64
   %84 = shl nuw nsw i64 %83, 3
   %85 = sub i64 %.2, %84
@@ -1388,9 +1388,9 @@ tailrecurse:                                      ; preds = %65, %9
   %.0.i93 = select i1 %94, i32 %92, i32 %97
   br label %.loopexit
 
-.loopexit:                                        ; preds = %42, %75
-  %.085 = phi i32 [ %.0.i92, %75 ], [ %.0.i, %42 ]
-  %.083 = phi i32 [ %.0.i93, %75 ], [ 1, %42 ]
+.loopexit:                                        ; preds = %42, %77
+  %.085 = phi i32 [ %.0.i92, %77 ], [ %.0.i, %42 ]
+  %.083 = phi i32 [ %.0.i93, %77 ], [ 1, %42 ]
   store i32 %.085, ptr %6, align 4
   store i32 %.083, ptr %7, align 4
   ret void

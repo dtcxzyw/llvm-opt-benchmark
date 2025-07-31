@@ -456,102 +456,102 @@ select.unfold:                                    ; preds = %.lr.ph
   %46 = getelementptr inbounds %union.ListCell, ptr %.val50, i64 %45
   %47 = icmp ult ptr %44, %46
   %..i51 = select i1 %47, ptr %44, ptr null
+  %48 = call i32 @llvm.bswap.i32(i32 %41)
+  %49 = call i16 @llvm.bswap.i16(i16 %43)
   br label %.critedge47
 
 .critedge47:                                      ; preds = %select.unfold, %23, %.critedge
   %.2 = phi ptr [ %..i51, %.critedge ], [ null, %23 ], [ null, %select.unfold ]
-  %.043 = phi i32 [ %41, %.critedge ], [ 0, %23 ], [ 0, %select.unfold ]
-  %.042 = phi i16 [ %43, %.critedge ], [ 0, %23 ], [ 0, %select.unfold ]
-  br i1 %.not46, label %51, label %48
+  %.043 = phi i32 [ %48, %.critedge ], [ 0, %23 ], [ 0, %select.unfold ]
+  %.042 = phi i16 [ %49, %.critedge ], [ 0, %23 ], [ 0, %select.unfold ]
+  br i1 %.not46, label %54, label %50
 
-48:                                               ; preds = %.critedge47
-  %49 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
-  %50 = load i16, ptr %49, align 2
-  br label %51
+50:                                               ; preds = %.critedge47
+  %51 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %52 = load i16, ptr %51, align 2
+  %53 = call i16 @llvm.bswap.i16(i16 %52)
+  br label %54
 
-51:                                               ; preds = %.critedge47, %48
-  %.041 = phi i16 [ %50, %48 ], [ 0, %.critedge47 ]
-  %52 = getelementptr inbounds nuw i8, ptr %27, i64 4
+54:                                               ; preds = %.critedge47, %50
+  %.041 = phi i16 [ %53, %50 ], [ 0, %.critedge47 ]
+  %55 = getelementptr inbounds nuw i8, ptr %27, i64 4
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #13, !alias.scope !26, !noalias !23
-  %54 = trunc i64 %53 to i32
-  %55 = call ptr @pg_server_to_client(ptr noundef nonnull %52, i32 noundef %54) #11, !noalias !23
-  %.not.i52 = icmp eq ptr %55, %52
-  br i1 %.not.i52, label %.critedge.i, label %56
+  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #13, !alias.scope !26, !noalias !23
+  %57 = trunc i64 %56 to i32
+  %58 = call ptr @pg_server_to_client(ptr noundef nonnull %55, i32 noundef %57) #11, !noalias !23
+  %.not.i52 = icmp eq ptr %58, %55
+  br i1 %.not.i52, label %.critedge.i, label %59
 
-56:                                               ; preds = %51
-  %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #13, !noalias !23
-  %58 = trunc i64 %57 to i32
-  %59 = load ptr, ptr %0, align 8, !alias.scope !23, !noalias !26
-  %60 = load i32, ptr %14, align 8, !alias.scope !23, !noalias !26
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %59, i64 %61
-  %63 = add i32 %58, 1
+59:                                               ; preds = %54
+  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #13, !noalias !23
+  %61 = trunc i64 %60 to i32
+  %62 = load ptr, ptr %0, align 8, !alias.scope !23, !noalias !26
+  %63 = load i32, ptr %14, align 8, !alias.scope !23, !noalias !26
   %64 = sext i32 %63 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr nonnull align 1 %55, i64 %64, i1 false), !noalias !23
-  %65 = add i32 %60, %63
-  call void @pfree(ptr noundef nonnull %55) #11, !noalias !23
+  %65 = getelementptr inbounds i8, ptr %62, i64 %64
+  %66 = add i32 %61, 1
+  %67 = sext i32 %66 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr nonnull align 1 %58, i64 %67, i1 false), !noalias !23
+  %68 = add i32 %63, %66
+  call void @pfree(ptr noundef nonnull %58) #11, !noalias !23
   br label %pq_writestring.exit
 
-.critedge.i:                                      ; preds = %51
-  %66 = load ptr, ptr %0, align 8, !alias.scope !23, !noalias !26
-  %67 = load i32, ptr %14, align 8, !alias.scope !23, !noalias !26
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i8, ptr %66, i64 %68
-  %70 = add i32 %54, 1
+.critedge.i:                                      ; preds = %54
+  %69 = load ptr, ptr %0, align 8, !alias.scope !23, !noalias !26
+  %70 = load i32, ptr %14, align 8, !alias.scope !23, !noalias !26
   %71 = sext i32 %70 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %55, i64 %71, i1 false), !noalias !23
-  %72 = add i32 %67, %70
+  %72 = getelementptr inbounds i8, ptr %69, i64 %71
+  %73 = add i32 %57, 1
+  %74 = sext i32 %73 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr align 1 %58, i64 %74, i1 false), !noalias !23
+  %75 = add i32 %70, %73
   br label %pq_writestring.exit
 
-pq_writestring.exit:                              ; preds = %56, %.critedge.i
-  %.sink = phi i32 [ %72, %.critedge.i ], [ %65, %56 ]
+pq_writestring.exit:                              ; preds = %59, %.critedge.i
+  %.sink = phi i32 [ %75, %.critedge.i ], [ %68, %59 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %73 = call i32 @llvm.bswap.i32(i32 %.043)
-  %74 = load ptr, ptr %0, align 8, !alias.scope !28
-  %75 = sext i32 %.sink to i64
-  %76 = getelementptr inbounds i8, ptr %74, i64 %75
-  store i32 %73, ptr %76, align 1, !noalias !28
-  %77 = add i32 %.sink, 4
+  %76 = load ptr, ptr %0, align 8, !alias.scope !28
+  %77 = sext i32 %.sink to i64
+  %78 = getelementptr inbounds i8, ptr %76, i64 %77
+  store i32 %.043, ptr %78, align 1, !noalias !28
+  %79 = add i32 %.sink, 4
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %78 = call i16 @llvm.bswap.i16(i16 %.042)
-  %79 = load ptr, ptr %0, align 8, !alias.scope !31
-  %80 = sext i32 %77 to i64
-  %81 = getelementptr inbounds i8, ptr %79, i64 %80
-  store i16 %78, ptr %81, align 1, !noalias !31
-  %82 = add i32 %.sink, 6
+  %80 = load ptr, ptr %0, align 8, !alias.scope !31
+  %81 = sext i32 %79 to i64
+  %82 = getelementptr inbounds i8, ptr %80, i64 %81
+  store i16 %.042, ptr %82, align 1, !noalias !31
+  %83 = add i32 %.sink, 6
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %83 = call i32 @llvm.bswap.i32(i32 %32)
-  %84 = load ptr, ptr %0, align 8, !alias.scope !34
-  %85 = sext i32 %82 to i64
-  %86 = getelementptr inbounds i8, ptr %84, i64 %85
-  store i32 %83, ptr %86, align 1, !noalias !34
-  %87 = add i32 %.sink, 10
-  store i32 %87, ptr %14, align 8, !alias.scope !34
-  %88 = getelementptr inbounds nuw i8, ptr %27, i64 72
-  %89 = load i16, ptr %88, align 4
+  %84 = call i32 @llvm.bswap.i32(i32 %32)
+  %85 = load ptr, ptr %0, align 8, !alias.scope !34
+  %86 = sext i32 %83 to i64
+  %87 = getelementptr inbounds i8, ptr %85, i64 %86
+  store i32 %84, ptr %87, align 1, !noalias !34
+  %88 = add i32 %.sink, 10
+  store i32 %88, ptr %14, align 8, !alias.scope !34
+  %89 = getelementptr inbounds nuw i8, ptr %27, i64 72
+  %90 = load i16, ptr %89, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %90 = call i16 @llvm.bswap.i16(i16 %89)
-  %91 = load ptr, ptr %0, align 8, !alias.scope !37
-  %92 = sext i32 %87 to i64
-  %93 = getelementptr inbounds i8, ptr %91, i64 %92
-  store i16 %90, ptr %93, align 1, !noalias !37
-  %94 = add i32 %.sink, 12
-  %95 = load i32, ptr %5, align 4
+  %91 = call i16 @llvm.bswap.i16(i16 %90)
+  %92 = load ptr, ptr %0, align 8, !alias.scope !37
+  %93 = sext i32 %88 to i64
+  %94 = getelementptr inbounds i8, ptr %92, i64 %93
+  store i16 %91, ptr %94, align 1, !noalias !37
+  %95 = add i32 %.sink, 12
+  %96 = load i32, ptr %5, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  %96 = call i32 @llvm.bswap.i32(i32 %95)
-  %97 = load ptr, ptr %0, align 8, !alias.scope !40
-  %98 = sext i32 %94 to i64
-  %99 = getelementptr inbounds i8, ptr %97, i64 %98
-  store i32 %96, ptr %99, align 1, !noalias !40
-  %100 = add i32 %.sink, 16
+  %97 = call i32 @llvm.bswap.i32(i32 %96)
+  %98 = load ptr, ptr %0, align 8, !alias.scope !40
+  %99 = sext i32 %95 to i64
+  %100 = getelementptr inbounds i8, ptr %98, i64 %99
+  store i32 %97, ptr %100, align 1, !noalias !40
+  %101 = add i32 %.sink, 16
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  %101 = call i16 @llvm.bswap.i16(i16 %.041)
   %102 = load ptr, ptr %0, align 8, !alias.scope !43
-  %103 = sext i32 %100 to i64
+  %103 = sext i32 %101 to i64
   %104 = getelementptr inbounds i8, ptr %102, i64 %103
-  store i16 %101, ptr %104, align 1, !noalias !43
+  store i16 %.041, ptr %104, align 1, !noalias !43
   %105 = add i32 %.sink, 18
   store i32 %105, ptr %14, align 8, !alias.scope !43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11

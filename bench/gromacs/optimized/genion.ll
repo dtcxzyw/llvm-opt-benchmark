@@ -548,10 +548,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
   %wide.trip.count = zext nneg i32 %158 to i64
   br label %171
 
-._crit_edge:                                      ; preds = %171, %_ZNSt10filesystem7__cxx114pathD2Ev.exit
-  %.077.lcssa = phi double [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %175, %171 ]
-  %162 = call double @llvm.rint.f64(double %.077.lcssa)
+._crit_edge.loopexit:                             ; preds = %171
+  %162 = call double @llvm.rint.f64(double %175)
   %163 = fptosi double %162 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt10filesystem7__cxx114pathD2Ev.exit
+  %.077.lcssa = phi i32 [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %163, %._crit_edge.loopexit ]
   %164 = load float, ptr %13, align 4, !tbaa !11
   %165 = fcmp ogt float %164, 0.000000e+00
   br i1 %165, label %176, label %218
@@ -582,7 +585,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
   %175 = fadd double %.077297, %174
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %171, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %171, !llvm.loop !60
 
 176:                                              ; preds = %._crit_edge
   %177 = load float, ptr %19, align 16, !tbaa !11
@@ -642,7 +645,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
   %225 = load i32, ptr %7, align 4, !tbaa !4
   %226 = load i32, ptr %9, align 4, !tbaa !4
   %227 = mul nsw i32 %226, %225
-  %228 = add i32 %224, %163
+  %228 = add i32 %224, %.077.lcssa
   %229 = add i32 %228, %227
   %.0.i.i = call noundef i32 @llvm.abs.i32(i32 %226, i1 true)
   %.0.i4.i = call noundef i32 @llvm.abs.i32(i32 %223, i1 true)

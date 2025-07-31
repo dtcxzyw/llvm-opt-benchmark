@@ -2673,12 +2673,12 @@ define internal noundef i32 @arp_seq_show(ptr noundef %0, ptr noundef %1) #1 ali
 
 61:                                               ; preds = %38
   %62 = trunc i64 %39 to i32
+  %63 = tail call i32 @llvm.usub.sat.i32(i32 %62, i32 1)
+  %64 = zext nneg i32 %63 to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %61
-  %63 = phi i32 [ %62, %61 ], [ 27, %42 ]
-  %64 = tail call i32 @llvm.usub.sat.i32(i32 %63, i32 1)
-  %65 = zext nneg i32 %64 to i64
+  %65 = phi i64 [ %64, %61 ], [ 26, %42 ]
   %66 = zext i16 %33 to i32
   %67 = getelementptr [30 x i8], ptr %3, i64 0, i64 %65
   store i8 0, ptr %67, align 1

@@ -1092,11 +1092,11 @@ select.unfold.us:                                 ; preds = %._crit_edge.us.sele
   br label %select.unfold.us
 
 .lr.ph40.preheader.i.us.us:                       ; preds = %.lr.ph.us, %Abc_NtkDecPatCount.exit.us.us
-  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %Abc_NtkDecPatCount.exit.us.us ], [ 0, %.lr.ph.us ]
+  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %Abc_NtkDecPatCount.exit.us.us ], [ 0, %.lr.ph.us ]
   %.04051.us.us = phi i32 [ %52, %Abc_NtkDecPatCount.exit.us.us ], [ 0, %.lr.ph.us ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %9, i8 0, i64 256, i1 false)
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv86
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv85
   %34 = load i8, ptr %33, align 1, !tbaa !43
   %35 = sext i8 %34 to i64
   %36 = getelementptr inbounds i8, ptr %6, i64 %35
@@ -1152,8 +1152,8 @@ Abc_NtkDecPatCount.exit.us.us:                    ; preds = %.loopexit.i.us.us, 
   %.2.i.us.us = phi i32 [ %20, %.critedge.i.us.us ], [ %.126.ph.i.us.us, %.loopexit.i.us.us ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #25
   %52 = tail call noundef i32 @llvm.smax.i32(i32 %.04051.us.us, i32 %.2.i.us.us)
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, %wide.trip.count45.i
-  %53 = trunc nuw i64 %indvars.iv.next87 to i32
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, %wide.trip.count45.i
+  %53 = trunc nuw i64 %indvars.iv.next86 to i32
   %54 = icmp sgt i32 %13, %53
   br i1 %54, label %.lr.ph40.preheader.i.us.us, label %._crit_edge.us, !llvm.loop !57
 
@@ -1176,8 +1176,8 @@ Abc_NtkDecPatCount.exit.us.us:                    ; preds = %.loopexit.i.us.us, 
   br i1 %.not47.us73, label %select.unfold.us74, label %.thread
 
 select.unfold.us74:                               ; preds = %.lr.ph54.split.split.split.us
-  %exitcond89.not = icmp eq i32 %59, 31
-  br i1 %exitcond89.not, label %.thread, label %.lr.ph54.split.split.split.us, !llvm.loop !58
+  %exitcond88.not = icmp eq i32 %59, 31
+  br i1 %exitcond88.not, label %.thread, label %.lr.ph54.split.split.split.us, !llvm.loop !58
 
 .lr.ph54.split.split.split:                       ; preds = %.lr.ph54.split.split
   %61 = shl nuw i32 1, %2

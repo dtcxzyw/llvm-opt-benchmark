@@ -2727,8 +2727,8 @@ _create_profile.exit262:                          ; preds = %_colorspaces_create
   %246 = call noalias dereferenceable_or_null(16384) ptr @g_malloc(i64 noundef 16384) #26
   br label %247
 
-247:                                              ; preds = %_HLG_fct.exit.i, %_create_profile.exit262
-  %indvars.iv.i.i263 = phi i64 [ 0, %_create_profile.exit262 ], [ %indvars.iv.next.i.i264, %_HLG_fct.exit.i ]
+247:                                              ; preds = %269, %_create_profile.exit262
+  %indvars.iv.i.i263 = phi i64 [ 0, %_create_profile.exit262 ], [ %indvars.iv.next.i.i264, %269 ]
   %248 = trunc nuw nsw i64 %indvars.iv.i.i263 to i32
   %249 = uitofp nneg i32 %248 to float
   %250 = fmul reassoc nsz arcp contract afn float %249, 0x3F30010020000000
@@ -2742,38 +2742,37 @@ _create_profile.exit262:                          ; preds = %_colorspaces_create
 
 257:                                              ; preds = %247
   %258 = fcmp reassoc nsz arcp contract afn ugt double %255, 5.000000e-01
-  br i1 %258, label %_HLG_fct.exit5.i, label %_HLG_fct.exit5.thread.i
+  br i1 %258, label %_HLG_fct.exit4.i, label %_HLG_fct.exit4.thread.i
 
-_HLG_fct.exit5.i:                                 ; preds = %257
+_HLG_fct.exit4.i:                                 ; preds = %257
   %259 = fmul reassoc nsz arcp contract afn double %255, 0x40165E05183E19B4
   %260 = fadd reassoc nsz arcp contract afn double %259, 0xC0090C1EB5B28AA2
   %261 = call reassoc nsz arcp contract afn double @llvm.exp.f64(double %260)
   %262 = fmul reassoc nsz arcp contract afn double %261, 0x3FB5555555555555
   %263 = fadd reassoc nsz arcp contract afn double %262, 0x3F984AAFFC877A88
   %264 = fcmp reassoc nsz arcp contract afn olt double %263, 1.000000e+00
-  br i1 %264, label %.thread.i, label %_HLG_fct.exit.i
+  br i1 %264, label %_HLG_fct.exit.i, label %269
 
-_HLG_fct.exit5.thread.i:                          ; preds = %257
+_HLG_fct.exit4.thread.i:                          ; preds = %257
   %265 = fmul reassoc nsz arcp contract afn double %255, %255
   %266 = fmul reassoc nsz arcp contract afn double %265, 0x3FD5555555555555
   %267 = fcmp reassoc nsz arcp contract afn olt double %266, 1.000000e+00
-  br i1 %267, label %.thread.i, label %_HLG_fct.exit.i
+  br i1 %267, label %_HLG_fct.exit.i, label %269
 
-.thread.i:                                        ; preds = %_HLG_fct.exit5.i, %_HLG_fct.exit5.thread.i
-  %.0.i.i = phi nsz double [ %266, %_HLG_fct.exit5.thread.i ], [ %263, %_HLG_fct.exit5.i ]
-  %268 = fptrunc double %.0.i.i to float
-  %269 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %268)
-  br label %_HLG_fct.exit.i
+_HLG_fct.exit.i:                                  ; preds = %_HLG_fct.exit4.i, %_HLG_fct.exit4.thread.i, %247
+  %.012.i.i = phi nsz double [ 0.000000e+00, %247 ], [ %266, %_HLG_fct.exit4.thread.i ], [ %263, %_HLG_fct.exit4.i ]
+  %268 = fptrunc reassoc nsz arcp contract afn double %.012.i.i to float
+  br label %269
 
-_HLG_fct.exit.i:                                  ; preds = %.thread.i, %_HLG_fct.exit5.thread.i, %_HLG_fct.exit5.i, %247
-  %270 = phi float [ 1.000000e+00, %_HLG_fct.exit5.i ], [ %269, %.thread.i ], [ 0.000000e+00, %247 ], [ 1.000000e+00, %_HLG_fct.exit5.thread.i ]
+269:                                              ; preds = %_HLG_fct.exit.i, %_HLG_fct.exit4.thread.i, %_HLG_fct.exit4.i
+  %270 = phi float [ %268, %_HLG_fct.exit.i ], [ 1.000000e+00, %_HLG_fct.exit4.i ], [ 1.000000e+00, %_HLG_fct.exit4.thread.i ]
   %271 = getelementptr inbounds nuw float, ptr %246, i64 %indvars.iv.i.i263
   store float %270, ptr %271, align 4, !tbaa !11
   %indvars.iv.next.i.i264 = add nuw nsw i64 %indvars.iv.i.i263, 1
   %exitcond.not.i.i265 = icmp eq i64 %indvars.iv.next.i.i264, 4096
   br i1 %exitcond.not.i.i265, label %_colorspaces_create_hlg_rec2020_rgb_profile.exit, label %247
 
-_colorspaces_create_hlg_rec2020_rgb_profile.exit: ; preds = %_HLG_fct.exit.i
+_colorspaces_create_hlg_rec2020_rgb_profile.exit: ; preds = %269
   %272 = call ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef null, i32 noundef 4096, ptr noundef nonnull %246) #23
   call void @g_free(ptr noundef nonnull %246) #23
   %273 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.31, ptr noundef nonnull @D65xyY, ptr noundef nonnull @Rec2020_Primaries, ptr noundef %272, i32 noundef 1)
@@ -2880,8 +2879,8 @@ _create_profile.exit274:                          ; preds = %_colorspaces_create
   %324 = call noalias dereferenceable_or_null(16384) ptr @g_malloc(i64 noundef 16384) #26
   br label %325
 
-325:                                              ; preds = %_HLG_fct.exit.i277, %_create_profile.exit274
-  %indvars.iv.i.i275 = phi i64 [ 0, %_create_profile.exit274 ], [ %indvars.iv.next.i.i278, %_HLG_fct.exit.i277 ]
+325:                                              ; preds = %347, %_create_profile.exit274
+  %indvars.iv.i.i275 = phi i64 [ 0, %_create_profile.exit274 ], [ %indvars.iv.next.i.i277, %347 ]
   %326 = trunc nuw nsw i64 %indvars.iv.i.i275 to i32
   %327 = uitofp nneg i32 %326 to float
   %328 = fmul reassoc nsz arcp contract afn float %327, 0x3F30010020000000
@@ -2891,42 +2890,41 @@ _create_profile.exit274:                          ; preds = %_colorspaces_create
   %332 = fcmp reassoc nsz arcp contract afn ogt double %331, 0.000000e+00
   %333 = select reassoc nsz arcp contract afn i1 %332, double %331, double 0.000000e+00
   %334 = fcmp reassoc nsz arcp contract afn oeq double %333, 0.000000e+00
-  br i1 %334, label %_HLG_fct.exit.i277, label %335
+  br i1 %334, label %_HLG_fct.exit.i280, label %335
 
 335:                                              ; preds = %325
   %336 = fcmp reassoc nsz arcp contract afn ugt double %333, 5.000000e-01
-  br i1 %336, label %_HLG_fct.exit5.i282, label %_HLG_fct.exit5.thread.i276
+  br i1 %336, label %_HLG_fct.exit4.i282, label %_HLG_fct.exit4.thread.i276
 
-_HLG_fct.exit5.i282:                              ; preds = %335
+_HLG_fct.exit4.i282:                              ; preds = %335
   %337 = fmul reassoc nsz arcp contract afn double %333, 0x40165E05183E19B4
   %338 = fadd reassoc nsz arcp contract afn double %337, 0xC0090C1EB5B28AA2
   %339 = call reassoc nsz arcp contract afn double @llvm.exp.f64(double %338)
   %340 = fmul reassoc nsz arcp contract afn double %339, 0x3FB5555555555555
   %341 = fadd reassoc nsz arcp contract afn double %340, 0x3F984AAFFC877A88
   %342 = fcmp reassoc nsz arcp contract afn olt double %341, 1.000000e+00
-  br i1 %342, label %.thread.i280, label %_HLG_fct.exit.i277
+  br i1 %342, label %_HLG_fct.exit.i280, label %347
 
-_HLG_fct.exit5.thread.i276:                       ; preds = %335
+_HLG_fct.exit4.thread.i276:                       ; preds = %335
   %343 = fmul reassoc nsz arcp contract afn double %333, %333
   %344 = fmul reassoc nsz arcp contract afn double %343, 0x3FD5555555555555
   %345 = fcmp reassoc nsz arcp contract afn olt double %344, 1.000000e+00
-  br i1 %345, label %.thread.i280, label %_HLG_fct.exit.i277
+  br i1 %345, label %_HLG_fct.exit.i280, label %347
 
-.thread.i280:                                     ; preds = %_HLG_fct.exit5.i282, %_HLG_fct.exit5.thread.i276
-  %.0.i.i281 = phi nsz double [ %344, %_HLG_fct.exit5.thread.i276 ], [ %341, %_HLG_fct.exit5.i282 ]
-  %346 = fptrunc double %.0.i.i281 to float
-  %347 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %346)
-  br label %_HLG_fct.exit.i277
+_HLG_fct.exit.i280:                               ; preds = %_HLG_fct.exit4.i282, %_HLG_fct.exit4.thread.i276, %325
+  %.012.i.i281 = phi nsz double [ 0.000000e+00, %325 ], [ %344, %_HLG_fct.exit4.thread.i276 ], [ %341, %_HLG_fct.exit4.i282 ]
+  %346 = fptrunc reassoc nsz arcp contract afn double %.012.i.i281 to float
+  br label %347
 
-_HLG_fct.exit.i277:                               ; preds = %.thread.i280, %_HLG_fct.exit5.thread.i276, %_HLG_fct.exit5.i282, %325
-  %348 = phi float [ 1.000000e+00, %_HLG_fct.exit5.i282 ], [ %347, %.thread.i280 ], [ 0.000000e+00, %325 ], [ 1.000000e+00, %_HLG_fct.exit5.thread.i276 ]
+347:                                              ; preds = %_HLG_fct.exit.i280, %_HLG_fct.exit4.thread.i276, %_HLG_fct.exit4.i282
+  %348 = phi float [ %346, %_HLG_fct.exit.i280 ], [ 1.000000e+00, %_HLG_fct.exit4.i282 ], [ 1.000000e+00, %_HLG_fct.exit4.thread.i276 ]
   %349 = getelementptr inbounds nuw float, ptr %324, i64 %indvars.iv.i.i275
   store float %348, ptr %349, align 4, !tbaa !11
-  %indvars.iv.next.i.i278 = add nuw nsw i64 %indvars.iv.i.i275, 1
-  %exitcond.not.i.i279 = icmp eq i64 %indvars.iv.next.i.i278, 4096
-  br i1 %exitcond.not.i.i279, label %_colorspaces_create_hlg_p3_rgb_profile.exit, label %325
+  %indvars.iv.next.i.i277 = add nuw nsw i64 %indvars.iv.i.i275, 1
+  %exitcond.not.i.i278 = icmp eq i64 %indvars.iv.next.i.i277, 4096
+  br i1 %exitcond.not.i.i278, label %_colorspaces_create_hlg_p3_rgb_profile.exit, label %325
 
-_colorspaces_create_hlg_p3_rgb_profile.exit:      ; preds = %_HLG_fct.exit.i277
+_colorspaces_create_hlg_p3_rgb_profile.exit:      ; preds = %347
   %350 = call ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef null, i32 noundef 4096, ptr noundef nonnull %324) #23
   call void @g_free(ptr noundef nonnull %324) #23
   %351 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.33, ptr noundef nonnull @D65xyY, ptr noundef nonnull @P3_Primaries, ptr noundef %350, i32 noundef 1)

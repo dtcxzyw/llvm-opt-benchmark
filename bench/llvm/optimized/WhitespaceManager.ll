@@ -7647,23 +7647,23 @@ _ZN5clang6format17WhitespaceManager15appendTabIndentERNSt7__cxx1112basic_stringI
   br i1 %100, label %101, label %_ZN5clang6format17WhitespaceManager15appendTabIndentERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjj.exit52
 
 101:                                              ; preds = %99
-  br i1 %5, label %102, label %106
+  br i1 %5, label %102, label %107
 
 102:                                              ; preds = %101
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 384
   %104 = load i32, ptr %103, align 8, !tbaa !333
   %105 = mul i32 %104, %2
-  br label %106
+  %106 = tail call i32 @llvm.umin.i32(i32 %105, i32 %3)
+  br label %107
 
-106:                                              ; preds = %101, %102
-  %107 = phi i32 [ %105, %102 ], [ %3, %101 ]
+107:                                              ; preds = %101, %102
+  %spec.select.i50 = phi i32 [ %106, %102 ], [ %3, %101 ]
   %108 = getelementptr inbounds nuw i8, ptr %8, i64 860
   %109 = load i32, ptr %108, align 4, !tbaa !421
   %.not.i49 = icmp eq i32 %109, 0
   br i1 %.not.i49, label %_ZN5clang6format17WhitespaceManager15appendTabIndentERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjj.exit52, label %110
 
-110:                                              ; preds = %106
-  %spec.select.i50 = tail call i32 @llvm.umin.i32(i32 %107, i32 %3)
+110:                                              ; preds = %107
   %111 = udiv i32 %spec.select.i50, %109
   %112 = zext i32 %111 to i64
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7676,8 +7676,8 @@ _ZN5clang6format17WhitespaceManager15appendTabIndentERNSt7__cxx1112basic_stringI
   %120 = sub i32 %3, %119
   br label %_ZN5clang6format17WhitespaceManager15appendTabIndentERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjj.exit52
 
-_ZN5clang6format17WhitespaceManager15appendTabIndentERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjj.exit52: ; preds = %110, %106, %99
-  %.2 = phi i32 [ %3, %99 ], [ %120, %110 ], [ %3, %106 ]
+_ZN5clang6format17WhitespaceManager15appendTabIndentERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjj.exit52: ; preds = %110, %107, %99
+  %.2 = phi i32 [ %3, %99 ], [ %120, %110 ], [ %3, %107 ]
   %121 = zext i32 %.2 to i64
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %123 = load i64, ptr %122, align 8, !tbaa !32

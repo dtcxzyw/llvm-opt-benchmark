@@ -1548,14 +1548,17 @@ define internal fastcc void @draw_curves(ptr noundef %0, ptr noundef readonly ca
   %.1122 = phi nsz double [ %.0121144, %61 ], [ %.0121144, %65 ], [ %113, %68 ]
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %61, !llvm.loop !96
 
-._crit_edge:                                      ; preds = %.loopexit, %.lr.ph151._crit_edge
-  %.0121.lcssa = phi double [ 1.000000e+00, %.lr.ph151._crit_edge ], [ %.1122, %.loopexit ]
-  %114 = call nsz double @llvm.log10.f64(double %.0121.lcssa)
+._crit_edge.loopexit:                             ; preds = %.loopexit
+  %114 = call nsz double @llvm.log10.f64(double %.1122)
   %115 = fmul nsz double %114, 2.000000e+01
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph151._crit_edge
+  %.0121.lcssa = phi double [ 0.000000e+00, %.lr.ph151._crit_edge ], [ %115, %._crit_edge.loopexit ]
   %116 = load double, ptr %26, align 8, !tbaa !97
-  %117 = fdiv nsz double %115, %116
+  %117 = fdiv nsz double %.0121.lcssa, %116
   %118 = fsub nsz double 1.000000e+00, %117
   %119 = load i32, ptr %13, align 8, !tbaa !91
   %120 = sitofp i32 %119 to double

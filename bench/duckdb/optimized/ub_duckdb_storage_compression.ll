@@ -8250,23 +8250,23 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %31, %33
   %39 = getelementptr inbounds nuw i32, ptr %20, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !216
   %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %44, label %41
+  br i1 %.not, label %45, label %41
 
 41:                                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit
   %42 = getelementptr i8, ptr %39, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !216
-  br label %44
+  %44 = tail call i32 @llvm.abs.i32(i32 %43, i1 true)
+  br label %45
 
-44:                                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit, %41
-  %45 = phi i32 [ %43, %41 ], [ 0, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ]
-  %46 = tail call i32 @llvm.abs.i32(i32 %40, i1 true)
-  %47 = tail call i32 @llvm.abs.i32(i32 %45, i1 true)
-  %48 = sub nsw i32 %46, %47
+45:                                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit, %41
+  %46 = phi i32 [ %44, %41 ], [ 0, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ]
+  %47 = tail call i32 @llvm.abs.i32(i32 %40, i1 true)
+  %48 = sub nsw i32 %47, %46
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i.sroa.2)
   %49 = icmp sgt i32 %40, -1
   br i1 %49, label %50, label %61, !prof !426
 
-50:                                               ; preds = %44
+50:                                               ; preds = %45
   %51 = zext nneg i32 %40 to i64
   %52 = sub nsw i64 0, %51
   %53 = getelementptr inbounds i8, ptr %30, i64 %52
@@ -8275,7 +8275,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %31, %33
 
 55:                                               ; preds = %50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.i.sroa.2, i8 0, i64 12, i1 false)
-  %56 = icmp eq i32 %46, %47
+  %56 = icmp eq i32 %47, %46
   br i1 %56, label %_ZN6duckdb25UncompressedStringStorage19FetchStringFromDictERNS_13ColumnSegmentEjRNS_6VectorEPhij.exit, label %57
 
 57:                                               ; preds = %55
@@ -8289,7 +8289,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %31, %33
   %60 = load i32, ptr %53, align 1
   br label %_ZN6duckdb25UncompressedStringStorage19FetchStringFromDictERNS_13ColumnSegmentEjRNS_6VectorEPhij.exit
 
-61:                                               ; preds = %44
+61:                                               ; preds = %45
   %62 = sub nsw i32 0, %40
   %63 = zext nneg i32 %62 to i64
   %64 = sub nsw i64 0, %63

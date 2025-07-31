@@ -2271,12 +2271,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 if.then.i.i47:                                    ; preds = %invoke.cont12
   call void @_ZdlPv(ptr noundef %7) #29
   %.pre = load i32, ptr %m_generation_interval, align 8, !tbaa !143
+  %9 = call i32 @llvm.smax.i32(i32 %.pre, i32 0)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %if.then.i.i47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i48
-  %9 = phi i32 [ %conv, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i48 ], [ %.pre, %if.then.i.i47 ]
+  %10 = phi i32 [ %conv, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i48 ], [ %9, %if.then.i.i47 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7) #28
-  %10 = call i32 @llvm.smax.i32(i32 %9, i32 0)
   %11 = call i32 @llvm.umin.i32(i32 %10, i32 50)
   store i32 %11, ptr %m_generation_interval, align 8, !tbaa !143
   ret void

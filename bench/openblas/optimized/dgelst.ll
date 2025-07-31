@@ -123,10 +123,11 @@ define void @dgelst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %61 = uitofp nneg i32 %60 to double
   store double %61, ptr %8, align 8, !tbaa !7
   %.pr363.pre = load i32, ptr %10, align 4, !tbaa !3
+  %62 = tail call i32 @llvm.smin.i32(i32 %55, i32 %.)
   br label %thread-pre-split362
 
 thread-pre-split362:                              ; preds = %53, %52
-  %62 = phi i32 [ undef, %52 ], [ %55, %53 ]
+  %spec.select400 = phi i32 [ -2147483648, %52 ], [ %62, %53 ]
   %63 = phi i32 [ %.pr, %52 ], [ %.pr363.pre, %53 ]
   %.0308 = phi i1 [ undef, %52 ], [ %.not338, %53 ]
   %.0302 = phi double [ 0.000000e+00, %52 ], [ %61, %53 ]
@@ -166,7 +167,6 @@ thread-pre-split362.thread:                       ; preds = %thread-pre-split362
   br label %195
 
 75:                                               ; preds = %68
-  %spec.select400 = tail call i32 @llvm.smin.i32(i32 %62, i32 %.)
   %76 = load i32, ptr %9, align 4, !tbaa !3
   %77 = add nsw i32 %.0, %.
   %78 = sdiv i32 %76, %77

@@ -1916,7 +1916,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
 41:                                               ; preds = %36
   %42 = load volatile i32, ptr %13, align 4
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %54, label %44
+  br i1 %43, label %55, label %44
 
 44:                                               ; preds = %41
   %45 = mul i32 %42, 3
@@ -1928,16 +1928,16 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   %51 = zext nneg i32 %50 to i64
   %52 = shl nuw i64 1, %51
   %53 = trunc i64 %52 to i32
-  br label %54
+  %54 = tail call i32 @llvm.umax.i32(i32 %53, i32 %39)
+  br label %55
 
-54:                                               ; preds = %44, %41
-  %55 = phi i32 [ %53, %44 ], [ 0, %41 ]
-  %56 = tail call i32 @llvm.umax.i32(i32 %55, i32 %39)
+55:                                               ; preds = %44, %41
+  %56 = phi i32 [ %54, %44 ], [ %39, %41 ]
   %57 = load i32, ptr %6, align 64
   %58 = icmp ugt i32 %57, %56
   br i1 %58, label %59, label %.thread
 
-59:                                               ; preds = %54
+59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %61 = load ptr, ptr %60, align 16
   %62 = icmp eq ptr %61, null
@@ -1964,8 +1964,8 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
     i32 0, label %.thread
   ]
 
-.thread:                                          ; preds = %59, %54, %65, %71, %71
-  %73 = phi i32 [ %72, %71 ], [ %72, %71 ], [ -17, %59 ], [ 0, %54 ], [ 0, %65 ]
+.thread:                                          ; preds = %59, %55, %65, %71, %71
+  %73 = phi i32 [ %72, %71 ], [ %72, %71 ], [ -17, %59 ], [ 0, %55 ], [ 0, %65 ]
   %74 = load ptr, ptr %4, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %76 = load ptr, ptr %75, align 16

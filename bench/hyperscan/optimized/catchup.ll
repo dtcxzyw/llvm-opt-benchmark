@@ -3615,23 +3615,23 @@ mmbit_iterate.exit:                               ; preds = %390, %.thread247, %
   %.011.i = phi i32 [ -1, %255 ], [ %278, %276 ], [ -1, %mmbit_get_flat_block.exit82.i ], [ %335, %330 ], [ %370, %367 ], [ -1, %323 ], [ %322, %.thread238 ], [ -1, %._crit_edge442 ], [ -1, %mmbit_get_flat_block.exit.i ], [ %394, %390 ], [ -1, %.thread247 ]
   %402 = load i32, ptr %236, align 8
   %.not59.i = icmp eq i32 %402, 0
-  br i1 %.not59.i, label %406, label %403
+  br i1 %.not59.i, label %407, label %403
 
 403:                                              ; preds = %mmbit_iterate.exit
   %404 = load ptr, ptr %237, align 8
   %405 = load i64, ptr %404, align 8
-  br label %406
+  %406 = tail call i64 @llvm.smin.i64(i64 %405, i64 %0)
+  br label %407
 
-406:                                              ; preds = %403, %mmbit_iterate.exit
-  %407 = phi i64 [ %405, %403 ], [ %0, %mmbit_iterate.exit ]
-  %408 = tail call i64 @llvm.smin.i64(i64 %407, i64 %0)
+407:                                              ; preds = %403, %mmbit_iterate.exit
+  %408 = phi i64 [ %406, %403 ], [ %0, %mmbit_iterate.exit ]
   %409 = icmp ne i32 %.011.i, -1
   %.not60.i = icmp sgt i64 %184, %408
   %or.cond.i = select i1 %409, i1 true, i1 %.not60.i
   %410 = load ptr, ptr %238, align 16
   br i1 %or.cond.i, label %1023, label %411
 
-411:                                              ; preds = %406
+411:                                              ; preds = %407
   %412 = zext i32 %.050.i492 to i64
   %413 = getelementptr inbounds nuw %struct.mq, ptr %410, i64 %412
   %414 = load i32, ptr %240, align 4
@@ -4608,7 +4608,7 @@ mmbit_unset.exit.i123:                            ; preds = %.lr.ph1025, %897, %
   store i32 %.0.i149.lcssa, ptr %703, align 4
   br label %mmbit_iterate_bounded.exit.i.thread
 
-1023:                                             ; preds = %406
+1023:                                             ; preds = %407
   %1024 = load i32, ptr %239, align 4
   %1025 = zext i32 %.050.i492 to i64
   %1026 = getelementptr inbounds nuw %struct.mq, ptr %410, i64 %1025
@@ -7550,23 +7550,23 @@ mmbit_iterate.exit:                               ; preds = %390, %.thread223, %
   %.011.i = phi i32 [ -1, %255 ], [ %278, %276 ], [ -1, %mmbit_get_flat_block.exit82.i ], [ %335, %330 ], [ %370, %367 ], [ -1, %323 ], [ %322, %.thread214 ], [ -1, %._crit_edge408 ], [ -1, %mmbit_get_flat_block.exit.i ], [ %394, %390 ], [ -1, %.thread223 ]
   %402 = load i32, ptr %236, align 8
   %.not59.i = icmp eq i32 %402, 0
-  br i1 %.not59.i, label %406, label %403
+  br i1 %.not59.i, label %407, label %403
 
 403:                                              ; preds = %mmbit_iterate.exit
   %404 = load ptr, ptr %237, align 8
   %405 = load i64, ptr %404, align 8
-  br label %406
+  %406 = tail call i64 @llvm.smin.i64(i64 %405, i64 %0)
+  br label %407
 
-406:                                              ; preds = %403, %mmbit_iterate.exit
-  %407 = phi i64 [ %405, %403 ], [ %0, %mmbit_iterate.exit ]
-  %408 = tail call i64 @llvm.smin.i64(i64 %407, i64 %0)
+407:                                              ; preds = %403, %mmbit_iterate.exit
+  %408 = phi i64 [ %406, %403 ], [ %0, %mmbit_iterate.exit ]
   %409 = icmp ne i32 %.011.i, -1
   %.not60.i = icmp sgt i64 %184, %408
   %or.cond.i = select i1 %409, i1 true, i1 %.not60.i
   %410 = load ptr, ptr %238, align 16
   br i1 %or.cond.i, label %1023, label %411
 
-411:                                              ; preds = %406
+411:                                              ; preds = %407
   %412 = zext i32 %.050.i458 to i64
   %413 = getelementptr inbounds nuw %struct.mq, ptr %410, i64 %412
   %414 = load i32, ptr %240, align 4
@@ -8543,7 +8543,7 @@ mmbit_unset.exit.i111:                            ; preds = %.lr.ph991, %897, %.
   store i32 %.0.i137.lcssa, ptr %703, align 4
   br label %mmbit_iterate_bounded.exit.i.thread
 
-1023:                                             ; preds = %406
+1023:                                             ; preds = %407
   %1024 = load i32, ptr %239, align 4
   %1025 = zext i32 %.050.i458 to i64
   %1026 = getelementptr inbounds nuw %struct.mq, ptr %410, i64 %1025

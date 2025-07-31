@@ -12305,12 +12305,12 @@ define internal fastcc void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_expr1
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %69 = load i64, ptr %68, align 8, !alias.scope !1994, !noundef !10
   %70 = add i64 %69, %67
+  %71 = tail call i64 @llvm.usub.sat.i64(i64 %56, i64 %70)
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread"
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread": ; preds = %62, %58, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit", %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5"
-  %.0 = phi i64 [ %70, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5" ], [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit" ], [ 0, %58 ], [ 0, %62 ]
-  %71 = tail call i64 @llvm.usub.sat.i64(i64 %56, i64 %.0)
-  %72 = add i64 %71, 1
+  %.0 = phi i64 [ %71, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5" ], [ %56, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit" ], [ %56, %58 ], [ %56, %62 ]
+  %72 = add i64 %.0, 1
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %74 = load i64, ptr %73, align 8, !alias.scope !1997, !noalias !2002, !noundef !10
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -13260,17 +13260,17 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17h0d2e547
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %78 = load i64, ptr %77, align 8, !alias.scope !2244, !noalias !2247, !noundef !10
   %79 = add i64 %78, %76
+  %80 = tail call i64 @llvm.usub.sat.i64(i64 %65, i64 %79)
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread.i"
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread.i": ; preds = %71, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i", %.noexc18, %67
-  %.0.i = phi i64 [ %79, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i" ], [ 0, %.noexc18 ], [ 0, %67 ], [ 0, %71 ]
-  %80 = tail call i64 @llvm.usub.sat.i64(i64 %65, i64 %.0.i)
-  %81 = add i64 %80, 1
+  %.0.i = phi i64 [ %80, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i" ], [ %65, %.noexc18 ], [ %65, %67 ], [ %65, %71 ]
+  %81 = add i64 %.0.i, 1
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %83 = load i64, ptr %82, align 8, !alias.scope !2248, !noalias !2253, !noundef !10
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %85 = load i64, ptr %84, align 8, !alias.scope !2228, !noalias !2247, !noundef !10
-  %86 = add i64 %81, %85
+  %86 = add i64 %85, %81
   %.sroa.73.0.i = tail call i64 @llvm.usub.sat.i64(i64 %83, i64 %81)
   %.sroa.01.0.i = load i64, ptr %4, align 8, !alias.scope !2228, !noalias !2247, !noundef !10
   %.sroa.42.0.in.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -14388,17 +14388,17 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17h444610b
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %78 = load i64, ptr %77, align 8, !alias.scope !2529, !noalias !2532, !noundef !10
   %79 = add i64 %78, %76
+  %80 = tail call i64 @llvm.usub.sat.i64(i64 %65, i64 %79)
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread.i"
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread.i": ; preds = %71, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i", %.noexc18, %67
-  %.0.i = phi i64 [ %79, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i" ], [ 0, %.noexc18 ], [ 0, %67 ], [ 0, %71 ]
-  %80 = tail call i64 @llvm.usub.sat.i64(i64 %65, i64 %.0.i)
-  %81 = add i64 %80, 1
+  %.0.i = phi i64 [ %80, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i" ], [ %65, %.noexc18 ], [ %65, %67 ], [ %65, %71 ]
+  %81 = add i64 %.0.i, 1
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %83 = load i64, ptr %82, align 8, !alias.scope !2533, !noalias !2538, !noundef !10
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %85 = load i64, ptr %84, align 8, !alias.scope !2514, !noalias !2532, !noundef !10
-  %86 = add i64 %81, %85
+  %86 = add i64 %85, %81
   %.sroa.73.0.i = tail call i64 @llvm.usub.sat.i64(i64 %83, i64 %81)
   %.sroa.01.0.i = load i64, ptr %4, align 8, !alias.scope !2514, !noalias !2532, !noundef !10
   %.sroa.42.0.in.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -15518,17 +15518,17 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17h4b5e8ca
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %78 = load i64, ptr %77, align 8, !alias.scope !2813, !noalias !2816, !noundef !10
   %79 = add i64 %78, %76
+  %80 = tail call i64 @llvm.usub.sat.i64(i64 %65, i64 %79)
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread.i"
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread.i": ; preds = %71, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i", %.noexc18, %67
-  %.0.i = phi i64 [ %79, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i" ], [ 0, %.noexc18 ], [ 0, %67 ], [ 0, %71 ]
-  %80 = tail call i64 @llvm.usub.sat.i64(i64 %65, i64 %.0.i)
-  %81 = add i64 %80, 1
+  %.0.i = phi i64 [ %80, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i" ], [ %65, %.noexc18 ], [ %65, %67 ], [ %65, %71 ]
+  %81 = add i64 %.0.i, 1
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %83 = load i64, ptr %82, align 8, !alias.scope !2817, !noalias !2822, !noundef !10
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %85 = load i64, ptr %84, align 8, !alias.scope !2798, !noalias !2816, !noundef !10
-  %86 = add i64 %81, %85
+  %86 = add i64 %85, %81
   %.sroa.73.0.i = tail call i64 @llvm.usub.sat.i64(i64 %83, i64 %81)
   %.sroa.01.0.i = load i64, ptr %4, align 8, !alias.scope !2798, !noalias !2816, !noundef !10
   %.sroa.42.0.in.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -16657,17 +16657,17 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17h66513ed
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %86 = load i64, ptr %85, align 8, !alias.scope !3097, !noalias !3100, !noundef !10
   %87 = add i64 %86, %84
+  %88 = tail call i64 @llvm.usub.sat.i64(i64 %73, i64 %87)
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread.i"
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread.i": ; preds = %79, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread13.i", %.noexc18, %75
-  %.0.i = phi i64 [ %87, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread13.i" ], [ 0, %.noexc18 ], [ 0, %75 ], [ 0, %79 ]
-  %88 = tail call i64 @llvm.usub.sat.i64(i64 %73, i64 %.0.i)
-  %89 = add i64 %88, 1
+  %.0.i = phi i64 [ %88, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread13.i" ], [ %73, %.noexc18 ], [ %73, %75 ], [ %73, %79 ]
+  %89 = add i64 %.0.i, 1
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %91 = load i64, ptr %90, align 8, !alias.scope !3101, !noalias !3106, !noundef !10
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %93 = load i64, ptr %92, align 8, !alias.scope !3082, !noalias !3100, !noundef !10
-  %94 = add i64 %89, %93
+  %94 = add i64 %93, %89
   %.sroa.88.0.i = tail call i64 @llvm.usub.sat.i64(i64 %91, i64 %89)
   %.sroa.46.0.in.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.46.0.i = load i64, ptr %.sroa.46.0.in.i, align 8, !alias.scope !3082, !noalias !3100, !noundef !10
@@ -18108,17 +18108,17 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17hacb6519
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %80 = load i64, ptr %79, align 8, !alias.scope !3463, !noalias !3466, !noundef !10
   %81 = add i64 %80, %78
+  %82 = tail call i64 @llvm.usub.sat.i64(i64 %67, i64 %81)
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread.i"
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread.i": ; preds = %73, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i", %.noexc19, %69
-  %.0.i = phi i64 [ %81, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i" ], [ 0, %.noexc19 ], [ 0, %69 ], [ 0, %73 ]
-  %82 = tail call i64 @llvm.usub.sat.i64(i64 %67, i64 %.0.i)
-  %83 = add i64 %82, 1
+  %.0.i = phi i64 [ %82, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i" ], [ %67, %.noexc19 ], [ %67, %69 ], [ %67, %73 ]
+  %83 = add i64 %.0.i, 1
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %85 = load i64, ptr %84, align 8, !alias.scope !3467, !noalias !3472, !noundef !10
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %87 = load i64, ptr %86, align 8, !alias.scope !3448, !noalias !3466, !noundef !10
-  %88 = add i64 %83, %87
+  %88 = add i64 %87, %83
   %.sroa.73.0.i = tail call i64 @llvm.usub.sat.i64(i64 %85, i64 %83)
   %.sroa.01.0.i = load i64, ptr %4, align 8, !alias.scope !3448, !noalias !3466, !noundef !10
   %.sroa.42.0.in.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -19260,17 +19260,17 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17hd3692e7
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %78 = load i64, ptr %77, align 8, !alias.scope !3754, !noalias !3757, !noundef !10
   %79 = add i64 %78, %76
+  %80 = tail call i64 @llvm.usub.sat.i64(i64 %65, i64 %79)
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread.i"
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread.i": ; preds = %71, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i", %.noexc18, %67
-  %.0.i = phi i64 [ %79, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i" ], [ 0, %.noexc18 ], [ 0, %67 ], [ 0, %71 ]
-  %80 = tail call i64 @llvm.usub.sat.i64(i64 %65, i64 %.0.i)
-  %81 = add i64 %80, 1
+  %.0.i = phi i64 [ %80, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread5.i" ], [ %65, %.noexc18 ], [ %65, %67 ], [ %65, %71 ]
+  %81 = add i64 %.0.i, 1
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %83 = load i64, ptr %82, align 8, !alias.scope !3758, !noalias !3763, !noundef !10
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %85 = load i64, ptr %84, align 8, !alias.scope !3738, !noalias !3757, !noundef !10
-  %86 = add i64 %81, %85
+  %86 = add i64 %85, %81
   %.sroa.73.0.i = tail call i64 @llvm.usub.sat.i64(i64 %83, i64 %81)
   %.sroa.01.0.i = load i64, ptr %4, align 8, !alias.scope !3738, !noalias !3757, !noundef !10
   %.sroa.42.0.in.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -32643,7 +32643,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   %121 = load i32, ptr %120, align 8, !range !491, !noundef !10
   %122 = add i32 %121, 254
   %narrow = call i32 @llvm.umin.i32(i32 %122, i32 2)
-  switch i32 %narrow, label %186 [
+  switch i32 %narrow, label %187 [
     i32 1, label %154
     i32 2, label %157
   ]
@@ -32736,7 +32736,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %156 = load ptr, ptr %155, align 8, !noundef !10
   %.not30 = icmp eq ptr %156, null
-  br i1 %.not30, label %186, label %159
+  br i1 %.not30, label %187, label %159
 
 157:                                              ; preds = %119
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -32819,13 +32819,13 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   %184 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %185 = load i32, ptr %184, align 4, !noundef !10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %186
+  %186 = call i32 @llvm.umax.i32(i32 %.018, i32 %185)
+  br label %187
 
-186:                                              ; preds = %119, %154, %183
-  %.0 = phi i32 [ %185, %183 ], [ %.018, %154 ], [ %.018, %119 ]
-  %.0.sroa.speculated.i = call noundef i32 @llvm.umax.i32(i32 %.018, i32 %.0)
-  %187 = call i64 @_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span3new.llvm.15131964271339581801(i32 noundef %.019, i32 noundef %.0.sroa.speculated.i, i32 noundef 0, i32 noundef -255)
-  ret i64 %187
+187:                                              ; preds = %119, %154, %183
+  %.0 = phi i32 [ %186, %183 ], [ %.018, %154 ], [ %.018, %119 ]
+  %188 = call i64 @_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span3new.llvm.15131964271339581801(i32 noundef %.019, i32 noundef %.0, i32 noundef 0, i32 noundef -255)
+  ret i64 %188
 }
 
 ; Function Attrs: nonlazybind uwtable

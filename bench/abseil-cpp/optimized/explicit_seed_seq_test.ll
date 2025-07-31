@@ -6949,7 +6949,7 @@ define dso_local void @_ZN39ExplicitSeedSeq_StdURBGGoldenTests_Test8TestBodyEv(p
   %36 = ptrtoint ptr %31 to i64
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 2
-  br i1 %34, label %43, label %.lr.ph.split.i.i.i
+  br i1 %34, label %47, label %.lr.ph.split.i.i.i
 
 .lr.ph.split.i.i.i:                               ; preds = %1, %.lr.ph.split.i.i.i
   %.010.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.split.i.i.i ], [ 0, %1 ]
@@ -6969,18 +6969,18 @@ _ZN4absl15random_internal15ExplicitSeedSeq8generateIPjEEvT_S4_.exit.loopexit.i.i
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !49
   %42 = urem i32 %.pre.i.i, 2147483647
-  br label %43
+  %43 = call i32 @llvm.umax.i32(i32 %42, i32 1)
+  %44 = zext nneg i32 %43 to i64
+  %45 = mul nuw nsw i64 %44, 48271
+  %46 = urem i64 %45, 2147483647
+  br label %47
 
-43:                                               ; preds = %_ZN4absl15random_internal15ExplicitSeedSeq8generateIPjEEvT_S4_.exit.loopexit.i.i, %1
-  %44 = phi i32 [ %42, %_ZN4absl15random_internal15ExplicitSeedSeq8generateIPjEEvT_S4_.exit.loopexit.i.i ], [ 0, %1 ]
-  %45 = call i32 @llvm.umax.i32(i32 %44, i32 1)
-  %storemerge.i.i.i = zext nneg i32 %45 to i64
+47:                                               ; preds = %_ZN4absl15random_internal15ExplicitSeedSeq8generateIPjEEvT_S4_.exit.loopexit.i.i, %1
+  %storemerge.i.i.i = phi i64 [ %46, %_ZN4absl15random_internal15ExplicitSeedSeq8generateIPjEEvT_S4_.exit.loopexit.i.i ], [ 48271, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22
-  %46 = mul nuw nsw i64 %storemerge.i.i.i, 48271
-  %47 = urem i64 %46, 2147483647
-  store i64 %47, ptr %7, align 16, !tbaa !27
-  %48 = mul nuw nsw i64 %47, 48271
+  store i64 %storemerge.i.i.i, ptr %7, align 16, !tbaa !27
+  %48 = mul nuw nsw i64 %storemerge.i.i.i, 48271
   %49 = urem i64 %48, 2147483647
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %49, ptr %50, align 8, !tbaa !27
@@ -7004,13 +7004,13 @@ _ZN4absl15random_internal15ExplicitSeedSeq8generateIPjEEvT_S4_.exit.loopexit.i.i
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJiiiiEEEEEclIA4_mEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %8, ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %57 unwind label %60
 
-57:                                               ; preds = %43
+57:                                               ; preds = %47
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #22
   %58 = load i8, ptr %8, align 8, !tbaa !28, !range !38, !noundef !39
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %86, label %62
 
-60:                                               ; preds = %43
+60:                                               ; preds = %47
   %61 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #22

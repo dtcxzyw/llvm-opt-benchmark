@@ -951,55 +951,55 @@ ZSTD_isUpdateAuthorized.exit.thread:              ; preds = %6, %8, %10, %13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local range(i64 -42, 2147483648) i64 @ZSTD_CCtxParams_setParameter(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
-  switch i32 %1, label %175 [
+  switch i32 %1, label %179 [
     i32 10, label %4
     i32 100, label %8
-    i32 101, label %14
-    i32 102, label %19
-    i32 103, label %24
-    i32 104, label %29
-    i32 105, label %33
-    i32 106, label %37
-    i32 107, label %42
-    i32 200, label %46
-    i32 201, label %51
-    i32 202, label %56
-    i32 1000, label %62
-    i32 1001, label %67
-    i32 1002, label %72
-    i32 400, label %77
-    i32 401, label %78
-    i32 402, label %79
-    i32 500, label %80
-    i32 1005, label %81
-    i32 160, label %86
-    i32 161, label %91
-    i32 162, label %96
-    i32 163, label %101
-    i32 164, label %105
-    i32 1003, label %110
-    i32 1004, label %115
-    i32 1006, label %120
-    i32 1007, label %125
-    i32 1008, label %130
-    i32 1009, label %135
-    i32 1010, label %140
-    i32 1011, label %145
-    i32 1012, label %150
-    i32 1013, label %155
-    i32 1014, label %160
-    i32 1015, label %165
-    i32 1016, label %170
+    i32 101, label %18
+    i32 102, label %23
+    i32 103, label %28
+    i32 104, label %33
+    i32 105, label %37
+    i32 106, label %41
+    i32 107, label %46
+    i32 200, label %50
+    i32 201, label %55
+    i32 202, label %60
+    i32 1000, label %66
+    i32 1001, label %71
+    i32 1002, label %76
+    i32 400, label %81
+    i32 401, label %82
+    i32 402, label %83
+    i32 500, label %84
+    i32 1005, label %85
+    i32 160, label %90
+    i32 161, label %95
+    i32 162, label %100
+    i32 163, label %105
+    i32 164, label %109
+    i32 1003, label %114
+    i32 1004, label %119
+    i32 1006, label %124
+    i32 1007, label %129
+    i32 1008, label %134
+    i32 1009, label %139
+    i32 1010, label %144
+    i32 1011, label %149
+    i32 1012, label %154
+    i32 1013, label %159
+    i32 1014, label %164
+    i32 1015, label %169
+    i32 1016, label %174
   ]
 
 4:                                                ; preds = %3
   %5 = icmp ugt i32 %2, 1
-  br i1 %5, label %175, label %6
+  br i1 %5, label %179, label %6
 
 6:                                                ; preds = %4
   store i32 %2, ptr %0, align 8, !tbaa !82
   %7 = zext nneg i32 %2 to i64
-  br label %175
+  br label %179
 
 8:                                                ; preds = %3
   %9 = icmp slt i32 %2, -131072
@@ -1011,377 +1011,381 @@ define dso_local range(i64 -42, 2147483648) i64 @ZSTD_CCtxParams_setParameter(pt
 
 ZSTD_cParam_clampBounds.exit:                     ; preds = %10
   %12 = icmp eq i32 %2, 0
-  %spec.select337 = select i1 %12, i32 3, i32 %2
-  br label %ZSTD_cParam_clampBounds.exit.thread
+  br i1 %12, label %13, label %ZSTD_cParam_clampBounds.exit.thread
 
-ZSTD_cParam_clampBounds.exit.thread:              ; preds = %ZSTD_cParam_clampBounds.exit, %8, %10
-  %.0322324.sink = phi i32 [ -131072, %8 ], [ 22, %10 ], [ %spec.select337, %ZSTD_cParam_clampBounds.exit ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %.0322324.sink, ptr %13, align 4, !tbaa !44
-  %narrow = tail call i32 @llvm.smax.i32(i32 %.0322324.sink, i32 0)
-  %spec.select = zext nneg i32 %narrow to i64
-  br label %175
+13:                                               ; preds = %ZSTD_cParam_clampBounds.exit
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 3, ptr %14, align 4, !tbaa !44
+  br label %179
 
-14:                                               ; preds = %3
+ZSTD_cParam_clampBounds.exit.thread:              ; preds = %10, %8, %ZSTD_cParam_clampBounds.exit
+  %.0322324 = phi i32 [ %2, %ZSTD_cParam_clampBounds.exit ], [ -131072, %8 ], [ 22, %10 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %.0322324, ptr %15, align 4, !tbaa !44
+  %16 = tail call i32 @llvm.smax.i32(i32 %.0322324, i32 0)
+  %17 = zext nneg i32 %16 to i64
+  br label %179
+
+18:                                               ; preds = %3
   %.not126 = icmp ne i32 %2, 0
-  %15 = add i32 %2, -32
-  %narrow.i137 = icmp ult i32 %15, -22
+  %19 = add i32 %2, -32
+  %narrow.i137 = icmp ult i32 %19, -22
   %or.cond = and i1 %.not126, %narrow.i137
-  br i1 %or.cond, label %175, label %16
+  br i1 %or.cond, label %179, label %20
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %2, ptr %17, align 4, !tbaa !83
-  %18 = zext nneg i32 %2 to i64
-  br label %175
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %2, ptr %21, align 4, !tbaa !83
+  %22 = zext nneg i32 %2 to i64
+  br label %179
 
-19:                                               ; preds = %3
+23:                                               ; preds = %3
   %.not124 = icmp ne i32 %2, 0
-  %20 = add i32 %2, -31
-  %narrow.i143 = icmp ult i32 %20, -25
+  %24 = add i32 %2, -31
+  %narrow.i143 = icmp ult i32 %24, -25
   %or.cond325 = and i1 %.not124, %narrow.i143
-  br i1 %or.cond325, label %175, label %21
+  br i1 %or.cond325, label %179, label %25
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %22, align 4, !tbaa !84
-  %23 = zext nneg i32 %2 to i64
-  br label %175
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %2, ptr %26, align 4, !tbaa !84
+  %27 = zext nneg i32 %2 to i64
+  br label %179
 
-24:                                               ; preds = %3
+28:                                               ; preds = %3
   %.not122 = icmp ne i32 %2, 0
-  %25 = add i32 %2, -31
-  %narrow.i149 = icmp ult i32 %25, -25
+  %29 = add i32 %2, -31
+  %narrow.i149 = icmp ult i32 %29, -25
   %or.cond326 = and i1 %.not122, %narrow.i149
-  br i1 %or.cond326, label %175, label %26
+  br i1 %or.cond326, label %179, label %30
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %2, ptr %27, align 4, !tbaa !85
-  %28 = zext nneg i32 %2 to i64
-  br label %175
-
-29:                                               ; preds = %3
-  %or.cond327 = icmp ugt i32 %2, 30
-  br i1 %or.cond327, label %175, label %30
-
-30:                                               ; preds = %29
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %31, align 4, !tbaa !86
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %2, ptr %31, align 4, !tbaa !85
   %32 = zext nneg i32 %2 to i64
-  br label %175
+  br label %179
 
 33:                                               ; preds = %3
-  switch i32 %2, label %175 [
-    i32 7, label %34
-    i32 6, label %34
-    i32 5, label %34
-    i32 4, label %34
-    i32 3, label %34
-    i32 0, label %34
-  ]
+  %or.cond327 = icmp ugt i32 %2, 30
+  br i1 %or.cond327, label %179, label %34
 
-34:                                               ; preds = %33, %33, %33, %33, %33, %33
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %2, ptr %35, align 4, !tbaa !87
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %2, ptr %35, align 4, !tbaa !86
   %36 = zext nneg i32 %2 to i64
-  br label %175
+  br label %179
 
 37:                                               ; preds = %3
-  %38 = icmp ugt i32 %2, 131072
-  br i1 %38, label %175, label %39
+  switch i32 %2, label %179 [
+    i32 7, label %38
+    i32 6, label %38
+    i32 5, label %38
+    i32 4, label %38
+    i32 3, label %38
+    i32 0, label %38
+  ]
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %2, ptr %40, align 4, !tbaa !88
-  %41 = zext nneg i32 %2 to i64
-  br label %175
+38:                                               ; preds = %37, %37, %37, %37, %37, %37
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %2, ptr %39, align 4, !tbaa !87
+  %40 = zext nneg i32 %2 to i64
+  br label %179
 
-42:                                               ; preds = %3
-  %or.cond329 = icmp ugt i32 %2, 9
-  br i1 %or.cond329, label %175, label %43
+41:                                               ; preds = %3
+  %42 = icmp ugt i32 %2, 131072
+  br i1 %42, label %179, label %43
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %2, ptr %44, align 4, !tbaa !89
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %2, ptr %44, align 4, !tbaa !88
   %45 = zext nneg i32 %2 to i64
-  br label %175
+  br label %179
 
 46:                                               ; preds = %3
-  %47 = icmp ne i32 %2, 0
-  %48 = zext i1 %47 to i32
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %48, ptr %49, align 8, !tbaa !45
-  %50 = zext i1 %47 to i64
-  br label %175
+  %or.cond329 = icmp ugt i32 %2, 9
+  br i1 %or.cond329, label %179, label %47
 
-51:                                               ; preds = %3
-  %52 = icmp ne i32 %2, 0
-  %53 = zext i1 %52 to i32
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %53, ptr %54, align 4, !tbaa !90
-  %55 = zext i1 %52 to i64
-  br label %175
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %2, ptr %48, align 4, !tbaa !89
+  %49 = zext nneg i32 %2 to i64
+  br label %179
 
-56:                                               ; preds = %3
-  %57 = icmp ne i32 %2, 0
-  %58 = xor i1 %57, true
-  %59 = zext i1 %58 to i32
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %59, ptr %60, align 8, !tbaa !91
-  %61 = zext i1 %57 to i64
-  br label %175
+50:                                               ; preds = %3
+  %51 = icmp ne i32 %2, 0
+  %52 = zext i1 %51 to i32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %52, ptr %53, align 8, !tbaa !45
+  %54 = zext i1 %51 to i64
+  br label %179
 
-62:                                               ; preds = %3
-  %63 = icmp ne i32 %2, 0
-  %64 = zext i1 %63 to i32
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %64, ptr %65, align 8, !tbaa !92
-  %66 = zext i1 %63 to i64
-  br label %175
+55:                                               ; preds = %3
+  %56 = icmp ne i32 %2, 0
+  %57 = zext i1 %56 to i32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %57, ptr %58, align 4, !tbaa !90
+  %59 = zext i1 %56 to i64
+  br label %179
 
-67:                                               ; preds = %3
-  %68 = icmp ugt i32 %2, 3
-  br i1 %68, label %175, label %69
+60:                                               ; preds = %3
+  %61 = icmp ne i32 %2, 0
+  %62 = xor i1 %61, true
+  %63 = zext i1 %62 to i32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %63, ptr %64, align 8, !tbaa !91
+  %65 = zext i1 %61 to i64
+  br label %179
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %2, ptr %70, align 4, !tbaa !93
-  %71 = zext nneg i32 %2 to i64
-  br label %175
+66:                                               ; preds = %3
+  %67 = icmp ne i32 %2, 0
+  %68 = zext i1 %67 to i32
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %68, ptr %69, align 8, !tbaa !92
+  %70 = zext i1 %67 to i64
+  br label %179
 
-72:                                               ; preds = %3
-  %73 = icmp ugt i32 %2, 2
-  br i1 %73, label %175, label %74
+71:                                               ; preds = %3
+  %72 = icmp ugt i32 %2, 3
+  br i1 %72, label %179, label %73
 
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %2, ptr %75, align 8, !tbaa !94
-  %76 = zext nneg i32 %2 to i64
-  br label %175
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 %2, ptr %74, align 4, !tbaa !93
+  %75 = zext nneg i32 %2 to i64
+  br label %179
 
-77:                                               ; preds = %3
-  %.not112 = icmp eq i32 %2, 0
-  %. = select i1 %.not112, i64 0, i64 -40
-  br label %175
+76:                                               ; preds = %3
+  %77 = icmp ugt i32 %2, 2
+  br i1 %77, label %179, label %78
 
-78:                                               ; preds = %3
-  %.not111 = icmp eq i32 %2, 0
-  %.130 = select i1 %.not111, i64 0, i64 -40
-  br label %175
-
-79:                                               ; preds = %3
-  %.not110 = icmp eq i32 %2, 0
-  %.131 = select i1 %.not110, i64 0, i64 -40
-  br label %175
-
-80:                                               ; preds = %3
-  %.not109 = icmp eq i32 %2, 0
-  %.132 = select i1 %.not109, i64 0, i64 -40
-  br label %175
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %2, ptr %79, align 8, !tbaa !94
+  %80 = zext nneg i32 %2 to i64
+  br label %179
 
 81:                                               ; preds = %3
-  %82 = icmp ne i32 %2, 0
-  %83 = zext i1 %82 to i32
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %83, ptr %84, align 8, !tbaa !95
-  %85 = zext i1 %82 to i64
-  br label %175
+  %.not112 = icmp eq i32 %2, 0
+  %. = select i1 %.not112, i64 0, i64 -40
+  br label %179
 
-86:                                               ; preds = %3
-  %87 = icmp ugt i32 %2, 2
-  br i1 %87, label %175, label %88
+82:                                               ; preds = %3
+  %.not111 = icmp eq i32 %2, 0
+  %.130 = select i1 %.not111, i64 0, i64 -40
+  br label %179
 
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %2, ptr %89, align 8, !tbaa !77
-  %90 = zext nneg i32 %2 to i64
-  br label %175
+83:                                               ; preds = %3
+  %.not110 = icmp eq i32 %2, 0
+  %.131 = select i1 %.not110, i64 0, i64 -40
+  br label %179
 
-91:                                               ; preds = %3
+84:                                               ; preds = %3
+  %.not109 = icmp eq i32 %2, 0
+  %.132 = select i1 %.not109, i64 0, i64 -40
+  br label %179
+
+85:                                               ; preds = %3
+  %86 = icmp ne i32 %2, 0
+  %87 = zext i1 %86 to i32
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 %87, ptr %88, align 8, !tbaa !95
+  %89 = zext i1 %86 to i64
+  br label %179
+
+90:                                               ; preds = %3
+  %91 = icmp ugt i32 %2, 2
+  br i1 %91, label %179, label %92
+
+92:                                               ; preds = %90
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 %2, ptr %93, align 8, !tbaa !77
+  %94 = zext nneg i32 %2 to i64
+  br label %179
+
+95:                                               ; preds = %3
   %.not106 = icmp ne i32 %2, 0
-  %92 = add i32 %2, -31
-  %narrow.i197 = icmp ult i32 %92, -25
+  %96 = add i32 %2, -31
+  %narrow.i197 = icmp ult i32 %96, -25
   %or.cond330 = and i1 %.not106, %narrow.i197
-  br i1 %or.cond330, label %175, label %93
+  br i1 %or.cond330, label %179, label %97
 
-93:                                               ; preds = %91
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %2, ptr %94, align 4, !tbaa !96
-  %95 = zext nneg i32 %2 to i64
-  br label %175
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store i32 %2, ptr %98, align 4, !tbaa !96
+  %99 = zext nneg i32 %2 to i64
+  br label %179
 
-96:                                               ; preds = %3
+100:                                              ; preds = %3
   %.not104 = icmp ne i32 %2, 0
-  %97 = add i32 %2, -4097
-  %narrow.i203 = icmp ult i32 %97, -4093
+  %101 = add i32 %2, -4097
+  %narrow.i203 = icmp ult i32 %101, -4093
   %or.cond331 = and i1 %.not104, %narrow.i203
-  br i1 %or.cond331, label %175, label %98
+  br i1 %or.cond331, label %179, label %102
 
-98:                                               ; preds = %96
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %2, ptr %99, align 4, !tbaa !97
-  %100 = zext nneg i32 %2 to i64
-  br label %175
-
-101:                                              ; preds = %3
-  %switch = icmp ult i32 %2, 9
-  br i1 %switch, label %102, label %175
-
-102:                                              ; preds = %101
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %2, ptr %103, align 8, !tbaa !98
+102:                                              ; preds = %100
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i32 %2, ptr %103, align 4, !tbaa !97
   %104 = zext nneg i32 %2 to i64
-  br label %175
+  br label %179
 
 105:                                              ; preds = %3
-  %106 = icmp ugt i32 %2, 25
-  br i1 %106, label %175, label %107
+  %switch = icmp ult i32 %2, 9
+  br i1 %switch, label %106, label %179
 
-107:                                              ; preds = %105
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %2, ptr %108, align 8, !tbaa !99
-  %109 = zext nneg i32 %2 to i64
-  br label %175
+106:                                              ; preds = %105
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 %2, ptr %107, align 8, !tbaa !98
+  %108 = zext nneg i32 %2 to i64
+  br label %179
 
-110:                                              ; preds = %3
-  %.not98 = icmp ne i32 %2, 0
-  %111 = add i32 %2, -131073
-  %narrow.i221 = icmp ult i32 %111, -131009
-  %or.cond334 = and i1 %.not98, %narrow.i221
-  br i1 %or.cond334, label %175, label %112
+109:                                              ; preds = %3
+  %110 = icmp ugt i32 %2, 25
+  br i1 %110, label %179, label %111
 
-112:                                              ; preds = %110
+111:                                              ; preds = %109
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 %2, ptr %112, align 8, !tbaa !99
   %113 = zext nneg i32 %2 to i64
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %113, ptr %114, align 8, !tbaa !100
-  br label %175
+  br label %179
 
-115:                                              ; preds = %3
-  %116 = icmp slt i32 %2, 0
-  br i1 %116, label %175, label %117
+114:                                              ; preds = %3
+  %.not98 = icmp ne i32 %2, 0
+  %115 = add i32 %2, -131073
+  %narrow.i221 = icmp ult i32 %115, -131009
+  %or.cond334 = and i1 %.not98, %narrow.i221
+  br i1 %or.cond334, label %179, label %116
 
-117:                                              ; preds = %115
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %2, ptr %118, align 8, !tbaa !101
-  %119 = zext nneg i32 %2 to i64
-  br label %175
+116:                                              ; preds = %114
+  %117 = zext nneg i32 %2 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %117, ptr %118, align 8, !tbaa !100
+  br label %179
 
-120:                                              ; preds = %3
-  %121 = icmp ugt i32 %2, 1
-  br i1 %121, label %175, label %122
+119:                                              ; preds = %3
+  %120 = icmp slt i32 %2, 0
+  br i1 %120, label %179, label %121
 
-122:                                              ; preds = %120
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 %2, ptr %123, align 4, !tbaa !102
-  %124 = zext nneg i32 %2 to i64
-  br label %175
+121:                                              ; preds = %119
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %2, ptr %122, align 8, !tbaa !101
+  %123 = zext nneg i32 %2 to i64
+  br label %179
 
-125:                                              ; preds = %3
-  %126 = icmp ugt i32 %2, 1
-  br i1 %126, label %175, label %127
+124:                                              ; preds = %3
+  %125 = icmp ugt i32 %2, 1
+  br i1 %125, label %179, label %126
 
-127:                                              ; preds = %125
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %2, ptr %128, align 8, !tbaa !103
-  %129 = zext nneg i32 %2 to i64
-  br label %175
+126:                                              ; preds = %124
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  store i32 %2, ptr %127, align 4, !tbaa !102
+  %128 = zext nneg i32 %2 to i64
+  br label %179
 
-130:                                              ; preds = %3
-  %131 = icmp ugt i32 %2, 1
-  br i1 %131, label %175, label %132
+129:                                              ; preds = %3
+  %130 = icmp ugt i32 %2, 1
+  br i1 %130, label %179, label %131
 
-132:                                              ; preds = %130
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 %2, ptr %133, align 4, !tbaa !104
-  %134 = zext nneg i32 %2 to i64
-  br label %175
+131:                                              ; preds = %129
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 %2, ptr %132, align 8, !tbaa !103
+  %133 = zext nneg i32 %2 to i64
+  br label %179
 
-135:                                              ; preds = %3
-  %136 = icmp ugt i32 %2, 1
-  br i1 %136, label %175, label %137
+134:                                              ; preds = %3
+  %135 = icmp ugt i32 %2, 1
+  br i1 %135, label %179, label %136
 
-137:                                              ; preds = %135
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %2, ptr %138, align 8, !tbaa !105
-  %139 = zext nneg i32 %2 to i64
-  br label %175
+136:                                              ; preds = %134
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  store i32 %2, ptr %137, align 4, !tbaa !104
+  %138 = zext nneg i32 %2 to i64
+  br label %179
 
-140:                                              ; preds = %3
-  %141 = icmp ugt i32 %2, 2
-  br i1 %141, label %175, label %142
+139:                                              ; preds = %3
+  %140 = icmp ugt i32 %2, 1
+  br i1 %140, label %179, label %141
 
-142:                                              ; preds = %140
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 %2, ptr %143, align 4, !tbaa !76
-  %144 = zext nneg i32 %2 to i64
-  br label %175
+141:                                              ; preds = %139
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 %2, ptr %142, align 8, !tbaa !105
+  %143 = zext nneg i32 %2 to i64
+  br label %179
 
-145:                                              ; preds = %3
-  %146 = icmp ugt i32 %2, 2
-  br i1 %146, label %175, label %147
+144:                                              ; preds = %3
+  %145 = icmp ugt i32 %2, 2
+  br i1 %145, label %179, label %146
 
-147:                                              ; preds = %145
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %2, ptr %148, align 8, !tbaa !75
-  %149 = zext nneg i32 %2 to i64
-  br label %175
+146:                                              ; preds = %144
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  store i32 %2, ptr %147, align 4, !tbaa !76
+  %148 = zext nneg i32 %2 to i64
+  br label %179
 
-150:                                              ; preds = %3
-  %151 = icmp ugt i32 %2, 1
-  br i1 %151, label %175, label %152
+149:                                              ; preds = %3
+  %150 = icmp ugt i32 %2, 2
+  br i1 %150, label %179, label %151
 
-152:                                              ; preds = %150
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 %2, ptr %153, align 4, !tbaa !106
-  %154 = zext nneg i32 %2 to i64
-  br label %175
+151:                                              ; preds = %149
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 %2, ptr %152, align 8, !tbaa !75
+  %153 = zext nneg i32 %2 to i64
+  br label %179
 
-155:                                              ; preds = %3
-  %156 = icmp ugt i32 %2, 2
-  br i1 %156, label %175, label %157
+154:                                              ; preds = %3
+  %155 = icmp ugt i32 %2, 1
+  br i1 %155, label %179, label %156
 
-157:                                              ; preds = %155
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 %2, ptr %158, align 8, !tbaa !107
-  %159 = zext nneg i32 %2 to i64
-  br label %175
+156:                                              ; preds = %154
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store i32 %2, ptr %157, align 4, !tbaa !106
+  %158 = zext nneg i32 %2 to i64
+  br label %179
 
-160:                                              ; preds = %3
-  %161 = icmp ugt i32 %2, 1
-  br i1 %161, label %175, label %162
+159:                                              ; preds = %3
+  %160 = icmp ugt i32 %2, 2
+  br i1 %160, label %179, label %161
 
-162:                                              ; preds = %160
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i32 %2, ptr %163, align 4, !tbaa !108
-  %164 = zext nneg i32 %2 to i64
-  br label %175
+161:                                              ; preds = %159
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i32 %2, ptr %162, align 8, !tbaa !107
+  %163 = zext nneg i32 %2 to i64
+  br label %179
 
-165:                                              ; preds = %3
-  %.not85 = icmp ne i32 %2, 0
-  %166 = add i32 %2, -131073
-  %narrow.i287 = icmp ult i32 %166, -130049
-  %or.cond336 = and i1 %.not85, %narrow.i287
-  br i1 %or.cond336, label %175, label %167
+164:                                              ; preds = %3
+  %165 = icmp ugt i32 %2, 1
+  br i1 %165, label %179, label %166
 
-167:                                              ; preds = %165
+166:                                              ; preds = %164
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  store i32 %2, ptr %167, align 4, !tbaa !108
   %168 = zext nneg i32 %2 to i64
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 %168, ptr %169, align 8, !tbaa !78
-  br label %175
+  br label %179
 
-170:                                              ; preds = %3
-  %171 = icmp ugt i32 %2, 2
-  br i1 %171, label %175, label %172
+169:                                              ; preds = %3
+  %.not85 = icmp ne i32 %2, 0
+  %170 = add i32 %2, -131073
+  %narrow.i287 = icmp ult i32 %170, -130049
+  %or.cond336 = and i1 %.not85, %narrow.i287
+  br i1 %or.cond336, label %179, label %171
 
-172:                                              ; preds = %170
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i32 %2, ptr %173, align 8, !tbaa !79
-  %174 = zext nneg i32 %2 to i64
-  br label %175
+171:                                              ; preds = %169
+  %172 = zext nneg i32 %2 to i64
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i64 %172, ptr %173, align 8, !tbaa !78
+  br label %179
 
-175:                                              ; preds = %101, %33, %165, %115, %110, %105, %96, %91, %42, %29, %24, %19, %14, %ZSTD_cParam_clampBounds.exit.thread, %3, %170, %160, %155, %150, %145, %140, %135, %130, %125, %120, %86, %80, %79, %78, %77, %74, %72, %69, %67, %37, %4, %172, %167, %162, %157, %152, %147, %142, %137, %132, %127, %122, %117, %112, %107, %102, %98, %93, %88, %81, %62, %56, %51, %46, %43, %39, %34, %30, %26, %21, %16, %6
-  %.0 = phi i64 [ %7, %6 ], [ %18, %16 ], [ %23, %21 ], [ %28, %26 ], [ %32, %30 ], [ %36, %34 ], [ %41, %39 ], [ %45, %43 ], [ %50, %46 ], [ %55, %51 ], [ %61, %56 ], [ %66, %62 ], [ %85, %81 ], [ %90, %88 ], [ %95, %93 ], [ %100, %98 ], [ %104, %102 ], [ %109, %107 ], [ %113, %112 ], [ %119, %117 ], [ %124, %122 ], [ %129, %127 ], [ %134, %132 ], [ %139, %137 ], [ %144, %142 ], [ %149, %147 ], [ %154, %152 ], [ %159, %157 ], [ %164, %162 ], [ %168, %167 ], [ %174, %172 ], [ -42, %4 ], [ -42, %37 ], [ %71, %69 ], [ -42, %67 ], [ %76, %74 ], [ -42, %72 ], [ %., %77 ], [ %.130, %78 ], [ %.131, %79 ], [ %.132, %80 ], [ -42, %86 ], [ -42, %120 ], [ -42, %125 ], [ -42, %130 ], [ -42, %135 ], [ -42, %140 ], [ -42, %145 ], [ -42, %150 ], [ -42, %155 ], [ -42, %160 ], [ -42, %170 ], [ -40, %3 ], [ %spec.select, %ZSTD_cParam_clampBounds.exit.thread ], [ -42, %14 ], [ -42, %19 ], [ -42, %24 ], [ -42, %29 ], [ -42, %33 ], [ -42, %42 ], [ -42, %91 ], [ -42, %96 ], [ -42, %101 ], [ -42, %105 ], [ -42, %110 ], [ -42, %115 ], [ -42, %165 ]
+174:                                              ; preds = %3
+  %175 = icmp ugt i32 %2, 2
+  br i1 %175, label %179, label %176
+
+176:                                              ; preds = %174
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i32 %2, ptr %177, align 8, !tbaa !79
+  %178 = zext nneg i32 %2 to i64
+  br label %179
+
+179:                                              ; preds = %13, %ZSTD_cParam_clampBounds.exit.thread, %105, %37, %169, %119, %114, %109, %100, %95, %46, %33, %28, %23, %18, %3, %174, %164, %159, %154, %149, %144, %139, %134, %129, %124, %90, %84, %83, %82, %81, %78, %76, %73, %71, %41, %4, %176, %171, %166, %161, %156, %151, %146, %141, %136, %131, %126, %121, %116, %111, %106, %102, %97, %92, %85, %66, %60, %55, %50, %47, %43, %38, %34, %30, %25, %20, %6
+  %.0 = phi i64 [ %7, %6 ], [ %22, %20 ], [ %27, %25 ], [ %32, %30 ], [ %36, %34 ], [ %40, %38 ], [ %45, %43 ], [ %49, %47 ], [ %54, %50 ], [ %59, %55 ], [ %65, %60 ], [ %70, %66 ], [ %89, %85 ], [ %94, %92 ], [ %99, %97 ], [ %104, %102 ], [ %108, %106 ], [ %113, %111 ], [ %117, %116 ], [ %123, %121 ], [ %128, %126 ], [ %133, %131 ], [ %138, %136 ], [ %143, %141 ], [ %148, %146 ], [ %153, %151 ], [ %158, %156 ], [ %163, %161 ], [ %168, %166 ], [ %172, %171 ], [ %178, %176 ], [ -42, %4 ], [ -42, %41 ], [ %75, %73 ], [ -42, %71 ], [ %80, %78 ], [ -42, %76 ], [ %., %81 ], [ %.130, %82 ], [ %.131, %83 ], [ %.132, %84 ], [ -42, %90 ], [ -42, %124 ], [ -42, %129 ], [ -42, %134 ], [ -42, %139 ], [ -42, %144 ], [ -42, %149 ], [ -42, %154 ], [ -42, %159 ], [ -42, %164 ], [ -42, %174 ], [ -40, %3 ], [ -42, %18 ], [ -42, %23 ], [ -42, %28 ], [ -42, %33 ], [ -42, %37 ], [ -42, %46 ], [ -42, %95 ], [ -42, %100 ], [ -42, %105 ], [ -42, %109 ], [ -42, %114 ], [ -42, %119 ], [ -42, %169 ], [ %17, %ZSTD_cParam_clampBounds.exit.thread ], [ 3, %13 ]
   ret i64 %.0
 }
 
@@ -3006,13 +3010,12 @@ ZSTD_resolveRowMatchFinderMode.exit.i7:           ; preds = %ZSTD_resolveRowMatc
   %55 = load i32, ptr %50, align 8, !tbaa !124
   %56 = load i64, ptr %36, align 8, !tbaa !78
   %57 = call fastcc i64 @ZSTD_estimateCCtxSize_usingCCtxParams_internal(ptr noundef nonnull %3, ptr noundef nonnull readonly %10, i32 noundef 1, i32 noundef 1, i64 noundef 0, i64 noundef 0, i64 noundef -1, i32 noundef %55, i64 noundef %56)
+  %58 = call i64 @llvm.umax.i64(i64 %52, i64 %57)
   br label %ZSTD_estimateCCtxSize_usingCCtxParams.exit11
 
 ZSTD_estimateCCtxSize_usingCCtxParams.exit11:     ; preds = %ZSTD_resolveRowMatchFinderMode.exit.i7.thread, %ZSTD_resolveRowMatchFinderMode.exit.i7, %54
-  %.0.i19 = phi i64 [ %52, %54 ], [ %52, %ZSTD_resolveRowMatchFinderMode.exit.i7 ], [ -1, %ZSTD_resolveRowMatchFinderMode.exit.i7.thread ]
-  %.0.i9 = phi i64 [ %57, %54 ], [ -1, %ZSTD_resolveRowMatchFinderMode.exit.i7 ], [ -1, %ZSTD_resolveRowMatchFinderMode.exit.i7.thread ]
+  %.0.i19 = phi i64 [ %58, %54 ], [ -1, %ZSTD_resolveRowMatchFinderMode.exit.i7 ], [ -1, %ZSTD_resolveRowMatchFinderMode.exit.i7.thread ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3) #28
-  %58 = call i64 @llvm.umax.i64(i64 %.0.i19, i64 %.0.i9)
   br label %66
 
 ZSTD_resolveRowMatchFinderMode.exit.i13:          ; preds = %ZSTD_makeCCtxParamsFromCParams.exit
@@ -3035,7 +3038,7 @@ ZSTD_estimateCCtxSize_usingCCtxParams.exit17:     ; preds = %ZSTD_resolveRowMatc
   br label %66
 
 66:                                               ; preds = %ZSTD_estimateCCtxSize_usingCCtxParams.exit17, %ZSTD_estimateCCtxSize_usingCCtxParams.exit11
-  %.0 = phi i64 [ %58, %ZSTD_estimateCCtxSize_usingCCtxParams.exit11 ], [ %.0.i15, %ZSTD_estimateCCtxSize_usingCCtxParams.exit17 ]
+  %.0 = phi i64 [ %.0.i19, %ZSTD_estimateCCtxSize_usingCCtxParams.exit11 ], [ %.0.i15, %ZSTD_estimateCCtxSize_usingCCtxParams.exit17 ]
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #28
   ret i64 %.0
 }
@@ -8927,68 +8930,68 @@ ZSTD_CCtx_setParameter.exit:
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 736
   store i64 0, ptr %5, align 8, !tbaa !113
   %6 = icmp slt i32 %3, -131072
-  br i1 %6, label %10, label %7
+  br i1 %6, label %ZSTD_CCtxParams_setParameter.exit, label %7
 
 7:                                                ; preds = %ZSTD_CCtx_setParameter.exit
   %8 = icmp sgt i32 %3, 22
-  br i1 %8, label %10, label %ZSTD_cParam_clampBounds.exit.i
+  br i1 %8, label %ZSTD_CCtxParams_setParameter.exit, label %ZSTD_cParam_clampBounds.exit.i
 
 ZSTD_cParam_clampBounds.exit.i:                   ; preds = %7
   %9 = icmp eq i32 %3, 0
-  %spec.select337.i = select i1 %9, i32 3, i32 %3
-  br label %10
+  %spec.select25 = select i1 %9, i32 3, i32 %3
+  br label %ZSTD_CCtxParams_setParameter.exit
 
-10:                                               ; preds = %ZSTD_CCtx_setParameter.exit, %7, %ZSTD_cParam_clampBounds.exit.i
-  %.0322324.sink.i = phi i32 [ -131072, %ZSTD_CCtx_setParameter.exit ], [ 22, %7 ], [ %spec.select337.i, %ZSTD_cParam_clampBounds.exit.i ]
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %.0322324.sink.i, ptr %11, align 4, !tbaa !44
+ZSTD_CCtxParams_setParameter.exit:                ; preds = %ZSTD_cParam_clampBounds.exit.i, %ZSTD_CCtx_setParameter.exit, %7
+  %.sink = phi i32 [ -131072, %ZSTD_CCtx_setParameter.exit ], [ 22, %7 ], [ %spec.select25, %ZSTD_cParam_clampBounds.exit.i ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 %.sink, ptr %10, align 4, !tbaa !44
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %0)
-  %12 = icmp eq ptr %1, null
-  %13 = icmp eq i64 %2, 0
-  %or.cond.i.i = or i1 %12, %13
-  br i1 %or.cond.i.i, label %30, label %14
+  %11 = icmp eq ptr %1, null
+  %12 = icmp eq i64 %2, 0
+  %or.cond.i.i = or i1 %11, %12
+  br i1 %or.cond.i.i, label %29, label %13
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %16 = load i64, ptr %15, align 8, !tbaa !50
-  %.not28.i.i = icmp eq i64 %16, 0
-  br i1 %.not28.i.i, label %17, label %30
+13:                                               ; preds = %ZSTD_CCtxParams_setParameter.exit
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %15 = load i64, ptr %14, align 8, !tbaa !50
+  %.not28.i.i = icmp eq i64 %15, 0
+  br i1 %.not28.i.i, label %16, label %29
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %.val.i.i = load ptr, ptr %18, align 8, !tbaa !46
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %.val.i.i = load ptr, ptr %17, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i, label %22, label %19
+  br i1 %.not.i.i.i, label %21, label %18
 
-19:                                               ; preds = %17
-  %20 = getelementptr i8, ptr %0, i64 864
-  %.val29.i.i = load ptr, ptr %20, align 8
-  %21 = tail call ptr %.val.i.i(ptr noundef %.val29.i.i, i64 noundef %2) #28
+18:                                               ; preds = %16
+  %19 = getelementptr i8, ptr %0, i64 864
+  %.val29.i.i = load ptr, ptr %19, align 8
+  %20 = tail call ptr %.val.i.i(ptr noundef %.val29.i.i, i64 noundef %2) #28
   br label %ZSTD_customMalloc.exit.i.i
 
-22:                                               ; preds = %17
-  %23 = tail call noalias ptr @malloc(i64 noundef %2) #29
+21:                                               ; preds = %16
+  %22 = tail call noalias ptr @malloc(i64 noundef %2) #29
   br label %ZSTD_customMalloc.exit.i.i
 
-ZSTD_customMalloc.exit.i.i:                       ; preds = %22, %19
-  %.0.i.i.i = phi ptr [ %21, %19 ], [ %23, %22 ]
-  %24 = icmp eq ptr %.0.i.i.i, null
-  br i1 %24, label %30, label %25
+ZSTD_customMalloc.exit.i.i:                       ; preds = %21, %18
+  %.0.i.i.i = phi ptr [ %20, %18 ], [ %22, %21 ]
+  %23 = icmp eq ptr %.0.i.i.i, null
+  br i1 %23, label %29, label %24
 
-25:                                               ; preds = %ZSTD_customMalloc.exit.i.i
+24:                                               ; preds = %ZSTD_customMalloc.exit.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3632
-  store ptr %.0.i.i.i, ptr %26, align 8, !tbaa !114
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 3640
-  store ptr %.0.i.i.i, ptr %27, align 8, !tbaa !115
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 3648
-  store i64 %2, ptr %28, align 8, !tbaa !116
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 3656
-  store i32 0, ptr %29, align 8, !tbaa !117
-  br label %30
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 3632
+  store ptr %.0.i.i.i, ptr %25, align 8, !tbaa !114
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3640
+  store ptr %.0.i.i.i, ptr %26, align 8, !tbaa !115
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 3648
+  store i64 %2, ptr %27, align 8, !tbaa !116
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 3656
+  store i32 0, ptr %28, align 8, !tbaa !117
+  br label %29
 
-30:                                               ; preds = %25, %ZSTD_customMalloc.exit.i.i, %14, %10
-  %spec.select = phi i64 [ 0, %25 ], [ 0, %10 ], [ -64, %14 ], [ -64, %ZSTD_customMalloc.exit.i.i ]
+29:                                               ; preds = %24, %ZSTD_customMalloc.exit.i.i, %13, %ZSTD_CCtxParams_setParameter.exit
+  %spec.select = phi i64 [ 0, %24 ], [ 0, %ZSTD_CCtxParams_setParameter.exit ], [ -64, %13 ], [ -64, %ZSTD_customMalloc.exit.i.i ]
   ret i64 %spec.select
 }
 
@@ -9014,31 +9017,31 @@ ZSTD_CCtx_refCDict.exit:
 
 ZSTD_CCtx_setParameter.exit:                      ; preds = %ZSTD_CCtx_refCDict.exit, %8
   %10 = icmp slt i32 %1, -131072
-  br i1 %10, label %14, label %11
+  br i1 %10, label %ZSTD_CCtxParams_setParameter.exit, label %11
 
 11:                                               ; preds = %ZSTD_CCtx_setParameter.exit
   %12 = icmp sgt i32 %1, 22
-  br i1 %12, label %14, label %ZSTD_cParam_clampBounds.exit.i
+  br i1 %12, label %ZSTD_CCtxParams_setParameter.exit, label %ZSTD_cParam_clampBounds.exit.i
 
 ZSTD_cParam_clampBounds.exit.i:                   ; preds = %11
   %13 = icmp eq i32 %1, 0
-  %spec.select337.i = select i1 %13, i32 3, i32 %1
-  br label %14
+  %spec.select35 = select i1 %13, i32 3, i32 %1
+  br label %ZSTD_CCtxParams_setParameter.exit
 
-14:                                               ; preds = %ZSTD_cParam_clampBounds.exit.i, %11, %ZSTD_CCtx_setParameter.exit
-  %.0322324.sink.i = phi i32 [ -131072, %ZSTD_CCtx_setParameter.exit ], [ 22, %11 ], [ %spec.select337.i, %ZSTD_cParam_clampBounds.exit.i ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %.0322324.sink.i, ptr %15, align 4, !tbaa !44
-  br i1 %.not.i30.not, label %16, label %ZSTD_CCtx_setPledgedSrcSize.exit
+ZSTD_CCtxParams_setParameter.exit:                ; preds = %ZSTD_cParam_clampBounds.exit.i, %ZSTD_CCtx_setParameter.exit, %11
+  %.0322324.i.sink = phi i32 [ -131072, %ZSTD_CCtx_setParameter.exit ], [ 22, %11 ], [ %spec.select35, %ZSTD_cParam_clampBounds.exit.i ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 %.0322324.i.sink, ptr %14, align 4, !tbaa !44
+  br i1 %.not.i30.not, label %15, label %ZSTD_CCtx_setPledgedSrcSize.exit
 
-16:                                               ; preds = %14
-  %17 = add i64 %2, 1
-  %18 = select i1 %3, i64 0, i64 %17
-  store i64 %18, ptr %5, align 8, !tbaa !113
+15:                                               ; preds = %ZSTD_CCtxParams_setParameter.exit
+  %16 = add i64 %2, 1
+  %17 = select i1 %3, i64 0, i64 %16
+  store i64 %17, ptr %5, align 8, !tbaa !113
   br label %ZSTD_CCtx_setPledgedSrcSize.exit
 
-ZSTD_CCtx_setPledgedSrcSize.exit:                 ; preds = %14, %16
-  %spec.select = phi i64 [ 0, %16 ], [ -60, %14 ]
+ZSTD_CCtx_setPledgedSrcSize.exit:                 ; preds = %ZSTD_CCtxParams_setParameter.exit, %15
+  %spec.select = phi i64 [ 0, %15 ], [ -60, %ZSTD_CCtxParams_setParameter.exit ]
   ret i64 %spec.select
 }
 
@@ -9071,13 +9074,13 @@ ZSTD_CCtx_setParameter.exit:                      ; preds = %ZSTD_CCtx_refCDict.
 
 ZSTD_cParam_clampBounds.exit.i:                   ; preds = %9
   %11 = icmp eq i32 %1, 0
-  %spec.select337.i = select i1 %11, i32 3, i32 %1
+  %spec.select = select i1 %11, i32 3, i32 %1
   br label %ZSTD_CCtxParams_setParameter.exit
 
-ZSTD_CCtxParams_setParameter.exit:                ; preds = %ZSTD_CCtx_setParameter.exit, %9, %ZSTD_cParam_clampBounds.exit.i
-  %.0322324.sink.i = phi i32 [ -131072, %ZSTD_CCtx_setParameter.exit ], [ 22, %9 ], [ %spec.select337.i, %ZSTD_cParam_clampBounds.exit.i ]
+ZSTD_CCtxParams_setParameter.exit:                ; preds = %ZSTD_cParam_clampBounds.exit.i, %ZSTD_CCtx_setParameter.exit, %9
+  %.0322324.i.sink = phi i32 [ -131072, %ZSTD_CCtx_setParameter.exit ], [ 22, %9 ], [ %spec.select, %ZSTD_cParam_clampBounds.exit.i ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %.0322324.sink.i, ptr %12, align 4, !tbaa !44
+  store i32 %.0322324.i.sink, ptr %12, align 4, !tbaa !44
   ret i64 0
 }
 

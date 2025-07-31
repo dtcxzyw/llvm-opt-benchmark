@@ -2021,14 +2021,17 @@ _ZN6open3d2ml7contrib12IntersectionERKNS1_5PointES4_S4_S4_RS2_.exit.thread: ; pr
   %exitcond214.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count
   br i1 %exitcond214.not, label %._crit_edge, label %.lr.ph, !llvm.loop !126
 
-._crit_edge193:                                   ; preds = %292, %198
-  %.095.lcssa = phi float [ 0.000000e+00, %198 ], [ %306, %292 ]
-  %290 = tail call noundef float @llvm.fabs.f32(float %.095.lcssa)
+._crit_edge193.loopexit:                          ; preds = %292
+  %290 = tail call float @llvm.fabs.f32(float %306)
   %291 = fmul float %290, 5.000000e-01
+  br label %._crit_edge193
+
+._crit_edge193:                                   ; preds = %198, %._crit_edge193.loopexit
+  %.095.lcssa = phi float [ %291, %._crit_edge193.loopexit ], [ 0.000000e+00, %198 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #15
-  ret float %291
+  ret float %.095.lcssa
 
 292:                                              ; preds = %.lr.ph192, %292
   %293 = phi float [ %263, %.lr.ph192 ], [ %301, %292 ]
@@ -2049,7 +2052,7 @@ _ZN6open3d2ml7contrib12IntersectionERKNS1_5PointES4_S4_S4_RS2_.exit.thread: ; pr
   %305 = tail call noundef float @llvm.fmuladd.f32(float %295, float %302, float %304)
   %306 = fadd float %.095190, %305
   %exitcond220.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count219
-  br i1 %exitcond220.not, label %._crit_edge193, label %292, !llvm.loop !127
+  br i1 %exitcond220.not, label %._crit_edge193.loopexit, label %292, !llvm.loop !127
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

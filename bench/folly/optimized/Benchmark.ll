@@ -45805,11 +45805,11 @@ _ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5emptyEv
 22:                                               ; preds = %11
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %24 = load i64, ptr %23, align 8, !tbaa !676
+  %25 = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   br label %_ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4sizeEv.exit.i
 
 _ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4sizeEv.exit.i: ; preds = %22, %11
-  %25 = phi i64 [ %24, %22 ], [ 0, %11 ]
-  %spec.store.select2.i = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
+  %spec.store.select2.i = phi i64 [ %25, %22 ], [ 1, %11 ]
   %26 = sdiv i64 9223372036854775807, %spec.store.select2.i
   %27 = icmp slt i64 %26, %spec.store.select2.i
   br i1 %27, label %28, label %30

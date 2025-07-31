@@ -6560,16 +6560,16 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hbd59fae4456d2ee
 
 "_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h260ea77137052f9dE.llvm.15098402384545254406.exit.loopexit.i.i": ; preds = %.lr.ph.i.i.i.i.i
   %.pre.i.i = load i64, ptr %4, align 8, !alias.scope !1282, !noalias !1287
+  %13 = call i64 @llvm.fshl.i64(i64 %.pre.i.i, i64 %.pre.i.i, i64 5)
   br label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hfbc41f68f1837286E.llvm.15098402384545254406.exit"
 
 "_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hfbc41f68f1837286E.llvm.15098402384545254406.exit": ; preds = %2, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h260ea77137052f9dE.llvm.15098402384545254406.exit.loopexit.i.i"
-  %13 = phi i64 [ %.pre.i.i, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h260ea77137052f9dE.llvm.15098402384545254406.exit.loopexit.i.i" ], [ 0, %2 ]
+  %14 = phi i64 [ %13, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h260ea77137052f9dE.llvm.15098402384545254406.exit.loopexit.i.i" ], [ 0, %2 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1289)
   call void @llvm.experimental.noalias.scope.decl(metadata !1290)
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1040
-  %15 = load i64, ptr %14, align 8, !alias.scope !1291, !noalias !1292, !noundef !30
-  %16 = call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 5)
-  %17 = xor i64 %15, %16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1040
+  %16 = load i64, ptr %15, align 8, !alias.scope !1291, !noalias !1292, !noundef !30
+  %17 = xor i64 %16, %14
   %18 = mul i64 %17, 5871781006564002453
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i64 %18

@@ -1664,12 +1664,12 @@ _dt_RGB_2_Hue.exit.i.i:                           ; preds = %220, %216, %211
   %227 = fcmp reassoc nsz arcp contract afn ogt float %.1.i.i.i, 1.000000e+00
   %228 = fadd reassoc nsz arcp contract afn float %.1.i.i.i, -1.000000e+00
   %.2.i.i.i = select nsz i1 %227, float %228, float %.1.i.i.i
+  %229 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.2.i.i.i, float 0.000000e+00)
+  %230 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %229, float 1.000000e+00)
   br label %dt_RGB_2_HSL.exit.i
 
 dt_RGB_2_HSL.exit.i:                              ; preds = %_dt_RGB_2_Hue.exit.i.i, %.lr.ph415.i
-  %.028.i.i = phi nsz float [ %.2.i.i.i, %_dt_RGB_2_Hue.exit.i.i ], [ 0.000000e+00, %.lr.ph415.i ]
-  %229 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.028.i.i, float 0.000000e+00)
-  %230 = call reassoc nsz arcp contract afn noundef float @llvm.minnum.f32(float %229, float 1.000000e+00)
+  %.028.i.i = phi float [ %230, %_dt_RGB_2_Hue.exit.i.i ], [ 0.000000e+00, %.lr.ph415.i ]
   %231 = getelementptr inbounds nuw float, ptr %56, i64 %.0278414.i
   br label %237
 
@@ -1686,7 +1686,7 @@ dt_RGB_2_HSL.exit.i:                              ; preds = %_dt_RGB_2_Hue.exit.
 237:                                              ; preds = %237, %dt_RGB_2_HSL.exit.i
   %indvars.iv515.i = phi i64 [ 0, %dt_RGB_2_HSL.exit.i ], [ %indvars.iv.next516.i, %237 ]
   %238 = getelementptr inbounds nuw float, ptr %231, i64 %indvars.iv515.i
-  store float %230, ptr %238, align 4, !tbaa !36, !alias.scope !155, !noalias !164
+  store float %.028.i.i, ptr %238, align 4, !tbaa !36, !alias.scope !155, !noalias !164
   %indvars.iv.next516.i = add nuw nsw i64 %indvars.iv515.i, 1
   %exitcond518.not.i = icmp eq i64 %indvars.iv.next516.i, 3
   br i1 %exitcond518.not.i, label %232, label %237
@@ -1746,12 +1746,12 @@ _dt_RGB_2_Hue.exit.i304.i:                        ; preds = %265, %261, %256
   %272 = fcmp reassoc nsz arcp contract afn ogt float %.1.i.i306.i, 1.000000e+00
   %273 = fadd reassoc nsz arcp contract afn float %.1.i.i306.i, -1.000000e+00
   %.2.i.i307.i = select nsz i1 %272, float %273, float %.1.i.i306.i
+  %274 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.2.i.i307.i, float 0.000000e+00)
+  %275 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %274, float 1.000000e+00)
   br label %dt_RGB_2_HSL.exit308.i
 
 dt_RGB_2_HSL.exit308.i:                           ; preds = %_dt_RGB_2_Hue.exit.i304.i, %.lr.ph409.i
-  %.028.i300.i = phi nsz float [ %.2.i.i307.i, %_dt_RGB_2_Hue.exit.i304.i ], [ 0.000000e+00, %.lr.ph409.i ]
-  %274 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.028.i300.i, float 0.000000e+00)
-  %275 = call reassoc nsz arcp contract afn noundef float @llvm.minnum.f32(float %274, float 1.000000e+00)
+  %.028.i300.i = phi float [ %275, %_dt_RGB_2_Hue.exit.i304.i ], [ 0.000000e+00, %.lr.ph409.i ]
   br label %282
 
 276:                                              ; preds = %282
@@ -1767,7 +1767,7 @@ dt_RGB_2_HSL.exit308.i:                           ; preds = %_dt_RGB_2_Hue.exit.
 282:                                              ; preds = %282, %dt_RGB_2_HSL.exit308.i
   %indvars.iv510.i = phi i64 [ 0, %dt_RGB_2_HSL.exit308.i ], [ %indvars.iv.next511.i, %282 ]
   %283 = getelementptr inbounds nuw float, ptr %239, i64 %indvars.iv510.i
-  store float %275, ptr %283, align 4, !tbaa !36, !alias.scope !155, !noalias !164
+  store float %.028.i300.i, ptr %283, align 4, !tbaa !36, !alias.scope !155, !noalias !164
   %indvars.iv.next511.i = add nuw nsw i64 %indvars.iv510.i, 1
   %exitcond513.not.i = icmp eq i64 %indvars.iv.next511.i, 3
   br i1 %exitcond513.not.i, label %276, label %282
@@ -1800,12 +1800,12 @@ _dt_RGB_2_Hue.exit.i314.i:                        ; preds = %.lr.ph405.i
   %302 = fsub reassoc nsz arcp contract afn float 2.000000e+00, %299
   %.pn.i312.i = select i1 %301, float %299, float %302
   %.1.i313.i = fdiv reassoc nsz arcp contract afn float %294, %.pn.i312.i
+  %303 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.1.i313.i, float 0.000000e+00)
+  %304 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %303, float 1.000000e+00)
   br label %dt_RGB_2_HSL.exit318.i
 
 dt_RGB_2_HSL.exit318.i:                           ; preds = %_dt_RGB_2_Hue.exit.i314.i, %.lr.ph405.i
-  %.0.i311.i = phi nsz float [ %.1.i313.i, %_dt_RGB_2_Hue.exit.i314.i ], [ 0.000000e+00, %.lr.ph405.i ]
-  %303 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.0.i311.i, float 0.000000e+00)
-  %304 = call reassoc nsz arcp contract afn noundef float @llvm.minnum.f32(float %303, float 1.000000e+00)
+  %.0.i311.i = phi float [ %304, %_dt_RGB_2_Hue.exit.i314.i ], [ 0.000000e+00, %.lr.ph405.i ]
   %305 = getelementptr inbounds nuw float, ptr %56, i64 %.0270404.i
   br label %311
 
@@ -1822,7 +1822,7 @@ dt_RGB_2_HSL.exit318.i:                           ; preds = %_dt_RGB_2_Hue.exit.
 311:                                              ; preds = %311, %dt_RGB_2_HSL.exit318.i
   %indvars.iv505.i = phi i64 [ 0, %dt_RGB_2_HSL.exit318.i ], [ %indvars.iv.next506.i, %311 ]
   %312 = getelementptr inbounds nuw float, ptr %305, i64 %indvars.iv505.i
-  store float %304, ptr %312, align 4, !tbaa !36, !alias.scope !155, !noalias !164
+  store float %.0.i311.i, ptr %312, align 4, !tbaa !36, !alias.scope !155, !noalias !164
   %indvars.iv.next506.i = add nuw nsw i64 %indvars.iv505.i, 1
   %exitcond508.not.i = icmp eq i64 %indvars.iv.next506.i, 3
   br i1 %exitcond508.not.i, label %306, label %311
@@ -1855,12 +1855,12 @@ _dt_RGB_2_Hue.exit.i324.i:                        ; preds = %.lr.ph399.i
   %331 = fsub reassoc nsz arcp contract afn float 2.000000e+00, %328
   %.pn.i322.i = select i1 %330, float %328, float %331
   %.1.i323.i = fdiv reassoc nsz arcp contract afn float %323, %.pn.i322.i
+  %332 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.1.i323.i, float 0.000000e+00)
+  %333 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %332, float 1.000000e+00)
   br label %dt_RGB_2_HSL.exit328.i
 
 dt_RGB_2_HSL.exit328.i:                           ; preds = %_dt_RGB_2_Hue.exit.i324.i, %.lr.ph399.i
-  %.0.i321.i = phi nsz float [ %.1.i323.i, %_dt_RGB_2_Hue.exit.i324.i ], [ 0.000000e+00, %.lr.ph399.i ]
-  %332 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.0.i321.i, float 0.000000e+00)
-  %333 = call reassoc nsz arcp contract afn noundef float @llvm.minnum.f32(float %332, float 1.000000e+00)
+  %.0.i321.i = phi float [ %333, %_dt_RGB_2_Hue.exit.i324.i ], [ 0.000000e+00, %.lr.ph399.i ]
   br label %340
 
 334:                                              ; preds = %340
@@ -1876,7 +1876,7 @@ dt_RGB_2_HSL.exit328.i:                           ; preds = %_dt_RGB_2_Hue.exit.
 340:                                              ; preds = %340, %dt_RGB_2_HSL.exit328.i
   %indvars.iv500.i = phi i64 [ 0, %dt_RGB_2_HSL.exit328.i ], [ %indvars.iv.next501.i, %340 ]
   %341 = getelementptr inbounds nuw float, ptr %313, i64 %indvars.iv500.i
-  store float %333, ptr %341, align 4, !tbaa !36, !alias.scope !155, !noalias !164
+  store float %.0.i321.i, ptr %341, align 4, !tbaa !36, !alias.scope !155, !noalias !164
   %indvars.iv.next501.i = add nuw nsw i64 %indvars.iv500.i, 1
   %exitcond503.not.i = icmp eq i64 %indvars.iv.next501.i, 3
   br i1 %exitcond503.not.i, label %334, label %340

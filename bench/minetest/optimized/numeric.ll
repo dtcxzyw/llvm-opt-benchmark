@@ -333,12 +333,12 @@ if.end.i:                                         ; preds = %entry
   %div4.i = fdiv nsz float 0x3FD797EAC0000000, %sub3.i
   %call.i.i = tail call nsz noundef float @cbrtf(float noundef %div4.i) #10
   %mul.i = fmul nsz float %call.i.i, %conv
+  %1 = tail call nsz float @llvm.round.f32(float %mul.i)
   br label %_Z10adjustDistff.exit
 
 _Z10adjustDistff.exit:                            ; preds = %if.end.i, %entry
-  %retval.0.i = phi float [ %mul.i, %if.end.i ], [ %conv, %entry ]
-  %1 = tail call nsz noundef float @llvm.round.f32(float %retval.0.i)
-  %conv2 = fptosi float %1 to i16
+  %retval.0.i = phi float [ %1, %if.end.i ], [ %conv, %entry ]
+  %conv2 = fptosi float %retval.0.i to i16
   ret i16 %conv2
 }
 

@@ -454,36 +454,36 @@ mat_mult_vec_orthog.exit.loopexit.i.i:            ; preds = %._crit_edge.us.i.i5
 
 .critedge167.critedge.i.i:                        ; preds = %193
   %198 = fmul double %191, %195
+  %199 = tail call double @llvm.fabs.f64(double %198)
+  %200 = tail call double @llvm.sqrt.f64(double %199)
   br label %power_iteration_orthog.exit.i
 
 .lr.ph.i54.i:                                     ; preds = %mat_mult_vec_orthog.exit.loopexit.i.i, %.lr.ph.i54.i
   %indvars.iv190.i.i = phi i64 [ %indvars.iv.next191.i.i, %.lr.ph.i54.i ], [ 0, %mat_mult_vec_orthog.exit.loopexit.i.i ]
-  %199 = tail call i32 @rand() #15
-  %200 = srem i32 %199, 100
-  %201 = sitofp i32 %200 to double
-  %202 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv190.i.i
-  store double %201, ptr %202, align 8, !tbaa !16
+  %201 = tail call i32 @rand() #15
+  %202 = srem i32 %201, 100
+  %203 = sitofp i32 %202 to double
+  %204 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv190.i.i
+  store double %203, ptr %204, align 8, !tbaa !16
   %indvars.iv.next191.i.i = add nuw nsw i64 %indvars.iv190.i.i, 1
   %exitcond194.not.i.i = icmp eq i64 %indvars.iv.next191.i.i, %wide.trip.count.i43.i
   br i1 %exitcond194.not.i.i, label %.critedge.i.i, label %.lr.ph.i54.i, !llvm.loop !36
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i54.i
-  %203 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %148) #15
-  %204 = fdiv double 1.000000e+00, %203
-  tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %204, ptr noundef nonnull %3) #15
+  %205 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %148) #15
+  %206 = fdiv double 1.000000e+00, %205
+  tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %206, ptr noundef nonnull %3) #15
   br label %power_iteration_orthog.exit.i
 
 power_iteration_orthog.exit.i:                    ; preds = %.critedge.i.i, %.critedge167.critedge.i.i, %gv_calloc.exit172.i.i
-  %205 = phi double [ %198, %.critedge167.critedge.i.i ], [ 0.000000e+00, %gv_calloc.exit172.i.i ], [ 0.000000e+00, %.critedge.i.i ]
-  %206 = phi ptr [ %161, %.critedge167.critedge.i.i ], [ %168, %gv_calloc.exit172.i.i ], [ %161, %.critedge.i.i ]
-  %207 = phi ptr [ %155, %.critedge167.critedge.i.i ], [ %167, %gv_calloc.exit172.i.i ], [ %155, %.critedge.i.i ]
+  %sqrt.i = phi double [ %200, %.critedge167.critedge.i.i ], [ 0.000000e+00, %gv_calloc.exit172.i.i ], [ 0.000000e+00, %.critedge.i.i ]
+  %207 = phi ptr [ %161, %.critedge167.critedge.i.i ], [ %168, %gv_calloc.exit172.i.i ], [ %161, %.critedge.i.i ]
+  %208 = phi ptr [ %155, %.critedge167.critedge.i.i ], [ %167, %gv_calloc.exit172.i.i ], [ %155, %.critedge.i.i ]
+  tail call void @free(ptr noundef %208) #15
   tail call void @free(ptr noundef %207) #15
-  tail call void @free(ptr noundef %206) #15
   br i1 %.not.i, label %.lr.ph10.i, label %.thread.i231.critedge
 
 .lr.ph10.i:                                       ; preds = %power_iteration_orthog.exit.i
-  %208 = tail call double @llvm.fabs.f64(double %205)
-  %sqrt.i = tail call double @llvm.sqrt.f64(double %208)
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %209
 

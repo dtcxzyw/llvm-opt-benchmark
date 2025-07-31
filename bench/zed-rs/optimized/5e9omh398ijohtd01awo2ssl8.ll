@@ -7412,12 +7412,12 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc6:                                          ; preds = %52
   %.pre63.i.i.i = load i64, ptr %6, align 8, !noalias !1897
+  %53 = tail call i64 @llvm.uadd.sat.i64(i64 %48, i64 %.pre63.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h55296843fbb136c1E.exit50.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h55296843fbb136c1E.exit50.i.i.i": ; preds = %.noexc6, %"_ZN4core6option15Option$LT$T$GT$6map_or17h55296843fbb136c1E.exit.i.i.i"
-  %53 = phi i64 [ %.pre63.i.i.i, %.noexc6 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h55296843fbb136c1E.exit.i.i.i" ]
+  %54 = phi i64 [ %53, %.noexc6 ], [ %48, %"_ZN4core6option15Option$LT$T$GT$6map_or17h55296843fbb136c1E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1897
-  %54 = tail call i64 @llvm.uadd.sat.i64(i64 %48, i64 %53)
   %55 = tail call i64 @llvm.uadd.sat.i64(i64 %54, i64 1)
   %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %55, i64 4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -7602,12 +7602,12 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc7.i.i:                                      ; preds = %109
   %.pre63.i.i.i.i.i = load i64, ptr %3, align 8, !noalias !1985
+  %110 = call i64 @llvm.uadd.sat.i64(i64 %106, i64 %.pre63.i.i.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h55296843fbb136c1E.exit50.i.i.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h55296843fbb136c1E.exit50.i.i.i.i.i": ; preds = %.noexc7.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h55296843fbb136c1E.exit.i.i.i.i.i"
-  %110 = phi i64 [ %.pre63.i.i.i.i.i, %.noexc7.i.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h55296843fbb136c1E.exit.i.i.i.i.i" ]
+  %111 = phi i64 [ %110, %.noexc7.i.i ], [ %106, %"_ZN4core6option15Option$LT$T$GT$6map_or17h55296843fbb136c1E.exit.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1985
-  %111 = call i64 @llvm.uadd.sat.i64(i64 %106, i64 %110)
   %112 = call i64 @llvm.uadd.sat.i64(i64 %111, i64 1)
   %113 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !1974, !noalias !1975, !noundef !5
   %114 = load i64, ptr %11, align 8, !alias.scope !1974, !noalias !1975, !noundef !5

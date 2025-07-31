@@ -7724,23 +7724,23 @@ _ZN5Bytes11put_Java_u8EPhm.exit104:               ; preds = %71, %72
 114:                                              ; preds = %107
   %115 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %116 = load i16, ptr %115, align 2
+  %117 = tail call i16 @llvm.bswap.i16(i16 %116)
   br label %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit
 
 _ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit: ; preds = %111, %74, %114
-  %117 = phi i16 [ %116, %114 ], [ 0, %74 ], [ 0, %111 ]
-  %118 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %119 = tail call noundef i16 @llvm.bswap.i16(i16 %117)
-  %120 = ptrtoint ptr %118 to i64
+  %118 = phi i16 [ %117, %114 ], [ 0, %74 ], [ 0, %111 ]
+  %119 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %120 = ptrtoint ptr %119 to i64
   %121 = and i64 %120, 1
   %122 = icmp eq i64 %121, 0
   br i1 %122, label %123, label %124
 
 123:                                              ; preds = %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit
-  store i16 %119, ptr %118, align 2
+  store i16 %118, ptr %119, align 2
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
 124:                                              ; preds = %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit
-  store i16 %119, ptr %118, align 1
+  store i16 %118, ptr %119, align 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
 125:                                              ; preds = %10
@@ -7794,23 +7794,23 @@ _ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit: ; preds = %111, %
 161:                                              ; preds = %154
   %162 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %163 = load i16, ptr %162, align 2
+  %164 = tail call i16 @llvm.bswap.i16(i16 %163)
   br label %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit109
 
 _ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit109: ; preds = %158, %125, %161
-  %164 = phi i16 [ %163, %161 ], [ 0, %125 ], [ 0, %158 ]
-  %165 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %166 = tail call noundef i16 @llvm.bswap.i16(i16 %164)
-  %167 = ptrtoint ptr %165 to i64
+  %165 = phi i16 [ %164, %161 ], [ 0, %125 ], [ 0, %158 ]
+  %166 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %167 = ptrtoint ptr %166 to i64
   %168 = and i64 %167, 1
   %169 = icmp eq i64 %168, 0
   br i1 %169, label %170, label %171
 
 170:                                              ; preds = %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit109
-  store i16 %166, ptr %165, align 2
+  store i16 %165, ptr %166, align 2
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
 171:                                              ; preds = %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit109
-  store i16 %166, ptr %165, align 1
+  store i16 %165, ptr %166, align 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
 172:                                              ; preds = %10, %10, %10

@@ -137153,20 +137153,20 @@ select.unfold:                                    ; preds = %185, %._crit_edge.i
   %435 = xor i64 %434, 255
   %436 = mul i64 %435, 5871781006564002453
   %.pre = load i64, ptr %20, align 8, !range !1116, !alias.scope !36222, !noalias !36225
+  %437 = call i64 @llvm.fshl.i64(i64 %436, i64 %436, i64 5)
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17he7bc930ba788e83fE.llvm.10723454985916948783.exit.i"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17he7bc930ba788e83fE.llvm.10723454985916948783.exit.i": ; preds = %.noexc234, %429
-  %437 = phi i64 [ %.sroa.0.0.i4.i.i.i, %429 ], [ %.pre, %.noexc234 ]
-  %438 = phi i64 [ 0, %429 ], [ %436, %.noexc234 ]
+  %438 = phi i64 [ %.sroa.0.0.i4.i.i.i, %429 ], [ %.pre, %.noexc234 ]
+  %439 = phi i64 [ 0, %429 ], [ %437, %.noexc234 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !36227), !noalias !36160
   call void @llvm.experimental.noalias.scope.decl(metadata !36228), !noalias !36160
-  %439 = icmp ne i64 %437, -9223372036854775808
-  %440 = zext i1 %439 to i64
-  %441 = call i64 @llvm.fshl.i64(i64 %438, i64 %438, i64 5)
-  %442 = xor i64 %441, %440
+  %440 = icmp ne i64 %438, -9223372036854775808
+  %441 = zext i1 %440 to i64
+  %442 = xor i64 %439, %441
   %443 = mul i64 %442, 5871781006564002453
   store i64 %443, ptr %16, align 8, !alias.scope !36229, !noalias !36234
-  %444 = icmp eq i64 %437, -9223372036854775808
+  %444 = icmp eq i64 %438, -9223372036854775808
   br i1 %444, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7aca881149a85b69E.llvm.10723454985916948783.exit.i", label %445
 
 445:                                              ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17he7bc930ba788e83fE.llvm.10723454985916948783.exit.i"

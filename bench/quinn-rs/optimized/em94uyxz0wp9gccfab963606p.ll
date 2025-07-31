@@ -6121,7 +6121,7 @@ define hidden void @_ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEs
   %.not9 = icmp eq i32 %24, 1000000000
   br i1 %.not9, label %_ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation13bw_from_delta17h15952add8be48372E.exit, label %26
 
-25:                                               ; preds = %67, %_ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation13bw_from_delta17h15952add8be48372E.exit13, %71, %8
+25:                                               ; preds = %68, %_ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation13bw_from_delta17h15952add8be48372E.exit13, %72, %8
   ret void
 
 26:                                               ; preds = %20
@@ -6182,30 +6182,30 @@ _ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation13bw_from_de
 60:                                               ; preds = %52
   %61 = trunc i128 %59 to i64
   %62 = icmp eq i64 %61, 0
-  br i1 %62, label %66, label %63
+  br i1 %62, label %67, label %63
 
 63:                                               ; preds = %60
   %64 = mul i64 %5, 1000000000
   %65 = udiv i64 %64, %61
+  %66 = tail call i64 @llvm.umin.i64(i64 %65, i64 %.sroa.06.0)
   br label %_ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation13bw_from_delta17h15952add8be48372E.exit13
 
-66:                                               ; preds = %60
+67:                                               ; preds = %60
   tail call void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h2f1b89aaa7f0b171E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dc71d0a5682d3db708e0e7797e95149f.206) #22
   unreachable
 
 _ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation13bw_from_delta17h15952add8be48372E.exit13: ; preds = %63, %52, %_ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation13bw_from_delta17h15952add8be48372E.exit
-  %.sroa.07.0 = phi i64 [ 0, %_ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation13bw_from_delta17h15952add8be48372E.exit ], [ %65, %63 ], [ 0, %52 ]
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.07.0, i64 %.sroa.06.0)
-  br i1 %7, label %25, label %67
+  %.sroa.07.0 = phi i64 [ 0, %_ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation13bw_from_delta17h15952add8be48372E.exit ], [ %66, %63 ], [ 0, %52 ]
+  br i1 %7, label %25, label %68
 
-67:                                               ; preds = %_ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation13bw_from_delta17h15952add8be48372E.exit13
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %69 = tail call noundef i64 @_ZN11quinn_proto10congestion3bbr7min_max6MinMax3get17h878cef28d4d0a2e4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %68)
-  %70 = icmp ult i64 %69, %.sroa.0.0.sroa.speculated.i
-  br i1 %70, label %71, label %25
+68:                                               ; preds = %_ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation13bw_from_delta17h15952add8be48372E.exit13
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %70 = tail call noundef i64 @_ZN11quinn_proto10congestion3bbr7min_max6MinMax3get17h878cef28d4d0a2e4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %69)
+  %71 = icmp ult i64 %70, %.sroa.07.0
+  br i1 %71, label %72, label %25
 
-71:                                               ; preds = %67
-  tail call void @_ZN11quinn_proto10congestion3bbr7min_max6MinMax10update_max17hec6bfdf37194751aE(ptr noalias noundef nonnull align 8 dereferenceable(56) %68, i64 noundef %6, i64 noundef %.sroa.0.0.sroa.speculated.i)
+72:                                               ; preds = %68
+  tail call void @_ZN11quinn_proto10congestion3bbr7min_max6MinMax10update_max17hec6bfdf37194751aE(ptr noalias noundef nonnull align 8 dereferenceable(56) %69, i64 noundef %6, i64 noundef %.sroa.07.0)
   br label %25
 }
 

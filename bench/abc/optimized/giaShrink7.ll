@@ -407,14 +407,17 @@ define i32 @Unm_ManPrintPairStats(ptr noundef readonly captures(none) %0, i32 no
   %21 = add nuw nsw i32 %.02934, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %11, !llvm.loop !60
 
-._crit_edge:                                      ; preds = %11, %5
-  %.029.lcssa = phi i32 [ 0, %5 ], [ %21, %11 ]
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %14, %11 ]
-  %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %22 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %.0.lcssa, i32 1)
+._crit_edge.loopexit:                             ; preds = %11
+  %22 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %14, i32 1)
   %23 = uitofp nneg i32 %22 to double
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
+  %.029.lcssa = phi i32 [ 0, %5 ], [ %21, %._crit_edge.loopexit ]
+  %.0.lcssa = phi double [ 1.000000e+00, %5 ], [ %23, %._crit_edge.loopexit ]
+  %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %24
 
 24:                                               ; preds = %._crit_edge, %36
@@ -430,7 +433,7 @@ define i32 @Unm_ManPrintPairStats(ptr noundef readonly captures(none) %0, i32 no
   %31 = trunc nuw nsw i64 %indvars.iv40 to i32
   %32 = uitofp nneg i32 %31 to double
   %33 = fmul double %30, %32
-  %34 = fdiv double %33, %23
+  %34 = fdiv double %33, %.0.lcssa
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %31, i32 noundef %26, double noundef %34)
   br label %36
 

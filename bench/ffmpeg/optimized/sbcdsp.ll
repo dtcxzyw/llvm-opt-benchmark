@@ -37,8 +37,8 @@ define void @ff_sbcdsp_init(ptr noundef captures(none) initializes((1328, 1392))
 define internal void @sbc_analyze_4_simd(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca [8 x i32], align 16
   %5 = alloca [8 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
   br label %6
 
 6:                                                ; preds = %3, %6
@@ -129,8 +129,8 @@ define internal void @sbc_analyze_4_simd(ptr noundef readonly captures(none) %0,
 
 .preheader.preheader:                             ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false), !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
   ret void
 }
 
@@ -138,8 +138,8 @@ define internal void @sbc_analyze_4_simd(ptr noundef readonly captures(none) %0,
 define internal void @sbc_analyze_8_simd(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca [8 x i32], align 16
   %5 = alloca [8 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
   br label %6
 
 6:                                                ; preds = %3, %6
@@ -232,8 +232,8 @@ define internal void @sbc_analyze_8_simd(ptr noundef readonly captures(none) %0,
 
 .preheader.preheader:                             ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false), !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
   ret void
 }
 
@@ -242,19 +242,19 @@ define internal void @sbc_analyze_4b_4s_simd(ptr noundef readonly captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %6 = load ptr, ptr %5, align 16, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void %6(ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_odd) #7
+  tail call void %6(ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_odd) #8
   %8 = sext i32 %3 to i64
   %9 = getelementptr inbounds i32, ptr %2, i64 %8
   %10 = load ptr, ptr %5, align 16, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void %10(ptr noundef nonnull %11, ptr noundef %9, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_even) #7
+  tail call void %10(ptr noundef nonnull %11, ptr noundef %9, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_even) #8
   %12 = getelementptr inbounds i32, ptr %9, i64 %8
   %13 = load ptr, ptr %5, align 16, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void %13(ptr noundef nonnull %14, ptr noundef %12, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_odd) #7
+  tail call void %13(ptr noundef nonnull %14, ptr noundef %12, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_odd) #8
   %15 = getelementptr inbounds i32, ptr %12, i64 %8
   %16 = load ptr, ptr %5, align 16, !tbaa !4
-  tail call void %16(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_even) #7
+  tail call void %16(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_even) #8
   ret void
 }
 
@@ -262,7 +262,7 @@ define internal void @sbc_analyze_4b_4s_simd(ptr noundef readonly captures(none)
 define internal void @sbc_analyze_1b_8s_simd_odd(ptr noundef captures(none) initializes((1352, 1360)) %0, ptr noundef %1, ptr noundef %2, i32 %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8, !tbaa !10
-  tail call void %6(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_odd) #7
+  tail call void %6(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_odd) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   store ptr @sbc_analyze_1b_8s_simd_even, ptr %7, align 8, !tbaa !13
   ret void
@@ -273,19 +273,19 @@ define internal void @sbc_analyze_4b_8s_simd(ptr noundef readonly captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  tail call void %6(ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_odd) #7
+  tail call void %6(ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_odd) #8
   %8 = sext i32 %3 to i64
   %9 = getelementptr inbounds i32, ptr %2, i64 %8
   %10 = load ptr, ptr %5, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void %10(ptr noundef nonnull %11, ptr noundef %9, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_even) #7
+  tail call void %10(ptr noundef nonnull %11, ptr noundef %9, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_even) #8
   %12 = getelementptr inbounds i32, ptr %9, i64 %8
   %13 = load ptr, ptr %5, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void %13(ptr noundef nonnull %14, ptr noundef %12, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_odd) #7
+  tail call void %13(ptr noundef nonnull %14, ptr noundef %12, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_odd) #8
   %15 = getelementptr inbounds i32, ptr %12, i64 %8
   %16 = load ptr, ptr %5, align 8, !tbaa !10
-  tail call void %16(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_even) #7
+  tail call void %16(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_even) #8
   ret void
 }
 
@@ -846,8 +846,8 @@ ff_clz_c.exit.us.us:                              ; preds = %14
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i32 @sbc_calc_scalefactors_j(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal i32 @sbc_calc_scalefactors_j(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) #3 {
   %5 = alloca [16 x [2 x i32]], align 16
   %6 = add nsw i32 %3, -1
   %7 = icmp sgt i32 %2, 0
@@ -856,45 +856,48 @@ define internal i32 @sbc_calc_scalefactors_j(ptr noundef captures(none) %0, ptr 
 .lr.ph:                                           ; preds = %4
   %8 = sext i32 %6 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
-  br label %9
+  br label %13
 
-9:                                                ; preds = %.lr.ph, %9
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %.0111169 = phi i32 [ 32768, %.lr.ph ], [ %.1, %9 ]
-  %.0112168 = phi i32 [ 32768, %.lr.ph ], [ %.1113, %9 ]
-  %10 = getelementptr inbounds nuw [2 x [8 x i32]], ptr %0, i64 %indvars.iv
-  %11 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 %8
-  %12 = load i32, ptr %11, align 4, !tbaa !18
-  %13 = tail call i32 @llvm.abs.i32(i32 %12, i1 true)
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
+.preheader166.loopexit:                           ; preds = %13
+  %9 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.1113, i1 true)
+  %10 = sub nuw nsw i32 16, %9
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.1, i1 true)
+  %12 = sub nuw nsw i32 16, %11
+  br label %ff_clz_c.exit148
+
+13:                                               ; preds = %.lr.ph, %13
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
+  %.0111169 = phi i32 [ 32768, %.lr.ph ], [ %.1, %13 ]
+  %.0112168 = phi i32 [ 32768, %.lr.ph ], [ %.1113, %13 ]
+  %14 = getelementptr inbounds nuw [2 x [8 x i32]], ptr %0, i64 %indvars.iv
   %15 = getelementptr inbounds [8 x i32], ptr %14, i64 0, i64 %8
   %16 = load i32, ptr %15, align 4, !tbaa !18
   %17 = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
-  %.not143 = icmp eq i32 %12, 0
-  %18 = add nsw i32 %13, -1
-  %19 = select i1 %.not143, i32 0, i32 %18
-  %.1113 = or i32 %19, %.0112168
-  %.not144 = icmp eq i32 %16, 0
-  %20 = add nsw i32 %17, -1
-  %21 = select i1 %.not144, i32 0, i32 %20
-  %.1 = or i32 %21, %.0111169
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %19 = getelementptr inbounds [8 x i32], ptr %18, i64 0, i64 %8
+  %20 = load i32, ptr %19, align 4, !tbaa !18
+  %21 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
+  %.not143 = icmp eq i32 %16, 0
+  %22 = add nsw i32 %17, -1
+  %23 = select i1 %.not143, i32 0, i32 %22
+  %.1113 = or i32 %23, %.0112168
+  %.not144 = icmp eq i32 %20, 0
+  %24 = add nsw i32 %21, -1
+  %25 = select i1 %.not144, i32 0, i32 %24
+  %.1 = or i32 %25, %.0111169
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %ff_clz_c.exit148, label %9, !llvm.loop !42
+  br i1 %exitcond.not, label %.preheader166.loopexit, label %13, !llvm.loop !42
 
-ff_clz_c.exit148:                                 ; preds = %9, %4
-  %.0112.lcssa = phi i32 [ 32768, %4 ], [ %.1113, %9 ]
-  %.0111.lcssa = phi i32 [ 32768, %4 ], [ %.1, %9 ]
-  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0112.lcssa, i1 true)
-  %23 = sub nuw nsw i32 16, %22
-  %24 = sext i32 %6 to i64
-  %25 = getelementptr inbounds [8 x i32], ptr %1, i64 0, i64 %24
-  store i32 %23, ptr %25, align 4, !tbaa !18
-  %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0111.lcssa, i1 true)
-  %27 = sub nuw nsw i32 16, %26
+ff_clz_c.exit148:                                 ; preds = %.preheader166.loopexit, %4
+  %.0112.lcssa = phi i32 [ 0, %4 ], [ %10, %.preheader166.loopexit ]
+  %.0111.lcssa = phi i32 [ 0, %4 ], [ %12, %.preheader166.loopexit ]
+  %26 = sext i32 %6 to i64
+  %27 = getelementptr inbounds [8 x i32], ptr %1, i64 0, i64 %26
+  store i32 %.0112.lcssa, ptr %27, align 4, !tbaa !18
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %29 = getelementptr inbounds [8 x i32], ptr %28, i64 0, i64 %24
-  store i32 %27, ptr %29, align 4, !tbaa !18
+  %29 = getelementptr inbounds [8 x i32], ptr %28, i64 0, i64 %26
+  store i32 %.0111.lcssa, ptr %29, align 4, !tbaa !18
   %30 = icmp sgt i32 %3, 1
   br i1 %30, label %.lr.ph217, label %._crit_edge
 
@@ -908,127 +911,138 @@ ff_clz_c.exit148:                                 ; preds = %9, %4
 
 33:                                               ; preds = %.lr.ph217, %.loopexit
   %indvars.iv240 = phi i64 [ %32, %.lr.ph217 ], [ %indvars.iv.next241, %.loopexit ]
-  %.0216 = phi i32 [ %6, %.lr.ph217 ], [ %90, %.loopexit ]
+  %.0216 = phi i32 [ %6, %.lr.ph217 ], [ %95, %.loopexit ]
   %.0118215 = phi i32 [ 0, %.lr.ph217 ], [ %.1119, %.loopexit ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #7
-  br i1 %7, label %.lr.ph184, label %ff_clz_c.exit156
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #8
+  br i1 %7, label %.lr.ph184, label %ff_clz_c.exit156.thread
 
-.lr.ph184:                                        ; preds = %33, %51
-  %indvars.iv225 = phi i64 [ %indvars.iv.next226, %51 ], [ 0, %33 ]
-  %.2183 = phi i32 [ %.3, %51 ], [ 32768, %33 ]
-  %.2114182 = phi i32 [ %.3115, %51 ], [ 32768, %33 ]
-  %34 = getelementptr inbounds nuw [2 x [8 x i32]], ptr %0, i64 %indvars.iv225
-  %35 = getelementptr inbounds nuw [8 x i32], ptr %34, i64 0, i64 %indvars.iv240
-  %36 = load i32, ptr %35, align 4, !tbaa !18
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %38 = getelementptr inbounds nuw [8 x i32], ptr %37, i64 0, i64 %indvars.iv240
-  %39 = load i32, ptr %38, align 4, !tbaa !18
-  %40 = ashr i32 %36, 1
-  %41 = ashr i32 %39, 1
-  %42 = add nsw i32 %41, %40
-  %43 = getelementptr inbounds nuw [16 x [2 x i32]], ptr %5, i64 0, i64 %indvars.iv225
-  store i32 %42, ptr %43, align 8, !tbaa !18
-  %44 = sub nsw i32 %40, %41
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  store i32 %44, ptr %45, align 4, !tbaa !18
-  %46 = tail call i32 @llvm.abs.i32(i32 %39, i1 true)
-  %.not141 = icmp eq i32 %36, 0
-  br i1 %.not141, label %51, label %47
+ff_clz_c.exit156.thread:                          ; preds = %33
+  %34 = getelementptr inbounds nuw [8 x i32], ptr %1, i64 0, i64 %indvars.iv240
+  store i32 0, ptr %34, align 4, !tbaa !18
+  %35 = getelementptr inbounds nuw [8 x i32], ptr %28, i64 0, i64 %indvars.iv240
+  store i32 0, ptr %35, align 4, !tbaa !18
+  br label %ff_clz_c.exit164
 
-47:                                               ; preds = %.lr.ph184
-  %48 = tail call i32 @llvm.abs.i32(i32 %36, i1 true)
-  %49 = add nsw i32 %48, -1
-  %50 = or i32 %49, %.2114182
-  br label %51
+.lr.ph184:                                        ; preds = %33, %53
+  %indvars.iv225 = phi i64 [ %indvars.iv.next226, %53 ], [ 0, %33 ]
+  %.2183 = phi i32 [ %.3, %53 ], [ 32768, %33 ]
+  %.2114182 = phi i32 [ %.3115, %53 ], [ 32768, %33 ]
+  %36 = getelementptr inbounds nuw [2 x [8 x i32]], ptr %0, i64 %indvars.iv225
+  %37 = getelementptr inbounds nuw [8 x i32], ptr %36, i64 0, i64 %indvars.iv240
+  %38 = load i32, ptr %37, align 4, !tbaa !18
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %40 = getelementptr inbounds nuw [8 x i32], ptr %39, i64 0, i64 %indvars.iv240
+  %41 = load i32, ptr %40, align 4, !tbaa !18
+  %42 = ashr i32 %38, 1
+  %43 = ashr i32 %41, 1
+  %44 = add nsw i32 %43, %42
+  %45 = getelementptr inbounds nuw [16 x [2 x i32]], ptr %5, i64 0, i64 %indvars.iv225
+  store i32 %44, ptr %45, align 8, !tbaa !18
+  %46 = sub nsw i32 %42, %43
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  store i32 %46, ptr %47, align 4, !tbaa !18
+  %48 = tail call i32 @llvm.abs.i32(i32 %41, i1 true)
+  %.not141 = icmp eq i32 %38, 0
+  br i1 %.not141, label %53, label %49
 
-51:                                               ; preds = %47, %.lr.ph184
-  %.3115 = phi i32 [ %50, %47 ], [ %.2114182, %.lr.ph184 ]
-  %.not142 = icmp eq i32 %39, 0
-  %52 = add nsw i32 %46, -1
-  %53 = select i1 %.not142, i32 0, i32 %52
-  %.3 = or i32 %53, %.2183
+49:                                               ; preds = %.lr.ph184
+  %50 = tail call i32 @llvm.abs.i32(i32 %38, i1 true)
+  %51 = add nsw i32 %50, -1
+  %52 = or i32 %51, %.2114182
+  br label %53
+
+53:                                               ; preds = %49, %.lr.ph184
+  %.3115 = phi i32 [ %52, %49 ], [ %.2114182, %.lr.ph184 ]
+  %.not142 = icmp eq i32 %41, 0
+  %54 = add nsw i32 %48, -1
+  %55 = select i1 %.not142, i32 0, i32 %54
+  %.3 = or i32 %55, %.2183
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
   br i1 %exitcond229.not, label %ff_clz_c.exit156, label %.lr.ph184, !llvm.loop !43
 
-ff_clz_c.exit156:                                 ; preds = %51, %33
-  %.2114.lcssa = phi i32 [ 32768, %33 ], [ %.3115, %51 ]
-  %.2.lcssa = phi i32 [ 32768, %33 ], [ %.3, %51 ]
-  %54 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.2114.lcssa, i1 true)
-  %55 = sub nuw nsw i32 16, %54
-  %56 = getelementptr inbounds nuw [8 x i32], ptr %1, i64 0, i64 %indvars.iv240
-  store i32 %55, ptr %56, align 4, !tbaa !18
-  %57 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.2.lcssa, i1 true)
-  %58 = sub nuw nsw i32 16, %57
-  %59 = getelementptr inbounds nuw [8 x i32], ptr %28, i64 0, i64 %indvars.iv240
-  store i32 %58, ptr %59, align 4, !tbaa !18
-  br i1 %7, label %.lr.ph200, label %ff_clz_c.exit164
+ff_clz_c.exit156:                                 ; preds = %53
+  %56 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.3115, i1 true)
+  %57 = sub nuw nsw i32 16, %56
+  %58 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.3, i1 true)
+  %59 = sub nuw nsw i32 16, %58
+  %60 = getelementptr inbounds nuw [8 x i32], ptr %1, i64 0, i64 %indvars.iv240
+  store i32 %57, ptr %60, align 4, !tbaa !18
+  %61 = getelementptr inbounds nuw [8 x i32], ptr %28, i64 0, i64 %indvars.iv240
+  store i32 %59, ptr %61, align 4, !tbaa !18
+  br label %.lr.ph200
+
+.preheader.loopexit:                              ; preds = %.lr.ph200
+  %62 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.5117, i1 true)
+  %63 = sub nuw nsw i32 16, %62
+  %64 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.5, i1 true)
+  %65 = sub nuw nsw i32 16, %64
+  %66 = add nuw nsw i32 %59, %57
+  br label %ff_clz_c.exit164
 
 .lr.ph200:                                        ; preds = %ff_clz_c.exit156, %.lr.ph200
   %indvars.iv230 = phi i64 [ %indvars.iv.next231, %.lr.ph200 ], [ 0, %ff_clz_c.exit156 ]
   %.4199 = phi i32 [ %.5, %.lr.ph200 ], [ 32768, %ff_clz_c.exit156 ]
   %.4116198 = phi i32 [ %.5117, %.lr.ph200 ], [ 32768, %ff_clz_c.exit156 ]
-  %60 = getelementptr inbounds nuw [16 x [2 x i32]], ptr %5, i64 0, i64 %indvars.iv230
-  %61 = load i32, ptr %60, align 8, !tbaa !18
-  %62 = tail call i32 @llvm.abs.i32(i32 %61, i1 true)
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %64 = load i32, ptr %63, align 4, !tbaa !18
-  %65 = tail call i32 @llvm.abs.i32(i32 %64, i1 true)
-  %.not = icmp eq i32 %61, 0
-  %66 = add nsw i32 %62, -1
-  %67 = select i1 %.not, i32 0, i32 %66
-  %.5117 = or i32 %67, %.4116198
-  %.not140 = icmp eq i32 %64, 0
-  %68 = add nsw i32 %65, -1
-  %69 = select i1 %.not140, i32 0, i32 %68
-  %.5 = or i32 %69, %.4199
+  %67 = getelementptr inbounds nuw [16 x [2 x i32]], ptr %5, i64 0, i64 %indvars.iv230
+  %68 = load i32, ptr %67, align 8, !tbaa !18
+  %69 = tail call i32 @llvm.abs.i32(i32 %68, i1 true)
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %71 = load i32, ptr %70, align 4, !tbaa !18
+  %72 = tail call i32 @llvm.abs.i32(i32 %71, i1 true)
+  %.not = icmp eq i32 %68, 0
+  %73 = add nsw i32 %69, -1
+  %74 = select i1 %.not, i32 0, i32 %73
+  %.5117 = or i32 %74, %.4116198
+  %.not140 = icmp eq i32 %71, 0
+  %75 = add nsw i32 %72, -1
+  %76 = select i1 %.not140, i32 0, i32 %75
+  %.5 = or i32 %76, %.4199
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
-  br i1 %exitcond234.not, label %ff_clz_c.exit164, label %.lr.ph200, !llvm.loop !44
+  br i1 %exitcond234.not, label %.preheader.loopexit, label %.lr.ph200, !llvm.loop !44
 
-ff_clz_c.exit164:                                 ; preds = %.lr.ph200, %ff_clz_c.exit156
-  %.4116.lcssa = phi i32 [ 32768, %ff_clz_c.exit156 ], [ %.5117, %.lr.ph200 ]
-  %.4.lcssa = phi i32 [ 32768, %ff_clz_c.exit156 ], [ %.5, %.lr.ph200 ]
-  %70 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.4116.lcssa, i1 true)
-  %71 = sub nuw nsw i32 16, %70
-  %72 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.4.lcssa, i1 true)
-  %73 = sub nuw nsw i32 16, %72
-  %74 = add nuw nsw i32 %58, %55
-  %75 = add nuw nsw i32 %73, %71
-  %76 = icmp samesign ugt i32 %74, %75
-  br i1 %76, label %77, label %.loopexit
+ff_clz_c.exit164:                                 ; preds = %ff_clz_c.exit156.thread, %.preheader.loopexit
+  %77 = phi ptr [ %61, %.preheader.loopexit ], [ %35, %ff_clz_c.exit156.thread ]
+  %78 = phi ptr [ %60, %.preheader.loopexit ], [ %34, %ff_clz_c.exit156.thread ]
+  %.4116.lcssa = phi i32 [ %63, %.preheader.loopexit ], [ 0, %ff_clz_c.exit156.thread ]
+  %.4.lcssa = phi i32 [ %65, %.preheader.loopexit ], [ 0, %ff_clz_c.exit156.thread ]
+  %79 = phi i32 [ %66, %.preheader.loopexit ], [ 0, %ff_clz_c.exit156.thread ]
+  %80 = add nuw nsw i32 %.4.lcssa, %.4116.lcssa
+  %81 = icmp samesign ugt i32 %79, %80
+  br i1 %81, label %82, label %.loopexit
 
-77:                                               ; preds = %ff_clz_c.exit164
-  %78 = sub i32 %3, %.0216
-  %79 = shl nuw i32 1, %78
-  %80 = or i32 %79, %.0118215
-  store i32 %71, ptr %56, align 4, !tbaa !18
-  store i32 %73, ptr %59, align 4, !tbaa !18
+82:                                               ; preds = %ff_clz_c.exit164
+  %83 = sub i32 %3, %.0216
+  %84 = shl nuw i32 1, %83
+  %85 = or i32 %84, %.0118215
+  store i32 %.4116.lcssa, ptr %78, align 4, !tbaa !18
+  store i32 %.4.lcssa, ptr %77, align 4, !tbaa !18
   br i1 %7, label %.lr.ph214, label %.loopexit
 
-.lr.ph214:                                        ; preds = %77, %.lr.ph214
-  %indvars.iv235 = phi i64 [ %indvars.iv.next236, %.lr.ph214 ], [ 0, %77 ]
-  %81 = getelementptr inbounds nuw [16 x [2 x i32]], ptr %5, i64 0, i64 %indvars.iv235
-  %82 = load i32, ptr %81, align 8, !tbaa !18
-  %83 = getelementptr inbounds nuw [2 x [8 x i32]], ptr %0, i64 %indvars.iv235
-  %84 = getelementptr inbounds nuw [8 x i32], ptr %83, i64 0, i64 %indvars.iv240
-  store i32 %82, ptr %84, align 4, !tbaa !18
-  %85 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %86 = load i32, ptr %85, align 4, !tbaa !18
-  %87 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %88 = getelementptr inbounds nuw [8 x i32], ptr %87, i64 0, i64 %indvars.iv240
-  store i32 %86, ptr %88, align 4, !tbaa !18
+.lr.ph214:                                        ; preds = %82, %.lr.ph214
+  %indvars.iv235 = phi i64 [ %indvars.iv.next236, %.lr.ph214 ], [ 0, %82 ]
+  %86 = getelementptr inbounds nuw [16 x [2 x i32]], ptr %5, i64 0, i64 %indvars.iv235
+  %87 = load i32, ptr %86, align 8, !tbaa !18
+  %88 = getelementptr inbounds nuw [2 x [8 x i32]], ptr %0, i64 %indvars.iv235
+  %89 = getelementptr inbounds nuw [8 x i32], ptr %88, i64 0, i64 %indvars.iv240
+  store i32 %87, ptr %89, align 4, !tbaa !18
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 4
+  %91 = load i32, ptr %90, align 4, !tbaa !18
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  %93 = getelementptr inbounds nuw [8 x i32], ptr %92, i64 0, i64 %indvars.iv240
+  store i32 %91, ptr %93, align 4, !tbaa !18
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count238
   br i1 %exitcond239.not, label %.loopexit, label %.lr.ph214, !llvm.loop !45
 
-.loopexit:                                        ; preds = %.lr.ph214, %77, %ff_clz_c.exit164
-  %.1119 = phi i32 [ %.0118215, %ff_clz_c.exit164 ], [ %80, %77 ], [ %80, %.lr.ph214 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #7
+.loopexit:                                        ; preds = %.lr.ph214, %82, %ff_clz_c.exit164
+  %.1119 = phi i32 [ %.0118215, %ff_clz_c.exit164 ], [ %85, %82 ], [ %85, %.lr.ph214 ]
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #8
   %indvars.iv.next241 = add nsw i64 %indvars.iv240, -1
-  %89 = icmp sgt i64 %indvars.iv240, 0
-  %90 = trunc nuw nsw i64 %indvars.iv240 to i32
-  br i1 %89, label %33, label %._crit_edge, !llvm.loop !46
+  %94 = icmp sgt i64 %indvars.iv240, 0
+  %95 = trunc nuw nsw i64 %indvars.iv240 to i32
+  br i1 %94, label %33, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.loopexit, %ff_clz_c.exit148
   %.0118.lcssa = phi i32 [ 0, %ff_clz_c.exit148 ], [ %.1119, %.loopexit ]
@@ -1036,44 +1050,45 @@ ff_clz_c.exit164:                                 ; preds = %.lr.ph200, %ff_clz_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal void @sbc_analyze_1b_8s_simd_even(ptr noundef captures(none) initializes((1352, 1360)) %0, ptr noundef %1, ptr noundef %2, i32 %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8, !tbaa !10
-  tail call void %6(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_even) #7
+  tail call void %6(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_even) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   store ptr @sbc_analyze_1b_8s_simd_odd, ptr %7, align 8, !tbaa !13
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #6
+declare i32 @llvm.usub.sat.i32(i32, i32) #7
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #3 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

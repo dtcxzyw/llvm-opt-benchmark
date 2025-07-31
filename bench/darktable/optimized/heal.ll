@@ -479,15 +479,15 @@ _collect_color_runs.exit.i55.i:                   ; preds = %200, %223, %182
 collect_runs.exit78.loopexit.i:                   ; preds = %_collect_color_runs.exit.i55.i
   %226 = add i64 %225, %166
   %227 = uitofp i64 %226 to float
+  %228 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %227)
+  %229 = fmul reassoc nsz arcp contract afn float %228, 0x3FC428F5C0000000
+  %230 = fadd reassoc nsz arcp contract afn float %229, 0x3FE99999A0000000
   br label %collect_runs.exit78.i
 
 collect_runs.exit78.i:                            ; preds = %collect_runs.exit78.loopexit.i, %108
   %.09093.i = phi i64 [ 0, %108 ], [ %.3.i.i.i, %collect_runs.exit78.loopexit.i ]
   %.089.i = phi i64 [ 0, %108 ], [ %.3.i.i57.i, %collect_runs.exit78.loopexit.i ]
-  %228 = phi float [ 0.000000e+00, %108 ], [ %227, %collect_runs.exit78.loopexit.i ]
-  %229 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %228)
-  %230 = fmul reassoc nsz arcp contract afn float %229, 0x3FC428F5C0000000
-  %231 = fadd reassoc nsz arcp contract afn float %230, 0x3FE99999A0000000
+  %231 = phi float [ 0x3FE99999A0000000, %108 ], [ %230, %collect_runs.exit78.loopexit.i ]
   %232 = fdiv reassoc nsz arcp contract afn float 2.500000e-01, %231
   %233 = fsub reassoc nsz arcp contract afn float 5.000000e-01, %232
   %234 = fmul reassoc nsz arcp contract afn float %233, %233

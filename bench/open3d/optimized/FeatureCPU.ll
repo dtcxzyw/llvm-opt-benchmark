@@ -40965,7 +40965,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   %8 = alloca i32, align 4
   %9 = load i64, ptr %2, align 8, !tbaa !9
   %10 = icmp sgt i64 %9, 0
-  br i1 %10, label %11, label %199
+  br i1 %10, label %11, label %201
 
 11:                                               ; preds = %4
   %12 = add nsw i64 %9, -1
@@ -41008,7 +41008,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   br label %35
 
 35:                                               ; preds = %.lr.ph, %"_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit"
-  %.024 = phi i64 [ %16, %.lr.ph ], [ %198, %"_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit" ]
+  %.024 = phi i64 [ %16, %.lr.ph ], [ %200, %"_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit" ]
   br i1 %18, label %36, label %39
 
 36:                                               ; preds = %35
@@ -41193,50 +41193,50 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   %171 = fadd double %170, 1.000000e+00
   %172 = fmul double %171, 1.100000e+01
   %173 = fmul double %172, 5.000000e-01
-  %174 = fpext float %.sink.i to double
-  %175 = fadd double %174, 1.000000e+00
-  %176 = fmul double %175, 1.100000e+01
-  %177 = fmul double %176, 5.000000e-01
+  %174 = call double @llvm.floor.f64(double %173)
+  %175 = fptosi double %174 to i32
+  %176 = call i32 @llvm.smax.i32(i32 %175, i32 0)
+  %177 = call i32 @llvm.umin.i32(i32 %176, i32 10)
+  %178 = fpext float %.sink.i to double
+  %179 = fadd double %178, 1.000000e+00
+  %180 = fmul double %179, 1.100000e+01
+  %181 = fmul double %180, 5.000000e-01
+  %182 = call double @llvm.floor.f64(double %181)
+  %183 = fptosi double %182 to i32
+  %184 = call i32 @llvm.smax.i32(i32 %183, i32 0)
+  %185 = call i32 @llvm.umin.i32(i32 %184, i32 10)
+  %186 = zext nneg i32 %177 to i64
+  %187 = zext nneg i32 %185 to i64
   br label %.noexc
 
 .noexc:                                           ; preds = %141, %77, %127
   %.sroa.0.3 = phi double [ %169, %141 ], [ 0x4041475CC9EEDF00, %77 ], [ 0x4041475CC9EEDF00, %127 ]
-  %.sroa.7.3 = phi double [ %173, %141 ], [ 5.500000e+00, %77 ], [ 5.500000e+00, %127 ]
-  %.sroa.9.3 = phi double [ %177, %141 ], [ 5.500000e+00, %77 ], [ 5.500000e+00, %127 ]
-  %178 = fdiv double %.sroa.0.3, 0x401921FB54442D18
-  %179 = call double @llvm.floor.f64(double %178)
-  %180 = fptosi double %179 to i32
-  %.sroa.speculated23.i.i = call i32 @llvm.smax.i32(i32 %180, i32 0)
-  %181 = call i32 @llvm.umin.i32(i32 %.sroa.speculated23.i.i, i32 10)
-  %182 = call double @llvm.floor.f64(double %.sroa.7.3)
-  %183 = fptosi double %182 to i32
-  %.sroa.speculated17.i.i = call i32 @llvm.smax.i32(i32 %183, i32 0)
-  %184 = call i32 @llvm.umin.i32(i32 %.sroa.speculated17.i.i, i32 10)
-  %185 = call double @llvm.floor.f64(double %.sroa.9.3)
-  %186 = fptosi double %185 to i32
-  %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %186, i32 0)
-  %187 = call i32 @llvm.umin.i32(i32 %.sroa.speculated.i.i, i32 10)
-  %188 = zext nneg i32 %181 to i64
-  %189 = getelementptr float, ptr %61, i64 %188
-  %190 = load float, ptr %189, align 4, !tbaa !773
-  %191 = fadd float %58, %190
-  store float %191, ptr %189, align 4, !tbaa !773
-  %192 = zext nneg i32 %184 to i64
-  %gep = getelementptr float, ptr %invariant.gep, i64 %192
-  %193 = load float, ptr %gep, align 4, !tbaa !773
-  %194 = fadd float %58, %193
-  store float %194, ptr %gep, align 4, !tbaa !773
-  %195 = zext nneg i32 %187 to i64
-  %gep22 = getelementptr float, ptr %invariant.gep21, i64 %195
-  %196 = load float, ptr %gep22, align 4, !tbaa !773
+  %.sroa.7.3 = phi i64 [ %186, %141 ], [ 5, %77 ], [ 5, %127 ]
+  %.sroa.9.3 = phi i64 [ %187, %141 ], [ 5, %77 ], [ 5, %127 ]
+  %188 = fdiv double %.sroa.0.3, 0x401921FB54442D18
+  %189 = call double @llvm.floor.f64(double %188)
+  %190 = fptosi double %189 to i32
+  %.sroa.speculated23.i.i = call i32 @llvm.smax.i32(i32 %190, i32 0)
+  %191 = call i32 @llvm.umin.i32(i32 %.sroa.speculated23.i.i, i32 10)
+  %192 = zext nneg i32 %191 to i64
+  %193 = getelementptr float, ptr %61, i64 %192
+  %194 = load float, ptr %193, align 4, !tbaa !773
+  %195 = fadd float %58, %194
+  store float %195, ptr %193, align 4, !tbaa !773
+  %gep = getelementptr float, ptr %invariant.gep, i64 %.sroa.7.3
+  %196 = load float, ptr %gep, align 4, !tbaa !773
   %197 = fadd float %58, %196
-  store float %197, ptr %gep22, align 4, !tbaa !773
+  store float %197, ptr %gep, align 4, !tbaa !773
+  %gep22 = getelementptr float, ptr %invariant.gep21, i64 %.sroa.9.3
+  %198 = load float, ptr %gep22, align 4, !tbaa !773
+  %199 = fadd float %58, %198
+  store float %199, ptr %gep22, align 4, !tbaa !773
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %"_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit", label %64, !llvm.loop !860
 
 "_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE_clEvENKUllE_clEl.exit": ; preds = %.noexc, %52
-  %198 = add i64 %.024, 1
+  %200 = add i64 %.024, 1
   %exitcond.not = icmp eq i64 %.024, %15
   br i1 %exitcond.not, label %._crit_edge, label %35
 
@@ -41246,9 +41246,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
-  br label %199
+  br label %201
 
-199:                                              ; preds = %._crit_edge, %4
+201:                                              ; preds = %._crit_edge, %4
   ret void
 }
 
@@ -41660,7 +41660,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   %8 = alloca i32, align 4
   %9 = load i64, ptr %2, align 8, !tbaa !9
   %10 = icmp sgt i64 %9, 0
-  br i1 %10, label %11, label %191
+  br i1 %10, label %11, label %193
 
 11:                                               ; preds = %4
   %12 = add nsw i64 %9, -1
@@ -41703,7 +41703,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   br label %35
 
 35:                                               ; preds = %.lr.ph, %"_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE0_clEvENKUllE_clEl.exit"
-  %.024 = phi i64 [ %16, %.lr.ph ], [ %190, %"_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE0_clEvENKUllE_clEl.exit" ]
+  %.024 = phi i64 [ %16, %.lr.ph ], [ %192, %"_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE0_clEvENKUllE_clEl.exit" ]
   br i1 %18, label %36, label %39
 
 36:                                               ; preds = %35
@@ -41881,49 +41881,49 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   %164 = fadd double %154, 1.000000e+00
   %165 = fmul double %164, 1.100000e+01
   %166 = fmul double %165, 5.000000e-01
-  %167 = fadd double %.sink.i, 1.000000e+00
-  %168 = fmul double %167, 1.100000e+01
-  %169 = fmul double %168, 5.000000e-01
+  %167 = call double @llvm.floor.f64(double %166)
+  %168 = fptosi double %167 to i32
+  %169 = call i32 @llvm.smax.i32(i32 %168, i32 0)
+  %170 = call i32 @llvm.umin.i32(i32 %169, i32 10)
+  %171 = fadd double %.sink.i, 1.000000e+00
+  %172 = fmul double %171, 1.100000e+01
+  %173 = fmul double %172, 5.000000e-01
+  %174 = call double @llvm.floor.f64(double %173)
+  %175 = fptosi double %174 to i32
+  %176 = call i32 @llvm.smax.i32(i32 %175, i32 0)
+  %177 = call i32 @llvm.umin.i32(i32 %176, i32 10)
+  %178 = zext nneg i32 %170 to i64
+  %179 = zext nneg i32 %177 to i64
   br label %.noexc
 
 .noexc:                                           ; preds = %139, %77, %125
   %.sroa.0.3 = phi double [ %163, %139 ], [ 0x4041475CC9EEDF00, %77 ], [ 0x4041475CC9EEDF00, %125 ]
-  %.sroa.7.3 = phi double [ %166, %139 ], [ 5.500000e+00, %77 ], [ 5.500000e+00, %125 ]
-  %.sroa.9.3 = phi double [ %169, %139 ], [ 5.500000e+00, %77 ], [ 5.500000e+00, %125 ]
-  %170 = fdiv double %.sroa.0.3, 0x401921FB54442D18
-  %171 = call double @llvm.floor.f64(double %170)
-  %172 = fptosi double %171 to i32
-  %.sroa.speculated23.i.i = call i32 @llvm.smax.i32(i32 %172, i32 0)
-  %173 = call i32 @llvm.umin.i32(i32 %.sroa.speculated23.i.i, i32 10)
-  %174 = call double @llvm.floor.f64(double %.sroa.7.3)
-  %175 = fptosi double %174 to i32
-  %.sroa.speculated17.i.i = call i32 @llvm.smax.i32(i32 %175, i32 0)
-  %176 = call i32 @llvm.umin.i32(i32 %.sroa.speculated17.i.i, i32 10)
-  %177 = call double @llvm.floor.f64(double %.sroa.9.3)
-  %178 = fptosi double %177 to i32
-  %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %178, i32 0)
-  %179 = call i32 @llvm.umin.i32(i32 %.sroa.speculated.i.i, i32 10)
-  %180 = zext nneg i32 %173 to i64
-  %181 = getelementptr double, ptr %61, i64 %180
-  %182 = load double, ptr %181, align 8, !tbaa !783
-  %183 = fadd double %58, %182
-  store double %183, ptr %181, align 8, !tbaa !783
-  %184 = zext nneg i32 %176 to i64
-  %gep = getelementptr double, ptr %invariant.gep, i64 %184
-  %185 = load double, ptr %gep, align 8, !tbaa !783
-  %186 = fadd double %58, %185
-  store double %186, ptr %gep, align 8, !tbaa !783
-  %187 = zext nneg i32 %179 to i64
-  %gep22 = getelementptr double, ptr %invariant.gep21, i64 %187
-  %188 = load double, ptr %gep22, align 8, !tbaa !783
+  %.sroa.7.3 = phi i64 [ %178, %139 ], [ 5, %77 ], [ 5, %125 ]
+  %.sroa.9.3 = phi i64 [ %179, %139 ], [ 5, %77 ], [ 5, %125 ]
+  %180 = fdiv double %.sroa.0.3, 0x401921FB54442D18
+  %181 = call double @llvm.floor.f64(double %180)
+  %182 = fptosi double %181 to i32
+  %.sroa.speculated23.i.i = call i32 @llvm.smax.i32(i32 %182, i32 0)
+  %183 = call i32 @llvm.umin.i32(i32 %.sroa.speculated23.i.i, i32 10)
+  %184 = zext nneg i32 %183 to i64
+  %185 = getelementptr double, ptr %61, i64 %184
+  %186 = load double, ptr %185, align 8, !tbaa !783
+  %187 = fadd double %58, %186
+  store double %187, ptr %185, align 8, !tbaa !783
+  %gep = getelementptr double, ptr %invariant.gep, i64 %.sroa.7.3
+  %188 = load double, ptr %gep, align 8, !tbaa !783
   %189 = fadd double %58, %188
-  store double %189, ptr %gep22, align 8, !tbaa !783
+  store double %189, ptr %gep, align 8, !tbaa !783
+  %gep22 = getelementptr double, ptr %invariant.gep21, i64 %.sroa.9.3
+  %190 = load double, ptr %gep22, align 8, !tbaa !783
+  %191 = fadd double %58, %190
+  store double %191, ptr %gep22, align 8, !tbaa !783
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %"_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE0_clEvENKUllE_clEl.exit", label %64, !llvm.loop !869
 
 "_ZZZZN6open3d1t9pipelines6kernel21ComputeFPFHFeatureCPUERKNS_4core6TensorES6_S6_S6_S6_RS4_RKNS_7utility8optionalIS4_EESC_ENK3$_0clEvENKUlvE0_clEvENKUllE_clEl.exit": ; preds = %.noexc, %52
-  %190 = add i64 %.024, 1
+  %192 = add i64 %.024, 1
   %exitcond.not = icmp eq i64 %.024, %15
   br i1 %exitcond.not, label %._crit_edge, label %35
 
@@ -41933,9 +41933,9 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t9pipelines6kerne
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
-  br label %191
+  br label %193
 
-191:                                              ; preds = %._crit_edge, %4
+193:                                              ; preds = %._crit_edge, %4
   ret void
 }
 

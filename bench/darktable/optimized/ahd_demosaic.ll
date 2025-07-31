@@ -158,41 +158,41 @@ define void @_ZN6LibRaw6cielabEPtPs(ptr noundef nonnull readonly align 8 capture
 
 ._crit_edge.loopexit:                             ; preds = %58
   %74 = fptosi float %65 to i32
-  %75 = fptosi float %69 to i32
-  %76 = fptosi float %73 to i32
+  %75 = tail call i32 @llvm.smax.i32(i32 %74, i32 0)
+  %76 = tail call i32 @llvm.umin.i32(i32 %75, i32 65535)
+  %77 = zext nneg i32 %76 to i64
+  %78 = fptosi float %69 to i32
+  %79 = tail call i32 @llvm.smax.i32(i32 %78, i32 0)
+  %80 = tail call i32 @llvm.umin.i32(i32 %79, i32 65535)
+  %81 = zext nneg i32 %80 to i64
+  %82 = fptosi float %73 to i32
+  %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
+  %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 65535)
+  %85 = zext nneg i32 %84 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader66.._crit_edge_crit_edge, %._crit_edge.loopexit
-  %77 = phi ptr [ %.pre, %.preheader66.._crit_edge_crit_edge ], [ %9, %._crit_edge.loopexit ]
-  %.sroa.22.0.lcssa = phi i32 [ 0, %.preheader66.._crit_edge_crit_edge ], [ %76, %._crit_edge.loopexit ]
-  %.sroa.11.0.lcssa = phi i32 [ 0, %.preheader66.._crit_edge_crit_edge ], [ %75, %._crit_edge.loopexit ]
-  %.sroa.0.0.lcssa = phi i32 [ 0, %.preheader66.._crit_edge_crit_edge ], [ %74, %._crit_edge.loopexit ]
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 21040
-  %79 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.lcssa, i32 0)
-  %80 = tail call i32 @llvm.umin.i32(i32 %79, i32 65535)
-  %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [65536 x float], ptr %78, i64 0, i64 %81
-  %83 = load float, ptr %82, align 4, !tbaa !72
-  %84 = tail call i32 @llvm.smax.i32(i32 %.sroa.11.0.lcssa, i32 0)
-  %85 = tail call i32 @llvm.umin.i32(i32 %84, i32 65535)
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw [65536 x float], ptr %78, i64 0, i64 %86
-  %88 = load float, ptr %87, align 4, !tbaa !72
-  %89 = tail call i32 @llvm.smax.i32(i32 %.sroa.22.0.lcssa, i32 0)
-  %90 = tail call i32 @llvm.umin.i32(i32 %89, i32 65535)
-  %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw [65536 x float], ptr %78, i64 0, i64 %91
+  %86 = phi ptr [ %.pre, %.preheader66.._crit_edge_crit_edge ], [ %9, %._crit_edge.loopexit ]
+  %.sroa.22.0.lcssa = phi i64 [ 0, %.preheader66.._crit_edge_crit_edge ], [ %85, %._crit_edge.loopexit ]
+  %.sroa.11.0.lcssa = phi i64 [ 0, %.preheader66.._crit_edge_crit_edge ], [ %81, %._crit_edge.loopexit ]
+  %.sroa.0.0.lcssa = phi i64 [ 0, %.preheader66.._crit_edge_crit_edge ], [ %77, %._crit_edge.loopexit ]
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 21040
+  %88 = getelementptr inbounds nuw [65536 x float], ptr %87, i64 0, i64 %.sroa.0.0.lcssa
+  %89 = load float, ptr %88, align 4, !tbaa !72
+  %90 = getelementptr inbounds nuw [65536 x float], ptr %87, i64 0, i64 %.sroa.11.0.lcssa
+  %91 = load float, ptr %90, align 4, !tbaa !72
+  %92 = getelementptr inbounds nuw [65536 x float], ptr %87, i64 0, i64 %.sroa.22.0.lcssa
   %93 = load float, ptr %92, align 4, !tbaa !72
-  %94 = fmul reassoc nsz arcp contract afn float %88, 7.424000e+03
+  %94 = fmul reassoc nsz arcp contract afn float %91, 7.424000e+03
   %95 = fadd reassoc nsz arcp contract afn float %94, -1.024000e+03
   %96 = fptosi float %95 to i16
   store i16 %96, ptr %2, align 2, !tbaa !80
-  %97 = fsub reassoc nsz arcp contract afn float %83, %88
+  %97 = fsub reassoc nsz arcp contract afn float %89, %91
   %98 = fmul reassoc nsz arcp contract afn float %97, 3.200000e+04
   %99 = fptosi float %98 to i16
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %99, ptr %100, align 2, !tbaa !80
-  %101 = fsub reassoc nsz arcp contract afn float %88, %93
+  %101 = fsub reassoc nsz arcp contract afn float %91, %93
   %102 = fmul reassoc nsz arcp contract afn float %101, 1.280000e+04
   %103 = fptosi float %102 to i16
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -610,39 +610,39 @@ define void @_ZN6LibRaw52ahd_interpolate_r_and_b_in_rgb_and_convert_to_cielabEii
 
 ._crit_edge.loopexit.i.us:                        ; preds = %.lr.ph.i.us
   %177 = fptosi float %168 to i32
-  %178 = fptosi float %172 to i32
-  %179 = fptosi float %176 to i32
+  %178 = tail call i32 @llvm.smax.i32(i32 %177, i32 0)
+  %179 = tail call i32 @llvm.umin.i32(i32 %178, i32 65535)
+  %180 = zext nneg i32 %179 to i64
+  %181 = fptosi float %172 to i32
+  %182 = tail call i32 @llvm.smax.i32(i32 %181, i32 0)
+  %183 = tail call i32 @llvm.umin.i32(i32 %182, i32 65535)
+  %184 = zext nneg i32 %183 to i64
+  %185 = fptosi float %176 to i32
+  %186 = tail call i32 @llvm.smax.i32(i32 %185, i32 0)
+  %187 = tail call i32 @llvm.umin.i32(i32 %186, i32 65535)
+  %188 = zext nneg i32 %187 to i64
   br label %_ZN6LibRaw6cielabEPtPs.exit.us
 
 _ZN6LibRaw6cielabEPtPs.exit.us:                   ; preds = %152, %._crit_edge.loopexit.i.us
-  %.sroa.22.0.lcssa.i.us = phi i32 [ %179, %._crit_edge.loopexit.i.us ], [ 0, %152 ]
-  %.sroa.11.0.lcssa.i.us = phi i32 [ %178, %._crit_edge.loopexit.i.us ], [ 0, %152 ]
-  %.sroa.0.0.lcssa.i.us = phi i32 [ %177, %._crit_edge.loopexit.i.us ], [ 0, %152 ]
-  %180 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.lcssa.i.us, i32 0)
-  %181 = tail call i32 @llvm.umin.i32(i32 %180, i32 65535)
-  %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds nuw [65536 x float], ptr %49, i64 0, i64 %182
-  %184 = load float, ptr %183, align 4, !tbaa !72
-  %185 = tail call i32 @llvm.smax.i32(i32 %.sroa.11.0.lcssa.i.us, i32 0)
-  %186 = tail call i32 @llvm.umin.i32(i32 %185, i32 65535)
-  %187 = zext nneg i32 %186 to i64
-  %188 = getelementptr inbounds nuw [65536 x float], ptr %49, i64 0, i64 %187
-  %189 = load float, ptr %188, align 4, !tbaa !72
-  %190 = tail call i32 @llvm.smax.i32(i32 %.sroa.22.0.lcssa.i.us, i32 0)
-  %191 = tail call i32 @llvm.umin.i32(i32 %190, i32 65535)
-  %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds nuw [65536 x float], ptr %49, i64 0, i64 %192
+  %.sroa.22.0.lcssa.i.us = phi i64 [ %188, %._crit_edge.loopexit.i.us ], [ 0, %152 ]
+  %.sroa.11.0.lcssa.i.us = phi i64 [ %184, %._crit_edge.loopexit.i.us ], [ 0, %152 ]
+  %.sroa.0.0.lcssa.i.us = phi i64 [ %180, %._crit_edge.loopexit.i.us ], [ 0, %152 ]
+  %189 = getelementptr inbounds nuw [65536 x float], ptr %49, i64 0, i64 %.sroa.0.0.lcssa.i.us
+  %190 = load float, ptr %189, align 4, !tbaa !72
+  %191 = getelementptr inbounds nuw [65536 x float], ptr %49, i64 0, i64 %.sroa.11.0.lcssa.i.us
+  %192 = load float, ptr %191, align 4, !tbaa !72
+  %193 = getelementptr inbounds nuw [65536 x float], ptr %49, i64 0, i64 %.sroa.22.0.lcssa.i.us
   %194 = load float, ptr %193, align 4, !tbaa !72
-  %195 = fmul reassoc nsz arcp contract afn float %189, 7.424000e+03
+  %195 = fmul reassoc nsz arcp contract afn float %192, 7.424000e+03
   %196 = fadd reassoc nsz arcp contract afn float %195, -1.024000e+03
   %197 = fptosi float %196 to i16
   store i16 %197, ptr %55, align 2, !tbaa !80
-  %198 = fsub reassoc nsz arcp contract afn float %184, %189
+  %198 = fsub reassoc nsz arcp contract afn float %190, %192
   %199 = fmul reassoc nsz arcp contract afn float %198, 3.200000e+04
   %200 = fptosi float %199 to i16
   %201 = getelementptr inbounds nuw i8, ptr %.087108.us, i64 8
   store i16 %200, ptr %201, align 2, !tbaa !80
-  %202 = fsub reassoc nsz arcp contract afn float %189, %194
+  %202 = fsub reassoc nsz arcp contract afn float %192, %194
   %203 = fmul reassoc nsz arcp contract afn float %202, 1.280000e+04
   %204 = fptosi float %203 to i16
   %205 = getelementptr inbounds nuw i8, ptr %.087108.us, i64 10

@@ -2013,7 +2013,7 @@ define hidden noundef range(i64 1, 0) i64 @_ZN12clap_builder6output13help_templa
   store i128 89112216542684686001844060841048690714, ptr %2, align 16, !noalias !391
   %21 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h1e1e07fa67619203E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %38, label %23
+  br i1 %22, label %40, label %23
 
 23:                                               ; preds = %20
   call void @llvm.experimental.noalias.scope.decl(metadata !396)
@@ -2040,16 +2040,12 @@ _ZN12clap_builder7builder7command7Command18get_max_term_width17h3039cb1bd41eb4f5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !391
   %36 = load i64, ptr %30, align 8, !noundef !12
   %37 = icmp eq i64 %36, 0
-  %spec.select = select i1 %37, i64 -1, i64 %36
-  br label %39
+  %38 = call i64 @llvm.umin.i64(i64 %36, i64 range(i64 1, 0) 100)
+  %39 = select i1 %37, i64 100, i64 %38
+  br label %44
 
-38:                                               ; preds = %20
+40:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !391
-  br label %39
-
-39:                                               ; preds = %_ZN12clap_builder7builder7command7Command18get_max_term_width17h3039cb1bd41eb4f5E.exit, %38
-  %40 = phi i64 [ -1, %38 ], [ %spec.select, %_ZN12clap_builder7builder7command7Command18get_max_term_width17h3039cb1bd41eb4f5E.exit ]
-  %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %40, i64 range(i64 1, 0) 100)
   br label %44
 
 41:                                               ; preds = %7
@@ -2059,8 +2055,8 @@ _ZN12clap_builder7builder7command7Command18get_max_term_width17h3039cb1bd41eb4f5
   %..fca.1.extract = select i1 %43, i64 -1, i64 %42
   br label %44
 
-44:                                               ; preds = %41, %39
-  %.0 = phi i64 [ %.0.sroa.speculated.i, %39 ], [ %..fca.1.extract, %41 ]
+44:                                               ; preds = %40, %_ZN12clap_builder7builder7command7Command18get_max_term_width17h3039cb1bd41eb4f5E.exit, %41
+  %.0 = phi i64 [ %..fca.1.extract, %41 ], [ 100, %40 ], [ %39, %_ZN12clap_builder7builder7command7Command18get_max_term_width17h3039cb1bd41eb4f5E.exit ]
   ret i64 %.0
 }
 

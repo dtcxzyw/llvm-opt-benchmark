@@ -1461,16 +1461,19 @@ define void @Jf_ManProfileClasses(ptr noundef readonly captures(none) %0) local_
   %.2 = phi i32 [ %.04973, %26 ], [ %.150, %61 ], [ %.04973, %33 ], [ %.04973, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !87
+  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph.split, !llvm.loop !87
 
-.critedge:                                        ; preds = %66, %.lr.ph, %1
-  %.051.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %.152, %66 ]
-  %.049.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %.2, %66 ]
-  %67 = tail call noundef i32 @llvm.smax.i32(i32 %.049.lcssa, i32 1)
-  %68 = tail call noundef i32 @llvm.smax.i32(i32 %.051.lcssa, i32 1)
+.critedge.loopexit:                               ; preds = %66
+  %67 = tail call i32 @llvm.smax.i32(i32 %.2, i32 1)
+  %68 = tail call i32 @llvm.smax.i32(i32 %.152, i32 1)
   %69 = uitofp nneg i32 %68 to double
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %71 = uitofp nneg i32 %67 to double
+  %70 = uitofp nneg i32 %67 to double
+  br label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph, %.critedge.loopexit, %1
+  %.051.lcssa = phi double [ 1.000000e+00, %1 ], [ %69, %.critedge.loopexit ], [ 1.000000e+00, %.lr.ph ]
+  %.049.lcssa = phi double [ 1.000000e+00, %1 ], [ %70, %.critedge.loopexit ], [ 1.000000e+00, %.lr.ph ]
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %72
 
 72:                                               ; preds = %.critedge, %105
@@ -1485,7 +1488,7 @@ define void @Jf_ManProfileClasses(ptr noundef readonly captures(none) %0) local_
 75:                                               ; preds = %72
   %76 = sitofp i32 %74 to double
   %77 = fmul double %76, 1.000000e+02
-  %78 = fdiv double %77, %69
+  %78 = fdiv double %77, %.051.lcssa
   %79 = load ptr, ptr %4, align 8, !tbaa !72
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 36
   %81 = load i32, ptr %80, align 4, !tbaa !79
@@ -1497,7 +1500,7 @@ define void @Jf_ManProfileClasses(ptr noundef readonly captures(none) %0) local_
 85:                                               ; preds = %75
   %86 = trunc nuw nsw i64 %indvars.iv84 to i32
   %87 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %86)
-  %88 = load ptr, ptr %70, align 8, !tbaa !88
+  %88 = load ptr, ptr %71, align 8, !tbaa !88
   %89 = tail call ptr @Sdm_ManReadDsdStr(ptr noundef %88, i32 noundef %86) #30
   %90 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %89)
   %91 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %74)
@@ -1507,7 +1510,7 @@ define void @Jf_ManProfileClasses(ptr noundef readonly captures(none) %0) local_
   %95 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %94)
   %96 = sitofp i32 %94 to double
   %97 = fmul double %96, 1.000000e+02
-  %98 = fdiv double %97, %71
+  %98 = fdiv double %97, %.049.lcssa
   %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %98)
   %putchar58 = tail call i32 @putchar(i32 10)
   br label %105
@@ -1532,12 +1535,12 @@ define void @Jf_ManProfileClasses(ptr noundef readonly captures(none) %0) local_
   %109 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.148)
   %110 = sitofp i32 %.148 to double
   %111 = fmul double %110, 1.000000e+02
-  %112 = fdiv double %111, %69
+  %112 = fdiv double %111, %.051.lcssa
   %113 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %112)
   %114 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.1)
   %115 = sitofp i32 %.1 to double
   %116 = fmul double %115, 1.000000e+02
-  %117 = fdiv double %116, %71
+  %117 = fdiv double %116, %.049.lcssa
   %118 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %117)
   %putchar = tail call i32 @putchar(i32 10)
   call void @llvm.lifetime.end.p0(i64 2380, ptr nonnull %3) #30

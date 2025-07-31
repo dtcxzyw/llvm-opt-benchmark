@@ -27,8 +27,8 @@ define dso_local noundef range(i32 0, 43621) i32 @_ZN4llvm14getMachineTypeENS_9S
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
-  call void @_ZNK4llvm9StringRef5lowerB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %3) #8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @_ZNK4llvm9StringRef5lowerB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %3) #7
   %6 = load ptr, ptr %4, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !11
@@ -86,31 +86,29 @@ _ZN4llvm12StringSwitchINS_4COFF12MachineTypesES2_E4CaseENS_13StringLiteralES2_.e
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i40:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i6
   %bcmp.i.i.i41 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.8, i64 4)
   %17 = icmp eq i32 %bcmp.i.i.i41, 0
-  %spec.select = select i1 %17, i64 4294967654, i64 0
+  %18 = select i1 %17, i32 358, i32 0
   br label %_ZN4llvm12StringSwitchINS_4COFF12MachineTypesES2_E4CaseENS_13StringLiteralES2_.exit43
 
 _ZN4llvm12StringSwitchINS_4COFF12MachineTypesES2_E4CaseENS_13StringLiteralES2_.exit43: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i9, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvm12StringSwitchINS_4COFF12MachineTypesES2_E4CaseENS_13StringLiteralES2_.exit35.thread.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24
-  %.sroa.18.6 = phi i64 [ 4295009857, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 4295009870, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 0, %_ZN4llvm12StringSwitchINS_4COFF12MachineTypesES2_E4CaseENS_13StringLiteralES2_.exit35.thread.thread ], [ 4294967748, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4295010916, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ], [ 4294967628, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i6 ], [ 4294967628, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i9 ], [ 4295001700, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 4295001700, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i ]
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %19 = icmp eq ptr %6, %18
-  br i1 %19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %.sroa.18.6 = phi i32 [ 42561, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 42574, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 0, %_ZN4llvm12StringSwitchINS_4COFF12MachineTypesES2_E4CaseENS_13StringLiteralES2_.exit35.thread.thread ], [ 452, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 43620, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ %18, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ], [ 332, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i6 ], [ 332, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i9 ], [ 34404, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 34404, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i ]
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %20 = icmp eq ptr %6, %19
+  br i1 %20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN4llvm12StringSwitchINS_4COFF12MachineTypesES2_E4CaseENS_13StringLiteralES2_.exit43
-  %20 = icmp ult i64 %8, 16
-  call void @llvm.assume(i1 %20)
+  %21 = icmp ult i64 %8, 16
+  call void @llvm.assume(i1 %21)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN4llvm12StringSwitchINS_4COFF12MachineTypesES2_E4CaseENS_13StringLiteralES2_.exit43
-  %21 = load i64, ptr %18, align 8, !tbaa !12
-  %22 = add i64 %21, 1
-  call void @_ZdlPvm(ptr noundef %6, i64 noundef %22) #9
+  %22 = load i64, ptr %19, align 8, !tbaa !12
+  %23 = add i64 %22, 1
+  call void @_ZdlPvm(ptr noundef %6, i64 noundef %23) #8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  %spec.select.i173 = call i64 @llvm.umax.i64(i64 %.sroa.18.6, i64 4294967296)
-  %spec.select.i = trunc i64 %spec.select.i173 to i32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
-  ret i32 %spec.select.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  ret i32 %.sroa.18.6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -167,9 +165,6 @@ declare void @llvm.assume(i1 noundef) #5
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #7
-
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -177,9 +172,8 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { builtin nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

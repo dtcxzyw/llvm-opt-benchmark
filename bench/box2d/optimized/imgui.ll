@@ -12546,11 +12546,11 @@ _ZN5ImGui8MemAllocEm.exit:                        ; preds = %_ZN5ImGui23Localize
 86:                                               ; preds = %85
   %87 = sdiv i32 %83, 2
   %88 = add nsw i32 %87, %83
+  %89 = call i32 @llvm.smax.i32(i32 %88, i32 3073)
   br label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
 
 _ZNK8ImVectorIcE14_grow_capacityEi.exit.i:        ; preds = %86, %85
-  %89 = phi i32 [ %88, %86 ], [ 8, %85 ]
-  %90 = call noundef i32 @llvm.smax.i32(i32 %89, i32 3073)
+  %90 = phi i32 [ %89, %86 ], [ 3073, %85 ]
   call void @_ZN8ImVectorIcE7reserveEi(ptr noundef nonnull align 8 dereferenceable(16) %81, i32 noundef %90)
   br label %91
 

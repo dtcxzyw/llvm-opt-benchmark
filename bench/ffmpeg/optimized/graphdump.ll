@@ -380,16 +380,16 @@ print_link_prop.exit185:                          ; preds = %164, %177, %186
 ._crit_edge.loopexit:                             ; preds = %188
   %193 = trunc i64 %134 to i32
   %.pre = load i32, ptr %24, align 8, !tbaa !31
-  %194 = add i32 %193, 2
-  %195 = add i32 %189, 2
+  %194 = call i32 @llvm.umax.i32(i32 %.pre, i32 %190)
+  %195 = add i32 %193, 2
+  %196 = add i32 %189, 2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %196 = phi i32 [ %28, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
-  %.0161.lcssa = phi i32 [ 2, %.preheader ], [ %195, %._crit_edge.loopexit ]
-  %.0159.lcssa = phi i32 [ 2, %.preheader ], [ %194, %._crit_edge.loopexit ]
+  %spec.select = phi i32 [ %28, %.preheader ], [ %194, %._crit_edge.loopexit ]
+  %.0161.lcssa = phi i32 [ 2, %.preheader ], [ %196, %._crit_edge.loopexit ]
+  %.0159.lcssa = phi i32 [ 2, %.preheader ], [ %195, %._crit_edge.loopexit ]
   %.0157.lcssa = phi i32 [ 0, %.preheader ], [ %128, %._crit_edge.loopexit ]
-  %.lcssa203 = phi i32 [ 0, %.preheader ], [ %190, %._crit_edge.loopexit ]
   %197 = add i32 %.0158.lcssa, %.0160.lcssa
   %198 = add i32 %197, %.0156.lcssa
   %.not = icmp eq i32 %198, 0
@@ -398,7 +398,6 @@ print_link_prop.exit185:                          ; preds = %164, %177, %186
   %201 = add i32 %18, 2
   %202 = add i32 %23, 4
   %203 = call i32 @llvm.umax.i32(i32 %201, i32 %202)
-  %spec.select = call i32 @llvm.umax.i32(i32 %196, i32 %.lcssa203)
   %spec.select195 = call i32 @llvm.umax.i32(i32 %spec.select, i32 2)
   call void @av_bprint_chars(ptr noundef nonnull %0, i8 noundef signext 32, i32 noundef %200) #5
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str) #5

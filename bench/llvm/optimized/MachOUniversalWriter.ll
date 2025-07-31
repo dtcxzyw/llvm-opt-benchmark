@@ -360,7 +360,7 @@ define dso_local void @_ZN4llvm6object5SliceC2ERKNS0_15MachOObjectFileE(ptr noun
   %19 = extractvalue { ptr, ptr } %18, 0
   %20 = extractvalue { ptr, ptr } %18, 1
   %.not65.i.i = icmp eq ptr %19, %20
-  br i1 %.not65.i.i, label %_ZL22calculateFileAlignmentRKN4llvm6object15MachOObjectFileE.exit.i, label %.lr.ph71.i.i
+  br i1 %.not65.i.i, label %_ZL18calculateAlignmentRKN4llvm6object15MachOObjectFileE.exit, label %.lr.ph71.i.i
 
 .lr.ph71.i.i:                                     ; preds = %13
   %21 = select i1 %17, i32 25, i32 1
@@ -431,78 +431,78 @@ define dso_local void @_ZN4llvm6object5SliceC2ERKNS0_15MachOObjectFileE(ptr noun
   %.162.i.us.i = phi i32 [ %.sroa.speculated43.i.us.i, %.loopexit.i.us.i ], [ %.06166.i.us.i, %.lr.ph71.i.split.us.i ]
   %44 = getelementptr inbounds nuw i8, ptr %.03167.i.us.i, i64 16
   %.not.i.us.i = icmp eq ptr %44, %20
-  br i1 %.not.i.us.i, label %_ZL22calculateFileAlignmentRKN4llvm6object15MachOObjectFileE.exit.i, label %.lr.ph71.i.split.us.i, !llvm.loop !38
+  br i1 %.not.i.us.i, label %._crit_edge.loopexit.i.i, label %.lr.ph71.i.split.us.i, !llvm.loop !38
 
-.lr.ph71.i.split.i:                               ; preds = %.lr.ph71.i.i, %60
-  %.03167.i.i = phi ptr [ %61, %60 ], [ %19, %.lr.ph71.i.i ]
-  %.06166.i.i = phi i32 [ %.162.i.i, %60 ], [ 15, %.lr.ph71.i.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %.03167.i.i, i64 8
-  %46 = load i32, ptr %45, align 8, !tbaa !27
-  %.not32.i.i = icmp eq i32 %46, %21
-  br i1 %.not32.i.i, label %47, label %60
+._crit_edge.loopexit.i.i:                         ; preds = %62, %43
+  %.us-phi.i = phi i32 [ %.162.i.us.i, %43 ], [ %.162.i.i, %62 ]
+  %45 = call i32 @llvm.umax.i32(i32 %.us-phi.i, i32 2)
+  %46 = call i32 @llvm.umin.i32(i32 %45, i32 15)
+  br label %_ZL18calculateAlignmentRKN4llvm6object15MachOObjectFileE.exit
 
-47:                                               ; preds = %.lr.ph71.i.split.i
-  %48 = call noundef nonnull align 4 dereferenceable(28) ptr @_ZNK4llvm6object15MachOObjectFile9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(360) %1) #20
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 12
-  %50 = load i32, ptr %49, align 4, !tbaa !30
-  %51 = icmp eq i32 %50, 1
-  br i1 %51, label %.thread.i.i, label %55
+.lr.ph71.i.split.i:                               ; preds = %.lr.ph71.i.i, %62
+  %.03167.i.i = phi ptr [ %63, %62 ], [ %19, %.lr.ph71.i.i ]
+  %.06166.i.i = phi i32 [ %.162.i.i, %62 ], [ 15, %.lr.ph71.i.i ]
+  %47 = getelementptr inbounds nuw i8, ptr %.03167.i.i, i64 8
+  %48 = load i32, ptr %47, align 8, !tbaa !27
+  %.not32.i.i = icmp eq i32 %48, %21
+  br i1 %.not32.i.i, label %49, label %62
 
-.thread.i.i:                                      ; preds = %47
+49:                                               ; preds = %.lr.ph71.i.split.i
+  %50 = call noundef nonnull align 4 dereferenceable(28) ptr @_ZNK4llvm6object15MachOObjectFile9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(360) %1) #20
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
+  %52 = load i32, ptr %51, align 4, !tbaa !30
+  %53 = icmp eq i32 %52, 1
+  br i1 %53, label %.thread.i.i, label %57
+
+.thread.i.i:                                      ; preds = %49
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #20
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #20
   call void @_ZNK4llvm6object15MachOObjectFile21getSegmentLoadCommandERKNS1_15LoadCommandInfoE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachO::segment_command") align 4 %4, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(16) %.03167.i.i) #20
-  %52 = load i32, ptr %24, align 4, !tbaa !39
+  %54 = load i32, ptr %24, align 4, !tbaa !39
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #20
-  %.not3376.i.i = icmp eq i32 %52, 0
+  %.not3376.i.i = icmp eq i32 %54, 0
   br i1 %.not3376.i.i, label %.loopexit.i.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %.thread.i.i, %.lr.ph.split.i.i
-  %.064.i.i = phi i32 [ %54, %.lr.ph.split.i.i ], [ 0, %.thread.i.i ]
+  %.064.i.i = phi i32 [ %56, %.lr.ph.split.i.i ], [ 0, %.thread.i.i ]
   %.06063.i.i = phi i32 [ %.sroa.speculated55.i.i, %.lr.ph.split.i.i ], [ 2, %.thread.i.i ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #20
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %6) #20
   call void @_ZNK4llvm6object15MachOObjectFile10getSectionERKNS1_15LoadCommandInfoEj(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachO::section") align 4 %6, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(16) %.03167.i.i, i32 noundef %.064.i.i) #20
-  %53 = load i32, ptr %26, align 4, !tbaa !34
-  %.sroa.speculated55.i.i = call i32 @llvm.umax.i32(i32 %.06063.i.i, i32 %53)
+  %55 = load i32, ptr %26, align 4, !tbaa !34
+  %.sroa.speculated55.i.i = call i32 @llvm.umax.i32(i32 %.06063.i.i, i32 %55)
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #20
-  %54 = add nuw i32 %.064.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %54, %52
+  %56 = add nuw i32 %.064.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %56, %54
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph.split.i.i, !llvm.loop !41
 
-55:                                               ; preds = %47
+57:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #20
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #20
   call void @_ZNK4llvm6object15MachOObjectFile21getSegmentLoadCommandERKNS1_15LoadCommandInfoE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachO::segment_command") align 4 %8, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(16) %.03167.i.i) #20
-  %56 = load i32, ptr %22, align 4, !tbaa !42
-  %57 = zext i32 %56 to i64
-  %58 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %57, i1 false)
-  %59 = trunc nuw nsw i64 %58 to i32
+  %58 = load i32, ptr %22, align 4, !tbaa !42
+  %59 = zext i32 %58 to i64
+  %60 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %59, i1 false)
+  %61 = trunc nuw nsw i64 %60 to i32
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #20
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #20
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.split.i.i, %55, %.thread.i.i
-  %.1.i.i = phi i32 [ %59, %55 ], [ %.06166.i.i, %.thread.i.i ], [ %.sroa.speculated55.i.i, %.lr.ph.split.i.i ]
+.loopexit.i.i:                                    ; preds = %.lr.ph.split.i.i, %57, %.thread.i.i
+  %.1.i.i = phi i32 [ %61, %57 ], [ %.06166.i.i, %.thread.i.i ], [ %.sroa.speculated55.i.i, %.lr.ph.split.i.i ]
   %.sroa.speculated43.i.i = call i32 @llvm.umin.i32(i32 %.1.i.i, i32 %.06166.i.i)
-  br label %60
+  br label %62
 
-60:                                               ; preds = %.loopexit.i.i, %.lr.ph71.i.split.i
+62:                                               ; preds = %.loopexit.i.i, %.lr.ph71.i.split.i
   %.162.i.i = phi i32 [ %.sroa.speculated43.i.i, %.loopexit.i.i ], [ %.06166.i.i, %.lr.ph71.i.split.i ]
-  %61 = getelementptr inbounds nuw i8, ptr %.03167.i.i, i64 16
-  %.not.i.i = icmp eq ptr %61, %20
-  br i1 %.not.i.i, label %_ZL22calculateFileAlignmentRKN4llvm6object15MachOObjectFileE.exit.i, label %.lr.ph71.i.split.i
+  %63 = getelementptr inbounds nuw i8, ptr %.03167.i.i, i64 16
+  %.not.i.i = icmp eq ptr %63, %20
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph71.i.split.i
 
-_ZL22calculateFileAlignmentRKN4llvm6object15MachOObjectFileE.exit.i: ; preds = %60, %43, %13
-  %.061.lcssa.i.i = phi i32 [ 15, %13 ], [ %.162.i.us.i, %43 ], [ %.162.i.i, %60 ]
-  %62 = call i32 @llvm.umax.i32(i32 %.061.lcssa.i.i, i32 2)
-  %.sroa.speculated.i.i = call noundef range(i32 2, 16) i32 @llvm.umin.i32(i32 %62, i32 15)
-  br label %_ZL18calculateAlignmentRKN4llvm6object15MachOObjectFileE.exit
-
-_ZL18calculateAlignmentRKN4llvm6object15MachOObjectFileE.exit: ; preds = %2, %2, %2, %2, %12, %_ZL22calculateFileAlignmentRKN4llvm6object15MachOObjectFileE.exit.i
-  %.0.i = phi i32 [ %.sroa.speculated.i.i, %_ZL22calculateFileAlignmentRKN4llvm6object15MachOObjectFileE.exit.i ], [ 14, %12 ], [ 12, %2 ], [ 12, %2 ], [ 12, %2 ], [ 12, %2 ]
+_ZL18calculateAlignmentRKN4llvm6object15MachOObjectFileE.exit: ; preds = %2, %2, %2, %2, %12, %13, %._crit_edge.loopexit.i.i
+  %.0.i = phi i32 [ 14, %12 ], [ 12, %2 ], [ 12, %2 ], [ 12, %2 ], [ 12, %2 ], [ 15, %13 ], [ %46, %._crit_edge.loopexit.i.i ]
   call void @_ZN4llvm6object5SliceC2ERKNS0_15MachOObjectFileEj(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, i32 noundef %.0.i)
   ret void
 }

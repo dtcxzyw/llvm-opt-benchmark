@@ -1389,12 +1389,12 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !29
   %.not267 = icmp eq i32 %59, 0
-  br i1 %.not267, label %75, label %60
+  br i1 %.not267, label %77, label %60
 
 60:                                               ; preds = %56
   %61 = load i32, ptr %4, align 8, !tbaa !25
   %.not268 = icmp eq i32 %61, 0
-  br i1 %.not268, label %75, label %62
+  br i1 %.not268, label %77, label %62
 
 62:                                               ; preds = %60
   %63 = shl i32 %61, 6
@@ -1413,21 +1413,21 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
 72:                                               ; preds = %67
   %73 = sub nsw i64 %45, %64
   %74 = add nsw i64 %42, %69
-  br label %75
+  %75 = tail call i64 @llvm.smax.i64(i64 %57, i64 %74)
+  %76 = tail call i64 @llvm.smax.i64(i64 %40, i64 %45)
+  br label %77
 
-75:                                               ; preds = %56, %60, %72
-  %.0222 = phi i64 [ %45, %72 ], [ -9223372036854775808, %60 ], [ -9223372036854775808, %56 ]
-  %.0221 = phi i64 [ %74, %72 ], [ -9223372036854775808, %60 ], [ -9223372036854775808, %56 ]
+77:                                               ; preds = %56, %60, %72
+  %.0222 = phi i64 [ %76, %72 ], [ %40, %60 ], [ %40, %56 ]
+  %.0221 = phi i64 [ %75, %72 ], [ %57, %60 ], [ %57, %56 ]
   %.0219 = phi i64 [ %73, %72 ], [ 9223372036854775807, %60 ], [ 9223372036854775807, %56 ]
   %.0217 = phi i64 [ %42, %72 ], [ 9223372036854775807, %60 ], [ 9223372036854775807, %56 ]
-  %76 = tail call i64 @llvm.smin.i64(i64 %39, i64 %.0217)
-  %77 = tail call i64 @llvm.smin.i64(i64 %51, i64 %.0219)
-  %78 = tail call i64 @llvm.smax.i64(i64 %57, i64 %.0221)
-  %79 = tail call i64 @llvm.smax.i64(i64 %40, i64 %.0222)
-  %80 = sub nsw i64 %78, %76
+  %78 = tail call i64 @llvm.smin.i64(i64 %39, i64 %.0217)
+  %79 = tail call i64 @llvm.smin.i64(i64 %51, i64 %.0219)
+  %80 = sub nsw i64 %.0221, %78
   %81 = lshr i64 %80, 6
   %82 = trunc i64 %81 to i32
-  %83 = sub nsw i64 %79, %77
+  %83 = sub nsw i64 %.0222, %79
   %84 = lshr i64 %83, 6
   %85 = trunc i64 %84 to i32
   %86 = icmp ne i32 %82, 0
@@ -1435,9 +1435,9 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   %or.cond7 = select i1 %86, i1 %87, i1 false
   br i1 %or.cond7, label %88, label %.thread284
 
-88:                                               ; preds = %75
-  %89 = sub nsw i64 %39, %76
-  %90 = sub nsw i64 %51, %77
+88:                                               ; preds = %77
+  %89 = sub nsw i64 %39, %78
+  %90 = sub nsw i64 %51, %79
   br i1 %.not267, label %96, label %91
 
 91:                                               ; preds = %88
@@ -1446,8 +1446,8 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   br i1 %.not270, label %96, label %93
 
 93:                                               ; preds = %91
-  %94 = sub nsw i64 %.0217, %76
-  %95 = sub nsw i64 %.0219, %77
+  %94 = sub nsw i64 %.0217, %78
+  %95 = sub nsw i64 %.0219, %79
   br label %96
 
 96:                                               ; preds = %93, %91, %88
@@ -1700,9 +1700,9 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   br i1 %245, label %192, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %._crit_edge, %163, %167
-  store i64 %76, ptr %5, align 8, !tbaa !54
+  store i64 %78, ptr %5, align 8, !tbaa !54
   %246 = and i64 %83, 4294967232
-  %247 = add nsw i64 %246, %77
+  %247 = add nsw i64 %246, %79
   store i64 %247, ptr %43, align 8, !tbaa !57
   %.pre312 = load i32, ptr %8, align 4, !tbaa !3
   %248 = icmp ne i32 %.pre312, 0
@@ -1741,8 +1741,8 @@ FT_Bitmap_Done.exit281:                           ; preds = %FT_Bitmap_Done.exit
   %258 = load i32, ptr %8, align 4, !tbaa !3
   br label %.thread284
 
-.thread284:                                       ; preds = %115, %.thread, %106, %98, %75, %67, %62, %50, %38, %.thread283, %36, %28, %21, %18, %14, %7, %.thread293
-  %.0 = phi i32 [ %258, %.thread293 ], [ 6, %7 ], [ 6, %14 ], [ 6, %18 ], [ 0, %21 ], [ 6, %28 ], [ 0, %36 ], [ 0, %.thread283 ], [ 6, %38 ], [ 6, %50 ], [ 6, %62 ], [ 6, %67 ], [ 0, %75 ], [ 6, %98 ], [ %111, %106 ], [ 0, %.thread ], [ 6, %115 ]
+.thread284:                                       ; preds = %115, %.thread, %106, %98, %77, %67, %62, %50, %38, %.thread283, %36, %28, %21, %18, %14, %7, %.thread293
+  %.0 = phi i32 [ %258, %.thread293 ], [ 6, %7 ], [ 6, %14 ], [ 6, %18 ], [ 0, %21 ], [ 6, %28 ], [ 0, %36 ], [ 0, %.thread283 ], [ 6, %38 ], [ 6, %50 ], [ 6, %62 ], [ 6, %67 ], [ 0, %77 ], [ 6, %98 ], [ %111, %106 ], [ 0, %.thread ], [ 6, %115 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   ret i32 %.0

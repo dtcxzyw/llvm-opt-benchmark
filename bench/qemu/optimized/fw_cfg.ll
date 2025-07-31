@@ -2715,17 +2715,20 @@ define internal fastcc void @fw_cfg_dma_transfer(ptr noundef %0) unnamed_addr #2
   %116 = and i32 %.pre131133, 1
   %.not115 = icmp eq i32 %116, 0
   %117 = select i1 %115, i1 %.not115, i1 false
-  br i1 %117, label %53, label %._crit_edge, !llvm.loop !18
+  br i1 %117, label %53, label %._crit_edge.loopexit, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %109, %.thread, %47
-  %.lcssa = phi i32 [ 0, %47 ], [ 0, %.thread ], [ %.pre131133, %109 ]
-  %118 = load ptr, ptr %8, align 16
+._crit_edge.loopexit:                             ; preds = %109
+  %118 = call i32 @llvm.bswap.i32(i32 %.pre131133)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %.thread, %._crit_edge.loopexit, %47
+  %.lcssa = phi i32 [ 0, %47 ], [ %118, %._crit_edge.loopexit ], [ 0, %.thread ]
+  %119 = load ptr, ptr %8, align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %119 = call noundef i32 @llvm.bswap.i32(i32 %.lcssa)
-  store i32 %119, ptr %3, align 4
+  store i32 %.lcssa, ptr %3, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
   fence seq_cst
-  %120 = call i32 @address_space_rw(ptr noundef %118, i64 noundef %7, i64 4294967296, ptr noundef nonnull %3, i64 noundef range(i64 0, 4294967296) 4, i1 noundef zeroext true) #18
+  %120 = call i32 @address_space_rw(ptr noundef %119, i64 noundef %7, i64 4294967296, ptr noundef nonnull %3, i64 noundef range(i64 0, 4294967296) 4, i1 noundef zeroext true) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %121 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %121, 0

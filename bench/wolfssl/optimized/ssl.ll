@@ -6609,7 +6609,7 @@ AlreadySigner.exit:                               ; preds = %.lr.ph.i
   %82 = load ptr, ptr %13, align 8, !tbaa !16
   %83 = call ptr @MakeSigner(ptr noundef %82) #22
   %.not74.not = icmp eq ptr %83, null
-  br i1 %.not74.not, label %120, label %84
+  br i1 %.not74.not, label %121, label %84
 
 84:                                               ; preds = %.critedge84
   %85 = call i32 @FillSigner(ptr noundef nonnull %83, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %6) #22
@@ -6633,12 +6633,12 @@ AlreadySigner.exit:                               ; preds = %.lr.ph.i
   %103 = or disjoint i32 %99, %102
   %104 = urem i32 %103, 11
   %105 = icmp eq i32 %85, 0
-  br i1 %105, label %106, label %121
+  br i1 %105, label %106, label %122
 
 106:                                              ; preds = %84
   %107 = call i32 @wc_LockMutex(ptr noundef nonnull %60) #22
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %109, label %121
+  br i1 %108, label %109, label %122
 
 109:                                              ; preds = %106
   %110 = zext nneg i32 %104 to i64
@@ -6662,26 +6662,26 @@ AlreadySigner.exit:                               ; preds = %.lr.ph.i
 .thread102:                                       ; preds = %117, %109, %36, %AlreadySigner.exit, %38, %48, %20, %28
   %.2.ph = phi i32 [ 0, %109 ], [ 0, %117 ], [ %15, %36 ], [ -357, %48 ], [ -357, %38 ], [ 0, %AlreadySigner.exit ], [ -409, %20 ], [ -410, %28 ]
   call void @FreeDecodedCert(ptr noundef nonnull %5) #22
-  br label %123
+  %120 = call i32 @llvm.umax.i32(i32 %.2.ph, i32 1)
+  br label %124
 
-120:                                              ; preds = %.critedge84
+121:                                              ; preds = %.critedge84
   call void @FreeDecodedCert(ptr noundef nonnull %5) #22
-  br label %123
+  br label %124
 
-121:                                              ; preds = %106, %84
+122:                                              ; preds = %106, %84
   call void @FreeDecodedCert(ptr noundef nonnull %5) #22
-  %122 = load ptr, ptr %13, align 8, !tbaa !16
-  call void @FreeSigner(ptr noundef nonnull %83, ptr noundef %122) #22
-  br label %123
+  %123 = load ptr, ptr %13, align 8, !tbaa !16
+  call void @FreeSigner(ptr noundef nonnull %83, ptr noundef %123) #22
+  br label %124
 
-123:                                              ; preds = %120, %.thread102, %121
-  %.2106 = phi i32 [ %.2.ph, %.thread102 ], [ -303, %120 ], [ -106, %121 ]
+124:                                              ; preds = %121, %.thread102, %122
+  %.2106 = phi i32 [ %120, %.thread102 ], [ -303, %121 ], [ -106, %122 ]
   call void @FreeDer(ptr noundef nonnull %1) #22
-  %124 = call i32 @llvm.umax.i32(i32 %.2106, i32 1)
   br label %125
 
-125:                                              ; preds = %123, %8
-  %.0 = phi i32 [ -173, %8 ], [ %124, %123 ]
+125:                                              ; preds = %124, %8
+  %.0 = phi i32 [ -173, %8 ], [ %.2106, %124 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #22
   ret i32 %.0
 }

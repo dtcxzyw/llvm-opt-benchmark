@@ -939,13 +939,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120.i: ; preds = %
   %158 = fdiv double %154, %157
   %159 = fptrunc double %158 to float
   %160 = fmul float %159, 1.000000e+02
+  %161 = call float @llvm.rint.f32(float %160)
+  %162 = fptosi float %161 to i32
   br label %_ZL22dd_force_load_fractionP12gmx_domdec_t.exit.i
 
 _ZL22dd_force_load_fractionP12gmx_domdec_t.exit.i: ; preds = %152, %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120.i
-  %.0.i.i = phi float [ %160, %152 ], [ 0.000000e+00, %148 ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120.i ]
-  %161 = call float @llvm.rint.f32(float %.0.i.i)
-  %162 = fptosi float %161 to i32
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull @.str.20, i32 noundef %162)
+  %.0.i.i = phi i32 [ %162, %152 ], [ 0, %148 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120.i ]
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull @.str.20, i32 noundef %.0.i.i)
           to label %163 unwind label %239
 
 163:                                              ; preds = %_ZL22dd_force_load_fractionP12gmx_domdec_t.exit.i
@@ -3042,13 +3042,13 @@ _ZN3gmx14LogEntryWriterD2Ev.exit479:              ; preds = %_ZNKSt7__cxx1112bas
   %794 = fdiv float %793, %787
   %795 = fadd float %794, -1.000000e+00
   %796 = fmul float %795, 1.000000e+02
+  %797 = call float @llvm.rint.f32(float %796)
+  %798 = fptosi float %797 to i32
   br label %_ZL10dd_f_imbalP12gmx_domdec_t.exit.i
 
 _ZL10dd_f_imbalP12gmx_domdec_t.exit.i:            ; preds = %789, %782
-  %.0.i.i482 = phi float [ %796, %789 ], [ 0.000000e+00, %782 ]
-  %797 = call float @llvm.rint.f32(float %.0.i.i482)
-  %798 = fptosi float %797 to i32
-  %799 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %783, ptr noundef nonnull @.str.116, i32 noundef %798) #31
+  %.0.i.i482 = phi i32 [ %798, %789 ], [ 0, %782 ]
+  %799 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %783, ptr noundef nonnull @.str.116, i32 noundef %.0.i.i482) #31
   %.pre.i483 = load ptr, ptr %163, align 8, !tbaa !27
   br label %800
 

@@ -6921,13 +6921,12 @@ io_buffer_extract_offset.exit:                    ; preds = %17, %15
   unreachable
 
 io_buffer_buffer_type_size.exit:                  ; preds = %35, %41, %50, %59, %68, %73
-  %.0.i = phi i64 [ 1, %35 ], [ 2, %41 ], [ 4, %50 ], [ 8, %59 ], [ 4, %68 ], [ 8, %73 ]
-  %80 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.i, i1 true)
-  %81 = lshr i64 %36, %80
+  %.0.i = phi i64 [ 0, %35 ], [ 1, %41 ], [ 2, %50 ], [ 3, %59 ], [ 2, %68 ], [ 3, %73 ]
+  %80 = lshr i64 %36, %.0.i
   br label %io_buffer_extract_count.exit
 
 io_buffer_extract_count.exit:                     ; preds = %29, %27, %io_buffer_buffer_type_size.exit
-  %storemerge13 = phi i64 [ %81, %io_buffer_buffer_type_size.exit ], [ %28, %27 ], [ %30, %29 ]
+  %storemerge13 = phi i64 [ %80, %io_buffer_buffer_type_size.exit ], [ %28, %27 ], [ %30, %29 ]
   store i64 %storemerge13, ptr %5, align 8, !tbaa !22
   ret void
 }
@@ -7759,9 +7758,6 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #23

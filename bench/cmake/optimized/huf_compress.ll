@@ -2785,106 +2785,106 @@ HUF_cardinality.exit:                             ; preds = %.lr.ph.i
   br i1 %.not10.i, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %12, %.lr.ph
-  %22 = phi i32 [ %20, %.lr.ph ], [ poison, %12 ]
+  %.06.lcssa.i7276 = phi i32 [ %20, %.lr.ph ], [ poison, %12 ]
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %37
-  %.062.us = phi i32 [ %38, %37 ], [ %22, %.lr.ph.split.us.preheader ]
-  %.04461.us = phi i32 [ %.1.us, %37 ], [ %0, %.lr.ph.split.us.preheader ]
-  %.04560.us = phi i64 [ %.146.us, %37 ], [ -2, %.lr.ph.split.us.preheader ]
-  %23 = tail call i64 @HUF_buildCTable_wksp(ptr noundef %5, ptr noundef %6, i32 noundef %2, i32 noundef %.062.us, ptr noundef %3, i64 noundef %4)
-  %24 = icmp ult i64 %23, -119
-  br i1 %24, label %25, label %37
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %36
+  %.062.us = phi i32 [ %37, %36 ], [ %.06.lcssa.i7276, %.lr.ph.split.us.preheader ]
+  %.04461.us = phi i32 [ %.1.us, %36 ], [ %0, %.lr.ph.split.us.preheader ]
+  %.04560.us = phi i64 [ %.146.us, %36 ], [ -2, %.lr.ph.split.us.preheader ]
+  %22 = tail call i64 @HUF_buildCTable_wksp(ptr noundef %5, ptr noundef %6, i32 noundef %2, i32 noundef %.062.us, ptr noundef %3, i64 noundef %4)
+  %23 = icmp ult i64 %22, -119
+  br i1 %23, label %24, label %36
 
-25:                                               ; preds = %.lr.ph.split.us
-  %26 = zext i32 %.062.us to i64
-  %27 = icmp samesign ult i64 %23, %26
-  %28 = icmp ugt i32 %.062.us, %22
-  %or.cond.us = and i1 %27, %28
-  br i1 %or.cond.us, label %.loopexit, label %29
+24:                                               ; preds = %.lr.ph.split.us
+  %25 = zext i32 %.062.us to i64
+  %26 = icmp samesign ult i64 %22, %25
+  %27 = icmp ugt i32 %.062.us, %.06.lcssa.i7276
+  %or.cond.us = and i1 %26, %27
+  br i1 %or.cond.us, label %.loopexit, label %28
 
-29:                                               ; preds = %25
-  %30 = trunc nuw nsw i64 %23 to i32
-  %31 = tail call i64 @HUF_writeCTable_wksp(ptr noundef nonnull %13, i64 noundef %14, ptr noundef %5, i32 noundef %2, i32 noundef %30, ptr noundef %3, i64 noundef %4)
-  %32 = icmp ult i64 %31, -119
-  br i1 %32, label %HUF_estimateCompressedSize.exit.us, label %37
+28:                                               ; preds = %24
+  %29 = trunc nuw nsw i64 %22 to i32
+  %30 = tail call i64 @HUF_writeCTable_wksp(ptr noundef nonnull %13, i64 noundef %14, ptr noundef %5, i32 noundef %2, i32 noundef %29, ptr noundef %3, i64 noundef %4)
+  %31 = icmp ult i64 %30, -119
+  br i1 %31, label %HUF_estimateCompressedSize.exit.us, label %36
 
-HUF_estimateCompressedSize.exit.us:               ; preds = %29
-  %33 = add nuw i64 %.04560.us, 1
-  %34 = icmp ugt i64 %31, %33
-  br i1 %34, label %.loopexit, label %35
+HUF_estimateCompressedSize.exit.us:               ; preds = %28
+  %32 = add nuw i64 %.04560.us, 1
+  %33 = icmp ugt i64 %30, %32
+  br i1 %33, label %.loopexit, label %34
 
-35:                                               ; preds = %HUF_estimateCompressedSize.exit.us
-  %36 = icmp ult i64 %31, %.04560.us
-  %spec.select.us = tail call i64 @llvm.umin.i64(i64 %31, i64 %.04560.us)
-  %spec.select52.us = select i1 %36, i32 %.062.us, i32 %.04461.us
-  br label %37
+34:                                               ; preds = %HUF_estimateCompressedSize.exit.us
+  %35 = icmp ult i64 %30, %.04560.us
+  %spec.select.us = tail call i64 @llvm.umin.i64(i64 %30, i64 %.04560.us)
+  %spec.select52.us = select i1 %35, i32 %.062.us, i32 %.04461.us
+  br label %36
 
-37:                                               ; preds = %35, %29, %.lr.ph.split.us
-  %.146.us = phi i64 [ %.04560.us, %.lr.ph.split.us ], [ %.04560.us, %29 ], [ %spec.select.us, %35 ]
-  %.1.us = phi i32 [ %.04461.us, %.lr.ph.split.us ], [ %.04461.us, %29 ], [ %spec.select52.us, %35 ]
-  %38 = add i32 %.062.us, 1
-  %.not49.us = icmp ugt i32 %38, %0
+36:                                               ; preds = %34, %28, %.lr.ph.split.us
+  %.146.us = phi i64 [ %.04560.us, %.lr.ph.split.us ], [ %.04560.us, %28 ], [ %spec.select.us, %34 ]
+  %.1.us = phi i32 [ %.04461.us, %.lr.ph.split.us ], [ %.04461.us, %28 ], [ %spec.select52.us, %34 ]
+  %37 = add i32 %.062.us, 1
+  %.not49.us = icmp ugt i32 %37, %0
   br i1 %.not49.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !59
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %63
-  %.062 = phi i32 [ %64, %63 ], [ %20, %.lr.ph ]
-  %.04461 = phi i32 [ %.1, %63 ], [ %0, %.lr.ph ]
-  %.04560 = phi i64 [ %.146, %63 ], [ -2, %.lr.ph ]
-  %39 = tail call i64 @HUF_buildCTable_wksp(ptr noundef %5, ptr noundef %6, i32 noundef %2, i32 noundef %.062, ptr noundef %3, i64 noundef %4)
-  %40 = icmp ult i64 %39, -119
-  br i1 %40, label %41, label %63
+.lr.ph.split:                                     ; preds = %.lr.ph, %62
+  %.062 = phi i32 [ %63, %62 ], [ %20, %.lr.ph ]
+  %.04461 = phi i32 [ %.1, %62 ], [ %0, %.lr.ph ]
+  %.04560 = phi i64 [ %.146, %62 ], [ -2, %.lr.ph ]
+  %38 = tail call i64 @HUF_buildCTable_wksp(ptr noundef %5, ptr noundef %6, i32 noundef %2, i32 noundef %.062, ptr noundef %3, i64 noundef %4)
+  %39 = icmp ult i64 %38, -119
+  br i1 %39, label %40, label %62
 
-41:                                               ; preds = %.lr.ph.split
-  %42 = zext i32 %.062 to i64
-  %43 = icmp samesign ult i64 %39, %42
-  %44 = icmp ugt i32 %.062, %20
-  %or.cond = and i1 %43, %44
-  br i1 %or.cond, label %.loopexit, label %45
+40:                                               ; preds = %.lr.ph.split
+  %41 = zext i32 %.062 to i64
+  %42 = icmp samesign ult i64 %38, %41
+  %43 = icmp ugt i32 %.062, %20
+  %or.cond = and i1 %42, %43
+  br i1 %or.cond, label %.loopexit, label %44
 
-45:                                               ; preds = %41
-  %46 = trunc nuw nsw i64 %39 to i32
-  %47 = tail call i64 @HUF_writeCTable_wksp(ptr noundef nonnull %13, i64 noundef %14, ptr noundef %5, i32 noundef %2, i32 noundef %46, ptr noundef %3, i64 noundef %4)
-  %48 = icmp ult i64 %47, -119
-  br i1 %48, label %.lr.ph.i55, label %63
+44:                                               ; preds = %40
+  %45 = trunc nuw nsw i64 %38 to i32
+  %46 = tail call i64 @HUF_writeCTable_wksp(ptr noundef nonnull %13, i64 noundef %14, ptr noundef %5, i32 noundef %2, i32 noundef %45, ptr noundef %3, i64 noundef %4)
+  %47 = icmp ult i64 %46, -119
+  br i1 %47, label %.lr.ph.i55, label %62
 
-.lr.ph.i55:                                       ; preds = %45, %.lr.ph.i55
-  %indvars.iv.i56 = phi i64 [ %indvars.iv.next.i57, %.lr.ph.i55 ], [ 0, %45 ]
-  %.0911.i = phi i64 [ %56, %.lr.ph.i55 ], [ 0, %45 ]
-  %49 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv.i56
-  %50 = load i64, ptr %49, align 8, !tbaa !9
-  %51 = and i64 %50, 255
-  %52 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i56
-  %53 = load i32, ptr %52, align 4, !tbaa !12
-  %54 = zext i32 %53 to i64
-  %55 = mul nuw nsw i64 %51, %54
-  %56 = add i64 %55, %.0911.i
+.lr.ph.i55:                                       ; preds = %44, %.lr.ph.i55
+  %indvars.iv.i56 = phi i64 [ %indvars.iv.next.i57, %.lr.ph.i55 ], [ 0, %44 ]
+  %.0911.i = phi i64 [ %55, %.lr.ph.i55 ], [ 0, %44 ]
+  %48 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv.i56
+  %49 = load i64, ptr %48, align 8, !tbaa !9
+  %50 = and i64 %49, 255
+  %51 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i56
+  %52 = load i32, ptr %51, align 4, !tbaa !12
+  %53 = zext i32 %52 to i64
+  %54 = mul nuw nsw i64 %50, %53
+  %55 = add i64 %54, %.0911.i
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, %wide.trip.count.i54
   br i1 %exitcond.not.i58, label %._crit_edge.loopexit.i, label %.lr.ph.i55, !llvm.loop !51
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i55
-  %57 = lshr i64 %56, 3
-  %58 = add i64 %57, %47
-  %59 = add nuw i64 %.04560, 1
-  %60 = icmp ugt i64 %58, %59
-  br i1 %60, label %.loopexit, label %61
+  %56 = lshr i64 %55, 3
+  %57 = add i64 %56, %46
+  %58 = add nuw i64 %.04560, 1
+  %59 = icmp ugt i64 %57, %58
+  br i1 %59, label %.loopexit, label %60
 
-61:                                               ; preds = %._crit_edge.loopexit.i
-  %62 = icmp ult i64 %58, %.04560
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %58, i64 %.04560)
-  %spec.select52 = select i1 %62, i32 %.062, i32 %.04461
-  br label %63
+60:                                               ; preds = %._crit_edge.loopexit.i
+  %61 = icmp ult i64 %57, %.04560
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %57, i64 %.04560)
+  %spec.select52 = select i1 %61, i32 %.062, i32 %.04461
+  br label %62
 
-63:                                               ; preds = %61, %45, %.lr.ph.split
-  %.146 = phi i64 [ %.04560, %.lr.ph.split ], [ %.04560, %45 ], [ %spec.select, %61 ]
-  %.1 = phi i32 [ %.04461, %.lr.ph.split ], [ %.04461, %45 ], [ %spec.select52, %61 ]
-  %64 = add i32 %.062, 1
-  %.not49 = icmp ugt i32 %64, %0
+62:                                               ; preds = %60, %44, %.lr.ph.split
+  %.146 = phi i64 [ %.04560, %.lr.ph.split ], [ %.04560, %44 ], [ %spec.select, %60 ]
+  %.1 = phi i32 [ %.04461, %.lr.ph.split ], [ %.04461, %44 ], [ %spec.select52, %60 ]
+  %63 = add i32 %.062, 1
+  %.not49 = icmp ugt i32 %63, %0
   br i1 %.not49, label %.loopexit, label %.lr.ph.split, !llvm.loop !61
 
-.loopexit:                                        ; preds = %41, %._crit_edge.loopexit.i, %63, %25, %HUF_estimateCompressedSize.exit.us, %37, %HUF_cardinality.exit, %10
-  %.047 = phi i32 [ %11, %10 ], [ %0, %HUF_cardinality.exit ], [ %.04461.us, %25 ], [ %.04461.us, %HUF_estimateCompressedSize.exit.us ], [ %.1.us, %37 ], [ %.04461, %41 ], [ %.04461, %._crit_edge.loopexit.i ], [ %.1, %63 ]
+.loopexit:                                        ; preds = %40, %._crit_edge.loopexit.i, %62, %24, %HUF_estimateCompressedSize.exit.us, %36, %HUF_cardinality.exit, %10
+  %.047 = phi i32 [ %11, %10 ], [ %0, %HUF_cardinality.exit ], [ %.04461.us, %24 ], [ %.04461.us, %HUF_estimateCompressedSize.exit.us ], [ %.1.us, %36 ], [ %.04461, %40 ], [ %.04461, %._crit_edge.loopexit.i ], [ %.1, %62 ]
   ret i32 %.047
 }
 

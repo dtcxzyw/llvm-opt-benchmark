@@ -374,15 +374,15 @@ __cmsg_nxthdr.exit.i:                             ; preds = %61
 73:                                               ; preds = %54
   %74 = getelementptr inbounds nuw i8, ptr %.03.i, i64 16
   %.sroa.0.0.copyload = load i16, ptr %74, align 8
+  %75 = call i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload)
   br label %ff_sctp_recvmsg.exit
 
 ff_sctp_recvmsg.exit:                             ; preds = %58, %61, %31, %44, %73
-  %.sroa.0.0 = phi i16 [ 0, %31 ], [ 0, %44 ], [ %.sroa.0.0.copyload, %73 ], [ 0, %61 ], [ 0, %58 ]
+  %.sroa.0.0 = phi i16 [ 0, %31 ], [ 0, %44 ], [ %75, %73 ], [ 0, %61 ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  %75 = call i16 @llvm.bswap.i16(i16 %.sroa.0.0)
-  store i16 %75, ptr %1, align 1, !tbaa !55
+  store i16 %.sroa.0.0, ptr %1, align 1, !tbaa !55
   %76 = add nuw nsw i32 %42, 2
   %77 = select i1 %43, i32 %42, i32 %76
   br label %82

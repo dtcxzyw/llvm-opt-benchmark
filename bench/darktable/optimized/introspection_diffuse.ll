@@ -925,14 +925,14 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %32 = add i32 %.078.i, 2
+  %33 = tail call i32 @llvm.smax.i32(i32 %32, i32 1)
+  %34 = tail call i32 @llvm.umin.i32(i32 %33, i32 10)
   br label %num_steps_to_reach_equivalent_sigma.exit
 
 num_steps_to_reach_equivalent_sigma.exit:         ; preds = %5, %._crit_edge.loopexit.i
-  %.07.lcssa.i = phi i32 [ 1, %5 ], [ %32, %._crit_edge.loopexit.i ]
-  %33 = tail call i32 @llvm.smax.i32(i32 %.07.lcssa.i, i32 1)
-  %34 = tail call i32 @llvm.umin.i32(i32 %33, i32 10)
-  %35 = shl nuw nsw i32 1, %34
-  %36 = uitofp nneg i32 %34 to float
+  %.07.lcssa.i = phi i32 [ 1, %5 ], [ %34, %._crit_edge.loopexit.i ]
+  %35 = shl nuw nsw i32 1, %.07.lcssa.i
+  %36 = uitofp nneg i32 %.07.lcssa.i to float
   %37 = fadd reassoc nsz arcp contract afn float %36, 6.250000e+00
   store float %37, ptr %4, align 4, !tbaa !54
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1075,15 +1075,15 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %97 = add i32 %.078.i, 2
+  %98 = call i32 @llvm.smax.i32(i32 %97, i32 1)
+  %99 = call i32 @llvm.umin.i32(i32 %98, i32 10)
   br label %num_steps_to_reach_equivalent_sigma.exit
 
 num_steps_to_reach_equivalent_sigma.exit:         ; preds = %66, %._crit_edge.loopexit.i
-  %.07.lcssa.i = phi i32 [ 1, %66 ], [ %97, %._crit_edge.loopexit.i ]
-  %98 = call i32 @llvm.smax.i32(i32 %.07.lcssa.i, i32 1)
-  %99 = call i32 @llvm.umin.i32(i32 %98, i32 10)
+  %.07.lcssa.i = phi i32 [ 1, %66 ], [ %99, %._crit_edge.loopexit.i ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %42) #21
   %100 = shl i64 %61, 4
-  %wide.trip.count = zext nneg i32 %99 to i64
+  %wide.trip.count = zext nneg i32 %.07.lcssa.i to i64
   br label %102
 
 101:                                              ; preds = %105
@@ -1532,7 +1532,7 @@ decompose_2D_Bspline.exit.us.i:                   ; preds = %388, %decompose_2D_
 388:                                              ; preds = %384, %decompose_2D_Bspline.exit.us.i
   %389 = phi ptr [ %.pre.i, %384 ], [ null, %decompose_2D_Bspline.exit.us.i ]
   %390 = add nuw nsw i32 %.095125.us.i, 1
-  %exitcond135.not.i = icmp eq i32 %390, %99
+  %exitcond135.not.i = icmp eq i32 %390, %.07.lcssa.i
   br i1 %exitcond135.not.i, label %._crit_edge.i, label %decompose_2D_Bspline.exit.us.i, !llvm.loop !148
 
 .lr.ph.split.i:                                   ; preds = %347
@@ -2982,7 +2982,7 @@ heat_PDE_diffusion.exit.i:                        ; preds = %._crit_edge.i118.i,
 1161:                                             ; preds = %1159, %heat_PDE_diffusion.exit.i
   %1162 = add nuw nsw i32 %.098128.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #21, !noalias !112
-  %exitcond139.not.i = icmp eq i32 %1162, %99
+  %exitcond139.not.i = icmp eq i32 %1162, %.07.lcssa.i
   br i1 %exitcond139.not.i, label %wavelets_process.exit, label %524
 
 wavelets_process.exit:                            ; preds = %1161

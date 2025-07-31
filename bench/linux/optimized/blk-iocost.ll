@@ -3968,22 +3968,25 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %282 = phi i32 [ %280, %268 ], [ %252, %248 ]
   %283 = phi i32 [ %274, %268 ], [ %251, %248 ]
   %284 = icmp sgt i32 %253, %244
-  br i1 %284, label %.loopexit174, label %248, !llvm.loop !53
+  br i1 %284, label %.loopexit174.loopexit, label %248, !llvm.loop !53
 
-.loopexit174:                                     ; preds = %281, %241
-  %285 = phi i32 [ 65536, %241 ], [ %282, %281 ]
-  %286 = phi i32 [ 65536, %241 ], [ %283, %281 ]
-  %287 = call i32 @llvm.umax.i32(i32 %286, i32 1)
-  %288 = getelementptr i8, ptr %131, i64 44
-  store i32 %287, ptr %288, align 4
-  %289 = call i32 @llvm.umax.i32(i32 %285, i32 1)
+.loopexit174.loopexit:                            ; preds = %281
+  %285 = call i32 @llvm.umax.i32(i32 %283, i32 1)
+  %286 = call i32 @llvm.umax.i32(i32 %282, i32 1)
+  br label %.loopexit174
+
+.loopexit174:                                     ; preds = %.loopexit174.loopexit, %241
+  %287 = phi i32 [ 65536, %241 ], [ %286, %.loopexit174.loopexit ]
+  %288 = phi i32 [ 65536, %241 ], [ %285, %.loopexit174.loopexit ]
+  %289 = getelementptr i8, ptr %131, i64 44
+  store i32 %288, ptr %289, align 4
   %290 = getelementptr i8, ptr %131, i64 48
-  store i32 %289, ptr %290, align 8
+  store i32 %287, ptr %290, align 8
   store i32 %237, ptr %238, align 8
   br label %291
 
 291:                                              ; preds = %._crit_edge, %.loopexit174
-  %292 = phi i32 [ %.pre238, %._crit_edge ], [ %289, %.loopexit174 ]
+  %292 = phi i32 [ %.pre238, %._crit_edge ], [ %287, %.loopexit174 ]
   %293 = zext i32 %292 to i64
   %294 = mul i64 %233, %293
   %295 = lshr i64 %294, 16
@@ -4564,23 +4567,26 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %673 = phi i32 [ %671, %659 ], [ %643, %639 ]
   %674 = phi i32 [ %665, %659 ], [ %642, %639 ]
   %675 = icmp sgt i32 %644, %635
-  br i1 %675, label %.loopexit166, label %639, !llvm.loop !53
+  br i1 %675, label %.loopexit166.loopexit, label %639, !llvm.loop !53
 
-.loopexit166:                                     ; preds = %672, %632
-  %676 = phi i32 [ 65536, %632 ], [ %673, %672 ]
-  %677 = phi i32 [ 65536, %632 ], [ %674, %672 ]
-  %678 = call i32 @llvm.umax.i32(i32 %677, i32 1)
-  %679 = getelementptr i8, ptr %616, i64 44
-  store i32 %678, ptr %679, align 4
-  %680 = call i32 @llvm.umax.i32(i32 %676, i32 1)
+.loopexit166.loopexit:                            ; preds = %672
+  %676 = call i32 @llvm.umax.i32(i32 %674, i32 1)
+  %677 = call i32 @llvm.umax.i32(i32 %673, i32 1)
+  br label %.loopexit166
+
+.loopexit166:                                     ; preds = %.loopexit166.loopexit, %632
+  %678 = phi i32 [ 65536, %632 ], [ %677, %.loopexit166.loopexit ]
+  %679 = phi i32 [ 65536, %632 ], [ %676, %.loopexit166.loopexit ]
+  %680 = getelementptr i8, ptr %616, i64 44
+  store i32 %679, ptr %680, align 4
   %681 = getelementptr i8, ptr %616, i64 48
-  store i32 %680, ptr %681, align 8
+  store i32 %678, ptr %681, align 8
   store i32 %628, ptr %629, align 8
   br label %682
 
 682:                                              ; preds = %._crit_edge243, %.loopexit166
-  %683 = phi i32 [ %.pre247, %._crit_edge243 ], [ %680, %.loopexit166 ]
-  %684 = phi i32 [ %.pre245, %._crit_edge243 ], [ %678, %.loopexit166 ]
+  %683 = phi i32 [ %.pre247, %._crit_edge243 ], [ %678, %.loopexit166 ]
+  %684 = phi i32 [ %.pre245, %._crit_edge243 ], [ %679, %.loopexit166 ]
   %685 = getelementptr i8, ptr %616, i64 44
   %686 = getelementptr i8, ptr %616, i64 48
   br i1 %611, label %687, label %710
@@ -4756,25 +4762,28 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %808 = phi i32 [ %806, %794 ], [ %778, %774 ]
   %809 = phi i32 [ %800, %794 ], [ %777, %774 ]
   %810 = icmp sgt i32 %779, %770
-  br i1 %810, label %.loopexit165, label %774, !llvm.loop !53
+  br i1 %810, label %.loopexit165.loopexit, label %774, !llvm.loop !53
 
-.loopexit165:                                     ; preds = %807, %767
-  %811 = phi i32 [ 65536, %767 ], [ %808, %807 ]
-  %812 = phi i32 [ 65536, %767 ], [ %809, %807 ]
-  %813 = call i32 @llvm.umax.i32(i32 %812, i32 1)
-  store i32 %813, ptr %685, align 4
-  %814 = call i32 @llvm.umax.i32(i32 %811, i32 1)
-  store i32 %814, ptr %686, align 8
+.loopexit165.loopexit:                            ; preds = %807
+  %811 = call i32 @llvm.umax.i32(i32 %809, i32 1)
+  %812 = call i32 @llvm.umax.i32(i32 %808, i32 1)
+  br label %.loopexit165
+
+.loopexit165:                                     ; preds = %.loopexit165.loopexit, %767
+  %813 = phi i32 [ 65536, %767 ], [ %812, %.loopexit165.loopexit ]
+  %814 = phi i32 [ 65536, %767 ], [ %811, %.loopexit165.loopexit ]
+  store i32 %814, ptr %685, align 4
+  store i32 %813, ptr %686, align 8
   store i32 %764, ptr %629, align 8
   br label %815
 
 815:                                              ; preds = %._crit_edge249, %.loopexit165
   %.pre-phi = phi i32 [ %.pre267, %._crit_edge249 ], [ %770, %.loopexit165 ]
   %816 = phi i32 [ %.pre253, %._crit_edge249 ], [ %769, %.loopexit165 ]
-  %817 = phi i32 [ %.pre251, %._crit_edge249 ], [ %814, %.loopexit165 ]
-  %818 = phi i32 [ %.pre250, %._crit_edge249 ], [ %813, %.loopexit165 ]
+  %817 = phi i32 [ %.pre251, %._crit_edge249 ], [ %813, %.loopexit165 ]
+  %818 = phi i32 [ %.pre250, %._crit_edge249 ], [ %814, %.loopexit165 ]
   %819 = icmp sgt i32 %.pre-phi, -1
-  br i1 %819, label %820, label %860
+  br i1 %819, label %820, label %861
 
 820:                                              ; preds = %815
   %821 = getelementptr i8, ptr %616, i64 -80
@@ -4821,11 +4830,11 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
 
 858:                                              ; preds = %825
   %859 = trunc i64 %845 to i32
-  br label %860
+  %860 = call i32 @llvm.umax.i32(i32 %859, i32 1)
+  br label %861
 
-860:                                              ; preds = %858, %815
-  %861 = phi i32 [ 65536, %815 ], [ %859, %858 ]
-  %862 = call i32 @llvm.umax.i32(i32 %861, i32 1)
+861:                                              ; preds = %858, %815
+  %862 = phi i32 [ 65536, %815 ], [ %860, %858 ]
   %863 = load ptr, ptr %625, align 8
   %864 = load volatile i64, ptr %623, align 8
   %865 = getelementptr i8, ptr %616, i64 -32
@@ -4833,7 +4842,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %867 = icmp eq i64 %866, 0
   br i1 %867, label %868, label %911
 
-868:                                              ; preds = %860
+868:                                              ; preds = %861
   %869 = getelementptr i8, ptr %616, i64 104
   %870 = load volatile ptr, ptr %869, align 8
   %871 = icmp eq ptr %870, %869
@@ -4890,8 +4899,8 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %910 = select i1 %907, i32 %909, i32 %862
   br label %911
 
-911:                                              ; preds = %893, %860
-  %912 = phi i32 [ %910, %893 ], [ 1, %860 ]
+911:                                              ; preds = %893, %861
+  %912 = phi i32 [ %910, %893 ], [ 1, %861 ]
   %913 = icmp ult i32 %912, %862
   %914 = icmp ugt i32 %818, 1
   %915 = select i1 %913, i1 %914, i1 false
@@ -5095,22 +5104,25 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %1035 = phi i32 [ %1033, %1021 ], [ %1005, %1001 ]
   %1036 = phi i32 [ %1027, %1021 ], [ %1004, %1001 ]
   %1037 = icmp sgt i32 %1006, %997
-  br i1 %1037, label %.loopexit164, label %1001, !llvm.loop !53
+  br i1 %1037, label %.loopexit164.loopexit, label %1001, !llvm.loop !53
 
-.loopexit164:                                     ; preds = %1034, %994
-  %1038 = phi i32 [ 65536, %994 ], [ %1035, %1034 ]
-  %1039 = phi i32 [ 65536, %994 ], [ %1036, %1034 ]
-  %1040 = call i32 @llvm.umax.i32(i32 %1039, i32 1)
-  %1041 = getelementptr i8, ptr %984, i64 -36
-  store i32 %1040, ptr %1041, align 4
-  %1042 = call i32 @llvm.umax.i32(i32 %1038, i32 1)
+.loopexit164.loopexit:                            ; preds = %1034
+  %1038 = call i32 @llvm.umax.i32(i32 %1036, i32 1)
+  %1039 = call i32 @llvm.umax.i32(i32 %1035, i32 1)
+  br label %.loopexit164
+
+.loopexit164:                                     ; preds = %.loopexit164.loopexit, %994
+  %1040 = phi i32 [ 65536, %994 ], [ %1039, %.loopexit164.loopexit ]
+  %1041 = phi i32 [ 65536, %994 ], [ %1038, %.loopexit164.loopexit ]
+  %1042 = getelementptr i8, ptr %984, i64 -36
+  store i32 %1041, ptr %1042, align 4
   %1043 = getelementptr i8, ptr %984, i64 -32
-  store i32 %1042, ptr %1043, align 8
+  store i32 %1040, ptr %1043, align 8
   store i32 %990, ptr %991, align 8
   br label %1044
 
 1044:                                             ; preds = %._crit_edge257, %.loopexit164
-  %1045 = phi i32 [ %.pre259, %._crit_edge257 ], [ %1040, %.loopexit164 ]
+  %1045 = phi i32 [ %.pre259, %._crit_edge257 ], [ %1041, %.loopexit164 ]
   %1046 = getelementptr i8, ptr %984, i64 -24
   %1047 = load i32, ptr %1046, align 8
   %1048 = add i32 %1047, %985
@@ -6742,22 +6754,25 @@ define internal fastcc void @iocg_kick_waitq(ptr noundef %0, i1 noundef zeroext 
   %57 = phi i32 [ %55, %43 ], [ %27, %23 ]
   %58 = phi i32 [ %49, %43 ], [ %26, %23 ]
   %59 = icmp sgt i32 %28, %19
-  br i1 %59, label %.loopexit17, label %23, !llvm.loop !53
+  br i1 %59, label %.loopexit17.loopexit, label %23, !llvm.loop !53
 
-.loopexit17:                                      ; preds = %56, %16
-  %60 = phi i32 [ 65536, %16 ], [ %57, %56 ]
-  %61 = phi i32 [ 65536, %16 ], [ %58, %56 ]
-  %62 = tail call i32 @llvm.umax.i32(i32 %61, i32 1)
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i32 %62, ptr %63, align 4
-  %64 = tail call i32 @llvm.umax.i32(i32 %60, i32 1)
+.loopexit17.loopexit:                             ; preds = %56
+  %60 = tail call i32 @llvm.umax.i32(i32 %58, i32 1)
+  %61 = tail call i32 @llvm.umax.i32(i32 %57, i32 1)
+  br label %.loopexit17
+
+.loopexit17:                                      ; preds = %.loopexit17.loopexit, %16
+  %62 = phi i32 [ 65536, %16 ], [ %61, %.loopexit17.loopexit ]
+  %63 = phi i32 [ 65536, %16 ], [ %60, %.loopexit17.loopexit ]
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  store i32 %63, ptr %64, align 4
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %64, ptr %65, align 8
+  store i32 %62, ptr %65, align 8
   store i32 %12, ptr %13, align 8
   br label %66
 
 66:                                               ; preds = %._crit_edge, %.loopexit17
-  %67 = phi i32 [ %.pre24, %._crit_edge ], [ %62, %.loopexit17 ]
+  %67 = phi i32 [ %.pre24, %._crit_edge ], [ %63, %.loopexit17 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %70 = load i64, ptr %69, align 8
@@ -6949,21 +6964,24 @@ define internal fastcc void @iocg_kick_waitq(ptr noundef %0, i1 noundef zeroext 
   %192 = phi i32 [ %190, %178 ], [ %162, %158 ]
   %193 = phi i32 [ %184, %178 ], [ %161, %158 ]
   %194 = icmp sgt i32 %163, %154
-  br i1 %194, label %.loopexit, label %158, !llvm.loop !53
+  br i1 %194, label %.loopexit.loopexit, label %158, !llvm.loop !53
 
-.loopexit:                                        ; preds = %191, %151
-  %195 = phi i32 [ 65536, %151 ], [ %192, %191 ]
-  %196 = phi i32 [ 65536, %151 ], [ %193, %191 ]
-  %197 = tail call i32 @llvm.umax.i32(i32 %196, i32 1)
-  store i32 %197, ptr %68, align 4
-  %198 = tail call i32 @llvm.umax.i32(i32 %195, i32 1)
+.loopexit.loopexit:                               ; preds = %191
+  %195 = tail call i32 @llvm.umax.i32(i32 %193, i32 1)
+  %196 = tail call i32 @llvm.umax.i32(i32 %192, i32 1)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %151
+  %197 = phi i32 [ 65536, %151 ], [ %196, %.loopexit.loopexit ]
+  %198 = phi i32 [ 65536, %151 ], [ %195, %.loopexit.loopexit ]
+  store i32 %198, ptr %68, align 4
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %198, ptr %199, align 8
+  store i32 %197, ptr %199, align 8
   store i32 %148, ptr %13, align 8
   br label %200
 
 200:                                              ; preds = %._crit_edge27, %.loopexit
-  %201 = phi i32 [ %.pre29, %._crit_edge27 ], [ %198, %.loopexit ]
+  %201 = phi i32 [ %.pre29, %._crit_edge27 ], [ %197, %.loopexit ]
   store i32 %201, ptr %8, align 8
   call void @__wake_up_locked_key(ptr noundef nonnull %10, i32 noundef 3, ptr noundef nonnull %4) #21
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -7145,22 +7163,25 @@ define internal fastcc noundef zeroext i1 @iocg_kick_delay(ptr noundef %0, ptr n
   %71 = phi i32 [ %69, %57 ], [ %41, %37 ]
   %72 = phi i32 [ %63, %57 ], [ %40, %37 ]
   %73 = icmp sgt i32 %42, %33
-  br i1 %73, label %.loopexit, label %37, !llvm.loop !53
+  br i1 %73, label %.loopexit.loopexit, label %37, !llvm.loop !53
 
-.loopexit:                                        ; preds = %70, %30
-  %74 = phi i32 [ 65536, %30 ], [ %71, %70 ]
-  %75 = phi i32 [ 65536, %30 ], [ %72, %70 ]
-  %76 = tail call i32 @llvm.umax.i32(i32 %75, i32 1)
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i32 %76, ptr %77, align 4
-  %78 = tail call i32 @llvm.umax.i32(i32 %74, i32 1)
+.loopexit.loopexit:                               ; preds = %70
+  %74 = tail call i32 @llvm.umax.i32(i32 %72, i32 1)
+  %75 = tail call i32 @llvm.umax.i32(i32 %71, i32 1)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %30
+  %76 = phi i32 [ 65536, %30 ], [ %75, %.loopexit.loopexit ]
+  %77 = phi i32 [ 65536, %30 ], [ %74, %.loopexit.loopexit ]
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  store i32 %77, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %78, ptr %79, align 8
+  store i32 %76, ptr %79, align 8
   store i32 %26, ptr %27, align 8
   br label %80
 
 80:                                               ; preds = %._crit_edge, %.loopexit
-  %81 = phi i32 [ %.pre19, %._crit_edge ], [ %76, %.loopexit ]
+  %81 = phi i32 [ %.pre19, %._crit_edge ], [ %77, %.loopexit ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %83 = load volatile i64, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -8341,22 +8362,25 @@ define internal fastcc i64 @adjust_inuse_and_calc_cost(ptr noundef nonnull %0, i
   %55 = phi i32 [ %53, %41 ], [ %25, %21 ]
   %56 = phi i32 [ %47, %41 ], [ %24, %21 ]
   %57 = icmp sgt i32 %26, %17
-  br i1 %57, label %.loopexit15, label %21, !llvm.loop !53
+  br i1 %57, label %.loopexit15.loopexit, label %21, !llvm.loop !53
 
-.loopexit15:                                      ; preds = %54, %14
-  %58 = phi i32 [ 65536, %14 ], [ %55, %54 ]
-  %59 = phi i32 [ 65536, %14 ], [ %56, %54 ]
-  %60 = tail call i32 @llvm.umax.i32(i32 %59, i32 1)
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i32 %60, ptr %61, align 4
-  %62 = tail call i32 @llvm.umax.i32(i32 %58, i32 1)
+.loopexit15.loopexit:                             ; preds = %54
+  %58 = tail call i32 @llvm.umax.i32(i32 %56, i32 1)
+  %59 = tail call i32 @llvm.umax.i32(i32 %55, i32 1)
+  br label %.loopexit15
+
+.loopexit15:                                      ; preds = %.loopexit15.loopexit, %14
+  %60 = phi i32 [ 65536, %14 ], [ %59, %.loopexit15.loopexit ]
+  %61 = phi i32 [ 65536, %14 ], [ %58, %.loopexit15.loopexit ]
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  store i32 %61, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %62, ptr %63, align 8
+  store i32 %60, ptr %63, align 8
   store i32 %10, ptr %11, align 8
   br label %64
 
 64:                                               ; preds = %._crit_edge, %.loopexit15
-  %65 = phi i32 [ %.pre26, %._crit_edge ], [ %62, %.loopexit15 ]
+  %65 = phi i32 [ %.pre26, %._crit_edge ], [ %60, %.loopexit15 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %67 = zext i32 %65 to i64
   %68 = shl i64 %2, 16
@@ -8502,20 +8526,23 @@ define internal fastcc i64 @adjust_inuse_and_calc_cost(ptr noundef nonnull %0, i
   %164 = phi i32 [ %162, %150 ], [ %134, %.preheader ]
   %165 = phi i32 [ %156, %150 ], [ %133, %.preheader ]
   %166 = icmp sgt i32 %135, %129
-  br i1 %166, label %.loopexit, label %.preheader, !llvm.loop !53
+  br i1 %166, label %.loopexit.loopexit, label %.preheader, !llvm.loop !53
 
-.loopexit:                                        ; preds = %163, %127
-  %167 = phi i32 [ 65536, %127 ], [ %164, %163 ]
-  %168 = phi i32 [ 65536, %127 ], [ %165, %163 ]
-  %169 = tail call i32 @llvm.umax.i32(i32 %168, i32 1)
-  store i32 %169, ptr %110, align 4
-  %170 = tail call i32 @llvm.umax.i32(i32 %167, i32 1)
-  store i32 %170, ptr %66, align 8
+.loopexit.loopexit:                               ; preds = %163
+  %167 = tail call i32 @llvm.umax.i32(i32 %165, i32 1)
+  %168 = tail call i32 @llvm.umax.i32(i32 %164, i32 1)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %127
+  %169 = phi i32 [ 65536, %127 ], [ %168, %.loopexit.loopexit ]
+  %170 = phi i32 [ 65536, %127 ], [ %167, %.loopexit.loopexit ]
+  store i32 %170, ptr %110, align 4
+  store i32 %169, ptr %66, align 8
   store i32 %124, ptr %11, align 8
   br label %171
 
 171:                                              ; preds = %._crit_edge29, %.loopexit
-  %172 = phi i32 [ %.pre30, %._crit_edge29 ], [ %170, %.loopexit ]
+  %172 = phi i32 [ %.pre30, %._crit_edge29 ], [ %169, %.loopexit ]
   %173 = zext i32 %172 to i64
   %174 = add i64 %69, %173
   %175 = udiv i64 %174, %173

@@ -1132,13 +1132,13 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6reta
 _ZN4core4iter6traits8iterator8Iterator4fold17he9fa93f6eb19bdbaE.exit.loopexit: ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h338ad63fa8b5d104E.exit.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i"
   %.sroa.0.0.lcssa.i.ph = phi i64 [ %139, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h338ad63fa8b5d104E.exit.i" ], [ %.sroa.0.018.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i" ]
   %.pre = load i64, ptr %24, align 8, !noalias !105
+  %140 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.0.0.lcssa.i.ph, i64 1)
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17he9fa93f6eb19bdbaE.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17he9fa93f6eb19bdbaE.exit: ; preds = %77, %_ZN4core4iter6traits8iterator8Iterator4fold17he9fa93f6eb19bdbaE.exit.loopexit
-  %140 = phi i64 [ %.pre, %_ZN4core4iter6traits8iterator8Iterator4fold17he9fa93f6eb19bdbaE.exit.loopexit ], [ %25, %77 ]
-  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.0.lcssa.i.ph, %_ZN4core4iter6traits8iterator8Iterator4fold17he9fa93f6eb19bdbaE.exit.loopexit ], [ 0, %77 ]
-  %141 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.0.0.lcssa.i, i64 1)
-  %142 = icmp ugt i64 %36, %140
+  %141 = phi i64 [ %.pre, %_ZN4core4iter6traits8iterator8Iterator4fold17he9fa93f6eb19bdbaE.exit.loopexit ], [ %25, %77 ]
+  %.sroa.0.0.lcssa.i = phi i64 [ %140, %_ZN4core4iter6traits8iterator8Iterator4fold17he9fa93f6eb19bdbaE.exit.loopexit ], [ 0, %77 ]
+  %142 = icmp ugt i64 %36, %141
   br i1 %142, label %150, label %144
 
 143:                                              ; preds = %91, %89
@@ -1146,7 +1146,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17he9fa93f6eb19bdbaE.exit: ; preds = 
   unreachable
 
 144:                                              ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17he9fa93f6eb19bdbaE.exit
-  %145 = add i64 %140, 1
+  %145 = add i64 %141, 1
   %146 = icmp eq i64 %36, %145
   br i1 %146, label %147, label %152
 
@@ -1156,13 +1156,13 @@ _ZN4core4iter6traits8iterator8Iterator4fold17he9fa93f6eb19bdbaE.exit: ; preds = 
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %147, %_ZN4core4iter6traits8iterator8Iterator4fold17he9fa93f6eb19bdbaE.exit
-  %151 = add nuw i64 %141, 1
+  %151 = add nuw i64 %.sroa.0.0.lcssa.i, 1
   br label %152
 
 152:                                              ; preds = %150, %147, %144
   %.sink.i = phi i64 [ 2, %150 ], [ 1, %147 ], [ 1, %144 ]
-  %.sroa.037.0.i = phi i64 [ %151, %150 ], [ %141, %147 ], [ %141, %144 ]
-  %153 = add i64 %.sink.i, %141
+  %.sroa.037.0.i = phi i64 [ %151, %150 ], [ %.sroa.0.0.lcssa.i, %147 ], [ %.sroa.0.0.lcssa.i, %144 ]
+  %153 = add i64 %.sink.i, %.sroa.0.0.lcssa.i
   %154 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
   %155 = load ptr, ptr %154, align 8, !alias.scope !100, !noalias !103, !nonnull !8, !align !18, !noundef !8
   %156 = load i64, ptr %155, align 8, !noalias !105, !noundef !8

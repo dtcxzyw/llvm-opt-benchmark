@@ -8739,15 +8739,15 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h453f525df5a18fcaE
 
 _ZN4core4hash4Hash10hash_slice17h6d6245c089780d51E.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i
   %.pre.i.i = load i64, ptr %3, align 8, !alias.scope !1770, !noalias !1764
+  %19 = call i64 @llvm.fshl.i64(i64 %.pre.i.i, i64 %.pre.i.i, i64 5)
   br label %_ZN4core4hash4Hash10hash_slice17h6d6245c089780d51E.exit.i.i
 
 _ZN4core4hash4Hash10hash_slice17h6d6245c089780d51E.exit.i.i: ; preds = %_ZN4core4hash4Hash10hash_slice17h6d6245c089780d51E.exit.loopexit.i.i, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h1a2e3220a6d45eecE.exit.i"
-  %19 = phi i64 [ %.pre.i.i, %_ZN4core4hash4Hash10hash_slice17h6d6245c089780d51E.exit.loopexit.i.i ], [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h1a2e3220a6d45eecE.exit.i" ]
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %21 = load i8, ptr %20, align 8, !range !377, !alias.scope !1764, !noalias !1762, !noundef !12
-  %22 = zext nneg i8 %21 to i64
-  %23 = call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 5)
-  %24 = xor i64 %23, %22
+  %20 = phi i64 [ %19, %_ZN4core4hash4Hash10hash_slice17h6d6245c089780d51E.exit.loopexit.i.i ], [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h1a2e3220a6d45eecE.exit.i" ]
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %22 = load i8, ptr %21, align 8, !range !377, !alias.scope !1764, !noalias !1762, !noundef !12
+  %23 = zext nneg i8 %22 to i64
+  %24 = xor i64 %20, %23
   %25 = mul i64 %24, 5871781006564002453
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load ptr, ptr %26, align 8, !alias.scope !1764, !noalias !1762, !nonnull !12, !noundef !12
@@ -8894,7 +8894,7 @@ _ZN4core4hash4Hash10hash_slice17h0d89d615d2320aaeE.exit.loopexit.i.i: ; preds = 
   br i1 %95, label %96, label %.backedge.i.i
 
 96:                                               ; preds = %.noexc5
-  %97 = load i8, ptr %20, align 8, !range !377, !alias.scope !1812, !noalias !1818, !noundef !12
+  %97 = load i8, ptr %21, align 8, !range !377, !alias.scope !1812, !noalias !1818, !noundef !12
   %98 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i, i64 40
   %99 = load i8, ptr %98, align 8, !range !377, !alias.scope !1816, !noalias !1825, !noundef !12
   %100 = icmp eq i8 %97, %99

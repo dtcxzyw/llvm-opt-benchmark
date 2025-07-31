@@ -174,46 +174,46 @@ put_bits32.exit58:
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %42 = load i8, ptr %40, align 1, !tbaa !16
-  %43 = and i8 %42, 3
-  %44 = zext nneg i8 %43 to i32
-  %45 = load i8, ptr %39, align 1, !tbaa !15
-  %46 = zext i8 %45 to i32
-  %47 = shl i32 %46, 28
-  %48 = shl nuw nsw i32 %44, 26
-  %49 = or disjoint i32 %47, %48
-  %50 = lshr exact i32 %49, 24
-  store i32 %50, ptr %41, align 1, !tbaa !4
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %43 = shl i8 %42, 2
+  %44 = and i8 %43, 12
+  %45 = zext nneg i8 %44 to i32
+  %46 = load i8, ptr %39, align 1, !tbaa !15
+  %47 = zext i8 %46 to i32
+  %48 = shl nuw nsw i32 %47, 4
+  %.masked = and i32 %48, 240
+  %49 = or disjoint i32 %.masked, %45
+  store i32 %49, ptr %41, align 1, !tbaa !4
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 0, ptr %50, align 1, !tbaa !4
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %51, align 1, !tbaa !4
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 0, ptr %52, align 1, !tbaa !4
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 0, ptr %53, align 1, !tbaa !4
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 0, ptr %54, align 1, !tbaa !4
-  %55 = load i8, ptr %8, align 1, !tbaa !10
-  %56 = icmp ugt i8 %55, 10
-  %57 = icmp ugt i8 %55, 7
-  %58 = select i1 %57, ptr @.str.3, ptr @.str.4
-  %59 = select i1 %56, ptr @.str.2, ptr %58
-  %60 = load i8, ptr %2, align 1, !tbaa !7
-  %61 = zext i8 %60 to i32
-  %62 = load i8, ptr %5, align 1, !tbaa !9
-  %63 = zext i8 %62 to i32
-  %64 = zext i8 %55 to i32
-  %65 = load i8, ptr %16, align 1, !tbaa !11
-  %66 = zext i8 %65 to i32
-  %67 = load i8, ptr %18, align 1, !tbaa !12
-  %68 = zext i8 %67 to i32
-  %69 = load i8, ptr %28, align 1, !tbaa !13
-  %70 = zext i8 %69 to i32
-  %71 = load i8, ptr %30, align 1, !tbaa !14
-  %72 = zext i8 %71 to i32
-  %73 = load i8, ptr %39, align 1, !tbaa !15
-  %74 = zext i8 %73 to i32
-  %75 = load i8, ptr %40, align 1, !tbaa !16
-  %76 = zext i8 %75 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.1, ptr noundef nonnull %59, i32 noundef %61, i32 noundef %63, i32 noundef %64, i32 noundef %66, i32 noundef %68, i32 noundef %70, i32 noundef %72, i32 noundef %74, i32 noundef %76) #4
+  %54 = load i8, ptr %8, align 1, !tbaa !10
+  %55 = icmp ugt i8 %54, 10
+  %56 = icmp ugt i8 %54, 7
+  %57 = select i1 %56, ptr @.str.3, ptr @.str.4
+  %58 = select i1 %55, ptr @.str.2, ptr %57
+  %59 = load i8, ptr %2, align 1, !tbaa !7
+  %60 = zext i8 %59 to i32
+  %61 = load i8, ptr %5, align 1, !tbaa !9
+  %62 = zext i8 %61 to i32
+  %63 = zext i8 %54 to i32
+  %64 = load i8, ptr %16, align 1, !tbaa !11
+  %65 = zext i8 %64 to i32
+  %66 = load i8, ptr %18, align 1, !tbaa !12
+  %67 = zext i8 %66 to i32
+  %68 = load i8, ptr %28, align 1, !tbaa !13
+  %69 = zext i8 %68 to i32
+  %70 = load i8, ptr %30, align 1, !tbaa !14
+  %71 = zext i8 %70 to i32
+  %72 = load i8, ptr %39, align 1, !tbaa !15
+  %73 = zext i8 %72 to i32
+  %74 = load i8, ptr %40, align 1, !tbaa !16
+  %75 = zext i8 %74 to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.1, ptr noundef nonnull %58, i32 noundef %60, i32 noundef %62, i32 noundef %63, i32 noundef %65, i32 noundef %67, i32 noundef %69, i32 noundef %71, i32 noundef %73, i32 noundef %75) #4
   ret void
 }
 

@@ -21363,50 +21363,50 @@ define void @_ZN6duckdb10ColumnData22AppendTransientSegmentERNS_11SegmentLockEm(
   %18 = icmp eq i64 %2, %17
   %19 = shl i64 %15, 11
   %20 = tail call i64 @llvm.umin.i64(i64 %11, i64 %19)
-  %21 = select i1 %18, i64 %20, i64 %11
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %23 = load i64, ptr %22, align 8, !tbaa !1101
-  %24 = add i64 %21, %23
-  store i64 %24, ptr %22, align 8, !tbaa !1101
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !294
-  %27 = load ptr, ptr %26, align 8, !tbaa !317
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 216
-  %29 = load ptr, ptr %28, align 8, !tbaa !342
-  %30 = tail call noundef nonnull align 8 dereferenceable(1673) ptr @_ZN6duckdb8DBConfig9GetConfigERNS_16DatabaseInstanceE(ptr noundef nonnull align 8 dereferenceable(1912) %29)
+  %.0 = select i1 %18, i64 %20, i64 %11
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %22 = load i64, ptr %21, align 8, !tbaa !1101
+  %23 = add i64 %.0, %22
+  store i64 %23, ptr %21, align 8, !tbaa !1101
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !294
+  %26 = load ptr, ptr %25, align 8, !tbaa !317
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 216
+  %28 = load ptr, ptr %27, align 8, !tbaa !342
+  %29 = tail call noundef nonnull align 8 dereferenceable(1673) ptr @_ZN6duckdb8DBConfig9GetConfigERNS_16DatabaseInstanceE(ptr noundef nonnull align 8 dereferenceable(1912) %28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #44
-  %31 = load i8, ptr %13, align 1, !tbaa !233
-  %32 = tail call ptr @_ZN6duckdb8DBConfig22GetCompressionFunctionENS_15CompressionTypeENS_12PhysicalTypeE(ptr noundef nonnull align 8 dereferenceable(1673) %30, i8 noundef zeroext 1, i8 noundef zeroext %31)
-  store ptr %32, ptr %4, align 8
+  %30 = load i8, ptr %13, align 1, !tbaa !233
+  %31 = tail call ptr @_ZN6duckdb8DBConfig22GetCompressionFunctionENS_15CompressionTypeENS_12PhysicalTypeE(ptr noundef nonnull align 8 dereferenceable(1673) %29, i8 noundef zeroext 1, i8 noundef zeroext %30)
+  store ptr %31, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #44
   call void @_ZNK6duckdb12optional_ptrINS_19CompressionFunctionELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %33 = load ptr, ptr %4, align 8, !tbaa !234
-  call void @_ZN6duckdb13ColumnSegment22CreateTransientSegmentERNS_16DatabaseInstanceERNS_19CompressionFunctionERKNS_11LogicalTypeEmmm(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.178") align 8 %5, ptr noundef nonnull align 8 dereferenceable(1912) %29, ptr noundef nonnull align 8 dereferenceable(193) %33, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %2, i64 noundef %21, i64 noundef %11)
-  %34 = load i64, ptr %5, align 8, !tbaa !128
-  store i64 %34, ptr %6, align 8, !tbaa !128
+  %32 = load ptr, ptr %4, align 8, !tbaa !234
+  call void @_ZN6duckdb13ColumnSegment22CreateTransientSegmentERNS_16DatabaseInstanceERNS_19CompressionFunctionERKNS_11LogicalTypeEmmm(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.178") align 8 %5, ptr noundef nonnull align 8 dereferenceable(1912) %28, ptr noundef nonnull align 8 dereferenceable(193) %32, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %2, i64 noundef %.0, i64 noundef %11)
+  %33 = load i64, ptr %5, align 8, !tbaa !128
+  store i64 %33, ptr %6, align 8, !tbaa !128
   store ptr null, ptr %5, align 8, !tbaa !128
   invoke void @_ZN6duckdb10ColumnData13AppendSegmentERNS_11SegmentLockENS_10unique_ptrINS_13ColumnSegmentESt14default_deleteIS4_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %6)
-          to label %35 unwind label %38
+          to label %34 unwind label %37
 
-35:                                               ; preds = %3
-  %36 = load ptr, ptr %6, align 8, !tbaa !128
-  %.not.i = icmp eq ptr %36, null
+34:                                               ; preds = %3
+  %35 = load ptr, ptr %6, align 8, !tbaa !128
+  %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i: ; preds = %35
-  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %36) #44
-  call void @_ZdlPv(ptr noundef nonnull %36) #46
+_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i: ; preds = %34
+  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %35) #44
+  call void @_ZdlPv(ptr noundef nonnull %35) #46
   br label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; preds = %35, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; preds = %34, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
   store ptr null, ptr %6, align 8, !tbaa !128
-  %37 = load ptr, ptr %5, align 8, !tbaa !128
-  %.not.i17 = icmp eq ptr %37, null
+  %36 = load ptr, ptr %5, align 8, !tbaa !128
+  %.not.i17 = icmp eq ptr %36, null
   br i1 %.not.i17, label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit19, label %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i18
 
 _ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i18: ; preds = %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit
-  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %37) #44
-  call void @_ZdlPv(ptr noundef nonnull %37) #46
+  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %36) #44
+  call void @_ZdlPv(ptr noundef nonnull %36) #46
   br label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit19
 
 _ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit19: ; preds = %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i18
@@ -21414,33 +21414,33 @@ _ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit19: ;
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #44
   ret void
 
-38:                                               ; preds = %3
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %3
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %40 = load ptr, ptr %6, align 8, !tbaa !128
-  %.not.i20 = icmp eq ptr %40, null
+  %39 = load ptr, ptr %6, align 8, !tbaa !128
+  %.not.i20 = icmp eq ptr %39, null
   br i1 %.not.i20, label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit22, label %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i21
 
-_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i21: ; preds = %38
-  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %40) #44
-  call void @_ZdlPv(ptr noundef nonnull %40) #46
+_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i21: ; preds = %37
+  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %39) #44
+  call void @_ZdlPv(ptr noundef nonnull %39) #46
   br label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit22
 
-_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit22: ; preds = %38, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i21
+_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit22: ; preds = %37, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i21
   store ptr null, ptr %6, align 8, !tbaa !128
-  %41 = load ptr, ptr %5, align 8, !tbaa !128
-  %.not.i23 = icmp eq ptr %41, null
+  %40 = load ptr, ptr %5, align 8, !tbaa !128
+  %.not.i23 = icmp eq ptr %40, null
   br i1 %.not.i23, label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit25, label %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i24
 
 _ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i24: ; preds = %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit22
-  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %41) #44
-  call void @_ZdlPv(ptr noundef nonnull %41) #46
+  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %40) #44
+  call void @_ZdlPv(ptr noundef nonnull %40) #46
   br label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit25
 
 _ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit25: ; preds = %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit22, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #44
-  resume { ptr, i32 } %39
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress uwtable

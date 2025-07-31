@@ -1306,12 +1306,15 @@ _Z8LUPSolvePPdPiS_iS_.exit:                       ; preds = %._crit_edge49.i, %_
   %182 = add nuw nsw i32 %.03654, 1
   %exitcond65.not = icmp eq i32 %182, %2
   %or.cond = select i1 %181, i1 true, i1 %exitcond65.not
-  br i1 %or.cond, label %._crit_edge, label %18, !llvm.loop !30
+  br i1 %or.cond, label %._crit_edge.loopexit, label %18, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %.loopexit, %3
-  %.1 = phi double [ 0.000000e+00, %3 ], [ %166, %.loopexit ]
-  %183 = call contract double @llvm.sqrt.f64(double %.1)
-  ret double %183
+._crit_edge.loopexit:                             ; preds = %.loopexit
+  %183 = call contract double @llvm.sqrt.f64(double %166)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
+  %.1 = phi double [ 0.000000e+00, %3 ], [ %183, %._crit_edge.loopexit ]
+  ret double %.1
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #9

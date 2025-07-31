@@ -234,7 +234,7 @@ define internal range(i32 -2147483648, 1) i32 @lc3_read_packet(ptr noundef reado
 20:                                               ; preds = %15
   %21 = load i32, ptr %4, align 8, !tbaa !45
   %22 = sext i32 %21 to i64
-  br label %28
+  br label %29
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 840
@@ -244,18 +244,17 @@ define internal range(i32 -2147483648, 1) i32 @lc3_read_packet(ptr noundef reado
   %spec.select = select i1 %26, i64 %27, i64 0
   %.pre = load i32, ptr %4, align 8, !tbaa !45
   %.pre26 = sext i32 %.pre to i64
-  br label %28
+  %28 = tail call i64 @llvm.smin.i64(i64 %spec.select, i64 %.pre26)
+  br label %29
 
-28:                                               ; preds = %23, %20
-  %.pre-phi = phi i64 [ %.pre26, %23 ], [ %22, %20 ]
-  %29 = phi i64 [ %spec.select, %23 ], [ %22, %20 ]
-  %. = tail call i64 @llvm.smin.i64(i64 %29, i64 %.pre-phi)
+29:                                               ; preds = %23, %20
+  %. = phi i64 [ %28, %23 ], [ %22, %20 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i64 %., ptr %30, align 8, !tbaa !64
   br label %31
 
-31:                                               ; preds = %2, %28
-  %.0 = phi i32 [ 0, %28 ], [ %13, %2 ]
+31:                                               ; preds = %2, %29
+  %.0 = phi i32 [ 0, %29 ], [ %13, %2 ]
   ret i32 %.0
 }
 

@@ -3773,8 +3773,8 @@ define internal void @blend_divide_9bit(ptr noundef readonly captures(none) %0, 
   %.03438.us = phi ptr [ %39, %._crit_edge.us ], [ %0, %10 ]
   br label %19
 
-19:                                               ; preds = %.preheader.us, %31
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %31 ]
+19:                                               ; preds = %.preheader.us, %32
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %32 ]
   %20 = getelementptr inbounds nuw i16, ptr %.03438.us, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2, !tbaa !86
   %22 = uitofp i16 %21 to float
@@ -3785,19 +3785,19 @@ define internal void @blend_divide_9bit(ptr noundef readonly captures(none) %0, 
 
 ._crit_edge:                                      ; preds = %19
   %.pre = zext i16 %21 to i32
-  br label %31
+  br label %32
 
 26:                                               ; preds = %19
   %27 = zext i16 %24 to i32
   %28 = zext i16 %21 to i32
   %29 = mul nuw nsw i32 %28, 511
   %30 = udiv i32 %29, %27
-  br label %31
+  %31 = tail call i32 @llvm.umin.i32(i32 %30, i32 511)
+  br label %32
 
-31:                                               ; preds = %._crit_edge, %26
+32:                                               ; preds = %._crit_edge, %26
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %28, %26 ]
-  %32 = phi i32 [ 511, %._crit_edge ], [ %30, %26 ]
-  %.0.i.us = tail call i32 @llvm.umin.i32(i32 %32, i32 511)
+  %.0.i.us = phi i32 [ 511, %._crit_edge ], [ %31, %26 ]
   %33 = sub nsw i32 %.0.i.us, %.pre-phi
   %34 = sitofp i32 %33 to float
   %35 = tail call nsz float @llvm.fmuladd.f32(float %34, float %13, float %22)
@@ -3808,7 +3808,7 @@ define internal void @blend_divide_9bit(ptr noundef readonly captures(none) %0, 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !189
 
-._crit_edge.us:                                   ; preds = %31
+._crit_edge.us:                                   ; preds = %32
   %38 = getelementptr inbounds nuw i16, ptr %.03240.us, i64 %14
   %39 = getelementptr inbounds nuw i16, ptr %.03438.us, i64 %15
   %40 = getelementptr inbounds nuw i16, ptr %.03339.us, i64 %16
@@ -6170,8 +6170,8 @@ define internal void @blend_divide_10bit(ptr noundef readonly captures(none) %0,
   %.03438.us = phi ptr [ %39, %._crit_edge.us ], [ %0, %10 ]
   br label %19
 
-19:                                               ; preds = %.preheader.us, %31
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %31 ]
+19:                                               ; preds = %.preheader.us, %32
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %32 ]
   %20 = getelementptr inbounds nuw i16, ptr %.03438.us, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2, !tbaa !86
   %22 = uitofp i16 %21 to float
@@ -6182,19 +6182,19 @@ define internal void @blend_divide_10bit(ptr noundef readonly captures(none) %0,
 
 ._crit_edge:                                      ; preds = %19
   %.pre = zext i16 %21 to i32
-  br label %31
+  br label %32
 
 26:                                               ; preds = %19
   %27 = zext i16 %24 to i32
   %28 = zext i16 %21 to i32
   %29 = mul nuw nsw i32 %28, 1023
   %30 = udiv i32 %29, %27
-  br label %31
+  %31 = tail call i32 @llvm.umin.i32(i32 %30, i32 1023)
+  br label %32
 
-31:                                               ; preds = %._crit_edge, %26
+32:                                               ; preds = %._crit_edge, %26
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %28, %26 ]
-  %32 = phi i32 [ 1023, %._crit_edge ], [ %30, %26 ]
-  %.0.i.us = tail call i32 @llvm.umin.i32(i32 %32, i32 1023)
+  %.0.i.us = phi i32 [ 1023, %._crit_edge ], [ %31, %26 ]
   %33 = sub nsw i32 %.0.i.us, %.pre-phi
   %34 = sitofp i32 %33 to float
   %35 = tail call nsz float @llvm.fmuladd.f32(float %34, float %13, float %22)
@@ -6205,7 +6205,7 @@ define internal void @blend_divide_10bit(ptr noundef readonly captures(none) %0,
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !269
 
-._crit_edge.us:                                   ; preds = %31
+._crit_edge.us:                                   ; preds = %32
   %38 = getelementptr inbounds nuw i16, ptr %.03240.us, i64 %14
   %39 = getelementptr inbounds nuw i16, ptr %.03438.us, i64 %15
   %40 = getelementptr inbounds nuw i16, ptr %.03339.us, i64 %16
@@ -8515,8 +8515,8 @@ define internal void @blend_divide_12bit(ptr noundef readonly captures(none) %0,
   %.03438.us = phi ptr [ %39, %._crit_edge.us ], [ %0, %10 ]
   br label %19
 
-19:                                               ; preds = %.preheader.us, %31
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %31 ]
+19:                                               ; preds = %.preheader.us, %32
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %32 ]
   %20 = getelementptr inbounds nuw i16, ptr %.03438.us, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2, !tbaa !86
   %22 = uitofp i16 %21 to float
@@ -8527,19 +8527,19 @@ define internal void @blend_divide_12bit(ptr noundef readonly captures(none) %0,
 
 ._crit_edge:                                      ; preds = %19
   %.pre = zext i16 %21 to i32
-  br label %31
+  br label %32
 
 26:                                               ; preds = %19
   %27 = zext i16 %24 to i32
   %28 = zext i16 %21 to i32
   %29 = mul nuw nsw i32 %28, 4095
   %30 = udiv i32 %29, %27
-  br label %31
+  %31 = tail call i32 @llvm.umin.i32(i32 %30, i32 4095)
+  br label %32
 
-31:                                               ; preds = %._crit_edge, %26
+32:                                               ; preds = %._crit_edge, %26
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %28, %26 ]
-  %32 = phi i32 [ 4095, %._crit_edge ], [ %30, %26 ]
-  %.0.i.us = tail call i32 @llvm.umin.i32(i32 %32, i32 4095)
+  %.0.i.us = phi i32 [ 4095, %._crit_edge ], [ %31, %26 ]
   %33 = sub nsw i32 %.0.i.us, %.pre-phi
   %34 = sitofp i32 %33 to float
   %35 = tail call nsz float @llvm.fmuladd.f32(float %34, float %13, float %22)
@@ -8550,7 +8550,7 @@ define internal void @blend_divide_12bit(ptr noundef readonly captures(none) %0,
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !347
 
-._crit_edge.us:                                   ; preds = %31
+._crit_edge.us:                                   ; preds = %32
   %38 = getelementptr inbounds nuw i16, ptr %.03240.us, i64 %14
   %39 = getelementptr inbounds nuw i16, ptr %.03438.us, i64 %15
   %40 = getelementptr inbounds nuw i16, ptr %.03339.us, i64 %16
@@ -10860,8 +10860,8 @@ define internal void @blend_divide_14bit(ptr noundef readonly captures(none) %0,
   %.03438.us = phi ptr [ %39, %._crit_edge.us ], [ %0, %10 ]
   br label %19
 
-19:                                               ; preds = %.preheader.us, %31
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %31 ]
+19:                                               ; preds = %.preheader.us, %32
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %32 ]
   %20 = getelementptr inbounds nuw i16, ptr %.03438.us, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2, !tbaa !86
   %22 = uitofp i16 %21 to float
@@ -10872,19 +10872,19 @@ define internal void @blend_divide_14bit(ptr noundef readonly captures(none) %0,
 
 ._crit_edge:                                      ; preds = %19
   %.pre = zext i16 %21 to i32
-  br label %31
+  br label %32
 
 26:                                               ; preds = %19
   %27 = zext i16 %24 to i32
   %28 = zext i16 %21 to i32
   %29 = mul nuw nsw i32 %28, 16383
   %30 = udiv i32 %29, %27
-  br label %31
+  %31 = tail call i32 @llvm.umin.i32(i32 %30, i32 16383)
+  br label %32
 
-31:                                               ; preds = %._crit_edge, %26
+32:                                               ; preds = %._crit_edge, %26
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %28, %26 ]
-  %32 = phi i32 [ 16383, %._crit_edge ], [ %30, %26 ]
-  %.0.i.us = tail call i32 @llvm.umin.i32(i32 %32, i32 16383)
+  %.0.i.us = phi i32 [ 16383, %._crit_edge ], [ %31, %26 ]
   %33 = sub nsw i32 %.0.i.us, %.pre-phi
   %34 = sitofp i32 %33 to float
   %35 = tail call nsz float @llvm.fmuladd.f32(float %34, float %13, float %22)
@@ -10895,7 +10895,7 @@ define internal void @blend_divide_14bit(ptr noundef readonly captures(none) %0,
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !425
 
-._crit_edge.us:                                   ; preds = %31
+._crit_edge.us:                                   ; preds = %32
   %38 = getelementptr inbounds nuw i16, ptr %.03240.us, i64 %14
   %39 = getelementptr inbounds nuw i16, ptr %.03438.us, i64 %15
   %40 = getelementptr inbounds nuw i16, ptr %.03339.us, i64 %16
@@ -13205,8 +13205,8 @@ define internal void @blend_divide_16bit(ptr noundef readonly captures(none) %0,
   %.03438.us = phi ptr [ %39, %._crit_edge.us ], [ %0, %10 ]
   br label %19
 
-19:                                               ; preds = %.preheader.us, %31
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %31 ]
+19:                                               ; preds = %.preheader.us, %32
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %32 ]
   %20 = getelementptr inbounds nuw i16, ptr %.03438.us, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2, !tbaa !86
   %22 = uitofp i16 %21 to float
@@ -13217,19 +13217,19 @@ define internal void @blend_divide_16bit(ptr noundef readonly captures(none) %0,
 
 ._crit_edge:                                      ; preds = %19
   %.pre = zext i16 %21 to i32
-  br label %31
+  br label %32
 
 26:                                               ; preds = %19
   %27 = zext i16 %24 to i32
   %28 = zext i16 %21 to i32
   %29 = mul nuw nsw i32 %28, 65535
   %30 = udiv i32 %29, %27
-  br label %31
+  %31 = tail call i32 @llvm.umin.i32(i32 %30, i32 65535)
+  br label %32
 
-31:                                               ; preds = %._crit_edge, %26
+32:                                               ; preds = %._crit_edge, %26
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %28, %26 ]
-  %32 = phi i32 [ 65535, %._crit_edge ], [ %30, %26 ]
-  %.0.i.us = tail call i32 @llvm.umin.i32(i32 %32, i32 65535)
+  %.0.i.us = phi i32 [ 65535, %._crit_edge ], [ %31, %26 ]
   %33 = sub nsw i32 %.0.i.us, %.pre-phi
   %34 = sitofp i32 %33 to float
   %35 = tail call nsz float @llvm.fmuladd.f32(float %34, float %13, float %22)
@@ -13240,7 +13240,7 @@ define internal void @blend_divide_16bit(ptr noundef readonly captures(none) %0,
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !503
 
-._crit_edge.us:                                   ; preds = %31
+._crit_edge.us:                                   ; preds = %32
   %38 = getelementptr inbounds nuw i16, ptr %.03240.us, i64 %14
   %39 = getelementptr inbounds nuw i16, ptr %.03438.us, i64 %15
   %40 = getelementptr inbounds nuw i16, ptr %.03339.us, i64 %16

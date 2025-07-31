@@ -1574,34 +1574,34 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %wide.trip.count308 = zext nneg i32 %286 to i64
   br label %292
 
-292:                                              ; preds = %.lr.ph257, %302
-  %indvars.iv305 = phi i64 [ 0, %.lr.ph257 ], [ %indvars.iv.next306, %302 ]
+292:                                              ; preds = %.lr.ph257, %305
+  %indvars.iv305 = phi i64 [ 0, %.lr.ph257 ], [ %indvars.iv.next306, %305 ]
   %293 = load i16, ptr %288, align 2, !tbaa !82
-  %294 = zext i16 %293 to i32
   %.not213 = icmp eq i64 %indvars.iv305, %291
-  br i1 %.not213, label %302, label %295
+  br i1 %.not213, label %305, label %294
 
-295:                                              ; preds = %292
+294:                                              ; preds = %292
+  %295 = zext i16 %293 to i32
   %296 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv305
   %297 = load i32, ptr %296, align 4, !tbaa !96
   %298 = load i32, ptr %289, align 4, !tbaa !96
   %299 = sub nsw i32 %297, %298
   %300 = sdiv i32 %299, %.1179.us
-  %301 = add nsw i32 %300, %294
-  br label %302
+  %301 = add nsw i32 %300, %295
+  %302 = tail call i32 @llvm.smax.i32(i32 %301, i32 0)
+  %303 = tail call i32 @llvm.umin.i32(i32 %302, i32 65535)
+  %304 = trunc nuw i32 %303 to i16
+  br label %305
 
-302:                                              ; preds = %295, %292
-  %.1197 = phi i32 [ %301, %295 ], [ %294, %292 ]
-  %303 = tail call i32 @llvm.smax.i32(i32 %.1197, i32 0)
-  %304 = tail call i32 @llvm.umin.i32(i32 %303, i32 65535)
-  %305 = trunc nuw i32 %304 to i16
+305:                                              ; preds = %294, %292
+  %.1197 = phi i16 [ %304, %294 ], [ %293, %292 ]
   %306 = getelementptr inbounds nuw [4 x i16], ptr %290, i64 0, i64 %indvars.iv305
-  store i16 %305, ptr %306, align 2, !tbaa !82
+  store i16 %.1197, ptr %306, align 2, !tbaa !82
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %exitcond309.not = icmp eq i64 %indvars.iv.next306, %wide.trip.count308
   br i1 %exitcond309.not, label %.loopexit223, label %292, !llvm.loop !131
 
-.loopexit223:                                     ; preds = %302, %244, %241
+.loopexit223:                                     ; preds = %305, %244, %241
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
   %307 = load i16, ptr %13, align 2, !tbaa !79
   %308 = zext i16 %307 to i32

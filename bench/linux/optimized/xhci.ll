@@ -9751,7 +9751,7 @@ define internal range(i32 -108, 65536) i32 @xhci_enable_usb3_lpm_timeout(ptr nou
   %186 = or i1 %164, %185
   %187 = xor i1 %186, true
   %188 = or i1 %167, %187
-  br i1 %188, label %189, label %195
+  br i1 %188, label %189, label %196
 
 189:                                              ; preds = %181
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 1328
@@ -9759,20 +9759,20 @@ define internal range(i32 -108, 65536) i32 @xhci_enable_usb3_lpm_timeout(ptr nou
   %192 = add i32 %191, 999
   %193 = udiv i32 %192, 1000
   %194 = zext nneg i32 %193 to i64
-  br label %195
+  %195 = tail call i64 @llvm.umax.i64(i64 %182, i64 %194)
+  br label %196
 
-195:                                              ; preds = %189, %181
-  %196 = phi i64 [ %194, %189 ], [ 0, %181 ]
-  %197 = tail call i64 @llvm.umax.i64(i64 %182, i64 %196)
+196:                                              ; preds = %189, %181
+  %197 = phi i64 [ %195, %189 ], [ %182, %181 ]
   %198 = icmp samesign ugt i64 %197, 65535
   br i1 %198, label %199, label %201
 
-199:                                              ; preds = %195
+199:                                              ; preds = %196
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 168
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %200, ptr noundef nonnull @.str.169, i64 noundef %197) #22
   br label %203
 
-201:                                              ; preds = %195
+201:                                              ; preds = %196
   %202 = trunc nuw nsw i64 %197 to i32
   br label %203
 
@@ -9848,7 +9848,7 @@ define internal noundef range(i32 -108, 1) i32 @xhci_disable_usb3_lpm_timeout(pt
   %40 = load i32, ptr %39, align 4
   %41 = icmp ne i32 %40, 0
   %42 = and i1 %26, %41
-  br i1 %42, label %43, label %49
+  br i1 %42, label %43, label %50
 
 43:                                               ; preds = %37
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 1328
@@ -9856,20 +9856,20 @@ define internal noundef range(i32 -108, 1) i32 @xhci_disable_usb3_lpm_timeout(pt
   %46 = add i32 %45, 999
   %47 = udiv i32 %46, 1000
   %48 = zext nneg i32 %47 to i64
-  br label %49
+  %49 = tail call i64 @llvm.umax.i64(i64 %38, i64 %48)
+  br label %50
 
-49:                                               ; preds = %43, %37
-  %50 = phi i64 [ %48, %43 ], [ 0, %37 ]
-  %51 = tail call i64 @llvm.umax.i64(i64 %38, i64 %50)
+50:                                               ; preds = %43, %37
+  %51 = phi i64 [ %49, %43 ], [ %38, %37 ]
   %52 = icmp samesign ugt i64 %51, 65535
   br i1 %52, label %53, label %55
 
-53:                                               ; preds = %49
+53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 168
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %54, ptr noundef nonnull @.str.169, i64 noundef %51) #22
   br label %57
 
-55:                                               ; preds = %49
+55:                                               ; preds = %50
   %56 = trunc nuw i64 %51 to i16
   br label %57
 

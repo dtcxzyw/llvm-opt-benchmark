@@ -361,22 +361,19 @@ define internal void @ff_tx_init_tab_8_int32() #6 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %10, align 4, !tbaa !10
+  store i32 0, ptr %7, align 4, !tbaa !10
   ret void
 
 2:                                                ; preds = %0, %2
   %3 = phi i1 [ true, %0 ], [ false, %2 ]
-  %.07 = phi double [ 0.000000e+00, %0 ], [ 0x3FE921FB54442D18, %2 ]
-  %.056 = phi ptr [ @ff_tx_tab_8_int32, %0 ], [ %10, %2 ]
-  %4 = tail call nsz double @llvm.cos.f64(double %.07)
-  %5 = fmul nsz double %4, 0x41E0000000000000
-  %6 = fptrunc nsz double %5 to float
-  %7 = tail call i64 @llvm.llrint.i64.f32(float %6)
-  %8 = tail call i64 @llvm.smax.i64(i64 %7, i64 -2147483648)
-  %.0.i = tail call i64 @llvm.smin.i64(i64 %8, i64 2147483647)
-  %9 = trunc nsw i64 %.0.i to i32
-  %10 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %9, ptr %.056, align 4, !tbaa !10
+  %.07 = phi float [ 0x41E0000000000000, %0 ], [ 0x41D6A09E60000000, %2 ]
+  %.056 = phi ptr [ @ff_tx_tab_8_int32, %0 ], [ %7, %2 ]
+  %4 = tail call i64 @llvm.llrint.i64.f32(float %.07)
+  %5 = tail call i64 @llvm.smax.i64(i64 %4, i64 -2147483648)
+  %.0.i = tail call i64 @llvm.smin.i64(i64 %5, i64 2147483647)
+  %6 = trunc nsw i64 %.0.i to i32
+  %7 = getelementptr inbounds nuw i8, ptr %.056, i64 4
+  store i32 %6, ptr %.056, align 4, !tbaa !10
   br i1 %3, label %2, label %1, !llvm.loop !29
 }
 

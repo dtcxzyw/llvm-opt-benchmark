@@ -12345,14 +12345,14 @@ define internal fastcc range(i32 0, 2) i32 @Abc_TgNextPermutation(ptr noundef no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
   br label %8
 
-8:                                                ; preds = %.lr.ph, %67
-  %9 = phi i32 [ %3, %.lr.ph ], [ %68, %67 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
+8:                                                ; preds = %.lr.ph, %68
+  %9 = phi i32 [ %3, %.lr.ph ], [ %69, %68 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %10 = getelementptr inbounds nuw %struct.TiedGroup_, ptr %5, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !126
   %13 = icmp eq i8 %12, 1
-  br i1 %13, label %67, label %14
+  br i1 %13, label %68, label %14
 
 14:                                               ; preds = %8
   %15 = sext i8 %12 to i32
@@ -12408,65 +12408,65 @@ define internal fastcc range(i32 0, 2) i32 @Abc_TgNextPermutation(ptr noundef no
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !191
 
 ._crit_edge.i:                                    ; preds = %41
-  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %.1.i, i32 0)
-  %42 = zext nneg i32 %spec.store.select.i to i64
-  %43 = getelementptr inbounds nuw i8, ptr %18, i64 %42
-  br label %44
+  %42 = tail call i32 @llvm.smax.i32(i32 %.1.i, i32 0)
+  %43 = zext nneg i32 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %18, i64 %43
+  br label %45
 
-44:                                               ; preds = %53, %._crit_edge.i
-  %indvars.iv50.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next51.i, %53 ]
-  %45 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv50.i
-  %46 = load i8, ptr %45, align 1, !tbaa !45
-  %47 = load i8, ptr %43, align 1, !tbaa !45
-  %48 = icmp sgt i8 %46, %47
-  br i1 %48, label %49, label %53
+45:                                               ; preds = %54, %._crit_edge.i
+  %indvars.iv50.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next51.i, %54 ]
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv50.i
+  %47 = load i8, ptr %46, align 1, !tbaa !45
+  %48 = load i8, ptr %44, align 1, !tbaa !45
+  %49 = icmp sgt i8 %47, %48
+  br i1 %49, label %50, label %54
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv50.i
-  %51 = load i8, ptr %50, align 1, !tbaa !45
-  %52 = sub i8 0, %51
-  store i8 %52, ptr %50, align 1, !tbaa !45
-  br label %53
+50:                                               ; preds = %45
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv50.i
+  %52 = load i8, ptr %51, align 1, !tbaa !45
+  %53 = sub i8 0, %52
+  store i8 %53, ptr %51, align 1, !tbaa !45
+  br label %54
 
-53:                                               ; preds = %49, %44
+54:                                               ; preds = %50, %45
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %wide.trip.count.i
-  br i1 %exitcond54.not.i, label %Abc_NextPermSwapC.exit, label %44, !llvm.loop !192
+  br i1 %exitcond54.not.i, label %Abc_NextPermSwapC.exit, label %45, !llvm.loop !192
 
-Abc_NextPermSwapC.exit:                           ; preds = %53, %14
-  %spec.store.select57.i = phi i32 [ 0, %14 ], [ %spec.store.select.i, %53 ]
-  %.pre-phi.i = phi i64 [ 0, %14 ], [ %42, %53 ]
-  %54 = getelementptr inbounds nuw i8, ptr %19, i64 %.pre-phi.i
-  %55 = load i8, ptr %54, align 1, !tbaa !45
-  %56 = sext i8 %55 to i32
-  %57 = add nsw i32 %spec.store.select57.i, %56
-  %58 = icmp sgt i32 %57, -1
-  br i1 %58, label %59, label %64
+Abc_NextPermSwapC.exit:                           ; preds = %54, %14
+  %.0.lcssa57.i = phi i32 [ 0, %14 ], [ %42, %54 ]
+  %.pre-phi.i = phi i64 [ 0, %14 ], [ %43, %54 ]
+  %55 = getelementptr inbounds nuw i8, ptr %19, i64 %.pre-phi.i
+  %56 = load i8, ptr %55, align 1, !tbaa !45
+  %57 = sext i8 %56 to i32
+  %58 = add nsw i32 %.0.lcssa57.i, %57
+  %59 = icmp sgt i32 %58, -1
+  br i1 %59, label %60, label %65
 
-59:                                               ; preds = %Abc_NextPermSwapC.exit
-  %60 = tail call range(i32 -128, -2147483648) i32 @llvm.smin.i32(i32 %57, i32 %spec.store.select57.i)
-  %61 = load i8, ptr %10, align 1, !tbaa !124
-  %62 = sext i8 %61 to i32
-  %63 = add nsw i32 %60, %62
-  tail call fastcc void @Abc_TgSwapAdjacentSymGroups(ptr noundef %0, i32 noundef %63)
+60:                                               ; preds = %Abc_NextPermSwapC.exit
+  %61 = tail call range(i32 -128, -2147483648) i32 @llvm.smin.i32(i32 %58, i32 %.0.lcssa57.i)
+  %62 = load i8, ptr %10, align 1, !tbaa !124
+  %63 = sext i8 %62 to i32
+  %64 = add nsw i32 %61, %63
+  tail call fastcc void @Abc_TgSwapAdjacentSymGroups(ptr noundef %0, i32 noundef %64)
   br label %.loopexit
 
-64:                                               ; preds = %Abc_NextPermSwapC.exit
-  %65 = load i8, ptr %10, align 1, !tbaa !124
-  %66 = sext i8 %65 to i32
-  tail call fastcc void @Abc_TgSwapAdjacentSymGroups(ptr noundef %0, i32 noundef %66)
+65:                                               ; preds = %Abc_NextPermSwapC.exit
+  %66 = load i8, ptr %10, align 1, !tbaa !124
+  %67 = sext i8 %66 to i32
+  tail call fastcc void @Abc_TgSwapAdjacentSymGroups(ptr noundef %0, i32 noundef %67)
   %.pre = load i32, ptr %2, align 8, !tbaa !123
-  br label %67
+  br label %68
 
-67:                                               ; preds = %8, %64
-  %68 = phi i32 [ %9, %8 ], [ %.pre, %64 ]
+68:                                               ; preds = %8, %65
+  %69 = phi i32 [ %9, %8 ], [ %.pre, %65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %8, label %.loopexit, !llvm.loop !193
+  %70 = sext i32 %69 to i64
+  %71 = icmp slt i64 %indvars.iv.next, %70
+  br i1 %71, label %8, label %.loopexit, !llvm.loop !193
 
-.loopexit:                                        ; preds = %67, %1, %59
-  %.0 = phi i32 [ 1, %59 ], [ 0, %1 ], [ 0, %67 ]
+.loopexit:                                        ; preds = %68, %1, %60
+  %.0 = phi i32 [ 1, %60 ], [ 0, %1 ], [ 0, %68 ]
   ret i32 %.0
 }
 

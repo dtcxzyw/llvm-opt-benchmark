@@ -4382,13 +4382,16 @@ define internal i32 @nsse16_c(ptr noundef readonly captures(address_is_null) %0,
   %54 = getelementptr inbounds i8, ptr %.099119, i64 %3
   %55 = getelementptr inbounds i8, ptr %.0100118, i64 %3
   %exitcond130.not = icmp eq i32 %18, %4
-  br i1 %exitcond130.not, label %._crit_edge, label %.preheader113, !llvm.loop !108
+  br i1 %exitcond130.not, label %._crit_edge.loopexit, label %.preheader113, !llvm.loop !108
 
-._crit_edge:                                      ; preds = %.loopexit, %5
-  %.096.lcssa = phi i32 [ 0, %5 ], [ %16, %.loopexit ]
-  %.094.lcssa = phi i32 [ 0, %5 ], [ %.195, %.loopexit ]
+._crit_edge.loopexit:                             ; preds = %.loopexit
+  %56 = tail call i32 @llvm.abs.i32(i32 %.195, i1 true)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
+  %.096.lcssa = phi i32 [ 0, %5 ], [ %16, %._crit_edge.loopexit ]
+  %.094.lcssa = phi i32 [ 0, %5 ], [ %56, %._crit_edge.loopexit ]
   %.not = icmp eq ptr %0, null
-  %56 = tail call i32 @llvm.abs.i32(i32 %.094.lcssa, i1 true)
   br i1 %.not, label %63, label %57
 
 57:                                               ; preds = %._crit_edge
@@ -4396,11 +4399,11 @@ define internal i32 @nsse16_c(ptr noundef readonly captures(address_is_null) %0,
   %59 = load ptr, ptr %58, align 8, !tbaa !109
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 240
   %61 = load i32, ptr %60, align 8, !tbaa !110
-  %62 = mul nsw i32 %61, %56
+  %62 = mul nsw i32 %61, %.094.lcssa
   br label %65
 
 63:                                               ; preds = %._crit_edge
-  %64 = shl nsw i32 %56, 3
+  %64 = shl nsw i32 %.094.lcssa, 3
   br label %65
 
 65:                                               ; preds = %63, %57
@@ -4494,13 +4497,16 @@ define internal i32 @nsse8_c(ptr noundef readonly captures(address_is_null) %0, 
   %54 = getelementptr inbounds i8, ptr %.099119, i64 %3
   %55 = getelementptr inbounds i8, ptr %.0100118, i64 %3
   %exitcond130.not = icmp eq i32 %18, %4
-  br i1 %exitcond130.not, label %._crit_edge, label %.preheader113, !llvm.loop !125
+  br i1 %exitcond130.not, label %._crit_edge.loopexit, label %.preheader113, !llvm.loop !125
 
-._crit_edge:                                      ; preds = %.loopexit, %5
-  %.096.lcssa = phi i32 [ 0, %5 ], [ %16, %.loopexit ]
-  %.094.lcssa = phi i32 [ 0, %5 ], [ %.195, %.loopexit ]
+._crit_edge.loopexit:                             ; preds = %.loopexit
+  %56 = tail call i32 @llvm.abs.i32(i32 %.195, i1 true)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
+  %.096.lcssa = phi i32 [ 0, %5 ], [ %16, %._crit_edge.loopexit ]
+  %.094.lcssa = phi i32 [ 0, %5 ], [ %56, %._crit_edge.loopexit ]
   %.not = icmp eq ptr %0, null
-  %56 = tail call i32 @llvm.abs.i32(i32 %.094.lcssa, i1 true)
   br i1 %.not, label %63, label %57
 
 57:                                               ; preds = %._crit_edge
@@ -4508,11 +4514,11 @@ define internal i32 @nsse8_c(ptr noundef readonly captures(address_is_null) %0, 
   %59 = load ptr, ptr %58, align 8, !tbaa !109
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 240
   %61 = load i32, ptr %60, align 8, !tbaa !110
-  %62 = mul nsw i32 %61, %56
+  %62 = mul nsw i32 %61, %.094.lcssa
   br label %65
 
 63:                                               ; preds = %._crit_edge
-  %64 = shl nsw i32 %56, 3
+  %64 = shl nsw i32 %.094.lcssa, 3
   br label %65
 
 65:                                               ; preds = %63, %57

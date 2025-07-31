@@ -3253,12 +3253,19 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17h
   %4 = alloca { { ptr, [1 x i64] }, i64, { {} }, {} }, align 8
   %5 = alloca { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} }, align 8
   %6 = load i64, ptr %0, align 8, !noundef !4
-  %7 = icmp ult i64 %6, 4294967296
-  %8 = trunc nuw i64 %6 to i32
-  %9 = tail call i32 @llvm.usub.sat.i32(i32 %8, i32 8)
-  %10 = select i1 %7, i32 %9, i32 -9
-  %11 = icmp ult i32 %10, 24
-  %12 = and i32 %10, -8
+  %7 = icmp ugt i64 %6, 4294967295
+  br i1 %7, label %.thread11, label %8
+
+8:                                                ; preds = %1
+  %9 = trunc nuw i64 %6 to i32
+  %10 = tail call i32 @llvm.usub.sat.i32(i32 %9, i32 8)
+  %11 = and i32 %10, -8
+  %12 = icmp ult i32 %10, 24
+  br label %.thread11
+
+.thread11:                                        ; preds = %1, %8
+  %.014 = phi i32 [ %11, %8 ], [ -16, %1 ]
+  %.not4.i.i = phi i1 [ %12, %8 ], [ false, %1 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !485)
   %14 = load ptr, ptr %13, align 8, !alias.scope !485, !noundef !4
@@ -3279,9 +3286,9 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17h
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !488
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6727c91fe9b32523E.llvm.14031171042790067460"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5), !noalias !488
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !488
-  br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hf999d31e321663daE.llvm.16389591707760502172.exit, label %.lr.ph.split.us.i.i
+  br i1 %.not4.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hf999d31e321663daE.llvm.16389591707760502172.exit, label %.lr.ph.split.us.i.i
 
-.lr.ph.split.us.i.i:                              ; preds = %1
+.lr.ph.split.us.i.i:                              ; preds = %.thread11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2), !noalias !493
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !500
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h075052a5add71d7fE.llvm.9369894712845813854"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %13, i32 noundef 8), !noalias !503
@@ -3291,7 +3298,7 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17h
 
 21:                                               ; preds = %.lr.ph.split.us.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !500
-  %22 = call noundef align 4 dereferenceable(4) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17hf77b13eea6f9b5c9E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %2, i32 noundef %12), !noalias !503
+  %22 = call noundef align 4 dereferenceable(4) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17hf77b13eea6f9b5c9E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %2, i32 noundef %.014), !noalias !503
   br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6d9f3b000aaacfacE.exit.us.i.i"
 
 23:                                               ; preds = %.lr.ph.split.us.i.i
@@ -3301,7 +3308,7 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17h
   %.sroa.43.0.copyload.i.i.i.us.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i.i.i.i, align 8, !noalias !500
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.us.i.i, i64 52
   %26 = getelementptr inbounds i32, ptr %25, i64 %.sroa.43.0.copyload.i.i.i.us.i.i
-  store i32 %12, ptr %26, align 4, !noalias !504
+  store i32 %.014, ptr %26, align 4, !noalias !504
   br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6d9f3b000aaacfacE.exit.us.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6d9f3b000aaacfacE.exit.us.i.i": ; preds = %23, %21
@@ -3309,7 +3316,7 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17h
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !493
   br label %_ZN4core4iter6traits8iterator8Iterator8for_each17hf999d31e321663daE.llvm.16389591707760502172.exit
 
-_ZN4core4iter6traits8iterator8Iterator8for_each17hf999d31e321663daE.llvm.16389591707760502172.exit: ; preds = %1, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6d9f3b000aaacfacE.exit.us.i.i"
+_ZN4core4iter6traits8iterator8Iterator8for_each17hf999d31e321663daE.llvm.16389591707760502172.exit: ; preds = %.thread11, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6d9f3b000aaacfacE.exit.us.i.i"
   ret void
 }
 

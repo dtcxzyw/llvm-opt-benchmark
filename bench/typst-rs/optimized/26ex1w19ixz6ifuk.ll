@@ -92863,13 +92863,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !20295, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -94793,13 +94793,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !21535, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -98120,13 +98120,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !23775, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -99338,13 +99338,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !24565, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -99715,13 +99715,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !24827, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -101355,13 +101355,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !25945, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -102169,13 +102169,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !26511, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -102571,13 +102571,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !26777, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -103198,13 +103198,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !27207, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -103984,13 +103984,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !27756, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -106165,13 +106165,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !29171, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -108189,13 +108189,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !30504, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -109069,13 +109069,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !31070, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -109448,13 +109448,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !31287, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -112191,13 +112191,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !33036, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -112318,13 +112318,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !33123, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -112507,13 +112507,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !33259, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -113266,13 +113266,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !33736, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -113675,13 +113675,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !34005, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -114905,13 +114905,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !34807, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -115672,13 +115672,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !35287, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -117054,13 +117054,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !36156, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -117326,13 +117326,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !36314, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -118014,13 +118014,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !36761, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -120760,13 +120760,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !38581, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -121039,13 +121039,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !38774, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -121455,13 +121455,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !39037, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -123278,13 +123278,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !40261, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -123812,13 +123812,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !40617, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable

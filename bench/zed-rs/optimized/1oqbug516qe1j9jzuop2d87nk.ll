@@ -9840,16 +9840,16 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hce098b93c3f969f
 
 "_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hd6cc86edd965d29aE.llvm.17803978538969967659.exit.loopexit.i.i": ; preds = %.lr.ph.i.i.i.i.i
   %.pre.i.i = load i64, ptr %4, align 8, !alias.scope !2726, !noalias !2731
+  %13 = call i64 @llvm.fshl.i64(i64 %.pre.i.i, i64 %.pre.i.i, i64 5)
   br label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h9c0997324eefe7a3E.llvm.17803978538969967659.exit"
 
 "_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h9c0997324eefe7a3E.llvm.17803978538969967659.exit": ; preds = %2, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hd6cc86edd965d29aE.llvm.17803978538969967659.exit.loopexit.i.i"
-  %13 = phi i64 [ %.pre.i.i, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hd6cc86edd965d29aE.llvm.17803978538969967659.exit.loopexit.i.i" ], [ 0, %2 ]
+  %14 = phi i64 [ %13, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hd6cc86edd965d29aE.llvm.17803978538969967659.exit.loopexit.i.i" ], [ 0, %2 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2733)
   call void @llvm.experimental.noalias.scope.decl(metadata !2734)
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1040
-  %15 = load i64, ptr %14, align 8, !alias.scope !2735, !noalias !2736, !noundef !9
-  %16 = call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 5)
-  %17 = xor i64 %15, %16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1040
+  %16 = load i64, ptr %15, align 8, !alias.scope !2735, !noalias !2736, !noundef !9
+  %17 = xor i64 %16, %14
   %18 = mul i64 %17, 5871781006564002453
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i64 %18
@@ -67964,16 +67964,16 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_ent
 
 "_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hd6cc86edd965d29aE.llvm.17803978538969967659.exit.loopexit.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i
   %.pre.i.i.i = load i64, ptr %7, align 8, !alias.scope !15969, !noalias !15974
+  %16 = call i64 @llvm.fshl.i64(i64 %.pre.i.i.i, i64 %.pre.i.i.i, i64 5)
   br label %_ZN4core4hash11BuildHasher8hash_one17hce098b93c3f969f6E.exit
 
 _ZN4core4hash11BuildHasher8hash_one17hce098b93c3f969f6E.exit: ; preds = %3, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hd6cc86edd965d29aE.llvm.17803978538969967659.exit.loopexit.i.i.i"
-  %16 = phi i64 [ %.pre.i.i.i, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hd6cc86edd965d29aE.llvm.17803978538969967659.exit.loopexit.i.i.i" ], [ 0, %3 ]
+  %17 = phi i64 [ %16, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hd6cc86edd965d29aE.llvm.17803978538969967659.exit.loopexit.i.i.i" ], [ 0, %3 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15976)
   call void @llvm.experimental.noalias.scope.decl(metadata !15977)
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 1040
-  %18 = load i64, ptr %17, align 8, !alias.scope !15978, !noalias !15979, !noundef !9
-  %19 = call i64 @llvm.fshl.i64(i64 %16, i64 %16, i64 5)
-  %20 = xor i64 %18, %19
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 1040
+  %19 = load i64, ptr %18, align 8, !alias.scope !15978, !noalias !15979, !noundef !9
+  %20 = xor i64 %19, %17
   %21 = mul i64 %20, 5871781006564002453
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !15940
   call void @llvm.experimental.noalias.scope.decl(metadata !15980)
@@ -68220,7 +68220,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %.idx.i.i.i.i.i.i = shl nsw i64 %13, 5
   %15 = getelementptr inbounds i8, ptr %11, i64 %.idx.i.i.i.i.i.i
   %16 = icmp eq i64 %13, 0
-  br i1 %16, label %19, label %.lr.ph.i.i.i.i.i.i
+  br i1 %16, label %20, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc, %.noexc8
   %.sroa.0.05.i.i.i.i.i.i = phi ptr [ %17, %.noexc8 ], [ %11, %.noexc ]
@@ -68234,16 +68234,16 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 
 "_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hd6cc86edd965d29aE.llvm.17803978538969967659.exit.loopexit.i.i.i": ; preds = %.noexc8
   %.pre.i.i.i = load i64, ptr %7, align 8, !alias.scope !16064, !noalias !16069
-  br label %19
+  %19 = call i64 @llvm.fshl.i64(i64 %.pre.i.i.i, i64 %.pre.i.i.i, i64 5)
+  br label %20
 
-19:                                               ; preds = %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hd6cc86edd965d29aE.llvm.17803978538969967659.exit.loopexit.i.i.i", %.noexc
-  %20 = phi i64 [ %.pre.i.i.i, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hd6cc86edd965d29aE.llvm.17803978538969967659.exit.loopexit.i.i.i" ], [ 0, %.noexc ]
+20:                                               ; preds = %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hd6cc86edd965d29aE.llvm.17803978538969967659.exit.loopexit.i.i.i", %.noexc
+  %21 = phi i64 [ %19, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hd6cc86edd965d29aE.llvm.17803978538969967659.exit.loopexit.i.i.i" ], [ 0, %.noexc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !16071)
   call void @llvm.experimental.noalias.scope.decl(metadata !16072)
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1040
-  %22 = load i64, ptr %21, align 8, !alias.scope !16073, !noalias !16074, !noundef !9
-  %23 = call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 5)
-  %24 = xor i64 %22, %23
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1040
+  %23 = load i64, ptr %22, align 8, !alias.scope !16073, !noalias !16074, !noundef !9
+  %24 = xor i64 %23, %21
   %25 = mul i64 %24, 5871781006564002453
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !16037
   call void @llvm.experimental.noalias.scope.decl(metadata !16075)
@@ -68253,7 +68253,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h7008f84dbf44b345E.exit.i"
 
-29:                                               ; preds = %19
+29:                                               ; preds = %20
   %30 = invoke { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h22cea4a5f11f276bE.llvm.11168716501430035125"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 1, ptr noalias noundef nonnull readonly align 1 %10, i1 noundef zeroext true)
           to label %.noexc9 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -68261,11 +68261,11 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %31 = extractvalue { i64, i64 } %30, 0
   %32 = icmp eq i64 %31, -9223372036854775807
   call void @llvm.assume(i1 %32)
-  %.pre = load i64, ptr %21, align 8, !alias.scope !16078, !noalias !16086
+  %.pre = load i64, ptr %22, align 8, !alias.scope !16078, !noalias !16086
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h7008f84dbf44b345E.exit.i"
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h7008f84dbf44b345E.exit.i": ; preds = %.noexc9, %19
-  %33 = phi i64 [ %.pre, %.noexc9 ], [ %22, %19 ]
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h7008f84dbf44b345E.exit.i": ; preds = %.noexc9, %20
+  %33 = phi i64 [ %.pre, %.noexc9 ], [ %23, %20 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !16087)
   %34 = lshr i64 %25, 57
   %35 = trunc nuw nsw i64 %34 to i8

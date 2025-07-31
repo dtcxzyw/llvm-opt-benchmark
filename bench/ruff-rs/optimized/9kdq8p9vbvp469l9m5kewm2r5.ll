@@ -7853,50 +7853,52 @@ define internal fastcc noundef range(i32 0, -1) i32 @_ZN21ruff_python_formatter8
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.15, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ed451865e034dc40a72258bf1311dc2e.14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.45) #19
   unreachable
 
-.lr.ph:                                           ; preds = %.split11, %17
-  %.sroa.0.019 = phi i32 [ %.sroa.0.1, %17 ], [ 0, %.split11 ]
-  %.sroa.04.018 = phi i32 [ %.sroa.04.2, %17 ], [ 0, %.split11 ]
+.lr.ph:                                           ; preds = %.split11, %18
+  %.sroa.0.019 = phi i32 [ %.sroa.0.1, %18 ], [ 0, %.split11 ]
+  %.sroa.04.018 = phi i32 [ %.sroa.04.2, %18 ], [ 0, %.split11 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
   %13 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %4)
-  switch i8 %13, label %15 [
-    i8 0, label %16
-    i8 1, label %17
-    i8 4, label %19
+  switch i8 %13, label %16 [
+    i8 0, label %17
+    i8 1, label %18
+    i8 4, label %20
   ]
 
-.loopexit:                                        ; preds = %17, %.split11, %15
-  %.sroa.0.015 = phi i32 [ %.sroa.0.019, %15 ], [ 0, %.split11 ], [ %.sroa.0.1, %17 ]
-  %.sroa.04.1 = phi i32 [ %.sroa.0.0.sroa.speculated.i12, %15 ], [ 0, %.split11 ], [ %.sroa.04.2, %17 ]
+.loopexit.loopexit:                               ; preds = %18
+  %14 = call i32 @llvm.umax.i32(i32 %.sroa.04.2, i32 %.sroa.0.1)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.split11, %16
+  %.sroa.04.1 = phi i32 [ %.sroa.0.0.sroa.speculated.i12, %16 ], [ 0, %.split11 ], [ %14, %.loopexit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  %.sroa.0.0.sroa.speculated.i = call noundef i32 @llvm.umax.i32(i32 %.sroa.04.1, i32 %.sroa.0.015)
-  %14 = call i32 @llvm.usub.sat.i32(i32 %.sroa.0.0.sroa.speculated.i, i32 1)
-  ret i32 %14
+  %15 = call i32 @llvm.usub.sat.i32(i32 %.sroa.04.1, i32 1)
+  ret i32 %15
 
-15:                                               ; preds = %.lr.ph
+16:                                               ; preds = %.lr.ph
   %.sroa.0.0.sroa.speculated.i12 = call noundef i32 @llvm.umax.i32(i32 %.sroa.04.018, i32 %.sroa.0.019)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   br label %.loopexit
 
-16:                                               ; preds = %.lr.ph
+17:                                               ; preds = %.lr.ph
   %.sroa.0.0.sroa.speculated.i13 = call noundef i32 @llvm.umax.i32(i32 %.sroa.04.018, i32 %.sroa.0.019)
-  br label %17
+  br label %18
 
-17:                                               ; preds = %19, %16, %.lr.ph
-  %.sroa.04.2 = phi i32 [ %.sroa.0.0.sroa.speculated.i13, %16 ], [ %.sroa.04.018, %.lr.ph ], [ %.sroa.04.018, %19 ]
-  %.sroa.0.1 = phi i32 [ 0, %16 ], [ %.sroa.0.019, %.lr.ph ], [ %20, %19 ]
+18:                                               ; preds = %20, %17, %.lr.ph
+  %.sroa.04.2 = phi i32 [ %.sroa.0.0.sroa.speculated.i13, %17 ], [ %.sroa.04.018, %.lr.ph ], [ %.sroa.04.018, %20 ]
+  %.sroa.0.1 = phi i32 [ 0, %17 ], [ %.sroa.0.019, %.lr.ph ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
-  %18 = load i8, ptr %11, align 4, !range !259, !noundef !3
-  %.not = icmp eq i8 %18, 90
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  %19 = load i8, ptr %11, align 4, !range !259, !noundef !3
+  %.not = icmp eq i8 %19, 90
+  br i1 %.not, label %.loopexit.loopexit, label %.lr.ph
 
-19:                                               ; preds = %.lr.ph
-  %20 = add i32 %.sroa.0.019, 1
-  br label %17
+20:                                               ; preds = %.lr.ph
+  %21 = add i32 %.sroa.0.019, 1
+  br label %18
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -21823,9 +21823,9 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %31, i64 %25
   br label %33
 
-33:                                               ; preds = %51, %.lr.ph.us.i.i
-  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %51 ]
-  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %51 ]
+33:                                               ; preds = %52, %.lr.ph.us.i.i
+  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %52 ]
+  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %52 ]
   %34 = load i16, ptr %.185.us.i.i, align 2, !tbaa !862
   %35 = icmp eq i16 %34, 0
   br i1 %35, label %.critedge.us.i.i, label %36
@@ -21845,7 +21845,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   store i16 %.sroa.068.0.us.i.i, ptr %.381.us.i.i, align 2, !tbaa !862
   %43 = load i16, ptr %32, align 2, !tbaa !862
   %44 = icmp eq i16 %43, 0
-  br i1 %44, label %51, label %45
+  br i1 %44, label %52, label %45
 
 45:                                               ; preds = %.critedge.us.i.i
   %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %indvars.iv114.i.i
@@ -21855,18 +21855,18 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %49 = mul nuw nsw i32 %48, %46
   %.sroa.speculated.i66.us.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %49, i32 65535)
   %50 = trunc nuw i32 %.sroa.speculated.i66.us.i.i to i16
-  br label %51
+  %51 = tail call i16 @llvm.uadd.sat.i16(i16 %.sroa.068.0.us.i.i, i16 %50)
+  br label %52
 
-51:                                               ; preds = %45, %.critedge.us.i.i
-  %.sroa.0.0.us.i.i = phi i16 [ %50, %45 ], [ 0, %.critedge.us.i.i ]
-  %52 = tail call i16 @llvm.uadd.sat.i16(i16 %.sroa.068.0.us.i.i, i16 %.sroa.0.0.us.i.i)
-  store i16 %52, ptr %.381.us.i.i, align 2, !tbaa !862
+52:                                               ; preds = %45, %.critedge.us.i.i
+  %.sroa.0.0.us.i.i = phi i16 [ %51, %45 ], [ %.sroa.068.0.us.i.i, %.critedge.us.i.i ]
+  store i16 %.sroa.0.0.us.i.i, ptr %.381.us.i.i, align 2, !tbaa !862
   %indvars.iv.next115.i.i = add nuw nsw i64 %indvars.iv114.i.i, 1
   %53 = getelementptr inbounds nuw i8, ptr %.381.us.i.i, i64 2
   %exitcond118.not.i.i = icmp eq i64 %indvars.iv.next115.i.i, %25
   br i1 %exitcond118.not.i.i, label %._crit_edge.us90.i.i, label %33, !llvm.loop !881
 
-._crit_edge.us90.i.i:                             ; preds = %51
+._crit_edge.us90.i.i:                             ; preds = %52
   %indvars.iv.next120.i.i = add nuw nsw i64 %indvars.iv119.i.i, 1
   %54 = getelementptr inbounds nuw i8, ptr %.185.us.i.i, i64 4
   %55 = trunc nuw i64 %indvars.iv.next120.i.i to i32
@@ -22123,9 +22123,9 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %31, i64 %25
   br label %33
 
-33:                                               ; preds = %51, %.lr.ph.us.i.i
-  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %51 ]
-  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %51 ]
+33:                                               ; preds = %52, %.lr.ph.us.i.i
+  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %52 ]
+  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %52 ]
   %34 = load i16, ptr %.185.us.i.i, align 2, !tbaa !862
   %35 = icmp eq i16 %34, 0
   br i1 %35, label %.critedge.us.i.i, label %36
@@ -22145,7 +22145,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   store i16 %.sroa.068.0.us.i.i, ptr %.381.us.i.i, align 2, !tbaa !862
   %43 = load i16, ptr %32, align 2, !tbaa !862
   %44 = icmp eq i16 %43, 0
-  br i1 %44, label %51, label %45
+  br i1 %44, label %52, label %45
 
 45:                                               ; preds = %.critedge.us.i.i
   %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %indvars.iv114.i.i
@@ -22155,18 +22155,18 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %49 = mul nuw nsw i32 %48, %46
   %.sroa.speculated.i66.us.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %49, i32 65535)
   %50 = trunc nuw i32 %.sroa.speculated.i66.us.i.i to i16
-  br label %51
+  %51 = tail call i16 @llvm.uadd.sat.i16(i16 %.sroa.068.0.us.i.i, i16 %50)
+  br label %52
 
-51:                                               ; preds = %45, %.critedge.us.i.i
-  %.sroa.0.0.us.i.i = phi i16 [ %50, %45 ], [ 0, %.critedge.us.i.i ]
-  %52 = tail call i16 @llvm.uadd.sat.i16(i16 %.sroa.068.0.us.i.i, i16 %.sroa.0.0.us.i.i)
-  store i16 %52, ptr %.381.us.i.i, align 2, !tbaa !862
+52:                                               ; preds = %45, %.critedge.us.i.i
+  %.sroa.0.0.us.i.i = phi i16 [ %51, %45 ], [ %.sroa.068.0.us.i.i, %.critedge.us.i.i ]
+  store i16 %.sroa.0.0.us.i.i, ptr %.381.us.i.i, align 2, !tbaa !862
   %indvars.iv.next115.i.i = add nuw nsw i64 %indvars.iv114.i.i, 1
   %53 = getelementptr inbounds nuw i8, ptr %.381.us.i.i, i64 2
   %exitcond118.not.i.i = icmp eq i64 %indvars.iv.next115.i.i, %25
   br i1 %exitcond118.not.i.i, label %._crit_edge.us90.i.i, label %33, !llvm.loop !881
 
-._crit_edge.us90.i.i:                             ; preds = %51
+._crit_edge.us90.i.i:                             ; preds = %52
   %indvars.iv.next120.i.i = add nuw nsw i64 %indvars.iv119.i.i, 1
   %54 = getelementptr inbounds nuw i8, ptr %.185.us.i.i, i64 4
   %55 = trunc nuw i64 %indvars.iv.next120.i.i to i32
@@ -22454,9 +22454,9 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %31, i64 %25
   br label %33
 
-33:                                               ; preds = %51, %.lr.ph.us.i.i
-  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %51 ]
-  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %51 ]
+33:                                               ; preds = %52, %.lr.ph.us.i.i
+  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %52 ]
+  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %52 ]
   %34 = load i16, ptr %.185.us.i.i, align 2, !tbaa !862
   %35 = icmp eq i16 %34, 0
   br i1 %35, label %.critedge.us.i.i, label %36
@@ -22476,7 +22476,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   store i16 %.sroa.068.0.us.i.i, ptr %.381.us.i.i, align 2, !tbaa !862
   %43 = load i16, ptr %32, align 2, !tbaa !862
   %44 = icmp eq i16 %43, 0
-  br i1 %44, label %51, label %45
+  br i1 %44, label %52, label %45
 
 45:                                               ; preds = %.critedge.us.i.i
   %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %indvars.iv114.i.i
@@ -22486,18 +22486,18 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %49 = mul nuw nsw i32 %48, %46
   %.sroa.speculated.i66.us.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %49, i32 65535)
   %50 = trunc nuw i32 %.sroa.speculated.i66.us.i.i to i16
-  br label %51
+  %51 = tail call i16 @llvm.uadd.sat.i16(i16 %.sroa.068.0.us.i.i, i16 %50)
+  br label %52
 
-51:                                               ; preds = %45, %.critedge.us.i.i
-  %.sroa.0.0.us.i.i = phi i16 [ %50, %45 ], [ 0, %.critedge.us.i.i ]
-  %52 = tail call i16 @llvm.uadd.sat.i16(i16 %.sroa.068.0.us.i.i, i16 %.sroa.0.0.us.i.i)
-  store i16 %52, ptr %.381.us.i.i, align 2, !tbaa !862
+52:                                               ; preds = %45, %.critedge.us.i.i
+  %.sroa.0.0.us.i.i = phi i16 [ %51, %45 ], [ %.sroa.068.0.us.i.i, %.critedge.us.i.i ]
+  store i16 %.sroa.0.0.us.i.i, ptr %.381.us.i.i, align 2, !tbaa !862
   %indvars.iv.next115.i.i = add nuw nsw i64 %indvars.iv114.i.i, 1
   %53 = getelementptr inbounds nuw i8, ptr %.381.us.i.i, i64 2
   %exitcond118.not.i.i = icmp eq i64 %indvars.iv.next115.i.i, %25
   br i1 %exitcond118.not.i.i, label %._crit_edge.us90.i.i, label %33, !llvm.loop !881
 
-._crit_edge.us90.i.i:                             ; preds = %51
+._crit_edge.us90.i.i:                             ; preds = %52
   %indvars.iv.next120.i.i = add nuw nsw i64 %indvars.iv119.i.i, 1
   %54 = getelementptr inbounds nuw i8, ptr %.185.us.i.i, i64 4
   %55 = trunc nuw i64 %indvars.iv.next120.i.i to i32
@@ -22816,9 +22816,9 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %31, i64 %25
   br label %33
 
-33:                                               ; preds = %51, %.lr.ph.us.i.i
-  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %51 ]
-  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %51 ]
+33:                                               ; preds = %52, %.lr.ph.us.i.i
+  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %52 ]
+  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %52 ]
   %34 = load i16, ptr %.185.us.i.i, align 2, !tbaa !862
   %35 = icmp eq i16 %34, 0
   br i1 %35, label %.critedge.us.i.i, label %36
@@ -22838,7 +22838,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   store i16 %.sroa.068.0.us.i.i, ptr %.381.us.i.i, align 2, !tbaa !862
   %43 = load i16, ptr %32, align 2, !tbaa !862
   %44 = icmp eq i16 %43, 0
-  br i1 %44, label %51, label %45
+  br i1 %44, label %52, label %45
 
 45:                                               ; preds = %.critedge.us.i.i
   %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %indvars.iv114.i.i
@@ -22848,18 +22848,18 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %49 = mul nuw nsw i32 %48, %46
   %.sroa.speculated.i66.us.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %49, i32 65535)
   %50 = trunc nuw i32 %.sroa.speculated.i66.us.i.i to i16
-  br label %51
+  %51 = tail call i16 @llvm.uadd.sat.i16(i16 %.sroa.068.0.us.i.i, i16 %50)
+  br label %52
 
-51:                                               ; preds = %45, %.critedge.us.i.i
-  %.sroa.0.0.us.i.i = phi i16 [ %50, %45 ], [ 0, %.critedge.us.i.i ]
-  %52 = tail call i16 @llvm.uadd.sat.i16(i16 %.sroa.068.0.us.i.i, i16 %.sroa.0.0.us.i.i)
-  store i16 %52, ptr %.381.us.i.i, align 2, !tbaa !862
+52:                                               ; preds = %45, %.critedge.us.i.i
+  %.sroa.0.0.us.i.i = phi i16 [ %51, %45 ], [ %.sroa.068.0.us.i.i, %.critedge.us.i.i ]
+  store i16 %.sroa.0.0.us.i.i, ptr %.381.us.i.i, align 2, !tbaa !862
   %indvars.iv.next115.i.i = add nuw nsw i64 %indvars.iv114.i.i, 1
   %53 = getelementptr inbounds nuw i8, ptr %.381.us.i.i, i64 2
   %exitcond118.not.i.i = icmp eq i64 %indvars.iv.next115.i.i, %25
   br i1 %exitcond118.not.i.i, label %._crit_edge.us90.i.i, label %33, !llvm.loop !881
 
-._crit_edge.us90.i.i:                             ; preds = %51
+._crit_edge.us90.i.i:                             ; preds = %52
   %indvars.iv.next120.i.i = add nuw nsw i64 %indvars.iv119.i.i, 1
   %54 = getelementptr inbounds nuw i8, ptr %.185.us.i.i, i64 4
   %55 = trunc nuw i64 %indvars.iv.next120.i.i to i32
@@ -23146,9 +23146,9 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIhNS_13ufixedpoint16ELi2ELb0
   %invariant.gep = getelementptr inbounds nuw i8, ptr %31, i64 %25
   br label %33
 
-33:                                               ; preds = %.lr.ph.us, %51
-  %indvars.iv114 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next115, %51 ]
-  %.381.us = phi ptr [ %.284.us, %.lr.ph.us ], [ %53, %51 ]
+33:                                               ; preds = %.lr.ph.us, %52
+  %indvars.iv114 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next115, %52 ]
+  %.381.us = phi ptr [ %.284.us, %.lr.ph.us ], [ %53, %52 ]
   %34 = load i16, ptr %.185.us, align 2, !tbaa !862
   %35 = icmp eq i16 %34, 0
   br i1 %35, label %.critedge.us, label %36
@@ -23168,7 +23168,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIhNS_13ufixedpoint16ELi2ELb0
   store i16 %.sroa.068.0.us, ptr %.381.us, align 2, !tbaa !862
   %43 = load i16, ptr %32, align 2, !tbaa !862
   %44 = icmp eq i16 %43, 0
-  br i1 %44, label %51, label %45
+  br i1 %44, label %52, label %45
 
 45:                                               ; preds = %.critedge.us
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv114
@@ -23178,18 +23178,18 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIhNS_13ufixedpoint16ELi2ELb0
   %49 = mul nuw nsw i32 %48, %46
   %.sroa.speculated.i66.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %49, i32 65535)
   %50 = trunc nuw i32 %.sroa.speculated.i66.us to i16
-  br label %51
+  %51 = tail call i16 @llvm.uadd.sat.i16(i16 %.sroa.068.0.us, i16 %50)
+  br label %52
 
-51:                                               ; preds = %45, %.critedge.us
-  %.sroa.0.0.us = phi i16 [ %50, %45 ], [ 0, %.critedge.us ]
-  %52 = tail call i16 @llvm.uadd.sat.i16(i16 %.sroa.068.0.us, i16 %.sroa.0.0.us)
-  store i16 %52, ptr %.381.us, align 2, !tbaa !862
+52:                                               ; preds = %45, %.critedge.us
+  %.sroa.0.0.us = phi i16 [ %51, %45 ], [ %.sroa.068.0.us, %.critedge.us ]
+  store i16 %.sroa.0.0.us, ptr %.381.us, align 2, !tbaa !862
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %53 = getelementptr inbounds nuw i8, ptr %.381.us, i64 2
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %25
   br i1 %exitcond118.not, label %._crit_edge.us90, label %33, !llvm.loop !881
 
-._crit_edge.us90:                                 ; preds = %51
+._crit_edge.us90:                                 ; preds = %52
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %54 = getelementptr inbounds nuw i8, ptr %.185.us, i64 4
   %55 = trunc nuw i64 %indvars.iv.next120 to i32
@@ -25541,9 +25541,9 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %invariant.gep.i.i = getelementptr inbounds nuw i16, ptr %31, i64 %25
   br label %33
 
-33:                                               ; preds = %51, %.lr.ph.us.i.i
-  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %51 ]
-  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %51 ]
+33:                                               ; preds = %52, %.lr.ph.us.i.i
+  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %52 ]
+  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %52 ]
   %34 = load i32, ptr %.185.us.i.i, align 4, !tbaa !1114
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.critedge.us.i.i, label %36
@@ -25563,7 +25563,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   store i32 %.sroa.068.0.us.i.i, ptr %.381.us.i.i, align 4, !tbaa !1114
   %43 = load i32, ptr %32, align 4, !tbaa !1114
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %51, label %45
+  br i1 %44, label %52, label %45
 
 45:                                               ; preds = %.critedge.us.i.i
   %gep.i.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i, i64 %indvars.iv114.i.i
@@ -25573,18 +25573,18 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %49 = mul nuw nsw i64 %48, %46
   %.sroa.speculated.i66.us.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %49, i64 4294967295)
   %50 = trunc nuw i64 %.sroa.speculated.i66.us.i.i to i32
-  br label %51
+  %51 = tail call i32 @llvm.uadd.sat.i32(i32 %.sroa.068.0.us.i.i, i32 %50)
+  br label %52
 
-51:                                               ; preds = %45, %.critedge.us.i.i
-  %.sroa.0.0.us.i.i = phi i32 [ %50, %45 ], [ 0, %.critedge.us.i.i ]
-  %52 = tail call i32 @llvm.uadd.sat.i32(i32 %.sroa.068.0.us.i.i, i32 %.sroa.0.0.us.i.i)
-  store i32 %52, ptr %.381.us.i.i, align 4, !tbaa !1114
+52:                                               ; preds = %45, %.critedge.us.i.i
+  %.sroa.0.0.us.i.i = phi i32 [ %51, %45 ], [ %.sroa.068.0.us.i.i, %.critedge.us.i.i ]
+  store i32 %.sroa.0.0.us.i.i, ptr %.381.us.i.i, align 4, !tbaa !1114
   %indvars.iv.next115.i.i = add nuw nsw i64 %indvars.iv114.i.i, 1
   %53 = getelementptr inbounds nuw i8, ptr %.381.us.i.i, i64 4
   %exitcond118.not.i.i = icmp eq i64 %indvars.iv.next115.i.i, %25
   br i1 %exitcond118.not.i.i, label %._crit_edge.us90.i.i, label %33, !llvm.loop !1133
 
-._crit_edge.us90.i.i:                             ; preds = %51
+._crit_edge.us90.i.i:                             ; preds = %52
   %indvars.iv.next120.i.i = add nuw nsw i64 %indvars.iv119.i.i, 1
   %54 = getelementptr inbounds nuw i8, ptr %.185.us.i.i, i64 8
   %55 = trunc nuw i64 %indvars.iv.next120.i.i to i32
@@ -25841,9 +25841,9 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %invariant.gep.i.i = getelementptr inbounds nuw i16, ptr %31, i64 %25
   br label %33
 
-33:                                               ; preds = %51, %.lr.ph.us.i.i
-  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %51 ]
-  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %51 ]
+33:                                               ; preds = %52, %.lr.ph.us.i.i
+  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %52 ]
+  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %52 ]
   %34 = load i32, ptr %.185.us.i.i, align 4, !tbaa !1114
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.critedge.us.i.i, label %36
@@ -25863,7 +25863,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   store i32 %.sroa.068.0.us.i.i, ptr %.381.us.i.i, align 4, !tbaa !1114
   %43 = load i32, ptr %32, align 4, !tbaa !1114
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %51, label %45
+  br i1 %44, label %52, label %45
 
 45:                                               ; preds = %.critedge.us.i.i
   %gep.i.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i, i64 %indvars.iv114.i.i
@@ -25873,18 +25873,18 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %49 = mul nuw nsw i64 %48, %46
   %.sroa.speculated.i66.us.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %49, i64 4294967295)
   %50 = trunc nuw i64 %.sroa.speculated.i66.us.i.i to i32
-  br label %51
+  %51 = tail call i32 @llvm.uadd.sat.i32(i32 %.sroa.068.0.us.i.i, i32 %50)
+  br label %52
 
-51:                                               ; preds = %45, %.critedge.us.i.i
-  %.sroa.0.0.us.i.i = phi i32 [ %50, %45 ], [ 0, %.critedge.us.i.i ]
-  %52 = tail call i32 @llvm.uadd.sat.i32(i32 %.sroa.068.0.us.i.i, i32 %.sroa.0.0.us.i.i)
-  store i32 %52, ptr %.381.us.i.i, align 4, !tbaa !1114
+52:                                               ; preds = %45, %.critedge.us.i.i
+  %.sroa.0.0.us.i.i = phi i32 [ %51, %45 ], [ %.sroa.068.0.us.i.i, %.critedge.us.i.i ]
+  store i32 %.sroa.0.0.us.i.i, ptr %.381.us.i.i, align 4, !tbaa !1114
   %indvars.iv.next115.i.i = add nuw nsw i64 %indvars.iv114.i.i, 1
   %53 = getelementptr inbounds nuw i8, ptr %.381.us.i.i, i64 4
   %exitcond118.not.i.i = icmp eq i64 %indvars.iv.next115.i.i, %25
   br i1 %exitcond118.not.i.i, label %._crit_edge.us90.i.i, label %33, !llvm.loop !1133
 
-._crit_edge.us90.i.i:                             ; preds = %51
+._crit_edge.us90.i.i:                             ; preds = %52
   %indvars.iv.next120.i.i = add nuw nsw i64 %indvars.iv119.i.i, 1
   %54 = getelementptr inbounds nuw i8, ptr %.185.us.i.i, i64 8
   %55 = trunc nuw i64 %indvars.iv.next120.i.i to i32
@@ -26172,9 +26172,9 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %invariant.gep.i.i = getelementptr inbounds nuw i16, ptr %31, i64 %25
   br label %33
 
-33:                                               ; preds = %51, %.lr.ph.us.i.i
-  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %51 ]
-  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %51 ]
+33:                                               ; preds = %52, %.lr.ph.us.i.i
+  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %52 ]
+  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %52 ]
   %34 = load i32, ptr %.185.us.i.i, align 4, !tbaa !1114
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.critedge.us.i.i, label %36
@@ -26194,7 +26194,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   store i32 %.sroa.068.0.us.i.i, ptr %.381.us.i.i, align 4, !tbaa !1114
   %43 = load i32, ptr %32, align 4, !tbaa !1114
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %51, label %45
+  br i1 %44, label %52, label %45
 
 45:                                               ; preds = %.critedge.us.i.i
   %gep.i.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i, i64 %indvars.iv114.i.i
@@ -26204,18 +26204,18 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %49 = mul nuw nsw i64 %48, %46
   %.sroa.speculated.i66.us.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %49, i64 4294967295)
   %50 = trunc nuw i64 %.sroa.speculated.i66.us.i.i to i32
-  br label %51
+  %51 = tail call i32 @llvm.uadd.sat.i32(i32 %.sroa.068.0.us.i.i, i32 %50)
+  br label %52
 
-51:                                               ; preds = %45, %.critedge.us.i.i
-  %.sroa.0.0.us.i.i = phi i32 [ %50, %45 ], [ 0, %.critedge.us.i.i ]
-  %52 = tail call i32 @llvm.uadd.sat.i32(i32 %.sroa.068.0.us.i.i, i32 %.sroa.0.0.us.i.i)
-  store i32 %52, ptr %.381.us.i.i, align 4, !tbaa !1114
+52:                                               ; preds = %45, %.critedge.us.i.i
+  %.sroa.0.0.us.i.i = phi i32 [ %51, %45 ], [ %.sroa.068.0.us.i.i, %.critedge.us.i.i ]
+  store i32 %.sroa.0.0.us.i.i, ptr %.381.us.i.i, align 4, !tbaa !1114
   %indvars.iv.next115.i.i = add nuw nsw i64 %indvars.iv114.i.i, 1
   %53 = getelementptr inbounds nuw i8, ptr %.381.us.i.i, i64 4
   %exitcond118.not.i.i = icmp eq i64 %indvars.iv.next115.i.i, %25
   br i1 %exitcond118.not.i.i, label %._crit_edge.us90.i.i, label %33, !llvm.loop !1133
 
-._crit_edge.us90.i.i:                             ; preds = %51
+._crit_edge.us90.i.i:                             ; preds = %52
   %indvars.iv.next120.i.i = add nuw nsw i64 %indvars.iv119.i.i, 1
   %54 = getelementptr inbounds nuw i8, ptr %.185.us.i.i, i64 8
   %55 = trunc nuw i64 %indvars.iv.next120.i.i to i32
@@ -26534,9 +26534,9 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %invariant.gep.i.i = getelementptr inbounds nuw i16, ptr %31, i64 %25
   br label %33
 
-33:                                               ; preds = %51, %.lr.ph.us.i.i
-  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %51 ]
-  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %51 ]
+33:                                               ; preds = %52, %.lr.ph.us.i.i
+  %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next115.i.i, %52 ]
+  %.381.us.i.i = phi ptr [ %.284.us.i.i, %.lr.ph.us.i.i ], [ %53, %52 ]
   %34 = load i32, ptr %.185.us.i.i, align 4, !tbaa !1114
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.critedge.us.i.i, label %36
@@ -26556,7 +26556,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   store i32 %.sroa.068.0.us.i.i, ptr %.381.us.i.i, align 4, !tbaa !1114
   %43 = load i32, ptr %32, align 4, !tbaa !1114
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %51, label %45
+  br i1 %44, label %52, label %45
 
 45:                                               ; preds = %.critedge.us.i.i
   %gep.i.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i, i64 %indvars.iv114.i.i
@@ -26566,18 +26566,18 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %49 = mul nuw nsw i64 %48, %46
   %.sroa.speculated.i66.us.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %49, i64 4294967295)
   %50 = trunc nuw i64 %.sroa.speculated.i66.us.i.i to i32
-  br label %51
+  %51 = tail call i32 @llvm.uadd.sat.i32(i32 %.sroa.068.0.us.i.i, i32 %50)
+  br label %52
 
-51:                                               ; preds = %45, %.critedge.us.i.i
-  %.sroa.0.0.us.i.i = phi i32 [ %50, %45 ], [ 0, %.critedge.us.i.i ]
-  %52 = tail call i32 @llvm.uadd.sat.i32(i32 %.sroa.068.0.us.i.i, i32 %.sroa.0.0.us.i.i)
-  store i32 %52, ptr %.381.us.i.i, align 4, !tbaa !1114
+52:                                               ; preds = %45, %.critedge.us.i.i
+  %.sroa.0.0.us.i.i = phi i32 [ %51, %45 ], [ %.sroa.068.0.us.i.i, %.critedge.us.i.i ]
+  store i32 %.sroa.0.0.us.i.i, ptr %.381.us.i.i, align 4, !tbaa !1114
   %indvars.iv.next115.i.i = add nuw nsw i64 %indvars.iv114.i.i, 1
   %53 = getelementptr inbounds nuw i8, ptr %.381.us.i.i, i64 4
   %exitcond118.not.i.i = icmp eq i64 %indvars.iv.next115.i.i, %25
   br i1 %exitcond118.not.i.i, label %._crit_edge.us90.i.i, label %33, !llvm.loop !1133
 
-._crit_edge.us90.i.i:                             ; preds = %51
+._crit_edge.us90.i.i:                             ; preds = %52
   %indvars.iv.next120.i.i = add nuw nsw i64 %indvars.iv119.i.i, 1
   %54 = getelementptr inbounds nuw i8, ptr %.185.us.i.i, i64 8
   %55 = trunc nuw i64 %indvars.iv.next120.i.i to i32
@@ -26864,9 +26864,9 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeItNS_13ufixedpoint32ELi2ELb0
   %invariant.gep = getelementptr inbounds nuw i16, ptr %31, i64 %25
   br label %33
 
-33:                                               ; preds = %.lr.ph.us, %51
-  %indvars.iv114 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next115, %51 ]
-  %.381.us = phi ptr [ %.284.us, %.lr.ph.us ], [ %53, %51 ]
+33:                                               ; preds = %.lr.ph.us, %52
+  %indvars.iv114 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next115, %52 ]
+  %.381.us = phi ptr [ %.284.us, %.lr.ph.us ], [ %53, %52 ]
   %34 = load i32, ptr %.185.us, align 4, !tbaa !1114
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.critedge.us, label %36
@@ -26886,7 +26886,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeItNS_13ufixedpoint32ELi2ELb0
   store i32 %.sroa.068.0.us, ptr %.381.us, align 4, !tbaa !1114
   %43 = load i32, ptr %32, align 4, !tbaa !1114
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %51, label %45
+  br i1 %44, label %52, label %45
 
 45:                                               ; preds = %.critedge.us
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv114
@@ -26896,18 +26896,18 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeItNS_13ufixedpoint32ELi2ELb0
   %49 = mul nuw nsw i64 %48, %46
   %.sroa.speculated.i66.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %49, i64 4294967295)
   %50 = trunc nuw i64 %.sroa.speculated.i66.us to i32
-  br label %51
+  %51 = tail call i32 @llvm.uadd.sat.i32(i32 %.sroa.068.0.us, i32 %50)
+  br label %52
 
-51:                                               ; preds = %45, %.critedge.us
-  %.sroa.0.0.us = phi i32 [ %50, %45 ], [ 0, %.critedge.us ]
-  %52 = tail call i32 @llvm.uadd.sat.i32(i32 %.sroa.068.0.us, i32 %.sroa.0.0.us)
-  store i32 %52, ptr %.381.us, align 4, !tbaa !1114
+52:                                               ; preds = %45, %.critedge.us
+  %.sroa.0.0.us = phi i32 [ %51, %45 ], [ %.sroa.068.0.us, %.critedge.us ]
+  store i32 %.sroa.0.0.us, ptr %.381.us, align 4, !tbaa !1114
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %53 = getelementptr inbounds nuw i8, ptr %.381.us, i64 4
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %25
   br i1 %exitcond118.not, label %._crit_edge.us90, label %33, !llvm.loop !1133
 
-._crit_edge.us90:                                 ; preds = %51
+._crit_edge.us90:                                 ; preds = %52
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %54 = getelementptr inbounds nuw i8, ptr %.185.us, i64 8
   %55 = trunc nuw i64 %indvars.iv.next120 to i32

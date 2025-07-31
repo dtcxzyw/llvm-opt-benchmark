@@ -3432,39 +3432,42 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %152 = load double, ptr %30, align 8, !tbaa !102
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %161, %151
-  %indvars.iv.i.i = phi i64 [ 0, %151 ], [ %indvars.iv.next.i.i, %161 ]
-  %.04.i.i = phi double [ 0.000000e+00, %151 ], [ %.1.i.i, %161 ]
-  %.0232.i.i = phi i32 [ 0, %151 ], [ %.124.i.i, %161 ]
-  %.0251.i.i = phi double [ 0.000000e+00, %151 ], [ %.126.i.i, %161 ]
-  %153 = getelementptr inbounds nuw double, ptr %100, i64 %indvars.iv.i.i
-  %154 = load double, ptr %153, align 8, !tbaa !83
-  %155 = fcmp nsz ogt double %154, %152
-  br i1 %155, label %156, label %161
+._crit_edge.loopexit.i.i:                         ; preds = %163
+  %153 = tail call i32 @llvm.smax.i32(i32 %.124.i.i, i32 1)
+  %154 = uitofp nneg i32 %153 to double
+  br label %spectral_flatness.exit.i
 
-156:                                              ; preds = %.lr.ph.i.i
-  %157 = tail call nsz double @llvm.log.f64(double %154)
-  %158 = fadd nsz double %.04.i.i, %157
-  %159 = fadd nsz double %.0251.i.i, %154
-  %160 = add nsw i32 %.0232.i.i, 1
-  br label %161
+.lr.ph.i.i:                                       ; preds = %163, %151
+  %indvars.iv.i.i = phi i64 [ 0, %151 ], [ %indvars.iv.next.i.i, %163 ]
+  %.04.i.i = phi double [ 0.000000e+00, %151 ], [ %.1.i.i, %163 ]
+  %.0232.i.i = phi i32 [ 0, %151 ], [ %.124.i.i, %163 ]
+  %.0251.i.i = phi double [ 0.000000e+00, %151 ], [ %.126.i.i, %163 ]
+  %155 = getelementptr inbounds nuw double, ptr %100, i64 %indvars.iv.i.i
+  %156 = load double, ptr %155, align 8, !tbaa !83
+  %157 = fcmp nsz ogt double %156, %152
+  br i1 %157, label %158, label %163
 
-161:                                              ; preds = %156, %.lr.ph.i.i
-  %.126.i.i = phi nsz double [ %159, %156 ], [ %.0251.i.i, %.lr.ph.i.i ]
-  %.124.i.i = phi i32 [ %160, %156 ], [ %.0232.i.i, %.lr.ph.i.i ]
-  %.1.i.i = phi nsz double [ %158, %156 ], [ %.04.i.i, %.lr.ph.i.i ]
+158:                                              ; preds = %.lr.ph.i.i
+  %159 = tail call nsz double @llvm.log.f64(double %156)
+  %160 = fadd nsz double %.04.i.i, %159
+  %161 = fadd nsz double %.0251.i.i, %156
+  %162 = add nsw i32 %.0232.i.i, 1
+  br label %163
+
+163:                                              ; preds = %158, %.lr.ph.i.i
+  %.126.i.i = phi nsz double [ %161, %158 ], [ %.0251.i.i, %.lr.ph.i.i ]
+  %.124.i.i = phi i32 [ %162, %158 ], [ %.0232.i.i, %.lr.ph.i.i ]
+  %.1.i.i = phi nsz double [ %160, %158 ], [ %.04.i.i, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
-  br i1 %exitcond.not.i.i, label %spectral_flatness.exit.i, label %.lr.ph.i.i, !llvm.loop !206
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !206
 
-spectral_flatness.exit.i:                         ; preds = %161, %._crit_edge.thread.i
-  %.025.lcssa.i.i = phi double [ 0.000000e+00, %._crit_edge.thread.i ], [ %.126.i.i, %161 ]
-  %.023.lcssa.i.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %.124.i.i, %161 ]
-  %.0.lcssa.i.i = phi double [ 0.000000e+00, %._crit_edge.thread.i ], [ %.1.i.i, %161 ]
-  %162 = tail call i32 @llvm.smax.i32(i32 %.023.lcssa.i.i, i32 1)
-  %163 = uitofp nneg i32 %162 to double
-  %164 = fdiv nsz double %.0.lcssa.i.i, %163
-  %165 = fdiv nsz double %.025.lcssa.i.i, %163
+spectral_flatness.exit.i:                         ; preds = %._crit_edge.loopexit.i.i, %._crit_edge.thread.i
+  %.025.lcssa.i.i = phi double [ %.126.i.i, %._crit_edge.loopexit.i.i ], [ 0.000000e+00, %._crit_edge.thread.i ]
+  %.023.lcssa.i.i = phi double [ %154, %._crit_edge.loopexit.i.i ], [ 1.000000e+00, %._crit_edge.thread.i ]
+  %.0.lcssa.i.i = phi double [ %.1.i.i, %._crit_edge.loopexit.i.i ], [ 0.000000e+00, %._crit_edge.thread.i ]
+  %164 = fdiv nsz double %.0.lcssa.i.i, %.023.lcssa.i.i
+  %165 = fdiv nsz double %.025.lcssa.i.i, %.023.lcssa.i.i
   %166 = tail call nsz double @llvm.exp.f64(double %164)
   %167 = fdiv nsz double %166, %165
   %168 = fcmp nsz ogt double %167, 8.000000e-01

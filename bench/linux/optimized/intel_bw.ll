@@ -336,7 +336,7 @@ define internal fastcc void @tgl_get_bw_info(ptr noundef %0, ptr noundef readonl
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %58, %76
-  %.pre-phi = phi i64 [ %67, %76 ], [ 0, %58 ]
+  %.pre-phi = phi i64 [ %67, %76 ], [ 1, %58 ]
   %78 = phi i32 [ %77, %76 ], [ 0, %58 ]
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 103
   %80 = load i8, ptr %79, align 1
@@ -377,7 +377,6 @@ define internal fastcc void @tgl_get_bw_info(ptr noundef %0, ptr noundef readonl
   %111 = load i8, ptr %105, align 1
   %112 = zext i8 %111 to i32
   %factor.op.mul = mul nuw nsw i32 %62, %81
-  %umax = tail call i64 @llvm.umax.i64(i64 %.pre-phi, i64 1)
   %113 = tail call i8 @llvm.umax.i8(i8 %110, i8 1)
   %umax12 = zext i8 %113 to i64
   %114 = icmp eq i8 %110, 0
@@ -515,7 +514,7 @@ thread-pre-split:                                 ; preds = %202, %135
   %206 = trunc nuw nsw i64 %164 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %203, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %122, i32 noundef %206, i32 noundef %205, i32 noundef %193, i32 noundef %198) #10
   %207 = add nuw nsw i64 %164, 1
-  %exitcond.not = icmp eq i64 %207, %umax
+  %exitcond.not = icmp eq i64 %207, %.pre-phi
   br i1 %exitcond.not, label %thread-pre-split, label %163, !llvm.loop !12
 
 .split:                                           ; preds = %144, %217
@@ -619,12 +618,12 @@ define internal fastcc void @icl_get_bw_info(ptr noundef %0) unnamed_addr #0 ali
   %31 = zext i16 %27 to i32
   %32 = mul nuw nsw i32 %31, 96
   %33 = udiv i32 %32, 10
+  %34 = tail call i32 @llvm.umin.i32(i32 %33, i32 25000)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16, %30
   %.pre-phi = phi i64 [ %21, %30 ], [ 0, %16 ]
-  %34 = phi i32 [ %33, %30 ], [ 0, %16 ]
-  %35 = tail call i32 @llvm.umin.i32(i32 %34, i32 25000)
+  %35 = phi i32 [ %34, %30 ], [ 0, %16 ]
   %36 = udiv i8 -128, %5
   %37 = tail call i8 @llvm.umin.i8(i8 %36, i8 16)
   %38 = zext nneg i8 %37 to i32
@@ -2864,9 +2863,6 @@ declare i16 @llvm.umax.i16(i16, i16) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #9

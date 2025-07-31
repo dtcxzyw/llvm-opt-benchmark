@@ -1168,9 +1168,9 @@ define hidden void @_ZN4ring6digest12BlockContext6finish17h89987615cfa882f5E.llv
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcd5c9a8e6f63698bE.exit": ; preds = %58
   %62 = shl nuw i64 %59, 3
-  %63 = getelementptr inbounds i8, ptr %2, i64 %41
-  %64 = tail call i64 @llvm.bswap.i64(i64 %62)
-  store i64 %64, ptr %63, align 1, !alias.scope !160, !noalias !164
+  %63 = tail call i64 @llvm.bswap.i64(i64 %62)
+  %64 = getelementptr inbounds i8, ptr %2, i64 %41
+  store i64 %63, ptr %64, align 1, !alias.scope !160, !noalias !164
   %65 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.llvm.8403485840513791397(ptr noundef nonnull align 1 @_ZN4ring3cpu8features4INIT17hdec16924e286df23E, i8 noundef 2)
   %66 = icmp ult i8 %65, 4
   tail call void @llvm.assume(i1 %66)

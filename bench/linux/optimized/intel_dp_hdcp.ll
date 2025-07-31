@@ -1277,7 +1277,7 @@ select.unfold37:                                  ; preds = %164
 define internal range(i32 -2147483648, 1) i32 @intel_dp_hdcp2_config_stream_type(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i8 noundef zeroext %2) #0 align 16 {
   %4 = alloca %struct.hdcp2_dp_errata_stream_type, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
-  br i1 %1, label %36, label %5
+  br i1 %1, label %.loopexit, label %5
 
 5:                                                ; preds = %3
   store i16 50, ptr %4, align 2, !annotation !5
@@ -1313,36 +1313,32 @@ define internal range(i32 -2147483648, 1) i32 @intel_dp_hdcp2_config_stream_type
   %18 = phi ptr [ %14, %.thread ], [ %16, %.thread2 ]
   br label %19
 
-19:                                               ; preds = %28, %17
-  %20 = phi i64 [ %29, %28 ], [ 1, %17 ]
-  %21 = phi ptr [ %30, %28 ], [ %6, %17 ]
-  %22 = phi i32 [ %32, %28 ], [ 431252, %17 ]
+19:                                               ; preds = %29, %17
+  %20 = phi i64 [ %30, %29 ], [ 1, %17 ]
+  %21 = phi ptr [ %31, %29 ], [ %6, %17 ]
+  %22 = phi i32 [ %33, %29 ], [ 431252, %17 ]
   %23 = call i64 @llvm.smin.i64(i64 %20, i64 16)
   %24 = call i64 @drm_dp_dpcd_write(ptr noundef nonnull %18, i32 noundef %22, ptr noundef %21, i64 noundef %23) #7
   %25 = icmp slt i64 %24, 0
-  br i1 %25, label %26, label %28
+  br i1 %25, label %26, label %29
 
 26:                                               ; preds = %19
   %27 = trunc i64 %24 to i32
+  %28 = call i32 @llvm.smin.i32(i32 %27, i32 0)
   br label %.loopexit
 
-28:                                               ; preds = %19
-  %29 = sub i64 %20, %24
-  %30 = getelementptr i8, ptr %21, i64 %24
-  %31 = trunc i64 %24 to i32
-  %32 = add i32 %22, %31
-  %33 = icmp eq i64 %29, 0
-  br i1 %33, label %.loopexit, label %19, !llvm.loop !10
+29:                                               ; preds = %19
+  %30 = sub i64 %20, %24
+  %31 = getelementptr i8, ptr %21, i64 %24
+  %32 = trunc i64 %24 to i32
+  %33 = add i32 %22, %32
+  %34 = icmp eq i64 %30, 0
+  br i1 %34, label %.loopexit, label %19, !llvm.loop !10
 
-.loopexit:                                        ; preds = %28, %26
-  %34 = phi i32 [ %27, %26 ], [ 2, %28 ]
-  %35 = call i32 @llvm.smin.i32(i32 %34, i32 0)
-  br label %36
-
-36:                                               ; preds = %.loopexit, %3
-  %37 = phi i32 [ %35, %.loopexit ], [ 0, %3 ]
+.loopexit:                                        ; preds = %29, %26, %3
+  %35 = phi i32 [ 0, %3 ], [ %28, %26 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
-  ret i32 %37
+  ret i32 %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

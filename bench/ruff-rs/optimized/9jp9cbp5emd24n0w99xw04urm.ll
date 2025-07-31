@@ -11878,12 +11878,12 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h0e42eb6bbbeb63b6E.exit.i.i.i
 40:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h1e33a6554edcfff4E.exit.i.i.i"
   call void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he5e9e764928d11fdE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) dereferenceable_or_null(16) %38), !noalias !1436
   %.pre57.i.i.i = load i64, ptr %7, align 8, !noalias !1428
+  %41 = tail call i64 @llvm.uadd.sat.i64(i64 %37, i64 %.pre57.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1e33a6554edcfff4E.exit44.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h1e33a6554edcfff4E.exit44.i.i.i": ; preds = %40, %"_ZN4core6option15Option$LT$T$GT$6map_or17h1e33a6554edcfff4E.exit.i.i.i"
-  %41 = phi i64 [ %.pre57.i.i.i, %40 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h1e33a6554edcfff4E.exit.i.i.i" ]
+  %42 = phi i64 [ %41, %40 ], [ %37, %"_ZN4core6option15Option$LT$T$GT$6map_or17h1e33a6554edcfff4E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1428
-  %42 = tail call i64 @llvm.uadd.sat.i64(i64 %37, i64 %41)
   %43 = tail call i64 @llvm.uadd.sat.i64(i64 %42, i64 1)
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %43, i64 8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1439
@@ -12019,12 +12019,12 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h0e42eb6bbbeb63b6E.exit.i.i.i
 
 .noexc11.i:                                       ; preds = %85
   %.pre57.i.i.i.i.i = load i64, ptr %4, align 8, !noalias !1481
+  %86 = call i64 @llvm.uadd.sat.i64(i64 %83, i64 %.pre57.i.i.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1e33a6554edcfff4E.exit44.i.i.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h1e33a6554edcfff4E.exit44.i.i.i.i.i": ; preds = %.noexc11.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h1e33a6554edcfff4E.exit.i.i.i.i.i"
-  %86 = phi i64 [ %.pre57.i.i.i.i.i, %.noexc11.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h1e33a6554edcfff4E.exit.i.i.i.i.i" ]
+  %87 = phi i64 [ %86, %.noexc11.i ], [ %83, %"_ZN4core6option15Option$LT$T$GT$6map_or17h1e33a6554edcfff4E.exit.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1481
-  %87 = call i64 @llvm.uadd.sat.i64(i64 %83, i64 %86)
   %88 = call i64 @llvm.uadd.sat.i64(i64 %87, i64 1)
   %89 = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1486, !noalias !1474, !noundef !7
   %90 = load i64, ptr %10, align 8, !range !390, !alias.scope !1486, !noalias !1474, !noundef !7

@@ -2977,14 +2977,14 @@ _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6Offse
   %645 = phi ptr [ %640, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i ], [ %643, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i ]
   %646 = phi i64 [ %637, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i ]
   %647 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %645) #15
+  %648 = call i64 @llvm.umin.i64(i64 %647, i64 %646)
   br label %_ZNK4llvm3opt8OptTable13getOptionNameENS0_12OptSpecifierE.exit
 
 _ZNK4llvm3opt8OptTable13getOptionNameENS0_12OptSpecifierE.exit: ; preds = %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i, %644
-  %648 = phi ptr [ %645, %644 ], [ %643, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i ], [ %630, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i ]
-  %649 = phi i64 [ %646, %644 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i ]
+  %649 = phi ptr [ %645, %644 ], [ %643, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i ], [ %630, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i ]
+  %.sroa.speculated4.i.i.i.i = phi i64 [ %648, %644 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i ]
   %650 = phi i64 [ %647, %644 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i ]
-  %.sroa.speculated4.i.i.i.i = call i64 @llvm.umin.i64(i64 %650, i64 %649)
-  %651 = getelementptr inbounds nuw i8, ptr %648, i64 %.sroa.speculated4.i.i.i.i
+  %651 = getelementptr inbounds nuw i8, ptr %649, i64 %.sroa.speculated4.i.i.i.i
   %652 = sub i64 %650, %.sroa.speculated4.i.i.i.i
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %16, ptr %651, i64 %652)
   %653 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN5clang6driver17getDriverOptTableEv() #15
@@ -3038,14 +3038,14 @@ _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6Offse
   %680 = phi ptr [ %675, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i457 ], [ %678, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i465 ]
   %681 = phi i64 [ %672, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i457 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i465 ]
   %682 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %680) #15
+  %683 = call i64 @llvm.umin.i64(i64 %682, i64 %681)
   br label %_ZNK4llvm3opt8OptTable13getOptionNameENS0_12OptSpecifierE.exit468
 
 _ZNK4llvm3opt8OptTable13getOptionNameENS0_12OptSpecifierE.exit468: ; preds = %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i463, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i465, %679
-  %683 = phi ptr [ %680, %679 ], [ %678, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i465 ], [ %665, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i463 ]
-  %684 = phi i64 [ %681, %679 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i465 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i463 ]
+  %684 = phi ptr [ %680, %679 ], [ %678, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i465 ], [ %665, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i463 ]
+  %.sroa.speculated4.i.i.i.i460 = phi i64 [ %683, %679 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i465 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i463 ]
   %685 = phi i64 [ %682, %679 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i465 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i463 ]
-  %.sroa.speculated4.i.i.i.i460 = call i64 @llvm.umin.i64(i64 %685, i64 %684)
-  %686 = getelementptr inbounds nuw i8, ptr %683, i64 %.sroa.speculated4.i.i.i.i460
+  %686 = getelementptr inbounds nuw i8, ptr %684, i64 %.sroa.speculated4.i.i.i.i460
   %687 = sub i64 %685, %.sroa.speculated4.i.i.i.i460
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %16, ptr %686, i64 %687)
   %688 = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -3162,14 +3162,14 @@ _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6Offse
   %742 = phi ptr [ %737, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i482 ], [ %740, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i490 ]
   %743 = phi i64 [ %734, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i482 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i490 ]
   %744 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %742) #15
+  %745 = call i64 @llvm.umin.i64(i64 %744, i64 %743)
   br label %_ZNK4llvm3opt8OptTable13getOptionNameENS0_12OptSpecifierE.exit493
 
 _ZNK4llvm3opt8OptTable13getOptionNameENS0_12OptSpecifierE.exit493: ; preds = %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i488, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i490, %741
-  %745 = phi ptr [ %742, %741 ], [ %740, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i490 ], [ %727, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i488 ]
-  %746 = phi i64 [ %743, %741 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i490 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i488 ]
+  %746 = phi ptr [ %742, %741 ], [ %740, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i490 ], [ %727, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i488 ]
+  %.sroa.speculated4.i.i.i.i485 = phi i64 [ %745, %741 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i490 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i488 ]
   %747 = phi i64 [ %744, %741 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i490 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i488 ]
-  %.sroa.speculated4.i.i.i.i485 = call i64 @llvm.umin.i64(i64 %747, i64 %746)
-  %748 = getelementptr inbounds nuw i8, ptr %745, i64 %.sroa.speculated4.i.i.i.i485
+  %748 = getelementptr inbounds nuw i8, ptr %746, i64 %.sroa.speculated4.i.i.i.i485
   %749 = sub i64 %747, %.sroa.speculated4.i.i.i.i485
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %17, ptr %748, i64 %749)
   %750 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN5clang6driver17getDriverOptTableEv() #15
@@ -3223,14 +3223,14 @@ _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6Offse
   %777 = phi ptr [ %772, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i500 ], [ %775, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i508 ]
   %778 = phi i64 [ %769, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i500 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i508 ]
   %779 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %777) #15
+  %780 = call i64 @llvm.umin.i64(i64 %779, i64 %778)
   br label %_ZNK4llvm3opt8OptTable13getOptionNameENS0_12OptSpecifierE.exit511
 
 _ZNK4llvm3opt8OptTable13getOptionNameENS0_12OptSpecifierE.exit511: ; preds = %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i506, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i508, %776
-  %780 = phi ptr [ %777, %776 ], [ %775, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i508 ], [ %762, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i506 ]
-  %781 = phi i64 [ %778, %776 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i508 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i506 ]
+  %781 = phi ptr [ %777, %776 ], [ %775, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i508 ], [ %762, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i506 ]
+  %.sroa.speculated4.i.i.i.i503 = phi i64 [ %780, %776 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i508 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i506 ]
   %782 = phi i64 [ %779, %776 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i508 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i506 ]
-  %.sroa.speculated4.i.i.i.i503 = call i64 @llvm.umin.i64(i64 %782, i64 %781)
-  %783 = getelementptr inbounds nuw i8, ptr %780, i64 %.sroa.speculated4.i.i.i.i503
+  %783 = getelementptr inbounds nuw i8, ptr %781, i64 %.sroa.speculated4.i.i.i.i503
   %784 = sub i64 %782, %.sroa.speculated4.i.i.i.i503
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %17, ptr %783, i64 %784)
   %785 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -3497,14 +3497,14 @@ _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6Offse
   %892 = phi ptr [ %887, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i553 ], [ %890, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i561 ]
   %893 = phi i64 [ %884, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i553 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i561 ]
   %894 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %892) #15
+  %895 = call i64 @llvm.umin.i64(i64 %894, i64 %893)
   br label %_ZNK4llvm3opt8OptTable13getOptionNameENS0_12OptSpecifierE.exit564
 
 _ZNK4llvm3opt8OptTable13getOptionNameENS0_12OptSpecifierE.exit564: ; preds = %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i559, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i561, %891
-  %895 = phi ptr [ %892, %891 ], [ %890, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i561 ], [ %877, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i559 ]
-  %896 = phi i64 [ %893, %891 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i561 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i559 ]
+  %896 = phi ptr [ %892, %891 ], [ %890, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i561 ], [ %877, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i559 ]
+  %.sroa.speculated4.i.i.i.i556 = phi i64 [ %895, %891 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i561 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i559 ]
   %897 = phi i64 [ %894, %891 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i561 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i559 ]
-  %.sroa.speculated4.i.i.i.i556 = call i64 @llvm.umin.i64(i64 %897, i64 %896)
-  %898 = getelementptr inbounds nuw i8, ptr %895, i64 %.sroa.speculated4.i.i.i.i556
+  %898 = getelementptr inbounds nuw i8, ptr %896, i64 %.sroa.speculated4.i.i.i.i556
   %899 = sub i64 %897, %.sroa.speculated4.i.i.i.i556
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %18, ptr %898, i64 %899)
   %900 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN5clang6driver17getDriverOptTableEv() #15
@@ -3560,14 +3560,14 @@ _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6Offse
   %929 = phi ptr [ %924, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i571 ], [ %927, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i579 ]
   %930 = phi i64 [ %921, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i571 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i579 ]
   %931 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %929) #15
+  %932 = call i64 @llvm.umin.i64(i64 %931, i64 %930)
   br label %_ZNK4llvm3opt8OptTable13getOptionNameENS0_12OptSpecifierE.exit582
 
 _ZNK4llvm3opt8OptTable13getOptionNameENS0_12OptSpecifierE.exit582: ; preds = %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i577, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i579, %928
-  %932 = phi ptr [ %929, %928 ], [ %927, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i579 ], [ %914, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i577 ]
-  %933 = phi i64 [ %930, %928 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i579 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i577 ]
+  %933 = phi ptr [ %929, %928 ], [ %927, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i579 ], [ %914, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i577 ]
+  %.sroa.speculated4.i.i.i.i574 = phi i64 [ %932, %928 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i579 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i577 ]
   %934 = phi i64 [ %931, %928 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i579 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i577 ]
-  %.sroa.speculated4.i.i.i.i574 = call i64 @llvm.umin.i64(i64 %934, i64 %933)
-  %935 = getelementptr inbounds nuw i8, ptr %932, i64 %.sroa.speculated4.i.i.i.i574
+  %935 = getelementptr inbounds nuw i8, ptr %933, i64 %.sroa.speculated4.i.i.i.i574
   %936 = sub i64 %934, %.sroa.speculated4.i.i.i.i574
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %18, ptr %935, i64 %936)
   %937 = getelementptr inbounds nuw i8, ptr %18, i64 64
@@ -3844,14 +3844,14 @@ _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6Offse
   %1074 = phi ptr [ %1069, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i.i ], [ %1072, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i ]
   %1075 = phi i64 [ %1066, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i.i ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i ]
   %1076 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1074) #15
+  %1077 = call i64 @llvm.umin.i64(i64 %1076, i64 %1075)
   br label %_ZNK4llvm3opt6Option7getNameEv.exit
 
 _ZNK4llvm3opt6Option7getNameEv.exit:              ; preds = %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i.i, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i, %1073
-  %1077 = phi ptr [ %1074, %1073 ], [ %1072, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i ], [ %1059, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i.i ]
-  %1078 = phi i64 [ %1075, %1073 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i.i ]
+  %1078 = phi ptr [ %1074, %1073 ], [ %1072, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i ], [ %1059, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i.i ]
+  %.sroa.speculated4.i.i.i.i.i = phi i64 [ %1077, %1073 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i.i ]
   %1079 = phi i64 [ %1076, %1073 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i.i ]
-  %.sroa.speculated4.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %1079, i64 %1078)
-  %1080 = getelementptr inbounds nuw i8, ptr %1077, i64 %.sroa.speculated4.i.i.i.i.i
+  %1080 = getelementptr inbounds nuw i8, ptr %1078, i64 %.sroa.speculated4.i.i.i.i.i
   %1081 = getelementptr inbounds nuw i8, ptr %1040, i64 16
   %1082 = load ptr, ptr %1081, align 8, !tbaa !136
   %.not.i.i602 = icmp eq ptr %1082, null
@@ -3860,7 +3860,7 @@ _ZNK4llvm3opt6Option7getNameEv.exit:              ; preds = %_ZNK4llvm3opt8OptTa
   %1084 = load i8, ptr %1083, align 4
   %1085 = or i8 %1084, 1
   store i8 %1085, ptr %1083, align 4
-  %1086 = icmp ugt i64 %1079, %1078
+  %1086 = icmp ne i64 %1079, %.sroa.speculated4.i.i.i.i.i
   %.sroa.speculated4.i.neg1489 = sext i1 %1086 to i64
   %.sroa.speculated4.i = zext i1 %1086 to i64
   %1087 = getelementptr inbounds nuw i8, ptr %1080, i64 %.sroa.speculated4.i
@@ -4185,14 +4185,14 @@ _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6Offse
   %1196 = phi ptr [ %1191, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i.i655 ], [ %1194, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i663 ]
   %1197 = phi i64 [ %1188, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i.i655 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i663 ]
   %1198 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1196) #15
+  %1199 = call i64 @llvm.umin.i64(i64 %1198, i64 %1197)
   br label %_ZNK4llvm3opt6Option7getNameEv.exit666
 
 _ZNK4llvm3opt6Option7getNameEv.exit666:           ; preds = %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i.i661, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i663, %1195
-  %1199 = phi ptr [ %1196, %1195 ], [ %1194, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i663 ], [ %1181, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i.i661 ]
-  %1200 = phi i64 [ %1197, %1195 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i663 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i.i661 ]
+  %1200 = phi ptr [ %1196, %1195 ], [ %1194, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i663 ], [ %1181, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i.i661 ]
+  %.sroa.speculated4.i.i.i.i.i658 = phi i64 [ %1199, %1195 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i663 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i.i661 ]
   %1201 = phi i64 [ %1198, %1195 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i.i663 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i.i661 ]
-  %.sroa.speculated4.i.i.i.i.i658 = call i64 @llvm.umin.i64(i64 %1201, i64 %1200)
-  %1202 = getelementptr inbounds nuw i8, ptr %1199, i64 %.sroa.speculated4.i.i.i.i.i658
+  %1202 = getelementptr inbounds nuw i8, ptr %1200, i64 %.sroa.speculated4.i.i.i.i.i658
   %1203 = getelementptr inbounds nuw i8, ptr %1162, i64 16
   %1204 = load ptr, ptr %1203, align 8, !tbaa !136
   %.not.i.i667 = icmp eq ptr %1204, null
@@ -4201,7 +4201,7 @@ _ZNK4llvm3opt6Option7getNameEv.exit666:           ; preds = %_ZNK4llvm3opt8OptTa
   %1206 = load i8, ptr %1205, align 4
   %1207 = or i8 %1206, 1
   store i8 %1207, ptr %1205, align 4
-  %1208 = icmp ugt i64 %1201, %1200
+  %1208 = icmp ne i64 %1201, %.sroa.speculated4.i.i.i.i.i658
   %.sroa.speculated4.i669.neg1490 = sext i1 %1208 to i64
   %.sroa.speculated4.i669 = zext i1 %1208 to i64
   %1209 = getelementptr inbounds nuw i8, ptr %1202, i64 %.sroa.speculated4.i669
@@ -4234,7 +4234,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %1222
   %bcmp.i673 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1209, ptr noundef nonnull dereferenceable(3) @.str.48, i64 3)
   %1223 = icmp eq i32 %bcmp.i673, 0
   %.not.i674 = icmp ne i64 %1210, 5
-  %or.cond1434.not = or i1 %.not.i674, %.not194
+  %or.cond1434.not = select i1 %.not194, i1 true, i1 %.not.i674
   br i1 %or.cond1434.not, label %_ZN4llvmeqENS_9StringRefES0_.exit677.thread1349, label %_ZN4llvmeqENS_9StringRefES0_.exit677
 
 _ZN4llvmeqENS_9StringRefES0_.exit677:             ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit

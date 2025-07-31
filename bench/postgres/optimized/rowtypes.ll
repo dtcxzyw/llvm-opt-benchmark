@@ -1415,19 +1415,22 @@ define dso_local i64 @record_send(ptr noundef readonly captures(none) %0) local_
   %spec.select = add i32 %.090105, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %69, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %69, %61
-  %.090.lcssa = phi i32 [ 0, %61 ], [ %spec.select, %69 ]
+._crit_edge.loopexit:                             ; preds = %69
+  %74 = call i32 @llvm.bswap.i32(i32 %spec.select)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %61
+  %.090.lcssa = phi i32 [ 0, %61 ], [ %74, %._crit_edge.loopexit ]
   call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef 4) #12
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %74 = call i32 @llvm.bswap.i32(i32 %.090.lcssa)
   %75 = load ptr, ptr %3, align 8, !alias.scope !17
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %77 = load i32, ptr %76, align 8, !alias.scope !17
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %75, i64 %78
-  store i32 %74, ptr %79, align 1, !noalias !17
+  store i32 %.090.lcssa, ptr %79, align 1, !noalias !17
   %80 = add i32 %77, 4
   store i32 %80, ptr %76, align 8, !alias.scope !17
   %invariant.gep107 = getelementptr i8, ptr %10, i64 24

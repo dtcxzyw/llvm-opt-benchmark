@@ -4436,14 +4436,14 @@ define internal fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef 
   %56 = shl i64 %strlen, 32
   %sext = sub i64 167503724544, %56
   %57 = ashr exact i64 %sext, 32
+  %58 = call i64 @llvm.usub.sat.i64(i64 40, i64 %55)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %52
-  %.lcssa = phi i64 [ 0, %52 ], [ %55, %.lr.ph.preheader ]
+  %.lcssa = phi i64 [ 40, %52 ], [ %58, %.lr.ph.preheader ]
   %.097.lcssa = phi ptr [ %7, %52 ], [ %scevgep137, %.lr.ph.preheader ]
   %.0.lcssa = phi i64 [ 40, %52 ], [ %57, %.lr.ph.preheader ]
-  %58 = call i64 @llvm.usub.sat.i64(i64 40, i64 %.lcssa)
-  %59 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.097.lcssa, i64 noundef %.0.lcssa, i32 noundef 2, i64 noundef %58, ptr noundef nonnull @.str.266)
+  %59 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.097.lcssa, i64 noundef %.0.lcssa, i32 noundef 2, i64 noundef %.lcssa, ptr noundef nonnull @.str.266)
   %.not114 = icmp eq i8 %.1100, 8
   br i1 %.not114, label %.thread, label %60
 
@@ -4474,7 +4474,7 @@ define internal fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef 
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
-  %81 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.097.lcssa, i64 noundef %.0.lcssa, i32 noundef 2, i64 noundef %58, ptr noundef nonnull @.str.437, i32 noundef %65, i32 noundef %68, i32 noundef %71, i32 noundef %74, i32 noundef %77, i32 noundef %80)
+  %81 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.097.lcssa, i64 noundef %.0.lcssa, i32 noundef 2, i64 noundef %.lcssa, ptr noundef nonnull @.str.437, i32 noundef %65, i32 noundef %68, i32 noundef %71, i32 noundef %74, i32 noundef %77, i32 noundef %80)
   %82 = load i32, ptr @hf_knxip_mac_address, align 4
   %83 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %82, ptr noundef %0, i32 noundef %46, i32 noundef 6, i32 noundef 0)
   %84 = add i32 %9, 8

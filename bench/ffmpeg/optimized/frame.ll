@@ -2091,18 +2091,18 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
   %131 = phi i32 [ %129, %121 ], [ 2147483647, %119 ]
   br i1 %.not55.i, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %144, %130
-  %.068.lcssa = phi i32 [ 2147483647, %130 ], [ %146, %144 ]
+._crit_edge:                                      ; preds = %145, %130
+  %.068.lcssa = phi i32 [ 2147483647, %130 ], [ %146, %145 ]
   %132 = icmp slt i32 %131, %.068.lcssa
   br i1 %132, label %calc_cropping_offsets.exit, label %149
 
-.lr.ph:                                           ; preds = %130, %144
-  %indvars.iv = phi i64 [ %indvars.iv.next, %144 ], [ 0, %130 ]
-  %.068104 = phi i32 [ %146, %144 ], [ 2147483647, %130 ]
+.lr.ph:                                           ; preds = %130, %145
+  %indvars.iv = phi i64 [ %indvars.iv.next, %145 ], [ 0, %130 ]
+  %.068104 = phi i32 [ %146, %145 ], [ 2147483647, %130 ]
   %133 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %indvars.iv
   %134 = load i64, ptr %133, align 8, !tbaa !39
   %.not89 = icmp eq i64 %134, 0
-  br i1 %.not89, label %144, label %135
+  br i1 %.not89, label %145, label %135
 
 135:                                              ; preds = %.lr.ph
   %136 = sub i64 0, %134
@@ -2113,11 +2113,11 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
   %141 = getelementptr inbounds nuw [32 x i8], ptr @ff_ctz_c.debruijn_ctz32, i64 0, i64 %140
   %142 = load i8, ptr %141, align 1, !tbaa !92
   %143 = zext i8 %142 to i32
-  br label %144
+  %144 = tail call i32 @llvm.smin.i32(i32 %143, i32 %.068104)
+  br label %145
 
-144:                                              ; preds = %.lr.ph, %135
-  %145 = phi i32 [ %143, %135 ], [ 2147483647, %.lr.ph ]
-  %146 = tail call i32 @llvm.smin.i32(i32 %145, i32 %.068104)
+145:                                              ; preds = %.lr.ph, %135
+  %146 = phi i32 [ %144, %135 ], [ %.068104, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %147 = getelementptr inbounds nuw [8 x ptr], ptr %0, i64 0, i64 %indvars.iv.next
   %148 = load ptr, ptr %147, align 8, !tbaa !47

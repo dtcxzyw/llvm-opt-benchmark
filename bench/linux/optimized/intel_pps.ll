@@ -2195,7 +2195,7 @@ define internal fastcc void @pps_init_delays(ptr noundef %0) unnamed_addr #0 ali
   %86 = select i1 %84, i1 %85, i1 false
   %87 = icmp eq i16 %79, 0
   %88 = select i1 %86, i1 %87, i1 false
-  br i1 %88, label %115, label %89
+  br i1 %88, label %116, label %89
 
 89:                                               ; preds = %60
   %90 = tail call zeroext i1 @intel_has_quirk(ptr noundef %67, i32 noundef 2) #7
@@ -2237,58 +2237,58 @@ define internal fastcc void @pps_init_delays(ptr noundef %0) unnamed_addr #0 ali
   %113 = zext i16 %77 to i32
   %114 = zext i16 %102 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %109, i32 noundef 2, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.65, i32 noundef %110, i32 noundef %111, i32 noundef %112, i32 noundef %113, i32 noundef %114) #7
+  %115 = tail call i16 @llvm.umax.i16(i16 %55, i16 %102)
   %.pre6 = load ptr, ptr %2, align 8
-  br label %115
+  br label %116
 
-115:                                              ; preds = %108, %60
-  %116 = phi ptr [ %.pre6, %108 ], [ %67, %60 ]
-  %117 = phi i16 [ %102, %108 ], [ 0, %60 ]
-  %118 = icmp eq ptr %116, null
-  br i1 %118, label %122, label %119
+116:                                              ; preds = %108, %60
+  %117 = phi ptr [ %.pre6, %108 ], [ %67, %60 ]
+  %118 = phi i16 [ %115, %108 ], [ %55, %60 ]
+  %119 = icmp eq ptr %117, null
+  br i1 %119, label %123, label %120
 
-119:                                              ; preds = %115
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %121 = load ptr, ptr %120, align 8
-  br label %122
+120:                                              ; preds = %116
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %122 = load ptr, ptr %121, align 8
+  br label %123
 
-122:                                              ; preds = %119, %115
-  %123 = phi ptr [ %121, %119 ], [ null, %115 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %123, i32 noundef 2, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.66, i32 noundef 2100, i32 noundef 500, i32 noundef 500, i32 noundef 5000, i32 noundef 6100) #7
-  %124 = tail call i16 @llvm.umax.i16(i16 %47, i16 %71)
-  %125 = icmp eq i16 %124, 0
-  %126 = select i1 %125, i16 2100, i16 %124
-  store i16 %126, ptr %5, align 1
-  %127 = tail call i16 @llvm.umax.i16(i16 %49, i16 %73)
-  %128 = icmp eq i16 %127, 0
-  %129 = select i1 %128, i16 500, i16 %127
-  store i16 %129, ptr %9, align 1
-  %130 = tail call i16 @llvm.umax.i16(i16 %51, i16 %75)
-  %131 = icmp eq i16 %130, 0
-  %132 = select i1 %131, i16 500, i16 %130
-  store i16 %132, ptr %13, align 1
-  %133 = tail call i16 @llvm.umax.i16(i16 %53, i16 %77)
-  %134 = icmp eq i16 %133, 0
-  %135 = select i1 %134, i16 5000, i16 %133
-  store i16 %135, ptr %17, align 1
-  %136 = tail call i16 @llvm.umax.i16(i16 %55, i16 %117)
-  %137 = icmp eq i16 %136, 0
-  %138 = select i1 %137, i16 6100, i16 %136
+123:                                              ; preds = %120, %116
+  %124 = phi ptr [ %122, %120 ], [ null, %116 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %124, i32 noundef 2, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.66, i32 noundef 2100, i32 noundef 500, i32 noundef 500, i32 noundef 5000, i32 noundef 6100) #7
+  %125 = tail call i16 @llvm.umax.i16(i16 %47, i16 %71)
+  %126 = icmp eq i16 %125, 0
+  %127 = select i1 %126, i16 2100, i16 %125
+  store i16 %127, ptr %5, align 1
+  %128 = tail call i16 @llvm.umax.i16(i16 %49, i16 %73)
+  %129 = icmp eq i16 %128, 0
+  %130 = select i1 %129, i16 500, i16 %128
+  store i16 %130, ptr %9, align 1
+  %131 = tail call i16 @llvm.umax.i16(i16 %51, i16 %75)
+  %132 = icmp eq i16 %131, 0
+  %133 = select i1 %132, i16 500, i16 %131
+  store i16 %133, ptr %13, align 1
+  %134 = tail call i16 @llvm.umax.i16(i16 %53, i16 %77)
+  %135 = icmp eq i16 %134, 0
+  %136 = select i1 %135, i16 5000, i16 %134
+  store i16 %136, ptr %17, align 1
+  %137 = icmp eq i16 %118, 0
+  %138 = select i1 %137, i16 6100, i16 %118
   store i16 %138, ptr %21, align 1
-  %139 = zext i16 %126 to i32
+  %139 = zext i16 %127 to i32
   %140 = add nuw nsw i32 %139, 9
   %141 = udiv i32 %140, 10
   store i32 %141, ptr %4, align 8
-  %142 = zext i16 %129 to i32
+  %142 = zext i16 %130 to i32
   %143 = add nuw nsw i32 %142, 9
   %144 = udiv i32 %143, 10
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 1540
   store i32 %144, ptr %145, align 4
-  %146 = zext i16 %132 to i32
+  %146 = zext i16 %133 to i32
   %147 = add nuw nsw i32 %146, 9
   %148 = udiv i32 %147, 10
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 1544
   store i32 %148, ptr %149, align 8
-  %150 = zext i16 %135 to i32
+  %150 = zext i16 %136 to i32
   %151 = add nuw nsw i32 %150, 9
   %152 = udiv i32 %151, 10
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 1532
@@ -2301,14 +2301,14 @@ define internal fastcc void @pps_init_delays(ptr noundef %0) unnamed_addr #0 ali
   %158 = icmp eq ptr %3, null
   br i1 %158, label %163, label %159
 
-159:                                              ; preds = %122
+159:                                              ; preds = %123
   %160 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %161 = load ptr, ptr %160, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %161, i32 noundef 2, ptr noundef nonnull @.str.61, i32 noundef %141, i32 noundef %152, i32 noundef %156) #7
   %162 = load ptr, ptr %160, align 8
   br label %164
 
-163:                                              ; preds = %122
+163:                                              ; preds = %123
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.61, i32 noundef %141, i32 noundef %152, i32 noundef %156) #7
   br label %164
 

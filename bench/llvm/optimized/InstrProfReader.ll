@@ -16392,10 +16392,10 @@ _ZN4llvm5ErrorD2Ev.exit31:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.us = icmp eq ptr %81, %73
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1750
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %100
-  %.02276 = phi i1 [ %.224.ph, %100 ], [ false, %.lr.ph ]
-  %.02575 = phi ptr [ %101, %100 ], [ %70, %.lr.ph ]
-  %.074 = phi i64 [ %.256.ph, %100 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit"
+  %.02276 = phi i1 [ %.224.ph, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit" ], [ false, %.lr.ph ]
+  %.02575 = phi ptr [ %101, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit" ], [ %70, %.lr.ph ]
+  %.074 = phi i64 [ %.256.ph, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit" ], [ 0, %.lr.ph ]
   %82 = getelementptr inbounds nuw i8, ptr %.02575, i64 72
   %83 = load i64, ptr %82, align 8, !tbaa !709
   %84 = icmp eq i64 %83, %4
@@ -16405,7 +16405,7 @@ _ZN4llvm5ErrorD2Ev.exit31:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %86 = xor i64 %83, %4
   %87 = and i64 %86, 1152921504606846976
   %.not69 = icmp eq i64 %87, 0
-  br i1 %.not69, label %88, label %100
+  br i1 %.not69, label %88, label %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit"
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr %.02575, align 8, !tbaa !297
@@ -16424,7 +16424,7 @@ _ZN4llvm5ErrorD2Ev.exit31:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 94:                                               ; preds = %.lr.ph.i
   %95 = xor i64 %92, -1
   %.not21.i = icmp ult i64 %.0169.i, %95
-  br i1 %.not21.i, label %96, label %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit"
+  br i1 %.not21.i, label %96, label %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit.loopexit"
 
 96:                                               ; preds = %94
   %97 = add i64 %92, %.0169.i
@@ -16434,16 +16434,16 @@ _ZN4llvm5ErrorD2Ev.exit31:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.218.ph.i = phi i64 [ %.0169.i, %.lr.ph.i ], [ %97, %96 ]
   %99 = getelementptr inbounds nuw i8, ptr %.0198.i, i64 8
   %.not.i32 = icmp eq ptr %99, %91
-  br i1 %.not.i32, label %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit", label %.lr.ph.i
+  br i1 %.not.i32, label %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit.loopexit", label %.lr.ph.i
 
-"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit": ; preds = %94, %98, %88
-  %spec.select.i = phi i64 [ 0, %88 ], [ %.218.ph.i, %98 ], [ -1, %94 ]
-  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %.074, i64 %spec.select.i)
-  br label %100
+"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit.loopexit": ; preds = %98, %94
+  %spec.select.i.ph = phi i64 [ -1, %94 ], [ %.218.ph.i, %98 ]
+  %100 = call i64 @llvm.umax.i64(i64 %.074, i64 %spec.select.i.ph)
+  br label %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit"
 
-100:                                              ; preds = %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit", %85
-  %.256.ph = phi i64 [ %.sroa.speculated, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit" ], [ %.074, %85 ]
-  %.224.ph = phi i1 [ true, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit" ], [ %.02276, %85 ]
+"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit": ; preds = %88, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit.loopexit", %85
+  %.256.ph = phi i64 [ %.074, %85 ], [ %.074, %88 ], [ %100, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit.loopexit" ]
+  %.224.ph = phi i1 [ %.02276, %85 ], [ true, %88 ], [ true, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit.loopexit" ]
   %101 = getelementptr inbounds nuw i8, ptr %.02575, i64 80
   %.not = icmp eq ptr %101, %73
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
@@ -16457,9 +16457,9 @@ _ZN4llvm5ErrorD2Ev.exit31:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   call void @_ZN4llvm15InstrProfRecordC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(80) %.us-phi)
   br label %143
 
-._crit_edge:                                      ; preds = %100, %78
-  %.0.lcssa = phi i64 [ 0, %78 ], [ %.256.ph, %100 ]
-  %.022.lcssa = phi i1 [ %spec.select, %78 ], [ %.224.ph, %100 ]
+._crit_edge:                                      ; preds = %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit", %78
+  %.0.lcssa = phi i64 [ 0, %78 ], [ %.256.ph, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit" ]
+  %.022.lcssa = phi i1 [ %spec.select, %78 ], [ %.224.ph, %"_ZZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_PmENK3$_1clENS_8ArrayRefImEE.exit" ]
   br i1 %.022.lcssa, label %105, label %._crit_edge.i.i35
 
 105:                                              ; preds = %._crit_edge

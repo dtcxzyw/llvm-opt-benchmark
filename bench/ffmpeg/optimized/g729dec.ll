@@ -1134,14 +1134,17 @@ define internal i32 @scalarproduct_int16_c(ptr noundef readonly captures(none) %
   %11 = mul nsw i64 %10, %7
   %12 = add nsw i64 %11, %.017
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !85
 
-._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0.lcssa = phi i64 [ 0, %3 ], [ %12, %.lr.ph ]
-  %spec.select11 = tail call i64 @llvm.smax.i64(i64 %.0.lcssa, i64 -2147483648)
-  %.01012 = tail call i64 @llvm.smin.i64(i64 %spec.select11, i64 2147483647)
-  %.010 = trunc nsw i64 %.01012 to i32
-  ret i32 %.010
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %13 = tail call i64 @llvm.smax.i64(i64 %12, i64 -2147483648)
+  %14 = tail call i64 @llvm.smin.i64(i64 %13, i64 2147483647)
+  %15 = trunc nsw i64 %14 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %15, %._crit_edge.loopexit ]
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

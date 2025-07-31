@@ -247,11 +247,10 @@ define dso_local void @tty_wait_until_sent(ptr noundef %0, i64 noundef %1) #0 al
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.thread, label %.lr.ph
+  br i1 %21, label %.loopexit, label %.lr.ph
 
-.thread:                                          ; preds = %35, %15
-  %.lcssa10 = phi i64 [ %5, %15 ], [ %36, %35 ]
-  %22 = call i64 @llvm.umax.i64(i64 %.lcssa10, i64 1)
+.thread.loopexit:                                 ; preds = %35
+  %22 = call i64 @llvm.umax.i64(i64 %36, i64 1)
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %15, %35
@@ -278,10 +277,10 @@ define dso_local void @tty_wait_until_sent(ptr noundef %0, i64 noundef %1) #0 al
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 88
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread, label %.lr.ph
+  br i1 %41, label %.thread.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %.thread
-  %.ph = phi i64 [ %22, %.thread ], [ %30, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %15, %.thread.loopexit
+  %.ph = phi i64 [ %5, %15 ], [ %22, %.thread.loopexit ], [ %30, %.lr.ph ]
   call void @finish_wait(ptr noundef nonnull %16, ptr noundef nonnull %3) #12
   br label %.thread7
 

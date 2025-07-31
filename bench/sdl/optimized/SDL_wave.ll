@@ -1341,15 +1341,15 @@ define internal fastcc range(i32 -2, 1) i32 @WaveReadChunkData(ptr noundef nonnu
   tail call void @SDL_free_REAL(ptr noundef nonnull %6) #8
   store ptr null, ptr %5, align 8
   %.pre = load i32, ptr %3, align 4
+  %8 = tail call i32 @llvm.umin.i32(i32 %4, i32 %.pre)
   br label %WaveFreeChunkData.exit.i
 
 WaveFreeChunkData.exit.i:                         ; preds = %7, %2
-  %8 = phi i32 [ %.pre, %7 ], [ %4, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 0, ptr %9, align 8
-  %10 = tail call i32 @llvm.umin.i32(i32 %4, i32 %8)
-  %spec.select.i = zext i32 %10 to i64
-  %.not.i = icmp eq i32 %10, 0
+  %9 = phi i32 [ %8, %7 ], [ %4, %2 ]
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 0, ptr %10, align 8
+  %spec.select.i = zext i32 %9 to i64
+  %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %WaveReadPartialChunkData.exit, label %11
 
 11:                                               ; preds = %WaveFreeChunkData.exit.i
@@ -1369,7 +1369,7 @@ WaveFreeChunkData.exit.i:                         ; preds = %7, %2
 18:                                               ; preds = %13
   %19 = load ptr, ptr %5, align 8
   %20 = tail call i64 @SDL_ReadIO_REAL(ptr noundef nonnull %0, ptr noundef %19, i64 noundef %spec.select.i) #8
-  store i64 %20, ptr %9, align 8
+  store i64 %20, ptr %10, align 8
   br label %WaveReadPartialChunkData.exit
 
 WaveReadPartialChunkData.exit:                    ; preds = %WaveFreeChunkData.exit.i, %11, %13, %18

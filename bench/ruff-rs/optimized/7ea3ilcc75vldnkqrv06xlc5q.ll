@@ -11061,12 +11061,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h2fd5023
 
 .noexc6:                                          ; preds = %25
   %.pre57.i.i.i = load i64, ptr %4, align 8, !noalias !1960
+  %26 = tail call i64 @llvm.uadd.sat.i64(i64 %23, i64 %.pre57.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit44.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit44.i.i.i": ; preds = %.noexc6, %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit.i.i.i"
-  %26 = phi i64 [ %.pre57.i.i.i, %.noexc6 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit.i.i.i" ]
+  %27 = phi i64 [ %26, %.noexc6 ], [ %23, %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1960
-  %27 = tail call i64 @llvm.uadd.sat.i64(i64 %23, i64 %26)
   %28 = tail call i64 @llvm.uadd.sat.i64(i64 %27, i64 1)
   %29 = load i64, ptr %6, align 8, !alias.scope !1966, !noundef !15
   %30 = load i64, ptr %0, align 8, !range !1178, !alias.scope !1966, !noundef !15
@@ -11976,12 +11976,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h4004d52
 
 .noexc9:                                          ; preds = %117
   %.pre57.i.i.i = load i64, ptr %4, align 8, !noalias !2089
+  %118 = tail call i64 @llvm.uadd.sat.i64(i64 %115, i64 %.pre57.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit44.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit44.i.i.i": ; preds = %.noexc9, %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit.i.i.i"
-  %118 = phi i64 [ %.pre57.i.i.i, %.noexc9 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit.i.i.i" ]
+  %119 = phi i64 [ %118, %.noexc9 ], [ %115, %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2089
-  %119 = tail call i64 @llvm.uadd.sat.i64(i64 %115, i64 %118)
   %120 = tail call i64 @llvm.uadd.sat.i64(i64 %119, i64 1)
   %121 = load i64, ptr %11, align 8, !alias.scope !2095, !noundef !15
   %122 = load i64, ptr %0, align 8, !range !1178, !alias.scope !2095, !noundef !15
@@ -93102,12 +93102,12 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 .noexc8.i:                                        ; preds = %21
   %.pre57.i.i.i.i = load i64, ptr %7, align 8, !noalias !15443
+  %22 = tail call i64 @llvm.uadd.sat.i64(i64 %18, i64 %.pre57.i.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit44.i.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit44.i.i.i.i": ; preds = %.noexc8.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit.i.i.i.i"
-  %22 = phi i64 [ %.pre57.i.i.i.i, %.noexc8.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit.i.i.i.i" ]
+  %23 = phi i64 [ %22, %.noexc8.i ], [ %18, %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !15443
-  %23 = tail call i64 @llvm.uadd.sat.i64(i64 %18, i64 %22)
   %24 = tail call i64 @llvm.uadd.sat.i64(i64 %23, i64 1)
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %24, i64 4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !15449
@@ -93224,12 +93224,12 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 .noexc6.i.i.i:                                    ; preds = %58
   %.pre57.i.i.i.i.i.i = load i64, ptr %4, align 8, !noalias !15474
+  %59 = call i64 @llvm.uadd.sat.i64(i64 %56, i64 %.pre57.i.i.i.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit44.i.i.i.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit44.i.i.i.i.i.i": ; preds = %.noexc6.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit.i.i.i.i.i.i"
-  %59 = phi i64 [ %.pre57.i.i.i.i.i.i, %.noexc6.i.i.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit.i.i.i.i.i.i" ]
+  %60 = phi i64 [ %59, %.noexc6.i.i.i ], [ %56, %"_ZN4core6option15Option$LT$T$GT$6map_or17h162c62c676a806abE.exit.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !15474
-  %60 = call i64 @llvm.uadd.sat.i64(i64 %56, i64 %59)
   %61 = call i64 @llvm.uadd.sat.i64(i64 %60, i64 1)
   %62 = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !15480, !noalias !15464, !noundef !15
   %63 = load i64, ptr %10, align 8, !range !1178, !alias.scope !15480, !noalias !15464, !noundef !15
@@ -103051,12 +103051,12 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 .noexc6.i:                                        ; preds = %51
   %.pre56.i.i.i.i = load i64, ptr %9, align 8, !noalias !17668
+  %53 = tail call i64 @llvm.uadd.sat.i64(i64 %47, i64 %.pre56.i.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h10644c7088abcbfeE.exit43.i.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h10644c7088abcbfeE.exit43.i.i.i.i": ; preds = %.noexc6.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h10644c7088abcbfeE.exit.i.i.i.i"
-  %53 = phi i64 [ %.pre56.i.i.i.i, %.noexc6.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h10644c7088abcbfeE.exit.i.i.i.i" ]
+  %54 = phi i64 [ %53, %.noexc6.i ], [ %47, %"_ZN4core6option15Option$LT$T$GT$6map_or17h10644c7088abcbfeE.exit.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !17668
-  %54 = tail call i64 @llvm.uadd.sat.i64(i64 %47, i64 %53)
   %55 = tail call i64 @llvm.uadd.sat.i64(i64 %54, i64 1)
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %55, i64 4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !17674
@@ -103239,12 +103239,12 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 .noexc5.i.i.i:                                    ; preds = %110
   %.pre56.i.i.i.i.i.i = load i64, ptr %4, align 8, !noalias !17734
+  %111 = call i64 @llvm.uadd.sat.i64(i64 %107, i64 %.pre56.i.i.i.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h10644c7088abcbfeE.exit43.i.i.i.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h10644c7088abcbfeE.exit43.i.i.i.i.i.i": ; preds = %.noexc5.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h10644c7088abcbfeE.exit.i.i.i.i.i.i"
-  %111 = phi i64 [ %.pre56.i.i.i.i.i.i, %.noexc5.i.i.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h10644c7088abcbfeE.exit.i.i.i.i.i.i" ]
+  %112 = phi i64 [ %111, %.noexc5.i.i.i ], [ %107, %"_ZN4core6option15Option$LT$T$GT$6map_or17h10644c7088abcbfeE.exit.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !17734
-  %112 = call i64 @llvm.uadd.sat.i64(i64 %107, i64 %111)
   %113 = call i64 @llvm.uadd.sat.i64(i64 %112, i64 1)
   %114 = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !17740, !noalias !17724, !noundef !15
   %115 = load i64, ptr %14, align 8, !range !1178, !alias.scope !17740, !noalias !17724, !noundef !15

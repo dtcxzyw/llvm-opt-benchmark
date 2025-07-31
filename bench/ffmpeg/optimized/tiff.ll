@@ -2509,28 +2509,27 @@ tiff_set_type.exit.i.thread:                      ; preds = %201
 
 246:                                              ; preds = %182
   %.not616.i = icmp eq i32 %.0535.i, 0
-  br i1 %.not616.i, label %251, label %247
+  br i1 %.not616.i, label %252, label %247
 
 247:                                              ; preds = %246
   %248 = load i32, ptr %10, align 4, !tbaa !36
   %249 = icmp eq i32 %248, 4
   %250 = icmp eq i32 %.0535.i, -1
   %or.cond9.i = select i1 %249, i1 %250, i1 false
-  br i1 %or.cond9.i, label %251, label %._crit_edge779.i
+  br i1 %or.cond9.i, label %252, label %._crit_edge779.i
 
 ._crit_edge779.i:                                 ; preds = %247
   %.pre780.i = load i32, ptr %103, align 4, !tbaa !35
-  br label %253
+  %251 = call i32 @llvm.umin.i32(i32 %.0535.i, i32 %.pre780.i)
+  br label %254
 
-251:                                              ; preds = %247, %246
-  %252 = load i32, ptr %103, align 4, !tbaa !35
-  br label %253
+252:                                              ; preds = %247, %246
+  %253 = load i32, ptr %103, align 4, !tbaa !35
+  br label %254
 
-253:                                              ; preds = %251, %._crit_edge779.i
-  %254 = phi i32 [ %252, %251 ], [ %.pre780.i, %._crit_edge779.i ]
-  %.1536.i = phi i32 [ %252, %251 ], [ %.0535.i, %._crit_edge779.i ]
-  %..1536.i = call i32 @llvm.umin.i32(i32 %.1536.i, i32 %254)
-  store i32 %..1536.i, ptr %104, align 4, !tbaa !85
+254:                                              ; preds = %252, %._crit_edge779.i
+  %.1536.i = phi i32 [ %253, %252 ], [ %251, %._crit_edge779.i ]
+  store i32 %.1536.i, ptr %104, align 4, !tbaa !85
   br label %tiff_set_type.exit.ithread-pre-split
 
 255:                                              ; preds = %182
@@ -3950,7 +3949,7 @@ tiff_set_type.exit.i.thread:                      ; preds = %201
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %996, i32 noundef 16, ptr noundef nonnull @.str.74, i32 noundef %183, i32 noundef %183) #16
   br label %tiff_decode_tag.exit.thread
 
-tiff_set_type.exit.ithread-pre-split:             ; preds = %978, %964, %957, %933, %920, %754, %.critedge621.i, %505, %.lr.ph694.split.i, %.lr.ph, %184, %189, %192, %238, %239, %239, %239, %239, %239, %239, %239, %242, %243, %253, %269, %280, %314, %315, %318, %321, %324, %325, %327, %328, %._crit_edge697.i, %.preheader644.i, %394, %397, %401, %407, %425, %434, %._crit_edge689.i, %498, %517, %522, %523, %528, %529, %534, %536, %541, %543, %548, %558, %564, %.preheader649.i, %592, %645, %._crit_edge.i, %692, %776, %778, %783, %788, %790, %795, %797, %802, %804, %809, %811, %816, %818, %823, %825, %830, %832, %837, %839, %844, %851, %853, %885, %890, %892, %895, %911, %912, %925, %938, %991, %994, %995, %282, %291, %293, %295, %297, %312
+tiff_set_type.exit.ithread-pre-split:             ; preds = %978, %964, %957, %933, %920, %754, %.critedge621.i, %505, %.lr.ph694.split.i, %.lr.ph, %184, %189, %192, %238, %239, %239, %239, %239, %239, %239, %239, %242, %243, %254, %269, %280, %314, %315, %318, %321, %324, %325, %327, %328, %._crit_edge697.i, %.preheader644.i, %394, %397, %401, %407, %425, %434, %._crit_edge689.i, %498, %517, %522, %523, %528, %529, %534, %536, %541, %543, %548, %558, %564, %.preheader649.i, %592, %645, %._crit_edge.i, %692, %776, %778, %783, %788, %790, %795, %797, %802, %804, %809, %811, %816, %818, %823, %825, %830, %832, %837, %839, %844, %851, %853, %885, %890, %892, %895, %911, %912, %925, %938, %991, %994, %995, %282, %291, %293, %295, %297, %312
   %.pr = load i32, ptr %50, align 8, !tbaa !56
   br label %tiff_set_type.exit.i
 

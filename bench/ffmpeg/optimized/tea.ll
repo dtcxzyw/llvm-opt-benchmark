@@ -68,17 +68,20 @@ define void @av_tea_crypt(ptr noundef readonly captures(none) %0, ptr noundef ca
   %18 = sdiv i32 %13, 2
   %19 = icmp sgt i32 %13, 1
   %20 = load i32, ptr %.13272.us, align 1, !tbaa !4
-  %21 = tail call i32 @llvm.bswap.i32(i32 %20)
-  %22 = getelementptr inbounds nuw i8, ptr %.13272.us, i64 4
-  %23 = load i32, ptr %22, align 1, !tbaa !4
-  %24 = tail call i32 @llvm.bswap.i32(i32 %23)
-  br i1 %19, label %.lr.ph77.i53.us, label %tea_crypt_ecb.exit59.us
+  %21 = getelementptr inbounds nuw i8, ptr %.13272.us, i64 4
+  %22 = load i32, ptr %21, align 1, !tbaa !4
+  br i1 %19, label %.lr.ph77.i53.us.preheader, label %tea_crypt_ecb.exit59.us
 
-.lr.ph77.i53.us:                                  ; preds = %.preheader.i52.us, %.lr.ph77.i53.us
-  %.376.i54.us = phi i32 [ %33, %.lr.ph77.i53.us ], [ %21, %.preheader.i52.us ]
-  %.05875.i55.us = phi i32 [ %25, %.lr.ph77.i53.us ], [ 0, %.preheader.i52.us ]
-  %.05974.i56.us = phi i32 [ %42, %.lr.ph77.i53.us ], [ 0, %.preheader.i52.us ]
-  %.36473.i57.us = phi i32 [ %41, %.lr.ph77.i53.us ], [ %24, %.preheader.i52.us ]
+.lr.ph77.i53.us.preheader:                        ; preds = %.preheader.i52.us
+  %23 = tail call i32 @llvm.bswap.i32(i32 %22)
+  %24 = tail call i32 @llvm.bswap.i32(i32 %20)
+  br label %.lr.ph77.i53.us
+
+.lr.ph77.i53.us:                                  ; preds = %.lr.ph77.i53.us.preheader, %.lr.ph77.i53.us
+  %.376.i54.us = phi i32 [ %33, %.lr.ph77.i53.us ], [ %24, %.lr.ph77.i53.us.preheader ]
+  %.05875.i55.us = phi i32 [ %25, %.lr.ph77.i53.us ], [ 0, %.lr.ph77.i53.us.preheader ]
+  %.05974.i56.us = phi i32 [ %42, %.lr.ph77.i53.us ], [ 0, %.lr.ph77.i53.us.preheader ]
+  %.36473.i57.us = phi i32 [ %41, %.lr.ph77.i53.us ], [ %23, %.lr.ph77.i53.us.preheader ]
   %25 = add i32 %.05875.i55.us, -1640531527
   %26 = shl i32 %.36473.i57.us, 4
   %27 = add i32 %26, %14
@@ -98,16 +101,19 @@ define void @av_tea_crypt(ptr noundef readonly captures(none) %0, ptr noundef ca
   %41 = add i32 %40, %.36473.i57.us
   %42 = add nuw nsw i32 %.05974.i56.us, 1
   %exitcond83.not.i58.us = icmp eq i32 %42, %18
-  br i1 %exitcond83.not.i58.us, label %tea_crypt_ecb.exit59.us, label %.lr.ph77.i53.us, !llvm.loop !13
+  br i1 %exitcond83.not.i58.us, label %tea_crypt_ecb.exit59.us.loopexit, label %.lr.ph77.i53.us, !llvm.loop !13
 
-tea_crypt_ecb.exit59.us:                          ; preds = %.lr.ph77.i53.us, %.preheader.i52.us
-  %.263.i43.us = phi i32 [ %24, %.preheader.i52.us ], [ %41, %.lr.ph77.i53.us ]
-  %.2.i44.us = phi i32 [ %21, %.preheader.i52.us ], [ %33, %.lr.ph77.i53.us ]
-  %43 = tail call i32 @llvm.bswap.i32(i32 %.2.i44.us)
-  store i32 %43, ptr %.173.us, align 1, !tbaa !4
-  %44 = tail call i32 @llvm.bswap.i32(i32 %.263.i43.us)
+tea_crypt_ecb.exit59.us.loopexit:                 ; preds = %.lr.ph77.i53.us
+  %43 = tail call i32 @llvm.bswap.i32(i32 %33)
+  %44 = tail call i32 @llvm.bswap.i32(i32 %41)
+  br label %tea_crypt_ecb.exit59.us
+
+tea_crypt_ecb.exit59.us:                          ; preds = %tea_crypt_ecb.exit59.us.loopexit, %.preheader.i52.us
+  %.263.i43.us = phi i32 [ %22, %.preheader.i52.us ], [ %44, %tea_crypt_ecb.exit59.us.loopexit ]
+  %.2.i44.us = phi i32 [ %20, %.preheader.i52.us ], [ %43, %tea_crypt_ecb.exit59.us.loopexit ]
+  store i32 %.2.i44.us, ptr %.173.us, align 1, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %.173.us, i64 4
-  store i32 %44, ptr %45, align 1, !tbaa !4
+  store i32 %.263.i43.us, ptr %45, align 1, !tbaa !4
   %46 = getelementptr inbounds nuw i8, ptr %.13272.us, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.173.us, i64 8
   %48 = add nsw i32 %12, -1
@@ -154,16 +160,19 @@ tea_crypt_ecb.exit59.us:                          ; preds = %.lr.ph77.i53.us, %.
   %66 = sdiv i32 %60, 2
   %67 = icmp sgt i32 %60, 1
   %68 = load i32, ptr %.173, align 1, !tbaa !4
-  %69 = tail call i32 @llvm.bswap.i32(i32 %68)
-  %70 = load i32, ptr %65, align 1, !tbaa !4
-  %71 = tail call i32 @llvm.bswap.i32(i32 %70)
-  br i1 %67, label %.lr.ph77.i, label %tea_crypt_ecb.exit
+  %69 = load i32, ptr %65, align 1, !tbaa !4
+  br i1 %67, label %.lr.ph77.i.preheader, label %tea_crypt_ecb.exit
 
-.lr.ph77.i:                                       ; preds = %.preheader.i, %.lr.ph77.i
-  %.376.i = phi i32 [ %80, %.lr.ph77.i ], [ %69, %.preheader.i ]
-  %.05875.i = phi i32 [ %72, %.lr.ph77.i ], [ 0, %.preheader.i ]
-  %.05974.i = phi i32 [ %89, %.lr.ph77.i ], [ 0, %.preheader.i ]
-  %.36473.i = phi i32 [ %88, %.lr.ph77.i ], [ %71, %.preheader.i ]
+.lr.ph77.i.preheader:                             ; preds = %.preheader.i
+  %70 = tail call i32 @llvm.bswap.i32(i32 %69)
+  %71 = tail call i32 @llvm.bswap.i32(i32 %68)
+  br label %.lr.ph77.i
+
+.lr.ph77.i:                                       ; preds = %.lr.ph77.i.preheader, %.lr.ph77.i
+  %.376.i = phi i32 [ %80, %.lr.ph77.i ], [ %71, %.lr.ph77.i.preheader ]
+  %.05875.i = phi i32 [ %72, %.lr.ph77.i ], [ 0, %.lr.ph77.i.preheader ]
+  %.05974.i = phi i32 [ %89, %.lr.ph77.i ], [ 0, %.lr.ph77.i.preheader ]
+  %.36473.i = phi i32 [ %88, %.lr.ph77.i ], [ %70, %.lr.ph77.i.preheader ]
   %72 = add i32 %.05875.i, -1640531527
   %73 = shl i32 %.36473.i, 4
   %74 = add i32 %73, %61
@@ -183,15 +192,18 @@ tea_crypt_ecb.exit59.us:                          ; preds = %.lr.ph77.i53.us, %.
   %88 = add i32 %87, %.36473.i
   %89 = add nuw nsw i32 %.05974.i, 1
   %exitcond83.not.i = icmp eq i32 %89, %66
-  br i1 %exitcond83.not.i, label %tea_crypt_ecb.exit, label %.lr.ph77.i, !llvm.loop !13
+  br i1 %exitcond83.not.i, label %tea_crypt_ecb.exit.loopexit, label %.lr.ph77.i, !llvm.loop !13
 
-tea_crypt_ecb.exit:                               ; preds = %.lr.ph77.i, %.preheader.i
-  %.263.i = phi i32 [ %71, %.preheader.i ], [ %88, %.lr.ph77.i ]
-  %.2.i = phi i32 [ %69, %.preheader.i ], [ %80, %.lr.ph77.i ]
-  %90 = tail call i32 @llvm.bswap.i32(i32 %.2.i)
-  store i32 %90, ptr %.173, align 1, !tbaa !4
-  %91 = tail call i32 @llvm.bswap.i32(i32 %.263.i)
-  store i32 %91, ptr %65, align 1, !tbaa !4
+tea_crypt_ecb.exit.loopexit:                      ; preds = %.lr.ph77.i
+  %90 = tail call i32 @llvm.bswap.i32(i32 %80)
+  %91 = tail call i32 @llvm.bswap.i32(i32 %88)
+  br label %tea_crypt_ecb.exit
+
+tea_crypt_ecb.exit:                               ; preds = %tea_crypt_ecb.exit.loopexit, %.preheader.i
+  %.263.i = phi i32 [ %69, %.preheader.i ], [ %91, %tea_crypt_ecb.exit.loopexit ]
+  %.2.i = phi i32 [ %68, %.preheader.i ], [ %90, %tea_crypt_ecb.exit.loopexit ]
+  store i32 %.2.i, ptr %.173, align 1, !tbaa !4
+  store i32 %.263.i, ptr %65, align 1, !tbaa !4
   %92 = load i64, ptr %.173, align 1
   store i64 %92, ptr %4, align 1
   %93 = getelementptr inbounds nuw i8, ptr %.13272, i64 8

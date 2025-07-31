@@ -799,12 +799,12 @@ define internal void @fromFLTto16SE(ptr noundef writeonly captures(none) initial
   %13 = fptosi double %12 to i32
   %14 = trunc i32 %13 to i16
   %15 = add i16 %14, 32767
+  %16 = tail call i16 @llvm.bswap.i16(i16 %15)
   br label %_cmsQuickSaturateWord.exit
 
 _cmsQuickSaturateWord.exit:                       ; preds = %2, %8, %10
-  %.0.i = phi i16 [ %15, %10 ], [ 0, %2 ], [ -1, %8 ]
-  %rev = tail call i16 @llvm.bswap.i16(i16 %.0.i)
-  store i16 %rev, ptr %0, align 2
+  %.0.i = phi i16 [ %16, %10 ], [ 0, %2 ], [ -1, %8 ]
+  store i16 %.0.i, ptr %0, align 2
   ret void
 }
 
@@ -898,12 +898,12 @@ define internal void @fromDBLto16SE(ptr noundef writeonly captures(none) initial
   %12 = fptosi double %11 to i32
   %13 = trunc i32 %12 to i16
   %14 = add i16 %13, 32767
+  %15 = tail call i16 @llvm.bswap.i16(i16 %14)
   br label %_cmsQuickSaturateWord.exit
 
 _cmsQuickSaturateWord.exit:                       ; preds = %2, %7, %9
-  %.0.i = phi i16 [ %14, %9 ], [ 0, %2 ], [ -1, %7 ]
-  %rev = tail call i16 @llvm.bswap.i16(i16 %.0.i)
-  store i16 %rev, ptr %0, align 2
+  %.0.i = phi i16 [ %15, %9 ], [ 0, %2 ], [ -1, %7 ]
+  store i16 %.0.i, ptr %0, align 2
   ret void
 }
 

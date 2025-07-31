@@ -237103,19 +237103,18 @@ define { i16, i16 } @"_ZN89_$LT$i16$u20$as$u20$polars_ops..chunked_array..binary
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i16, i16 } @"_ZN89_$LT$i16$u20$as$u20$polars_ops..chunked_array..binary..cast_binary_to_numerical..Cast$GT$7cast_be17h5fc25ee78aaab654E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = icmp eq i64 %1, 2
-  br i1 %3, label %4, label %5
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %.sroa.09.0.copyload = load i16, ptr %0, align 1
-  br label %5
+  %5 = tail call i16 @llvm.bswap.i16(i16 %.sroa.09.0.copyload)
+  br label %6
 
-5:                                                ; preds = %2, %4
-  %.sroa.6.0 = phi i16 [ %.sroa.09.0.copyload, %4 ], [ undef, %2 ]
-  %6 = tail call i16 @llvm.bswap.i16(i16 %.sroa.6.0)
-  %.sroa.3.0 = select i1 %3, i16 %6, i16 undef
-  %.sroa.0.0 = zext i1 %3 to i16
-  %7 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
-  %8 = insertvalue { i16, i16 } %7, i16 %.sroa.3.0, 1
+6:                                                ; preds = %2, %4
+  %.sroa.6.0. = phi i16 [ %5, %4 ], [ undef, %2 ]
+  %. = zext i1 %3 to i16
+  %7 = insertvalue { i16, i16 } poison, i16 %., 0
+  %8 = insertvalue { i16, i16 } %7, i16 %.sroa.6.0., 1
   ret { i16, i16 } %8
 }
 
@@ -237139,19 +237138,18 @@ define { i32, i32 } @"_ZN89_$LT$i32$u20$as$u20$polars_ops..chunked_array..binary
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i32, i32 } @"_ZN89_$LT$i32$u20$as$u20$polars_ops..chunked_array..binary..cast_binary_to_numerical..Cast$GT$7cast_be17h10ad9a6839cb5c40E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = icmp eq i64 %1, 4
-  br i1 %3, label %4, label %5
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %.sroa.09.0.copyload = load i32, ptr %0, align 1
-  br label %5
+  %5 = tail call i32 @llvm.bswap.i32(i32 %.sroa.09.0.copyload)
+  br label %6
 
-5:                                                ; preds = %2, %4
-  %.sroa.6.0 = phi i32 [ %.sroa.09.0.copyload, %4 ], [ undef, %2 ]
-  %6 = tail call i32 @llvm.bswap.i32(i32 %.sroa.6.0)
-  %.sroa.3.0 = select i1 %3, i32 %6, i32 undef
-  %.sroa.0.0 = zext i1 %3 to i32
-  %7 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
-  %8 = insertvalue { i32, i32 } %7, i32 %.sroa.3.0, 1
+6:                                                ; preds = %2, %4
+  %.sroa.6.0. = phi i32 [ %5, %4 ], [ undef, %2 ]
+  %. = zext i1 %3 to i32
+  %7 = insertvalue { i32, i32 } poison, i32 %., 0
+  %8 = insertvalue { i32, i32 } %7, i32 %.sroa.6.0., 1
   ret { i32, i32 } %8
 }
 
@@ -237175,19 +237173,18 @@ define { i64, i64 } @"_ZN89_$LT$i64$u20$as$u20$polars_ops..chunked_array..binary
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN89_$LT$i64$u20$as$u20$polars_ops..chunked_array..binary..cast_binary_to_numerical..Cast$GT$7cast_be17h244935933ed2e052E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = icmp eq i64 %1, 8
-  br i1 %3, label %4, label %5
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %.sroa.09.0.copyload = load i64, ptr %0, align 1
-  br label %5
+  %5 = tail call i64 @llvm.bswap.i64(i64 %.sroa.09.0.copyload)
+  br label %6
 
-5:                                                ; preds = %2, %4
-  %.sroa.6.0 = phi i64 [ %.sroa.09.0.copyload, %4 ], [ undef, %2 ]
-  %6 = tail call i64 @llvm.bswap.i64(i64 %.sroa.6.0)
-  %.sroa.3.0 = select i1 %3, i64 %6, i64 undef
-  %.sroa.0.0 = zext i1 %3 to i64
-  %7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.3.0, 1
+6:                                                ; preds = %2, %4
+  %.sroa.6.0. = phi i64 [ %5, %4 ], [ undef, %2 ]
+  %. = zext i1 %3 to i64
+  %7 = insertvalue { i64, i64 } poison, i64 %., 0
+  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.6.0., 1
   ret { i64, i64 } %8
 }
 
@@ -237278,19 +237275,18 @@ define { i16, i16 } @"_ZN89_$LT$u16$u20$as$u20$polars_ops..chunked_array..binary
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i16, i16 } @"_ZN89_$LT$u16$u20$as$u20$polars_ops..chunked_array..binary..cast_binary_to_numerical..Cast$GT$7cast_be17h60433811c253bdd1E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = icmp eq i64 %1, 2
-  br i1 %3, label %4, label %5
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %.sroa.09.0.copyload = load i16, ptr %0, align 1
-  br label %5
+  %5 = tail call i16 @llvm.bswap.i16(i16 %.sroa.09.0.copyload)
+  br label %6
 
-5:                                                ; preds = %2, %4
-  %.sroa.6.0 = phi i16 [ %.sroa.09.0.copyload, %4 ], [ undef, %2 ]
-  %6 = tail call i16 @llvm.bswap.i16(i16 %.sroa.6.0)
-  %.sroa.3.0 = select i1 %3, i16 %6, i16 undef
-  %.sroa.0.0 = zext i1 %3 to i16
-  %7 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
-  %8 = insertvalue { i16, i16 } %7, i16 %.sroa.3.0, 1
+6:                                                ; preds = %2, %4
+  %.sroa.6.0. = phi i16 [ %5, %4 ], [ undef, %2 ]
+  %. = zext i1 %3 to i16
+  %7 = insertvalue { i16, i16 } poison, i16 %., 0
+  %8 = insertvalue { i16, i16 } %7, i16 %.sroa.6.0., 1
   ret { i16, i16 } %8
 }
 
@@ -237314,19 +237310,18 @@ define { i32, i32 } @"_ZN89_$LT$u32$u20$as$u20$polars_ops..chunked_array..binary
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i32, i32 } @"_ZN89_$LT$u32$u20$as$u20$polars_ops..chunked_array..binary..cast_binary_to_numerical..Cast$GT$7cast_be17h5e067dd55f87c9a2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = icmp eq i64 %1, 4
-  br i1 %3, label %4, label %5
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %.sroa.09.0.copyload = load i32, ptr %0, align 1
-  br label %5
+  %5 = tail call i32 @llvm.bswap.i32(i32 %.sroa.09.0.copyload)
+  br label %6
 
-5:                                                ; preds = %2, %4
-  %.sroa.6.0 = phi i32 [ %.sroa.09.0.copyload, %4 ], [ undef, %2 ]
-  %6 = tail call i32 @llvm.bswap.i32(i32 %.sroa.6.0)
-  %.sroa.3.0 = select i1 %3, i32 %6, i32 undef
-  %.sroa.0.0 = zext i1 %3 to i32
-  %7 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
-  %8 = insertvalue { i32, i32 } %7, i32 %.sroa.3.0, 1
+6:                                                ; preds = %2, %4
+  %.sroa.6.0. = phi i32 [ %5, %4 ], [ undef, %2 ]
+  %. = zext i1 %3 to i32
+  %7 = insertvalue { i32, i32 } poison, i32 %., 0
+  %8 = insertvalue { i32, i32 } %7, i32 %.sroa.6.0., 1
   ret { i32, i32 } %8
 }
 
@@ -237350,19 +237345,18 @@ define { i64, i64 } @"_ZN89_$LT$u64$u20$as$u20$polars_ops..chunked_array..binary
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN89_$LT$u64$u20$as$u20$polars_ops..chunked_array..binary..cast_binary_to_numerical..Cast$GT$7cast_be17h8f8732bfb5b4b01eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = icmp eq i64 %1, 8
-  br i1 %3, label %4, label %5
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %.sroa.09.0.copyload = load i64, ptr %0, align 1
-  br label %5
+  %5 = tail call i64 @llvm.bswap.i64(i64 %.sroa.09.0.copyload)
+  br label %6
 
-5:                                                ; preds = %2, %4
-  %.sroa.6.0 = phi i64 [ %.sroa.09.0.copyload, %4 ], [ undef, %2 ]
-  %6 = tail call i64 @llvm.bswap.i64(i64 %.sroa.6.0)
-  %.sroa.3.0 = select i1 %3, i64 %6, i64 undef
-  %.sroa.0.0 = zext i1 %3 to i64
-  %7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.3.0, 1
+6:                                                ; preds = %2, %4
+  %.sroa.6.0. = phi i64 [ %5, %4 ], [ undef, %2 ]
+  %. = zext i1 %3 to i64
+  %7 = insertvalue { i64, i64 } poison, i64 %., 0
+  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.6.0., 1
   ret { i64, i64 } %8
 }
 
@@ -237421,20 +237415,19 @@ define { i32, float } @"_ZN89_$LT$f32$u20$as$u20$polars_ops..chunked_array..bina
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i32, float } @"_ZN89_$LT$f32$u20$as$u20$polars_ops..chunked_array..binary..cast_binary_to_numerical..Cast$GT$7cast_be17h7b31ee04c132b335E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = icmp eq i64 %1, 4
-  br i1 %3, label %4, label %5
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
   %.sroa.09.0.copyload = load i32, ptr %0, align 1
-  br label %5
+  %5 = tail call i32 @llvm.bswap.i32(i32 %.sroa.09.0.copyload)
+  %6 = bitcast i32 %5 to float
+  br label %7
 
-5:                                                ; preds = %2, %4
-  %.sroa.6.0 = phi i32 [ %.sroa.09.0.copyload, %4 ], [ undef, %2 ]
-  %6 = tail call i32 @llvm.bswap.i32(i32 %.sroa.6.0)
-  %7 = bitcast i32 %6 to float
-  %.sroa.3.0 = select i1 %3, float %7, float undef
-  %.sroa.0.0 = zext i1 %3 to i32
-  %8 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
-  %9 = insertvalue { i32, float } %8, float %.sroa.3.0, 1
+7:                                                ; preds = %2, %4
+  %.sroa.6.0. = phi float [ %6, %4 ], [ undef, %2 ]
+  %. = zext i1 %3 to i32
+  %8 = insertvalue { i32, float } poison, i32 %., 0
+  %9 = insertvalue { i32, float } %8, float %.sroa.6.0., 1
   ret { i32, float } %9
 }
 
@@ -237458,20 +237451,19 @@ define { i64, double } @"_ZN89_$LT$f64$u20$as$u20$polars_ops..chunked_array..bin
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, double } @"_ZN89_$LT$f64$u20$as$u20$polars_ops..chunked_array..binary..cast_binary_to_numerical..Cast$GT$7cast_be17hd39d50af6c24ec7bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = icmp eq i64 %1, 8
-  br i1 %3, label %4, label %5
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
   %.sroa.09.0.copyload = load i64, ptr %0, align 1
-  br label %5
+  %5 = tail call i64 @llvm.bswap.i64(i64 %.sroa.09.0.copyload)
+  %6 = bitcast i64 %5 to double
+  br label %7
 
-5:                                                ; preds = %2, %4
-  %.sroa.6.0 = phi i64 [ %.sroa.09.0.copyload, %4 ], [ undef, %2 ]
-  %6 = tail call i64 @llvm.bswap.i64(i64 %.sroa.6.0)
-  %7 = bitcast i64 %6 to double
-  %.sroa.3.0 = select i1 %3, double %7, double undef
-  %.sroa.0.0 = zext i1 %3 to i64
-  %8 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
-  %9 = insertvalue { i64, double } %8, double %.sroa.3.0, 1
+7:                                                ; preds = %2, %4
+  %.sroa.6.0. = phi double [ %6, %4 ], [ undef, %2 ]
+  %. = zext i1 %3 to i64
+  %8 = insertvalue { i64, double } poison, i64 %., 0
+  %9 = insertvalue { i64, double } %8, double %.sroa.6.0., 1
   ret { i64, double } %9
 }
 

@@ -3169,7 +3169,7 @@ define internal fastcc void @dissect_data_security_service(ptr noundef %0, ptr n
   %23 = sub i32 %11, %16
   %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %4, i32 noundef %22, ptr noundef %0, i32 noundef %16, i32 noundef %23, ptr noundef null, ptr noundef nonnull @.str.617)
   %25 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %24, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.618)
-  br label %261
+  br label %260
 
 26:                                               ; preds = %14
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3278,7 +3278,7 @@ proto_tree_add_data.exit229:                      ; preds = %.lr.ph.split.us._cr
   %77 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %4, i32 noundef %74, ptr noundef %0, i32 noundef %19, i32 noundef %76, ptr noundef null, ptr noundef nonnull @.str.593, ptr noundef nonnull %71)
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %77, ptr noundef nonnull @.str.332)
   %78 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %77, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.518)
-  br label %261
+  br label %260
 
 79:                                               ; preds = %proto_tree_add_data.exit229
   %80 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %4, i32 noundef %74, ptr noundef %0, i32 noundef %19, i32 noundef 6, ptr noundef null, ptr noundef nonnull @.str.671, ptr noundef nonnull %71)
@@ -3297,7 +3297,7 @@ proto_tree_add_data.exit229:                      ; preds = %.lr.ph.split.us._cr
 
 proto_tree_add_data.exit235:                      ; preds = %.lr.ph.split.us.i230
   %85 = icmp slt i32 %72, %11
-  br i1 %85, label %86, label %261
+  br i1 %85, label %86, label %260
 
 86:                                               ; preds = %proto_tree_add_data.exit235
   %87 = sub i32 %11, %72
@@ -3320,12 +3320,12 @@ proto_tree_add_data.exit235:                      ; preds = %.lr.ph.split.us.i23
 proto_tree_add_data.exit241:                      ; preds = %.lr.ph.split.us.i236, %86
   %95 = add i32 %16, 23
   %.not222 = icmp eq i32 %95, %11
-  br i1 %.not222, label %261, label %96
+  br i1 %.not222, label %260, label %96
 
 96:                                               ; preds = %proto_tree_add_data.exit241
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %89, ptr noundef nonnull @.str.332)
   %97 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %89, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.564)
-  br label %261
+  br label %260
 
 98:                                               ; preds = %proto_tree_add_data.exit
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %15) #10
@@ -3434,10 +3434,12 @@ proto_tree_add_data.exit241:                      ; preds = %.lr.ph.split.us.i23
   %scevgep313.i = getelementptr i8, ptr %133, i64 17
   %135 = trunc i64 %strlen.i to i32
   %136 = sub i32 127, %135
+  %137 = call i64 @llvm.usub.sat.i64(i64 144, i64 %134)
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %.loopexit
-  %137 = phi i64 [ 16, %.loopexit ], [ %134, %.lr.ph.preheader.i ]
+  %138 = phi i64 [ 128, %.loopexit ], [ %137, %.lr.ph.preheader.i ]
+  %139 = phi i64 [ 16, %.loopexit ], [ %134, %.lr.ph.preheader.i ]
   %.099.lcssa.i = phi ptr [ %103, %.loopexit ], [ %scevgep313.i, %.lr.ph.preheader.i ]
   %.098.lcssa.i = phi i32 [ 128, %.loopexit ], [ %136, %.lr.ph.preheader.i ]
   %.not157.i.not = icmp eq i8 %9, 0
@@ -3453,30 +3455,29 @@ proto_tree_add_data.exit241:                      ; preds = %.lr.ph.split.us.i23
   %.not158246.i = icmp eq ptr %.096245.i, null
   br i1 %.not158246.i, label %.loopexit203.i, label %.lr.ph250.i
 
-.lr.ph235.i:                                      ; preds = %.preheader210.i, %149
-  %.097234.i = phi ptr [ %.097.i, %149 ], [ %.097230.i, %.preheader210.i ]
-  %.0135232.i = phi i8 [ %.2137.i, %149 ], [ 0, %.preheader210.i ]
-  %138 = getelementptr inbounds nuw i8, ptr %.097234.i, i64 8
-  %139 = load i16, ptr %138, align 8
-  %140 = icmp eq i16 %139, %7
-  br i1 %140, label %141, label %149
+.lr.ph235.i:                                      ; preds = %.preheader210.i, %150
+  %.097234.i = phi ptr [ %.097.i, %150 ], [ %.097230.i, %.preheader210.i ]
+  %.0135232.i = phi i8 [ %.2137.i, %150 ], [ 0, %.preheader210.i ]
+  %140 = getelementptr inbounds nuw i8, ptr %.097234.i, i64 8
+  %141 = load i16, ptr %140, align 8
+  %142 = icmp eq i16 %141, %7
+  br i1 %142, label %143, label %150
 
-141:                                              ; preds = %.lr.ph235.i
-  %142 = getelementptr inbounds nuw i8, ptr %.097234.i, i64 10
-  %143 = call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %130, ptr noundef nonnull %142, ptr noundef %127, i32 noundef %128, ptr noundef readonly %125, i32 noundef range(i32 1, -2147483648) %11)
-  %.not162.i = icmp eq ptr %143, null
-  br i1 %.not162.i, label %149, label %144
+143:                                              ; preds = %.lr.ph235.i
+  %144 = getelementptr inbounds nuw i8, ptr %.097234.i, i64 10
+  %145 = call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %130, ptr noundef nonnull %144, ptr noundef %127, i32 noundef %128, ptr noundef readonly %125, i32 noundef range(i32 1, -2147483648) %11)
+  %.not162.i = icmp eq ptr %145, null
+  br i1 %.not162.i, label %150, label %146
 
-144:                                              ; preds = %141
-  %145 = sext i32 %.098.lcssa.i to i64
-  %146 = call i64 @llvm.usub.sat.i64(i64 144, i64 %137)
-  %147 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.099.lcssa.i, i64 noundef %145, i32 noundef 2, i64 noundef %146, ptr noundef nonnull @.str.654)
-  %148 = load i8, ptr %.099.lcssa.i, align 1
-  %.not163238.i = icmp eq i8 %148, 0
+146:                                              ; preds = %143
+  %147 = sext i32 %.098.lcssa.i to i64
+  %148 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.099.lcssa.i, i64 noundef %147, i32 noundef 2, i64 noundef %138, ptr noundef nonnull @.str.654)
+  %149 = load i8, ptr %.099.lcssa.i, align 1
+  %.not163238.i = icmp eq i8 %149, 0
   br i1 %.not163238.i, label %.thread181.i, label %.thread181.sink.split.i
 
-149:                                              ; preds = %141, %.lr.ph235.i
-  %.2137.i = phi i8 [ 1, %141 ], [ %.0135232.i, %.lr.ph235.i ]
+150:                                              ; preds = %143, %.lr.ph235.i
+  %.2137.i = phi i8 [ 1, %143 ], [ %.0135232.i, %.lr.ph235.i ]
   %.097.i = load ptr, ptr %.097234.i, align 8
   %.not161.i = icmp eq ptr %.097.i, null
   br i1 %.not161.i, label %.preheader204.i, label %.lr.ph235.i, !llvm.loop !14
@@ -3484,143 +3485,141 @@ proto_tree_add_data.exit241:                      ; preds = %.lr.ph.split.us.i23
 .lr.ph250.i:                                      ; preds = %.preheader207.i, %161
   %.096249.i = phi ptr [ %.096.i, %161 ], [ %.096245.i, %.preheader207.i ]
   %.4139247.i = phi i8 [ %.6141.i, %161 ], [ 0, %.preheader207.i ]
-  %150 = getelementptr inbounds nuw i8, ptr %.096249.i, i64 8
-  %151 = load i16, ptr %150, align 8
-  %152 = icmp eq i16 %151, %7
-  br i1 %152, label %153, label %161
+  %151 = getelementptr inbounds nuw i8, ptr %.096249.i, i64 8
+  %152 = load i16, ptr %151, align 8
+  %153 = icmp eq i16 %152, %7
+  br i1 %153, label %154, label %161
 
-153:                                              ; preds = %.lr.ph250.i
-  %154 = getelementptr inbounds nuw i8, ptr %.096249.i, i64 10
-  %155 = call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %130, ptr noundef nonnull %154, ptr noundef %127, i32 noundef %128, ptr noundef readonly %125, i32 noundef range(i32 1, -2147483648) %11)
-  %.not159.i = icmp eq ptr %155, null
-  br i1 %.not159.i, label %161, label %156
+154:                                              ; preds = %.lr.ph250.i
+  %155 = getelementptr inbounds nuw i8, ptr %.096249.i, i64 10
+  %156 = call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %130, ptr noundef nonnull %155, ptr noundef %127, i32 noundef %128, ptr noundef readonly %125, i32 noundef range(i32 1, -2147483648) %11)
+  %.not159.i = icmp eq ptr %156, null
+  br i1 %.not159.i, label %161, label %157
 
-156:                                              ; preds = %153
-  %157 = sext i32 %.098.lcssa.i to i64
-  %158 = call i64 @llvm.usub.sat.i64(i64 144, i64 %137)
-  %159 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.099.lcssa.i, i64 noundef %157, i32 noundef 2, i64 noundef %158, ptr noundef nonnull @.str.655)
+157:                                              ; preds = %154
+  %158 = sext i32 %.098.lcssa.i to i64
+  %159 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.099.lcssa.i, i64 noundef %158, i32 noundef 2, i64 noundef %138, ptr noundef nonnull @.str.655)
   %160 = load i8, ptr %.099.lcssa.i, align 1
   %.not160253.i = icmp eq i8 %160, 0
   br i1 %.not160253.i, label %.thread181.i, label %.thread181.sink.split.i
 
-161:                                              ; preds = %153, %.lr.ph250.i
-  %.6141.i = phi i8 [ 1, %153 ], [ %.4139247.i, %.lr.ph250.i ]
+161:                                              ; preds = %154, %.lr.ph250.i
+  %.6141.i = phi i8 [ 1, %154 ], [ %.4139247.i, %.lr.ph250.i ]
   %.096.i = load ptr, ptr %.096249.i, align 8
   %.not158.i = icmp eq ptr %.096.i, null
   br i1 %.not158.i, label %.preheader204.i, label %.lr.ph250.i, !llvm.loop !15
 
-.preheader204.i:                                  ; preds = %161, %149, %.preheader210.i
-  %.3138.ph.ph.i = phi i8 [ 0, %.preheader210.i ], [ %.2137.i, %149 ], [ %.6141.i, %161 ]
+.preheader204.i:                                  ; preds = %161, %150, %.preheader210.i
+  %.3138.ph.ph.i = phi i8 [ 0, %.preheader210.i ], [ %.2137.i, %150 ], [ %.6141.i, %161 ]
   %.095260.pr.i = load ptr, ptr @knx_keyring_ia_keys, align 8
   %.not165261.i = icmp eq ptr %.095260.pr.i, null
   br i1 %.not165261.i, label %.loopexit203.i, label %.lr.ph265.i
 
-.lr.ph265.i:                                      ; preds = %.preheader204.i, %173
-  %.095264.i = phi ptr [ %.095.i, %173 ], [ %.095260.pr.i, %.preheader204.i ]
-  %.8143262.i = phi i8 [ %.10145.i, %173 ], [ %.3138.ph.ph.i, %.preheader204.i ]
+.lr.ph265.i:                                      ; preds = %.preheader204.i, %172
+  %.095264.i = phi ptr [ %.095.i, %172 ], [ %.095260.pr.i, %.preheader204.i ]
+  %.8143262.i = phi i8 [ %.10145.i, %172 ], [ %.3138.ph.ph.i, %.preheader204.i ]
   %162 = getelementptr inbounds nuw i8, ptr %.095264.i, i64 8
   %163 = load i16, ptr %162, align 8
   %164 = icmp eq i16 %163, %5
-  br i1 %164, label %165, label %173
+  br i1 %164, label %165, label %172
 
 165:                                              ; preds = %.lr.ph265.i
   %166 = getelementptr inbounds nuw i8, ptr %.095264.i, i64 10
   %167 = call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %130, ptr noundef nonnull %166, ptr noundef %127, i32 noundef %128, ptr noundef readonly %125, i32 noundef range(i32 1, -2147483648) %11)
   %.not166.i = icmp eq ptr %167, null
-  br i1 %.not166.i, label %173, label %168
+  br i1 %.not166.i, label %172, label %168
 
 168:                                              ; preds = %165
   %169 = sext i32 %.098.lcssa.i to i64
-  %170 = call i64 @llvm.usub.sat.i64(i64 144, i64 %137)
-  %171 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.099.lcssa.i, i64 noundef %169, i32 noundef 2, i64 noundef %170, ptr noundef nonnull @.str.656)
-  %172 = load i8, ptr %.099.lcssa.i, align 1
-  %.not167268.i = icmp eq i8 %172, 0
+  %170 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.099.lcssa.i, i64 noundef %169, i32 noundef 2, i64 noundef %138, ptr noundef nonnull @.str.656)
+  %171 = load i8, ptr %.099.lcssa.i, align 1
+  %.not167268.i = icmp eq i8 %171, 0
   br i1 %.not167268.i, label %.thread181.i, label %.thread181.sink.split.i
 
-173:                                              ; preds = %165, %.lr.ph265.i
+172:                                              ; preds = %165, %.lr.ph265.i
   %.10145.i = phi i8 [ 1, %165 ], [ %.8143262.i, %.lr.ph265.i ]
   %.095.i = load ptr, ptr %.095264.i, align 8
   %.not165.i = icmp eq ptr %.095.i, null
   br i1 %.not165.i, label %.loopexit203.i, label %.lr.ph265.i, !llvm.loop !16
 
-.loopexit203.i:                                   ; preds = %173, %.preheader204.i, %.preheader207.i
-  %.7142.i = phi i8 [ %.3138.ph.ph.i, %.preheader204.i ], [ 0, %.preheader207.i ], [ %.10145.i, %173 ]
-  %174 = load i8, ptr @knx_decryption_key_count, align 1
-  %.not.i = icmp eq i8 %174, 0
+.loopexit203.i:                                   ; preds = %172, %.preheader204.i, %.preheader207.i
+  %.7142.i = phi i8 [ %.3138.ph.ph.i, %.preheader204.i ], [ 0, %.preheader207.i ], [ %.10145.i, %172 ]
+  %173 = load i8, ptr @knx_decryption_key_count, align 1
+  %.not.i = icmp eq i8 %173, 0
   br i1 %.not.i, label %.thread193.i, label %.lr.ph276.i
 
-175:                                              ; preds = %.lr.ph276.i
+174:                                              ; preds = %.lr.ph276.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %176 = load i8, ptr @knx_decryption_key_count, align 1
-  %177 = zext i8 %176 to i64
-  %178 = icmp samesign ult i64 %indvars.iv.next.i, %177
-  br i1 %178, label %.lr.ph276.i, label %.loopexit47, !llvm.loop !17
+  %175 = load i8, ptr @knx_decryption_key_count, align 1
+  %176 = zext i8 %175 to i64
+  %177 = icmp samesign ult i64 %indvars.iv.next.i, %176
+  br i1 %177, label %.lr.ph276.i, label %.loopexit47, !llvm.loop !17
 
-.lr.ph276.i:                                      ; preds = %.loopexit203.i, %175
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %175 ], [ 0, %.loopexit203.i ]
-  %179 = getelementptr [10 x [16 x i8]], ptr @knx_decryption_keys, i64 0, i64 %indvars.iv.i
-  %180 = call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %130, ptr noundef %179, ptr noundef %127, i32 noundef %128, ptr noundef readonly %125, i32 noundef range(i32 1, -2147483648) %11)
-  %.not168.i = icmp eq ptr %180, null
-  br i1 %.not168.i, label %175, label %.thread181.i
+.lr.ph276.i:                                      ; preds = %.loopexit203.i, %174
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %174 ], [ 0, %.loopexit203.i ]
+  %178 = getelementptr [10 x [16 x i8]], ptr @knx_decryption_keys, i64 0, i64 %indvars.iv.i
+  %179 = call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %130, ptr noundef %178, ptr noundef %127, i32 noundef %128, ptr noundef readonly %125, i32 noundef range(i32 1, -2147483648) %11)
+  %.not168.i = icmp eq ptr %179, null
+  br i1 %.not168.i, label %174, label %.thread181.i
 
-.thread181.sink.split.i:                          ; preds = %168, %156, %144
-  %.11192.ph.i = phi ptr [ %142, %144 ], [ %154, %156 ], [ %166, %168 ]
-  %.11132191.ph.i = phi ptr [ %143, %144 ], [ %155, %156 ], [ %167, %168 ]
+.thread181.sink.split.i:                          ; preds = %168, %157, %146
+  %.11192.ph.i = phi ptr [ %144, %146 ], [ %155, %157 ], [ %166, %168 ]
+  %.11132191.ph.i = phi ptr [ %145, %146 ], [ %156, %157 ], [ %167, %168 ]
   %scevgep320.i = getelementptr i8, ptr %.099.lcssa.i, i64 1
   %strlen321.i = call i64 @strlen(ptr noundef %scevgep320.i)
-  %181 = getelementptr i8, ptr %.099.lcssa.i, i64 %strlen321.i
-  %182 = add i64 %137, 1
-  %183 = add i64 %182, %strlen321.i
-  %scevgep322.i = getelementptr i8, ptr %181, i64 1
-  %184 = trunc i64 %strlen321.i to i32
-  %185 = xor i32 %184, -1
-  %186 = add i32 %.098.lcssa.i, %185
+  %180 = getelementptr i8, ptr %.099.lcssa.i, i64 %strlen321.i
+  %181 = add i64 %139, 1
+  %182 = add i64 %181, %strlen321.i
+  %scevgep322.i = getelementptr i8, ptr %180, i64 1
+  %183 = trunc i64 %strlen321.i to i32
+  %184 = xor i32 %183, -1
+  %185 = add i32 %.098.lcssa.i, %184
   br label %.thread181.i
 
-.thread181.i:                                     ; preds = %.lr.ph276.i, %.thread181.sink.split.i, %168, %156, %144
-  %.11192.i = phi ptr [ %154, %156 ], [ %142, %144 ], [ %166, %168 ], [ %.11192.ph.i, %.thread181.sink.split.i ], [ %179, %.lr.ph276.i ]
-  %.11132191.i = phi ptr [ %155, %156 ], [ %143, %144 ], [ %167, %168 ], [ %.11132191.ph.i, %.thread181.sink.split.i ], [ %180, %.lr.ph276.i ]
-  %187 = phi i64 [ %137, %156 ], [ %137, %144 ], [ %137, %168 ], [ %183, %.thread181.sink.split.i ], [ %137, %.lr.ph276.i ]
-  %.6105179189.i = phi ptr [ %.099.lcssa.i, %156 ], [ %.099.lcssa.i, %144 ], [ %.099.lcssa.i, %168 ], [ %scevgep322.i, %.thread181.sink.split.i ], [ %.099.lcssa.i, %.lr.ph276.i ]
-  %.6180188.i = phi i32 [ %.098.lcssa.i, %156 ], [ %.098.lcssa.i, %144 ], [ %.098.lcssa.i, %168 ], [ %186, %.thread181.sink.split.i ], [ %.098.lcssa.i, %.lr.ph276.i ]
-  %188 = sext i32 %.6180188.i to i64
-  %189 = call i64 @llvm.usub.sat.i64(i64 144, i64 %187)
-  %190 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.6105179189.i, i64 noundef %188, i32 noundef 2, i64 noundef %189, ptr noundef nonnull @.str.657)
+.thread181.i:                                     ; preds = %.lr.ph276.i, %.thread181.sink.split.i, %168, %157, %146
+  %.11192.i = phi ptr [ %155, %157 ], [ %144, %146 ], [ %166, %168 ], [ %.11192.ph.i, %.thread181.sink.split.i ], [ %178, %.lr.ph276.i ]
+  %.11132191.i = phi ptr [ %156, %157 ], [ %145, %146 ], [ %167, %168 ], [ %.11132191.ph.i, %.thread181.sink.split.i ], [ %179, %.lr.ph276.i ]
+  %186 = phi i64 [ %139, %157 ], [ %139, %146 ], [ %139, %168 ], [ %182, %.thread181.sink.split.i ], [ %139, %.lr.ph276.i ]
+  %.6105179189.i = phi ptr [ %.099.lcssa.i, %157 ], [ %.099.lcssa.i, %146 ], [ %.099.lcssa.i, %168 ], [ %scevgep322.i, %.thread181.sink.split.i ], [ %.099.lcssa.i, %.lr.ph276.i ]
+  %.6180188.i = phi i32 [ %.098.lcssa.i, %157 ], [ %.098.lcssa.i, %146 ], [ %.098.lcssa.i, %168 ], [ %185, %.thread181.sink.split.i ], [ %.098.lcssa.i, %.lr.ph276.i ]
+  %187 = sext i32 %.6180188.i to i64
+  %188 = call i64 @llvm.usub.sat.i64(i64 144, i64 %186)
+  %189 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.6105179189.i, i64 noundef %187, i32 noundef 2, i64 noundef %188, ptr noundef nonnull @.str.657)
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge282.i, %.thread181.i
-  %.0288.i = phi i8 [ 16, %.thread181.i ], [ %205, %._crit_edge282.i ]
+  %.0288.i = phi i8 [ 16, %.thread181.i ], [ %204, %._crit_edge282.i ]
   %.9287.i = phi i32 [ %.6180188.i, %.thread181.i ], [ %.10.lcssa.i, %._crit_edge282.i ]
-  %191 = phi i64 [ %187, %.thread181.i ], [ %198, %._crit_edge282.i ]
+  %190 = phi i64 [ %186, %.thread181.i ], [ %197, %._crit_edge282.i ]
   %.9108286.i = phi ptr [ %.6105179189.i, %.thread181.i ], [ %.10109.lcssa.i, %._crit_edge282.i ]
-  %.14285.i = phi ptr [ %.11192.i, %.thread181.i ], [ %201, %._crit_edge282.i ]
-  %192 = load i8, ptr %.9108286.i, align 1
-  %.not172278.i = icmp eq i8 %192, 0
+  %.14285.i = phi ptr [ %.11192.i, %.thread181.i ], [ %200, %._crit_edge282.i ]
+  %191 = load i8, ptr %.9108286.i, align 1
+  %.not172278.i = icmp eq i8 %191, 0
   br i1 %.not172278.i, label %._crit_edge282.i, label %.lr.ph281.preheader.i
 
 .lr.ph281.preheader.i:                            ; preds = %.preheader.i
-  %193 = add i64 %191, 1
+  %192 = add i64 %190, 1
   %scevgep324.i = getelementptr i8, ptr %.9108286.i, i64 1
   %strlen325.i = call i64 @strlen(ptr noundef %scevgep324.i)
-  %194 = add i64 %193, %strlen325.i
+  %193 = add i64 %192, %strlen325.i
   %scevgep326.i = getelementptr i8, ptr %scevgep324.i, i64 %strlen325.i
-  %195 = trunc i64 %strlen325.i to i32
-  %196 = xor i32 %195, -1
-  %197 = add i32 %.9287.i, %196
+  %194 = trunc i64 %strlen325.i to i32
+  %195 = xor i32 %194, -1
+  %196 = add i32 %.9287.i, %195
   br label %._crit_edge282.i
 
 ._crit_edge282.i:                                 ; preds = %.lr.ph281.preheader.i, %.preheader.i
-  %198 = phi i64 [ %191, %.preheader.i ], [ %194, %.lr.ph281.preheader.i ]
+  %197 = phi i64 [ %190, %.preheader.i ], [ %193, %.lr.ph281.preheader.i ]
   %.10109.lcssa.i = phi ptr [ %.9108286.i, %.preheader.i ], [ %scevgep326.i, %.lr.ph281.preheader.i ]
-  %.10.lcssa.i = phi i32 [ %.9287.i, %.preheader.i ], [ %197, %.lr.ph281.preheader.i ]
-  %199 = sext i32 %.10.lcssa.i to i64
-  %200 = call i64 @llvm.usub.sat.i64(i64 144, i64 %198)
-  %201 = getelementptr i8, ptr %.14285.i, i64 1
-  %202 = load i8, ptr %.14285.i, align 1
-  %203 = zext i8 %202 to i32
-  %204 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.10109.lcssa.i, i64 noundef %199, i32 noundef 2, i64 noundef %200, ptr noundef nonnull @.str.658, i32 noundef %203)
-  %205 = add nsw i8 %.0288.i, -1
-  %.not171.i = icmp eq i8 %205, 0
+  %.10.lcssa.i = phi i32 [ %.9287.i, %.preheader.i ], [ %196, %.lr.ph281.preheader.i ]
+  %198 = sext i32 %.10.lcssa.i to i64
+  %199 = call i64 @llvm.usub.sat.i64(i64 144, i64 %197)
+  %200 = getelementptr i8, ptr %.14285.i, i64 1
+  %201 = load i8, ptr %.14285.i, align 1
+  %202 = zext i8 %201 to i32
+  %203 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.10109.lcssa.i, i64 noundef %198, i32 noundef 2, i64 noundef %199, ptr noundef nonnull @.str.658, i32 noundef %202)
+  %204 = add nsw i8 %.0288.i, -1
+  %.not171.i = icmp eq i8 %204, 0
   br i1 %.not171.i, label %decrypt_data_security_data.exit, label %.preheader.i, !llvm.loop !18
 
 .thread193.i:                                     ; preds = %.loopexit203.i
@@ -3630,116 +3629,116 @@ proto_tree_add_data.exit241:                      ; preds = %.lr.ph.split.us.i23
   br label %.loopexit47
 
 decrypt_data_security_data.exit:                  ; preds = %._crit_edge282.i
-  %206 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %.11132191.i, i32 noundef %128, i32 noundef %128)
-  %207 = add i32 %128, -4
+  %205 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %.11132191.i, i32 noundef %128, i32 noundef %128)
+  %206 = add i32 %128, -4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.630)
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %206, ptr noundef nonnull @.str.631)
-  %208 = load i32, ptr @hf_folder, align 4
-  %209 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %4, i32 noundef %208, ptr noundef %206, i32 noundef 0, i32 noundef %128, ptr noundef nonnull @.str.631)
-  %210 = load i32, ptr @ett_cemi_decrypted, align 4
-  %211 = call ptr @proto_item_add_subtree(ptr noundef %209, i32 noundef %210)
-  %212 = load i8, ptr %103, align 8
-  %.not217 = icmp eq i8 %212, 0
-  br i1 %.not217, label %214, label %213
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %205, ptr noundef nonnull @.str.631)
+  %207 = load i32, ptr @hf_folder, align 4
+  %208 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %4, i32 noundef %207, ptr noundef %205, i32 noundef 0, i32 noundef %128, ptr noundef nonnull @.str.631)
+  %209 = load i32, ptr @ett_cemi_decrypted, align 4
+  %210 = call ptr @proto_item_add_subtree(ptr noundef %208, i32 noundef %209)
+  %211 = load i8, ptr %103, align 8
+  %.not217 = icmp eq i8 %211, 0
+  br i1 %.not217, label %213, label %212
 
-213:                                              ; preds = %decrypt_data_security_data.exit
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %209, ptr noundef nonnull @.str.632, ptr noundef nonnull %103)
-  br label %214
+212:                                              ; preds = %decrypt_data_security_data.exit
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.632, ptr noundef nonnull %103)
+  br label %213
 
-214:                                              ; preds = %213, %decrypt_data_security_data.exit
-  %215 = load i32, ptr @hf_bytes, align 4
-  %216 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %211, i32 noundef %215, ptr noundef %206, i32 noundef 0, i32 noundef %207, ptr noundef null, ptr noundef nonnull @.str.671, ptr noundef nonnull @.str.633)
-  %217 = icmp sgt i32 %207, 0
-  br i1 %217, label %.lr.ph.split.us.i244, label %proto_tree_add_data.exit249
+213:                                              ; preds = %212, %decrypt_data_security_data.exit
+  %214 = load i32, ptr @hf_bytes, align 4
+  %215 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %210, i32 noundef %214, ptr noundef %205, i32 noundef 0, i32 noundef %206, ptr noundef null, ptr noundef nonnull @.str.671, ptr noundef nonnull @.str.633)
+  %216 = icmp sgt i32 %206, 0
+  br i1 %216, label %.lr.ph.split.us.i244, label %proto_tree_add_data.exit249
 
-.lr.ph.split.us.i244:                             ; preds = %214, %.lr.ph.split.us.i244
-  %.029.us.i245 = phi i32 [ %219, %.lr.ph.split.us.i244 ], [ 0, %214 ]
-  %218 = call zeroext i8 @tvb_get_uint8(ptr noundef %206, i32 noundef %.029.us.i245)
-  %.pre.i247 = zext i8 %218 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %216, ptr noundef nonnull @.str.658, i32 noundef %.pre.i247)
-  %219 = add nuw i32 %.029.us.i245, 1
-  %exitcond.not = icmp eq i32 %219, %207
+.lr.ph.split.us.i244:                             ; preds = %213, %.lr.ph.split.us.i244
+  %.029.us.i245 = phi i32 [ %218, %.lr.ph.split.us.i244 ], [ 0, %213 ]
+  %217 = call zeroext i8 @tvb_get_uint8(ptr noundef %205, i32 noundef %.029.us.i245)
+  %.pre.i247 = zext i8 %217 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %215, ptr noundef nonnull @.str.658, i32 noundef %.pre.i247)
+  %218 = add nuw i32 %.029.us.i245, 1
+  %exitcond.not = icmp eq i32 %218, %206
   br i1 %exitcond.not, label %proto_tree_add_data.exit249, label %.lr.ph.split.us.i244, !llvm.loop !6
 
-proto_tree_add_data.exit249:                      ; preds = %.lr.ph.split.us.i244, %214
-  %220 = load i32, ptr @hf_bytes, align 4
-  %221 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %211, i32 noundef %220, ptr noundef %206, i32 noundef %207, i32 noundef 4, ptr noundef null, ptr noundef nonnull @.str.671, ptr noundef nonnull @.str.626)
+proto_tree_add_data.exit249:                      ; preds = %.lr.ph.split.us.i244, %213
+  %219 = load i32, ptr @hf_bytes, align 4
+  %220 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %210, i32 noundef %219, ptr noundef %205, i32 noundef %206, i32 noundef 4, ptr noundef null, ptr noundef nonnull @.str.671, ptr noundef nonnull @.str.626)
   br label %.lr.ph.split.us.i251
 
 .lr.ph.split.us.i251:                             ; preds = %.lr.ph.split.us.i251, %proto_tree_add_data.exit249
-  %.029.us.i252 = phi i32 [ %223, %.lr.ph.split.us.i251 ], [ %207, %proto_tree_add_data.exit249 ]
-  %.02428.us.i253 = phi i32 [ %224, %.lr.ph.split.us.i251 ], [ 4, %proto_tree_add_data.exit249 ]
-  %222 = call zeroext i8 @tvb_get_uint8(ptr noundef %206, i32 noundef %.029.us.i252)
-  %.pre.i254 = zext i8 %222 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %221, ptr noundef nonnull @.str.658, i32 noundef %.pre.i254)
-  %223 = add i32 %.029.us.i252, 1
-  %224 = add nsw i32 %.02428.us.i253, -1
-  %225 = icmp samesign ugt i32 %.02428.us.i253, 1
-  br i1 %225, label %.lr.ph.split.us.i251, label %proto_tree_add_data.exit257, !llvm.loop !6
+  %.029.us.i252 = phi i32 [ %222, %.lr.ph.split.us.i251 ], [ %206, %proto_tree_add_data.exit249 ]
+  %.02428.us.i253 = phi i32 [ %223, %.lr.ph.split.us.i251 ], [ 4, %proto_tree_add_data.exit249 ]
+  %221 = call zeroext i8 @tvb_get_uint8(ptr noundef %205, i32 noundef %.029.us.i252)
+  %.pre.i254 = zext i8 %221 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %220, ptr noundef nonnull @.str.658, i32 noundef %.pre.i254)
+  %222 = add i32 %.029.us.i252, 1
+  %223 = add nsw i32 %.02428.us.i253, -1
+  %224 = icmp samesign ugt i32 %.02428.us.i253, 1
+  br i1 %224, label %.lr.ph.split.us.i251, label %proto_tree_add_data.exit257, !llvm.loop !6
 
 proto_tree_add_data.exit257:                      ; preds = %.lr.ph.split.us.i251
-  %226 = add nsw i32 %11, -13
-  %227 = getelementptr i8, ptr %125, i64 1
-  %228 = load i8, ptr %227, align 1
-  %229 = zext i8 %228 to i32
-  %230 = add nuw nsw i32 %229, 9
-  %231 = icmp samesign uge i32 %230, %11
-  %232 = add i32 %230, %207
-  %.not218 = icmp sgt i32 %232, %226
-  %or.cond = select i1 %231, i1 true, i1 %.not218
-  br i1 %or.cond, label %260, label %233
+  %225 = add nsw i32 %11, -13
+  %226 = getelementptr i8, ptr %125, i64 1
+  %227 = load i8, ptr %226, align 1
+  %228 = zext i8 %227 to i32
+  %229 = add nuw nsw i32 %228, 9
+  %230 = icmp samesign uge i32 %229, %11
+  %231 = add i32 %229, %206
+  %.not218 = icmp sgt i32 %231, %225
+  %or.cond = select i1 %230, i1 true, i1 %.not218
+  br i1 %or.cond, label %259, label %232
 
-233:                                              ; preds = %proto_tree_add_data.exit257
-  %234 = load ptr, ptr %129, align 8
-  %235 = sext i32 %226 to i64
-  %236 = call noalias ptr @wmem_alloc(ptr noundef %234, i64 noundef %235) #11
-  %237 = zext nneg i32 %230 to i64
-  %238 = icmp ne i32 %226, -1
-  call void @llvm.assume(i1 %238)
-  %239 = call ptr @__memcpy_chk(ptr noundef %236, ptr noundef %125, i64 noundef range(i64 -2147483648, 2147483648) %237, i64 noundef %235) #10, !alias.scope !19
-  %240 = getelementptr i8, ptr %236, i64 %237
-  %241 = sext i32 %207 to i64
-  %242 = sub nsw i64 %235, %237
-  %243 = icmp ugt i32 %230, %226
-  %244 = select i1 %243, i64 0, i64 %242
-  %245 = icmp ne i64 %244, -1
-  call void @llvm.assume(i1 %245)
-  %246 = call ptr @__memcpy_chk(ptr noundef %240, ptr noundef nonnull %.11132191.i, i64 noundef range(i64 -2147483648, 2147483648) %241, i64 noundef %244) #10, !alias.scope !23
-  %247 = trunc i32 %128 to i8
-  %248 = add i8 %247, -5
-  %249 = zext i8 %228 to i64
-  %250 = getelementptr i8, ptr %236, i64 %249
-  %251 = getelementptr i8, ptr %250, i64 8
-  store i8 %248, ptr %251, align 1
-  %252 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %236, i32 noundef %226, i32 noundef %226)
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %252, ptr noundef nonnull @.str.634)
-  %253 = call ptr @find_dissector(ptr noundef nonnull @.str.103)
-  %.not219 = icmp eq ptr %253, null
-  br i1 %.not219, label %260, label %254
+232:                                              ; preds = %proto_tree_add_data.exit257
+  %233 = load ptr, ptr %129, align 8
+  %234 = sext i32 %225 to i64
+  %235 = call noalias ptr @wmem_alloc(ptr noundef %233, i64 noundef %234) #11
+  %236 = zext nneg i32 %229 to i64
+  %237 = icmp ne i32 %225, -1
+  call void @llvm.assume(i1 %237)
+  %238 = call ptr @__memcpy_chk(ptr noundef %235, ptr noundef %125, i64 noundef range(i64 -2147483648, 2147483648) %236, i64 noundef %234) #10, !alias.scope !19
+  %239 = getelementptr i8, ptr %235, i64 %236
+  %240 = sext i32 %206 to i64
+  %241 = sub nsw i64 %234, %236
+  %242 = icmp ugt i32 %229, %225
+  %243 = select i1 %242, i64 0, i64 %241
+  %244 = icmp ne i64 %243, -1
+  call void @llvm.assume(i1 %244)
+  %245 = call ptr @__memcpy_chk(ptr noundef %239, ptr noundef nonnull %.11132191.i, i64 noundef range(i64 -2147483648, 2147483648) %240, i64 noundef %243) #10, !alias.scope !23
+  %246 = trunc i32 %128 to i8
+  %247 = add i8 %246, -5
+  %248 = zext i8 %227 to i64
+  %249 = getelementptr i8, ptr %235, i64 %248
+  %250 = getelementptr i8, ptr %249, i64 8
+  store i8 %247, ptr %250, align 1
+  %251 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %235, i32 noundef %225, i32 noundef %225)
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %251, ptr noundef nonnull @.str.634)
+  %252 = call ptr @find_dissector(ptr noundef nonnull @.str.103)
+  %.not219 = icmp eq ptr %252, null
+  br i1 %.not219, label %259, label %253
 
-254:                                              ; preds = %233
-  %255 = call i32 @call_dissector(ptr noundef nonnull %253, ptr noundef %252, ptr noundef %1, ptr noundef %2)
-  br label %260
+253:                                              ; preds = %232
+  %254 = call i32 @call_dissector(ptr noundef nonnull %252, ptr noundef %251, ptr noundef %1, ptr noundef %2)
+  br label %259
 
-.loopexit47:                                      ; preds = %175, %.thread193.i
-  %256 = phi ptr [ %spec.select.i, %.thread193.i ], [ @.str.659, %175 ]
-  %257 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %103, i64 noundef 128, i32 noundef 2, i64 noundef 128, ptr noundef nonnull %256)
+.loopexit47:                                      ; preds = %174, %.thread193.i
+  %255 = phi ptr [ %spec.select.i, %.thread193.i ], [ @.str.659, %174 ]
+  %256 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %103, i64 noundef 128, i32 noundef 2, i64 noundef 128, ptr noundef nonnull %255)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.635)
-  %258 = load i8, ptr %103, align 8
-  %.not216 = icmp eq i8 %258, 0
-  br i1 %.not216, label %260, label %259
+  %257 = load i8, ptr %103, align 8
+  %.not216 = icmp eq i8 %257, 0
+  br i1 %.not216, label %259, label %258
 
-259:                                              ; preds = %.loopexit47
+258:                                              ; preds = %.loopexit47
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.632, ptr noundef nonnull %103)
+  br label %259
+
+259:                                              ; preds = %proto_tree_add_data.exit257, %253, %232, %.loopexit47, %258
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %15) #10
   br label %260
 
-260:                                              ; preds = %proto_tree_add_data.exit257, %254, %233, %.loopexit47, %259
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %15) #10
-  br label %261
-
-261:                                              ; preds = %260, %proto_tree_add_data.exit235, %75, %96, %proto_tree_add_data.exit241, %21
-  %.0194 = phi i8 [ 1, %21 ], [ 1, %75 ], [ %18, %proto_tree_add_data.exit235 ], [ %.3, %260 ], [ 1, %96 ], [ %18, %proto_tree_add_data.exit241 ]
-  %.0 = phi i32 [ %11, %21 ], [ %11, %75 ], [ %72, %proto_tree_add_data.exit235 ], [ %11, %260 ], [ %11, %96 ], [ %11, %proto_tree_add_data.exit241 ]
+260:                                              ; preds = %259, %proto_tree_add_data.exit235, %75, %96, %proto_tree_add_data.exit241, %21
+  %.0194 = phi i8 [ 1, %21 ], [ 1, %75 ], [ %18, %proto_tree_add_data.exit235 ], [ %.3, %259 ], [ 1, %96 ], [ %18, %proto_tree_add_data.exit241 ]
+  %.0 = phi i32 [ %11, %21 ], [ %11, %75 ], [ %72, %proto_tree_add_data.exit235 ], [ %11, %259 ], [ %11, %96 ], [ %11, %proto_tree_add_data.exit241 ]
   store i32 %.0, ptr %10, align 4
   store i8 %17, ptr %12, align 1
   store i8 %.0194, ptr %13, align 1

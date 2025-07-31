@@ -440,37 +440,37 @@ define dso_local i32 @_hash_init(ptr noundef %0, double noundef %1, i32 noundef 
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %35 = load ptr, ptr %34, align 8
   %.not81 = icmp eq ptr %35, null
-  br i1 %.not81, label %41, label %36
+  br i1 %.not81, label %43, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = shl i32 %38, 13
   %40 = sdiv i32 %39, 2000
-  br label %41
+  %41 = tail call i32 @llvm.smax.i32(i32 %40, i32 10)
+  %42 = trunc i32 %41 to i16
+  br label %43
 
-41:                                               ; preds = %32, %36
-  %42 = phi i32 [ %40, %36 ], [ 307, %32 ]
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %42, i32 10)
-  %43 = tail call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext 1, i16 noundef zeroext 1) #10
-  %44 = tail call i32 @_hash_getnewbuf(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %2)
-  %45 = trunc i32 %spec.store.select to i16
-  tail call void @_hash_init_metabuffer(i32 noundef %44, double noundef %1, i32 noundef %43, i16 noundef zeroext %45, i1 noundef zeroext false)
-  tail call void @MarkBufferDirty(i32 noundef %44) #10
-  %46 = icmp slt i32 %44, 0
+43:                                               ; preds = %32, %36
+  %spec.store.select = phi i16 [ %42, %36 ], [ 307, %32 ]
+  %44 = tail call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext 1, i16 noundef zeroext 1) #10
+  %45 = tail call i32 @_hash_getnewbuf(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %2)
+  tail call void @_hash_init_metabuffer(i32 noundef %45, double noundef %1, i32 noundef %44, i16 noundef zeroext %spec.store.select, i1 noundef zeroext false)
+  tail call void @MarkBufferDirty(i32 noundef %45) #10
+  %46 = icmp slt i32 %45, 0
   br i1 %46, label %47, label %53
 
-47:                                               ; preds = %41
+47:                                               ; preds = %43
   %48 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %49 = xor i32 %44, -1
+  %49 = xor i32 %45, -1
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %50
   %52 = load ptr, ptr %51, align 8
   br label %BufferGetPage.exit
 
-53:                                               ; preds = %41
+53:                                               ; preds = %43
   %54 = load ptr, ptr @BufferBlocks, align 8
-  %55 = add nsw i32 %44, -1
+  %55 = add nsw i32 %45, -1
   %56 = sext i32 %55 to i64
   %57 = shl nsw i64 %56, 13
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 %57
@@ -493,13 +493,13 @@ BufferGetPage.exit:                               ; preds = %47, %53
   store i16 %64, ptr %65, align 4
   tail call void @XLogBeginInsert() #10
   call void @XLogRegisterData(ptr noundef nonnull %4, i32 noundef 14) #10
-  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %44, i8 noundef zeroext 14) #10
+  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %45, i8 noundef zeroext 14) #10
   %66 = call i64 @XLogInsert(i8 noundef zeroext 12, i8 noundef zeroext 0) #10
   br i1 %46, label %67, label %73
 
 67:                                               ; preds = %59
   %68 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %69 = xor i32 %44, -1
+  %69 = xor i32 %45, -1
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw ptr, ptr %68, i64 %70
   %72 = load ptr, ptr %71, align 8
@@ -507,7 +507,7 @@ BufferGetPage.exit:                               ; preds = %47, %53
 
 73:                                               ; preds = %59
   %74 = load ptr, ptr @BufferBlocks, align 8
-  %75 = add nsw i32 %44, -1
+  %75 = add nsw i32 %45, -1
   %76 = sext i32 %75 to i64
   %77 = shl nsw i64 %76, 13
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 %77
@@ -528,7 +528,7 @@ BufferGetPage.exit85:                             ; preds = %67, %73
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   %85 = load i32, ptr %84, align 8
   %86 = add i32 %85, 1
-  call void @LockBuffer(i32 noundef %44, i32 noundef 0) #10
+  call void @LockBuffer(i32 noundef %45, i32 noundef 0) #10
   %.not93 = icmp eq i32 %86, 0
   br i1 %.not93, label %._crit_edge, label %.lr.ph
 
@@ -694,7 +694,7 @@ _hash_initbuf.exit:                               ; preds = %151, %157
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_hash_initbuf.exit, %BufferGetPage.exit87.us, %83
-  call void @LockBuffer(i32 noundef %44, i32 noundef 2) #10
+  call void @LockBuffer(i32 noundef %45, i32 noundef 2) #10
   %171 = add i32 %85, 2
   %172 = call i32 @_hash_getnewbuf(ptr noundef nonnull %0, i32 noundef %171, i32 noundef %2)
   %173 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 44
@@ -723,7 +723,7 @@ _hash_initbuf.exit:                               ; preds = %151, %157
   store i32 %171, ptr %187, align 4
   %188 = add nuw nsw i32 %176, 1
   store i32 %188, ptr %175, align 4
-  call void @MarkBufferDirty(i32 noundef %44) #10
+  call void @MarkBufferDirty(i32 noundef %45) #10
   br i1 %33, label %189, label %222
 
 189:                                              ; preds = %184
@@ -733,7 +733,7 @@ _hash_initbuf.exit:                               ; preds = %151, %157
   call void @XLogBeginInsert() #10
   call void @XLogRegisterData(ptr noundef nonnull %5, i32 noundef 2) #10
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %172, i8 noundef zeroext 6) #10
-  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %44, i8 noundef zeroext 8) #10
+  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %45, i8 noundef zeroext 8) #10
   %191 = call i64 @XLogInsert(i8 noundef zeroext 12, i8 noundef zeroext 16) #10
   %192 = icmp slt i32 %172, 0
   br i1 %192, label %193, label %199
@@ -766,7 +766,7 @@ BufferGetPage.exit89:                             ; preds = %193, %199
 
 209:                                              ; preds = %BufferGetPage.exit89
   %210 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %211 = xor i32 %44, -1
+  %211 = xor i32 %45, -1
   %212 = zext nneg i32 %211 to i64
   %213 = getelementptr inbounds nuw ptr, ptr %210, i64 %212
   %214 = load ptr, ptr %213, align 8
@@ -774,7 +774,7 @@ BufferGetPage.exit89:                             ; preds = %193, %199
 
 215:                                              ; preds = %BufferGetPage.exit89
   %216 = load ptr, ptr @BufferBlocks, align 8
-  %217 = add nsw i32 %44, -1
+  %217 = add nsw i32 %45, -1
   %218 = sext i32 %217 to i64
   %219 = shl nsw i64 %218, 13
   %220 = getelementptr inbounds nuw i8, ptr %216, i64 %219
@@ -790,7 +790,7 @@ BufferGetPage.exit91:                             ; preds = %209, %215
 
 222:                                              ; preds = %BufferGetPage.exit91, %184
   call void @UnlockReleaseBuffer(i32 noundef %172) #10
-  call void @UnlockReleaseBuffer(i32 noundef %44) #10
+  call void @UnlockReleaseBuffer(i32 noundef %45) #10
   ret i32 %86
 }
 

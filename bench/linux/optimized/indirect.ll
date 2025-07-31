@@ -2797,7 +2797,7 @@ define internal fastcc i32 @ext4_ind_truncate_ensure_credits(ptr noundef %0, ptr
 85:                                               ; preds = %79, %63
   %86 = phi i32 [ 3, %63 ], [ %84, %79 ]
   %87 = icmp ult ptr %0, inttoptr (i64 4096 to ptr)
-  br i1 %87, label %102, label %88
+  br i1 %87, label %103, label %88
 
 88:                                               ; preds = %85
   %89 = zext i8 %68 to i64
@@ -2813,19 +2813,19 @@ define internal fastcc i32 @ext4_ind_truncate_ensure_credits(ptr noundef %0, ptr
   %99 = add nuw nsw i32 %95, %98
   %100 = add nuw nsw i32 %99, %86
   %101 = tail call i32 @jbd2__journal_restart(ptr noundef %0, i32 noundef %100, i32 noundef %3, i32 noundef 3136) #12
-  br label %102
+  %102 = tail call i32 @llvm.umax.i32(i32 %101, i32 1)
+  br label %103
 
-102:                                              ; preds = %85, %88
-  %103 = phi i32 [ %101, %88 ], [ 0, %85 ]
-  %104 = tail call i32 @llvm.umax.i32(i32 %103, i32 1)
+103:                                              ; preds = %85, %88
+  %104 = phi i32 [ %102, %88 ], [ 1, %85 ]
   br i1 %64, label %107, label %105
 
-105:                                              ; preds = %102
+105:                                              ; preds = %103
   %106 = getelementptr i8, ptr %1, i64 -40
   tail call void @down_write(ptr noundef %106) #12
   br label %107
 
-107:                                              ; preds = %105, %102
+107:                                              ; preds = %105, %103
   %108 = icmp slt i32 %104, 1
   br i1 %108, label %.thread10, label %109
 

@@ -28230,47 +28230,47 @@ define linkonce_odr dso_local noundef i32 @_ZN4CGAL26cmp_signed_dist_to_planeC3I
   call void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %17, ptr noundef nonnull align 16 dereferenceable(84) %3, ptr noundef nonnull align 16 dereferenceable(84) %0)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %18) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %18, ptr noundef nonnull align 16 dereferenceable(84) %4, ptr noundef nonnull align 16 dereferenceable(84) %1)
-          to label %26 unwind label %158
+          to label %26 unwind label %157
 
 26:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %19) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %19, ptr noundef nonnull align 16 dereferenceable(84) %5, ptr noundef nonnull align 16 dereferenceable(84) %2)
-          to label %27 unwind label %160
+          to label %27 unwind label %159
 
 27:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %20) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %20, ptr noundef nonnull align 16 dereferenceable(84) %6, ptr noundef nonnull align 16 dereferenceable(84) %0)
-          to label %28 unwind label %162
+          to label %28 unwind label %161
 
 28:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %21) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %21, ptr noundef nonnull align 16 dereferenceable(84) %7, ptr noundef nonnull align 16 dereferenceable(84) %1)
-          to label %29 unwind label %164
+          to label %29 unwind label %163
 
 29:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %22) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %22, ptr noundef nonnull align 16 dereferenceable(84) %8, ptr noundef nonnull align 16 dereferenceable(84) %2)
-          to label %30 unwind label %166
+          to label %30 unwind label %165
 
 30:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %23) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %23, ptr noundef nonnull align 16 dereferenceable(84) %9, ptr noundef nonnull align 16 dereferenceable(84) %12)
-          to label %31 unwind label %168
+          to label %31 unwind label %167
 
 31:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %24) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %24, ptr noundef nonnull align 16 dereferenceable(84) %10, ptr noundef nonnull align 16 dereferenceable(84) %13)
-          to label %32 unwind label %170
+          to label %32 unwind label %169
 
 32:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %25) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %25, ptr noundef nonnull align 16 dereferenceable(84) %11, ptr noundef nonnull align 16 dereferenceable(84) %14)
-          to label %33 unwind label %172
+          to label %33 unwind label %171
 
 33:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %16) #28
   invoke void @_ZN4CGAL11determinantINS_9cpp_floatEEET_RKS2_S4_S4_S4_S4_S4_S4_S4_S4_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %16, ptr noundef nonnull align 16 dereferenceable(84) %17, ptr noundef nonnull align 16 dereferenceable(84) %18, ptr noundef nonnull align 16 dereferenceable(84) %19, ptr noundef nonnull align 16 dereferenceable(84) %20, ptr noundef nonnull align 16 dereferenceable(84) %21, ptr noundef nonnull align 16 dereferenceable(84) %22, ptr noundef nonnull align 16 dereferenceable(84) %23, ptr noundef nonnull align 16 dereferenceable(84) %24, ptr noundef nonnull align 16 dereferenceable(84) %25)
-          to label %.noexc unwind label %174
+          to label %.noexc unwind label %173
 
 .noexc:                                           ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -28297,417 +28297,417 @@ _ZN5boost14multiprecision8backends12eval_is_zeroILm512ELm0ELNS0_16cpp_integer_ty
   br label %_ZN4CGAL4signINS_9cpp_floatEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS3_.exit.i
 
 _ZN4CGAL4signINS_9cpp_floatEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS3_.exit.i: ; preds = %_ZN5boost14multiprecision8backends12eval_is_zeroILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.thread.i.i.i.i.i.i, %_ZN5boost14multiprecision8backends12eval_is_zeroILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.i.i.i.i.i.i
-  %49 = phi i32 [ %48, %_ZN5boost14multiprecision8backends12eval_is_zeroILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.thread.i.i.i.i.i.i ], [ 0, %_ZN5boost14multiprecision8backends12eval_is_zeroILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.i.i.i.i.i.i ]
-  %50 = getelementptr inbounds nuw i8, ptr %16, i64 74
-  %51 = load i8, ptr %50, align 2, !range !10
-  %52 = trunc nuw i8 %51 to i1
-  %or.cond.i.i.i.i = select i1 %39, i1 true, i1 %52
-  br i1 %or.cond.i.i.i.i, label %58, label %53
+  %.0.i.i.i.i.i.i.i.i = phi i32 [ %48, %_ZN5boost14multiprecision8backends12eval_is_zeroILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.thread.i.i.i.i.i.i ], [ 0, %_ZN5boost14multiprecision8backends12eval_is_zeroILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.i.i.i.i.i.i ]
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 74
+  %50 = load i8, ptr %49, align 2, !range !10
+  %51 = trunc nuw i8 %50 to i1
+  %or.cond.i.i.i.i = select i1 %39, i1 true, i1 %51
+  br i1 %or.cond.i.i.i.i, label %57, label %52
 
-53:                                               ; preds = %_ZN4CGAL4signINS_9cpp_floatEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS3_.exit.i
-  %54 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = load i64, ptr %16, align 16
-  %57 = shl i64 %56, 3
-  call void @_ZdlPvm(ptr noundef %55, i64 noundef %57) #39
-  br label %58
+52:                                               ; preds = %_ZN4CGAL4signINS_9cpp_floatEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS3_.exit.i
+  %53 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = load i64, ptr %16, align 16
+  %56 = shl i64 %55, 3
+  call void @_ZdlPvm(ptr noundef %54, i64 noundef %56) #39
+  br label %57
 
-58:                                               ; preds = %53, %_ZN4CGAL4signINS_9cpp_floatEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS3_.exit.i
+57:                                               ; preds = %52, %_ZN4CGAL4signINS_9cpp_floatEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS3_.exit.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %16) #28
-  %59 = getelementptr inbounds nuw i8, ptr %25, i64 73
-  %60 = load i8, ptr %59, align 1, !tbaa !270, !range !10, !noundef !11
-  %61 = trunc nuw i8 %60 to i1
-  %62 = getelementptr inbounds nuw i8, ptr %25, i64 74
-  %63 = load i8, ptr %62, align 2, !range !10
-  %64 = trunc nuw i8 %63 to i1
-  %or.cond.i.i.i = select i1 %61, i1 true, i1 %64
-  br i1 %or.cond.i.i.i, label %_ZN4CGAL9cpp_floatD2Ev.exit, label %65
+  %58 = getelementptr inbounds nuw i8, ptr %25, i64 73
+  %59 = load i8, ptr %58, align 1, !tbaa !270, !range !10, !noundef !11
+  %60 = trunc nuw i8 %59 to i1
+  %61 = getelementptr inbounds nuw i8, ptr %25, i64 74
+  %62 = load i8, ptr %61, align 2, !range !10
+  %63 = trunc nuw i8 %62 to i1
+  %or.cond.i.i.i = select i1 %60, i1 true, i1 %63
+  br i1 %or.cond.i.i.i, label %_ZN4CGAL9cpp_floatD2Ev.exit, label %64
 
-65:                                               ; preds = %58
-  %66 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = load i64, ptr %25, align 16
-  %69 = shl i64 %68, 3
-  call void @_ZdlPvm(ptr noundef %67, i64 noundef %69) #39
+64:                                               ; preds = %57
+  %65 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = load i64, ptr %25, align 16
+  %68 = shl i64 %67, 3
+  call void @_ZdlPvm(ptr noundef %66, i64 noundef %68) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit
 
-_ZN4CGAL9cpp_floatD2Ev.exit:                      ; preds = %58, %65
+_ZN4CGAL9cpp_floatD2Ev.exit:                      ; preds = %57, %64
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %25) #28
-  %70 = getelementptr inbounds nuw i8, ptr %24, i64 73
-  %71 = load i8, ptr %70, align 1, !tbaa !270, !range !10, !noundef !11
-  %72 = trunc nuw i8 %71 to i1
-  %73 = getelementptr inbounds nuw i8, ptr %24, i64 74
-  %74 = load i8, ptr %73, align 2, !range !10
-  %75 = trunc nuw i8 %74 to i1
-  %or.cond.i.i.i35 = select i1 %72, i1 true, i1 %75
-  br i1 %or.cond.i.i.i35, label %_ZN4CGAL9cpp_floatD2Ev.exit36, label %76
+  %69 = getelementptr inbounds nuw i8, ptr %24, i64 73
+  %70 = load i8, ptr %69, align 1, !tbaa !270, !range !10, !noundef !11
+  %71 = trunc nuw i8 %70 to i1
+  %72 = getelementptr inbounds nuw i8, ptr %24, i64 74
+  %73 = load i8, ptr %72, align 2, !range !10
+  %74 = trunc nuw i8 %73 to i1
+  %or.cond.i.i.i35 = select i1 %71, i1 true, i1 %74
+  br i1 %or.cond.i.i.i35, label %_ZN4CGAL9cpp_floatD2Ev.exit36, label %75
 
-76:                                               ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit
-  %77 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = load i64, ptr %24, align 16
-  %80 = shl i64 %79, 3
-  call void @_ZdlPvm(ptr noundef %78, i64 noundef %80) #39
+75:                                               ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit
+  %76 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i64, ptr %24, align 16
+  %79 = shl i64 %78, 3
+  call void @_ZdlPvm(ptr noundef %77, i64 noundef %79) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit36
 
-_ZN4CGAL9cpp_floatD2Ev.exit36:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit, %76
+_ZN4CGAL9cpp_floatD2Ev.exit36:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit, %75
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %24) #28
-  %81 = getelementptr inbounds nuw i8, ptr %23, i64 73
-  %82 = load i8, ptr %81, align 1, !tbaa !270, !range !10, !noundef !11
-  %83 = trunc nuw i8 %82 to i1
-  %84 = getelementptr inbounds nuw i8, ptr %23, i64 74
-  %85 = load i8, ptr %84, align 2, !range !10
-  %86 = trunc nuw i8 %85 to i1
-  %or.cond.i.i.i37 = select i1 %83, i1 true, i1 %86
-  br i1 %or.cond.i.i.i37, label %_ZN4CGAL9cpp_floatD2Ev.exit38, label %87
+  %80 = getelementptr inbounds nuw i8, ptr %23, i64 73
+  %81 = load i8, ptr %80, align 1, !tbaa !270, !range !10, !noundef !11
+  %82 = trunc nuw i8 %81 to i1
+  %83 = getelementptr inbounds nuw i8, ptr %23, i64 74
+  %84 = load i8, ptr %83, align 2, !range !10
+  %85 = trunc nuw i8 %84 to i1
+  %or.cond.i.i.i37 = select i1 %82, i1 true, i1 %85
+  br i1 %or.cond.i.i.i37, label %_ZN4CGAL9cpp_floatD2Ev.exit38, label %86
 
-87:                                               ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit36
-  %88 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = load i64, ptr %23, align 16
-  %91 = shl i64 %90, 3
-  call void @_ZdlPvm(ptr noundef %89, i64 noundef %91) #39
+86:                                               ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit36
+  %87 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = load i64, ptr %23, align 16
+  %90 = shl i64 %89, 3
+  call void @_ZdlPvm(ptr noundef %88, i64 noundef %90) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit38
 
-_ZN4CGAL9cpp_floatD2Ev.exit38:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit36, %87
+_ZN4CGAL9cpp_floatD2Ev.exit38:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit36, %86
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %23) #28
-  %92 = getelementptr inbounds nuw i8, ptr %22, i64 73
-  %93 = load i8, ptr %92, align 1, !tbaa !270, !range !10, !noundef !11
-  %94 = trunc nuw i8 %93 to i1
-  %95 = getelementptr inbounds nuw i8, ptr %22, i64 74
-  %96 = load i8, ptr %95, align 2, !range !10
-  %97 = trunc nuw i8 %96 to i1
-  %or.cond.i.i.i39 = select i1 %94, i1 true, i1 %97
-  br i1 %or.cond.i.i.i39, label %_ZN4CGAL9cpp_floatD2Ev.exit40, label %98
+  %91 = getelementptr inbounds nuw i8, ptr %22, i64 73
+  %92 = load i8, ptr %91, align 1, !tbaa !270, !range !10, !noundef !11
+  %93 = trunc nuw i8 %92 to i1
+  %94 = getelementptr inbounds nuw i8, ptr %22, i64 74
+  %95 = load i8, ptr %94, align 2, !range !10
+  %96 = trunc nuw i8 %95 to i1
+  %or.cond.i.i.i39 = select i1 %93, i1 true, i1 %96
+  br i1 %or.cond.i.i.i39, label %_ZN4CGAL9cpp_floatD2Ev.exit40, label %97
 
-98:                                               ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit38
-  %99 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = load i64, ptr %22, align 16
-  %102 = shl i64 %101, 3
-  call void @_ZdlPvm(ptr noundef %100, i64 noundef %102) #39
+97:                                               ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit38
+  %98 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %99 = load ptr, ptr %98, align 8
+  %100 = load i64, ptr %22, align 16
+  %101 = shl i64 %100, 3
+  call void @_ZdlPvm(ptr noundef %99, i64 noundef %101) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit40
 
-_ZN4CGAL9cpp_floatD2Ev.exit40:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit38, %98
+_ZN4CGAL9cpp_floatD2Ev.exit40:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit38, %97
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22) #28
-  %103 = getelementptr inbounds nuw i8, ptr %21, i64 73
-  %104 = load i8, ptr %103, align 1, !tbaa !270, !range !10, !noundef !11
-  %105 = trunc nuw i8 %104 to i1
-  %106 = getelementptr inbounds nuw i8, ptr %21, i64 74
-  %107 = load i8, ptr %106, align 2, !range !10
-  %108 = trunc nuw i8 %107 to i1
-  %or.cond.i.i.i41 = select i1 %105, i1 true, i1 %108
-  br i1 %or.cond.i.i.i41, label %_ZN4CGAL9cpp_floatD2Ev.exit42, label %109
+  %102 = getelementptr inbounds nuw i8, ptr %21, i64 73
+  %103 = load i8, ptr %102, align 1, !tbaa !270, !range !10, !noundef !11
+  %104 = trunc nuw i8 %103 to i1
+  %105 = getelementptr inbounds nuw i8, ptr %21, i64 74
+  %106 = load i8, ptr %105, align 2, !range !10
+  %107 = trunc nuw i8 %106 to i1
+  %or.cond.i.i.i41 = select i1 %104, i1 true, i1 %107
+  br i1 %or.cond.i.i.i41, label %_ZN4CGAL9cpp_floatD2Ev.exit42, label %108
 
-109:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit40
-  %110 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %111 = load ptr, ptr %110, align 8
-  %112 = load i64, ptr %21, align 16
-  %113 = shl i64 %112, 3
-  call void @_ZdlPvm(ptr noundef %111, i64 noundef %113) #39
+108:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit40
+  %109 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %110 = load ptr, ptr %109, align 8
+  %111 = load i64, ptr %21, align 16
+  %112 = shl i64 %111, 3
+  call void @_ZdlPvm(ptr noundef %110, i64 noundef %112) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit42
 
-_ZN4CGAL9cpp_floatD2Ev.exit42:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit40, %109
+_ZN4CGAL9cpp_floatD2Ev.exit42:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit40, %108
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21) #28
-  %114 = getelementptr inbounds nuw i8, ptr %20, i64 73
-  %115 = load i8, ptr %114, align 1, !tbaa !270, !range !10, !noundef !11
-  %116 = trunc nuw i8 %115 to i1
-  %117 = getelementptr inbounds nuw i8, ptr %20, i64 74
-  %118 = load i8, ptr %117, align 2, !range !10
-  %119 = trunc nuw i8 %118 to i1
-  %or.cond.i.i.i43 = select i1 %116, i1 true, i1 %119
-  br i1 %or.cond.i.i.i43, label %_ZN4CGAL9cpp_floatD2Ev.exit44, label %120
+  %113 = getelementptr inbounds nuw i8, ptr %20, i64 73
+  %114 = load i8, ptr %113, align 1, !tbaa !270, !range !10, !noundef !11
+  %115 = trunc nuw i8 %114 to i1
+  %116 = getelementptr inbounds nuw i8, ptr %20, i64 74
+  %117 = load i8, ptr %116, align 2, !range !10
+  %118 = trunc nuw i8 %117 to i1
+  %or.cond.i.i.i43 = select i1 %115, i1 true, i1 %118
+  br i1 %or.cond.i.i.i43, label %_ZN4CGAL9cpp_floatD2Ev.exit44, label %119
 
-120:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit42
-  %121 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = load i64, ptr %20, align 16
-  %124 = shl i64 %123, 3
-  call void @_ZdlPvm(ptr noundef %122, i64 noundef %124) #39
+119:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit42
+  %120 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %121 = load ptr, ptr %120, align 8
+  %122 = load i64, ptr %20, align 16
+  %123 = shl i64 %122, 3
+  call void @_ZdlPvm(ptr noundef %121, i64 noundef %123) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit44
 
-_ZN4CGAL9cpp_floatD2Ev.exit44:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit42, %120
+_ZN4CGAL9cpp_floatD2Ev.exit44:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit42, %119
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %20) #28
-  %125 = getelementptr inbounds nuw i8, ptr %19, i64 73
-  %126 = load i8, ptr %125, align 1, !tbaa !270, !range !10, !noundef !11
-  %127 = trunc nuw i8 %126 to i1
-  %128 = getelementptr inbounds nuw i8, ptr %19, i64 74
-  %129 = load i8, ptr %128, align 2, !range !10
-  %130 = trunc nuw i8 %129 to i1
-  %or.cond.i.i.i45 = select i1 %127, i1 true, i1 %130
-  br i1 %or.cond.i.i.i45, label %_ZN4CGAL9cpp_floatD2Ev.exit46, label %131
+  %124 = getelementptr inbounds nuw i8, ptr %19, i64 73
+  %125 = load i8, ptr %124, align 1, !tbaa !270, !range !10, !noundef !11
+  %126 = trunc nuw i8 %125 to i1
+  %127 = getelementptr inbounds nuw i8, ptr %19, i64 74
+  %128 = load i8, ptr %127, align 2, !range !10
+  %129 = trunc nuw i8 %128 to i1
+  %or.cond.i.i.i45 = select i1 %126, i1 true, i1 %129
+  br i1 %or.cond.i.i.i45, label %_ZN4CGAL9cpp_floatD2Ev.exit46, label %130
 
-131:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit44
-  %132 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %133 = load ptr, ptr %132, align 8
-  %134 = load i64, ptr %19, align 16
-  %135 = shl i64 %134, 3
-  call void @_ZdlPvm(ptr noundef %133, i64 noundef %135) #39
+130:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit44
+  %131 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = load i64, ptr %19, align 16
+  %134 = shl i64 %133, 3
+  call void @_ZdlPvm(ptr noundef %132, i64 noundef %134) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit46
 
-_ZN4CGAL9cpp_floatD2Ev.exit46:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit44, %131
+_ZN4CGAL9cpp_floatD2Ev.exit46:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit44, %130
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %19) #28
-  %136 = getelementptr inbounds nuw i8, ptr %18, i64 73
-  %137 = load i8, ptr %136, align 1, !tbaa !270, !range !10, !noundef !11
-  %138 = trunc nuw i8 %137 to i1
-  %139 = getelementptr inbounds nuw i8, ptr %18, i64 74
-  %140 = load i8, ptr %139, align 2, !range !10
-  %141 = trunc nuw i8 %140 to i1
-  %or.cond.i.i.i47 = select i1 %138, i1 true, i1 %141
-  br i1 %or.cond.i.i.i47, label %_ZN4CGAL9cpp_floatD2Ev.exit48, label %142
+  %135 = getelementptr inbounds nuw i8, ptr %18, i64 73
+  %136 = load i8, ptr %135, align 1, !tbaa !270, !range !10, !noundef !11
+  %137 = trunc nuw i8 %136 to i1
+  %138 = getelementptr inbounds nuw i8, ptr %18, i64 74
+  %139 = load i8, ptr %138, align 2, !range !10
+  %140 = trunc nuw i8 %139 to i1
+  %or.cond.i.i.i47 = select i1 %137, i1 true, i1 %140
+  br i1 %or.cond.i.i.i47, label %_ZN4CGAL9cpp_floatD2Ev.exit48, label %141
 
-142:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit46
-  %143 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %144 = load ptr, ptr %143, align 8
-  %145 = load i64, ptr %18, align 16
-  %146 = shl i64 %145, 3
-  call void @_ZdlPvm(ptr noundef %144, i64 noundef %146) #39
+141:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit46
+  %142 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %143 = load ptr, ptr %142, align 8
+  %144 = load i64, ptr %18, align 16
+  %145 = shl i64 %144, 3
+  call void @_ZdlPvm(ptr noundef %143, i64 noundef %145) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit48
 
-_ZN4CGAL9cpp_floatD2Ev.exit48:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit46, %142
+_ZN4CGAL9cpp_floatD2Ev.exit48:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit46, %141
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %18) #28
-  %147 = getelementptr inbounds nuw i8, ptr %17, i64 73
-  %148 = load i8, ptr %147, align 1, !tbaa !270, !range !10, !noundef !11
-  %149 = trunc nuw i8 %148 to i1
-  %150 = getelementptr inbounds nuw i8, ptr %17, i64 74
-  %151 = load i8, ptr %150, align 2, !range !10
-  %152 = trunc nuw i8 %151 to i1
-  %or.cond.i.i.i49 = select i1 %149, i1 true, i1 %152
-  br i1 %or.cond.i.i.i49, label %_ZN4CGAL9cpp_floatD2Ev.exit50, label %153
+  %146 = getelementptr inbounds nuw i8, ptr %17, i64 73
+  %147 = load i8, ptr %146, align 1, !tbaa !270, !range !10, !noundef !11
+  %148 = trunc nuw i8 %147 to i1
+  %149 = getelementptr inbounds nuw i8, ptr %17, i64 74
+  %150 = load i8, ptr %149, align 2, !range !10
+  %151 = trunc nuw i8 %150 to i1
+  %or.cond.i.i.i49 = select i1 %148, i1 true, i1 %151
+  br i1 %or.cond.i.i.i49, label %_ZN4CGAL9cpp_floatD2Ev.exit50, label %152
 
-153:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit48
-  %154 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %155 = load ptr, ptr %154, align 8
-  %156 = load i64, ptr %17, align 16
-  %157 = shl i64 %156, 3
-  call void @_ZdlPvm(ptr noundef %155, i64 noundef %157) #39
+152:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit48
+  %153 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %154 = load ptr, ptr %153, align 8
+  %155 = load i64, ptr %17, align 16
+  %156 = shl i64 %155, 3
+  call void @_ZdlPvm(ptr noundef %154, i64 noundef %156) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit50
 
-_ZN4CGAL9cpp_floatD2Ev.exit50:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit48, %153
+_ZN4CGAL9cpp_floatD2Ev.exit50:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit48, %152
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17) #28
-  ret i32 %49
+  ret i32 %.0.i.i.i.i.i.i.i.i
 
-158:                                              ; preds = %15
-  %159 = landingpad { ptr, i32 }
+157:                                              ; preds = %15
+  %158 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit66
 
-160:                                              ; preds = %26
-  %161 = landingpad { ptr, i32 }
+159:                                              ; preds = %26
+  %160 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit64
 
-162:                                              ; preds = %27
-  %163 = landingpad { ptr, i32 }
+161:                                              ; preds = %27
+  %162 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit62
 
-164:                                              ; preds = %28
-  %165 = landingpad { ptr, i32 }
+163:                                              ; preds = %28
+  %164 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit60
 
-166:                                              ; preds = %29
-  %167 = landingpad { ptr, i32 }
+165:                                              ; preds = %29
+  %166 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit58
 
-168:                                              ; preds = %30
-  %169 = landingpad { ptr, i32 }
+167:                                              ; preds = %30
+  %168 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit56
 
-170:                                              ; preds = %31
-  %171 = landingpad { ptr, i32 }
+169:                                              ; preds = %31
+  %170 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit54
 
-172:                                              ; preds = %32
-  %173 = landingpad { ptr, i32 }
+171:                                              ; preds = %32
+  %172 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit52
 
-174:                                              ; preds = %33
-  %175 = landingpad { ptr, i32 }
+173:                                              ; preds = %33
+  %174 = landingpad { ptr, i32 }
           cleanup
-  %176 = getelementptr inbounds nuw i8, ptr %25, i64 73
-  %177 = load i8, ptr %176, align 1, !tbaa !270, !range !10, !noundef !11
-  %178 = trunc nuw i8 %177 to i1
-  %179 = getelementptr inbounds nuw i8, ptr %25, i64 74
-  %180 = load i8, ptr %179, align 2, !range !10
-  %181 = trunc nuw i8 %180 to i1
-  %or.cond.i.i.i51 = select i1 %178, i1 true, i1 %181
-  br i1 %or.cond.i.i.i51, label %_ZN4CGAL9cpp_floatD2Ev.exit52, label %182
+  %175 = getelementptr inbounds nuw i8, ptr %25, i64 73
+  %176 = load i8, ptr %175, align 1, !tbaa !270, !range !10, !noundef !11
+  %177 = trunc nuw i8 %176 to i1
+  %178 = getelementptr inbounds nuw i8, ptr %25, i64 74
+  %179 = load i8, ptr %178, align 2, !range !10
+  %180 = trunc nuw i8 %179 to i1
+  %or.cond.i.i.i51 = select i1 %177, i1 true, i1 %180
+  br i1 %or.cond.i.i.i51, label %_ZN4CGAL9cpp_floatD2Ev.exit52, label %181
 
-182:                                              ; preds = %174
-  %183 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %184 = load ptr, ptr %183, align 8
-  %185 = load i64, ptr %25, align 16
-  %186 = shl i64 %185, 3
-  call void @_ZdlPvm(ptr noundef %184, i64 noundef %186) #39
+181:                                              ; preds = %173
+  %182 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %183 = load ptr, ptr %182, align 8
+  %184 = load i64, ptr %25, align 16
+  %185 = shl i64 %184, 3
+  call void @_ZdlPvm(ptr noundef %183, i64 noundef %185) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit52
 
-_ZN4CGAL9cpp_floatD2Ev.exit52:                    ; preds = %182, %174, %172
-  %.pn = phi { ptr, i32 } [ %173, %172 ], [ %175, %174 ], [ %175, %182 ]
+_ZN4CGAL9cpp_floatD2Ev.exit52:                    ; preds = %181, %173, %171
+  %.pn = phi { ptr, i32 } [ %172, %171 ], [ %174, %173 ], [ %174, %181 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %25) #28
-  %187 = getelementptr inbounds nuw i8, ptr %24, i64 73
-  %188 = load i8, ptr %187, align 1, !tbaa !270, !range !10, !noundef !11
-  %189 = trunc nuw i8 %188 to i1
-  %190 = getelementptr inbounds nuw i8, ptr %24, i64 74
-  %191 = load i8, ptr %190, align 2, !range !10
-  %192 = trunc nuw i8 %191 to i1
-  %or.cond.i.i.i53 = select i1 %189, i1 true, i1 %192
-  br i1 %or.cond.i.i.i53, label %_ZN4CGAL9cpp_floatD2Ev.exit54, label %193
+  %186 = getelementptr inbounds nuw i8, ptr %24, i64 73
+  %187 = load i8, ptr %186, align 1, !tbaa !270, !range !10, !noundef !11
+  %188 = trunc nuw i8 %187 to i1
+  %189 = getelementptr inbounds nuw i8, ptr %24, i64 74
+  %190 = load i8, ptr %189, align 2, !range !10
+  %191 = trunc nuw i8 %190 to i1
+  %or.cond.i.i.i53 = select i1 %188, i1 true, i1 %191
+  br i1 %or.cond.i.i.i53, label %_ZN4CGAL9cpp_floatD2Ev.exit54, label %192
 
-193:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit52
-  %194 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %195 = load ptr, ptr %194, align 8
-  %196 = load i64, ptr %24, align 16
-  %197 = shl i64 %196, 3
-  call void @_ZdlPvm(ptr noundef %195, i64 noundef %197) #39
+192:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit52
+  %193 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %194 = load ptr, ptr %193, align 8
+  %195 = load i64, ptr %24, align 16
+  %196 = shl i64 %195, 3
+  call void @_ZdlPvm(ptr noundef %194, i64 noundef %196) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit54
 
-_ZN4CGAL9cpp_floatD2Ev.exit54:                    ; preds = %193, %_ZN4CGAL9cpp_floatD2Ev.exit52, %170
-  %.pn.pn = phi { ptr, i32 } [ %171, %170 ], [ %.pn, %_ZN4CGAL9cpp_floatD2Ev.exit52 ], [ %.pn, %193 ]
+_ZN4CGAL9cpp_floatD2Ev.exit54:                    ; preds = %192, %_ZN4CGAL9cpp_floatD2Ev.exit52, %169
+  %.pn.pn = phi { ptr, i32 } [ %170, %169 ], [ %.pn, %_ZN4CGAL9cpp_floatD2Ev.exit52 ], [ %.pn, %192 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %24) #28
-  %198 = getelementptr inbounds nuw i8, ptr %23, i64 73
-  %199 = load i8, ptr %198, align 1, !tbaa !270, !range !10, !noundef !11
-  %200 = trunc nuw i8 %199 to i1
-  %201 = getelementptr inbounds nuw i8, ptr %23, i64 74
-  %202 = load i8, ptr %201, align 2, !range !10
-  %203 = trunc nuw i8 %202 to i1
-  %or.cond.i.i.i55 = select i1 %200, i1 true, i1 %203
-  br i1 %or.cond.i.i.i55, label %_ZN4CGAL9cpp_floatD2Ev.exit56, label %204
+  %197 = getelementptr inbounds nuw i8, ptr %23, i64 73
+  %198 = load i8, ptr %197, align 1, !tbaa !270, !range !10, !noundef !11
+  %199 = trunc nuw i8 %198 to i1
+  %200 = getelementptr inbounds nuw i8, ptr %23, i64 74
+  %201 = load i8, ptr %200, align 2, !range !10
+  %202 = trunc nuw i8 %201 to i1
+  %or.cond.i.i.i55 = select i1 %199, i1 true, i1 %202
+  br i1 %or.cond.i.i.i55, label %_ZN4CGAL9cpp_floatD2Ev.exit56, label %203
 
-204:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit54
-  %205 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %206 = load ptr, ptr %205, align 8
-  %207 = load i64, ptr %23, align 16
-  %208 = shl i64 %207, 3
-  call void @_ZdlPvm(ptr noundef %206, i64 noundef %208) #39
+203:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit54
+  %204 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %205 = load ptr, ptr %204, align 8
+  %206 = load i64, ptr %23, align 16
+  %207 = shl i64 %206, 3
+  call void @_ZdlPvm(ptr noundef %205, i64 noundef %207) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit56
 
-_ZN4CGAL9cpp_floatD2Ev.exit56:                    ; preds = %204, %_ZN4CGAL9cpp_floatD2Ev.exit54, %168
-  %.pn.pn.pn = phi { ptr, i32 } [ %169, %168 ], [ %.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit54 ], [ %.pn.pn, %204 ]
+_ZN4CGAL9cpp_floatD2Ev.exit56:                    ; preds = %203, %_ZN4CGAL9cpp_floatD2Ev.exit54, %167
+  %.pn.pn.pn = phi { ptr, i32 } [ %168, %167 ], [ %.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit54 ], [ %.pn.pn, %203 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %23) #28
-  %209 = getelementptr inbounds nuw i8, ptr %22, i64 73
-  %210 = load i8, ptr %209, align 1, !tbaa !270, !range !10, !noundef !11
-  %211 = trunc nuw i8 %210 to i1
-  %212 = getelementptr inbounds nuw i8, ptr %22, i64 74
-  %213 = load i8, ptr %212, align 2, !range !10
-  %214 = trunc nuw i8 %213 to i1
-  %or.cond.i.i.i57 = select i1 %211, i1 true, i1 %214
-  br i1 %or.cond.i.i.i57, label %_ZN4CGAL9cpp_floatD2Ev.exit58, label %215
+  %208 = getelementptr inbounds nuw i8, ptr %22, i64 73
+  %209 = load i8, ptr %208, align 1, !tbaa !270, !range !10, !noundef !11
+  %210 = trunc nuw i8 %209 to i1
+  %211 = getelementptr inbounds nuw i8, ptr %22, i64 74
+  %212 = load i8, ptr %211, align 2, !range !10
+  %213 = trunc nuw i8 %212 to i1
+  %or.cond.i.i.i57 = select i1 %210, i1 true, i1 %213
+  br i1 %or.cond.i.i.i57, label %_ZN4CGAL9cpp_floatD2Ev.exit58, label %214
 
-215:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit56
-  %216 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %217 = load ptr, ptr %216, align 8
-  %218 = load i64, ptr %22, align 16
-  %219 = shl i64 %218, 3
-  call void @_ZdlPvm(ptr noundef %217, i64 noundef %219) #39
+214:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit56
+  %215 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %216 = load ptr, ptr %215, align 8
+  %217 = load i64, ptr %22, align 16
+  %218 = shl i64 %217, 3
+  call void @_ZdlPvm(ptr noundef %216, i64 noundef %218) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit58
 
-_ZN4CGAL9cpp_floatD2Ev.exit58:                    ; preds = %215, %_ZN4CGAL9cpp_floatD2Ev.exit56, %166
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %167, %166 ], [ %.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit56 ], [ %.pn.pn.pn, %215 ]
+_ZN4CGAL9cpp_floatD2Ev.exit58:                    ; preds = %214, %_ZN4CGAL9cpp_floatD2Ev.exit56, %165
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %166, %165 ], [ %.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit56 ], [ %.pn.pn.pn, %214 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22) #28
-  %220 = getelementptr inbounds nuw i8, ptr %21, i64 73
-  %221 = load i8, ptr %220, align 1, !tbaa !270, !range !10, !noundef !11
-  %222 = trunc nuw i8 %221 to i1
-  %223 = getelementptr inbounds nuw i8, ptr %21, i64 74
-  %224 = load i8, ptr %223, align 2, !range !10
-  %225 = trunc nuw i8 %224 to i1
-  %or.cond.i.i.i59 = select i1 %222, i1 true, i1 %225
-  br i1 %or.cond.i.i.i59, label %_ZN4CGAL9cpp_floatD2Ev.exit60, label %226
+  %219 = getelementptr inbounds nuw i8, ptr %21, i64 73
+  %220 = load i8, ptr %219, align 1, !tbaa !270, !range !10, !noundef !11
+  %221 = trunc nuw i8 %220 to i1
+  %222 = getelementptr inbounds nuw i8, ptr %21, i64 74
+  %223 = load i8, ptr %222, align 2, !range !10
+  %224 = trunc nuw i8 %223 to i1
+  %or.cond.i.i.i59 = select i1 %221, i1 true, i1 %224
+  br i1 %or.cond.i.i.i59, label %_ZN4CGAL9cpp_floatD2Ev.exit60, label %225
 
-226:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit58
-  %227 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %228 = load ptr, ptr %227, align 8
-  %229 = load i64, ptr %21, align 16
-  %230 = shl i64 %229, 3
-  call void @_ZdlPvm(ptr noundef %228, i64 noundef %230) #39
+225:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit58
+  %226 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %227 = load ptr, ptr %226, align 8
+  %228 = load i64, ptr %21, align 16
+  %229 = shl i64 %228, 3
+  call void @_ZdlPvm(ptr noundef %227, i64 noundef %229) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit60
 
-_ZN4CGAL9cpp_floatD2Ev.exit60:                    ; preds = %226, %_ZN4CGAL9cpp_floatD2Ev.exit58, %164
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %165, %164 ], [ %.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit58 ], [ %.pn.pn.pn.pn, %226 ]
+_ZN4CGAL9cpp_floatD2Ev.exit60:                    ; preds = %225, %_ZN4CGAL9cpp_floatD2Ev.exit58, %163
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %164, %163 ], [ %.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit58 ], [ %.pn.pn.pn.pn, %225 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21) #28
-  %231 = getelementptr inbounds nuw i8, ptr %20, i64 73
-  %232 = load i8, ptr %231, align 1, !tbaa !270, !range !10, !noundef !11
-  %233 = trunc nuw i8 %232 to i1
-  %234 = getelementptr inbounds nuw i8, ptr %20, i64 74
-  %235 = load i8, ptr %234, align 2, !range !10
-  %236 = trunc nuw i8 %235 to i1
-  %or.cond.i.i.i61 = select i1 %233, i1 true, i1 %236
-  br i1 %or.cond.i.i.i61, label %_ZN4CGAL9cpp_floatD2Ev.exit62, label %237
+  %230 = getelementptr inbounds nuw i8, ptr %20, i64 73
+  %231 = load i8, ptr %230, align 1, !tbaa !270, !range !10, !noundef !11
+  %232 = trunc nuw i8 %231 to i1
+  %233 = getelementptr inbounds nuw i8, ptr %20, i64 74
+  %234 = load i8, ptr %233, align 2, !range !10
+  %235 = trunc nuw i8 %234 to i1
+  %or.cond.i.i.i61 = select i1 %232, i1 true, i1 %235
+  br i1 %or.cond.i.i.i61, label %_ZN4CGAL9cpp_floatD2Ev.exit62, label %236
 
-237:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit60
-  %238 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %239 = load ptr, ptr %238, align 8
-  %240 = load i64, ptr %20, align 16
-  %241 = shl i64 %240, 3
-  call void @_ZdlPvm(ptr noundef %239, i64 noundef %241) #39
+236:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit60
+  %237 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %238 = load ptr, ptr %237, align 8
+  %239 = load i64, ptr %20, align 16
+  %240 = shl i64 %239, 3
+  call void @_ZdlPvm(ptr noundef %238, i64 noundef %240) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit62
 
-_ZN4CGAL9cpp_floatD2Ev.exit62:                    ; preds = %237, %_ZN4CGAL9cpp_floatD2Ev.exit60, %162
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %163, %162 ], [ %.pn.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit60 ], [ %.pn.pn.pn.pn.pn, %237 ]
+_ZN4CGAL9cpp_floatD2Ev.exit62:                    ; preds = %236, %_ZN4CGAL9cpp_floatD2Ev.exit60, %161
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %162, %161 ], [ %.pn.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit60 ], [ %.pn.pn.pn.pn.pn, %236 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %20) #28
-  %242 = getelementptr inbounds nuw i8, ptr %19, i64 73
-  %243 = load i8, ptr %242, align 1, !tbaa !270, !range !10, !noundef !11
-  %244 = trunc nuw i8 %243 to i1
-  %245 = getelementptr inbounds nuw i8, ptr %19, i64 74
-  %246 = load i8, ptr %245, align 2, !range !10
-  %247 = trunc nuw i8 %246 to i1
-  %or.cond.i.i.i63 = select i1 %244, i1 true, i1 %247
-  br i1 %or.cond.i.i.i63, label %_ZN4CGAL9cpp_floatD2Ev.exit64, label %248
+  %241 = getelementptr inbounds nuw i8, ptr %19, i64 73
+  %242 = load i8, ptr %241, align 1, !tbaa !270, !range !10, !noundef !11
+  %243 = trunc nuw i8 %242 to i1
+  %244 = getelementptr inbounds nuw i8, ptr %19, i64 74
+  %245 = load i8, ptr %244, align 2, !range !10
+  %246 = trunc nuw i8 %245 to i1
+  %or.cond.i.i.i63 = select i1 %243, i1 true, i1 %246
+  br i1 %or.cond.i.i.i63, label %_ZN4CGAL9cpp_floatD2Ev.exit64, label %247
 
-248:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit62
-  %249 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %250 = load ptr, ptr %249, align 8
-  %251 = load i64, ptr %19, align 16
-  %252 = shl i64 %251, 3
-  call void @_ZdlPvm(ptr noundef %250, i64 noundef %252) #39
+247:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit62
+  %248 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %249 = load ptr, ptr %248, align 8
+  %250 = load i64, ptr %19, align 16
+  %251 = shl i64 %250, 3
+  call void @_ZdlPvm(ptr noundef %249, i64 noundef %251) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit64
 
-_ZN4CGAL9cpp_floatD2Ev.exit64:                    ; preds = %248, %_ZN4CGAL9cpp_floatD2Ev.exit62, %160
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %161, %160 ], [ %.pn.pn.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit62 ], [ %.pn.pn.pn.pn.pn.pn, %248 ]
+_ZN4CGAL9cpp_floatD2Ev.exit64:                    ; preds = %247, %_ZN4CGAL9cpp_floatD2Ev.exit62, %159
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %160, %159 ], [ %.pn.pn.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit62 ], [ %.pn.pn.pn.pn.pn.pn, %247 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %19) #28
-  %253 = getelementptr inbounds nuw i8, ptr %18, i64 73
-  %254 = load i8, ptr %253, align 1, !tbaa !270, !range !10, !noundef !11
-  %255 = trunc nuw i8 %254 to i1
-  %256 = getelementptr inbounds nuw i8, ptr %18, i64 74
-  %257 = load i8, ptr %256, align 2, !range !10
-  %258 = trunc nuw i8 %257 to i1
-  %or.cond.i.i.i65 = select i1 %255, i1 true, i1 %258
-  br i1 %or.cond.i.i.i65, label %_ZN4CGAL9cpp_floatD2Ev.exit66, label %259
+  %252 = getelementptr inbounds nuw i8, ptr %18, i64 73
+  %253 = load i8, ptr %252, align 1, !tbaa !270, !range !10, !noundef !11
+  %254 = trunc nuw i8 %253 to i1
+  %255 = getelementptr inbounds nuw i8, ptr %18, i64 74
+  %256 = load i8, ptr %255, align 2, !range !10
+  %257 = trunc nuw i8 %256 to i1
+  %or.cond.i.i.i65 = select i1 %254, i1 true, i1 %257
+  br i1 %or.cond.i.i.i65, label %_ZN4CGAL9cpp_floatD2Ev.exit66, label %258
 
-259:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit64
-  %260 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %261 = load ptr, ptr %260, align 8
-  %262 = load i64, ptr %18, align 16
-  %263 = shl i64 %262, 3
-  call void @_ZdlPvm(ptr noundef %261, i64 noundef %263) #39
+258:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit64
+  %259 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %260 = load ptr, ptr %259, align 8
+  %261 = load i64, ptr %18, align 16
+  %262 = shl i64 %261, 3
+  call void @_ZdlPvm(ptr noundef %260, i64 noundef %262) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit66
 
-_ZN4CGAL9cpp_floatD2Ev.exit66:                    ; preds = %259, %_ZN4CGAL9cpp_floatD2Ev.exit64, %158
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %159, %158 ], [ %.pn.pn.pn.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit64 ], [ %.pn.pn.pn.pn.pn.pn.pn, %259 ]
+_ZN4CGAL9cpp_floatD2Ev.exit66:                    ; preds = %258, %_ZN4CGAL9cpp_floatD2Ev.exit64, %157
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %158, %157 ], [ %.pn.pn.pn.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit64 ], [ %.pn.pn.pn.pn.pn.pn.pn, %258 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %18) #28
-  %264 = getelementptr inbounds nuw i8, ptr %17, i64 73
-  %265 = load i8, ptr %264, align 1, !tbaa !270, !range !10, !noundef !11
-  %266 = trunc nuw i8 %265 to i1
-  %267 = getelementptr inbounds nuw i8, ptr %17, i64 74
-  %268 = load i8, ptr %267, align 2, !range !10
-  %269 = trunc nuw i8 %268 to i1
-  %or.cond.i.i.i67 = select i1 %266, i1 true, i1 %269
-  br i1 %or.cond.i.i.i67, label %_ZN4CGAL9cpp_floatD2Ev.exit68, label %270
+  %263 = getelementptr inbounds nuw i8, ptr %17, i64 73
+  %264 = load i8, ptr %263, align 1, !tbaa !270, !range !10, !noundef !11
+  %265 = trunc nuw i8 %264 to i1
+  %266 = getelementptr inbounds nuw i8, ptr %17, i64 74
+  %267 = load i8, ptr %266, align 2, !range !10
+  %268 = trunc nuw i8 %267 to i1
+  %or.cond.i.i.i67 = select i1 %265, i1 true, i1 %268
+  br i1 %or.cond.i.i.i67, label %_ZN4CGAL9cpp_floatD2Ev.exit68, label %269
 
-270:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit66
-  %271 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %272 = load ptr, ptr %271, align 8
-  %273 = load i64, ptr %17, align 16
-  %274 = shl i64 %273, 3
-  call void @_ZdlPvm(ptr noundef %272, i64 noundef %274) #39
+269:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit66
+  %270 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %271 = load ptr, ptr %270, align 8
+  %272 = load i64, ptr %17, align 16
+  %273 = shl i64 %272, 3
+  call void @_ZdlPvm(ptr noundef %271, i64 noundef %273) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit68
 
-_ZN4CGAL9cpp_floatD2Ev.exit68:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit66, %270
+_ZN4CGAL9cpp_floatD2Ev.exit68:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit66, %269
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17) #28
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn
 }
@@ -30103,47 +30103,47 @@ define linkonce_odr dso_local noundef i32 @_ZN4CGAL13orientationC3INS_9cpp_float
   call void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %14, ptr noundef nonnull align 16 dereferenceable(84) %3, ptr noundef nonnull align 16 dereferenceable(84) %0)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %15) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %15, ptr noundef nonnull align 16 dereferenceable(84) %6, ptr noundef nonnull align 16 dereferenceable(84) %0)
-          to label %23 unwind label %155
+          to label %23 unwind label %154
 
 23:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %16) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %16, ptr noundef nonnull align 16 dereferenceable(84) %9, ptr noundef nonnull align 16 dereferenceable(84) %0)
-          to label %24 unwind label %157
+          to label %24 unwind label %156
 
 24:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %17) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %17, ptr noundef nonnull align 16 dereferenceable(84) %4, ptr noundef nonnull align 16 dereferenceable(84) %1)
-          to label %25 unwind label %159
+          to label %25 unwind label %158
 
 25:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %18) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %18, ptr noundef nonnull align 16 dereferenceable(84) %7, ptr noundef nonnull align 16 dereferenceable(84) %1)
-          to label %26 unwind label %161
+          to label %26 unwind label %160
 
 26:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %19) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %19, ptr noundef nonnull align 16 dereferenceable(84) %10, ptr noundef nonnull align 16 dereferenceable(84) %1)
-          to label %27 unwind label %163
+          to label %27 unwind label %162
 
 27:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %20) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %20, ptr noundef nonnull align 16 dereferenceable(84) %5, ptr noundef nonnull align 16 dereferenceable(84) %2)
-          to label %28 unwind label %165
+          to label %28 unwind label %164
 
 28:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %21) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %21, ptr noundef nonnull align 16 dereferenceable(84) %8, ptr noundef nonnull align 16 dereferenceable(84) %2)
-          to label %29 unwind label %167
+          to label %29 unwind label %166
 
 29:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %22) #28
   invoke void @_ZN4CGALmiERKNS_9cpp_floatES2_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %22, ptr noundef nonnull align 16 dereferenceable(84) %11, ptr noundef nonnull align 16 dereferenceable(84) %2)
-          to label %30 unwind label %169
+          to label %30 unwind label %168
 
 30:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %13) #28
   invoke void @_ZN4CGAL11determinantINS_9cpp_floatEEET_RKS2_S4_S4_S4_S4_S4_S4_S4_S4_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::cpp_float") align 16 %13, ptr noundef nonnull align 16 dereferenceable(84) %14, ptr noundef nonnull align 16 dereferenceable(84) %15, ptr noundef nonnull align 16 dereferenceable(84) %16, ptr noundef nonnull align 16 dereferenceable(84) %17, ptr noundef nonnull align 16 dereferenceable(84) %18, ptr noundef nonnull align 16 dereferenceable(84) %19, ptr noundef nonnull align 16 dereferenceable(84) %20, ptr noundef nonnull align 16 dereferenceable(84) %21, ptr noundef nonnull align 16 dereferenceable(84) %22)
-          to label %.noexc unwind label %171
+          to label %.noexc unwind label %170
 
 .noexc:                                           ; preds = %30
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -30170,417 +30170,417 @@ _ZN5boost14multiprecision8backends12eval_is_zeroILm512ELm0ELNS0_16cpp_integer_ty
   br label %_ZN4CGAL4signINS_9cpp_floatEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS3_.exit.i
 
 _ZN4CGAL4signINS_9cpp_floatEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS3_.exit.i: ; preds = %_ZN5boost14multiprecision8backends12eval_is_zeroILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.thread.i.i.i.i.i.i, %_ZN5boost14multiprecision8backends12eval_is_zeroILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.i.i.i.i.i.i
-  %46 = phi i32 [ %45, %_ZN5boost14multiprecision8backends12eval_is_zeroILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.thread.i.i.i.i.i.i ], [ 0, %_ZN5boost14multiprecision8backends12eval_is_zeroILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.i.i.i.i.i.i ]
-  %47 = getelementptr inbounds nuw i8, ptr %13, i64 74
-  %48 = load i8, ptr %47, align 2, !range !10
-  %49 = trunc nuw i8 %48 to i1
-  %or.cond.i.i.i.i = select i1 %36, i1 true, i1 %49
-  br i1 %or.cond.i.i.i.i, label %55, label %50
+  %.0.i.i.i.i.i.i.i.i = phi i32 [ %45, %_ZN5boost14multiprecision8backends12eval_is_zeroILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.thread.i.i.i.i.i.i ], [ 0, %_ZN5boost14multiprecision8backends12eval_is_zeroILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.i.i.i.i.i.i ]
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 74
+  %47 = load i8, ptr %46, align 2, !range !10
+  %48 = trunc nuw i8 %47 to i1
+  %or.cond.i.i.i.i = select i1 %36, i1 true, i1 %48
+  br i1 %or.cond.i.i.i.i, label %54, label %49
 
-50:                                               ; preds = %_ZN4CGAL4signINS_9cpp_floatEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS3_.exit.i
-  %51 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i64, ptr %13, align 16
-  %54 = shl i64 %53, 3
-  call void @_ZdlPvm(ptr noundef %52, i64 noundef %54) #39
-  br label %55
+49:                                               ; preds = %_ZN4CGAL4signINS_9cpp_floatEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS3_.exit.i
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i64, ptr %13, align 16
+  %53 = shl i64 %52, 3
+  call void @_ZdlPvm(ptr noundef %51, i64 noundef %53) #39
+  br label %54
 
-55:                                               ; preds = %50, %_ZN4CGAL4signINS_9cpp_floatEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS3_.exit.i
+54:                                               ; preds = %49, %_ZN4CGAL4signINS_9cpp_floatEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS3_.exit.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %13) #28
-  %56 = getelementptr inbounds nuw i8, ptr %22, i64 73
-  %57 = load i8, ptr %56, align 1, !tbaa !270, !range !10, !noundef !11
-  %58 = trunc nuw i8 %57 to i1
-  %59 = getelementptr inbounds nuw i8, ptr %22, i64 74
-  %60 = load i8, ptr %59, align 2, !range !10
-  %61 = trunc nuw i8 %60 to i1
-  %or.cond.i.i.i = select i1 %58, i1 true, i1 %61
-  br i1 %or.cond.i.i.i, label %_ZN4CGAL9cpp_floatD2Ev.exit, label %62
+  %55 = getelementptr inbounds nuw i8, ptr %22, i64 73
+  %56 = load i8, ptr %55, align 1, !tbaa !270, !range !10, !noundef !11
+  %57 = trunc nuw i8 %56 to i1
+  %58 = getelementptr inbounds nuw i8, ptr %22, i64 74
+  %59 = load i8, ptr %58, align 2, !range !10
+  %60 = trunc nuw i8 %59 to i1
+  %or.cond.i.i.i = select i1 %57, i1 true, i1 %60
+  br i1 %or.cond.i.i.i, label %_ZN4CGAL9cpp_floatD2Ev.exit, label %61
 
-62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i64, ptr %22, align 16
-  %66 = shl i64 %65, 3
-  call void @_ZdlPvm(ptr noundef %64, i64 noundef %66) #39
+61:                                               ; preds = %54
+  %62 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = load i64, ptr %22, align 16
+  %65 = shl i64 %64, 3
+  call void @_ZdlPvm(ptr noundef %63, i64 noundef %65) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit
 
-_ZN4CGAL9cpp_floatD2Ev.exit:                      ; preds = %55, %62
+_ZN4CGAL9cpp_floatD2Ev.exit:                      ; preds = %54, %61
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22) #28
-  %67 = getelementptr inbounds nuw i8, ptr %21, i64 73
-  %68 = load i8, ptr %67, align 1, !tbaa !270, !range !10, !noundef !11
-  %69 = trunc nuw i8 %68 to i1
-  %70 = getelementptr inbounds nuw i8, ptr %21, i64 74
-  %71 = load i8, ptr %70, align 2, !range !10
-  %72 = trunc nuw i8 %71 to i1
-  %or.cond.i.i.i35 = select i1 %69, i1 true, i1 %72
-  br i1 %or.cond.i.i.i35, label %_ZN4CGAL9cpp_floatD2Ev.exit36, label %73
+  %66 = getelementptr inbounds nuw i8, ptr %21, i64 73
+  %67 = load i8, ptr %66, align 1, !tbaa !270, !range !10, !noundef !11
+  %68 = trunc nuw i8 %67 to i1
+  %69 = getelementptr inbounds nuw i8, ptr %21, i64 74
+  %70 = load i8, ptr %69, align 2, !range !10
+  %71 = trunc nuw i8 %70 to i1
+  %or.cond.i.i.i35 = select i1 %68, i1 true, i1 %71
+  br i1 %or.cond.i.i.i35, label %_ZN4CGAL9cpp_floatD2Ev.exit36, label %72
 
-73:                                               ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit
-  %74 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = load i64, ptr %21, align 16
-  %77 = shl i64 %76, 3
-  call void @_ZdlPvm(ptr noundef %75, i64 noundef %77) #39
+72:                                               ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit
+  %73 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = load i64, ptr %21, align 16
+  %76 = shl i64 %75, 3
+  call void @_ZdlPvm(ptr noundef %74, i64 noundef %76) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit36
 
-_ZN4CGAL9cpp_floatD2Ev.exit36:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit, %73
+_ZN4CGAL9cpp_floatD2Ev.exit36:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit, %72
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21) #28
-  %78 = getelementptr inbounds nuw i8, ptr %20, i64 73
-  %79 = load i8, ptr %78, align 1, !tbaa !270, !range !10, !noundef !11
-  %80 = trunc nuw i8 %79 to i1
-  %81 = getelementptr inbounds nuw i8, ptr %20, i64 74
-  %82 = load i8, ptr %81, align 2, !range !10
-  %83 = trunc nuw i8 %82 to i1
-  %or.cond.i.i.i37 = select i1 %80, i1 true, i1 %83
-  br i1 %or.cond.i.i.i37, label %_ZN4CGAL9cpp_floatD2Ev.exit38, label %84
+  %77 = getelementptr inbounds nuw i8, ptr %20, i64 73
+  %78 = load i8, ptr %77, align 1, !tbaa !270, !range !10, !noundef !11
+  %79 = trunc nuw i8 %78 to i1
+  %80 = getelementptr inbounds nuw i8, ptr %20, i64 74
+  %81 = load i8, ptr %80, align 2, !range !10
+  %82 = trunc nuw i8 %81 to i1
+  %or.cond.i.i.i37 = select i1 %79, i1 true, i1 %82
+  br i1 %or.cond.i.i.i37, label %_ZN4CGAL9cpp_floatD2Ev.exit38, label %83
 
-84:                                               ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit36
-  %85 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = load i64, ptr %20, align 16
-  %88 = shl i64 %87, 3
-  call void @_ZdlPvm(ptr noundef %86, i64 noundef %88) #39
+83:                                               ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit36
+  %84 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i64, ptr %20, align 16
+  %87 = shl i64 %86, 3
+  call void @_ZdlPvm(ptr noundef %85, i64 noundef %87) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit38
 
-_ZN4CGAL9cpp_floatD2Ev.exit38:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit36, %84
+_ZN4CGAL9cpp_floatD2Ev.exit38:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit36, %83
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %20) #28
-  %89 = getelementptr inbounds nuw i8, ptr %19, i64 73
-  %90 = load i8, ptr %89, align 1, !tbaa !270, !range !10, !noundef !11
-  %91 = trunc nuw i8 %90 to i1
-  %92 = getelementptr inbounds nuw i8, ptr %19, i64 74
-  %93 = load i8, ptr %92, align 2, !range !10
-  %94 = trunc nuw i8 %93 to i1
-  %or.cond.i.i.i39 = select i1 %91, i1 true, i1 %94
-  br i1 %or.cond.i.i.i39, label %_ZN4CGAL9cpp_floatD2Ev.exit40, label %95
+  %88 = getelementptr inbounds nuw i8, ptr %19, i64 73
+  %89 = load i8, ptr %88, align 1, !tbaa !270, !range !10, !noundef !11
+  %90 = trunc nuw i8 %89 to i1
+  %91 = getelementptr inbounds nuw i8, ptr %19, i64 74
+  %92 = load i8, ptr %91, align 2, !range !10
+  %93 = trunc nuw i8 %92 to i1
+  %or.cond.i.i.i39 = select i1 %90, i1 true, i1 %93
+  br i1 %or.cond.i.i.i39, label %_ZN4CGAL9cpp_floatD2Ev.exit40, label %94
 
-95:                                               ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit38
-  %96 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %97 = load ptr, ptr %96, align 8
-  %98 = load i64, ptr %19, align 16
-  %99 = shl i64 %98, 3
-  call void @_ZdlPvm(ptr noundef %97, i64 noundef %99) #39
+94:                                               ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit38
+  %95 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = load i64, ptr %19, align 16
+  %98 = shl i64 %97, 3
+  call void @_ZdlPvm(ptr noundef %96, i64 noundef %98) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit40
 
-_ZN4CGAL9cpp_floatD2Ev.exit40:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit38, %95
+_ZN4CGAL9cpp_floatD2Ev.exit40:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit38, %94
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %19) #28
-  %100 = getelementptr inbounds nuw i8, ptr %18, i64 73
-  %101 = load i8, ptr %100, align 1, !tbaa !270, !range !10, !noundef !11
-  %102 = trunc nuw i8 %101 to i1
-  %103 = getelementptr inbounds nuw i8, ptr %18, i64 74
-  %104 = load i8, ptr %103, align 2, !range !10
-  %105 = trunc nuw i8 %104 to i1
-  %or.cond.i.i.i41 = select i1 %102, i1 true, i1 %105
-  br i1 %or.cond.i.i.i41, label %_ZN4CGAL9cpp_floatD2Ev.exit42, label %106
+  %99 = getelementptr inbounds nuw i8, ptr %18, i64 73
+  %100 = load i8, ptr %99, align 1, !tbaa !270, !range !10, !noundef !11
+  %101 = trunc nuw i8 %100 to i1
+  %102 = getelementptr inbounds nuw i8, ptr %18, i64 74
+  %103 = load i8, ptr %102, align 2, !range !10
+  %104 = trunc nuw i8 %103 to i1
+  %or.cond.i.i.i41 = select i1 %101, i1 true, i1 %104
+  br i1 %or.cond.i.i.i41, label %_ZN4CGAL9cpp_floatD2Ev.exit42, label %105
 
-106:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit40
-  %107 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %108 = load ptr, ptr %107, align 8
-  %109 = load i64, ptr %18, align 16
-  %110 = shl i64 %109, 3
-  call void @_ZdlPvm(ptr noundef %108, i64 noundef %110) #39
+105:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit40
+  %106 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = load i64, ptr %18, align 16
+  %109 = shl i64 %108, 3
+  call void @_ZdlPvm(ptr noundef %107, i64 noundef %109) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit42
 
-_ZN4CGAL9cpp_floatD2Ev.exit42:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit40, %106
+_ZN4CGAL9cpp_floatD2Ev.exit42:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit40, %105
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %18) #28
-  %111 = getelementptr inbounds nuw i8, ptr %17, i64 73
-  %112 = load i8, ptr %111, align 1, !tbaa !270, !range !10, !noundef !11
-  %113 = trunc nuw i8 %112 to i1
-  %114 = getelementptr inbounds nuw i8, ptr %17, i64 74
-  %115 = load i8, ptr %114, align 2, !range !10
-  %116 = trunc nuw i8 %115 to i1
-  %or.cond.i.i.i43 = select i1 %113, i1 true, i1 %116
-  br i1 %or.cond.i.i.i43, label %_ZN4CGAL9cpp_floatD2Ev.exit44, label %117
+  %110 = getelementptr inbounds nuw i8, ptr %17, i64 73
+  %111 = load i8, ptr %110, align 1, !tbaa !270, !range !10, !noundef !11
+  %112 = trunc nuw i8 %111 to i1
+  %113 = getelementptr inbounds nuw i8, ptr %17, i64 74
+  %114 = load i8, ptr %113, align 2, !range !10
+  %115 = trunc nuw i8 %114 to i1
+  %or.cond.i.i.i43 = select i1 %112, i1 true, i1 %115
+  br i1 %or.cond.i.i.i43, label %_ZN4CGAL9cpp_floatD2Ev.exit44, label %116
 
-117:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit42
-  %118 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = load i64, ptr %17, align 16
-  %121 = shl i64 %120, 3
-  call void @_ZdlPvm(ptr noundef %119, i64 noundef %121) #39
+116:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit42
+  %117 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %118 = load ptr, ptr %117, align 8
+  %119 = load i64, ptr %17, align 16
+  %120 = shl i64 %119, 3
+  call void @_ZdlPvm(ptr noundef %118, i64 noundef %120) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit44
 
-_ZN4CGAL9cpp_floatD2Ev.exit44:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit42, %117
+_ZN4CGAL9cpp_floatD2Ev.exit44:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit42, %116
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17) #28
-  %122 = getelementptr inbounds nuw i8, ptr %16, i64 73
-  %123 = load i8, ptr %122, align 1, !tbaa !270, !range !10, !noundef !11
-  %124 = trunc nuw i8 %123 to i1
-  %125 = getelementptr inbounds nuw i8, ptr %16, i64 74
-  %126 = load i8, ptr %125, align 2, !range !10
-  %127 = trunc nuw i8 %126 to i1
-  %or.cond.i.i.i45 = select i1 %124, i1 true, i1 %127
-  br i1 %or.cond.i.i.i45, label %_ZN4CGAL9cpp_floatD2Ev.exit46, label %128
+  %121 = getelementptr inbounds nuw i8, ptr %16, i64 73
+  %122 = load i8, ptr %121, align 1, !tbaa !270, !range !10, !noundef !11
+  %123 = trunc nuw i8 %122 to i1
+  %124 = getelementptr inbounds nuw i8, ptr %16, i64 74
+  %125 = load i8, ptr %124, align 2, !range !10
+  %126 = trunc nuw i8 %125 to i1
+  %or.cond.i.i.i45 = select i1 %123, i1 true, i1 %126
+  br i1 %or.cond.i.i.i45, label %_ZN4CGAL9cpp_floatD2Ev.exit46, label %127
 
-128:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit44
-  %129 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = load i64, ptr %16, align 16
-  %132 = shl i64 %131, 3
-  call void @_ZdlPvm(ptr noundef %130, i64 noundef %132) #39
+127:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit44
+  %128 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = load i64, ptr %16, align 16
+  %131 = shl i64 %130, 3
+  call void @_ZdlPvm(ptr noundef %129, i64 noundef %131) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit46
 
-_ZN4CGAL9cpp_floatD2Ev.exit46:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit44, %128
+_ZN4CGAL9cpp_floatD2Ev.exit46:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit44, %127
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %16) #28
-  %133 = getelementptr inbounds nuw i8, ptr %15, i64 73
-  %134 = load i8, ptr %133, align 1, !tbaa !270, !range !10, !noundef !11
-  %135 = trunc nuw i8 %134 to i1
-  %136 = getelementptr inbounds nuw i8, ptr %15, i64 74
-  %137 = load i8, ptr %136, align 2, !range !10
-  %138 = trunc nuw i8 %137 to i1
-  %or.cond.i.i.i47 = select i1 %135, i1 true, i1 %138
-  br i1 %or.cond.i.i.i47, label %_ZN4CGAL9cpp_floatD2Ev.exit48, label %139
+  %132 = getelementptr inbounds nuw i8, ptr %15, i64 73
+  %133 = load i8, ptr %132, align 1, !tbaa !270, !range !10, !noundef !11
+  %134 = trunc nuw i8 %133 to i1
+  %135 = getelementptr inbounds nuw i8, ptr %15, i64 74
+  %136 = load i8, ptr %135, align 2, !range !10
+  %137 = trunc nuw i8 %136 to i1
+  %or.cond.i.i.i47 = select i1 %134, i1 true, i1 %137
+  br i1 %or.cond.i.i.i47, label %_ZN4CGAL9cpp_floatD2Ev.exit48, label %138
 
-139:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit46
-  %140 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %141 = load ptr, ptr %140, align 8
-  %142 = load i64, ptr %15, align 16
-  %143 = shl i64 %142, 3
-  call void @_ZdlPvm(ptr noundef %141, i64 noundef %143) #39
+138:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit46
+  %139 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = load i64, ptr %15, align 16
+  %142 = shl i64 %141, 3
+  call void @_ZdlPvm(ptr noundef %140, i64 noundef %142) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit48
 
-_ZN4CGAL9cpp_floatD2Ev.exit48:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit46, %139
+_ZN4CGAL9cpp_floatD2Ev.exit48:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit46, %138
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %15) #28
-  %144 = getelementptr inbounds nuw i8, ptr %14, i64 73
-  %145 = load i8, ptr %144, align 1, !tbaa !270, !range !10, !noundef !11
-  %146 = trunc nuw i8 %145 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 74
-  %148 = load i8, ptr %147, align 2, !range !10
-  %149 = trunc nuw i8 %148 to i1
-  %or.cond.i.i.i49 = select i1 %146, i1 true, i1 %149
-  br i1 %or.cond.i.i.i49, label %_ZN4CGAL9cpp_floatD2Ev.exit50, label %150
+  %143 = getelementptr inbounds nuw i8, ptr %14, i64 73
+  %144 = load i8, ptr %143, align 1, !tbaa !270, !range !10, !noundef !11
+  %145 = trunc nuw i8 %144 to i1
+  %146 = getelementptr inbounds nuw i8, ptr %14, i64 74
+  %147 = load i8, ptr %146, align 2, !range !10
+  %148 = trunc nuw i8 %147 to i1
+  %or.cond.i.i.i49 = select i1 %145, i1 true, i1 %148
+  br i1 %or.cond.i.i.i49, label %_ZN4CGAL9cpp_floatD2Ev.exit50, label %149
 
-150:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit48
-  %151 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %152 = load ptr, ptr %151, align 8
-  %153 = load i64, ptr %14, align 16
-  %154 = shl i64 %153, 3
-  call void @_ZdlPvm(ptr noundef %152, i64 noundef %154) #39
+149:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit48
+  %150 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %151 = load ptr, ptr %150, align 8
+  %152 = load i64, ptr %14, align 16
+  %153 = shl i64 %152, 3
+  call void @_ZdlPvm(ptr noundef %151, i64 noundef %153) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit50
 
-_ZN4CGAL9cpp_floatD2Ev.exit50:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit48, %150
+_ZN4CGAL9cpp_floatD2Ev.exit50:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit48, %149
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14) #28
-  ret i32 %46
+  ret i32 %.0.i.i.i.i.i.i.i.i
 
-155:                                              ; preds = %12
-  %156 = landingpad { ptr, i32 }
+154:                                              ; preds = %12
+  %155 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit66
 
-157:                                              ; preds = %23
-  %158 = landingpad { ptr, i32 }
+156:                                              ; preds = %23
+  %157 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit64
 
-159:                                              ; preds = %24
-  %160 = landingpad { ptr, i32 }
+158:                                              ; preds = %24
+  %159 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit62
 
-161:                                              ; preds = %25
-  %162 = landingpad { ptr, i32 }
+160:                                              ; preds = %25
+  %161 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit60
 
-163:                                              ; preds = %26
-  %164 = landingpad { ptr, i32 }
+162:                                              ; preds = %26
+  %163 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit58
 
-165:                                              ; preds = %27
-  %166 = landingpad { ptr, i32 }
+164:                                              ; preds = %27
+  %165 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit56
 
-167:                                              ; preds = %28
-  %168 = landingpad { ptr, i32 }
+166:                                              ; preds = %28
+  %167 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit54
 
-169:                                              ; preds = %29
-  %170 = landingpad { ptr, i32 }
+168:                                              ; preds = %29
+  %169 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL9cpp_floatD2Ev.exit52
 
-171:                                              ; preds = %30
-  %172 = landingpad { ptr, i32 }
+170:                                              ; preds = %30
+  %171 = landingpad { ptr, i32 }
           cleanup
-  %173 = getelementptr inbounds nuw i8, ptr %22, i64 73
-  %174 = load i8, ptr %173, align 1, !tbaa !270, !range !10, !noundef !11
-  %175 = trunc nuw i8 %174 to i1
-  %176 = getelementptr inbounds nuw i8, ptr %22, i64 74
-  %177 = load i8, ptr %176, align 2, !range !10
-  %178 = trunc nuw i8 %177 to i1
-  %or.cond.i.i.i51 = select i1 %175, i1 true, i1 %178
-  br i1 %or.cond.i.i.i51, label %_ZN4CGAL9cpp_floatD2Ev.exit52, label %179
+  %172 = getelementptr inbounds nuw i8, ptr %22, i64 73
+  %173 = load i8, ptr %172, align 1, !tbaa !270, !range !10, !noundef !11
+  %174 = trunc nuw i8 %173 to i1
+  %175 = getelementptr inbounds nuw i8, ptr %22, i64 74
+  %176 = load i8, ptr %175, align 2, !range !10
+  %177 = trunc nuw i8 %176 to i1
+  %or.cond.i.i.i51 = select i1 %174, i1 true, i1 %177
+  br i1 %or.cond.i.i.i51, label %_ZN4CGAL9cpp_floatD2Ev.exit52, label %178
 
-179:                                              ; preds = %171
-  %180 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %181 = load ptr, ptr %180, align 8
-  %182 = load i64, ptr %22, align 16
-  %183 = shl i64 %182, 3
-  call void @_ZdlPvm(ptr noundef %181, i64 noundef %183) #39
+178:                                              ; preds = %170
+  %179 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %180 = load ptr, ptr %179, align 8
+  %181 = load i64, ptr %22, align 16
+  %182 = shl i64 %181, 3
+  call void @_ZdlPvm(ptr noundef %180, i64 noundef %182) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit52
 
-_ZN4CGAL9cpp_floatD2Ev.exit52:                    ; preds = %179, %171, %169
-  %.pn = phi { ptr, i32 } [ %170, %169 ], [ %172, %171 ], [ %172, %179 ]
+_ZN4CGAL9cpp_floatD2Ev.exit52:                    ; preds = %178, %170, %168
+  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %171, %170 ], [ %171, %178 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22) #28
-  %184 = getelementptr inbounds nuw i8, ptr %21, i64 73
-  %185 = load i8, ptr %184, align 1, !tbaa !270, !range !10, !noundef !11
-  %186 = trunc nuw i8 %185 to i1
-  %187 = getelementptr inbounds nuw i8, ptr %21, i64 74
-  %188 = load i8, ptr %187, align 2, !range !10
-  %189 = trunc nuw i8 %188 to i1
-  %or.cond.i.i.i53 = select i1 %186, i1 true, i1 %189
-  br i1 %or.cond.i.i.i53, label %_ZN4CGAL9cpp_floatD2Ev.exit54, label %190
+  %183 = getelementptr inbounds nuw i8, ptr %21, i64 73
+  %184 = load i8, ptr %183, align 1, !tbaa !270, !range !10, !noundef !11
+  %185 = trunc nuw i8 %184 to i1
+  %186 = getelementptr inbounds nuw i8, ptr %21, i64 74
+  %187 = load i8, ptr %186, align 2, !range !10
+  %188 = trunc nuw i8 %187 to i1
+  %or.cond.i.i.i53 = select i1 %185, i1 true, i1 %188
+  br i1 %or.cond.i.i.i53, label %_ZN4CGAL9cpp_floatD2Ev.exit54, label %189
 
-190:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit52
-  %191 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %192 = load ptr, ptr %191, align 8
-  %193 = load i64, ptr %21, align 16
-  %194 = shl i64 %193, 3
-  call void @_ZdlPvm(ptr noundef %192, i64 noundef %194) #39
+189:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit52
+  %190 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %191 = load ptr, ptr %190, align 8
+  %192 = load i64, ptr %21, align 16
+  %193 = shl i64 %192, 3
+  call void @_ZdlPvm(ptr noundef %191, i64 noundef %193) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit54
 
-_ZN4CGAL9cpp_floatD2Ev.exit54:                    ; preds = %190, %_ZN4CGAL9cpp_floatD2Ev.exit52, %167
-  %.pn.pn = phi { ptr, i32 } [ %168, %167 ], [ %.pn, %_ZN4CGAL9cpp_floatD2Ev.exit52 ], [ %.pn, %190 ]
+_ZN4CGAL9cpp_floatD2Ev.exit54:                    ; preds = %189, %_ZN4CGAL9cpp_floatD2Ev.exit52, %166
+  %.pn.pn = phi { ptr, i32 } [ %167, %166 ], [ %.pn, %_ZN4CGAL9cpp_floatD2Ev.exit52 ], [ %.pn, %189 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21) #28
-  %195 = getelementptr inbounds nuw i8, ptr %20, i64 73
-  %196 = load i8, ptr %195, align 1, !tbaa !270, !range !10, !noundef !11
-  %197 = trunc nuw i8 %196 to i1
-  %198 = getelementptr inbounds nuw i8, ptr %20, i64 74
-  %199 = load i8, ptr %198, align 2, !range !10
-  %200 = trunc nuw i8 %199 to i1
-  %or.cond.i.i.i55 = select i1 %197, i1 true, i1 %200
-  br i1 %or.cond.i.i.i55, label %_ZN4CGAL9cpp_floatD2Ev.exit56, label %201
+  %194 = getelementptr inbounds nuw i8, ptr %20, i64 73
+  %195 = load i8, ptr %194, align 1, !tbaa !270, !range !10, !noundef !11
+  %196 = trunc nuw i8 %195 to i1
+  %197 = getelementptr inbounds nuw i8, ptr %20, i64 74
+  %198 = load i8, ptr %197, align 2, !range !10
+  %199 = trunc nuw i8 %198 to i1
+  %or.cond.i.i.i55 = select i1 %196, i1 true, i1 %199
+  br i1 %or.cond.i.i.i55, label %_ZN4CGAL9cpp_floatD2Ev.exit56, label %200
 
-201:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit54
-  %202 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %203 = load ptr, ptr %202, align 8
-  %204 = load i64, ptr %20, align 16
-  %205 = shl i64 %204, 3
-  call void @_ZdlPvm(ptr noundef %203, i64 noundef %205) #39
+200:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit54
+  %201 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %202 = load ptr, ptr %201, align 8
+  %203 = load i64, ptr %20, align 16
+  %204 = shl i64 %203, 3
+  call void @_ZdlPvm(ptr noundef %202, i64 noundef %204) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit56
 
-_ZN4CGAL9cpp_floatD2Ev.exit56:                    ; preds = %201, %_ZN4CGAL9cpp_floatD2Ev.exit54, %165
-  %.pn.pn.pn = phi { ptr, i32 } [ %166, %165 ], [ %.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit54 ], [ %.pn.pn, %201 ]
+_ZN4CGAL9cpp_floatD2Ev.exit56:                    ; preds = %200, %_ZN4CGAL9cpp_floatD2Ev.exit54, %164
+  %.pn.pn.pn = phi { ptr, i32 } [ %165, %164 ], [ %.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit54 ], [ %.pn.pn, %200 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %20) #28
-  %206 = getelementptr inbounds nuw i8, ptr %19, i64 73
-  %207 = load i8, ptr %206, align 1, !tbaa !270, !range !10, !noundef !11
-  %208 = trunc nuw i8 %207 to i1
-  %209 = getelementptr inbounds nuw i8, ptr %19, i64 74
-  %210 = load i8, ptr %209, align 2, !range !10
-  %211 = trunc nuw i8 %210 to i1
-  %or.cond.i.i.i57 = select i1 %208, i1 true, i1 %211
-  br i1 %or.cond.i.i.i57, label %_ZN4CGAL9cpp_floatD2Ev.exit58, label %212
+  %205 = getelementptr inbounds nuw i8, ptr %19, i64 73
+  %206 = load i8, ptr %205, align 1, !tbaa !270, !range !10, !noundef !11
+  %207 = trunc nuw i8 %206 to i1
+  %208 = getelementptr inbounds nuw i8, ptr %19, i64 74
+  %209 = load i8, ptr %208, align 2, !range !10
+  %210 = trunc nuw i8 %209 to i1
+  %or.cond.i.i.i57 = select i1 %207, i1 true, i1 %210
+  br i1 %or.cond.i.i.i57, label %_ZN4CGAL9cpp_floatD2Ev.exit58, label %211
 
-212:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit56
-  %213 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %214 = load ptr, ptr %213, align 8
-  %215 = load i64, ptr %19, align 16
-  %216 = shl i64 %215, 3
-  call void @_ZdlPvm(ptr noundef %214, i64 noundef %216) #39
+211:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit56
+  %212 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %213 = load ptr, ptr %212, align 8
+  %214 = load i64, ptr %19, align 16
+  %215 = shl i64 %214, 3
+  call void @_ZdlPvm(ptr noundef %213, i64 noundef %215) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit58
 
-_ZN4CGAL9cpp_floatD2Ev.exit58:                    ; preds = %212, %_ZN4CGAL9cpp_floatD2Ev.exit56, %163
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %164, %163 ], [ %.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit56 ], [ %.pn.pn.pn, %212 ]
+_ZN4CGAL9cpp_floatD2Ev.exit58:                    ; preds = %211, %_ZN4CGAL9cpp_floatD2Ev.exit56, %162
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %163, %162 ], [ %.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit56 ], [ %.pn.pn.pn, %211 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %19) #28
-  %217 = getelementptr inbounds nuw i8, ptr %18, i64 73
-  %218 = load i8, ptr %217, align 1, !tbaa !270, !range !10, !noundef !11
-  %219 = trunc nuw i8 %218 to i1
-  %220 = getelementptr inbounds nuw i8, ptr %18, i64 74
-  %221 = load i8, ptr %220, align 2, !range !10
-  %222 = trunc nuw i8 %221 to i1
-  %or.cond.i.i.i59 = select i1 %219, i1 true, i1 %222
-  br i1 %or.cond.i.i.i59, label %_ZN4CGAL9cpp_floatD2Ev.exit60, label %223
+  %216 = getelementptr inbounds nuw i8, ptr %18, i64 73
+  %217 = load i8, ptr %216, align 1, !tbaa !270, !range !10, !noundef !11
+  %218 = trunc nuw i8 %217 to i1
+  %219 = getelementptr inbounds nuw i8, ptr %18, i64 74
+  %220 = load i8, ptr %219, align 2, !range !10
+  %221 = trunc nuw i8 %220 to i1
+  %or.cond.i.i.i59 = select i1 %218, i1 true, i1 %221
+  br i1 %or.cond.i.i.i59, label %_ZN4CGAL9cpp_floatD2Ev.exit60, label %222
 
-223:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit58
-  %224 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %225 = load ptr, ptr %224, align 8
-  %226 = load i64, ptr %18, align 16
-  %227 = shl i64 %226, 3
-  call void @_ZdlPvm(ptr noundef %225, i64 noundef %227) #39
+222:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit58
+  %223 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %224 = load ptr, ptr %223, align 8
+  %225 = load i64, ptr %18, align 16
+  %226 = shl i64 %225, 3
+  call void @_ZdlPvm(ptr noundef %224, i64 noundef %226) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit60
 
-_ZN4CGAL9cpp_floatD2Ev.exit60:                    ; preds = %223, %_ZN4CGAL9cpp_floatD2Ev.exit58, %161
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %162, %161 ], [ %.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit58 ], [ %.pn.pn.pn.pn, %223 ]
+_ZN4CGAL9cpp_floatD2Ev.exit60:                    ; preds = %222, %_ZN4CGAL9cpp_floatD2Ev.exit58, %160
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %161, %160 ], [ %.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit58 ], [ %.pn.pn.pn.pn, %222 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %18) #28
-  %228 = getelementptr inbounds nuw i8, ptr %17, i64 73
-  %229 = load i8, ptr %228, align 1, !tbaa !270, !range !10, !noundef !11
-  %230 = trunc nuw i8 %229 to i1
-  %231 = getelementptr inbounds nuw i8, ptr %17, i64 74
-  %232 = load i8, ptr %231, align 2, !range !10
-  %233 = trunc nuw i8 %232 to i1
-  %or.cond.i.i.i61 = select i1 %230, i1 true, i1 %233
-  br i1 %or.cond.i.i.i61, label %_ZN4CGAL9cpp_floatD2Ev.exit62, label %234
+  %227 = getelementptr inbounds nuw i8, ptr %17, i64 73
+  %228 = load i8, ptr %227, align 1, !tbaa !270, !range !10, !noundef !11
+  %229 = trunc nuw i8 %228 to i1
+  %230 = getelementptr inbounds nuw i8, ptr %17, i64 74
+  %231 = load i8, ptr %230, align 2, !range !10
+  %232 = trunc nuw i8 %231 to i1
+  %or.cond.i.i.i61 = select i1 %229, i1 true, i1 %232
+  br i1 %or.cond.i.i.i61, label %_ZN4CGAL9cpp_floatD2Ev.exit62, label %233
 
-234:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit60
-  %235 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %236 = load ptr, ptr %235, align 8
-  %237 = load i64, ptr %17, align 16
-  %238 = shl i64 %237, 3
-  call void @_ZdlPvm(ptr noundef %236, i64 noundef %238) #39
+233:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit60
+  %234 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %235 = load ptr, ptr %234, align 8
+  %236 = load i64, ptr %17, align 16
+  %237 = shl i64 %236, 3
+  call void @_ZdlPvm(ptr noundef %235, i64 noundef %237) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit62
 
-_ZN4CGAL9cpp_floatD2Ev.exit62:                    ; preds = %234, %_ZN4CGAL9cpp_floatD2Ev.exit60, %159
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %160, %159 ], [ %.pn.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit60 ], [ %.pn.pn.pn.pn.pn, %234 ]
+_ZN4CGAL9cpp_floatD2Ev.exit62:                    ; preds = %233, %_ZN4CGAL9cpp_floatD2Ev.exit60, %158
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %159, %158 ], [ %.pn.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit60 ], [ %.pn.pn.pn.pn.pn, %233 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17) #28
-  %239 = getelementptr inbounds nuw i8, ptr %16, i64 73
-  %240 = load i8, ptr %239, align 1, !tbaa !270, !range !10, !noundef !11
-  %241 = trunc nuw i8 %240 to i1
-  %242 = getelementptr inbounds nuw i8, ptr %16, i64 74
-  %243 = load i8, ptr %242, align 2, !range !10
-  %244 = trunc nuw i8 %243 to i1
-  %or.cond.i.i.i63 = select i1 %241, i1 true, i1 %244
-  br i1 %or.cond.i.i.i63, label %_ZN4CGAL9cpp_floatD2Ev.exit64, label %245
+  %238 = getelementptr inbounds nuw i8, ptr %16, i64 73
+  %239 = load i8, ptr %238, align 1, !tbaa !270, !range !10, !noundef !11
+  %240 = trunc nuw i8 %239 to i1
+  %241 = getelementptr inbounds nuw i8, ptr %16, i64 74
+  %242 = load i8, ptr %241, align 2, !range !10
+  %243 = trunc nuw i8 %242 to i1
+  %or.cond.i.i.i63 = select i1 %240, i1 true, i1 %243
+  br i1 %or.cond.i.i.i63, label %_ZN4CGAL9cpp_floatD2Ev.exit64, label %244
 
-245:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit62
-  %246 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %247 = load ptr, ptr %246, align 8
-  %248 = load i64, ptr %16, align 16
-  %249 = shl i64 %248, 3
-  call void @_ZdlPvm(ptr noundef %247, i64 noundef %249) #39
+244:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit62
+  %245 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %246 = load ptr, ptr %245, align 8
+  %247 = load i64, ptr %16, align 16
+  %248 = shl i64 %247, 3
+  call void @_ZdlPvm(ptr noundef %246, i64 noundef %248) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit64
 
-_ZN4CGAL9cpp_floatD2Ev.exit64:                    ; preds = %245, %_ZN4CGAL9cpp_floatD2Ev.exit62, %157
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %158, %157 ], [ %.pn.pn.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit62 ], [ %.pn.pn.pn.pn.pn.pn, %245 ]
+_ZN4CGAL9cpp_floatD2Ev.exit64:                    ; preds = %244, %_ZN4CGAL9cpp_floatD2Ev.exit62, %156
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %157, %156 ], [ %.pn.pn.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit62 ], [ %.pn.pn.pn.pn.pn.pn, %244 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %16) #28
-  %250 = getelementptr inbounds nuw i8, ptr %15, i64 73
-  %251 = load i8, ptr %250, align 1, !tbaa !270, !range !10, !noundef !11
-  %252 = trunc nuw i8 %251 to i1
-  %253 = getelementptr inbounds nuw i8, ptr %15, i64 74
-  %254 = load i8, ptr %253, align 2, !range !10
-  %255 = trunc nuw i8 %254 to i1
-  %or.cond.i.i.i65 = select i1 %252, i1 true, i1 %255
-  br i1 %or.cond.i.i.i65, label %_ZN4CGAL9cpp_floatD2Ev.exit66, label %256
+  %249 = getelementptr inbounds nuw i8, ptr %15, i64 73
+  %250 = load i8, ptr %249, align 1, !tbaa !270, !range !10, !noundef !11
+  %251 = trunc nuw i8 %250 to i1
+  %252 = getelementptr inbounds nuw i8, ptr %15, i64 74
+  %253 = load i8, ptr %252, align 2, !range !10
+  %254 = trunc nuw i8 %253 to i1
+  %or.cond.i.i.i65 = select i1 %251, i1 true, i1 %254
+  br i1 %or.cond.i.i.i65, label %_ZN4CGAL9cpp_floatD2Ev.exit66, label %255
 
-256:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit64
-  %257 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %258 = load ptr, ptr %257, align 8
-  %259 = load i64, ptr %15, align 16
-  %260 = shl i64 %259, 3
-  call void @_ZdlPvm(ptr noundef %258, i64 noundef %260) #39
+255:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit64
+  %256 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %257 = load ptr, ptr %256, align 8
+  %258 = load i64, ptr %15, align 16
+  %259 = shl i64 %258, 3
+  call void @_ZdlPvm(ptr noundef %257, i64 noundef %259) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit66
 
-_ZN4CGAL9cpp_floatD2Ev.exit66:                    ; preds = %256, %_ZN4CGAL9cpp_floatD2Ev.exit64, %155
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %156, %155 ], [ %.pn.pn.pn.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit64 ], [ %.pn.pn.pn.pn.pn.pn.pn, %256 ]
+_ZN4CGAL9cpp_floatD2Ev.exit66:                    ; preds = %255, %_ZN4CGAL9cpp_floatD2Ev.exit64, %154
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %155, %154 ], [ %.pn.pn.pn.pn.pn.pn.pn, %_ZN4CGAL9cpp_floatD2Ev.exit64 ], [ %.pn.pn.pn.pn.pn.pn.pn, %255 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %15) #28
-  %261 = getelementptr inbounds nuw i8, ptr %14, i64 73
-  %262 = load i8, ptr %261, align 1, !tbaa !270, !range !10, !noundef !11
-  %263 = trunc nuw i8 %262 to i1
-  %264 = getelementptr inbounds nuw i8, ptr %14, i64 74
-  %265 = load i8, ptr %264, align 2, !range !10
-  %266 = trunc nuw i8 %265 to i1
-  %or.cond.i.i.i67 = select i1 %263, i1 true, i1 %266
-  br i1 %or.cond.i.i.i67, label %_ZN4CGAL9cpp_floatD2Ev.exit68, label %267
+  %260 = getelementptr inbounds nuw i8, ptr %14, i64 73
+  %261 = load i8, ptr %260, align 1, !tbaa !270, !range !10, !noundef !11
+  %262 = trunc nuw i8 %261 to i1
+  %263 = getelementptr inbounds nuw i8, ptr %14, i64 74
+  %264 = load i8, ptr %263, align 2, !range !10
+  %265 = trunc nuw i8 %264 to i1
+  %or.cond.i.i.i67 = select i1 %262, i1 true, i1 %265
+  br i1 %or.cond.i.i.i67, label %_ZN4CGAL9cpp_floatD2Ev.exit68, label %266
 
-267:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit66
-  %268 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %269 = load ptr, ptr %268, align 8
-  %270 = load i64, ptr %14, align 16
-  %271 = shl i64 %270, 3
-  call void @_ZdlPvm(ptr noundef %269, i64 noundef %271) #39
+266:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit66
+  %267 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %268 = load ptr, ptr %267, align 8
+  %269 = load i64, ptr %14, align 16
+  %270 = shl i64 %269, 3
+  call void @_ZdlPvm(ptr noundef %268, i64 noundef %270) #39
   br label %_ZN4CGAL9cpp_floatD2Ev.exit68
 
-_ZN4CGAL9cpp_floatD2Ev.exit68:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit66, %267
+_ZN4CGAL9cpp_floatD2Ev.exit68:                    ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit66, %266
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14) #28
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn
 }

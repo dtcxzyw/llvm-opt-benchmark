@@ -2183,99 +2183,104 @@ zend_string_copy.exit133:                         ; preds = %zend_string_copy.ex
   %248 = getelementptr inbounds nuw [1 x i8], ptr %246, i64 0, i64 %.06.i
   %249 = load i8, ptr %248, align 1, !tbaa !4
   switch i8 %249, label %250 [
-    i8 63, label %browscap_compute_prefix_len.exit
-    i8 42, label %browscap_compute_prefix_len.exit
+    i8 63, label %._crit_edge.loopexit.i
+    i8 42, label %._crit_edge.loopexit.i
   ]
 
 250:                                              ; preds = %247
   %251 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %251, %245
-  br i1 %exitcond.not.i, label %browscap_compute_prefix_len.exit, label %247
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %247
 
-browscap_compute_prefix_len.exit:                 ; preds = %247, %247, %250, %zend_string_copy.exit133
-  %.0.lcssa.i = phi i64 [ 0, %zend_string_copy.exit133 ], [ %245, %250 ], [ %.06.i, %247 ], [ %.06.i, %247 ]
-  %252 = call i64 @llvm.umin.i64(i64 %.0.lcssa.i, i64 255)
+._crit_edge.loopexit.i:                           ; preds = %250, %247, %247
+  %.0.lcssa.ph.i = phi i64 [ %245, %250 ], [ %.06.i, %247 ], [ %.06.i, %247 ]
+  %252 = call i64 @llvm.umin.i64(i64 %.0.lcssa.ph.i, i64 255)
   %253 = trunc nuw i64 %252 to i8
+  br label %browscap_compute_prefix_len.exit
+
+browscap_compute_prefix_len.exit:                 ; preds = %zend_string_copy.exit133, %._crit_edge.loopexit.i
+  %.0.lcssa.i = phi i8 [ 0, %zend_string_copy.exit133 ], [ %253, %._crit_edge.loopexit.i ]
   %254 = getelementptr inbounds nuw i8, ptr %208, i64 39
-  store i8 %253, ptr %254, align 1, !tbaa !42
-  %255 = getelementptr inbounds nuw i8, ptr %208, i64 24
-  %256 = getelementptr inbounds nuw i8, ptr %208, i64 34
-  %257 = getelementptr inbounds nuw i8, ptr %.090141, i64 24
-  br label %258
+  store i8 %.0.lcssa.i, ptr %254, align 1, !tbaa !42
+  %255 = zext i8 %.0.lcssa.i to i64
+  %256 = getelementptr inbounds nuw i8, ptr %208, i64 24
+  %257 = getelementptr inbounds nuw i8, ptr %208, i64 34
+  %258 = getelementptr inbounds nuw i8, ptr %.090141, i64 24
+  br label %259
 
-258:                                              ; preds = %browscap_compute_prefix_len.exit, %browscap_compute_contains.exit
+259:                                              ; preds = %browscap_compute_prefix_len.exit, %browscap_compute_contains.exit
   %indvars.iv = phi i64 [ 0, %browscap_compute_prefix_len.exit ], [ %indvars.iv.next, %browscap_compute_contains.exit ]
-  %.089144 = phi i64 [ %252, %browscap_compute_prefix_len.exit ], [ %.1.lcssa.i, %browscap_compute_contains.exit ]
-  %259 = getelementptr inbounds nuw [5 x i16], ptr %255, i64 0, i64 %indvars.iv
-  %260 = getelementptr inbounds nuw [5 x i8], ptr %256, i64 0, i64 %indvars.iv
-  %261 = load i64, ptr %244, align 8, !tbaa !40
-  %262 = icmp ult i64 %.089144, %261
-  br i1 %262, label %.lr.ph.i138, label %._crit_edge.i136
+  %.089144 = phi i64 [ %255, %browscap_compute_prefix_len.exit ], [ %.1.lcssa.i, %browscap_compute_contains.exit ]
+  %260 = getelementptr inbounds nuw [5 x i16], ptr %256, i64 0, i64 %indvars.iv
+  %261 = getelementptr inbounds nuw [5 x i8], ptr %257, i64 0, i64 %indvars.iv
+  %262 = load i64, ptr %244, align 8, !tbaa !40
+  %263 = icmp ult i64 %.089144, %262
+  br i1 %263, label %.lr.ph.i138, label %._crit_edge.i136
 
-.lr.ph.i138:                                      ; preds = %258, %271
-  %.025.i = phi i64 [ %272, %271 ], [ %.089144, %258 ]
-  %263 = getelementptr inbounds nuw [1 x i8], ptr %257, i64 0, i64 %.025.i
-  %264 = load i8, ptr %263, align 1, !tbaa !4
-  switch i8 %264, label %265 [
-    i8 63, label %271
-    i8 42, label %271
+.lr.ph.i138:                                      ; preds = %259, %272
+  %.025.i = phi i64 [ %273, %272 ], [ %.089144, %259 ]
+  %264 = getelementptr inbounds nuw [1 x i8], ptr %258, i64 0, i64 %.025.i
+  %265 = load i8, ptr %264, align 1, !tbaa !4
+  switch i8 %265, label %266 [
+    i8 63, label %272
+    i8 42, label %272
   ]
 
-265:                                              ; preds = %.lr.ph.i138
-  %266 = add nuw i64 %.025.i, 1
-  %267 = icmp ult i64 %266, %261
-  br i1 %267, label %268, label %271
+266:                                              ; preds = %.lr.ph.i138
+  %267 = add nuw i64 %.025.i, 1
+  %268 = icmp ult i64 %267, %262
+  br i1 %268, label %269, label %272
 
-268:                                              ; preds = %265
-  %269 = getelementptr inbounds nuw [1 x i8], ptr %257, i64 0, i64 %266
-  %270 = load i8, ptr %269, align 1, !tbaa !4
-  switch i8 %270, label %._crit_edge.i136 [
-    i8 63, label %271
-    i8 42, label %271
+269:                                              ; preds = %266
+  %270 = getelementptr inbounds nuw [1 x i8], ptr %258, i64 0, i64 %267
+  %271 = load i8, ptr %270, align 1, !tbaa !4
+  switch i8 %271, label %._crit_edge.i136 [
+    i8 63, label %272
+    i8 42, label %272
   ]
 
-271:                                              ; preds = %268, %268, %265, %.lr.ph.i138, %.lr.ph.i138
-  %272 = add i64 %.025.i, 1
-  %exitcond.not.i139 = icmp eq i64 %272, %261
+272:                                              ; preds = %269, %269, %266, %.lr.ph.i138, %.lr.ph.i138
+  %273 = add i64 %.025.i, 1
+  %exitcond.not.i139 = icmp eq i64 %273, %262
   br i1 %exitcond.not.i139, label %._crit_edge.thread.i, label %.lr.ph.i138
 
-._crit_edge.thread.i:                             ; preds = %271
-  %273 = trunc i64 %261 to i16
-  store i16 %273, ptr %259, align 2, !tbaa !57
+._crit_edge.thread.i:                             ; preds = %272
+  %274 = trunc i64 %262 to i16
+  store i16 %274, ptr %260, align 2, !tbaa !57
   br label %browscap_compute_contains.exit
 
-._crit_edge.i136:                                 ; preds = %268, %258
-  %.0.lcssa.i137 = phi i64 [ %.089144, %258 ], [ %.025.i, %268 ]
-  %274 = trunc i64 %.0.lcssa.i137 to i16
-  store i16 %274, ptr %259, align 2, !tbaa !57
-  %275 = icmp ult i64 %.0.lcssa.i137, %261
-  br i1 %275, label %.lr.ph32.i, label %browscap_compute_contains.exit
+._crit_edge.i136:                                 ; preds = %269, %259
+  %.0.lcssa.i137 = phi i64 [ %.089144, %259 ], [ %.025.i, %269 ]
+  %275 = trunc i64 %.0.lcssa.i137 to i16
+  store i16 %275, ptr %260, align 2, !tbaa !57
+  %276 = icmp ult i64 %.0.lcssa.i137, %262
+  br i1 %276, label %.lr.ph32.i, label %browscap_compute_contains.exit
 
-.lr.ph32.i:                                       ; preds = %._crit_edge.i136, %278
-  %.130.i = phi i64 [ %279, %278 ], [ %.0.lcssa.i137, %._crit_edge.i136 ]
-  %276 = getelementptr inbounds nuw [1 x i8], ptr %257, i64 0, i64 %.130.i
-  %277 = load i8, ptr %276, align 1, !tbaa !4
-  switch i8 %277, label %278 [
+.lr.ph32.i:                                       ; preds = %._crit_edge.i136, %279
+  %.130.i = phi i64 [ %280, %279 ], [ %.0.lcssa.i137, %._crit_edge.i136 ]
+  %277 = getelementptr inbounds nuw [1 x i8], ptr %258, i64 0, i64 %.130.i
+  %278 = load i8, ptr %277, align 1, !tbaa !4
+  switch i8 %278, label %279 [
     i8 63, label %browscap_compute_contains.exit
     i8 42, label %browscap_compute_contains.exit
   ]
 
-278:                                              ; preds = %.lr.ph32.i
-  %279 = add i64 %.130.i, 1
-  %exitcond39.not.i = icmp eq i64 %279, %261
+279:                                              ; preds = %.lr.ph32.i
+  %280 = add i64 %.130.i, 1
+  %exitcond39.not.i = icmp eq i64 %280, %262
   br i1 %exitcond39.not.i, label %browscap_compute_contains.exit, label %.lr.ph32.i
 
-browscap_compute_contains.exit:                   ; preds = %.lr.ph32.i, %.lr.ph32.i, %278, %._crit_edge.thread.i, %._crit_edge.i136
-  %.0.lcssa41.i = phi i64 [ %.0.lcssa.i137, %._crit_edge.i136 ], [ %261, %._crit_edge.thread.i ], [ %.0.lcssa.i137, %278 ], [ %.0.lcssa.i137, %.lr.ph32.i ], [ %.0.lcssa.i137, %.lr.ph32.i ]
-  %.1.lcssa.i = phi i64 [ %.0.lcssa.i137, %._crit_edge.i136 ], [ %261, %._crit_edge.thread.i ], [ %.130.i, %.lr.ph32.i ], [ %.130.i, %.lr.ph32.i ], [ %261, %278 ]
-  %280 = and i64 %.0.lcssa41.i, 65535
-  %281 = sub i64 %.1.lcssa.i, %280
-  %spec.select24.i = call i64 @llvm.umin.i64(i64 %281, i64 255)
+browscap_compute_contains.exit:                   ; preds = %.lr.ph32.i, %.lr.ph32.i, %279, %._crit_edge.thread.i, %._crit_edge.i136
+  %.0.lcssa41.i = phi i64 [ %.0.lcssa.i137, %._crit_edge.i136 ], [ %262, %._crit_edge.thread.i ], [ %.0.lcssa.i137, %279 ], [ %.0.lcssa.i137, %.lr.ph32.i ], [ %.0.lcssa.i137, %.lr.ph32.i ]
+  %.1.lcssa.i = phi i64 [ %.0.lcssa.i137, %._crit_edge.i136 ], [ %262, %._crit_edge.thread.i ], [ %.130.i, %.lr.ph32.i ], [ %.130.i, %.lr.ph32.i ], [ %262, %279 ]
+  %281 = and i64 %.0.lcssa41.i, 65535
+  %282 = sub i64 %.1.lcssa.i, %281
+  %spec.select24.i = call i64 @llvm.umin.i64(i64 %282, i64 255)
   %spec.select.i = trunc nuw i64 %spec.select24.i to i8
-  store i8 %spec.select.i, ptr %260, align 1, !tbaa !4
+  store i8 %spec.select.i, ptr %261, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.loopexit, label %258
+  br i1 %exitcond.not, label %.loopexit, label %259
 
 .loopexit:                                        ; preds = %browscap_compute_contains.exit, %14, %15, %zend_string_release.exit128, %browscap_add_kv.exit, %179, %.critedge, %5
   ret void

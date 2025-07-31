@@ -13,17 +13,17 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local ptr @first_online_pgdat() local_unnamed_addr #0 align 16 {
   %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
   %2 = icmp eq i64 %1, 0
-  br i1 %2, label %6, label %3
+  br i1 %2, label %8, label %3
 
 3:                                                ; preds = %0
   %4 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1) #6, !srcloc !5
   %5 = trunc i64 %4 to i32
-  br label %6
+  %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 64)
+  %7 = zext nneg i32 %6 to i64
+  br label %8
 
-6:                                                ; preds = %3, %0
-  %7 = phi i32 [ %5, %3 ], [ 64, %0 ]
-  %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 64)
-  %9 = zext nneg i32 %8 to i64
+8:                                                ; preds = %3, %0
+  %9 = phi i64 [ %7, %3 ], [ 64, %0 ]
   %10 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   ret ptr %11

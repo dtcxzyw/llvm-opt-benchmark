@@ -86,11 +86,11 @@ define internal range(i32 -2147483648, 1) i32 @xwd_encode_frame(ptr noundef %0, 
 
 24:                                               ; preds = %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #5
-  br label %125
+  br label %124
 
 25:                                               ; preds = %16, %4, %23, %22, %21, %19, %17, %13
   %.sroa.0.1 = phi i32 [ %.sroa.0.0, %13 ], [ %., %17 ], [ %.86, %19 ], [ 0, %21 ], [ 0, %22 ], [ 0, %23 ], [ 16711680, %4 ], [ 16711680, %16 ]
-  %.sroa.11.1 = phi i32 [ 65280, %13 ], [ 2016, %17 ], [ 992, %19 ], [ 0, %21 ], [ 0, %22 ], [ 0, %23 ], [ 65280, %4 ], [ 65280, %16 ]
+  %.sroa.11.1 = phi i32 [ 16711680, %13 ], [ -536412160, %17 ], [ -536674304, %19 ], [ 0, %21 ], [ 0, %22 ], [ 0, %23 ], [ 16711680, %4 ], [ 16711680, %16 ]
   %.sroa.19.1 = phi i32 [ %.sroa.19.0, %13 ], [ %.85, %17 ], [ %.87, %19 ], [ 0, %21 ], [ 0, %22 ], [ 0, %23 ], [ 255, %4 ], [ 255, %16 ]
   %.081 = phi i32 [ 0, %13 ], [ 0, %17 ], [ 0, %19 ], [ 0, %21 ], [ 0, %22 ], [ 16777216, %23 ], [ 0, %4 ], [ 0, %16 ]
   %.2 = phi i32 [ %spec.select84, %13 ], [ %spec.select, %17 ], [ %spec.select, %19 ], [ %spec.select, %21 ], [ %spec.select, %22 ], [ 1, %23 ], [ %spec.select, %4 ], [ 1, %16 ]
@@ -117,7 +117,7 @@ define internal range(i32 -2147483648, 1) i32 @xwd_encode_frame(ptr noundef %0, 
   %41 = sext i32 %40 to i64
   %42 = tail call i32 @ff_get_encode_buffer(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %41, i32 noundef 0) #5
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %125, label %44
+  br i1 %43, label %124, label %44
 
 44:                                               ; preds = %25
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -162,116 +162,115 @@ define internal range(i32 -2147483648, 1) i32 @xwd_encode_frame(ptr noundef %0, 
   %70 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.1)
   store i32 %70, ptr %69, align 1, !tbaa !33
   %71 = getelementptr inbounds nuw i8, ptr %46, i64 60
-  %72 = tail call i32 @llvm.bswap.i32(i32 %.sroa.11.1)
-  store i32 %72, ptr %71, align 1, !tbaa !33
-  %73 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %74 = tail call i32 @llvm.bswap.i32(i32 %.sroa.19.1)
-  store i32 %74, ptr %73, align 1, !tbaa !33
-  %75 = getelementptr inbounds nuw i8, ptr %46, i64 68
-  store i32 134217728, ptr %75, align 1, !tbaa !33
-  %76 = getelementptr inbounds nuw i8, ptr %46, i64 72
-  %77 = shl nuw nsw i32 %.076, 8
-  store i32 %77, ptr %76, align 1, !tbaa !33
-  %78 = getelementptr inbounds nuw i8, ptr %46, i64 76
-  store i32 %77, ptr %78, align 1, !tbaa !33
-  %79 = getelementptr inbounds nuw i8, ptr %46, i64 80
-  %80 = load i32, ptr %27, align 8, !tbaa !29
-  %81 = tail call i32 @llvm.bswap.i32(i32 %80)
-  store i32 %81, ptr %79, align 1, !tbaa !33
-  %82 = getelementptr inbounds nuw i8, ptr %46, i64 84
-  %83 = load i32, ptr %37, align 4, !tbaa !30
-  %84 = tail call i32 @llvm.bswap.i32(i32 %83)
-  store i32 %84, ptr %82, align 1, !tbaa !33
-  %85 = getelementptr inbounds nuw i8, ptr %46, i64 88
+  store i32 %.sroa.11.1, ptr %71, align 1, !tbaa !33
+  %72 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  %73 = tail call i32 @llvm.bswap.i32(i32 %.sroa.19.1)
+  store i32 %73, ptr %72, align 1, !tbaa !33
+  %74 = getelementptr inbounds nuw i8, ptr %46, i64 68
+  store i32 134217728, ptr %74, align 1, !tbaa !33
+  %75 = getelementptr inbounds nuw i8, ptr %46, i64 72
+  %76 = shl nuw nsw i32 %.076, 8
+  store i32 %76, ptr %75, align 1, !tbaa !33
+  %77 = getelementptr inbounds nuw i8, ptr %46, i64 76
+  store i32 %76, ptr %77, align 1, !tbaa !33
+  %78 = getelementptr inbounds nuw i8, ptr %46, i64 80
+  %79 = load i32, ptr %27, align 8, !tbaa !29
+  %80 = tail call i32 @llvm.bswap.i32(i32 %79)
+  store i32 %80, ptr %78, align 1, !tbaa !33
+  %81 = getelementptr inbounds nuw i8, ptr %46, i64 84
+  %82 = load i32, ptr %37, align 4, !tbaa !30
+  %83 = tail call i32 @llvm.bswap.i32(i32 %82)
+  store i32 %83, ptr %81, align 1, !tbaa !33
+  %84 = getelementptr inbounds nuw i8, ptr %46, i64 88
+  store i32 0, ptr %84, align 1, !tbaa !33
+  %85 = getelementptr inbounds nuw i8, ptr %46, i64 92
   store i32 0, ptr %85, align 1, !tbaa !33
-  %86 = getelementptr inbounds nuw i8, ptr %46, i64 92
+  %86 = getelementptr inbounds nuw i8, ptr %46, i64 96
   store i32 0, ptr %86, align 1, !tbaa !33
-  %87 = getelementptr inbounds nuw i8, ptr %46, i64 96
-  store i32 0, ptr %87, align 1, !tbaa !33
-  %88 = getelementptr inbounds nuw i8, ptr %46, i64 100
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %88, ptr noundef nonnull align 1 dereferenceable(11) @.str.3, i64 11, i1 false)
-  %89 = getelementptr inbounds nuw i8, ptr %46, i64 111
-  %90 = icmp eq i32 %7, 11
-  br i1 %90, label %91, label %94
+  %87 = getelementptr inbounds nuw i8, ptr %46, i64 100
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %87, ptr noundef nonnull align 1 dereferenceable(11) @.str.3, i64 11, i1 false)
+  %88 = getelementptr inbounds nuw i8, ptr %46, i64 111
+  %89 = icmp eq i32 %7, 11
+  br i1 %89, label %90, label %93
 
-91:                                               ; preds = %44
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %93 = load ptr, ptr %92, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %5, ptr noundef nonnull align 1 dereferenceable(1024) %93, i64 1024, i1 false)
-  br label %96
+90:                                               ; preds = %44
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %92 = load ptr, ptr %91, align 8, !tbaa !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %5, ptr noundef nonnull align 1 dereferenceable(1024) %92, i64 1024, i1 false)
+  br label %95
 
-94:                                               ; preds = %44
-  %95 = call i32 @avpriv_set_systematic_pal2(ptr noundef nonnull %5, i32 noundef %7) #5
-  br label %96
+93:                                               ; preds = %44
+  %94 = call i32 @avpriv_set_systematic_pal2(ptr noundef nonnull %5, i32 noundef %7) #5
+  br label %95
 
-96:                                               ; preds = %94, %91
+95:                                               ; preds = %93, %90
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %96
+.lr.ph.preheader:                                 ; preds = %95
   %umax = call i32 @llvm.umax.i32(i32 %.076, i32 1)
   %wide.trip.count = zext nneg i32 %umax to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0153155 = phi ptr [ %89, %.lr.ph.preheader ], [ %111, %.lr.ph ]
-  %97 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv
-  %98 = load i32, ptr %97, align 4, !tbaa !35
-  %99 = trunc nuw nsw i64 %indvars.iv to i32
-  %100 = call i32 @llvm.bswap.i32(i32 %99)
-  store i32 %100, ptr %.0153155, align 1, !tbaa !33
-  %101 = getelementptr inbounds nuw i8, ptr %.0153155, i64 4
-  %sum.shift = lshr i32 %98, 16
-  %102 = trunc nuw i32 %sum.shift to i16
-  %103 = and i16 %102, 255
-  store i16 %103, ptr %101, align 1, !tbaa !33
-  %104 = getelementptr inbounds nuw i8, ptr %.0153155, i64 6
-  %105 = trunc i32 %98 to i16
-  %106 = lshr i16 %105, 8
-  store i16 %106, ptr %104, align 1, !tbaa !33
-  %107 = getelementptr inbounds nuw i8, ptr %.0153155, i64 8
-  %108 = and i16 %105, 255
-  store i16 %108, ptr %107, align 1, !tbaa !33
-  %109 = getelementptr inbounds nuw i8, ptr %.0153155, i64 10
-  store i8 7, ptr %109, align 1, !tbaa !33
-  %110 = getelementptr inbounds nuw i8, ptr %.0153155, i64 11
-  store i8 0, ptr %110, align 1, !tbaa !33
-  %111 = getelementptr inbounds nuw i8, ptr %.0153155, i64 12
+  %.0153155 = phi ptr [ %88, %.lr.ph.preheader ], [ %110, %.lr.ph ]
+  %96 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %97 = load i32, ptr %96, align 4, !tbaa !35
+  %98 = trunc nuw nsw i64 %indvars.iv to i32
+  %99 = call i32 @llvm.bswap.i32(i32 %98)
+  store i32 %99, ptr %.0153155, align 1, !tbaa !33
+  %100 = getelementptr inbounds nuw i8, ptr %.0153155, i64 4
+  %sum.shift = lshr i32 %97, 16
+  %101 = trunc nuw i32 %sum.shift to i16
+  %102 = and i16 %101, 255
+  store i16 %102, ptr %100, align 1, !tbaa !33
+  %103 = getelementptr inbounds nuw i8, ptr %.0153155, i64 6
+  %104 = trunc i32 %97 to i16
+  %105 = lshr i16 %104, 8
+  store i16 %105, ptr %103, align 1, !tbaa !33
+  %106 = getelementptr inbounds nuw i8, ptr %.0153155, i64 8
+  %107 = and i16 %104, 255
+  store i16 %107, ptr %106, align 1, !tbaa !33
+  %108 = getelementptr inbounds nuw i8, ptr %.0153155, i64 10
+  store i8 7, ptr %108, align 1, !tbaa !33
+  %109 = getelementptr inbounds nuw i8, ptr %.0153155, i64 11
+  store i8 0, ptr %109, align 1, !tbaa !33
+  %110 = getelementptr inbounds nuw i8, ptr %.0153155, i64 12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %.lr.ph, %96
-  %.0153.lcssa = phi ptr [ %89, %96 ], [ %111, %.lr.ph ]
-  %112 = load i32, ptr %37, align 4, !tbaa !30
-  %113 = icmp sgt i32 %112, 0
-  br i1 %113, label %.lr.ph161, label %._crit_edge162
+._crit_edge:                                      ; preds = %.lr.ph, %95
+  %.0153.lcssa = phi ptr [ %88, %95 ], [ %110, %.lr.ph ]
+  %111 = load i32, ptr %37, align 4, !tbaa !30
+  %112 = icmp sgt i32 %111, 0
+  br i1 %112, label %.lr.ph161, label %._crit_edge162
 
 .lr.ph161:                                        ; preds = %._crit_edge
-  %114 = load ptr, ptr %2, align 8, !tbaa !34
-  %115 = zext nneg i32 %34 to i64
-  %116 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  br label %117
+  %113 = load ptr, ptr %2, align 8, !tbaa !34
+  %114 = zext nneg i32 %34 to i64
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  br label %116
 
-117:                                              ; preds = %.lr.ph161, %117
-  %.075159 = phi ptr [ %114, %.lr.ph161 ], [ %121, %117 ]
-  %.1158 = phi i32 [ 0, %.lr.ph161 ], [ %122, %117 ]
-  %.1154157 = phi ptr [ %.0153.lcssa, %.lr.ph161 ], [ %118, %117 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1154157, ptr align 1 %.075159, i64 %115, i1 false)
-  %118 = getelementptr inbounds nuw i8, ptr %.1154157, i64 %115
-  %119 = load i32, ptr %116, align 8, !tbaa !35
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds i8, ptr %.075159, i64 %120
-  %122 = add nuw nsw i32 %.1158, 1
-  %123 = load i32, ptr %37, align 4, !tbaa !30
-  %124 = icmp slt i32 %122, %123
-  br i1 %124, label %117, label %._crit_edge162, !llvm.loop !38
+116:                                              ; preds = %.lr.ph161, %116
+  %.075159 = phi ptr [ %113, %.lr.ph161 ], [ %120, %116 ]
+  %.1158 = phi i32 [ 0, %.lr.ph161 ], [ %121, %116 ]
+  %.1154157 = phi ptr [ %.0153.lcssa, %.lr.ph161 ], [ %117, %116 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1154157, ptr align 1 %.075159, i64 %114, i1 false)
+  %117 = getelementptr inbounds nuw i8, ptr %.1154157, i64 %114
+  %118 = load i32, ptr %115, align 8, !tbaa !35
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds i8, ptr %.075159, i64 %119
+  %121 = add nuw nsw i32 %.1158, 1
+  %122 = load i32, ptr %37, align 4, !tbaa !30
+  %123 = icmp slt i32 %121, %122
+  br i1 %123, label %116, label %._crit_edge162, !llvm.loop !38
 
-._crit_edge162:                                   ; preds = %117, %._crit_edge
+._crit_edge162:                                   ; preds = %116, %._crit_edge
   store i32 1, ptr %3, align 4, !tbaa !35
-  br label %125
+  br label %124
 
-125:                                              ; preds = %25, %._crit_edge162, %24
+124:                                              ; preds = %25, %._crit_edge162, %24
   %.0 = phi i32 [ -22, %24 ], [ 0, %._crit_edge162 ], [ %42, %25 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
   ret i32 %.0

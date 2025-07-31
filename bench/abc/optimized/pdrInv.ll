@@ -132,18 +132,21 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %18
   %27 = add i32 %26, %.09.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %18, !llvm.loop !32
+  br i1 %exitcond.not, label %.critedge.loopexit, label %18, !llvm.loop !32
 
-.critedge:                                        ; preds = %Abc_Base10Log.exit, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %27, %Abc_Base10Log.exit ]
-  %28 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa, i32 60)
+.critedge.loopexit:                               ; preds = %Abc_Base10Log.exit
+  %28 = tail call i32 @llvm.smax.i32(i32 %27, i32 60)
   %29 = add nsw i32 %28, -60
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %.preheader
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %29, %.critedge.loopexit ]
   %30 = load ptr, ptr %4, align 8, !tbaa !3
   %31 = getelementptr i8, ptr %30, i64 4
   %.val58 = load i32, ptr %31, align 4, !tbaa !24
   %32 = add nsw i32 %.val58, -1
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, i32 noundef %32)
-  %.not91 = icmp eq i32 %29, 0
+  %.not91 = icmp eq i32 %.0.lcssa, 0
   br i1 %.not91, label %34, label %33
 
 33:                                               ; preds = %.critedge
@@ -175,7 +178,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %18
   %.val66 = load ptr, ptr %40, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw ptr, ptr %.val66, i64 %indvars.iv114
   %42 = load ptr, ptr %41, align 8, !tbaa !29
-  %43 = icmp slt i32 %.1102, %29
+  %43 = icmp slt i32 %.1102, %.0.lcssa
   %44 = getelementptr i8, ptr %42, i64 4
   %.val59 = load i32, ptr %44, align 4, !tbaa !24
   br i1 %43, label %45, label %50

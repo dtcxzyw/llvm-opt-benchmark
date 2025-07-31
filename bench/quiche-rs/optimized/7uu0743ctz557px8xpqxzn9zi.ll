@@ -2100,10 +2100,10 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   %.sroa.58.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 496
   br label %14
 
-14:                                               ; preds = %69, %.lr.ph.i
-  %15 = phi i32 [ %8, %.lr.ph.i ], [ %70, %69 ]
-  %.sroa.817.053.i = phi i16 [ 0, %.lr.ph.i ], [ %.sroa.817.1.i, %69 ]
-  %.sroa.012.052.i = phi i16 [ 0, %.lr.ph.i ], [ %.sroa.012.1.i, %69 ]
+14:                                               ; preds = %70, %.lr.ph.i
+  %15 = phi i32 [ %8, %.lr.ph.i ], [ %71, %70 ]
+  %.sroa.817.053.i = phi i16 [ 0, %.lr.ph.i ], [ %.sroa.817.1.i, %70 ]
+  %.sroa.012.052.i = phi i16 [ 0, %.lr.ph.i ], [ %.sroa.012.1.i, %70 ]
   %16 = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !53, !noalias !50, !noundef !4
   %17 = add i64 %16, 1
   store i64 %17, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !53, !noalias !50
@@ -2211,12 +2211,12 @@ _ZN13unicode_width6tables12lookup_width17hd6af0363af6eaad8E.exit.i: ; preds = %5
   br i1 %.not29.i, label %66, label %.thread.thread.i
 
 64:                                               ; preds = %.thread.thread.i, %66, %61
-  %.sroa.022.036.i = phi i16 [ %spec.select.i, %61 ], [ %.sroa.022.03539.i, %.thread.thread.i ], [ %.sroa.022.035.i, %66 ]
+  %.sroa.022.036.i = phi i16 [ 0, %61 ], [ %69, %.thread.thread.i ], [ 0, %66 ]
   %.sroa.012.1.i = phi i16 [ %62, %61 ], [ %.sroa.012.052.i, %.thread.thread.i ], [ %67, %66 ]
   %.sroa.817.1.i = phi i16 [ 0, %61 ], [ %68, %.thread.thread.i ], [ %.sroa.022.035.i, %66 ]
   %65 = icmp eq i64 %12, %16
   %or.cond.i = select i1 %10, i1 %65, i1 false
-  br i1 %or.cond.i, label %71, label %69
+  br i1 %or.cond.i, label %72, label %70
 
 66:                                               ; preds = %.thread.i
   %67 = call i16 @llvm.uadd.sat.i16(i16 %.sroa.012.052.i, i16 1)
@@ -2225,23 +2225,23 @@ _ZN13unicode_width6tables12lookup_width17hd6af0363af6eaad8E.exit.i: ; preds = %5
 .thread.thread.i:                                 ; preds = %.thread.i, %19
   %.sroa.022.03539.i = phi i16 [ %.sroa.022.035.i, %.thread.i ], [ 0, %19 ]
   %68 = call i16 @llvm.uadd.sat.i16(i16 %.sroa.817.053.i, i16 %.sroa.022.03539.i)
+  %69 = call i16 @llvm.usub.sat.i16(i16 %68, i16 %.sroa.022.03539.i)
   br label %64
 
-69:                                               ; preds = %71, %64
-  %70 = call noundef i32 @"_ZN91_$LT$inquire..ansi..AnsiStrippedChars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h00094cb7233fac01E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2), !noalias !50
-  %.not.i.i = icmp eq i32 %70, 1114112
+70:                                               ; preds = %72, %64
+  %71 = call noundef i32 @"_ZN91_$LT$inquire..ansi..AnsiStrippedChars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h00094cb7233fac01E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2), !noalias !50
+  %.not.i.i = icmp eq i32 %71, 1114112
   br i1 %.not.i.i, label %"_ZN7inquire2ui7backend16Backend$LT$T$GT$20update_position_info17h33b9db76f0da5e92E.exit", label %14
 
-71:                                               ; preds = %64
-  %72 = call i16 @llvm.usub.sat.i16(i16 %.sroa.817.1.i, i16 %.sroa.022.036.i)
+72:                                               ; preds = %64
   store i16 1, ptr %13, align 4, !alias.scope !50
   store i16 %.sroa.012.1.i, ptr %.sroa.47.0..sroa_idx.i, align 2, !alias.scope !50
-  store i16 %72, ptr %.sroa.58.0..sroa_idx.i, align 8, !alias.scope !50
-  br label %69
+  store i16 %.sroa.022.036.i, ptr %.sroa.58.0..sroa_idx.i, align 8, !alias.scope !50
+  br label %70
 
-"_ZN7inquire2ui7backend16Backend$LT$T$GT$20update_position_info17h33b9db76f0da5e92E.exit": ; preds = %69, %1
-  %.sroa.012.0.lcssa.i = phi i16 [ 0, %1 ], [ %.sroa.012.1.i, %69 ]
-  %.sroa.817.0.lcssa.i = phi i16 [ 0, %1 ], [ %.sroa.817.1.i, %69 ]
+"_ZN7inquire2ui7backend16Backend$LT$T$GT$20update_position_info17h33b9db76f0da5e92E.exit": ; preds = %70, %1
+  %.sroa.012.0.lcssa.i = phi i16 [ 0, %1 ], [ %.sroa.012.1.i, %70 ]
+  %.sroa.817.0.lcssa.i = phi i16 [ 0, %1 ], [ %.sroa.817.1.i, %70 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !50
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i16 %.sroa.012.0.lcssa.i, ptr %73, align 8, !alias.scope !50

@@ -23260,23 +23260,23 @@ tcg_out_helper_load_imm.exit:                     ; preds = %26, %tcg_out_sib_of
   %62 = lshr i32 %61, 8
   %63 = and i32 %62, 255
   %64 = icmp samesign ult i32 %63, 6
-  br i1 %64, label %65, label %69
+  br i1 %64, label %65, label %70
 
 65:                                               ; preds = %tcg_out_helper_load_imm.exit
   %66 = zext nneg i32 %63 to i64
   %67 = getelementptr inbounds nuw [6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
-  br label %69
+  %69 = tail call i32 @llvm.smax.i32(i32 %68, i32 0)
+  br label %70
 
-69:                                               ; preds = %65, %tcg_out_helper_load_imm.exit
-  %.0 = phi i32 [ %68, %65 ], [ -1, %tcg_out_helper_load_imm.exit ]
-  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %.0, i32 0)
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %71 = load ptr, ptr %70, align 8
-  %72 = ptrtoint ptr %71 to i64
-  tail call fastcc void @tcg_out_movi(ptr noundef %0, i32 noundef 1, i32 noundef %spec.store.select.i, i64 noundef %72)
+70:                                               ; preds = %65, %tcg_out_helper_load_imm.exit
+  %.0 = phi i32 [ %69, %65 ], [ 0, %tcg_out_helper_load_imm.exit ]
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %72 = load ptr, ptr %71, align 8
+  %73 = ptrtoint ptr %72 to i64
+  tail call fastcc void @tcg_out_movi(ptr noundef %0, i32 noundef 1, i32 noundef %.0, i64 noundef %73)
   store i32 %63, ptr %5, align 4
-  store i32 %spec.store.select.i, ptr %10, align 4
+  store i32 %.0, ptr %10, align 4
   call fastcc void @tcg_out_helper_load_slots(ptr noundef %0, i32 noundef 1, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #30
   ret void

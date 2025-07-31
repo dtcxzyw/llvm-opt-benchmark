@@ -13677,76 +13677,74 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly6detail11MemoryIdler16futexWait
 
 11:                                               ; preds = %8
   %.not32 = icmp eq i64 %5, 0
-  br i1 %.not32, label %.thread34, label %12
+  br i1 %.not32, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread, label %12
 
 12:                                               ; preds = %11
   %13 = fcmp ugt float %7, 0.000000e+00
-  br i1 %13, label %14, label %45
+  br i1 %13, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread36
 
-14:                                               ; preds = %12
-  %15 = tail call noundef i64 @_ZN5folly18getCurrentThreadIDEv()
-  %16 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #21
-  %17 = xor i64 %16, %15
-  %18 = mul i64 %17, -7070675565921424023
-  %19 = lshr i64 %18, 47
-  %20 = xor i64 %15, %19
-  %21 = xor i64 %20, %18
-  %22 = mul i64 %21, -7070675565921424023
-  %23 = lshr i64 %22, 47
-  %24 = xor i64 %23, %22
-  %25 = mul i64 %24, -7070675565921424023
-  %26 = xor i64 %25, -1
-  %27 = mul i64 %24, 4692019660866977792
-  %28 = add i64 %27, %26
-  %29 = lshr i64 %28, 24
-  %30 = xor i64 %29, %28
-  %31 = mul i64 %30, 265
-  %32 = lshr i64 %31, 14
-  %33 = xor i64 %32, %31
-  %34 = mul i64 %33, 21
-  %35 = lshr i64 %34, 28
-  %36 = xor i64 %35, %34
-  %37 = mul i64 %36, 2147483649
-  %38 = fmul float %7, 0x3BF0000000000000
-  %39 = uitofp i64 %37 to float
-  %40 = fmul float %38, %39
-  %41 = uitofp nneg i64 %5 to float
-  %42 = fadd float %40, 1.000000e+00
-  %43 = fmul float %42, %41
-  %44 = fptoui float %43 to i64
-  br label %45
+_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit: ; preds = %12
+  %14 = tail call noundef i64 @_ZN5folly18getCurrentThreadIDEv()
+  %15 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #21
+  %16 = xor i64 %15, %14
+  %17 = mul i64 %16, -7070675565921424023
+  %18 = lshr i64 %17, 47
+  %19 = xor i64 %14, %18
+  %20 = xor i64 %19, %17
+  %21 = mul i64 %20, -7070675565921424023
+  %22 = lshr i64 %21, 47
+  %23 = xor i64 %22, %21
+  %24 = mul i64 %23, -7070675565921424023
+  %25 = xor i64 %24, -1
+  %26 = mul i64 %23, 4692019660866977792
+  %27 = add i64 %26, %25
+  %28 = lshr i64 %27, 24
+  %29 = xor i64 %28, %27
+  %30 = mul i64 %29, 265
+  %31 = lshr i64 %30, 14
+  %32 = xor i64 %31, %30
+  %33 = mul i64 %32, 21
+  %34 = lshr i64 %33, 28
+  %35 = xor i64 %34, %33
+  %36 = mul i64 %35, 2147483649
+  %37 = fmul float %7, 0x3BF0000000000000
+  %38 = uitofp i64 %36 to float
+  %39 = fmul float %37, %38
+  %40 = uitofp nneg i64 %5 to float
+  %41 = fadd float %39, 1.000000e+00
+  %42 = fmul float %41, %40
+  %43 = fptoui float %42 to i64
+  %44 = tail call i64 @llvm.smax.i64(i64 %43, i64 0)
+  %.not33 = icmp slt i64 %43, 1
+  br i1 %.not33, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread36
 
-45:                                               ; preds = %14, %12
-  %.sroa.010.0.i = phi i64 [ %44, %14 ], [ %5, %12 ]
-  %.not33 = icmp slt i64 %.sroa.010.0.i, 1
-  br i1 %.not33, label %.thread34, label %46
-
-46:                                               ; preds = %45
-  %47 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %48 = add nsw i64 %47, %.sroa.010.0.i
+_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread36: ; preds = %12, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit
+  %.sroa.024.039 = phi i64 [ %44, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit ], [ %5, %12 ]
+  %45 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
+  %46 = add nsw i64 %45, %.sroa.024.039
   %.sroa.0.0.copyload.i2.i = load i64, ptr %3, align 8, !tbaa !209
-  %49 = icmp slt i64 %48, %.sroa.0.0.copyload.i2.i
-  br i1 %49, label %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit, label %.thread
+  %47 = icmp slt i64 %46, %.sroa.0.0.copyload.i2.i
+  br i1 %47, label %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit, label %.thread
 
-_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit: ; preds = %46
+_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit: ; preds = %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #21
-  store i64 %48, ptr %9, align 8
-  %50 = call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %4)
+  store i64 %46, ptr %9, align 8
+  %48 = call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #21
-  %.not = icmp eq i32 %50, 3
-  br i1 %.not, label %.thread34, label %51
+  %.not = icmp eq i32 %48, 3
+  br i1 %.not, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread, label %49
 
-51:                                               ; preds = %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit
-  store i32 %50, ptr %0, align 4, !tbaa !540
+49:                                               ; preds = %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit
+  store i32 %48, ptr %0, align 4, !tbaa !540
   br label %.thread
 
-.thread34:                                        ; preds = %11, %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit, %45
+_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread: ; preds = %11, %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit
   call void @_ZN5folly6detail11MemoryIdler22flushLocalMallocCachesEv()
   call void @_ZN5folly6detail11MemoryIdler16unmapUnusedStackEm(i64 noundef %6)
   br label %.thread
 
-.thread:                                          ; preds = %46, %51, %8, %.thread34
-  %.011 = phi i1 [ false, %.thread34 ], [ false, %8 ], [ true, %51 ], [ false, %46 ]
+.thread:                                          ; preds = %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread36, %49, %8, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread
+  %.011 = phi i1 [ false, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread ], [ false, %8 ], [ true, %49 ], [ false, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread36 ]
   ret i1 %.011
 }
 
@@ -14338,6 +14336,9 @@ declare i32 @llvm.umin.i32(i32, i32) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #32
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #32
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

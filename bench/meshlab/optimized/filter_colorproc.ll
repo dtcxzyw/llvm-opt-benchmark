@@ -27022,7 +27022,7 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE19PerVertexNormalizedERS2_.exit: ; preds = %_Z
   %sqrt.i13.i = call noundef float @llvm.sqrt.f32(float %196)
   %197 = fmul float %sqrt.i.i, %sqrt.i13.i
   %198 = fcmp oeq float %197, 0.000000e+00
-  br i1 %198, label %210, label %199
+  br i1 %198, label %211, label %199
 
 199:                                              ; preds = %160
   %200 = fmul float %174, %187
@@ -27042,6 +27042,7 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE19PerVertexNormalizedERS2_.exit: ; preds = %_Z
 208:                                              ; preds = %207, %205, %199
   %.0.i = phi float [ -1.000000e+00, %207 ], [ %203, %205 ], [ 1.000000e+00, %199 ]
   %209 = call noundef float @acosf(float noundef %.0.i) #30
+  %210 = call float @llvm.fabs.f32(float %209)
   %.pre640 = load ptr, ptr %161, align 8
   %.pre641 = load ptr, ptr %162, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre640, i64 8
@@ -27063,26 +27064,25 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE19PerVertexNormalizedERS2_.exit: ; preds = %_Z
   %.pre657 = load float, ptr %.phi.trans.insert656, align 4
   %.phi.trans.insert658 = getelementptr inbounds nuw i8, ptr %.pre653, i64 16
   %.pre659 = load float, ptr %.phi.trans.insert658, align 4
-  br label %210
+  br label %211
 
-210:                                              ; preds = %208, %160
-  %211 = phi float [ %.pre659, %208 ], [ %189, %160 ]
-  %212 = phi float [ %.pre657, %208 ], [ %186, %160 ]
-  %213 = phi float [ %.pre655, %208 ], [ %183, %160 ]
-  %214 = phi float [ %.pre652, %208 ], [ %176, %160 ]
-  %215 = phi float [ %.pre650, %208 ], [ %178, %160 ]
-  %216 = phi float [ %.pre648, %208 ], [ %171, %160 ]
-  %217 = phi float [ %.pre646, %208 ], [ %173, %160 ]
-  %218 = phi float [ %.pre644, %208 ], [ %167, %160 ]
-  %219 = phi float [ %.pre642, %208 ], [ %168, %160 ]
-  %.010.i = phi float [ %209, %208 ], [ -1.000000e+00, %160 ]
-  %220 = call noundef float @llvm.fabs.f32(float %.010.i)
-  %221 = fsub float %219, %218
-  %222 = fsub float %217, %216
-  %223 = fsub float %215, %214
-  %224 = fsub float %213, %218
-  %225 = fsub float %212, %216
-  %226 = fsub float %211, %214
+211:                                              ; preds = %208, %160
+  %212 = phi float [ %.pre659, %208 ], [ %189, %160 ]
+  %213 = phi float [ %.pre657, %208 ], [ %186, %160 ]
+  %214 = phi float [ %.pre655, %208 ], [ %183, %160 ]
+  %215 = phi float [ %.pre652, %208 ], [ %176, %160 ]
+  %216 = phi float [ %.pre650, %208 ], [ %178, %160 ]
+  %217 = phi float [ %.pre648, %208 ], [ %171, %160 ]
+  %218 = phi float [ %.pre646, %208 ], [ %173, %160 ]
+  %219 = phi float [ %.pre644, %208 ], [ %167, %160 ]
+  %220 = phi float [ %.pre642, %208 ], [ %168, %160 ]
+  %.010.i = phi float [ %210, %208 ], [ 1.000000e+00, %160 ]
+  %221 = fsub float %220, %219
+  %222 = fsub float %218, %217
+  %223 = fsub float %216, %215
+  %224 = fsub float %214, %219
+  %225 = fsub float %213, %217
+  %226 = fsub float %212, %215
   %227 = fmul float %222, %222
   %228 = call float @llvm.fmuladd.f32(float %221, float %221, float %227)
   %229 = call float @llvm.fmuladd.f32(float %223, float %223, float %228)
@@ -27095,7 +27095,7 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE19PerVertexNormalizedERS2_.exit: ; preds = %_Z
   %234 = fcmp oeq float %233, 0.000000e+00
   br i1 %234, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit213, label %235
 
-235:                                              ; preds = %210
+235:                                              ; preds = %211
   %236 = fmul float %222, %225
   %237 = call float @llvm.fmuladd.f32(float %221, float %224, float %236)
   %238 = call noundef float @llvm.fmuladd.f32(float %223, float %226, float %237)
@@ -27113,18 +27113,18 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE19PerVertexNormalizedERS2_.exit: ; preds = %_Z
 244:                                              ; preds = %243, %241, %235
   %.0.i211 = phi float [ -1.000000e+00, %243 ], [ %239, %241 ], [ 1.000000e+00, %235 ]
   %245 = call noundef float @acosf(float noundef %.0.i211) #30
+  %246 = call float @llvm.fabs.f32(float %245)
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit213
 
-_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit213: ; preds = %244, %210
-  %.010.i212 = phi float [ %245, %244 ], [ -1.000000e+00, %210 ]
-  %246 = call noundef float @llvm.fabs.f32(float %.010.i212)
-  %247 = fadd float %220, %246
+_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit213: ; preds = %244, %211
+  %.010.i212 = phi float [ %246, %244 ], [ 1.000000e+00, %211 ]
+  %247 = fadd float %.010.i, %.010.i212
   %248 = fpext float %247 to double
   %249 = fsub double 0x400921FB54442D18, %248
   %250 = fptrunc double %249 to float
-  %251 = fpext float %220 to double
+  %251 = fpext float %.010.i to double
   %252 = fcmp olt double %251, 0x3FF921FB54442D18
-  %253 = fpext float %246 to double
+  %253 = fpext float %.010.i212 to double
   %254 = fcmp olt double %253, 0x3FF921FB54442D18
   %or.cond189 = and i1 %252, %254
   %255 = fpext float %250 to double
@@ -27173,7 +27173,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit213: ; preds = %244, %210
   %295 = call float @llvm.fmuladd.f32(float %291, float %291, float %294)
   %296 = call noundef float @llvm.fmuladd.f32(float %293, float %293, float %295)
   %297 = fpext float %296 to double
-  %298 = call noundef float @tanf(float noundef %246) #30
+  %298 = call noundef float @tanf(float noundef %.010.i212) #30
   %299 = fpext float %298 to double
   %300 = fdiv double 1.000000e+00, %299
   %301 = fpext float %277 to double
@@ -27185,14 +27185,14 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit213: ; preds = %244, %210
   %307 = fmul double %306, 1.250000e-01
   %308 = fptrunc double %307 to float
   %309 = fpext float %290 to double
-  %310 = call noundef float @tanf(float noundef %220) #30
+  %310 = call noundef float @tanf(float noundef %.010.i) #30
   %311 = fpext float %310 to double
   %312 = fdiv double 1.000000e+00, %311
   %313 = fmul double %312, %309
   %314 = call double @llvm.fmuladd.f64(double %301, double %304, double %313)
   %315 = fmul double %314, 1.250000e-01
   %316 = fptrunc double %315 to float
-  %317 = call noundef float @tanf(float noundef %246) #30
+  %317 = call noundef float @tanf(float noundef %.010.i212) #30
   %318 = fpext float %317 to double
   %319 = fdiv double 1.000000e+00, %318
   %320 = fmul double %319, %297
@@ -27688,7 +27688,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit213: ; preds = %244, %210
   %sqrt.i13.i232 = call noundef float @llvm.sqrt.f32(float %764)
   %765 = fmul float %sqrt.i.i231, %sqrt.i13.i232
   %766 = fcmp oeq float %765, 0.000000e+00
-  br i1 %766, label %778, label %767
+  br i1 %766, label %779, label %767
 
 767:                                              ; preds = %728
   %768 = fmul float %742, %755
@@ -27708,6 +27708,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit213: ; preds = %244, %210
 776:                                              ; preds = %775, %773, %767
   %.0.i233 = phi float [ -1.000000e+00, %775 ], [ %771, %773 ], [ 1.000000e+00, %767 ]
   %777 = call noundef float @acosf(float noundef %.0.i233) #30
+  %778 = call float @llvm.fabs.f32(float %777)
   %.pre661 = load ptr, ptr %729, align 8
   %.pre662 = load ptr, ptr %730, align 8
   %.phi.trans.insert663 = getelementptr inbounds nuw i8, ptr %.pre661, i64 8
@@ -27729,26 +27730,25 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit213: ; preds = %244, %210
   %.pre679 = load float, ptr %.phi.trans.insert678, align 4
   %.phi.trans.insert680 = getelementptr inbounds nuw i8, ptr %.pre675, i64 16
   %.pre681 = load float, ptr %.phi.trans.insert680, align 4
-  br label %778
+  br label %779
 
-778:                                              ; preds = %776, %728
-  %779 = phi float [ %.pre681, %776 ], [ %757, %728 ]
-  %780 = phi float [ %.pre679, %776 ], [ %754, %728 ]
-  %781 = phi float [ %.pre677, %776 ], [ %751, %728 ]
-  %782 = phi float [ %.pre674, %776 ], [ %744, %728 ]
-  %783 = phi float [ %.pre672, %776 ], [ %746, %728 ]
-  %784 = phi float [ %.pre670, %776 ], [ %739, %728 ]
-  %785 = phi float [ %.pre668, %776 ], [ %741, %728 ]
-  %786 = phi float [ %.pre666, %776 ], [ %735, %728 ]
-  %787 = phi float [ %.pre664, %776 ], [ %736, %728 ]
-  %.010.i234 = phi float [ %777, %776 ], [ -1.000000e+00, %728 ]
-  %788 = call noundef float @llvm.fabs.f32(float %.010.i234)
-  %789 = fsub float %787, %786
-  %790 = fsub float %785, %784
-  %791 = fsub float %783, %782
-  %792 = fsub float %781, %786
-  %793 = fsub float %780, %784
-  %794 = fsub float %779, %782
+779:                                              ; preds = %776, %728
+  %780 = phi float [ %.pre681, %776 ], [ %757, %728 ]
+  %781 = phi float [ %.pre679, %776 ], [ %754, %728 ]
+  %782 = phi float [ %.pre677, %776 ], [ %751, %728 ]
+  %783 = phi float [ %.pre674, %776 ], [ %744, %728 ]
+  %784 = phi float [ %.pre672, %776 ], [ %746, %728 ]
+  %785 = phi float [ %.pre670, %776 ], [ %739, %728 ]
+  %786 = phi float [ %.pre668, %776 ], [ %741, %728 ]
+  %787 = phi float [ %.pre666, %776 ], [ %735, %728 ]
+  %788 = phi float [ %.pre664, %776 ], [ %736, %728 ]
+  %.010.i234 = phi float [ %778, %776 ], [ 1.000000e+00, %728 ]
+  %789 = fsub float %788, %787
+  %790 = fsub float %786, %785
+  %791 = fsub float %784, %783
+  %792 = fsub float %782, %787
+  %793 = fsub float %781, %785
+  %794 = fsub float %780, %783
   %795 = fmul float %790, %790
   %796 = call float @llvm.fmuladd.f32(float %789, float %789, float %795)
   %797 = call float @llvm.fmuladd.f32(float %791, float %791, float %796)
@@ -27761,7 +27761,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit213: ; preds = %244, %210
   %802 = fcmp oeq float %801, 0.000000e+00
   br i1 %802, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit248, label %803
 
-803:                                              ; preds = %778
+803:                                              ; preds = %779
   %804 = fmul float %790, %793
   %805 = call float @llvm.fmuladd.f32(float %789, float %792, float %804)
   %806 = call noundef float @llvm.fmuladd.f32(float %791, float %794, float %805)
@@ -27779,12 +27779,12 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit213: ; preds = %244, %210
 812:                                              ; preds = %811, %809, %803
   %.0.i246 = phi float [ -1.000000e+00, %811 ], [ %807, %809 ], [ 1.000000e+00, %803 ]
   %813 = call noundef float @acosf(float noundef %.0.i246) #30
+  %814 = call float @llvm.fabs.f32(float %813)
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit248
 
-_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit248: ; preds = %812, %778
-  %.010.i247 = phi float [ %813, %812 ], [ -1.000000e+00, %778 ]
-  %814 = call noundef float @llvm.fabs.f32(float %.010.i247)
-  %815 = fadd float %788, %814
+_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit248: ; preds = %812, %779
+  %.010.i247 = phi float [ %814, %812 ], [ 1.000000e+00, %779 ]
+  %815 = fadd float %.010.i234, %.010.i247
   %816 = fpext float %815 to double
   %817 = fsub double 0x400921FB54442D18, %816
   %818 = fptrunc double %817 to float
@@ -27826,7 +27826,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit248: ; preds = %812, %778
   %850 = fsub float %828, %842
   %851 = fsub float %833, %845
   %852 = fsub float %838, %848
-  %853 = call noundef float @tanf(float noundef %814) #30
+  %853 = call noundef float @tanf(float noundef %.010.i247) #30
   %854 = fdiv float 1.000000e+00, %853
   %855 = fmul float %850, %854
   %856 = fmul float %851, %854
@@ -27865,7 +27865,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit248: ; preds = %812, %778
   %886 = fmul float %829, %885
   %887 = fmul float %834, %885
   %888 = fmul float %839, %885
-  %889 = call noundef float @tanf(float noundef %788) #30
+  %889 = call noundef float @tanf(float noundef %.010.i234) #30
   %890 = fdiv float 1.000000e+00, %889
   %891 = fmul float %843, %890
   %892 = fmul float %846, %890
@@ -27894,12 +27894,12 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit248: ; preds = %812, %778
   %913 = load float, ptr %912, align 4
   %914 = fadd float %899, %913
   store float %914, ptr %912, align 4
-  %915 = call noundef float @tanf(float noundef %788) #30
+  %915 = call noundef float @tanf(float noundef %.010.i234) #30
   %916 = fdiv float 1.000000e+00, %915
   %917 = fmul float %843, %916
   %918 = fmul float %846, %916
   %919 = fmul float %849, %916
-  %920 = call noundef float @tanf(float noundef %814) #30
+  %920 = call noundef float @tanf(float noundef %.010.i247) #30
   %921 = fdiv float 1.000000e+00, %920
   %922 = fmul float %850, %921
   %923 = fmul float %851, %921
@@ -27938,7 +27938,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit248: ; preds = %812, %778
   %953 = sdiv exact i64 %951, 12
   %954 = getelementptr inbounds i8, ptr %952, i64 %953
   %955 = load float, ptr %954, align 4
-  %956 = fsub float %955, %788
+  %956 = fsub float %955, %.010.i234
   store float %956, ptr %954, align 4
   %957 = load ptr, ptr %730, align 8
   %958 = load ptr, ptr %723, align 8
@@ -27950,7 +27950,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit248: ; preds = %812, %778
   %964 = sdiv exact i64 %962, 12
   %965 = getelementptr inbounds i8, ptr %963, i64 %964
   %966 = load float, ptr %965, align 4
-  %967 = fsub float %966, %814
+  %967 = fsub float %966, %.010.i247
   store float %967, ptr %965, align 4
   %968 = load ptr, ptr %748, align 8
   %969 = load ptr, ptr %723, align 8
@@ -28109,7 +28109,7 @@ _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.i.backedge: ; preds = %1048, %_ZN3vcg
   %sqrt.i13.i321 = call noundef float @llvm.sqrt.f32(float %1087)
   %1088 = fmul float %sqrt.i.i320, %sqrt.i13.i321
   %1089 = fcmp oeq float %1088, 0.000000e+00
-  br i1 %1089, label %1101, label %1090
+  br i1 %1089, label %1102, label %1090
 
 1090:                                             ; preds = %1061
   %1091 = fmul float %1063, %1078
@@ -28129,27 +28129,27 @@ _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.i.backedge: ; preds = %1048, %_ZN3vcg
 1099:                                             ; preds = %1098, %1096, %1090
   %.0.i322 = phi float [ -1.000000e+00, %1098 ], [ %1094, %1096 ], [ 1.000000e+00, %1090 ]
   %1100 = call noundef float @acosf(float noundef %.0.i322) #30
+  %1101 = call float @llvm.fabs.f32(float %1100)
   %.pre682 = load ptr, ptr %999, align 8
-  br label %1101
+  br label %1102
 
-1101:                                             ; preds = %1061, %1099
-  %1102 = phi ptr [ %.pre682, %1099 ], [ %1000, %1061 ]
-  %.010.i323 = phi float [ %1100, %1099 ], [ -1.000000e+00, %1061 ]
-  %1103 = call noundef float @llvm.fabs.f32(float %.010.i323)
+1102:                                             ; preds = %1061, %1099
+  %1103 = phi ptr [ %.pre682, %1099 ], [ %1000, %1061 ]
+  %.010.i323 = phi float [ %1101, %1099 ], [ 1.000000e+00, %1061 ]
   %1104 = load ptr, ptr %723, align 8
   %1105 = load ptr, ptr %1104, align 8
-  %1106 = ptrtoint ptr %1102 to i64
+  %1106 = ptrtoint ptr %1103 to i64
   %1107 = ptrtoint ptr %1105 to i64
   %1108 = sub i64 %1106, %1107
   %1109 = load ptr, ptr %722, align 8
   %1110 = sdiv exact i64 %1108, 12
   %1111 = getelementptr inbounds i8, ptr %1109, i64 %1110
   %1112 = load float, ptr %1111, align 4
-  %1113 = fsub float %1112, %1103
+  %1113 = fsub float %1112, %.010.i323
   store float %1113, ptr %1111, align 4
   br label %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.thread
 
-_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.thread: ; preds = %.split, %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit, %1101
+_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.thread: ; preds = %.split, %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit, %1102
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !119

@@ -19909,11 +19909,11 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12Im
   %38 = getelementptr i8, ptr %3, i64 40
   %.val.i7.i = load i32, ptr %38, align 8
   %39 = and i32 %.val.i7.i, 268435455
+  %40 = tail call i32 @llvm.umax.i32(i32 %36, i32 %39)
   br label %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE15incrementHeightEPNS_11ImutAVLTreeISD_EESH_.exit
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE15incrementHeightEPNS_11ImutAVLTreeISD_EESH_.exit: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE9getHeightEPNS_11ImutAVLTreeISD_EE.exit.i, %37
-  %40 = phi i32 [ %39, %37 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE9getHeightEPNS_11ImutAVLTreeISD_EE.exit.i ]
-  %41 = tail call i32 @llvm.umax.i32(i32 %36, i32 %40)
+  %41 = phi i32 [ %40, %37 ], [ %36, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE9getHeightEPNS_11ImutAVLTreeISD_EE.exit.i ]
   %42 = add nuw nsw i32 %41, 1
   store ptr %0, ptr %.0, align 8, !tbaa !1351
   %43 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -19925,7 +19925,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12Im
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, -2147483648
-  %49 = or disjoint i32 %48, %42
+  %49 = add nuw nsw i32 %48, %42
   %50 = or i32 %49, 268435456
   store i32 %50, ptr %46, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.0, i64 48
@@ -20358,11 +20358,11 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5cl
   %38 = getelementptr i8, ptr %3, i64 40
   %.val.i7.i = load i32, ptr %38, align 8
   %39 = and i32 %.val.i7.i, 268435455
+  %40 = tail call i32 @llvm.umax.i32(i32 %36, i32 %39)
   br label %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE15incrementHeightEPNS_11ImutAVLTreeIS7_EESB_.exit
 
 _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE15incrementHeightEPNS_11ImutAVLTreeIS7_EESB_.exit: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit.i, %37
-  %40 = phi i32 [ %39, %37 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit.i ]
-  %41 = tail call i32 @llvm.umax.i32(i32 %36, i32 %40)
+  %41 = phi i32 [ %40, %37 ], [ %36, %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit.i ]
   %42 = add nuw nsw i32 %41, 1
   store ptr %0, ptr %.0, align 8, !tbaa !1498
   %43 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -20374,7 +20374,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5cl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, -2147483648
-  %49 = or disjoint i32 %48, %42
+  %49 = add nuw nsw i32 %48, %42
   %50 = or i32 %49, 268435456
   store i32 %50, ptr %46, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.0, i64 48

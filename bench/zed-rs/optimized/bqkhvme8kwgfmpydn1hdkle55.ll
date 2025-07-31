@@ -12740,12 +12740,12 @@ define void @_ZN7channel13channel_store12ChannelStore22acknowledge_message_id17h
 81:                                               ; preds = %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10or_default17hdb7077188fed0da1E.llvm.14403522797051115383.exit"
   %82 = getelementptr inbounds i8, ptr %.pn.i, i64 -160
   %.pre.i = load i64, ptr %82, align 8, !alias.scope !2623
+  %83 = call i64 @llvm.umax.i64(i64 %.pre.i, i64 %2)
   br label %_ZN7channel13channel_store12ChannelState22acknowledge_message_id17h3a38e83935eadb70E.llvm.14403522797051115383.exit
 
 _ZN7channel13channel_store12ChannelState22acknowledge_message_id17h3a38e83935eadb70E.llvm.14403522797051115383.exit: ; preds = %79, %81
-  %83 = phi i64 [ %2, %79 ], [ %.pre.i, %81 ]
+  %.sroa.0.0.sroa.speculated.i.i = phi i64 [ %2, %79 ], [ %83, %81 ]
   %.sroa.0.0.i.i = phi ptr [ %80, %79 ], [ %82, %81 ]
-  %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umax.i64(i64 %83, i64 %2)
   store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %.sroa.0.0.i.i, align 8, !alias.scope !2623
   call void @llvm.experimental.noalias.scope.decl(metadata !2624)
   %84 = load ptr, ptr %3, align 8, !alias.scope !2624, !nonnull !12, !align !13, !noundef !12
@@ -19361,12 +19361,12 @@ define hidden void @_ZN7channel13channel_store12ChannelState22acknowledge_messag
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load i64, ptr %8, align 8
+  %9 = tail call i64 @llvm.umax.i64(i64 %.pre, i64 %1)
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17haa3e7014ac2f3e0cE.llvm.14403522797051115383.exit"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17haa3e7014ac2f3e0cE.llvm.14403522797051115383.exit": ; preds = %5, %7
-  %9 = phi i64 [ %1, %5 ], [ %.pre, %7 ]
+  %.sroa.0.0.sroa.speculated.i = phi i64 [ %1, %5 ], [ %9, %7 ]
   %.sroa.0.0.i = phi ptr [ %6, %5 ], [ %8, %7 ]
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %1)
   store i64 %.sroa.0.0.sroa.speculated.i, ptr %.sroa.0.0.i, align 8
   ret void
 }

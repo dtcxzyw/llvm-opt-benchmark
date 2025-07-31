@@ -2206,17 +2206,16 @@ if.then.i.i9.i:                                   ; preds = %if.then12
   %bf.clear.i.i = and i8 %retval.sroa.0.0.copyload.i.i, 15
   %cond.i.i = call noundef i8 @llvm.umax.i8(i8 %bf.clear.i.i, i8 %10)
   %11 = lshr i8 %n.sroa.4.0.extract.trunc, 4
+  %12 = call i8 @llvm.umax.i8(i8 %bf.clear.i.i, i8 %11)
   br label %_ZNK7MapNode13getLightBlendEj20ContentLightingFlags.exit
 
 _ZNK7MapNode13getLightBlendEj20ContentLightingFlags.exit: ; preds = %if.then.i.i9.i, %_ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit.thread.i
   %cond.i19.i = phi i8 [ %cond.i.i, %if.then.i.i9.i ], [ %bf.clear.i16.i, %_ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit.thread.i ]
-  %bf.clear.i18.i = phi i8 [ %bf.clear.i.i, %if.then.i.i9.i ], [ %bf.clear.i16.i, %_ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit.thread.i ]
-  %retval.0.i.i11.i = phi i8 [ %11, %if.then.i.i9.i ], [ 0, %_ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit.thread.i ]
-  %cond.i13.i = call noundef i8 @llvm.umax.i8(i8 %bf.clear.i18.i, i8 %retval.0.i.i11.i)
+  %bf.clear.i18.i = phi i8 [ %12, %if.then.i.i9.i ], [ %bf.clear.i16.i, %_ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit.thread.i ]
   %conv.i.i = zext nneg i8 %cond.i19.i to i32
   %mul.i.i = mul i32 %retval.5.i, %conv.i.i
   %sub.i.i = sub i32 1000, %retval.5.i
-  %conv1.i.i = zext nneg i8 %cond.i13.i to i32
+  %conv1.i.i = zext nneg i8 %bf.clear.i18.i to i32
   %mul2.i.i = mul i32 %sub.i.i, %conv1.i.i
   %add.i.i = add i32 %mul2.i.i, %mul.i.i
   %div.i.i = udiv i32 %add.i.i, 1000

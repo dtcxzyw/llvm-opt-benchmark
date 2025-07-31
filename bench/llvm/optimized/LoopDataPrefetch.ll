@@ -1508,12 +1508,12 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread.i: ; preds = %343, %_ZN4llvm
 .critedge227.thread.i..critedge227.thread.thread.i_crit_edge: ; preds = %.critedge227.thread.i
   %.pre160 = load i64, ptr %66, align 8
   %350 = trunc i64 %.pre160 to i32
+  %351 = call i32 @llvm.umax.i32(i32 %350, i32 1)
   br label %.critedge227.thread.thread.i
 
 .critedge227.thread.thread.i:                     ; preds = %.critedge227.thread.i..critedge227.thread.thread.i_crit_edge, %319
-  %351 = phi i32 [ %350, %.critedge227.thread.i..critedge227.thread.thread.i_crit_edge ], [ 0, %319 ]
+  %spec.store.select.i = phi i32 [ %351, %.critedge227.thread.i..critedge227.thread.thread.i_crit_edge ], [ 1, %319 ]
   %.0171.lcssa399.i = phi i1 [ %.2173.lcssa.i, %.critedge227.thread.i..critedge227.thread.thread.i_crit_edge ], [ false, %319 ]
-  %spec.store.select.i = call i32 @llvm.umax.i32(i32 %351, i32 1)
   %352 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL16PrefetchDistance, i64 8), align 8, !tbaa !6
   %.not.i.i = icmp eq i16 %352, 0
   br i1 %.not.i.i, label %355, label %353

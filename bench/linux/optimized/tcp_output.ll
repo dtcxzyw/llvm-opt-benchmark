@@ -8904,7 +8904,7 @@ define internal fastcc i32 @__tcp_transmit_skb(ptr noundef %0, ptr noundef %1, i
   %269 = load i8, ptr %268, align 8
   %270 = and i8 %269, 32
   %271 = icmp eq i8 %270, 0
-  br i1 %271, label %272, label %341, !prof !27
+  br i1 %271, label %272, label %342, !prof !27
 
 272:                                              ; preds = %263
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 1744
@@ -9016,11 +9016,11 @@ define internal fastcc i32 @__tcp_transmit_skb(ptr noundef %0, ptr noundef %1, i
 
 339:                                              ; preds = %335, %333, %329, %326
   %340 = trunc i32 %324 to i16
-  br label %341
+  %341 = tail call i16 @llvm.bswap.i16(i16 %340)
+  br label %342
 
-341:                                              ; preds = %339, %263
-  %342 = phi i16 [ %340, %339 ], [ 0, %263 ]
-  %343 = tail call i16 @llvm.bswap.i16(i16 %342)
+342:                                              ; preds = %339, %263
+  %343 = phi i16 [ %341, %339 ], [ 0, %263 ]
   %344 = getelementptr inbounds nuw i8, ptr %205, i64 14
   store i16 %343, ptr %344, align 2
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 1648
@@ -9029,7 +9029,7 @@ define internal fastcc i32 @__tcp_transmit_skb(ptr noundef %0, ptr noundef %1, i
   %348 = icmp eq i8 %347, 0
   br i1 %348, label %443, label %349
 
-349:                                              ; preds = %341
+349:                                              ; preds = %342
   %350 = getelementptr inbounds nuw i8, ptr %61, i64 112
   %351 = load i32, ptr %350, align 8
   %352 = icmp eq i32 %351, %144
@@ -9161,7 +9161,7 @@ define internal fastcc i32 @__tcp_transmit_skb(ptr noundef %0, ptr noundef %1, i
   store i16 %441, ptr %442, align 2
   br label %443
 
-443:                                              ; preds = %436, %433, %429, %341
+443:                                              ; preds = %436, %433, %429, %342
   call fastcc void @tcp_options_write(ptr noundef %205, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @tcp_md5_needed, i32 2) #18
           to label %461 [label %444], !srcloc !47

@@ -292,26 +292,17 @@ for.body:                                         ; preds = %_ZN2EA4StdC10IsLeap
   %arrayidx = getelementptr inbounds nuw [26 x i32], ptr @_ZN2EA4StdCL11kDaysInYearE, i64 0, i64 %3
   %4 = load i32, ptr %arrayidx, align 4
   %cmp20.not = icmp ugt i32 %call16, %4
-  br i1 %cmp20.not, label %for.inc, label %for.end.split.loop.exit
+  br i1 %cmp20.not, label %for.inc, label %common.ret.loopexit.split.loop.exit80
 
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
-
-for.end.split.loop.exit:                          ; preds = %for.body
-  %5 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %for.end
-
-for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit
-  %result.1 = phi i32 [ %5, %for.end.split.loop.exit ], [ 0, %for.inc ]
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %result.1, i32 1)
-  br label %common.ret85
+  br i1 %exitcond.not, label %common.ret85, label %for.body, !llvm.loop !6
 
 sw.bb24:                                          ; preds = %entry
-  %6 = load i64, ptr %this, align 8
-  %div.i14 = sdiv i64 %6, 86400
-  %div2.i15 = sdiv i64 %6, 31536000
+  %5 = load i64, ptr %this, align 8
+  %div.i14 = sdiv i64 %5, 86400
+  %div2.i15 = sdiv i64 %5, 31536000
   %sub.i16 = add nsw i64 %div2.i15, -1
   %div3.neg.i17 = sdiv i64 %sub.i16, -4
   %div6.neg.neg.i18 = sdiv i64 %sub.i16, 100
@@ -329,16 +320,16 @@ sw.bb24:                                          ; preds = %entry
   %add38 = add nsw i32 %sub35, %div37
   %mul40 = mul i32 %conv.i25, 365
   %add41 = add i32 %add38, %mul40
-  %7 = trunc i64 %div.i14 to i32
-  %conv44 = sub i32 %7, %add41
-  %cmp45 = icmp eq i32 %add41, %7
+  %6 = trunc i64 %div.i14 to i32
+  %conv44 = sub i32 %6, %add41
+  %cmp45 = icmp eq i32 %add41, %6
   %spec.store.select1 = select i1 %cmp45, i32 1, i32 %conv44
   br label %common.ret85
 
 sw.bb48:                                          ; preds = %entry
-  %8 = load i64, ptr %this, align 8
-  %div.i27 = sdiv i64 %8, 86400
-  %div2.i28 = sdiv i64 %8, 31536000
+  %7 = load i64, ptr %this, align 8
+  %div.i27 = sdiv i64 %7, 86400
+  %div2.i28 = sdiv i64 %7, 31536000
   %sub.i29 = add nsw i64 %div2.i28, -1
   %div3.neg.i30 = sdiv i64 %sub.i29, -4
   %div6.neg.neg.i31 = sdiv i64 %sub.i29, 100
@@ -359,9 +350,9 @@ sw.bb48:                                          ; preds = %entry
   %add38.i = add nsw i32 %sub35.i, %div37.i
   %mul40.i = mul i32 %conv.i38, 365
   %add41.i = add i32 %add38.i, %mul40.i
-  %9 = trunc i64 %div.i27 to i32
-  %conv44.i = sub i32 %9, %add41.i
-  %cmp45.i = icmp eq i32 %add41.i, %9
+  %8 = trunc i64 %div.i27 to i32
+  %conv44.i = sub i32 %8, %add41.i
+  %cmp45.i = icmp eq i32 %add41.i, %8
   %spec.store.select1.i = select i1 %cmp45.i, i32 1, i32 %conv44.i
   %and.i40 = and i32 %add14.i39, 3
   %tobool.not.i41 = icmp ne i32 %and.i40, 0
@@ -377,52 +368,52 @@ _ZN2EA4StdC10IsLeapYearEj.exit48:                 ; preds = %sw.bb48
   br label %_ZN2EA4StdC10IsLeapYearEj.exit48.thread
 
 _ZN2EA4StdC10IsLeapYearEj.exit48.thread:          ; preds = %sw.bb48, %_ZN2EA4StdC10IsLeapYearEj.exit48
-  %10 = phi i32 [ %spec.select, %_ZN2EA4StdC10IsLeapYearEj.exit48 ], [ 13, %sw.bb48 ]
+  %9 = phi i32 [ %spec.select, %_ZN2EA4StdC10IsLeapYearEj.exit48 ], [ 13, %sw.bb48 ]
   %sub5675 = add i32 %call52, -1
-  %add58 = add i32 %sub5675, %10
+  %add58 = add i32 %sub5675, %9
   %idxprom59 = zext i32 %add58 to i64
   %arrayidx60 = getelementptr inbounds nuw [26 x i32], ptr @_ZN2EA4StdCL11kDaysInYearE, i64 0, i64 %idxprom59
-  %11 = load i32, ptr %arrayidx60, align 4
-  %sub61 = sub i32 %spec.store.select1.i, %11
+  %10 = load i32, ptr %arrayidx60, align 4
+  %sub61 = sub i32 %spec.store.select1.i, %10
   br label %common.ret85
 
 sw.bb62:                                          ; preds = %entry
-  %12 = load i64, ptr %this, align 8
-  %div65 = sdiv i64 %12, 86400
+  %11 = load i64, ptr %this, align 8
+  %div65 = sdiv i64 %11, 86400
   %rem = srem i64 %div65, 7
   %conv66 = trunc nsw i64 %rem to i32
   %add67 = add nsw i32 %conv66, 1
   br label %common.ret85
 
 sw.bb68:                                          ; preds = %entry
-  %13 = load i64, ptr %this, align 8
-  %div70 = sdiv i64 %13, 3600
+  %12 = load i64, ptr %this, align 8
+  %div70 = sdiv i64 %12, 3600
   %rem71 = srem i64 %div70, 24
   %conv72 = trunc nsw i64 %rem71 to i32
   br label %common.ret85
 
 sw.bb73:                                          ; preds = %entry
-  %14 = load i64, ptr %this, align 8
-  %div75 = sdiv i64 %14, 60
+  %13 = load i64, ptr %this, align 8
+  %div75 = sdiv i64 %13, 60
   %rem76 = srem i64 %div75, 60
   %conv77 = trunc nsw i64 %rem76 to i32
   br label %common.ret85
 
 sw.bb78:                                          ; preds = %entry
-  %15 = load i64, ptr %this, align 8
-  %rem80 = srem i64 %15, 60
+  %14 = load i64, ptr %this, align 8
+  %rem80 = srem i64 %14, 60
   %conv81 = trunc nsw i64 %rem80 to i32
   br label %common.ret85
 
 sw.bb82:                                          ; preds = %entry
   %mnNanosecond = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %16 = load i32, ptr %mnNanosecond, align 8
+  %15 = load i32, ptr %mnNanosecond, align 8
   br label %common.ret85
 
 sw.bb83:                                          ; preds = %entry
-  %17 = load i64, ptr %this, align 8
-  %div.i14.i49 = sdiv i64 %17, 86400
-  %div2.i15.i50 = sdiv i64 %17, 31536000
+  %16 = load i64, ptr %this, align 8
+  %div.i14.i49 = sdiv i64 %16, 86400
+  %div2.i15.i50 = sdiv i64 %16, 31536000
   %sub.i16.i51 = add nsw i64 %div2.i15.i50, -1
   %div3.neg.i17.i52 = sdiv i64 %sub.i16.i51, -4
   %div6.neg.neg.i18.i53 = sdiv i64 %sub.i16.i51, 100
@@ -440,17 +431,21 @@ sw.bb83:                                          ; preds = %entry
   %add38.i67 = add nsw i32 %sub35.i65, %div37.i66
   %mul40.i68 = mul i32 %conv.i25.i60, 365
   %add41.i69 = add i32 %add38.i67, %mul40.i68
-  %18 = trunc i64 %div.i14.i49 to i32
-  %cmp45.i71 = icmp eq i32 %add41.i69, %18
-  %19 = xor i32 %add41.i69, -1
-  %20 = add i32 %19, %18
-  %21 = udiv i32 %20, 7
-  %22 = add nuw nsw i32 %21, 1
-  %add88 = select i1 %cmp45.i71, i32 1, i32 %22
+  %17 = trunc i64 %div.i14.i49 to i32
+  %cmp45.i71 = icmp eq i32 %add41.i69, %17
+  %18 = xor i32 %add41.i69, -1
+  %19 = add i32 %18, %17
+  %20 = udiv i32 %19, 7
+  %21 = add nuw nsw i32 %20, 1
+  %add88 = select i1 %cmp45.i71, i32 1, i32 %21
   br label %common.ret85
 
-common.ret85:                                     ; preds = %entry, %sw.bb83, %sw.bb82, %sw.bb78, %sw.bb73, %sw.bb68, %sw.bb62, %_ZN2EA4StdC10IsLeapYearEj.exit48.thread, %sw.bb24, %for.end, %sw.bb, %sw.bb89
-  %common.ret85.op = phi i32 [ %add93, %sw.bb89 ], [ 0, %entry ], [ %add14, %sw.bb ], [ %spec.store.select, %for.end ], [ %spec.store.select1, %sw.bb24 ], [ %sub61, %_ZN2EA4StdC10IsLeapYearEj.exit48.thread ], [ %add67, %sw.bb62 ], [ %conv72, %sw.bb68 ], [ %conv77, %sw.bb73 ], [ %conv81, %sw.bb78 ], [ %16, %sw.bb82 ], [ %add88, %sw.bb83 ]
+common.ret.loopexit.split.loop.exit80:            ; preds = %for.body
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %common.ret85
+
+common.ret85:                                     ; preds = %entry, %sw.bb83, %sw.bb82, %sw.bb78, %sw.bb73, %sw.bb68, %sw.bb62, %_ZN2EA4StdC10IsLeapYearEj.exit48.thread, %sw.bb24, %sw.bb, %common.ret.loopexit.split.loop.exit80, %for.inc, %sw.bb89
+  %common.ret85.op = phi i32 [ %add93, %sw.bb89 ], [ 0, %entry ], [ %add14, %sw.bb ], [ %spec.store.select1, %sw.bb24 ], [ %sub61, %_ZN2EA4StdC10IsLeapYearEj.exit48.thread ], [ %add67, %sw.bb62 ], [ %conv72, %sw.bb68 ], [ %conv77, %sw.bb73 ], [ %conv81, %sw.bb78 ], [ %15, %sw.bb82 ], [ %add88, %sw.bb83 ], [ %22, %common.ret.loopexit.split.loop.exit80 ], [ 1, %for.inc ]
   ret i32 %common.ret85.op
 
 sw.bb89:                                          ; preds = %entry
@@ -5014,26 +5009,23 @@ declare noundef i64 @_ZN2EA4StdC6StrlenEPKc(ptr noundef) local_unnamed_addr #2
 
 declare noundef i32 @_ZN2EA4StdC8StrnicmpEPKcS2_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #16
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #16
+declare i64 @llvm.smax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
@@ -5051,8 +5043,8 @@ attributes #12 = { mustprogress nofree nounwind willreturn "frame-pointer"="all"
 attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #19 = { nounwind }
 

@@ -3801,20 +3801,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100: ; preds = %_Z
   %239 = and i32 %231, 1
   %.not73 = icmp eq i32 %239, 0
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  br i1 %.not73, label %241, label %._crit_edge108
+  br i1 %.not73, label %242, label %._crit_edge108
 
 ._crit_edge108:                                   ; preds = %235
   %.pre110 = load i32, ptr %240, align 4, !tbaa !100
-  br label %242
+  %241 = call i32 @llvm.smax.i32(i32 %.pre110, i32 1)
+  br label %243
 
-241:                                              ; preds = %235
+242:                                              ; preds = %235
   store i32 2147483647, ptr %240, align 4, !tbaa !165
-  br label %242
+  br label %243
 
-242:                                              ; preds = %._crit_edge108, %241
-  %243 = phi i32 [ %.pre110, %._crit_edge108 ], [ 2147483647, %241 ]
+243:                                              ; preds = %._crit_edge108, %242
+  %.sroa.speculated = phi i32 [ %241, %._crit_edge108 ], [ 2147483647, %242 ]
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %243, i32 1)
   store i32 %.sroa.speculated, ptr %244, align 4, !tbaa !165
   ret void
 

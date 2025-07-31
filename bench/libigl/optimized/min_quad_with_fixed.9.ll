@@ -8397,7 +8397,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi2ELi1E
   %gep153 = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %123
   %146 = load float, ptr %gep153, align 4, !tbaa !7
   %147 = fmul float %146, %146
-  %148 = call noundef float @llvm.sqrt.f32(float %147)
+  %148 = call float @llvm.sqrt.f32(float %147)
   store float %148, ptr %140, align 4, !tbaa !7
   br label %._crit_edge.sink.split
 

@@ -1128,12 +1128,12 @@ RARRAY_AREF.exit434:                              ; preds = %rb_array_len.exit43
 443:                                              ; preds = %441
   %444 = fptrunc double %437 to float
   %445 = bitcast float %444 to i32
+  %446 = call i32 @llvm.bswap.i32(i32 %445)
   br label %VALUE_to_float.exit436
 
 VALUE_to_float.exit436:                           ; preds = %RARRAY_AREF.exit434, %439, %441, %443
-  %.0.i435 = phi i32 [ %445, %443 ], [ 2143289344, %RARRAY_AREF.exit434 ], [ -8388608, %439 ], [ 2139095040, %441 ]
-  %446 = call noundef i32 @llvm.bswap.i32(i32 %.0.i435)
-  store i32 %446, ptr %24, align 4, !tbaa !26
+  %.0.i435 = phi i32 [ %446, %443 ], [ 49279, %RARRAY_AREF.exit434 ], [ 33023, %439 ], [ 32895, %441 ]
+  store i32 %.0.i435, ptr %24, align 4, !tbaa !26
   %447 = call i64 @rb_str_cat(i64 noundef %.0287, ptr noundef nonnull %24, i64 noundef 4) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #13
   %exitcond806.not = icmp eq i64 %433, %134

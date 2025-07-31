@@ -1410,7 +1410,7 @@ define hidden void @_ZN20RangeCheckEliminator7Visitor6do_PhiEP3Phi(ptr noundef n
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #13
   %.not73 = icmp eq ptr %14, null
-  br i1 %.not73, label %202, label %15
+  br i1 %.not73, label %203, label %15
 
 15:                                               ; preds = %9, %2
   %16 = tail call noundef i32 @_ZNK3Phi13operand_countEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #13
@@ -1422,14 +1422,14 @@ define hidden void @_ZN20RangeCheckEliminator7Visitor6do_PhiEP3Phi(ptr noundef n
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   br label %20
 
-20:                                               ; preds = %.lr.ph, %170
-  %.057102 = phi i1 [ true, %.lr.ph ], [ %.1, %170 ]
-  %.058101 = phi i1 [ true, %.lr.ph ], [ %.159, %170 ]
-  %.06098 = phi ptr [ null, %.lr.ph ], [ %.2, %170 ]
-  %.06297 = phi i32 [ 0, %.lr.ph ], [ %171, %170 ]
+20:                                               ; preds = %.lr.ph, %171
+  %.057101 = phi i1 [ true, %.lr.ph ], [ %.1, %171 ]
+  %.058100 = phi i1 [ true, %.lr.ph ], [ %.159, %171 ]
+  %.06098 = phi ptr [ null, %.lr.ph ], [ %.2, %171 ]
+  %.06297 = phi i32 [ 0, %.lr.ph ], [ %172, %171 ]
   %21 = tail call noundef ptr @_ZNK3Phi10operand_atEi(ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %.06297) #13
   %22 = icmp eq ptr %21, %1
-  br i1 %22, label %170, label %23
+  br i1 %22, label %171, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %21, align 8
@@ -1492,16 +1492,16 @@ define hidden void @_ZN20RangeCheckEliminator7Visitor6do_PhiEP3Phi(ptr noundef n
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, 1
-  br i1 %65, label %170, label %66
+  br i1 %65, label %171, label %66
 
 66:                                               ; preds = %56
   %67 = icmp sgt i32 %64, 1
-  br i1 %67, label %170, label %68
+  br i1 %67, label %171, label %68
 
 68:                                               ; preds = %66
   %69 = icmp sgt i32 %64, -1
-  %spec.select82 = select i1 %69, i1 %.058101, i1 false
-  br label %170
+  %spec.select82 = select i1 %69, i1 %.058100, i1 false
+  br label %171
 
 70:                                               ; preds = %28, %44, %51, %40, %35, %23
   %71 = load ptr, ptr %18, align 8
@@ -1642,146 +1642,148 @@ _ZN20RangeCheckEliminator5Bound4copyEv.exit:      ; preds = %139, %141
   %152 = getelementptr inbounds nuw i8, ptr %.056.ph, i64 8
   %153 = load ptr, ptr %152, align 8
   store ptr %153, ptr %146, align 8
-  br label %170
+  br label %171
 
 154:                                              ; preds = %123
   %155 = getelementptr inbounds nuw i8, ptr %.06098, i64 24
   %156 = load ptr, ptr %155, align 8
   %.not.i84 = icmp eq ptr %156, %124
-  br i1 %.not.i84, label %157, label %158
+  br i1 %.not.i84, label %157, label %160
 
 157:                                              ; preds = %154
   %.not8.i = icmp eq ptr %124, null
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.06098, i64 16
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
-  %.not9.i = icmp eq i32 %.pre.i, %.pre14.i
-  %or.cond110 = select i1 %.not8.i, i1 true, i1 %.not9.i
-  br i1 %or.cond110, label %._crit_edge.i, label %158
-
-158:                                              ; preds = %157, %154
-  store ptr null, ptr %155, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %.06098, i64 16
-  store i32 -2147483648, ptr %159, align 8
-  br label %161
+  br i1 %.not8.i, label %._crit_edge.i, label %159
 
 ._crit_edge.i:                                    ; preds = %157
-  %160 = tail call noundef i32 @llvm.smin.i32(i32 %.pre.i, i32 %.pre14.i)
-  store i32 %160, ptr %.phi.trans.insert.i, align 8
+  %158 = tail call i32 @llvm.smin.i32(i32 %.pre.i, i32 %.pre14.i)
   br label %161
 
-161:                                              ; preds = %._crit_edge.i, %158
-  %162 = getelementptr inbounds nuw i8, ptr %.06098, i64 8
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %.056.ph, i64 8
-  %165 = load ptr, ptr %164, align 8
-  %.not10.i = icmp eq ptr %163, %165
-  br i1 %.not10.i, label %166, label %167
+159:                                              ; preds = %157
+  %.not9.i = icmp eq i32 %.pre.i, %.pre14.i
+  br i1 %.not9.i, label %161, label %160
 
-166:                                              ; preds = %161
-  %.not11.i = icmp eq ptr %163, null
+160:                                              ; preds = %159, %154
+  store ptr null, ptr %155, align 8
+  br label %161
+
+161:                                              ; preds = %160, %159, %._crit_edge.i
+  %.sink.i = phi i32 [ -2147483648, %160 ], [ %158, %._crit_edge.i ], [ %.pre14.i, %159 ]
+  %162 = getelementptr inbounds nuw i8, ptr %.06098, i64 16
+  store i32 %.sink.i, ptr %162, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %.06098, i64 8
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %.056.ph, i64 8
+  %166 = load ptr, ptr %165, align 8
+  %.not10.i = icmp eq ptr %164, %166
+  br i1 %.not10.i, label %167, label %168
+
+167:                                              ; preds = %161
+  %.not11.i = icmp eq ptr %164, null
   %.pre15.i = load i32, ptr %.06098, align 8
   %.pre16.i = load i32, ptr %.056.ph, align 8
   %.not12.i = icmp eq i32 %.pre15.i, %.pre16.i
   %or.cond.i = select i1 %.not11.i, i1 true, i1 %.not12.i
-  br i1 %or.cond.i, label %168, label %167
+  br i1 %or.cond.i, label %169, label %168
 
-167:                                              ; preds = %166, %161
-  store ptr null, ptr %162, align 8
+168:                                              ; preds = %167, %161
+  store ptr null, ptr %163, align 8
   br label %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit
 
-168:                                              ; preds = %166
-  %169 = tail call noundef i32 @llvm.smax.i32(i32 %.pre15.i, i32 %.pre16.i)
+169:                                              ; preds = %167
+  %170 = tail call noundef i32 @llvm.smax.i32(i32 %.pre15.i, i32 %.pre16.i)
   br label %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit
 
-_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit:  ; preds = %167, %168
-  %storemerge.i = phi i32 [ %169, %168 ], [ 2147483647, %167 ]
+_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit:  ; preds = %168, %169
+  %storemerge.i = phi i32 [ %170, %169 ], [ 2147483647, %168 ]
   store i32 %storemerge.i, ptr %.06098, align 8
-  br label %170
+  br label %171
 
-170:                                              ; preds = %68, %66, %56, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit, %_ZN20RangeCheckEliminator5Bound4copyEv.exit, %20
+171:                                              ; preds = %68, %66, %56, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit, %_ZN20RangeCheckEliminator5Bound4copyEv.exit, %20
   %.2 = phi ptr [ %.06098, %20 ], [ %.06098, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ], [ %.0.i.i.i.i, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ %.06098, %56 ], [ %.06098, %66 ], [ %.06098, %68 ]
-  %.159 = phi i1 [ %.058101, %20 ], [ %.058101, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ], [ %.058101, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ %.058101, %56 ], [ false, %66 ], [ %spec.select82, %68 ]
-  %.1 = phi i1 [ %.057102, %20 ], [ %.057102, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ], [ %.057102, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ false, %56 ], [ false, %66 ], [ %.057102, %68 ]
-  %171 = add nuw nsw i32 %.06297, 1
-  %exitcond.not = icmp eq i32 %171, %16
+  %.159 = phi i1 [ %.058100, %20 ], [ %.058100, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ], [ %.058100, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ %.058100, %56 ], [ false, %66 ], [ %spec.select82, %68 ]
+  %.1 = phi i1 [ %.057101, %20 ], [ %.057101, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ], [ %.057101, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ false, %56 ], [ false, %66 ], [ %.057101, %68 ]
+  %172 = add nuw nsw i32 %.06297, 1
+  %exitcond.not = icmp eq i32 %172, %16
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %170
+._crit_edge:                                      ; preds = %171
   %.not80 = icmp eq ptr %.2, null
-  br i1 %.not80, label %._crit_edge..thread91_crit_edge, label %172
+  br i1 %.not80, label %._crit_edge..thread91_crit_edge, label %173
 
 ._crit_edge..thread91_crit_edge:                  ; preds = %15, %._crit_edge
   %.pre = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   br label %.thread91
 
-172:                                              ; preds = %._crit_edge
-  br i1 %.1, label %175, label %173
+173:                                              ; preds = %._crit_edge
+  br i1 %.1, label %176, label %174
 
-173:                                              ; preds = %172
+174:                                              ; preds = %173
   store i32 2147483647, ptr %.2, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store ptr null, ptr %174, align 8
-  br label %175
+  %175 = getelementptr inbounds nuw i8, ptr %.2, i64 8
+  store ptr null, ptr %175, align 8
+  br label %176
 
-175:                                              ; preds = %173, %172
-  br i1 %.159, label %.sink.split, label %176
+176:                                              ; preds = %174, %173
+  br i1 %.159, label %.sink.split, label %177
 
-176:                                              ; preds = %175
-  %177 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  store i32 -2147483648, ptr %177, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %.2, i64 24
-  store ptr null, ptr %178, align 8
+177:                                              ; preds = %176
+  %178 = getelementptr inbounds nuw i8, ptr %.2, i64 16
+  store i32 -2147483648, ptr %178, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %.2, i64 24
+  store ptr null, ptr %179, align 8
   br label %.sink.split
 
 .thread91:                                        ; preds = %_ZN22CompilationResourceObjnwEm.exit, %._crit_edge..thread91_crit_edge
   %.pre-phi = phi ptr [ %.pre, %._crit_edge..thread91_crit_edge ], [ %19, %_ZN22CompilationResourceObjnwEm.exit ]
-  %179 = load ptr, ptr %.pre-phi, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 1808
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 128
-  %183 = load ptr, ptr %182, align 8
+  %180 = load ptr, ptr %.pre-phi, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 1808
+  %182 = load ptr, ptr %181, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 128
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 40
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %184, i64 32
-  %188 = load ptr, ptr %187, align 8
-  %189 = ptrtoint ptr %186 to i64
-  %190 = ptrtoint ptr %188 to i64
-  %191 = sub i64 %189, %190
-  %.not.i.i.i85 = icmp ult i64 %191, 32
-  br i1 %.not.i.i.i85, label %194, label %192
+  %185 = load ptr, ptr %184, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 40
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 32
+  %189 = load ptr, ptr %188, align 8
+  %190 = ptrtoint ptr %187 to i64
+  %191 = ptrtoint ptr %189 to i64
+  %192 = sub i64 %190, %191
+  %.not.i.i.i85 = icmp ult i64 %192, 32
+  br i1 %.not.i.i.i85, label %195, label %193
 
-192:                                              ; preds = %.thread91
-  %193 = getelementptr inbounds nuw i8, ptr %188, i64 32
-  store ptr %193, ptr %187, align 8
+193:                                              ; preds = %.thread91
+  %194 = getelementptr inbounds nuw i8, ptr %189, i64 32
+  store ptr %194, ptr %188, align 8
   br label %_ZN22CompilationResourceObjnwEm.exit87
 
-194:                                              ; preds = %.thread91
-  %195 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %184, i64 noundef 32, i32 noundef 0) #13
+195:                                              ; preds = %.thread91
+  %196 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %185, i64 noundef 32, i32 noundef 0) #13
   br label %_ZN22CompilationResourceObjnwEm.exit87
 
-_ZN22CompilationResourceObjnwEm.exit87:           ; preds = %192, %194
-  %.0.i.i.i86 = phi ptr [ %188, %192 ], [ %195, %194 ]
-  %196 = icmp eq ptr %.0.i.i.i86, null
-  br i1 %196, label %.sink.split, label %197
+_ZN22CompilationResourceObjnwEm.exit87:           ; preds = %193, %195
+  %.0.i.i.i86 = phi ptr [ %189, %193 ], [ %196, %195 ]
+  %197 = icmp eq ptr %.0.i.i.i86, null
+  br i1 %197, label %.sink.split, label %198
 
-197:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit87
-  %198 = getelementptr inbounds nuw i8, ptr %.0.i.i.i86, i64 16
-  store i32 -2147483648, ptr %198, align 8
+198:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit87
+  %199 = getelementptr inbounds nuw i8, ptr %.0.i.i.i86, i64 16
+  store i32 -2147483648, ptr %199, align 8
   store i32 2147483647, ptr %.0.i.i.i86, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %.0.i.i.i86, i64 24
-  store ptr null, ptr %199, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %.0.i.i.i86, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %.0.i.i.i86, i64 24
   store ptr null, ptr %200, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %.0.i.i.i86, i64 8
+  store ptr null, ptr %201, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN22CompilationResourceObjnwEm.exit87, %197, %175, %176
-  %.0.i.i.i86.sink = phi ptr [ %.2, %176 ], [ %.2, %175 ], [ %.0.i.i.i86, %197 ], [ %.0.i.i.i86, %_ZN22CompilationResourceObjnwEm.exit87 ]
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i86.sink, ptr %201, align 8
-  br label %202
+.sink.split:                                      ; preds = %_ZN22CompilationResourceObjnwEm.exit87, %198, %176, %177
+  %.0.i.i.i86.sink = phi ptr [ %.2, %177 ], [ %.2, %176 ], [ %.0.i.i.i86, %198 ], [ %.0.i.i.i86, %_ZN22CompilationResourceObjnwEm.exit87 ]
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.i.i.i86.sink, ptr %202, align 8
+  br label %203
 
-202:                                              ; preds = %.sink.split, %9
+203:                                              ; preds = %.sink.split, %9
   ret void
 }
 
@@ -2122,7 +2124,7 @@ define hidden void @_ZN20RangeCheckEliminator5Bound5or_opEPS0_(ptr noundef nonnu
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %4, %6
-  br i1 %.not, label %7, label %9
+  br i1 %.not, label %7, label %10
 
 7:                                                ; preds = %2
   %.not8 = icmp eq ptr %4, null
@@ -2130,51 +2132,49 @@ define hidden void @_ZN20RangeCheckEliminator5Bound5or_opEPS0_(ptr noundef nonnu
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre14 = load i32, ptr %.phi.trans.insert13, align 8
-  br i1 %.not8, label %._crit_edge, label %8
+  br i1 %.not8, label %._crit_edge, label %9
 
-8:                                                ; preds = %7
+._crit_edge:                                      ; preds = %7
+  %8 = tail call i32 @llvm.smin.i32(i32 %.pre, i32 %.pre14)
+  br label %11
+
+9:                                                ; preds = %7
   %.not9 = icmp eq i32 %.pre, %.pre14
-  br i1 %.not9, label %._crit_edge, label %9
+  br i1 %.not9, label %11, label %10
 
-9:                                                ; preds = %8, %2
+10:                                               ; preds = %9, %2
   store ptr null, ptr %3, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 -2147483648, ptr %10, align 8
-  br label %14
+  br label %11
 
-._crit_edge:                                      ; preds = %7, %8
-  %11 = phi i32 [ %.pre, %8 ], [ %.pre14, %7 ]
+11:                                               ; preds = %9, %._crit_edge, %10
+  %.sink = phi i32 [ -2147483648, %10 ], [ %8, %._crit_edge ], [ %.pre, %9 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = tail call noundef i32 @llvm.smin.i32(i32 %.pre, i32 %11)
-  store i32 %13, ptr %12, align 8
-  br label %14
-
-14:                                               ; preds = %._crit_edge, %9
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sink, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %.not10 = icmp eq ptr %16, %18
-  br i1 %.not10, label %19, label %20
+  %.not10 = icmp eq ptr %14, %16
+  br i1 %.not10, label %17, label %18
 
-19:                                               ; preds = %14
-  %.not11 = icmp eq ptr %16, null
+17:                                               ; preds = %11
+  %.not11 = icmp eq ptr %14, null
   %.pre15 = load i32, ptr %0, align 8
   %.pre16 = load i32, ptr %1, align 8
   %.not12 = icmp eq i32 %.pre15, %.pre16
   %or.cond = select i1 %.not11, i1 true, i1 %.not12
-  br i1 %or.cond, label %21, label %20
+  br i1 %or.cond, label %19, label %18
 
-20:                                               ; preds = %19, %14
-  store ptr null, ptr %15, align 8
-  br label %23
+18:                                               ; preds = %17, %11
+  store ptr null, ptr %13, align 8
+  br label %21
 
-21:                                               ; preds = %19
-  %22 = tail call noundef i32 @llvm.smax.i32(i32 %.pre15, i32 %.pre16)
-  br label %23
+19:                                               ; preds = %17
+  %20 = tail call noundef i32 @llvm.smax.i32(i32 %.pre15, i32 %.pre16)
+  br label %21
 
-23:                                               ; preds = %21, %20
-  %storemerge = phi i32 [ %22, %21 ], [ 2147483647, %20 ]
+21:                                               ; preds = %19, %18
+  %storemerge = phi i32 [ %20, %19 ], [ 2147483647, %18 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
 }

@@ -31579,15 +31579,15 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h3acfc00c0a67d38bE
 
 _ZN4core4hash4Hash10hash_slice17hb1e142c852e9921dE.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i
   %.pre.i.i = load i64, ptr %5, align 8, !alias.scope !8246, !noalias !8240
+  %21 = call i64 @llvm.fshl.i64(i64 %.pre.i.i, i64 %.pre.i.i, i64 5)
   br label %_ZN4core4hash4Hash10hash_slice17hb1e142c852e9921dE.exit.i.i
 
 _ZN4core4hash4Hash10hash_slice17hb1e142c852e9921dE.exit.i.i: ; preds = %_ZN4core4hash4Hash10hash_slice17hb1e142c852e9921dE.exit.loopexit.i.i, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h28b3c1d8fca98a5dE.exit.i"
-  %21 = phi i64 [ %.pre.i.i, %_ZN4core4hash4Hash10hash_slice17hb1e142c852e9921dE.exit.loopexit.i.i ], [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h28b3c1d8fca98a5dE.exit.i" ]
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %23 = load i8, ptr %22, align 8, !range !3796, !alias.scope !8240, !noalias !8238, !noundef !10
-  %24 = zext nneg i8 %23 to i64
-  %25 = call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 5)
-  %26 = xor i64 %25, %24
+  %22 = phi i64 [ %21, %_ZN4core4hash4Hash10hash_slice17hb1e142c852e9921dE.exit.loopexit.i.i ], [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h28b3c1d8fca98a5dE.exit.i" ]
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %24 = load i8, ptr %23, align 8, !range !3796, !alias.scope !8240, !noalias !8238, !noundef !10
+  %25 = zext nneg i8 %24 to i64
+  %26 = xor i64 %22, %25
   %27 = mul i64 %26, 5871781006564002453
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %29 = load ptr, ptr %28, align 8, !alias.scope !8240, !noalias !8238, !nonnull !10, !noundef !10
@@ -31734,7 +31734,7 @@ _ZN4core4hash4Hash10hash_slice17hcae80cfecbb2c04cE.exit.loopexit.i.i: ; preds = 
   br i1 %94, label %95, label %.backedge.i.i
 
 95:                                               ; preds = %.noexc5
-  %96 = load i8, ptr %22, align 8, !range !3796, !alias.scope !8288, !noalias !8294, !noundef !10
+  %96 = load i8, ptr %23, align 8, !range !3796, !alias.scope !8288, !noalias !8294, !noundef !10
   %97 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i, i64 40
   %98 = load i8, ptr %97, align 8, !range !3796, !alias.scope !8292, !noalias !8301, !noundef !10
   %99 = icmp eq i8 %96, %98
@@ -32062,15 +32062,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h9e307244c836edcfE.llvm.1
 
 _ZN4core4hash4Hash10hash_slice17hb1e142c852e9921dE.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc10.i.i
   %.pre.i.i.i.i.i.i.i = load i64, ptr %2, align 8, !alias.scope !8383, !noalias !8378
+  %242 = call i64 @llvm.fshl.i64(i64 %.pre.i.i.i.i.i.i.i, i64 %.pre.i.i.i.i.i.i.i, i64 5)
   br label %_ZN4core4hash4Hash10hash_slice17hb1e142c852e9921dE.exit.i.i.i.i.i.i.i
 
 _ZN4core4hash4Hash10hash_slice17hb1e142c852e9921dE.exit.i.i.i.i.i.i.i: ; preds = %_ZN4core4hash4Hash10hash_slice17hb1e142c852e9921dE.exit.loopexit.i.i.i.i.i.i.i, %._crit_edge.i.i11
-  %242 = phi i64 [ %.pre.i.i.i.i.i.i.i, %_ZN4core4hash4Hash10hash_slice17hb1e142c852e9921dE.exit.loopexit.i.i.i.i.i.i.i ], [ 0, %._crit_edge.i.i11 ]
-  %243 = getelementptr inbounds nuw i8, ptr %.val3.i.i.i, i64 40
-  %244 = load i8, ptr %243, align 8, !range !3796, !alias.scope !8366, !noalias !8386, !noundef !10
-  %245 = zext nneg i8 %244 to i64
-  %246 = call i64 @llvm.fshl.i64(i64 %242, i64 %242, i64 5)
-  %247 = xor i64 %246, %245
+  %243 = phi i64 [ %242, %_ZN4core4hash4Hash10hash_slice17hb1e142c852e9921dE.exit.loopexit.i.i.i.i.i.i.i ], [ 0, %._crit_edge.i.i11 ]
+  %244 = getelementptr inbounds nuw i8, ptr %.val3.i.i.i, i64 40
+  %245 = load i8, ptr %244, align 8, !range !3796, !alias.scope !8366, !noalias !8386, !noundef !10
+  %246 = zext nneg i8 %245 to i64
+  %247 = xor i64 %243, %246
   %248 = mul i64 %247, 5871781006564002453
   %249 = getelementptr inbounds nuw i8, ptr %.val3.i.i.i, i64 24
   %250 = load ptr, ptr %249, align 8, !alias.scope !8366, !noalias !8386, !nonnull !10, !noundef !10
@@ -35384,28 +35384,28 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h82196accd7ee1872E
 
 _ZN4core4hash4Hash10hash_slice17hc5cd34c49339e6dfE.exit.loopexit.i.i: ; preds = %"_ZN76_$LT$hir_def..generics..TypeOrConstParamData$u20$as$u20$core..hash..Hash$GT$4hash17h230dfc55c70633a7E.llvm.13207202256514997924.exit.i.i.i"
   %.pre.i.i = load i64, ptr %5, align 8, !alias.scope !9283, !noalias !9258
+  %33 = call i64 @llvm.fshl.i64(i64 %.pre.i.i, i64 %.pre.i.i, i64 5)
   br label %_ZN4core4hash4Hash10hash_slice17hc5cd34c49339e6dfE.exit.i.i
 
 _ZN4core4hash4Hash10hash_slice17hc5cd34c49339e6dfE.exit.i.i: ; preds = %_ZN4core4hash4Hash10hash_slice17hc5cd34c49339e6dfE.exit.loopexit.i.i, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hf00a06ee8cf80ed4E.exit.i"
-  %33 = phi i64 [ %.pre.i.i, %_ZN4core4hash4Hash10hash_slice17hc5cd34c49339e6dfE.exit.loopexit.i.i ], [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hf00a06ee8cf80ed4E.exit.i" ]
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %35 = load ptr, ptr %34, align 8, !alias.scope !9258, !noalias !9256, !nonnull !10, !noundef !10
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %37 = load i64, ptr %36, align 8, !alias.scope !9258, !noalias !9256, !noundef !10
-  %38 = call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 5)
-  %39 = xor i64 %37, %38
+  %34 = phi i64 [ %33, %_ZN4core4hash4Hash10hash_slice17hc5cd34c49339e6dfE.exit.loopexit.i.i ], [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hf00a06ee8cf80ed4E.exit.i" ]
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %36 = load ptr, ptr %35, align 8, !alias.scope !9258, !noalias !9256, !nonnull !10, !noundef !10
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %38 = load i64, ptr %37, align 8, !alias.scope !9258, !noalias !9256, !noundef !10
+  %39 = xor i64 %38, %34
   %40 = mul i64 %39, 5871781006564002453
   store i64 %40, ptr %5, align 8, !alias.scope !9283, !noalias !9258
   call void @llvm.experimental.noalias.scope.decl(metadata !9288)
   call void @llvm.experimental.noalias.scope.decl(metadata !9291)
-  %.idx.i7.i.i = mul nsw i64 %37, 24
-  %41 = getelementptr inbounds i8, ptr %35, i64 %.idx.i7.i.i
-  %42 = icmp eq i64 %37, 0
+  %.idx.i7.i.i = mul nsw i64 %38, 24
+  %41 = getelementptr inbounds i8, ptr %36, i64 %.idx.i7.i.i
+  %42 = icmp eq i64 %38, 0
   br i1 %42, label %_ZN4core4hash4Hash10hash_slice17h895dbec4643b5870E.exit.i.i, label %.lr.ph.i8.i.i
 
 .lr.ph.i8.i.i:                                    ; preds = %_ZN4core4hash4Hash10hash_slice17hc5cd34c49339e6dfE.exit.i.i, %"_ZN73_$LT$hir_def..generics..LifetimeParamData$u20$as$u20$core..hash..Hash$GT$4hash17h1d83e940b7ce07d6E.llvm.13207202256514997924.exit.i.i.i"
   %43 = phi i64 [ %storemerge.i.i.i.i.i, %"_ZN73_$LT$hir_def..generics..LifetimeParamData$u20$as$u20$core..hash..Hash$GT$4hash17h1d83e940b7ce07d6E.llvm.13207202256514997924.exit.i.i.i" ], [ %40, %_ZN4core4hash4Hash10hash_slice17hc5cd34c49339e6dfE.exit.i.i ]
-  %.sroa.0.06.i9.i.i = phi ptr [ %44, %"_ZN73_$LT$hir_def..generics..LifetimeParamData$u20$as$u20$core..hash..Hash$GT$4hash17h1d83e940b7ce07d6E.llvm.13207202256514997924.exit.i.i.i" ], [ %35, %_ZN4core4hash4Hash10hash_slice17hc5cd34c49339e6dfE.exit.i.i ]
+  %.sroa.0.06.i9.i.i = phi ptr [ %44, %"_ZN73_$LT$hir_def..generics..LifetimeParamData$u20$as$u20$core..hash..Hash$GT$4hash17h1d83e940b7ce07d6E.llvm.13207202256514997924.exit.i.i.i" ], [ %36, %_ZN4core4hash4Hash10hash_slice17hc5cd34c49339e6dfE.exit.i.i ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i9.i.i, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !9293)
   call void @llvm.experimental.noalias.scope.decl(metadata !9296)

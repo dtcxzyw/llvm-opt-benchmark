@@ -150,7 +150,7 @@ define range(i32 -1, 1) i32 @H5FD_locate_signature(ptr noundef %0, ptr noundef w
   %7 = trunc nuw i8 %6 to i1
   %8 = xor i1 %7, true
   %9 = select i1 %5, i1 true, i1 %8
-  br i1 %9, label %10, label %50, !prof !9
+  br i1 %9, label %10, label %51, !prof !9
 
 10:                                               ; preds = %2
   %11 = tail call i64 @H5FD_get_eof(ptr noundef %0, i32 noundef 1)
@@ -165,7 +165,7 @@ define range(i32 -1, 1) i32 @H5FD_locate_signature(ptr noundef %0, ptr noundef w
   %15 = load i64, ptr @H5E_IO_g, align 8, !tbaa !10
   %16 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
   %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_locate_signature, i32 noundef 169, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.1) #12
-  br label %50
+  br label %51
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.03244 = phi i32 [ %19, %.lr.ph ], [ 0, %10 ]
@@ -173,72 +173,75 @@ define range(i32 -1, 1) i32 @H5FD_locate_signature(ptr noundef %0, ptr noundef w
   %18 = lshr i64 %.03443, 1
   %19 = add nuw nsw i32 %.03244, 1
   %.not = icmp ult i64 %.03443, 2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %.lr.ph, %10
-  %.032.lcssa = phi i32 [ 0, %10 ], [ %19, %.lr.ph ]
-  %20 = tail call i32 @llvm.umax.i32(i32 %.032.lcssa, i32 9)
-  %wide.trip.count = zext i32 %20 to i64
-  br label %22
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %20 = tail call i32 @llvm.umax.i32(i32 %19, i32 9)
+  %21 = zext nneg i32 %20 to i64
+  br label %._crit_edge
 
-21:                                               ; preds = %40
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
+  %.032.lcssa = phi i64 [ 9, %10 ], [ %21, %._crit_edge.loopexit ]
+  br label %23
+
+22:                                               ; preds = %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %41, label %22, !llvm.loop !14
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.032.lcssa
+  br i1 %exitcond.not, label %42, label %23, !llvm.loop !14
 
-22:                                               ; preds = %._crit_edge, %21
-  %indvars.iv = phi i64 [ 8, %._crit_edge ], [ %indvars.iv.next, %21 ]
-  %23 = icmp eq i64 %indvars.iv, 8
-  %24 = shl nuw i64 1, %indvars.iv
-  %25 = select i1 %23, i64 0, i64 %24
-  %26 = add nuw i64 %25, 8
-  %27 = call i32 @H5FD_set_eoa(ptr noundef %0, i32 noundef 1, i64 noundef %26)
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %33
+23:                                               ; preds = %._crit_edge, %22
+  %indvars.iv = phi i64 [ 8, %._crit_edge ], [ %indvars.iv.next, %22 ]
+  %24 = icmp eq i64 %indvars.iv, 8
+  %25 = shl nuw i64 1, %indvars.iv
+  %26 = select i1 %24, i64 0, i64 %25
+  %27 = add nuw i64 %26, 8
+  %28 = call i32 @H5FD_set_eoa(ptr noundef %0, i32 noundef 1, i64 noundef %27)
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %30, label %34
 
-29:                                               ; preds = %22
-  %30 = load i64, ptr @H5E_IO_g, align 8, !tbaa !10
-  %31 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
-  %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_locate_signature, i32 noundef 180, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #12
-  br label %50
+30:                                               ; preds = %23
+  %31 = load i64, ptr @H5E_IO_g, align 8, !tbaa !10
+  %32 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
+  %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_locate_signature, i32 noundef 180, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.2) #12
+  br label %51
 
-33:                                               ; preds = %22
-  %34 = call i32 @H5FD_read(ptr noundef %0, i32 noundef 1, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %3)
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %40
+34:                                               ; preds = %23
+  %35 = call i32 @H5FD_read(ptr noundef %0, i32 noundef 1, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %3)
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %37, label %41
 
-36:                                               ; preds = %33
-  %37 = load i64, ptr @H5E_IO_g, align 8, !tbaa !10
-  %38 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
-  %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_locate_signature, i32 noundef 182, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.3) #12
-  br label %50
+37:                                               ; preds = %34
+  %38 = load i64, ptr @H5E_IO_g, align 8, !tbaa !10
+  %39 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
+  %40 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_locate_signature, i32 noundef 182, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.3) #12
+  br label %51
 
-40:                                               ; preds = %33
+41:                                               ; preds = %34
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %3, ptr noundef nonnull dereferenceable(8) @.str.4, i64 8)
   %.not36 = icmp eq i32 %bcmp, 0
-  br i1 %.not36, label %49, label %21
+  br i1 %.not36, label %50, label %22
 
-41:                                               ; preds = %21
-  %42 = call i32 @H5FD_set_eoa(ptr noundef %0, i32 noundef 1, i64 noundef %12)
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %44, label %48
+42:                                               ; preds = %22
+  %43 = call i32 @H5FD_set_eoa(ptr noundef %0, i32 noundef 1, i64 noundef %12)
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %45, label %49
 
-44:                                               ; preds = %41
-  %45 = load i64, ptr @H5E_IO_g, align 8, !tbaa !10
-  %46 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
-  %47 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_locate_signature, i32 noundef 192, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.5) #12
-  br label %50
+45:                                               ; preds = %42
+  %46 = load i64, ptr @H5E_IO_g, align 8, !tbaa !10
+  %47 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
+  %48 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_locate_signature, i32 noundef 192, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.5) #12
+  br label %51
 
-48:                                               ; preds = %41
+49:                                               ; preds = %42
   store i64 -1, ptr %1, align 8, !tbaa !10
-  br label %50
+  br label %51
 
-49:                                               ; preds = %40
-  store i64 %25, ptr %1, align 8, !tbaa !10
-  br label %50
+50:                                               ; preds = %41
+  store i64 %26, ptr %1, align 8, !tbaa !10
+  br label %51
 
-50:                                               ; preds = %14, %29, %36, %44, %49, %48, %2
-  %.0 = phi i32 [ -1, %14 ], [ -1, %29 ], [ -1, %36 ], [ -1, %44 ], [ 0, %48 ], [ 0, %49 ], [ 0, %2 ]
+51:                                               ; preds = %14, %30, %37, %45, %50, %49, %2
+  %.0 = phi i32 [ -1, %14 ], [ -1, %30 ], [ -1, %37 ], [ -1, %45 ], [ 0, %49 ], [ 0, %50 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   ret i32 %.0
 }

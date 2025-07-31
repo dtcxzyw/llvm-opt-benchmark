@@ -97,7 +97,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_text_encode_init(ptr noundef 
   store i32 -1, ptr %38, align 4, !tbaa !48
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 1104
   store i8 0, ptr %39, align 4, !tbaa !49
-  br label %91
+  br label %92
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -112,7 +112,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_text_encode_init(ptr noundef 
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 1104
   store i8 0, ptr %47, align 4, !tbaa !49
   %.not114.i = icmp eq ptr %42, null
-  br i1 %.not114.i, label %91, label %48
+  br i1 %.not114.i, label %92, label %48
 
 48:                                               ; preds = %40, %.thread159.i
   %49 = phi ptr [ %31, %.thread159.i ], [ %47, %40 ]
@@ -163,26 +163,26 @@ define internal range(i32 -1094995529, 1) i32 @mov_text_encode_init(ptr noundef 
   %88 = or disjoint i32 %85, %87
   %89 = xor i32 %82, -1
   %90 = tail call i32 @llvm.fshl.i32(i32 %88, i32 %89, i32 8)
-  br label %91
+  %91 = tail call i32 @llvm.bswap.i32(i32 %90)
+  br label %92
 
-91:                                               ; preds = %48, %40, %.thread.i
+92:                                               ; preds = %48, %40, %.thread.i
   %.not114158.i = phi i1 [ false, %48 ], [ true, %40 ], [ true, %.thread.i ]
-  %92 = phi ptr [ %49, %48 ], [ %47, %40 ], [ %39, %.thread.i ]
-  %93 = phi ptr [ %50, %48 ], [ %46, %40 ], [ %38, %.thread.i ]
-  %94 = phi ptr [ %51, %48 ], [ %45, %40 ], [ %37, %.thread.i ]
-  %95 = phi ptr [ %52, %48 ], [ %43, %40 ], [ %35, %.thread.i ]
+  %93 = phi ptr [ %49, %48 ], [ %47, %40 ], [ %39, %.thread.i ]
+  %94 = phi ptr [ %50, %48 ], [ %46, %40 ], [ %38, %.thread.i ]
+  %95 = phi ptr [ %51, %48 ], [ %45, %40 ], [ %37, %.thread.i ]
+  %96 = phi ptr [ %52, %48 ], [ %43, %40 ], [ %35, %.thread.i ]
   %.0157.i = phi ptr [ %.0162.i, %48 ], [ null, %40 ], [ null, %.thread.i ]
-  %.0103.i = phi i32 [ %90, %48 ], [ 0, %40 ], [ 0, %.thread.i ]
+  %.0103.i = phi i32 [ %91, %48 ], [ 0, %40 ], [ 0, %.thread.i ]
   store i32 0, ptr %2, align 16, !tbaa !58
-  %96 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i16 -255, ptr %96, align 4, !tbaa !58
-  %97 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  %98 = tail call i32 @llvm.bswap.i32(i32 %.0103.i)
-  store i32 %98, ptr %97, align 2, !tbaa !58
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i16 -255, ptr %97, align 4, !tbaa !58
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  store i32 %.0103.i, ptr %98, align 2, !tbaa !58
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i64 0, ptr %99, align 2, !tbaa !58
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %101 = load i16, ptr %95, align 4, !tbaa !59
+  %101 = load i16, ptr %96, align 4, !tbaa !59
   %102 = tail call i16 @llvm.bswap.i16(i16 %101)
   store i16 %102, ptr %100, align 2, !tbaa !58
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -193,19 +193,19 @@ define internal range(i32 -1094995529, 1) i32 @mov_text_encode_init(ptr noundef 
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 22
   store i16 256, ptr %107, align 2, !tbaa !58
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %109 = load i8, ptr %92, align 4, !tbaa !49
+  %109 = load i8, ptr %93, align 4, !tbaa !49
   store i8 %109, ptr %108, align 8, !tbaa !58
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 25
-  %111 = load i8, ptr %94, align 4, !tbaa !47
+  %111 = load i8, ptr %95, align 4, !tbaa !47
   store i8 %111, ptr %110, align 1, !tbaa !58
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 26
-  %113 = load i32, ptr %93, align 4, !tbaa !48
+  %113 = load i32, ptr %94, align 4, !tbaa !48
   %114 = tail call i32 @llvm.bswap.i32(i32 %113)
   store i32 %114, ptr %112, align 2, !tbaa !58
   call void @av_bprint_append_data(ptr noundef nonnull %12, ptr noundef nonnull %2, i32 noundef 30) #8
   br i1 %.not114158.i, label %155, label %115
 
-115:                                              ; preds = %91
+115:                                              ; preds = %92
   %116 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %117 = load i32, ptr %116, align 8, !tbaa !46
   %.not117.i = icmp eq i32 %117, 0
@@ -293,7 +293,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_text_encode_init(ptr noundef 
   %154 = icmp slt i64 %indvars.iv.next176.i, %153
   br i1 %154, label %133, label %.loopexit165.i, !llvm.loop !67
 
-155:                                              ; preds = %115, %91
+155:                                              ; preds = %115, %92
   %156 = getelementptr inbounds nuw i8, ptr %11, i64 1120
   %157 = getelementptr inbounds nuw i8, ptr %11, i64 1128
   call void @av_dynarray_add(ptr noundef nonnull %156, ptr noundef nonnull %157, ptr noundef nonnull @.str.8) #8
@@ -308,7 +308,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_text_encode_init(ptr noundef 
   %162 = add i32 %161, %160
   %163 = call i32 @llvm.bswap.i32(i32 %162)
   store i32 %163, ptr %2, align 16, !tbaa !58
-  store i32 1650553958, ptr %96, align 4, !tbaa !58
+  store i32 1650553958, ptr %97, align 4, !tbaa !58
   %164 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %165 = trunc i32 %159 to i16
   %166 = call i16 @llvm.bswap.i16(i16 %165)

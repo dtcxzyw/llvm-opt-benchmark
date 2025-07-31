@@ -2895,76 +2895,76 @@ define range(i32 -1, 1) i32 @evutil_parse_sockaddr_port(ptr noundef %0, ptr noun
 
 44:                                               ; preds = %.critedge
   %45 = trunc i64 %37 to i16
+  %46 = tail call i16 @llvm.bswap.i16(i16 %45)
   br label %.critedge.thread.thread79
 
 .critedge.thread.thread79:                        ; preds = %44, %28, %22
-  %.05072 = phi i16 [ %45, %44 ], [ 0, %22 ], [ 0, %28 ]
+  %.05072 = phi i16 [ %46, %44 ], [ 0, %22 ], [ 0, %28 ]
   %.1496870 = phi ptr [ %10, %44 ], [ %10, %22 ], [ %0, %28 ]
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %11) #30
-  %46 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %46, i8 0, i64 20, i1 false)
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %47, i8 0, i64 20, i1 false)
   store i16 10, ptr %11, align 4
-  %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %.05072)
-  %47 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  store i16 %rev.i, ptr %47, align 2
-  %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %49 = call i32 @evutil_inet_pton_scope(i32 noundef 10, ptr noundef nonnull %.1496870, ptr noundef nonnull %48, ptr noundef nonnull %9)
-  %.not61 = icmp eq i32 %49, 1
-  br i1 %.not61, label %50, label %56
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  store i16 %.05072, ptr %48, align 2
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %50 = call i32 @evutil_inet_pton_scope(i32 noundef 10, ptr noundef nonnull %.1496870, ptr noundef nonnull %49, ptr noundef nonnull %9)
+  %.not61 = icmp eq i32 %50, 1
+  br i1 %.not61, label %51, label %57
 
-50:                                               ; preds = %.critedge.thread.thread79
-  %51 = load i32, ptr %2, align 4
-  %52 = icmp slt i32 %51, 28
-  br i1 %52, label %56, label %53
+51:                                               ; preds = %.critedge.thread.thread79
+  %52 = load i32, ptr %2, align 4
+  %53 = icmp slt i32 %52, 28
+  br i1 %53, label %57, label %54
 
-53:                                               ; preds = %50
-  %54 = load i32, ptr %9, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i32 %54, ptr %55, align 4
+54:                                               ; preds = %51
+  %55 = load i32, ptr %9, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i32 %55, ptr %56, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(28) %1, ptr noundef nonnull align 4 dereferenceable(28) %11, i64 28, i1 false)
   store i32 28, ptr %2, align 4
-  br label %56
+  br label %57
 
-56:                                               ; preds = %50, %.critedge.thread.thread79, %53
-  %.2 = phi i32 [ 0, %53 ], [ -1, %.critedge.thread.thread79 ], [ -1, %50 ]
+57:                                               ; preds = %51, %.critedge.thread.thread79, %54
+  %.2 = phi i32 [ 0, %54 ], [ -1, %.critedge.thread.thread79 ], [ -1, %51 ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %11) #30
   br label %.thread
 
 .critedge.thread.thread:                          ; preds = %.critedge.thread, %27
   %.05073 = phi i32 [ 0, %27 ], [ %42, %.critedge.thread ]
   %.1496871 = phi ptr [ %0, %27 ], [ %10, %.critedge.thread ]
-  %57 = trunc nuw i32 %.05073 to i16
-  %rev.i62 = tail call noundef i16 @llvm.bswap.i16(i16 %57)
+  %58 = trunc nuw i32 %.05073 to i16
+  %rev.i62 = tail call noundef i16 @llvm.bswap.i16(i16 %58)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #30
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #30
-  %58 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1496871, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #30
-  %.not134.i = icmp eq i32 %58, 4
-  br i1 %.not134.i, label %59, label %evutil_inet_pton.exit.thread
+  %59 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1496871, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #30
+  %.not134.i = icmp eq i32 %59, 4
+  br i1 %.not134.i, label %60, label %evutil_inet_pton.exit.thread
 
-59:                                               ; preds = %.critedge.thread.thread
-  %60 = load i32, ptr %4, align 4
-  %61 = icmp ugt i32 %60, 255
-  br i1 %61, label %evutil_inet_pton.exit.thread, label %62
+60:                                               ; preds = %.critedge.thread.thread
+  %61 = load i32, ptr %4, align 4
+  %62 = icmp ugt i32 %61, 255
+  br i1 %62, label %evutil_inet_pton.exit.thread, label %63
 
-62:                                               ; preds = %59
-  %63 = load i32, ptr %5, align 4
-  %64 = icmp ugt i32 %63, 255
-  br i1 %64, label %evutil_inet_pton.exit.thread, label %65
+63:                                               ; preds = %60
+  %64 = load i32, ptr %5, align 4
+  %65 = icmp ugt i32 %64, 255
+  br i1 %65, label %evutil_inet_pton.exit.thread, label %66
 
-65:                                               ; preds = %62
-  %66 = load i32, ptr %6, align 4
-  %67 = icmp ugt i32 %66, 255
-  br i1 %67, label %evutil_inet_pton.exit.thread, label %68
+66:                                               ; preds = %63
+  %67 = load i32, ptr %6, align 4
+  %68 = icmp ugt i32 %67, 255
+  br i1 %68, label %evutil_inet_pton.exit.thread, label %69
 
-68:                                               ; preds = %65
-  %69 = load i32, ptr %7, align 4
-  %70 = icmp ugt i32 %69, 255
-  br i1 %70, label %evutil_inet_pton.exit.thread, label %71
+69:                                               ; preds = %66
+  %70 = load i32, ptr %7, align 4
+  %71 = icmp ugt i32 %70, 255
+  br i1 %71, label %evutil_inet_pton.exit.thread, label %72
 
-evutil_inet_pton.exit.thread:                     ; preds = %.critedge.thread.thread, %59, %62, %65, %68
+evutil_inet_pton.exit.thread:                     ; preds = %.critedge.thread.thread, %60, %63, %66, %69
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
@@ -2972,36 +2972,36 @@ evutil_inet_pton.exit.thread:                     ; preds = %.critedge.thread.th
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #30
   br label %.thread
 
-71:                                               ; preds = %68
+72:                                               ; preds = %69
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #30
-  %72 = load i32, ptr %2, align 4
-  %73 = icmp slt i32 %72, 16
-  br i1 %73, label %.thread, label %74
+  %73 = load i32, ptr %2, align 4
+  %74 = icmp slt i32 %73, 16
+  br i1 %74, label %.thread, label %75
 
-74:                                               ; preds = %71
-  %75 = shl nuw nsw i32 %63, 16
-  %76 = shl nuw i32 %60, 24
-  %77 = or disjoint i32 %75, %76
-  %78 = shl nuw nsw i32 %66, 8
-  %79 = or disjoint i32 %77, %78
-  %80 = or disjoint i32 %79, %69
-  %81 = call noundef i32 @llvm.bswap.i32(i32 %80)
+75:                                               ; preds = %72
+  %76 = shl nuw nsw i32 %64, 16
+  %77 = shl nuw i32 %61, 24
+  %78 = or disjoint i32 %76, %77
+  %79 = shl nuw nsw i32 %67, 8
+  %80 = or disjoint i32 %78, %79
+  %81 = or disjoint i32 %80, %70
+  %82 = call noundef i32 @llvm.bswap.i32(i32 %81)
   store i16 2, ptr %1, align 2
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 %rev.i62, ptr %.sroa.5.0..sroa_idx, align 2
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %81, ptr %.sroa.6.0..sroa_idx, align 2
+  store i32 %82, ptr %.sroa.6.0..sroa_idx, align 2
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %.sroa.7.0..sroa_idx, align 2
   store i32 16, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.critedge.thread, %16, %14, %74, %71, %evutil_inet_pton.exit.thread, %.critedge, %31, %56
-  %.1 = phi i32 [ %.2, %56 ], [ -1, %31 ], [ -1, %.critedge ], [ 0, %74 ], [ -1, %71 ], [ -1, %evutil_inet_pton.exit.thread ], [ -1, %14 ], [ -1, %16 ], [ -1, %.critedge.thread ]
+.thread:                                          ; preds = %.critedge.thread, %16, %14, %75, %72, %evutil_inet_pton.exit.thread, %.critedge, %31, %57
+  %.1 = phi i32 [ %.2, %57 ], [ -1, %31 ], [ -1, %.critedge ], [ 0, %75 ], [ -1, %72 ], [ -1, %evutil_inet_pton.exit.thread ], [ -1, %14 ], [ -1, %16 ], [ -1, %.critedge.thread ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #30
   ret i32 %.1

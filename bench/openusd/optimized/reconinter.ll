@@ -1445,7 +1445,7 @@ define hidden void @av1_dist_wtd_comp_weight_assign(ptr noundef readonly capture
   store i32 8, ptr %3, align 4
   store i32 8, ptr %4, align 4
   store i32 0, ptr %5, align 4
-  br label %112
+  br label %110
 
 13:                                               ; preds = %8
   store i32 1, ptr %5, align 4
@@ -1526,93 +1526,89 @@ get_ref_frame_buf.exit73:                         ; preds = %get_ref_frame_buf.e
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 25224
   %57 = load i32, ptr %56, align 4
   %.not.i74 = icmp eq i32 %57, 0
-  br i1 %.not.i74, label %get_relative_dist.exit77, label %58
+  br i1 %.not.i74, label %get_relative_dist.exit77.thread, label %get_relative_dist.exit77
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 25228
-  %60 = load i32, ptr %59, align 4
-  %61 = sub nsw i32 %.057, %47
-  %62 = shl nuw i32 1, %60
-  %63 = add nsw i32 %62, -1
-  %64 = and i32 %63, %61
-  %65 = and i32 %62, %61
-  %66 = sub nsw i32 %64, %65
-  %67 = tail call i32 @llvm.abs.i32(i32 %66, i1 true)
-  %68 = tail call i32 @llvm.umin.i32(i32 range(i32 -67108826, -2147483648) %67, i32 31)
-  %69 = sub nsw i32 %47, %.0
-  %70 = and i32 %63, %69
-  %71 = and i32 %62, %69
-  %72 = sub nsw i32 %70, %71
-  br label %get_relative_dist.exit77
-
-get_relative_dist.exit77:                         ; preds = %55, %58
-  %73 = phi i32 [ %68, %58 ], [ 0, %55 ]
-  %.0.i76 = phi i32 [ %72, %58 ], [ 0, %55 ]
-  %74 = tail call i32 @llvm.abs.i32(i32 %.0.i76, i1 true)
-  %75 = tail call i32 @llvm.umin.i32(i32 range(i32 -67108826, -2147483648) %74, i32 31)
-  %76 = icmp samesign uge i32 %74, %73
-  %77 = icmp eq i32 %73, 0
-  %78 = icmp eq i32 %.0.i76, 0
-  %or.cond = select i1 %77, i1 true, i1 %78
-  br i1 %or.cond, label %83, label %.preheader
+get_relative_dist.exit77:                         ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 25228
+  %59 = load i32, ptr %58, align 4
+  %60 = sub nsw i32 %.057, %47
+  %61 = shl nuw i32 1, %59
+  %62 = add nsw i32 %61, -1
+  %63 = and i32 %62, %60
+  %64 = and i32 %61, %60
+  %65 = sub nsw i32 %63, %64
+  %66 = tail call i32 @llvm.abs.i32(i32 %65, i1 true)
+  %67 = tail call i32 @llvm.umin.i32(i32 range(i32 -67108826, -2147483648) %66, i32 31)
+  %68 = sub nsw i32 %47, %.0
+  %69 = and i32 %62, %68
+  %70 = and i32 %61, %68
+  %71 = sub nsw i32 %69, %70
+  %72 = tail call i32 @llvm.abs.i32(i32 %71, i1 true)
+  %73 = tail call i32 @llvm.umin.i32(i32 range(i32 -67108826, -2147483648) %72, i32 31)
+  %74 = icmp samesign uge i32 %72, %67
+  %75 = icmp eq i32 %63, %64
+  %76 = icmp eq i32 %69, %70
+  %or.cond = select i1 %75, i1 true, i1 %76
+  br i1 %or.cond, label %get_relative_dist.exit77.thread, label %.preheader
 
 .preheader:                                       ; preds = %get_relative_dist.exit77
-  %79 = zext i1 %76 to i64
-  %80 = xor i1 %76, true
-  %81 = zext i1 %80 to i64
-  %82 = icmp samesign ult i32 %74, %73
-  br label %92
+  %77 = zext i1 %74 to i64
+  %78 = xor i1 %74, true
+  %79 = zext i1 %78 to i64
+  %80 = icmp samesign ult i32 %72, %67
+  br label %90
 
-83:                                               ; preds = %get_relative_dist.exit77
-  %84 = sext i32 %2 to i64
-  %85 = getelementptr inbounds [2 x [4 x [2 x i32]]], ptr @quant_dist_lookup_table, i64 0, i64 %84, i64 3
-  %86 = zext i1 %76 to i64
-  %87 = getelementptr inbounds nuw [2 x i32], ptr %85, i64 0, i64 %86
-  %88 = load i32, ptr %87, align 4
-  store i32 %88, ptr %3, align 4
-  %not.66 = xor i1 %76, true
-  %89 = zext i1 %not.66 to i64
-  %90 = getelementptr inbounds nuw [2 x i32], ptr %85, i64 0, i64 %89
-  %91 = load i32, ptr %90, align 4
-  store i32 %91, ptr %4, align 4
-  br label %112
+get_relative_dist.exit77.thread:                  ; preds = %55, %get_relative_dist.exit77
+  %81 = phi i1 [ %74, %get_relative_dist.exit77 ], [ true, %55 ]
+  %82 = sext i32 %2 to i64
+  %83 = getelementptr inbounds [2 x [4 x [2 x i32]]], ptr @quant_dist_lookup_table, i64 0, i64 %82, i64 3
+  %84 = zext i1 %81 to i64
+  %85 = getelementptr inbounds nuw [2 x i32], ptr %83, i64 0, i64 %84
+  %86 = load i32, ptr %85, align 4
+  store i32 %86, ptr %3, align 4
+  %not.66 = xor i1 %81, true
+  %87 = zext i1 %not.66 to i64
+  %88 = getelementptr inbounds nuw [2 x i32], ptr %83, i64 0, i64 %87
+  %89 = load i32, ptr %88, align 4
+  store i32 %89, ptr %4, align 4
+  br label %110
 
-92:                                               ; preds = %.preheader, %102
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %102 ]
-  %93 = getelementptr inbounds nuw [4 x [2 x i32]], ptr @quant_dist_weight, i64 0, i64 %indvars.iv
-  %94 = getelementptr inbounds nuw [2 x i32], ptr %93, i64 0, i64 %79
+90:                                               ; preds = %.preheader, %100
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %100 ]
+  %91 = getelementptr inbounds nuw [4 x [2 x i32]], ptr @quant_dist_weight, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [2 x i32], ptr %91, i64 0, i64 %77
+  %93 = load i32, ptr %92, align 4
+  %94 = getelementptr inbounds nuw [2 x i32], ptr %91, i64 0, i64 %79
   %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds nuw [2 x i32], ptr %93, i64 0, i64 %81
-  %97 = load i32, ptr %96, align 4
-  %98 = mul nsw i32 %95, %73
-  %99 = mul nsw i32 %97, %75
-  %100 = icmp slt i32 %98, %99
-  %or.cond67 = select i1 %82, i1 %100, i1 false
-  %101 = icmp sgt i32 %98, %99
-  %or.cond68 = select i1 %76, i1 %101, i1 false
+  %96 = mul nsw i32 %93, %67
+  %97 = mul nsw i32 %95, %73
+  %98 = icmp slt i32 %96, %97
+  %or.cond67 = select i1 %80, i1 %98, i1 false
+  %99 = icmp sgt i32 %96, %97
+  %or.cond68 = select i1 %74, i1 %99, i1 false
   %or.cond69 = select i1 %or.cond67, i1 true, i1 %or.cond68
-  br i1 %or.cond69, label %103, label %102
+  br i1 %or.cond69, label %101, label %100
 
-102:                                              ; preds = %92
+100:                                              ; preds = %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %103, label %92, !llvm.loop !35
+  br i1 %exitcond.not, label %101, label %90, !llvm.loop !35
 
-103:                                              ; preds = %92, %102
-  %.058.lcssa = phi i64 [ %indvars.iv, %92 ], [ 3, %102 ]
-  %104 = sext i32 %2 to i64
-  %105 = getelementptr inbounds [2 x [4 x [2 x i32]]], ptr @quant_dist_lookup_table, i64 0, i64 %104
-  %106 = and i64 %.058.lcssa, 4294967295
-  %107 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %105, i64 0, i64 %106
-  %108 = getelementptr inbounds nuw [2 x i32], ptr %107, i64 0, i64 %79
+101:                                              ; preds = %90, %100
+  %.058.lcssa = phi i64 [ %indvars.iv, %90 ], [ 3, %100 ]
+  %102 = sext i32 %2 to i64
+  %103 = getelementptr inbounds [2 x [4 x [2 x i32]]], ptr @quant_dist_lookup_table, i64 0, i64 %102
+  %104 = and i64 %.058.lcssa, 4294967295
+  %105 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %103, i64 0, i64 %104
+  %106 = getelementptr inbounds nuw [2 x i32], ptr %105, i64 0, i64 %77
+  %107 = load i32, ptr %106, align 4
+  store i32 %107, ptr %3, align 4
+  %108 = getelementptr inbounds nuw [2 x i32], ptr %105, i64 0, i64 %79
   %109 = load i32, ptr %108, align 4
-  store i32 %109, ptr %3, align 4
-  %110 = getelementptr inbounds nuw [2 x i32], ptr %107, i64 0, i64 %81
-  %111 = load i32, ptr %110, align 4
-  store i32 %111, ptr %4, align 4
-  br label %112
+  store i32 %109, ptr %4, align 4
+  br label %110
 
-112:                                              ; preds = %103, %83, %12
+110:                                              ; preds = %101, %get_relative_dist.exit77.thread, %12
   ret void
 }
 

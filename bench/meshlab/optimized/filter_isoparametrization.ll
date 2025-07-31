@@ -63854,16 +63854,15 @@ define linkonce_odr noundef float @_Z21ApproxAngleDistortionI8BaseMeshENT_10Scal
   br i1 %137, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !754
 
 ._crit_edge.loopexit:                             ; preds = %134
-  %138 = fmul float %.161, 2.000000e+00
+  %138 = tail call float @llvm.fabs.f32(float %.1)
+  %139 = fmul float %.161, 2.000000e+00
+  %140 = fdiv float %138, %139
+  %141 = fadd float %140, -1.000000e+00
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.060.lcssa = phi float [ 0.000000e+00, %1 ], [ %138, %._crit_edge.loopexit ]
-  %.059.lcssa = phi float [ 0.000000e+00, %1 ], [ %.1, %._crit_edge.loopexit ]
-  %139 = tail call noundef float @llvm.fabs.f32(float %.059.lcssa)
-  %140 = fdiv float %139, %.060.lcssa
-  %141 = fadd float %140, -1.000000e+00
-  ret float %141
+  %142 = phi float [ 0x7FF8000000000000, %1 ], [ %141, %._crit_edge.loopexit ]
+  ret float %142
 }
 
 ; Function Attrs: mustprogress uwtable

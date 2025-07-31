@@ -609,15 +609,15 @@ define hidden void @av1_convolve_y_sr_c(ptr noundef readonly captures(none) %0, 
 ._crit_edge.us.loopexit:                          ; preds = %.lr.ph.us
   %25 = add nsw i32 %38, 64
   %26 = ashr i32 %25, 7
+  %27 = tail call i32 @llvm.smax.i32(i32 %26, i32 0)
+  %28 = tail call i32 @llvm.umin.i32(i32 %27, i32 255)
+  %29 = trunc nuw i32 %28 to i8
   br label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit, %.preheader.us
-  %.025.lcssa.us = phi i32 [ 0, %.preheader.us ], [ %26, %._crit_edge.us.loopexit ]
-  %27 = tail call i32 @llvm.smax.i32(i32 %.025.lcssa.us, i32 0)
-  %28 = tail call i32 @llvm.umin.i32(i32 %27, i32 255)
-  %29 = trunc nuw i32 %28 to i8
+  %.025.lcssa.us = phi i8 [ 0, %.preheader.us ], [ %29, %._crit_edge.us.loopexit ]
   %gep53 = getelementptr i8, ptr %invariant.gep52, i64 %indvars.iv40
-  store i8 %29, ptr %gep53, align 1
+  store i8 %.025.lcssa.us, ptr %gep53, align 1
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
   br i1 %exitcond44.not, label %._crit_edge34.us, label %.preheader.us, !llvm.loop !27
@@ -1888,15 +1888,15 @@ define hidden void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr n
 ._crit_edge.us.loopexit.i:                        ; preds = %.lr.ph.us.i82
   %88 = add nsw i32 %101, 64
   %89 = ashr i32 %88, 7
+  %90 = tail call i32 @llvm.smax.i32(i32 %89, i32 0)
+  %91 = tail call i32 @llvm.umin.i32(i32 %90, i32 255)
+  %92 = trunc nuw i32 %91 to i8
   br label %._crit_edge.us.i87
 
 ._crit_edge.us.i87:                               ; preds = %.preheader.us.i78, %._crit_edge.us.loopexit.i
-  %.025.lcssa.us.i = phi i32 [ 0, %.preheader.us.i78 ], [ %89, %._crit_edge.us.loopexit.i ]
-  %90 = tail call i32 @llvm.smax.i32(i32 %.025.lcssa.us.i, i32 0)
-  %91 = tail call i32 @llvm.umin.i32(i32 %90, i32 255)
-  %92 = trunc nuw i32 %91 to i8
+  %.025.lcssa.us.i = phi i8 [ 0, %.preheader.us.i78 ], [ %92, %._crit_edge.us.loopexit.i ]
   %gep53.i = getelementptr i8, ptr %invariant.gep52.i, i64 %indvars.iv40.i
-  store i8 %92, ptr %gep53.i, align 1
+  store i8 %.025.lcssa.us.i, ptr %gep53.i, align 1
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count43.i
   br i1 %exitcond44.not.i, label %._crit_edge34.us.i, label %.preheader.us.i78, !llvm.loop !27
@@ -2225,15 +2225,15 @@ define hidden void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr n
 ._crit_edge.us.loopexit.i.i:                      ; preds = %.lr.ph.us.i54.i
   %241 = add nsw i32 %254, 64
   %242 = ashr i32 %241, 7
+  %243 = tail call i32 @llvm.smax.i32(i32 %242, i32 0)
+  %244 = tail call i32 @llvm.umin.i32(i32 %243, i32 255)
+  %245 = trunc nuw i32 %244 to i8
   br label %._crit_edge.us.i59.i
 
 ._crit_edge.us.i59.i:                             ; preds = %.preheader.us.i50.i, %._crit_edge.us.loopexit.i.i
-  %.025.lcssa.us.i.i = phi i32 [ 0, %.preheader.us.i50.i ], [ %242, %._crit_edge.us.loopexit.i.i ]
-  %243 = tail call i32 @llvm.smax.i32(i32 %.025.lcssa.us.i.i, i32 0)
-  %244 = tail call i32 @llvm.umin.i32(i32 %243, i32 255)
-  %245 = trunc nuw i32 %244 to i8
+  %.025.lcssa.us.i.i = phi i8 [ 0, %.preheader.us.i50.i ], [ %245, %._crit_edge.us.loopexit.i.i ]
   %gep53.i.i = getelementptr i8, ptr %invariant.gep52.i.i, i64 %indvars.iv40.i.i
-  store i8 %245, ptr %gep53.i.i, align 1
+  store i8 %.025.lcssa.us.i.i, ptr %gep53.i.i, align 1
   %indvars.iv.next41.i.i = add nuw nsw i64 %indvars.iv40.i.i, 1
   %exitcond44.not.i.i = icmp eq i64 %indvars.iv.next41.i.i, %wide.trip.count43.i.i
   br i1 %exitcond44.not.i.i, label %._crit_edge34.us.i.i, label %.preheader.us.i50.i, !llvm.loop !27
@@ -2428,26 +2428,26 @@ define hidden void @av1_highbd_convolve_y_sr_c(ptr noundef readonly captures(non
 ._crit_edge.us.loopexit:                          ; preds = %.lr.ph.us
   %26 = add nsw i32 %43, 64
   %27 = ashr i32 %26, 7
+  %28 = tail call i32 @llvm.smax.i32(i32 %27, i32 0)
   br label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit, %.preheader.us
-  %.026.lcssa.us = phi i32 [ 0, %.preheader.us ], [ %27, %._crit_edge.us.loopexit ]
-  %28 = tail call i32 @llvm.smax.i32(i32 %.026.lcssa.us, i32 0)
+  %.026.lcssa.us = phi i32 [ 0, %.preheader.us ], [ %28, %._crit_edge.us.loopexit ]
   switch i32 %8, label %33 [
     i32 12, label %31
     i32 10, label %29
   ]
 
 29:                                               ; preds = %._crit_edge.us
-  %30 = tail call i32 @llvm.umin.i32(i32 %28, i32 1023)
+  %30 = tail call i32 @llvm.umin.i32(i32 %.026.lcssa.us, i32 1023)
   br label %clip_pixel_highbd.exit.us
 
 31:                                               ; preds = %._crit_edge.us
-  %32 = tail call i32 @llvm.umin.i32(i32 %28, i32 4095)
+  %32 = tail call i32 @llvm.umin.i32(i32 %.026.lcssa.us, i32 4095)
   br label %clip_pixel_highbd.exit.us
 
 33:                                               ; preds = %._crit_edge.us
-  %34 = tail call i32 @llvm.umin.i32(i32 %28, i32 255)
+  %34 = tail call i32 @llvm.umin.i32(i32 %.026.lcssa.us, i32 255)
   br label %clip_pixel_highbd.exit.us
 
 clip_pixel_highbd.exit.us:                        ; preds = %33, %31, %29
@@ -4142,26 +4142,26 @@ clip_pixel_highbd.exit.us.i.i63:                  ; preds = %150, %148, %146
 ._crit_edge.us.loopexit.i.i:                      ; preds = %.lr.ph.us.i57.i
   %181 = add nsw i32 %198, 64
   %182 = ashr i32 %181, 7
+  %183 = tail call i32 @llvm.smax.i32(i32 %182, i32 0)
   br label %._crit_edge.us.i62.i
 
 ._crit_edge.us.i62.i:                             ; preds = %.preheader.us.i53.i, %._crit_edge.us.loopexit.i.i
-  %.026.lcssa.us.i.i = phi i32 [ 0, %.preheader.us.i53.i ], [ %182, %._crit_edge.us.loopexit.i.i ]
-  %183 = tail call i32 @llvm.smax.i32(i32 %.026.lcssa.us.i.i, i32 0)
+  %.026.lcssa.us.i.i = phi i32 [ 0, %.preheader.us.i53.i ], [ %183, %._crit_edge.us.loopexit.i.i ]
   switch i32 %13, label %188 [
     i32 12, label %186
     i32 10, label %184
   ]
 
 184:                                              ; preds = %._crit_edge.us.i62.i
-  %185 = tail call i32 @llvm.umin.i32(i32 %183, i32 1023)
+  %185 = tail call i32 @llvm.umin.i32(i32 %.026.lcssa.us.i.i, i32 1023)
   br label %clip_pixel_highbd.exit.us.i63.i
 
 186:                                              ; preds = %._crit_edge.us.i62.i
-  %187 = tail call i32 @llvm.umin.i32(i32 %183, i32 4095)
+  %187 = tail call i32 @llvm.umin.i32(i32 %.026.lcssa.us.i.i, i32 4095)
   br label %clip_pixel_highbd.exit.us.i63.i
 
 188:                                              ; preds = %._crit_edge.us.i62.i
-  %189 = tail call i32 @llvm.umin.i32(i32 %183, i32 255)
+  %189 = tail call i32 @llvm.umin.i32(i32 %.026.lcssa.us.i.i, i32 255)
   br label %clip_pixel_highbd.exit.us.i63.i
 
 clip_pixel_highbd.exit.us.i63.i:                  ; preds = %188, %186, %184

@@ -63,12 +63,11 @@ tailrecurse:                                      ; preds = %tailrecurse, %2
 
 11:                                               ; preds = %6
   %12 = sitofp i32 %0 to double
-  br label %20
+  br label %._crit_edge
 
-._crit_edge:                                      ; preds = %14, %.preheader
-  %.016.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %18, %14 ]
-  %13 = tail call double @llvm.round.f64(double %.016.lcssa)
-  br label %20
+._crit_edge.loopexit:                             ; preds = %14
+  %13 = tail call double @llvm.round.f64(double %18)
+  br label %._crit_edge
 
 14:                                               ; preds = %.lr.ph, %14
   %.022 = phi i32 [ 1, %.lr.ph ], [ %19, %14 ]
@@ -79,10 +78,10 @@ tailrecurse:                                      ; preds = %tailrecurse, %2
   %18 = fmul double %.01621, %17
   %19 = add nuw i32 %.022, 1
   %exitcond.not = icmp eq i32 %.022, %.tr19
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %14, !llvm.loop !4
 
-20:                                               ; preds = %._crit_edge, %11
-  %.017 = phi double [ %12, %11 ], [ %13, %._crit_edge ]
+._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit, %11
+  %.017 = phi double [ %12, %11 ], [ 1.000000e+00, %.preheader ], [ %13, %._crit_edge.loopexit ]
   ret double %.017
 }
 
@@ -147,7 +146,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i, %23
 
 .preheader.i:                                     ; preds = %28
   %.not20.i = icmp slt i32 %.tr19.i, 1
-  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not20.i, label %_ZN3igl8nchoosekEii.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %30 = sitofp i32 %24 to double
@@ -159,9 +158,8 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i, %23
   %34 = sitofp i32 %24 to double
   br label %_ZN3igl8nchoosekEii.exit
 
-._crit_edge.i:                                    ; preds = %36, %.preheader.i
-  %.016.lcssa.i = phi double [ 1.000000e+00, %.preheader.i ], [ %40, %36 ]
-  %35 = tail call double @llvm.round.f64(double %.016.lcssa.i)
+._crit_edge.loopexit.i:                           ; preds = %36
+  %35 = tail call double @llvm.round.f64(double %40)
   br label %_ZN3igl8nchoosekEii.exit
 
 36:                                               ; preds = %36, %.lr.ph.i
@@ -173,10 +171,10 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i, %23
   %40 = fmul double %.01621.i, %39
   %41 = add nuw nsw i32 %.022.i, 1
   %exitcond.not.i = icmp eq i32 %.022.i, %.tr19.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %36, !llvm.loop !4
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %36, !llvm.loop !4
 
-_ZN3igl8nchoosekEii.exit:                         ; preds = %33, %._crit_edge.i
-  %.017.i = phi double [ %34, %33 ], [ %35, %._crit_edge.i ]
+_ZN3igl8nchoosekEii.exit:                         ; preds = %.preheader.i, %33, %._crit_edge.loopexit.i
+  %.017.i = phi double [ %34, %33 ], [ 1.000000e+00, %.preheader.i ], [ %35, %._crit_edge.loopexit.i ]
   %42 = fptosi double %.017.i to i64
   %43 = sext i32 %1 to i64
   %44 = icmp eq i64 %42, 0

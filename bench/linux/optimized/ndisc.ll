@@ -910,44 +910,44 @@ define dso_local void @ndisc_send_skb(ptr noundef %0, ptr noundef %1, ptr nounde
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 184
   %64 = load volatile ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %71, label %66
+  br i1 %65, label %72, label %66
 
 66:                                               ; preds = %57
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 876
   %68 = load i32, ptr %67, align 4
   %69 = shl i32 %68, 20
   %70 = or i32 %69, 1610612736
-  br label %71
+  %71 = call i32 @llvm.bswap.i32(i32 %70)
+  br label %72
 
-71:                                               ; preds = %66, %57
-  %72 = phi i32 [ %70, %66 ], [ 1610612736, %57 ]
+72:                                               ; preds = %66, %57
+  %73 = phi i32 [ %71, %66 ], [ 96, %57 ]
   call void @__rcu_read_unlock() #14
-  %73 = call ptr @skb_push(ptr noundef %0, i32 noundef 40) #14
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %16, align 8
-  %77 = ptrtoint ptr %75 to i64
+  %74 = call ptr @skb_push(ptr noundef %0, i32 noundef 40) #14
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %16, align 8
   %78 = ptrtoint ptr %76 to i64
-  %79 = sub i64 %77, %78
-  %80 = trunc i64 %79 to i16
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i16 %80, ptr %81, align 4
-  %82 = and i64 %79, 65535
-  %83 = getelementptr i8, ptr %76, i64 %82
-  %84 = call i32 @llvm.bswap.i32(i32 %72)
-  store i32 %84, ptr %83, align 4
+  %79 = ptrtoint ptr %77 to i64
+  %80 = sub i64 %78, %79
+  %81 = trunc i64 %80 to i16
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  store i16 %81, ptr %82, align 4
+  %83 = and i64 %80, 65535
+  %84 = getelementptr i8, ptr %77, i64 %83
+  store i32 %73, ptr %84, align 4
   %85 = trunc i32 %61 to i16
   %86 = call i16 @llvm.bswap.i16(i16 %85)
-  %87 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store i16 %86, ptr %87, align 4
-  %88 = getelementptr inbounds nuw i8, ptr %83, i64 6
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 6
   store i8 58, ptr %88, align 2
   %89 = trunc i16 %60 to i8
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 7
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 7
   store i8 %89, ptr %90, align 1
-  %91 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %84, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %91, ptr noundef align 4 dereferenceable(16) %2, i64 16, i1 false)
-  %92 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %92, ptr noundef align 4 dereferenceable(16) %1, i64 16, i1 false)
   call void @__rcu_read_lock() #14
   %93 = load ptr, ptr %42, align 8
@@ -956,14 +956,14 @@ define dso_local void @ndisc_send_skb(ptr noundef %0, ptr noundef %1, ptr nounde
   %96 = icmp eq ptr %95, null
   br i1 %96, label %101, label %97, !prof !6
 
-97:                                               ; preds = %71
+97:                                               ; preds = %72
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 912
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr i8, ptr %99, i64 40
   call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %100, ptr elementtype(i64) %100) #14, !srcloc !15
   br label %101
 
-101:                                              ; preds = %97, %71
+101:                                              ; preds = %97, %72
   %102 = getelementptr inbounds nuw i8, ptr %13, i64 416
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr i8, ptr %103, i64 40

@@ -6303,13 +6303,13 @@ push_output_configuration.exit.i:                 ; preds = %50, %46
   %69 = mul nsw i64 %68, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 16 %67, i64 %69, i1 false)
   %70 = icmp eq i8 %52, 7
-  br i1 %70, label %71, label %81
+  br i1 %70, label %71, label %82
 
 71:                                               ; preds = %60
   %72 = getelementptr inbounds nuw i8, ptr %57, i64 516
   %73 = load i32, ptr %72, align 4, !tbaa !84
   %74 = icmp slt i32 %73, 1
-  br i1 %74, label %75, label %81
+  br i1 %74, label %75, label %82
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -6319,20 +6319,20 @@ push_output_configuration.exit.i:                 ; preds = %50, %46
   %79 = add i32 %78, 1
   store i32 %79, ptr %77, align 8, !tbaa !85
   %.not22.i.i = icmp eq i32 %78, 0
-  br i1 %.not22.i.i, label %80, label %81
+  br i1 %.not22.i.i, label %80, label %82
 
 80:                                               ; preds = %75
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %57, i32 noundef 32, ptr noundef nonnull @.str.2, i32 noundef 1) #13
   %.pre.i = load i32, ptr %43, align 8, !tbaa !51
-  br label %81
+  %81 = call i32 @llvm.umax.i32(i32 %.pre.i, i32 2)
+  br label %82
 
 ff_aac_set_default_channel_config.exit.i:         ; preds = %53
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %57, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %54) #13
   br label %parse_adts_frame_header.exit.thread
 
-81:                                               ; preds = %80, %75, %71, %60
-  %82 = phi i32 [ 0, %75 ], [ %.pre.i, %80 ], [ 0, %71 ], [ 0, %60 ]
-  %spec.select.i = call i32 @llvm.umax.i32(i32 %82, i32 2)
+82:                                               ; preds = %80, %75, %71, %60
+  %spec.select.i = phi i32 [ 2, %75 ], [ %81, %80 ], [ 2, %71 ], [ 2, %60 ]
   %83 = call i32 @ff_aac_output_configure(ptr noundef nonnull %14, ptr noundef nonnull %12, i32 noundef %64, i32 noundef %spec.select.i, i32 noundef 0)
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %parse_adts_frame_header.exit.thread, label %100
@@ -6367,7 +6367,7 @@ ff_aac_set_default_channel_config.exit.i:         ; preds = %53
   %.not37.i = icmp eq i32 %99, 0
   br i1 %.not37.i, label %100, label %parse_adts_frame_header.exit.thread
 
-100:                                              ; preds = %93, %89, %85, %81
+100:                                              ; preds = %93, %89, %85, %82
   %101 = load i32, ptr %11, align 4, !tbaa !197
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 22480
   store i32 %101, ptr %102, align 8, !tbaa !93
@@ -6423,8 +6423,8 @@ ff_aac_set_default_channel_config.exit.i:         ; preds = %53
   store i32 %132, ptr %16, align 8, !tbaa !106
   br label %parse_adts_frame_header.exit.thread4
 
-parse_adts_frame_header.exit.thread:              ; preds = %ff_aac_set_default_channel_config.exit.i, %81, %93
-  %.0.i.ph = phi i32 [ -7, %93 ], [ %83, %81 ], [ -1094995529, %ff_aac_set_default_channel_config.exit.i ]
+parse_adts_frame_header.exit.thread:              ; preds = %ff_aac_set_default_channel_config.exit.i, %82, %93
+  %.0.i.ph = phi i32 [ -7, %93 ], [ %83, %82 ], [ -1094995529, %ff_aac_set_default_channel_config.exit.i ]
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %12) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #13
   br label %134

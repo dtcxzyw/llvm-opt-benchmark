@@ -5621,40 +5621,40 @@ default.unreachable58:                            ; preds = %234
   %316 = getelementptr ptr, ptr %312, i64 %315
   %317 = load ptr, ptr %316, align 8
   %318 = icmp eq ptr %317, null
-  br i1 %318, label %323, label %319
+  br i1 %318, label %325, label %319
 
 319:                                              ; preds = %303
   %320 = getelementptr inbounds nuw i8, ptr %317, i64 4
   %321 = load i16, ptr %320, align 1
   %322 = and i16 %321, 2047
-  br label %323
+  %323 = call i16 @llvm.umin.i16(i16 %322, i16 8)
+  %324 = zext nneg i16 %323 to i32
+  br label %325
 
-323:                                              ; preds = %319, %303
-  %324 = phi i16 [ %322, %319 ], [ 0, %303 ]
-  %325 = call ptr @usb_alloc_urb(i32 noundef 0, i32 noundef 3264) #19
-  %326 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  store ptr %325, ptr %326, align 8
-  %327 = icmp eq ptr %325, null
-  br i1 %327, label %.thread28, label %328
+325:                                              ; preds = %319, %303
+  %326 = phi i32 [ %324, %319 ], [ 0, %303 ]
+  %327 = call ptr @usb_alloc_urb(i32 noundef 0, i32 noundef 3264) #19
+  %328 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  store ptr %327, ptr %328, align 8
+  %329 = icmp eq ptr %327, null
+  br i1 %329, label %.thread28, label %330
 
-328:                                              ; preds = %323
-  %329 = call i16 @llvm.umin.i16(i16 %324, i16 8)
-  %330 = zext nneg i16 %329 to i32
+330:                                              ; preds = %325
   %331 = load ptr, ptr %131, align 8
   %332 = getelementptr inbounds nuw i8, ptr %126, i64 6
   %333 = load i8, ptr %332, align 1
   %334 = zext i8 %333 to i32
-  %335 = getelementptr inbounds nuw i8, ptr %325, i64 64
+  %335 = getelementptr inbounds nuw i8, ptr %327, i64 64
   store ptr %127, ptr %335, align 8
-  %336 = getelementptr inbounds nuw i8, ptr %325, i64 80
+  %336 = getelementptr inbounds nuw i8, ptr %327, i64 80
   store i32 %311, ptr %336, align 8
-  %337 = getelementptr inbounds nuw i8, ptr %325, i64 96
+  %337 = getelementptr inbounds nuw i8, ptr %327, i64 96
   store ptr %331, ptr %337, align 8
-  %338 = getelementptr inbounds nuw i8, ptr %325, i64 128
-  store i32 %330, ptr %338, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %325, i64 176
+  %338 = getelementptr inbounds nuw i8, ptr %327, i64 128
+  store i32 %326, ptr %338, align 8
+  %339 = getelementptr inbounds nuw i8, ptr %327, i64 176
   store ptr @hub_irq, ptr %339, align 8
-  %340 = getelementptr inbounds nuw i8, ptr %325, i64 168
+  %340 = getelementptr inbounds nuw i8, ptr %327, i64 168
   store ptr %61, ptr %340, align 8
   %341 = getelementptr inbounds nuw i8, ptr %127, i64 28
   %342 = load i32, ptr %341, align 4
@@ -5663,18 +5663,18 @@ default.unreachable58:                            ; preds = %234
   %345 = or i1 %343, %344
   br i1 %345, label %346, label %351
 
-346:                                              ; preds = %328
+346:                                              ; preds = %330
   %347 = icmp ugt i8 %333, 15
   %348 = call i32 @llvm.usub.sat.i32(i32 %334, i32 1)
   %349 = shl nuw nsw i32 1, %348
   %350 = select i1 %347, i32 32768, i32 %349
   br label %351
 
-351:                                              ; preds = %346, %328
-  %352 = phi i32 [ %350, %346 ], [ %334, %328 ]
-  %353 = getelementptr inbounds nuw i8, ptr %325, i64 160
+351:                                              ; preds = %346, %330
+  %352 = phi i32 [ %350, %346 ], [ %334, %330 ]
+  %353 = getelementptr inbounds nuw i8, ptr %327, i64 160
   store i32 %352, ptr %353, align 8
-  %354 = getelementptr inbounds nuw i8, ptr %325, i64 152
+  %354 = getelementptr inbounds nuw i8, ptr %327, i64 152
   store i32 -1, ptr %354, align 8
   %355 = getelementptr inbounds nuw i8, ptr %61, i64 240
   %356 = load i8, ptr %355, align 8
@@ -5762,9 +5762,9 @@ default.unreachable58:                            ; preds = %234
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #19
   br label %402
 
-.thread28:                                        ; preds = %170, %.loopexit, %125, %133, %138, %.thread22, %179, %200, %300, %323, %394, %163
-  %.ph26 = phi ptr [ @.str.101, %394 ], [ @.str.89, %323 ], [ @.str.98, %300 ], [ @.str.89, %200 ], [ @.str.93, %179 ], [ @.str.92, %.thread22 ], [ @.str.89, %138 ], [ @.str.89, %133 ], [ @.str.89, %125 ], [ @.str.89, %.loopexit ], [ @.str.91, %163 ], [ @.str.91, %170 ]
-  %.ph27 = phi i32 [ %395, %394 ], [ -12, %323 ], [ %301, %300 ], [ -12, %200 ], [ -19, %179 ], [ -19, %.thread22 ], [ -12, %138 ], [ -12, %133 ], [ -12, %125 ], [ %371, %.loopexit ], [ -90, %163 ], [ -22, %170 ]
+.thread28:                                        ; preds = %170, %.loopexit, %125, %133, %138, %.thread22, %179, %200, %300, %325, %394, %163
+  %.ph26 = phi ptr [ @.str.101, %394 ], [ @.str.89, %325 ], [ @.str.98, %300 ], [ @.str.89, %200 ], [ @.str.93, %179 ], [ @.str.92, %.thread22 ], [ @.str.89, %138 ], [ @.str.89, %133 ], [ @.str.89, %125 ], [ @.str.89, %.loopexit ], [ @.str.91, %163 ], [ @.str.91, %170 ]
+  %.ph27 = phi i32 [ %395, %394 ], [ -12, %325 ], [ %301, %300 ], [ -12, %200 ], [ -19, %179 ], [ -19, %.thread22 ], [ -12, %138 ], [ -12, %133 ], [ -12, %125 ], [ %371, %.loopexit ], [ -90, %163 ], [ -22, %170 ]
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %128, ptr noundef nonnull @.str.102, ptr noundef nonnull %.ph26, i32 noundef %.ph27) #18
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #19
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #19

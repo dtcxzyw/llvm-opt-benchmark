@@ -732,16 +732,16 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %16 = load i16, ptr %15, align 2
-  %.fr = freeze i16 %16
-  %17 = zext i16 %.fr to i32
+  %.fr178 = freeze i16 %16
+  %17 = zext i16 %.fr178 to i32
   %18 = add nsw i32 %17, -3
   %19 = sdiv i32 %18, 33
+  %20 = call i32 @llvm.umax.i32(i32 %19, i32 1)
   br label %.lr.ph172
 
 .lr.ph172:                                        ; preds = %14, %9
-  %.093 = phi i32 [ %19, %14 ], [ 2, %9 ]
-  %20 = call i32 @llvm.umax.i32(i32 %.093, i32 1)
-  %21 = trunc nuw nsw i32 %20 to i16
+  %.093 = phi i32 [ %20, %14 ], [ 2, %9 ]
+  %21 = trunc nuw nsw i32 %.093 to i16
   %.lhs.trunc = add nuw nsw i16 %21, 184
   %22 = udiv i16 %.lhs.trunc, %21
   %.zext = zext nneg i16 %22 to i32
@@ -750,7 +750,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   %24 = select i1 %.not128, ptr null, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 48)
   %25 = call ptr @PageOutput(i32 noundef %23, ptr noundef %24) #10
   %26 = call i64 @fwrite(ptr nonnull @.str.256, i64 16, i64 1, ptr %25)
-  %27 = icmp ugt i32 %.093, 1
+  %27 = icmp samesign ugt i32 %.093, 1
   br i1 %27, label %.lr.ph167.us.preheader, label %.lr.ph172.split.preheader
 
 .lr.ph172.split.preheader:                        ; preds = %.lr.ph172
@@ -758,7 +758,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   br label %.lr.ph172.split
 
 .lr.ph167.us.preheader:                           ; preds = %.lr.ph172
-  %29 = add nsw i32 %20, -1
+  %29 = add nsw i32 %.093, -1
   %wide.trip.count = zext nneg i32 %29 to i64
   %30 = mul nuw nsw i32 %29, %.zext
   br label %.lr.ph167.us

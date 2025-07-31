@@ -6117,99 +6117,99 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr noundef nonnull capture
   %.236 = phi ptr [ %.2.ph, %221 ], [ %.1, %.thread18 ]
   %227 = icmp eq i32 %225, 0
   %228 = trunc i32 %226 to i16
+  %229 = tail call i16 @llvm.bswap.i16(i16 %228)
   br i1 %227, label %.thread42, label %add_grhead.exit
 
 .thread42:                                        ; preds = %24, %223
-  %229 = phi ptr [ %224, %223 ], [ %0, %24 ]
-  %230 = phi i16 [ %228, %223 ], [ 0, %24 ]
+  %230 = phi ptr [ %224, %223 ], [ %0, %24 ]
+  %231 = phi i16 [ %229, %223 ], [ 0, %24 ]
   %.044 = phi ptr [ %.236, %223 ], [ null, %24 ]
-  %231 = add nsw i32 %2, -5
-  %232 = icmp ult i32 %231, 2
-  br i1 %232, label %.thread38, label %.thread42.thread
+  %232 = add nsw i32 %2, -5
+  %233 = icmp ult i32 %232, 2
+  br i1 %233, label %.thread38, label %.thread42.thread
 
 .thread42.thread:                                 ; preds = %79, %.thread42
   %.04459 = phi ptr [ %.044, %.thread42 ], [ null, %79 ]
-  %233 = phi i16 [ %230, %.thread42 ], [ 0, %79 ]
-  %234 = phi ptr [ %229, %.thread42 ], [ %80, %79 ]
-  %235 = getelementptr inbounds nuw i8, ptr %1, i64 121
-  %236 = load i8, ptr %235, align 1
-  %237 = icmp ne i8 %236, 0
-  %238 = or i1 %26, %237
-  br i1 %238, label %239, label %add_grhead.exit
+  %234 = phi i16 [ %231, %.thread42 ], [ 0, %79 ]
+  %235 = phi ptr [ %230, %.thread42 ], [ %80, %79 ]
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 121
+  %237 = load i8, ptr %236, align 1
+  %238 = icmp ne i8 %237, 0
+  %239 = or i1 %26, %238
+  br i1 %239, label %240, label %add_grhead.exit
 
-239:                                              ; preds = %.thread42.thread
-  %240 = icmp eq ptr %234, null
-  br i1 %240, label %256, label %241
+240:                                              ; preds = %.thread42.thread
+  %241 = icmp eq ptr %235, null
+  br i1 %241, label %257, label %242
 
-241:                                              ; preds = %239
-  %242 = getelementptr inbounds nuw i8, ptr %234, i64 116
-  %243 = load i32, ptr %242, align 4
-  %244 = icmp eq i32 %243, 0
-  br i1 %244, label %245, label %255
+242:                                              ; preds = %240
+  %243 = getelementptr inbounds nuw i8, ptr %235, i64 116
+  %244 = load i32, ptr %243, align 4
+  %245 = icmp eq i32 %244, 0
+  br i1 %245, label %246, label %256
 
-245:                                              ; preds = %241
-  %246 = getelementptr inbounds nuw i8, ptr %234, i64 188
-  %247 = load i32, ptr %246, align 4
-  %248 = getelementptr inbounds nuw i8, ptr %234, i64 184
-  %249 = load i32, ptr %248, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %234, i64 164
-  %251 = load i32, ptr %250, align 4
-  %252 = add i32 %249, %251
-  %253 = sub i32 %247, %252
-  %254 = icmp ult i32 %253, 8
-  br i1 %254, label %255, label %261
+246:                                              ; preds = %242
+  %247 = getelementptr inbounds nuw i8, ptr %235, i64 188
+  %248 = load i32, ptr %247, align 4
+  %249 = getelementptr inbounds nuw i8, ptr %235, i64 184
+  %250 = load i32, ptr %249, align 8
+  %251 = getelementptr inbounds nuw i8, ptr %235, i64 164
+  %252 = load i32, ptr %251, align 4
+  %253 = add i32 %250, %252
+  %254 = sub i32 %248, %253
+  %255 = icmp ult i32 %254, 8
+  br i1 %255, label %256, label %262
 
-255:                                              ; preds = %245, %241
-  tail call fastcc void @igmpv3_sendpack(ptr noundef nonnull %234)
-  br label %256
+256:                                              ; preds = %246, %242
+  tail call fastcc void @igmpv3_sendpack(ptr noundef nonnull %235)
+  br label %257
 
-256:                                              ; preds = %255, %239
-  %257 = load ptr, ptr %1, align 8
-  %258 = load ptr, ptr %257, align 8
-  %259 = tail call fastcc ptr @igmpv3_newpack(ptr noundef %258, i32 noundef range(i32 68, 0) %22)
-  %260 = icmp eq ptr %259, null
-  br i1 %260, label %add_grhead.exit, label %261
+257:                                              ; preds = %256, %240
+  %258 = load ptr, ptr %1, align 8
+  %259 = load ptr, ptr %258, align 8
+  %260 = tail call fastcc ptr @igmpv3_newpack(ptr noundef %259, i32 noundef range(i32 68, 0) %22)
+  %261 = icmp eq ptr %260, null
+  br i1 %261, label %add_grhead.exit, label %262
 
-261:                                              ; preds = %245, %256
-  %262 = phi ptr [ %259, %256 ], [ %234, %245 ]
-  %263 = tail call ptr @skb_put(ptr noundef nonnull %262, i32 noundef 8) #14
-  %264 = trunc nuw nsw i32 %2 to i8
-  store i8 %264, ptr %263, align 4
-  %265 = getelementptr inbounds nuw i8, ptr %263, i64 1
-  store i8 0, ptr %265, align 1
-  %266 = getelementptr inbounds nuw i8, ptr %263, i64 2
-  store i16 0, ptr %266, align 2
-  %267 = load i32, ptr %10, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %263, i64 4
-  store i32 %267, ptr %268, align 4
-  %269 = getelementptr inbounds nuw i8, ptr %262, i64 192
-  %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr inbounds nuw i8, ptr %262, i64 178
-  %272 = load i16, ptr %271, align 2
-  %273 = zext i16 %272 to i64
-  %274 = getelementptr i8, ptr %270, i64 %273
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 6
-  %276 = load i16, ptr %275, align 2
-  %277 = tail call i16 @llvm.bswap.i16(i16 %276)
-  %278 = add i16 %277, 1
-  %279 = tail call i16 @llvm.bswap.i16(i16 %278)
-  store i16 %279, ptr %275, align 2
+262:                                              ; preds = %246, %257
+  %263 = phi ptr [ %260, %257 ], [ %235, %246 ]
+  %264 = tail call ptr @skb_put(ptr noundef nonnull %263, i32 noundef 8) #14
+  %265 = trunc nuw nsw i32 %2 to i8
+  store i8 %265, ptr %264, align 4
+  %266 = getelementptr inbounds nuw i8, ptr %264, i64 1
+  store i8 0, ptr %266, align 1
+  %267 = getelementptr inbounds nuw i8, ptr %264, i64 2
+  store i16 0, ptr %267, align 2
+  %268 = load i32, ptr %10, align 8
+  %269 = getelementptr inbounds nuw i8, ptr %264, i64 4
+  store i32 %268, ptr %269, align 4
+  %270 = getelementptr inbounds nuw i8, ptr %263, i64 192
+  %271 = load ptr, ptr %270, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %263, i64 178
+  %273 = load i16, ptr %272, align 2
+  %274 = zext i16 %273 to i64
+  %275 = getelementptr i8, ptr %271, i64 %274
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 6
+  %277 = load i16, ptr %276, align 2
+  %278 = tail call i16 @llvm.bswap.i16(i16 %277)
+  %279 = add i16 %278, 1
+  %280 = tail call i16 @llvm.bswap.i16(i16 %279)
+  store i16 %280, ptr %276, align 2
   br label %add_grhead.exit
 
-add_grhead.exit:                                  ; preds = %261, %256, %.thread42.thread, %223
-  %280 = phi i16 [ %233, %.thread42.thread ], [ %228, %223 ], [ %233, %256 ], [ %233, %261 ]
-  %.5 = phi ptr [ %.04459, %.thread42.thread ], [ %.236, %223 ], [ %.04459, %256 ], [ %263, %261 ]
-  %281 = phi ptr [ %234, %.thread42.thread ], [ %224, %223 ], [ null, %256 ], [ %262, %261 ]
-  %282 = icmp eq ptr %.5, null
-  br i1 %282, label %286, label %283
+add_grhead.exit:                                  ; preds = %262, %257, %.thread42.thread, %223
+  %281 = phi i16 [ %234, %.thread42.thread ], [ %229, %223 ], [ %234, %257 ], [ %234, %262 ]
+  %.5 = phi ptr [ %.04459, %.thread42.thread ], [ %.236, %223 ], [ %.04459, %257 ], [ %264, %262 ]
+  %282 = phi ptr [ %235, %.thread42.thread ], [ %224, %223 ], [ null, %257 ], [ %263, %262 ]
+  %283 = icmp eq ptr %.5, null
+  br i1 %283, label %286, label %284
 
-283:                                              ; preds = %add_grhead.exit
-  %284 = tail call i16 @llvm.bswap.i16(i16 %280)
+284:                                              ; preds = %add_grhead.exit
   %285 = getelementptr inbounds nuw i8, ptr %.5, i64 2
-  store i16 %284, ptr %285, align 2
+  store i16 %281, ptr %285, align 2
   br label %286
 
-286:                                              ; preds = %283, %add_grhead.exit
+286:                                              ; preds = %284, %add_grhead.exit
   br i1 %26, label %287, label %.thread38
 
 287:                                              ; preds = %286
@@ -6218,7 +6218,7 @@ add_grhead.exit:                                  ; preds = %261, %256, %.thread
   br label %.thread38
 
 .thread38:                                        ; preds = %174, %287, %286, %.thread42, %20, %16, %5
-  %289 = phi ptr [ %0, %5 ], [ %0, %16 ], [ %0, %20 ], [ %229, %.thread42 ], [ %281, %287 ], [ %281, %286 ], [ null, %174 ]
+  %289 = phi ptr [ %0, %5 ], [ %0, %16 ], [ %0, %20 ], [ %230, %.thread42 ], [ %282, %287 ], [ %282, %286 ], [ null, %174 ]
   ret ptr %289
 }
 

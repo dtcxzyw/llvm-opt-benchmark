@@ -255,13 +255,16 @@ select.unfold.i.i:                                ; preds = %select.unfold.prehe
   %spec.select.i.i = add i32 %99, %.01325.i.i
   %spec.select20.i.i = select i1 %.not19.i.i, i64 %.127.i.i, i64 %97
   %.not18.i.i = icmp eq i64 %spec.select20.i.i, 0
-  br i1 %.not18.i.i, label %rev_precision_uint64.exit.i, label %select.unfold.i.i
+  br i1 %.not18.i.i, label %rev_precision_uint64.exit.loopexit.i, label %select.unfold.i.i
 
-rev_precision_uint64.exit.i:                      ; preds = %select.unfold.i.i, %select.unfold.preheader.i.i
-  %.013.lcssa.i.i = phi i32 [ 0, %select.unfold.preheader.i.i ], [ %spec.select.i.i, %select.unfold.i.i ]
-  %100 = tail call i32 @llvm.umin.i32(i32 %.013.lcssa.i.i, i32 %15)
+rev_precision_uint64.exit.loopexit.i:             ; preds = %select.unfold.i.i
+  %100 = tail call i32 @llvm.umin.i32(i32 %spec.select.i.i, i32 %15)
   %101 = tail call i32 @llvm.umax.i32(i32 %100, i32 1)
-  %102 = add i32 %101, -1
+  br label %rev_precision_uint64.exit.i
+
+rev_precision_uint64.exit.i:                      ; preds = %rev_precision_uint64.exit.loopexit.i, %select.unfold.preheader.i.i
+  %.013.lcssa.i.i = phi i32 [ 1, %select.unfold.preheader.i.i ], [ %101, %rev_precision_uint64.exit.loopexit.i ]
+  %102 = add i32 %.013.lcssa.i.i, -1
   %103 = zext i32 %102 to i64
   %104 = load i64, ptr %10, align 8, !tbaa !19
   %105 = shl i64 %103, %104
@@ -295,7 +298,7 @@ stream_write_bits.exit.i:                         ; preds = %111, %rev_precision
   %123 = and i64 %120, %122
   store i64 %123, ptr %106, align 8, !tbaa !22
   %124 = add i32 %13, -6
-  %125 = call fastcc i32 @encode_ints_uint64(ptr noundef nonnull %10, i32 noundef %124, i32 noundef %101, ptr noundef %4)
+  %125 = call fastcc i32 @encode_ints_uint64(ptr noundef nonnull %10, i32 noundef %124, i32 noundef %.013.lcssa.i.i, ptr noundef %4)
   %126 = add i32 %125, 6
   %127 = icmp ult i32 %126, %11
   br i1 %127, label %128, label %rev_encode_block_int64_4.exit

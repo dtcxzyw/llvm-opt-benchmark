@@ -23462,20 +23462,16 @@ _ZNK4llvm3EVT23getVectorMinNumElementsEv.exit:    ; preds = %16, %23
   %.fca.1.insert.merged.i47 = phi i16 [ %.fca.1.insert.merged.i48, %16 ], [ %15, %23 ]
   %.sroa.0.0.in.i.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i.i, %16 ], [ %24, %23 ]
   switch i16 %.fca.1.insert.merged.i47, label %_ZNK4llvm3EVTneES0_.exit18.thread [
-    i16 10, label %_ZNK4llvm3EVTneES0_.exit12
-    i16 11, label %_ZNK4llvm3EVTneES0_.exit12.fold.split
-    i16 12, label %_ZNK4llvm3EVTneES0_.exit12.fold.split
-    i16 13, label %_ZNK4llvm3EVTneES0_.exit12.fold.split
+    i16 10, label %_ZNK4llvm3EVTneES0_.exit12.thread
+    i16 11, label %_ZNK4llvm3EVTneES0_.exit12
+    i16 12, label %_ZNK4llvm3EVTneES0_.exit12
+    i16 13, label %_ZNK4llvm3EVTneES0_.exit12
   ]
 
-_ZNK4llvm3EVTneES0_.exit12.fold.split:            ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
+_ZNK4llvm3EVTneES0_.exit12:                       ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.in.i.i to i32
   %25 = add i32 %.sroa.0.0.extract.trunc.i, -2
-  br label %_ZNK4llvm3EVTneES0_.exit12
-
-_ZNK4llvm3EVTneES0_.exit12:                       ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVTneES0_.exit12.fold.split
-  %.04 = phi i32 [ 14, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ], [ %25, %_ZNK4llvm3EVTneES0_.exit12.fold.split ]
-  %26 = call i32 @llvm.fshl.i32(i32 %.04, i32 %.04, i32 31)
+  %26 = call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 31)
   %27 = icmp ult i32 %26, 8
   %switch.maskindex = trunc i32 %26 to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
@@ -23487,16 +23483,20 @@ switch.lookup:                                    ; preds = %_ZNK4llvm3EVTneES0_
   %28 = zext nneg i32 %26 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZL18SelectOpcodeFromVTIL14SelectTypeKind0EEjN4llvm3EVTENS1_8ArrayRefIjEE, i64 0, i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
-  %.not = icmp ugt i64 %3, %switch.load
+  br label %_ZNK4llvm3EVTneES0_.exit12.thread
+
+_ZNK4llvm3EVTneES0_.exit12.thread:                ; preds = %switch.lookup, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
+  %.0 = phi i64 [ 0, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ], [ %switch.load, %switch.lookup ]
+  %.not = icmp ugt i64 %3, %.0
   br i1 %.not, label %29, label %_ZNK4llvm3EVTneES0_.exit18.thread
 
-29:                                               ; preds = %switch.lookup
-  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %switch.load
+29:                                               ; preds = %_ZNK4llvm3EVTneES0_.exit12.thread
+  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %.0
   %31 = load i32, ptr %30, align 4, !tbaa !20
   br label %_ZNK4llvm3EVTneES0_.exit18.thread
 
-_ZNK4llvm3EVTneES0_.exit18.thread:                ; preds = %_ZNK4llvm3EVTneES0_.exit12, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %29, %switch.lookup, %7, %_ZNK4llvm3EVT16isScalableVectorEv.exit
-  %.05 = phi i32 [ 0, %_ZNK4llvm3EVT16isScalableVectorEv.exit ], [ 0, %7 ], [ 0, %_ZNK4llvm3EVTneES0_.exit12 ], [ %31, %29 ], [ 0, %switch.lookup ], [ 0, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ]
+_ZNK4llvm3EVTneES0_.exit18.thread:                ; preds = %_ZNK4llvm3EVTneES0_.exit12, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %29, %_ZNK4llvm3EVTneES0_.exit12.thread, %7, %_ZNK4llvm3EVT16isScalableVectorEv.exit
+  %.05 = phi i32 [ 0, %_ZNK4llvm3EVT16isScalableVectorEv.exit ], [ 0, %7 ], [ 0, %_ZNK4llvm3EVTneES0_.exit12 ], [ %31, %29 ], [ 0, %_ZNK4llvm3EVTneES0_.exit12.thread ], [ 0, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ]
   ret i32 %.05
 }
 

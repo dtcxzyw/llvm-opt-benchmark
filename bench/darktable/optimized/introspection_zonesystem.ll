@@ -1883,63 +1883,63 @@ _iop_zonesystem_calculate_zonemap.exit:           ; preds = %.loopexit.i, %3
 
 .split.loop.exit.i:                               ; preds = %60
   %64 = trunc nuw nsw i64 %indvars.iv.i30 to i32
+  %65 = call i32 @llvm.smin.i32(i32 %64, i32 %21)
   br label %_iop_zonesystem_zone_index_from_lightness.exit
 
 _iop_zonesystem_zone_index_from_lightness.exit:   ; preds = %59, %.split.loop.exit.i
-  %.09.lcssa.i = phi i32 [ %64, %.split.loop.exit.i ], [ %smax.i, %59 ]
-  %spec.select.i = call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %.09.lcssa.i, i32 %21)
-  %65 = add nsw i32 %spec.select.i, 1
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [24 x float], ptr %5, i64 0, i64 %66
-  %68 = load float, ptr %67, align 4, !tbaa !86
-  %69 = sext i32 %spec.select.i to i64
-  %70 = getelementptr inbounds [24 x float], ptr %5, i64 0, i64 %69
-  %71 = load float, ptr %70, align 4, !tbaa !86
-  %72 = fsub reassoc nsz arcp contract afn float %68, %71
-  %73 = fmul reassoc nsz arcp contract afn float %72, 5.000000e-01
-  %74 = fadd reassoc nsz arcp contract afn float %73, %71
-  %75 = fcmp reassoc nsz arcp contract afn ogt float %58, %74
-  %.0 = select i1 %75, i32 %65, i32 %spec.select.i
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %77 = load i32, ptr %76, align 4, !tbaa !175
-  switch i32 %77, label %96 [
-    i32 1, label %78
-    i32 3, label %91
+  %.09.lcssa.i = phi i32 [ %65, %.split.loop.exit.i ], [ %21, %59 ]
+  %66 = add nsw i32 %.09.lcssa.i, 1
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds [24 x float], ptr %5, i64 0, i64 %67
+  %69 = load float, ptr %68, align 4, !tbaa !86
+  %70 = sext i32 %.09.lcssa.i to i64
+  %71 = getelementptr inbounds [24 x float], ptr %5, i64 0, i64 %70
+  %72 = load float, ptr %71, align 4, !tbaa !86
+  %73 = fsub reassoc nsz arcp contract afn float %69, %72
+  %74 = fmul reassoc nsz arcp contract afn float %73, 5.000000e-01
+  %75 = fadd reassoc nsz arcp contract afn float %74, %72
+  %76 = fcmp reassoc nsz arcp contract afn ogt float %58, %75
+  %.0 = select i1 %76, i32 %66, i32 %.09.lcssa.i
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %78 = load i32, ptr %77, align 4, !tbaa !175
+  switch i32 %78, label %97 [
+    i32 1, label %79
+    i32 3, label %92
   ]
 
-78:                                               ; preds = %_iop_zonesystem_zone_index_from_lightness.exit
-  %79 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %80 = sext i32 %.0 to i64
-  %81 = getelementptr inbounds [25 x float], ptr %79, i64 0, i64 %80
-  %82 = load float, ptr %81, align 4, !tbaa !86
-  %83 = fcmp reassoc nsz arcp contract afn oeq float %82, -1.000000e+00
-  br i1 %83, label %84, label %88
+79:                                               ; preds = %_iop_zonesystem_zone_index_from_lightness.exit
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %81 = sext i32 %.0 to i64
+  %82 = getelementptr inbounds [25 x float], ptr %80, i64 0, i64 %81
+  %83 = load float, ptr %82, align 4, !tbaa !86
+  %84 = fcmp reassoc nsz arcp contract afn oeq float %83, -1.000000e+00
+  br i1 %84, label %85, label %89
 
-84:                                               ; preds = %78
-  %85 = getelementptr inbounds [24 x float], ptr %5, i64 0, i64 %80
-  %86 = load float, ptr %85, align 4, !tbaa !86
-  store float %86, ptr %81, align 4, !tbaa !86
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !174
-  call void @dt_dev_add_history_item(ptr noundef %87, ptr noundef %2, i32 noundef 1) #22
-  br label %88
+85:                                               ; preds = %79
+  %86 = getelementptr inbounds [24 x float], ptr %5, i64 0, i64 %81
+  %87 = load float, ptr %86, align 4, !tbaa !86
+  store float %87, ptr %82, align 4, !tbaa !86
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !174
+  call void @dt_dev_add_history_item(ptr noundef %88, ptr noundef %2, i32 noundef 1) #22
+  br label %89
 
-88:                                               ; preds = %84, %78
-  %89 = getelementptr inbounds nuw i8, ptr %9, i64 60
-  store i32 1, ptr %89, align 4, !tbaa !100
-  %90 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store i32 %.0, ptr %90, align 8, !tbaa !173
-  br label %96
+89:                                               ; preds = %85, %79
+  %90 = getelementptr inbounds nuw i8, ptr %9, i64 60
+  store i32 1, ptr %90, align 4, !tbaa !100
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  store i32 %.0, ptr %91, align 8, !tbaa !173
+  br label %97
 
-91:                                               ; preds = %_iop_zonesystem_zone_index_from_lightness.exit
-  %92 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %93 = sext i32 %.0 to i64
-  %94 = getelementptr inbounds [25 x float], ptr %92, i64 0, i64 %93
-  store float -1.000000e+00, ptr %94, align 4, !tbaa !86
-  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !174
-  call void @dt_dev_add_history_item(ptr noundef %95, ptr noundef %2, i32 noundef 1) #22
-  br label %96
+92:                                               ; preds = %_iop_zonesystem_zone_index_from_lightness.exit
+  %93 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %94 = sext i32 %.0 to i64
+  %95 = getelementptr inbounds [25 x float], ptr %93, i64 0, i64 %94
+  store float -1.000000e+00, ptr %95, align 4, !tbaa !86
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !174
+  call void @dt_dev_add_history_item(ptr noundef %96, ptr noundef %2, i32 noundef 1) #22
+  br label %97
 
-96:                                               ; preds = %_iop_zonesystem_zone_index_from_lightness.exit, %91, %88
+97:                                               ; preds = %_iop_zonesystem_zone_index_from_lightness.exit, %92, %89
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #22
   ret i32 1

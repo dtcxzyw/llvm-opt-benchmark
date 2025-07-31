@@ -11037,7 +11037,7 @@ declare void @unblockClient(ptr noundef, i32 noundef) local_unnamed_addr #1
 define dso_local range(i64 0, -9223372036854775808) i64 @replicationGetSlaveOffset() local_unnamed_addr #18 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8, !tbaa !98
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %8, label %2
+  br i1 %.not, label %9, label %2
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7280), align 8, !tbaa !154
@@ -11047,18 +11047,18 @@ define dso_local range(i64 0, -9223372036854775808) i64 @replicationGetSlaveOffs
 4:                                                ; preds = %2
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7288), align 8, !tbaa !155
   %.not5 = icmp eq ptr %5, null
-  br i1 %.not5, label %8, label %.sink.split
+  br i1 %.not5, label %9, label %.sink.split
 
 .sink.split:                                      ; preds = %4, %2
   %.sink6 = phi ptr [ %3, %2 ], [ %5, %4 ]
   %6 = getelementptr inbounds nuw i8, ptr %.sink6, i64 312
   %7 = load i64, ptr %6, align 8, !tbaa !170
-  br label %8
+  %8 = tail call i64 @llvm.smax.i64(i64 %7, i64 0)
+  br label %9
 
-8:                                                ; preds = %.sink.split, %4, %0
-  %.0 = phi i64 [ 0, %4 ], [ 0, %0 ], [ %7, %.sink.split ]
-  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %.0, i64 0)
-  ret i64 %spec.store.select
+9:                                                ; preds = %.sink.split, %4, %0
+  %.0 = phi i64 [ 0, %4 ], [ 0, %0 ], [ %8, %.sink.split ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable

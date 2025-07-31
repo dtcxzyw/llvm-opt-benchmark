@@ -1543,25 +1543,25 @@ define dso_local void @progress_report(i1 noundef zeroext %0) local_unnamed_addr
   %11 = load i64, ptr @fetch_size, align 8
   %.not = icmp eq i64 %11, 0
   %.pre = load i64, ptr @fetch_done, align 8
-  br i1 %.not, label %16, label %12
+  br i1 %.not, label %17, label %12
 
 12:                                               ; preds = %10
   %13 = mul i64 %.pre, 100
   %14 = udiv i64 %13, %11
   %15 = trunc i64 %14 to i32
-  br label %16
+  %16 = tail call i32 @llvm.smin.i32(i32 %15, i32 100)
+  br label %17
 
-16:                                               ; preds = %10, %12
-  %17 = phi i32 [ %15, %12 ], [ 0, %10 ]
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %17, i32 100)
+17:                                               ; preds = %10, %12
+  %spec.store.select = phi i32 [ %16, %12 ], [ 0, %10 ]
   %18 = icmp ugt i64 %.pre, %11
   br i1 %18, label %19, label %20
 
-19:                                               ; preds = %16
+19:                                               ; preds = %17
   store i64 %.pre, ptr @fetch_size, align 8
   br label %20
 
-20:                                               ; preds = %19, %16
+20:                                               ; preds = %19, %17
   %21 = lshr i64 %.pre, 10
   %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull @.str.43, i64 noundef %21) #12
   %23 = load i64, ptr @fetch_size, align 8

@@ -7431,17 +7431,19 @@ cleanup:                                          ; preds = %_ZNK3irr3gui10CGUIT
   %44 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !139
   %add.ptr.i = getelementptr inbounds i32, ptr %43, i64 %44
   %cmp.i136.not = icmp eq ptr %incdec.ptr.i153, %add.ptr.i
-  br i1 %cmp.i136.not, label %for.end, label %for.body, !llvm.loop !290
+  br i1 %cmp.i136.not, label %for.end.loopexit, label %for.body, !llvm.loop !290
 
-for.end:                                          ; preds = %cleanup, %_ZNK3irr3gui10CGUITTFont22getHeightFromCharacterEDi.exit132
-  %line.sroa.0.0.lcssa = phi i32 [ 0, %_ZNK3irr3gui10CGUITTFont22getHeightFromCharacterEDi.exit132 ], [ %line.sroa.0.1, %cleanup ]
-  %retval.sroa.0.0.lcssa = phi i32 [ 0, %_ZNK3irr3gui10CGUITTFont22getHeightFromCharacterEDi.exit132 ], [ %retval.sroa.0.2, %cleanup ]
-  %retval.sroa.6.0.lcssa = phi i32 [ %.sroa.speculated, %_ZNK3irr3gui10CGUITTFont22getHeightFromCharacterEDi.exit132 ], [ %retval.sroa.6.1, %cleanup ]
-  %spec.select176 = call i32 @llvm.umax.i32(i32 %retval.sroa.0.0.lcssa, i32 %line.sroa.0.0.lcssa)
+for.end.loopexit:                                 ; preds = %cleanup
+  %45 = call i32 @llvm.umax.i32(i32 %retval.sroa.0.2, i32 %line.sroa.0.1)
+  %46 = zext i32 %45 to i64
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %_ZNK3irr3gui10CGUITTFont22getHeightFromCharacterEDi.exit132
+  %retval.sroa.0.0.lcssa = phi i64 [ 0, %_ZNK3irr3gui10CGUITTFont22getHeightFromCharacterEDi.exit132 ], [ %46, %for.end.loopexit ]
+  %retval.sroa.6.0.lcssa = phi i32 [ %.sroa.speculated, %_ZNK3irr3gui10CGUITTFont22getHeightFromCharacterEDi.exit132 ], [ %retval.sroa.6.1, %for.end.loopexit ]
   %retval.sroa.6.0.insert.ext = zext i32 %retval.sroa.6.0.lcssa to i64
   %retval.sroa.6.0.insert.shift = shl nuw i64 %retval.sroa.6.0.insert.ext, 32
-  %retval.sroa.0.0.insert.ext = zext i32 %spec.select176 to i64
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.6.0.insert.shift, %retval.sroa.0.0.insert.ext
+  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.6.0.insert.shift, %retval.sroa.0.0.lcssa
   ret i64 %retval.sroa.0.0.insert.insert
 }
 

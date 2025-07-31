@@ -818,13 +818,13 @@ define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_shutdown_peripheral(ptr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %30, label %17
+  br i1 %16, label %31, label %17
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %30, label %21
+  br i1 %20, label %31, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -840,11 +840,11 @@ define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_shutdown_peripheral(ptr
 27:                                               ; preds = %26, %21
   %28 = call i64 %19(ptr noundef %13, ptr noundef nonnull %2) #14
   %29 = trunc i64 %28 to i32
-  br label %30
+  %30 = call i32 @llvm.smin.i32(i32 %29, i32 0)
+  br label %31
 
-30:                                               ; preds = %27, %17, %1
-  %31 = phi i32 [ %29, %27 ], [ -38, %17 ], [ -38, %1 ]
-  %32 = call i32 @llvm.smin.i32(i32 %31, i32 0)
+31:                                               ; preds = %27, %17, %1
+  %32 = phi i32 [ %30, %27 ], [ -38, %17 ], [ -38, %1 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #14
   ret i32 %32
 }
@@ -875,13 +875,13 @@ define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_turn_on_peripheral(ptr 
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %30, label %17
+  br i1 %16, label %31, label %17
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %30, label %21
+  br i1 %20, label %31, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -897,11 +897,11 @@ define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_turn_on_peripheral(ptr 
 27:                                               ; preds = %26, %21
   %28 = call i64 %19(ptr noundef %13, ptr noundef nonnull %2) #14
   %29 = trunc i64 %28 to i32
-  br label %30
+  %30 = call i32 @llvm.smin.i32(i32 %29, i32 0)
+  br label %31
 
-30:                                               ; preds = %27, %17, %1
-  %31 = phi i32 [ %29, %27 ], [ -38, %17 ], [ -38, %1 ]
-  %32 = call i32 @llvm.smin.i32(i32 %31, i32 0)
+31:                                               ; preds = %27, %17, %1
+  %32 = phi i32 [ %30, %27 ], [ -38, %17 ], [ -38, %1 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #14
   ret i32 %32
 }
@@ -931,13 +931,13 @@ define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_set_maximum_return_pack
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %30, label %17
+  br i1 %16, label %31, label %17
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %30, label %21
+  br i1 %20, label %31, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -953,11 +953,11 @@ define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_set_maximum_return_pack
 27:                                               ; preds = %26, %21
   %28 = call i64 %19(ptr noundef %13, ptr noundef nonnull %4) #14
   %29 = trunc i64 %28 to i32
-  br label %30
+  %30 = call i32 @llvm.smin.i32(i32 %29, i32 0)
+  br label %31
 
-30:                                               ; preds = %27, %17, %2
-  %31 = phi i32 [ %29, %27 ], [ -38, %17 ], [ -38, %2 ]
-  %32 = call i32 @llvm.smin.i32(i32 %31, i32 0)
+31:                                               ; preds = %27, %17, %2
+  %32 = phi i32 [ %30, %27 ], [ -38, %17 ], [ -38, %2 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
   ret i32 %32
@@ -991,13 +991,13 @@ define dso_local range(i64 -2147483648, 1) i64 @mipi_dsi_compression_mode(ptr no
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %32, label %19
+  br i1 %18, label %34, label %19
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %32, label %23
+  br i1 %22, label %34, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -1013,12 +1013,12 @@ define dso_local range(i64 -2147483648, 1) i64 @mipi_dsi_compression_mode(ptr no
 29:                                               ; preds = %28, %23
   %30 = call i64 %21(ptr noundef %15, ptr noundef nonnull %4) #14
   %31 = trunc i64 %30 to i32
-  br label %32
+  %32 = call i32 @llvm.smin.i32(i32 %31, i32 0)
+  %33 = sext i32 %32 to i64
+  br label %34
 
-32:                                               ; preds = %29, %19, %2
-  %33 = phi i32 [ %31, %29 ], [ -38, %19 ], [ -38, %2 ]
-  %34 = call i32 @llvm.smin.i32(i32 %33, i32 0)
-  %35 = sext i32 %34 to i64
+34:                                               ; preds = %29, %19, %2
+  %35 = phi i64 [ %33, %29 ], [ -38, %19 ], [ -38, %2 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
   ret i64 %35
@@ -1046,13 +1046,13 @@ define dso_local range(i64 -2147483648, 1) i64 @mipi_dsi_picture_parameter_set(p
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %29, label %16
+  br i1 %15, label %31, label %16
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %29, label %20
+  br i1 %19, label %31, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -1068,12 +1068,12 @@ define dso_local range(i64 -2147483648, 1) i64 @mipi_dsi_picture_parameter_set(p
 26:                                               ; preds = %25, %20
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %3) #14
   %28 = trunc i64 %27 to i32
-  br label %29
+  %29 = call i32 @llvm.smin.i32(i32 %28, i32 0)
+  %30 = sext i32 %29 to i64
+  br label %31
 
-29:                                               ; preds = %26, %16, %2
-  %30 = phi i32 [ %28, %26 ], [ -38, %16 ], [ -38, %2 ]
-  %31 = call i32 @llvm.smin.i32(i32 %30, i32 0)
-  %32 = sext i32 %31 to i64
+31:                                               ; preds = %26, %16, %2
+  %32 = phi i64 [ %30, %26 ], [ -38, %16 ], [ -38, %2 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
   ret i64 %32
 }
@@ -1460,13 +1460,13 @@ define dso_local i32 @mipi_dsi_dcs_nop(ptr noundef readonly captures(none) %0) #
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %28, label %16
+  br i1 %15, label %30, label %16
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %28, label %20
+  br i1 %19, label %30, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -1482,14 +1482,14 @@ define dso_local i32 @mipi_dsi_dcs_nop(ptr noundef readonly captures(none) %0) #
 26:                                               ; preds = %25, %20
   store i64 0, ptr %3, align 8, !annotation !14
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %2) #14
-  br label %28
+  %28 = call i64 @llvm.smin.i64(i64 %27, i64 0)
+  %29 = trunc i64 %28 to i32
+  br label %30
 
-28:                                               ; preds = %26, %16, %1
-  %29 = phi i64 [ %27, %26 ], [ -38, %16 ], [ -38, %1 ]
+30:                                               ; preds = %26, %16, %1
+  %31 = phi i32 [ %29, %26 ], [ -38, %16 ], [ -38, %1 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  %30 = call i64 @llvm.smin.i64(i64 %29, i64 0)
-  %31 = trunc i64 %30 to i32
   ret i32 %31
 }
 
@@ -1518,13 +1518,13 @@ define dso_local i32 @mipi_dsi_dcs_soft_reset(ptr noundef readonly captures(none
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %28, label %16
+  br i1 %15, label %30, label %16
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %28, label %20
+  br i1 %19, label %30, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -1540,14 +1540,14 @@ define dso_local i32 @mipi_dsi_dcs_soft_reset(ptr noundef readonly captures(none
 26:                                               ; preds = %25, %20
   store i64 1, ptr %3, align 8, !annotation !14
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %2) #14
-  br label %28
+  %28 = call i64 @llvm.smin.i64(i64 %27, i64 0)
+  %29 = trunc i64 %28 to i32
+  br label %30
 
-28:                                               ; preds = %26, %16, %1
-  %29 = phi i64 [ %27, %26 ], [ -38, %16 ], [ -38, %1 ]
+30:                                               ; preds = %26, %16, %1
+  %31 = phi i32 [ %29, %26 ], [ -38, %16 ], [ -38, %1 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  %30 = call i64 @llvm.smin.i64(i64 %29, i64 0)
-  %31 = trunc i64 %30 to i32
   ret i32 %31
 }
 
@@ -1716,13 +1716,13 @@ define dso_local i32 @mipi_dsi_dcs_enter_sleep_mode(ptr noundef readonly capture
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %28, label %16
+  br i1 %15, label %30, label %16
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %28, label %20
+  br i1 %19, label %30, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -1738,14 +1738,14 @@ define dso_local i32 @mipi_dsi_dcs_enter_sleep_mode(ptr noundef readonly capture
 26:                                               ; preds = %25, %20
   store i64 16, ptr %3, align 8, !annotation !14
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %2) #14
-  br label %28
+  %28 = call i64 @llvm.smin.i64(i64 %27, i64 0)
+  %29 = trunc i64 %28 to i32
+  br label %30
 
-28:                                               ; preds = %26, %16, %1
-  %29 = phi i64 [ %27, %26 ], [ -38, %16 ], [ -38, %1 ]
+30:                                               ; preds = %26, %16, %1
+  %31 = phi i32 [ %29, %26 ], [ -38, %16 ], [ -38, %1 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  %30 = call i64 @llvm.smin.i64(i64 %29, i64 0)
-  %31 = trunc i64 %30 to i32
   ret i32 %31
 }
 
@@ -1774,13 +1774,13 @@ define dso_local i32 @mipi_dsi_dcs_exit_sleep_mode(ptr noundef readonly captures
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %28, label %16
+  br i1 %15, label %30, label %16
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %28, label %20
+  br i1 %19, label %30, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -1796,14 +1796,14 @@ define dso_local i32 @mipi_dsi_dcs_exit_sleep_mode(ptr noundef readonly captures
 26:                                               ; preds = %25, %20
   store i64 17, ptr %3, align 8, !annotation !14
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %2) #14
-  br label %28
+  %28 = call i64 @llvm.smin.i64(i64 %27, i64 0)
+  %29 = trunc i64 %28 to i32
+  br label %30
 
-28:                                               ; preds = %26, %16, %1
-  %29 = phi i64 [ %27, %26 ], [ -38, %16 ], [ -38, %1 ]
+30:                                               ; preds = %26, %16, %1
+  %31 = phi i32 [ %29, %26 ], [ -38, %16 ], [ -38, %1 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  %30 = call i64 @llvm.smin.i64(i64 %29, i64 0)
-  %31 = trunc i64 %30 to i32
   ret i32 %31
 }
 
@@ -1832,13 +1832,13 @@ define dso_local i32 @mipi_dsi_dcs_set_display_off(ptr noundef readonly captures
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %28, label %16
+  br i1 %15, label %30, label %16
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %28, label %20
+  br i1 %19, label %30, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -1854,14 +1854,14 @@ define dso_local i32 @mipi_dsi_dcs_set_display_off(ptr noundef readonly captures
 26:                                               ; preds = %25, %20
   store i64 40, ptr %3, align 8, !annotation !14
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %2) #14
-  br label %28
+  %28 = call i64 @llvm.smin.i64(i64 %27, i64 0)
+  %29 = trunc i64 %28 to i32
+  br label %30
 
-28:                                               ; preds = %26, %16, %1
-  %29 = phi i64 [ %27, %26 ], [ -38, %16 ], [ -38, %1 ]
+30:                                               ; preds = %26, %16, %1
+  %31 = phi i32 [ %29, %26 ], [ -38, %16 ], [ -38, %1 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  %30 = call i64 @llvm.smin.i64(i64 %29, i64 0)
-  %31 = trunc i64 %30 to i32
   ret i32 %31
 }
 
@@ -1890,13 +1890,13 @@ define dso_local i32 @mipi_dsi_dcs_set_display_on(ptr noundef readonly captures(
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %28, label %16
+  br i1 %15, label %30, label %16
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %28, label %20
+  br i1 %19, label %30, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -1912,14 +1912,14 @@ define dso_local i32 @mipi_dsi_dcs_set_display_on(ptr noundef readonly captures(
 26:                                               ; preds = %25, %20
   store i64 41, ptr %3, align 8, !annotation !14
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %2) #14
-  br label %28
+  %28 = call i64 @llvm.smin.i64(i64 %27, i64 0)
+  %29 = trunc i64 %28 to i32
+  br label %30
 
-28:                                               ; preds = %26, %16, %1
-  %29 = phi i64 [ %27, %26 ], [ -38, %16 ], [ -38, %1 ]
+30:                                               ; preds = %26, %16, %1
+  %31 = phi i32 [ %29, %26 ], [ -38, %16 ], [ -38, %1 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  %30 = call i64 @llvm.smin.i64(i64 %29, i64 0)
-  %31 = trunc i64 %30 to i32
   ret i32 %31
 }
 
@@ -1963,13 +1963,13 @@ define dso_local i32 @mipi_dsi_dcs_set_column_address(ptr noundef readonly captu
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %40, label %28
+  br i1 %27, label %42, label %28
 
 28:                                               ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %40, label %32
+  br i1 %31, label %42, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -1984,14 +1984,14 @@ define dso_local i32 @mipi_dsi_dcs_set_column_address(ptr noundef readonly captu
 
 38:                                               ; preds = %37, %32
   %39 = call i64 %30(ptr noundef %24, ptr noundef nonnull %4) #14
-  br label %40
+  %40 = call i64 @llvm.smin.i64(i64 %39, i64 0)
+  %41 = trunc i64 %40 to i32
+  br label %42
 
-40:                                               ; preds = %38, %28, %3
-  %41 = phi i64 [ %39, %38 ], [ -38, %28 ], [ -38, %3 ]
+42:                                               ; preds = %38, %28, %3
+  %43 = phi i32 [ %41, %38 ], [ -38, %28 ], [ -38, %3 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  %42 = call i64 @llvm.smin.i64(i64 %41, i64 0)
-  %43 = trunc i64 %42 to i32
   ret i32 %43
 }
 
@@ -2035,13 +2035,13 @@ define dso_local i32 @mipi_dsi_dcs_set_page_address(ptr noundef readonly capture
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %40, label %28
+  br i1 %27, label %42, label %28
 
 28:                                               ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %40, label %32
+  br i1 %31, label %42, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -2056,14 +2056,14 @@ define dso_local i32 @mipi_dsi_dcs_set_page_address(ptr noundef readonly capture
 
 38:                                               ; preds = %37, %32
   %39 = call i64 %30(ptr noundef %24, ptr noundef nonnull %4) #14
-  br label %40
+  %40 = call i64 @llvm.smin.i64(i64 %39, i64 0)
+  %41 = trunc i64 %40 to i32
+  br label %42
 
-40:                                               ; preds = %38, %28, %3
-  %41 = phi i64 [ %39, %38 ], [ -38, %28 ], [ -38, %3 ]
+42:                                               ; preds = %38, %28, %3
+  %43 = phi i32 [ %41, %38 ], [ -38, %28 ], [ -38, %3 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  %42 = call i64 @llvm.smin.i64(i64 %41, i64 0)
-  %43 = trunc i64 %42 to i32
   ret i32 %43
 }
 
@@ -2092,13 +2092,13 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_off(ptr noundef readonly captures(no
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %28, label %16
+  br i1 %15, label %30, label %16
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %28, label %20
+  br i1 %19, label %30, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -2114,14 +2114,14 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_off(ptr noundef readonly captures(no
 26:                                               ; preds = %25, %20
   store i64 52, ptr %3, align 8, !annotation !14
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %2) #14
-  br label %28
+  %28 = call i64 @llvm.smin.i64(i64 %27, i64 0)
+  %29 = trunc i64 %28 to i32
+  br label %30
 
-28:                                               ; preds = %26, %16, %1
-  %29 = phi i64 [ %27, %26 ], [ -38, %16 ], [ -38, %1 ]
+30:                                               ; preds = %26, %16, %1
+  %31 = phi i32 [ %29, %26 ], [ -38, %16 ], [ -38, %1 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  %30 = call i64 @llvm.smin.i64(i64 %29, i64 0)
-  %31 = trunc i64 %30 to i32
   ret i32 %31
 }
 
@@ -2154,13 +2154,13 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_on(ptr noundef readonly captures(non
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %31, label %19
+  br i1 %18, label %33, label %19
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %31, label %23
+  br i1 %22, label %33, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -2175,14 +2175,14 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_on(ptr noundef readonly captures(non
 
 29:                                               ; preds = %28, %23
   %30 = call i64 %21(ptr noundef %15, ptr noundef nonnull %3) #14
-  br label %31
+  %31 = call i64 @llvm.smin.i64(i64 %30, i64 0)
+  %32 = trunc i64 %31 to i32
+  br label %33
 
-31:                                               ; preds = %29, %19, %2
-  %32 = phi i64 [ %30, %29 ], [ -38, %19 ], [ -38, %2 ]
+33:                                               ; preds = %29, %19, %2
+  %34 = phi i32 [ %32, %29 ], [ -38, %19 ], [ -38, %2 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  %33 = call i64 @llvm.smin.i64(i64 %32, i64 0)
-  %34 = trunc i64 %33 to i32
   ret i32 %34
 }
 
@@ -2214,13 +2214,13 @@ define dso_local i32 @mipi_dsi_dcs_set_pixel_format(ptr noundef readonly capture
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %30, label %18
+  br i1 %17, label %32, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %30, label %22
+  br i1 %21, label %32, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -2235,14 +2235,14 @@ define dso_local i32 @mipi_dsi_dcs_set_pixel_format(ptr noundef readonly capture
 
 28:                                               ; preds = %27, %22
   %29 = call i64 %20(ptr noundef %14, ptr noundef nonnull %3) #14
-  br label %30
+  %30 = call i64 @llvm.smin.i64(i64 %29, i64 0)
+  %31 = trunc i64 %30 to i32
+  br label %32
 
-30:                                               ; preds = %28, %18, %2
-  %31 = phi i64 [ %29, %28 ], [ -38, %18 ], [ -38, %2 ]
+32:                                               ; preds = %28, %18, %2
+  %33 = phi i32 [ %31, %28 ], [ -38, %18 ], [ -38, %2 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  %32 = call i64 @llvm.smin.i64(i64 %31, i64 0)
-  %33 = trunc i64 %32 to i32
   ret i32 %33
 }
 
@@ -2279,13 +2279,13 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_scanline(ptr noundef readonly captur
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %34, label %22
+  br i1 %21, label %36, label %22
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %34, label %26
+  br i1 %25, label %36, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -2300,14 +2300,14 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_scanline(ptr noundef readonly captur
 
 32:                                               ; preds = %31, %26
   %33 = call i64 %24(ptr noundef %18, ptr noundef nonnull %3) #14
-  br label %34
+  %34 = call i64 @llvm.smin.i64(i64 %33, i64 0)
+  %35 = trunc i64 %34 to i32
+  br label %36
 
-34:                                               ; preds = %32, %22, %2
-  %35 = phi i64 [ %33, %32 ], [ -38, %22 ], [ -38, %2 ]
+36:                                               ; preds = %32, %22, %2
+  %37 = phi i32 [ %35, %32 ], [ -38, %22 ], [ -38, %2 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  %36 = call i64 @llvm.smin.i64(i64 %35, i64 0)
-  %37 = trunc i64 %36 to i32
   ret i32 %37
 }
 
@@ -2339,13 +2339,13 @@ define dso_local i32 @mipi_dsi_dcs_set_display_brightness(ptr noundef readonly c
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %30, label %18
+  br i1 %17, label %32, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %30, label %22
+  br i1 %21, label %32, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -2360,14 +2360,14 @@ define dso_local i32 @mipi_dsi_dcs_set_display_brightness(ptr noundef readonly c
 
 28:                                               ; preds = %27, %22
   %29 = call i64 %20(ptr noundef %14, ptr noundef nonnull %3) #14
-  br label %30
+  %30 = call i64 @llvm.smin.i64(i64 %29, i64 0)
+  %31 = trunc i64 %30 to i32
+  br label %32
 
-30:                                               ; preds = %28, %18, %2
-  %31 = phi i64 [ %29, %28 ], [ -38, %18 ], [ -38, %2 ]
+32:                                               ; preds = %28, %18, %2
+  %33 = phi i32 [ %31, %28 ], [ -38, %18 ], [ -38, %2 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  %32 = call i64 @llvm.smin.i64(i64 %31, i64 0)
-  %33 = trunc i64 %32 to i32
   ret i32 %33
 }
 
@@ -2474,13 +2474,13 @@ define dso_local i32 @mipi_dsi_dcs_set_display_brightness_large(ptr noundef read
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %34, label %22
+  br i1 %21, label %36, label %22
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %34, label %26
+  br i1 %25, label %36, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -2495,14 +2495,14 @@ define dso_local i32 @mipi_dsi_dcs_set_display_brightness_large(ptr noundef read
 
 32:                                               ; preds = %31, %26
   %33 = call i64 %24(ptr noundef %18, ptr noundef nonnull %3) #14
-  br label %34
+  %34 = call i64 @llvm.smin.i64(i64 %33, i64 0)
+  %35 = trunc i64 %34 to i32
+  br label %36
 
-34:                                               ; preds = %32, %22, %2
-  %35 = phi i64 [ %33, %32 ], [ -38, %22 ], [ -38, %2 ]
+36:                                               ; preds = %32, %22, %2
+  %37 = phi i32 [ %35, %32 ], [ -38, %22 ], [ -38, %2 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  %36 = call i64 @llvm.smin.i64(i64 %35, i64 0)
-  %37 = trunc i64 %36 to i32
   ret i32 %37
 }
 

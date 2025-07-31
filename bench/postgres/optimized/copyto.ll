@@ -2126,15 +2126,15 @@ define internal fastcc void @CopyOneRowTo(ptr noundef captures(none) %0, ptr nou
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = trunc i32 %20 to i16
+  %22 = tail call i16 @llvm.bswap.i16(i16 %21)
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %15, %18
-  %22 = phi i16 [ %21, %18 ], [ 0, %15 ]
-  %23 = getelementptr i8, ptr %0, i64 16
-  %.val72 = load ptr, ptr %23, align 8
+  %23 = phi i16 [ %22, %18 ], [ 0, %15 ]
+  %24 = getelementptr i8, ptr %0, i64 16
+  %.val72 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #17
-  %24 = tail call i16 @llvm.bswap.i16(i16 %22)
-  store i16 %24, ptr %5, align 2
+  store i16 %23, ptr %5, align 2
   call void @appendBinaryStringInfo(ptr noundef %.val72, ptr noundef nonnull %5, i32 noundef 2) #17
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #17
   br label %25

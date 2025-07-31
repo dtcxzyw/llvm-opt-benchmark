@@ -6348,7 +6348,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i.i:      ; preds = %_ZnwIN4llvm15Malloc
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i:        ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit
   %bcmp.i.i.i14.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %10, ptr noundef nonnull dereferenceable(6) @.str.11, i64 6)
   %34 = icmp eq i32 %bcmp.i.i.i14.i, 0
-  %spec.select.i = select i1 %34, i64 4294967300, i64 0
+  %35 = select i1 %34, i32 2048, i32 0
   br label %_ZNK5clang8comments4Sema26getInlineCommandRenderKindEN4llvm9StringRefE.exit
 
 _ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
@@ -6358,30 +6358,27 @@ _ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13
   br label %_ZNK5clang8comments4Sema26getInlineCommandRenderKindEN4llvm9StringRefE.exit
 
 _ZNK5clang8comments4Sema26getInlineCommandRenderKindEN4llvm9StringRefE.exit: ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i.i, %.thread77.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split.i, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split85.i
-  %.sroa.12.3.i = phi i64 [ 0, %.thread77.i ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i.i ], [ 0, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 4294967298, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split.i ], [ 4294967299, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split85.i ]
-  %spec.select.i83.i = tail call i64 @llvm.umax.i64(i64 %.sroa.12.3.i, i64 4294967296)
-  %spec.select.i.i = trunc i64 %spec.select.i83.i to i32
+  %.sroa.12.3.i = phi i32 [ 0, %.thread77.i ], [ 1536, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i.i ], [ 0, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit ], [ %35, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i ], [ 512, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 1024, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split.i ], [ 1536, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split85.i ]
   store i32 %1, ptr %.0.i.i.i, align 4, !tbaa !60
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
-  store i32 %1, ptr %35, align 4, !tbaa !60
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  store i32 %2, ptr %36, align 4, !tbaa !60
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
-  store i8 3, ptr %37, align 4
-  %38 = load i16, ptr %37, align 4
-  %39 = and i16 %38, -257
-  store i16 %39, ptr %37, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store ptr %4, ptr %40, align 8, !tbaa !107
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
+  store i32 %1, ptr %36, align 4, !tbaa !60
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  store i32 %2, ptr %37, align 4, !tbaa !60
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
+  store i8 3, ptr %38, align 4
+  %39 = load i16, ptr %38, align 4
+  %40 = and i16 %39, -257
+  store i16 %40, ptr %38, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
+  store ptr %4, ptr %41, align 8, !tbaa !107
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i64 %5, ptr %.sroa.413.0..sroa_idx, align 8, !tbaa !63
-  %41 = load i32, ptr %37, align 4
-  %42 = shl nuw nsw i32 %spec.select.i.i, 9
-  %43 = and i32 %41, 511
+  %42 = load i32, ptr %38, align 4
+  %43 = and i32 %42, 511
   %44 = shl i32 %3, 12
-  %45 = or disjoint i32 %43, %42
+  %45 = or disjoint i32 %.sroa.12.3.i, %43
   %46 = or disjoint i32 %45, %44
-  store i32 %46, ptr %37, align 4
+  store i32 %46, ptr %38, align 4
   ret ptr %.0.i.i.i
 }
 
@@ -6414,7 +6411,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i:        ; preds = %3
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i13:          ; preds = %3
   %bcmp.i.i.i14 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1, ptr noundef nonnull dereferenceable(6) @.str.11, i64 6)
   %5 = icmp eq i32 %bcmp.i.i.i14, 0
-  %spec.select = select i1 %5, i64 4294967300, i64 0
+  %6 = select i1 %5, i32 4, i32 0
   br label %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16
 
 _ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -6424,10 +6421,8 @@ _ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13
   br label %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16
 
 _ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split85, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13, %3, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i, %.thread77
-  %.sroa.12.3 = phi i64 [ 0, %.thread77 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i ], [ 0, %3 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4294967298, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split ], [ 4294967299, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split85 ]
-  %spec.select.i83 = tail call i64 @llvm.umax.i64(i64 %.sroa.12.3, i64 4294967296)
-  %spec.select.i = trunc i64 %spec.select.i83 to i32
-  ret i32 %spec.select.i
+  %.sroa.12.3 = phi i32 [ 0, %.thread77 ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i ], [ 0, %3 ], [ %6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 2, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split ], [ 3, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split85 ]
+  ret i32 %.sroa.12.3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10799,9 +10794,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

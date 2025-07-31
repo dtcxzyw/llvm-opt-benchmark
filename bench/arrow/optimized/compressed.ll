@@ -2917,8 +2917,8 @@ define linkonce_odr hidden void @_ZN5arrow2io21CompressedInputStream4Impl4ReadEl
   br i1 %9, label %.lr.ph, label %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN5arrow6ResultIbED2Ev.exit15
-  %10 = phi i64 [ %43, %_ZN5arrow6ResultIbED2Ev.exit15 ], [ %2, %4 ]
-  %.027 = phi i64 [ %30, %_ZN5arrow6ResultIbED2Ev.exit15 ], [ 0, %4 ]
+  %10 = phi i64 [ %44, %_ZN5arrow6ResultIbED2Ev.exit15 ], [ %2, %4 ]
+  %.027 = phi i64 [ %31, %_ZN5arrow6ResultIbED2Ev.exit15 ], [ 0, %4 ]
   %11 = getelementptr inbounds i8, ptr %3, i64 %.027
   %12 = load ptr, ptr %6, align 8, !tbaa !119
   %.not.i = icmp eq ptr %12, null
@@ -2929,75 +2929,75 @@ define linkonce_odr hidden void @_ZN5arrow2io21CompressedInputStream4Impl4ReadEl
   %15 = load i64, ptr %14, align 8, !tbaa !120
   %16 = load i64, ptr %7, align 8, !tbaa !238
   %17 = sub nsw i64 %15, %16
-  %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %10, i64 %17)
-  %18 = icmp sgt i64 %17, 0
-  br i1 %18, label %19, label %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit
+  %18 = call i64 @llvm.smin.i64(i64 %10, i64 %17)
+  %19 = icmp sgt i64 %17, 0
+  br i1 %19, label %20, label %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 9
-  %21 = load i8, ptr %20, align 1, !tbaa !129, !range !55, !noundef !56
-  %22 = trunc nuw i8 %21 to i1
-  %23 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %24 = load ptr, ptr %23, align 8
-  %25 = select i1 %22, ptr %24, ptr null, !prof !45
-  %26 = load i64, ptr %7, align 8, !tbaa !238
-  %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %27, i64 %.sroa.speculated.i, i1 false)
-  %28 = load i64, ptr %7, align 8, !tbaa !238
-  %29 = add nsw i64 %28, %.sroa.speculated.i
-  store i64 %29, ptr %7, align 8, !tbaa !238
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 9
+  %22 = load i8, ptr %21, align 1, !tbaa !129, !range !55, !noundef !56
+  %23 = trunc nuw i8 %22 to i1
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = select i1 %23, ptr %25, ptr null, !prof !45
+  %27 = load i64, ptr %7, align 8, !tbaa !238
+  %28 = getelementptr inbounds i8, ptr %26, i64 %27
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %28, i64 %18, i1 false)
+  %29 = load i64, ptr %7, align 8, !tbaa !238
+  %30 = add nsw i64 %29, %18
+  store i64 %30, ptr %7, align 8, !tbaa !238
   br label %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit
 
-_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit: ; preds = %.lr.ph, %13, %19
-  %.sroa.speculated.i21 = phi i64 [ %.sroa.speculated.i, %13 ], [ %.sroa.speculated.i, %19 ], [ 0, %.lr.ph ]
-  %30 = add nsw i64 %.sroa.speculated.i21, %.027
-  %31 = icmp eq i64 %2, %30
-  br i1 %31, label %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit._crit_edge, label %32
+_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit: ; preds = %.lr.ph, %13, %20
+  %.sroa.speculated.i21 = phi i64 [ %18, %13 ], [ %18, %20 ], [ 0, %.lr.ph ]
+  %31 = add nsw i64 %.sroa.speculated.i21, %.027
+  %32 = icmp eq i64 %2, %31
+  br i1 %32, label %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit._crit_edge, label %33
 
-32:                                               ; preds = %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit
+33:                                               ; preds = %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
   call void @_ZN5arrow2io21CompressedInputStream4Impl18RefillDecompressedEv(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Result.110") align 8 %5, ptr noundef nonnull align 8 dereferenceable(128) %1)
-  %33 = load ptr, ptr %5, align 8, !tbaa !42
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %_ZN5arrow6ResultIbED2Ev.exit15, label %35, !prof !45
+  %34 = load ptr, ptr %5, align 8, !tbaa !42
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %_ZN5arrow6ResultIbED2Ev.exit15, label %36, !prof !45
 
-35:                                               ; preds = %32
+36:                                               ; preds = %33
   call void @_ZN5arrow6ResultIlEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %5) #26
   %.pre = load ptr, ptr %5, align 8, !tbaa !42
   %.not.i.i14 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i14, label %.loopexit.loopexit, label %36, !prof !141
+  br i1 %.not.i.i14, label %.loopexit.loopexit, label %37, !prof !141
 
-36:                                               ; preds = %35
-  %37 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
-  %38 = load i8, ptr %37, align 1, !tbaa !46, !range !55, !noundef !56
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %.loopexit.loopexit, label %40
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
+  %39 = load i8, ptr %38, align 1, !tbaa !46, !range !55, !noundef !56
+  %40 = trunc nuw i8 %39 to i1
+  br i1 %40, label %.loopexit.loopexit, label %41
 
-40:                                               ; preds = %36
+41:                                               ; preds = %37
   call void @_ZN5arrow6Status11DeleteStateEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #26
   br label %.loopexit.loopexit
 
-_ZN5arrow6ResultIbED2Ev.exit15:                   ; preds = %32
-  %41 = load i8, ptr %8, align 8, !tbaa !165, !range !55, !noundef !56
-  %42 = trunc nuw i8 %41 to i1
+_ZN5arrow6ResultIbED2Ev.exit15:                   ; preds = %33
+  %42 = load i8, ptr %8, align 8, !tbaa !165, !range !55, !noundef !56
+  %43 = trunc nuw i8 %42 to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  %43 = sub nsw i64 %2, %30
-  %44 = icmp sgt i64 %43, 0
-  %45 = select i1 %44, i1 %42, i1 false
-  br i1 %45, label %.lr.ph, label %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit._crit_edge, !llvm.loop !239
+  %44 = sub nsw i64 %2, %31
+  %45 = icmp sgt i64 %44, 0
+  %46 = select i1 %45, i1 %43, i1 false
+  br i1 %46, label %.lr.ph, label %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit._crit_edge, !llvm.loop !239
 
 _ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit._crit_edge: ; preds = %_ZN5arrow6ResultIbED2Ev.exit15, %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit, %4
-  %.119 = phi i64 [ 0, %4 ], [ %30, %_ZN5arrow6ResultIbED2Ev.exit15 ], [ %2, %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit ]
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %47 = load i64, ptr %46, align 8, !tbaa !207
-  %48 = add nsw i64 %47, %.119
-  store i64 %48, ptr %46, align 8, !tbaa !207
+  %.119 = phi i64 [ 0, %4 ], [ %31, %_ZN5arrow6ResultIbED2Ev.exit15 ], [ %2, %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit ]
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %48 = load i64, ptr %47, align 8, !tbaa !207
+  %49 = add nsw i64 %48, %.119
+  store i64 %49, ptr %47, align 8, !tbaa !207
   store ptr null, ptr %0, align 8, !tbaa !42
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.119, ptr %49, align 8, !tbaa !111
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.119, ptr %50, align 8, !tbaa !111
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %35, %36, %40
+.loopexit.loopexit:                               ; preds = %36, %37, %41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
   br label %.loopexit
 

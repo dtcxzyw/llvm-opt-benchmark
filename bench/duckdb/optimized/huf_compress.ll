@@ -2822,7 +2822,7 @@ define noundef i32 @_ZN11duckdb_zstd19HUF_optimalTableLogEjmjPvmPmPKji(i32 nound
   br i1 %exitcond.not.i, label %_ZN11duckdb_zstd15HUF_cardinalityEPKjj.exit, label %.lr.ph.i, !llvm.loop !57
 
 _ZN11duckdb_zstd15HUF_cardinalityEPKjj.exit:      ; preds = %.lr.ph.i
-  %19 = tail call noundef range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %spec.select.i, i1 true)
+  %19 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %spec.select.i, i1 true)
   %20 = sub nuw nsw i32 32, %19
   %.not5370 = icmp ugt i32 %20, %0
   br i1 %.not5370, label %.loopexit, label %.lr.ph
@@ -2834,106 +2834,106 @@ _ZN11duckdb_zstd15HUF_cardinalityEPKjj.exit:      ; preds = %.lr.ph.i
   br i1 %.not10.i, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %12, %.lr.ph
-  %22 = phi i32 [ %20, %.lr.ph ], [ poison, %12 ]
+  %.06.lcssa.i8387 = phi i32 [ %20, %.lr.ph ], [ poison, %12 ]
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.thread67.us
-  %.04673.us = phi i32 [ %37, %.thread67.us ], [ %22, %.lr.ph.split.us.preheader ]
+  %.04673.us = phi i32 [ %36, %.thread67.us ], [ %.06.lcssa.i8387, %.lr.ph.split.us.preheader ]
   %.04772.us = phi i32 [ %.1.us, %.thread67.us ], [ %0, %.lr.ph.split.us.preheader ]
   %.04871.us = phi i64 [ %.149.us, %.thread67.us ], [ -2, %.lr.ph.split.us.preheader ]
-  %23 = tail call noundef i64 @_ZN11duckdb_zstd20HUF_buildCTable_wkspEPmPKjjjPvm(ptr noundef %5, ptr noundef %6, i32 noundef %2, i32 noundef %.04673.us, ptr noundef %3, i64 noundef %4)
-  %24 = icmp ult i64 %23, -119
-  br i1 %24, label %25, label %.thread67.us
+  %22 = tail call noundef i64 @_ZN11duckdb_zstd20HUF_buildCTable_wkspEPmPKjjjPvm(ptr noundef %5, ptr noundef %6, i32 noundef %2, i32 noundef %.04673.us, ptr noundef %3, i64 noundef %4)
+  %23 = icmp ult i64 %22, -119
+  br i1 %23, label %24, label %.thread67.us
 
-25:                                               ; preds = %.lr.ph.split.us
-  %26 = zext i32 %.04673.us to i64
-  %27 = icmp samesign ult i64 %23, %26
-  %28 = icmp ugt i32 %.04673.us, %22
-  %or.cond.us = and i1 %28, %27
-  br i1 %or.cond.us, label %.loopexit, label %29
+24:                                               ; preds = %.lr.ph.split.us
+  %25 = zext i32 %.04673.us to i64
+  %26 = icmp samesign ult i64 %22, %25
+  %27 = icmp ugt i32 %.04673.us, %.06.lcssa.i8387
+  %or.cond.us = and i1 %27, %26
+  br i1 %or.cond.us, label %.loopexit, label %28
 
-29:                                               ; preds = %25
-  %30 = trunc nuw nsw i64 %23 to i32
-  %31 = tail call noundef i64 @_ZN11duckdb_zstd20HUF_writeCTable_wkspEPvmPKmjjS0_m(ptr noundef nonnull %13, i64 noundef %14, ptr noundef %5, i32 noundef %2, i32 noundef %30, ptr noundef %3, i64 noundef %4)
-  %32 = icmp ult i64 %31, -119
-  br i1 %32, label %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit.us, label %.thread67.us
+28:                                               ; preds = %24
+  %29 = trunc nuw nsw i64 %22 to i32
+  %30 = tail call noundef i64 @_ZN11duckdb_zstd20HUF_writeCTable_wkspEPvmPKmjjS0_m(ptr noundef nonnull %13, i64 noundef %14, ptr noundef %5, i32 noundef %2, i32 noundef %29, ptr noundef %3, i64 noundef %4)
+  %31 = icmp ult i64 %30, -119
+  br i1 %31, label %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit.us, label %.thread67.us
 
-_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit.us: ; preds = %29
-  %33 = add nuw i64 %.04871.us, 1
-  %34 = icmp ugt i64 %31, %33
-  br i1 %34, label %.loopexit, label %35
+_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit.us: ; preds = %28
+  %32 = add nuw i64 %.04871.us, 1
+  %33 = icmp ugt i64 %30, %32
+  br i1 %33, label %.loopexit, label %34
 
-35:                                               ; preds = %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit.us
-  %36 = icmp ult i64 %31, %.04871.us
-  %spec.select.us = tail call i64 @llvm.umin.i64(i64 %31, i64 %.04871.us)
-  %spec.select56.us = select i1 %36, i32 %.04673.us, i32 %.04772.us
+34:                                               ; preds = %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit.us
+  %35 = icmp ult i64 %30, %.04871.us
+  %spec.select.us = tail call i64 @llvm.umin.i64(i64 %30, i64 %.04871.us)
+  %spec.select56.us = select i1 %35, i32 %.04673.us, i32 %.04772.us
   br label %.thread67.us
 
-.thread67.us:                                     ; preds = %35, %29, %.lr.ph.split.us
-  %.149.us = phi i64 [ %.04871.us, %29 ], [ %spec.select.us, %35 ], [ %.04871.us, %.lr.ph.split.us ]
-  %.1.us = phi i32 [ %.04772.us, %29 ], [ %spec.select56.us, %35 ], [ %.04772.us, %.lr.ph.split.us ]
-  %37 = add i32 %.04673.us, 1
-  %.not53.us = icmp ugt i32 %37, %0
+.thread67.us:                                     ; preds = %34, %28, %.lr.ph.split.us
+  %.149.us = phi i64 [ %.04871.us, %28 ], [ %spec.select.us, %34 ], [ %.04871.us, %.lr.ph.split.us ]
+  %.1.us = phi i32 [ %.04772.us, %28 ], [ %spec.select56.us, %34 ], [ %.04772.us, %.lr.ph.split.us ]
+  %36 = add i32 %.04673.us, 1
+  %.not53.us = icmp ugt i32 %36, %0
   br i1 %.not53.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !58
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread67
-  %.04673 = phi i32 [ %62, %.thread67 ], [ %20, %.lr.ph ]
+  %.04673 = phi i32 [ %61, %.thread67 ], [ %20, %.lr.ph ]
   %.04772 = phi i32 [ %.1, %.thread67 ], [ %0, %.lr.ph ]
   %.04871 = phi i64 [ %.149, %.thread67 ], [ -2, %.lr.ph ]
-  %38 = tail call noundef i64 @_ZN11duckdb_zstd20HUF_buildCTable_wkspEPmPKjjjPvm(ptr noundef %5, ptr noundef %6, i32 noundef %2, i32 noundef %.04673, ptr noundef %3, i64 noundef %4)
-  %39 = icmp ult i64 %38, -119
-  br i1 %39, label %40, label %.thread67
+  %37 = tail call noundef i64 @_ZN11duckdb_zstd20HUF_buildCTable_wkspEPmPKjjjPvm(ptr noundef %5, ptr noundef %6, i32 noundef %2, i32 noundef %.04673, ptr noundef %3, i64 noundef %4)
+  %38 = icmp ult i64 %37, -119
+  br i1 %38, label %39, label %.thread67
 
-40:                                               ; preds = %.lr.ph.split
-  %41 = zext i32 %.04673 to i64
-  %42 = icmp samesign ult i64 %38, %41
-  %43 = icmp ugt i32 %.04673, %20
-  %or.cond = and i1 %43, %42
-  br i1 %or.cond, label %.loopexit, label %44
+39:                                               ; preds = %.lr.ph.split
+  %40 = zext i32 %.04673 to i64
+  %41 = icmp samesign ult i64 %37, %40
+  %42 = icmp ugt i32 %.04673, %20
+  %or.cond = and i1 %42, %41
+  br i1 %or.cond, label %.loopexit, label %43
 
-44:                                               ; preds = %40
-  %45 = trunc nuw nsw i64 %38 to i32
-  %46 = tail call noundef i64 @_ZN11duckdb_zstd20HUF_writeCTable_wkspEPvmPKmjjS0_m(ptr noundef nonnull %13, i64 noundef %14, ptr noundef %5, i32 noundef %2, i32 noundef %45, ptr noundef %3, i64 noundef %4)
-  %47 = icmp ult i64 %46, -119
-  br i1 %47, label %.lr.ph.i59, label %.thread67
+43:                                               ; preds = %39
+  %44 = trunc nuw nsw i64 %37 to i32
+  %45 = tail call noundef i64 @_ZN11duckdb_zstd20HUF_writeCTable_wkspEPvmPKmjjS0_m(ptr noundef nonnull %13, i64 noundef %14, ptr noundef %5, i32 noundef %2, i32 noundef %44, ptr noundef %3, i64 noundef %4)
+  %46 = icmp ult i64 %45, -119
+  br i1 %46, label %.lr.ph.i59, label %.thread67
 
-.lr.ph.i59:                                       ; preds = %44, %.lr.ph.i59
-  %indvars.iv.i60 = phi i64 [ %indvars.iv.next.i61, %.lr.ph.i59 ], [ 0, %44 ]
-  %.0911.i = phi i64 [ %55, %.lr.ph.i59 ], [ 0, %44 ]
-  %48 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv.i60
-  %49 = load i64, ptr %48, align 8, !tbaa !8
-  %50 = and i64 %49, 255
-  %51 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i60
-  %52 = load i32, ptr %51, align 4, !tbaa !11
-  %53 = zext i32 %52 to i64
-  %54 = mul nuw nsw i64 %50, %53
-  %55 = add i64 %54, %.0911.i
+.lr.ph.i59:                                       ; preds = %43, %.lr.ph.i59
+  %indvars.iv.i60 = phi i64 [ %indvars.iv.next.i61, %.lr.ph.i59 ], [ 0, %43 ]
+  %.0911.i = phi i64 [ %54, %.lr.ph.i59 ], [ 0, %43 ]
+  %47 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv.i60
+  %48 = load i64, ptr %47, align 8, !tbaa !8
+  %49 = and i64 %48, 255
+  %50 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i60
+  %51 = load i32, ptr %50, align 4, !tbaa !11
+  %52 = zext i32 %51 to i64
+  %53 = mul nuw nsw i64 %49, %52
+  %54 = add i64 %53, %.0911.i
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i58
   br i1 %exitcond.not.i62, label %._crit_edge.loopexit.i, label %.lr.ph.i59, !llvm.loop !50
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i59
-  %56 = lshr i64 %55, 3
-  %57 = add i64 %56, %46
-  %58 = add nuw i64 %.04871, 1
-  %59 = icmp ugt i64 %57, %58
-  br i1 %59, label %.loopexit, label %60
+  %55 = lshr i64 %54, 3
+  %56 = add i64 %55, %45
+  %57 = add nuw i64 %.04871, 1
+  %58 = icmp ugt i64 %56, %57
+  br i1 %58, label %.loopexit, label %59
 
-60:                                               ; preds = %._crit_edge.loopexit.i
-  %61 = icmp ult i64 %57, %.04871
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %57, i64 %.04871)
-  %spec.select56 = select i1 %61, i32 %.04673, i32 %.04772
+59:                                               ; preds = %._crit_edge.loopexit.i
+  %60 = icmp ult i64 %56, %.04871
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %56, i64 %.04871)
+  %spec.select56 = select i1 %60, i32 %.04673, i32 %.04772
   br label %.thread67
 
-.thread67:                                        ; preds = %.lr.ph.split, %60, %44
-  %.149 = phi i64 [ %.04871, %44 ], [ %spec.select, %60 ], [ %.04871, %.lr.ph.split ]
-  %.1 = phi i32 [ %.04772, %44 ], [ %spec.select56, %60 ], [ %.04772, %.lr.ph.split ]
-  %62 = add i32 %.04673, 1
-  %.not53 = icmp ugt i32 %62, %0
+.thread67:                                        ; preds = %.lr.ph.split, %59, %43
+  %.149 = phi i64 [ %.04871, %43 ], [ %spec.select, %59 ], [ %.04871, %.lr.ph.split ]
+  %.1 = phi i32 [ %.04772, %43 ], [ %spec.select56, %59 ], [ %.04772, %.lr.ph.split ]
+  %61 = add i32 %.04673, 1
+  %.not53 = icmp ugt i32 %61, %0
   br i1 %.not53, label %.loopexit, label %.lr.ph.split, !llvm.loop !60
 
-.loopexit:                                        ; preds = %._crit_edge.loopexit.i, %.thread67, %40, %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit.us, %.thread67.us, %25, %_ZN11duckdb_zstd15HUF_cardinalityEPKjj.exit, %10
-  %.045 = phi i32 [ %11, %10 ], [ %0, %_ZN11duckdb_zstd15HUF_cardinalityEPKjj.exit ], [ %.04772.us, %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit.us ], [ %.1.us, %.thread67.us ], [ %.04772.us, %25 ], [ %.04772, %._crit_edge.loopexit.i ], [ %.1, %.thread67 ], [ %.04772, %40 ]
+.loopexit:                                        ; preds = %._crit_edge.loopexit.i, %.thread67, %39, %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit.us, %.thread67.us, %24, %_ZN11duckdb_zstd15HUF_cardinalityEPKjj.exit, %10
+  %.045 = phi i32 [ %11, %10 ], [ %0, %_ZN11duckdb_zstd15HUF_cardinalityEPKjj.exit ], [ %.04772.us, %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit.us ], [ %.1.us, %.thread67.us ], [ %.04772.us, %24 ], [ %.04772, %._crit_edge.loopexit.i ], [ %.1, %.thread67 ], [ %.04772, %39 ]
   ret i32 %.045
 }
 

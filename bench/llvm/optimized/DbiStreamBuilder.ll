@@ -1777,131 +1777,131 @@ _ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i.i: ; preds = %138, %135, %128
   %148 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %149 = load i64, ptr %148, align 8, !tbaa !218, !noalias !222
   %150 = sub i64 %147, %149
+  %151 = call i64 @llvm.umin.i64(i64 %150, i64 %124)
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i
 
 _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i: ; preds = %143, %141
-  %.0.i.i.i = phi i64 [ %150, %143 ], [ 0, %141 ]
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %.0.i.i.i, i64 %124)
-  %151 = icmp eq i64 %.sroa.speculated.i.i, 0
-  br i1 %151, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit, label %153
+  %.0.i.i.i = phi i64 [ %151, %143 ], [ 0, %141 ]
+  %152 = icmp eq i64 %.0.i.i.i, 0
+  br i1 %152, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit, label %154
 
 _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread: ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i.i
   %.sroa.speculated.i.i285 = call i64 @llvm.umin.i64(i64 %.sroa.10.16.copyload, i64 %124)
-  %152 = icmp eq i64 %.sroa.speculated.i.i285, 0
-  br i1 %152, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit, label %._crit_edge.i.i
+  %153 = icmp eq i64 %.sroa.speculated.i.i285, 0
+  br i1 %153, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit, label %._crit_edge.i.i
 
-153:                                              ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i
-  %154 = load i8, ptr %107, align 8, !tbaa !102, !range !107, !noalias !222, !noundef !108
-  %155 = trunc nuw i8 %154 to i1
-  br i1 %155, label %156, label %158
+154:                                              ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i
+  %155 = load i8, ptr %107, align 8, !tbaa !102, !range !107, !noalias !222, !noundef !108
+  %156 = trunc nuw i8 %155 to i1
+  br i1 %156, label %157, label %159
 
-156:                                              ; preds = %153
-  %157 = load i64, ptr %.sroa.10.16..sroa_idx, align 8, !tbaa !216, !noalias !222
+157:                                              ; preds = %154
+  %158 = load i64, ptr %.sroa.10.16..sroa_idx, align 8, !tbaa !216, !noalias !222
   br label %._crit_edge.i.i
 
-158:                                              ; preds = %153
-  %159 = load ptr, ptr %125, align 8, !tbaa !217, !noalias !222
-  %.not.i2.i.i = icmp eq ptr %159, null
-  br i1 %.not.i2.i.i, label %._crit_edge.i.i, label %160
+159:                                              ; preds = %154
+  %160 = load ptr, ptr %125, align 8, !tbaa !217, !noalias !222
+  %.not.i2.i.i = icmp eq ptr %160, null
+  br i1 %.not.i2.i.i, label %._crit_edge.i.i, label %161
 
-160:                                              ; preds = %158
-  %161 = load ptr, ptr %159, align 8, !tbaa !103, !noalias !222
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 40
-  %163 = load ptr, ptr %162, align 8, !noalias !222
-  %164 = call noundef i64 %163(ptr noundef nonnull align 8 dereferenceable(8) %159) #21, !noalias !222
-  %165 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %166 = load i64, ptr %165, align 8, !tbaa !218, !noalias !222
-  %167 = sub i64 %164, %166
+161:                                              ; preds = %159
+  %162 = load ptr, ptr %160, align 8, !tbaa !103, !noalias !222
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 40
+  %164 = load ptr, ptr %163, align 8, !noalias !222
+  %165 = call noundef i64 %164(ptr noundef nonnull align 8 dereferenceable(8) %160) #21, !noalias !222
+  %166 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %167 = load i64, ptr %166, align 8, !tbaa !218, !noalias !222
+  %168 = sub i64 %165, %167
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread, %156, %158, %160
-  %.sroa.speculated.i.i286288 = phi i64 [ %.sroa.speculated.i.i, %156 ], [ %.sroa.speculated.i.i, %160 ], [ %.sroa.speculated.i.i, %158 ], [ %.sroa.speculated.i.i285, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %168 = phi i64 [ %157, %156 ], [ %167, %160 ], [ 0, %158 ], [ %.sroa.10.16.copyload, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %169 = sub i64 %168, %.sroa.speculated.i.i286288
+._crit_edge.i.i:                                  ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread, %157, %159, %161
+  %.sroa.speculated.i.i286288 = phi i64 [ %.0.i.i.i, %157 ], [ %.0.i.i.i, %161 ], [ %.0.i.i.i, %159 ], [ %.sroa.speculated.i.i285, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread ]
+  %169 = phi i64 [ %158, %157 ], [ %168, %161 ], [ 0, %159 ], [ %.sroa.10.16.copyload, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread ]
+  %170 = sub i64 %169, %.sroa.speculated.i.i286288
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit
 
 _ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread, %127, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i, %._crit_edge.i.i
   %.sroa.12.1 = phi i8 [ 0, %127 ], [ 0, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i ], [ 1, %._crit_edge.i.i ], [ 1, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %.sroa.10.0 = phi i64 [ 0, %127 ], [ %.sroa.10.16.copyload, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i ], [ %169, %._crit_edge.i.i ], [ %.sroa.10.16.copyload, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread ]
+  %.sroa.10.0 = phi i64 [ 0, %127 ], [ %.sroa.10.16.copyload, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i ], [ %170, %._crit_edge.i.i ], [ %.sroa.10.16.copyload, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread ]
   %.sroa.5231.0 = phi ptr [ null, %127 ], [ %131, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i ], [ %131, %._crit_edge.i.i ], [ %131, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread ]
   %.sroa.0230.0 = phi ptr [ null, %127 ], [ %129, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i ], [ %129, %._crit_edge.i.i ], [ %129, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i.i.thread ]
-  %170 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %171 = load ptr, ptr %170, align 8, !tbaa !115
-  %.not.i.i.i106 = icmp eq ptr %171, null
-  br i1 %.not.i.i.i106, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit, label %172
+  %171 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %172 = load ptr, ptr %171, align 8, !tbaa !115
+  %.not.i.i.i106 = icmp eq ptr %172, null
+  br i1 %.not.i.i.i106, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit, label %173
 
-172:                                              ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit
-  %173 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  %174 = load atomic i64, ptr %173 acquire, align 8
-  %175 = icmp eq i64 %174, 4294967297
-  %176 = trunc i64 %174 to i32
-  br i1 %175, label %177, label %185
+173:                                              ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %175 = load atomic i64, ptr %174 acquire, align 8
+  %176 = icmp eq i64 %175, 4294967297
+  %177 = trunc i64 %175 to i32
+  br i1 %176, label %178, label %186
 
-177:                                              ; preds = %172
-  store i32 0, ptr %173, align 8, !tbaa !116
-  %178 = getelementptr inbounds nuw i8, ptr %171, i64 12
-  store i32 0, ptr %178, align 4, !tbaa !118
-  %179 = load ptr, ptr %171, align 8, !tbaa !103
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  %181 = load ptr, ptr %180, align 8
-  call void %181(ptr noundef nonnull align 8 dereferenceable(16) %171) #21
-  %182 = load ptr, ptr %171, align 8, !tbaa !103
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 24
-  %184 = load ptr, ptr %183, align 8
-  call void %184(ptr noundef nonnull align 8 dereferenceable(16) %171) #21
+178:                                              ; preds = %173
+  store i32 0, ptr %174, align 8, !tbaa !116
+  %179 = getelementptr inbounds nuw i8, ptr %172, i64 12
+  store i32 0, ptr %179, align 4, !tbaa !118
+  %180 = load ptr, ptr %172, align 8, !tbaa !103
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
+  %182 = load ptr, ptr %181, align 8
+  call void %182(ptr noundef nonnull align 8 dereferenceable(16) %172) #21
+  %183 = load ptr, ptr %172, align 8, !tbaa !103
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
+  %185 = load ptr, ptr %184, align 8
+  call void %185(ptr noundef nonnull align 8 dereferenceable(16) %172) #21
   br label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit
 
-185:                                              ; preds = %172
-  %186 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
-  %.not.i.i.i.i107 = icmp eq i8 %186, 0
-  br i1 %.not.i.i.i.i107, label %189, label %187
+186:                                              ; preds = %173
+  %187 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
+  %.not.i.i.i.i107 = icmp eq i8 %187, 0
+  br i1 %.not.i.i.i.i107, label %190, label %188
 
-187:                                              ; preds = %185
-  %188 = add nsw i32 %176, -1
-  store i32 %188, ptr %173, align 4, !tbaa !120
+188:                                              ; preds = %186
+  %189 = add nsw i32 %177, -1
+  store i32 %189, ptr %174, align 4, !tbaa !120
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-189:                                              ; preds = %185
-  %190 = atomicrmw volatile add ptr %173, i32 -1 acq_rel, align 4
+190:                                              ; preds = %186
+  %191 = atomicrmw volatile add ptr %174, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %189, %187
-  %.0.i.i.i.i.i = phi i32 [ %176, %187 ], [ %190, %189 ]
-  %191 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %191, label %192, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit, !prof !121
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %190, %188
+  %.0.i.i.i.i.i = phi i32 [ %177, %188 ], [ %191, %190 ]
+  %192 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %192, label %193, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit, !prof !121
 
-192:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %171) #21
+193:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %172) #21
   br label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit
 
-_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit, %177, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %192
+_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit: ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10keep_frontEm.exit, %178, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %193
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #21
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #21
   store ptr %.sroa.0230.0, ptr %12, align 8, !tbaa !223
-  %193 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %.sroa.5231.0, ptr %193, align 8, !tbaa !115
+  %194 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %.sroa.5231.0, ptr %194, align 8, !tbaa !115
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.5231.0, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit, label %194
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit, label %195
 
-194:                                              ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit
-  %195 = getelementptr inbounds nuw i8, ptr %.sroa.5231.0, i64 8
-  %196 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
-  %.not.i.i.i.i.i.i = icmp eq i8 %196, 0
-  br i1 %.not.i.i.i.i.i.i, label %200, label %197
+195:                                              ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit
+  %196 = getelementptr inbounds nuw i8, ptr %.sroa.5231.0, i64 8
+  %197 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
+  %.not.i.i.i.i.i.i = icmp eq i8 %197, 0
+  br i1 %.not.i.i.i.i.i.i, label %201, label %198
 
-197:                                              ; preds = %194
-  %198 = load i32, ptr %195, align 4, !tbaa !120
-  %199 = add nsw i32 %198, 1
-  store i32 %199, ptr %195, align 4, !tbaa !120
+198:                                              ; preds = %195
+  %199 = load i32, ptr %196, align 4, !tbaa !120
+  %200 = add nsw i32 %199, 1
+  store i32 %200, ptr %196, align 4, !tbaa !120
   br label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit
 
-200:                                              ; preds = %194
-  %201 = atomicrmw volatile add ptr %195, i32 1 acq_rel, align 4
+201:                                              ; preds = %195
+  %202 = atomicrmw volatile add ptr %196, i32 1 acq_rel, align 4
   br label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit
 
-_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit:   ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit, %197, %200
-  %202 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %202, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, i64 16, i1 false)
+_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit:   ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit, %198, %201
+  %203 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %203, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, i64 16, i1 false)
   %.sroa.10.16..sroa_idx233 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 %.sroa.10.0, ptr %.sroa.10.16..sroa_idx233, align 8
   %.sroa.12.16..sroa_idx235 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -1909,106 +1909,106 @@ _ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit:   ; preds = %_ZN4llvm19BinaryStr
   %.sroa.14.16..sroa_idx237 = getelementptr inbounds nuw i8, ptr %12, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.16..sroa_idx237, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14, i64 7, i1 false)
   call void @_ZN4llvm18BinaryStreamWriterC1ENS_23WritableBinaryStreamRefE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull %12) #21
-  %203 = load ptr, ptr %193, align 8, !tbaa !115
-  %.not.i.i.i108 = icmp eq ptr %203, null
-  br i1 %.not.i.i.i108, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit112, label %204
+  %204 = load ptr, ptr %194, align 8, !tbaa !115
+  %.not.i.i.i108 = icmp eq ptr %204, null
+  br i1 %.not.i.i.i108, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit112, label %205
 
-204:                                              ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit
-  %205 = getelementptr inbounds nuw i8, ptr %203, i64 8
-  %206 = load atomic i64, ptr %205 acquire, align 8
-  %207 = icmp eq i64 %206, 4294967297
-  %208 = trunc i64 %206 to i32
-  br i1 %207, label %209, label %217
+205:                                              ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit
+  %206 = getelementptr inbounds nuw i8, ptr %204, i64 8
+  %207 = load atomic i64, ptr %206 acquire, align 8
+  %208 = icmp eq i64 %207, 4294967297
+  %209 = trunc i64 %207 to i32
+  br i1 %208, label %210, label %218
 
-209:                                              ; preds = %204
-  store i32 0, ptr %205, align 8, !tbaa !116
-  %210 = getelementptr inbounds nuw i8, ptr %203, i64 12
-  store i32 0, ptr %210, align 4, !tbaa !118
-  %211 = load ptr, ptr %203, align 8, !tbaa !103
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
-  %213 = load ptr, ptr %212, align 8
-  call void %213(ptr noundef nonnull align 8 dereferenceable(16) %203) #21
-  %214 = load ptr, ptr %203, align 8, !tbaa !103
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 24
-  %216 = load ptr, ptr %215, align 8
-  call void %216(ptr noundef nonnull align 8 dereferenceable(16) %203) #21
+210:                                              ; preds = %205
+  store i32 0, ptr %206, align 8, !tbaa !116
+  %211 = getelementptr inbounds nuw i8, ptr %204, i64 12
+  store i32 0, ptr %211, align 4, !tbaa !118
+  %212 = load ptr, ptr %204, align 8, !tbaa !103
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
+  %214 = load ptr, ptr %213, align 8
+  call void %214(ptr noundef nonnull align 8 dereferenceable(16) %204) #21
+  %215 = load ptr, ptr %204, align 8, !tbaa !103
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
+  %217 = load ptr, ptr %216, align 8
+  call void %217(ptr noundef nonnull align 8 dereferenceable(16) %204) #21
   br label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit112
 
-217:                                              ; preds = %204
-  %218 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
-  %.not.i.i.i.i109 = icmp eq i8 %218, 0
-  br i1 %.not.i.i.i.i109, label %221, label %219
+218:                                              ; preds = %205
+  %219 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
+  %.not.i.i.i.i109 = icmp eq i8 %219, 0
+  br i1 %.not.i.i.i.i109, label %222, label %220
 
-219:                                              ; preds = %217
-  %220 = add nsw i32 %208, -1
-  store i32 %220, ptr %205, align 4, !tbaa !120
+220:                                              ; preds = %218
+  %221 = add nsw i32 %209, -1
+  store i32 %221, ptr %206, align 4, !tbaa !120
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i110
 
-221:                                              ; preds = %217
-  %222 = atomicrmw volatile add ptr %205, i32 -1 acq_rel, align 4
+222:                                              ; preds = %218
+  %223 = atomicrmw volatile add ptr %206, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i110
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i110: ; preds = %221, %219
-  %.0.i.i.i.i.i111 = phi i32 [ %208, %219 ], [ %222, %221 ]
-  %223 = icmp eq i32 %.0.i.i.i.i.i111, 1
-  br i1 %223, label %224, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit112, !prof !121
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i110: ; preds = %222, %220
+  %.0.i.i.i.i.i111 = phi i32 [ %209, %220 ], [ %223, %222 ]
+  %224 = icmp eq i32 %.0.i.i.i.i.i111, 1
+  br i1 %224, label %225, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit112, !prof !121
 
-224:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i110
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %203) #21
+225:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i110
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %204) #21
   br label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit112
 
-_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit112: ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit, %209, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i110, %224
-  %225 = load ptr, ptr %18, align 8, !tbaa !140
-  %226 = load ptr, ptr %17, align 8, !tbaa !139
-  %227 = ptrtoint ptr %225 to i64
+_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit112: ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit, %210, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i110, %225
+  %226 = load ptr, ptr %18, align 8, !tbaa !140
+  %227 = load ptr, ptr %17, align 8, !tbaa !139
   %228 = ptrtoint ptr %226 to i64
-  %229 = sub i64 %227, %228
-  %230 = lshr i64 %229, 3
-  %231 = trunc i64 %230 to i32
-  %.sroa.speculated225 = call i32 @llvm.umin.i32(i32 %231, i32 65535)
-  %232 = trunc nuw i32 %.sroa.speculated225 to i16
-  %233 = getelementptr inbounds nuw i8, ptr %1, i64 172
-  %234 = load i32, ptr %233, align 4, !tbaa !122
+  %229 = ptrtoint ptr %227 to i64
+  %230 = sub i64 %228, %229
+  %231 = lshr i64 %230, 3
+  %232 = trunc i64 %231 to i32
+  %.sroa.speculated225 = call i32 @llvm.umin.i32(i32 %232, i32 65535)
+  %233 = trunc nuw i32 %.sroa.speculated225 to i16
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 172
+  %235 = load i32, ptr %234, align 4, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #21, !noalias !224
-  %235 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %236 = load ptr, ptr %235, align 8, !tbaa !217, !noalias !224
-  %237 = load ptr, ptr %236, align 8, !tbaa !103, !noalias !224
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  %239 = load ptr, ptr %238, align 8, !noalias !224
-  %240 = call noundef i32 %239(ptr noundef nonnull align 8 dereferenceable(8) %236) #21, !noalias !224
-  %.not.i.i.i114 = icmp eq i32 %240, 1
-  %rev.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %232)
-  %spec.select.i.i.i = select i1 %.not.i.i.i114, i16 %232, i16 %rev.i.i.i.i.i.i
+  %236 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %237 = load ptr, ptr %236, align 8, !tbaa !217, !noalias !224
+  %238 = load ptr, ptr %237, align 8, !tbaa !103, !noalias !224
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
+  %240 = load ptr, ptr %239, align 8, !noalias !224
+  %241 = call noundef i32 %240(ptr noundef nonnull align 8 dereferenceable(8) %237) #21, !noalias !224
+  %.not.i.i.i114 = icmp eq i32 %241, 1
+  %rev.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %233)
+  %spec.select.i.i.i = select i1 %.not.i.i.i114, i16 %233, i16 %rev.i.i.i.i.i.i
   call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   store i16 %spec.select.i.i.i, ptr %9, align 2, !noalias !224
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull %9, i64 2) #21
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #21, !noalias !224
-  %241 = load ptr, ptr %0, align 8, !tbaa !162
-  %.not249 = icmp eq ptr %241, null
+  %242 = load ptr, ptr %0, align 8, !tbaa !162
+  %.not249 = icmp eq ptr %242, null
   br i1 %.not249, label %_ZN4llvm5ErrorD2Ev.exit, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit112
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %234, i32 65535)
-  %242 = trunc nuw i32 %.sroa.speculated to i16
+  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %235, i32 65535)
+  %243 = trunc nuw i32 %.sroa.speculated to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #21, !noalias !227
-  %243 = load ptr, ptr %235, align 8, !tbaa !217, !noalias !227
-  %244 = load ptr, ptr %243, align 8, !tbaa !103, !noalias !227
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 16
-  %246 = load ptr, ptr %245, align 8, !noalias !227
-  %247 = call noundef i32 %246(ptr noundef nonnull align 8 dereferenceable(8) %243) #21, !noalias !227
-  %.not.i.i.i115 = icmp eq i32 %247, 1
-  %rev.i.i.i.i.i.i116 = call i16 @llvm.bswap.i16(i16 %242)
-  %spec.select.i.i.i117 = select i1 %.not.i.i.i115, i16 %242, i16 %rev.i.i.i.i.i.i116
+  %244 = load ptr, ptr %236, align 8, !tbaa !217, !noalias !227
+  %245 = load ptr, ptr %244, align 8, !tbaa !103, !noalias !227
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 16
+  %247 = load ptr, ptr %246, align 8, !noalias !227
+  %248 = call noundef i32 %247(ptr noundef nonnull align 8 dereferenceable(8) %244) #21, !noalias !227
+  %.not.i.i.i115 = icmp eq i32 %248, 1
+  %rev.i.i.i.i.i.i116 = call i16 @llvm.bswap.i16(i16 %243)
+  %spec.select.i.i.i117 = select i1 %.not.i.i.i115, i16 %243, i16 %rev.i.i.i.i.i.i116
   call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   store i16 %spec.select.i.i.i117, ptr %8, align 2, !noalias !227
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull %8, i64 2) #21
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #21, !noalias !227
-  %248 = load ptr, ptr %0, align 8, !tbaa !162
-  %.not250 = icmp eq ptr %248, null
+  %249 = load ptr, ptr %0, align 8, !tbaa !162
+  %.not250 = icmp eq ptr %249, null
   br i1 %.not250, label %_ZN4llvm5ErrorD2Ev.exit118.preheader, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit118.preheader:             ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %.not264.not = icmp eq i32 %231, 0
+  %.not264.not = icmp eq i32 %232, 0
   br i1 %.not264.not, label %.critedge89, label %_ZN4llvm5ErrorD2Ev.exit122
 
 _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit122
@@ -2019,205 +2019,205 @@ _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %_ZN4llvm5ErrorD2Ev.
 _ZN4llvm5ErrorD2Ev.exit122:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit118.preheader, %_ZN4llvm5ErrorD2Ev.exit118
   %indvars.iv = phi i32 [ %indvars.iv.next, %_ZN4llvm5ErrorD2Ev.exit118 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit118.preheader ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #21, !noalias !231
-  %249 = load ptr, ptr %235, align 8, !tbaa !217, !noalias !231
-  %250 = load ptr, ptr %249, align 8, !tbaa !103, !noalias !231
-  %251 = getelementptr inbounds nuw i8, ptr %250, i64 16
-  %252 = load ptr, ptr %251, align 8, !noalias !231
-  %253 = call noundef i32 %252(ptr noundef nonnull align 8 dereferenceable(8) %249) #21, !noalias !231
-  %.not.i.i.i119 = icmp eq i32 %253, 1
-  %254 = trunc nuw i32 %indvars.iv to i16
-  %rev.i.i.i.i.i.i120 = call i16 @llvm.bswap.i16(i16 %254)
-  %spec.select.i.i.i121 = select i1 %.not.i.i.i119, i16 %254, i16 %rev.i.i.i.i.i.i120
+  %250 = load ptr, ptr %236, align 8, !tbaa !217, !noalias !231
+  %251 = load ptr, ptr %250, align 8, !tbaa !103, !noalias !231
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
+  %253 = load ptr, ptr %252, align 8, !noalias !231
+  %254 = call noundef i32 %253(ptr noundef nonnull align 8 dereferenceable(8) %250) #21, !noalias !231
+  %.not.i.i.i119 = icmp eq i32 %254, 1
+  %255 = trunc nuw i32 %indvars.iv to i16
+  %rev.i.i.i.i.i.i120 = call i16 @llvm.bswap.i16(i16 %255)
+  %spec.select.i.i.i121 = select i1 %.not.i.i.i119, i16 %255, i16 %rev.i.i.i.i.i.i120
   call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
   store i16 %spec.select.i.i.i121, ptr %7, align 2, !noalias !231
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull %7, i64 2) #21
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #21, !noalias !231
-  %255 = load ptr, ptr %0, align 8, !tbaa !162
-  %.not258 = icmp eq ptr %255, null
+  %256 = load ptr, ptr %0, align 8, !tbaa !162
+  %.not258 = icmp eq ptr %256, null
   br i1 %.not258, label %_ZN4llvm5ErrorD2Ev.exit118, label %.critedge
 
 .critedge89:                                      ; preds = %_ZN4llvm5ErrorD2Ev.exit118, %_ZN4llvm5ErrorD2Ev.exit118.preheader
-  %256 = load ptr, ptr %17, align 8, !tbaa !172
-  %257 = load ptr, ptr %18, align 8, !tbaa !172
-  %.not251266 = icmp eq ptr %256, %257
+  %257 = load ptr, ptr %17, align 8, !tbaa !172
+  %258 = load ptr, ptr %18, align 8, !tbaa !172
+  %.not251266 = icmp eq ptr %257, %258
   br i1 %.not251266, label %.critedge92, label %_ZN4llvm5ErrorD2Ev.exit126
 
-258:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit126
-  %259 = getelementptr inbounds nuw i8, ptr %.sroa.0218.0267, i64 8
-  %.not251 = icmp eq ptr %259, %257
+259:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit126
+  %260 = getelementptr inbounds nuw i8, ptr %.sroa.0218.0267, i64 8
+  %.not251 = icmp eq ptr %260, %258
   br i1 %.not251, label %.critedge92, label %_ZN4llvm5ErrorD2Ev.exit126
 
-_ZN4llvm5ErrorD2Ev.exit126:                       ; preds = %.critedge89, %258
-  %.sroa.0218.0267 = phi ptr [ %259, %258 ], [ %256, %.critedge89 ]
-  %260 = load ptr, ptr %.sroa.0218.0267, align 8, !tbaa !141
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 80
-  %262 = load ptr, ptr %261, align 8, !tbaa !165
-  %263 = getelementptr inbounds nuw i8, ptr %260, i64 88
-  %264 = load ptr, ptr %263, align 8, !tbaa !168
-  %265 = ptrtoint ptr %264 to i64
-  %266 = ptrtoint ptr %262 to i64
-  %267 = sub i64 %265, %266
-  %268 = lshr exact i64 %267, 5
-  %269 = trunc i64 %268 to i16
+_ZN4llvm5ErrorD2Ev.exit126:                       ; preds = %.critedge89, %259
+  %.sroa.0218.0267 = phi ptr [ %260, %259 ], [ %257, %.critedge89 ]
+  %261 = load ptr, ptr %.sroa.0218.0267, align 8, !tbaa !141
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 80
+  %263 = load ptr, ptr %262, align 8, !tbaa !165
+  %264 = getelementptr inbounds nuw i8, ptr %261, i64 88
+  %265 = load ptr, ptr %264, align 8, !tbaa !168
+  %266 = ptrtoint ptr %265 to i64
+  %267 = ptrtoint ptr %263 to i64
+  %268 = sub i64 %266, %267
+  %269 = lshr exact i64 %268, 5
+  %270 = trunc i64 %269 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #21, !noalias !234
-  %270 = load ptr, ptr %235, align 8, !tbaa !217, !noalias !234
-  %271 = load ptr, ptr %270, align 8, !tbaa !103, !noalias !234
-  %272 = getelementptr inbounds nuw i8, ptr %271, i64 16
-  %273 = load ptr, ptr %272, align 8, !noalias !234
-  %274 = call noundef i32 %273(ptr noundef nonnull align 8 dereferenceable(8) %270) #21, !noalias !234
-  %.not.i.i.i123 = icmp eq i32 %274, 1
-  %rev.i.i.i.i.i.i124 = call i16 @llvm.bswap.i16(i16 %269)
-  %spec.select.i.i.i125 = select i1 %.not.i.i.i123, i16 %269, i16 %rev.i.i.i.i.i.i124
+  %271 = load ptr, ptr %236, align 8, !tbaa !217, !noalias !234
+  %272 = load ptr, ptr %271, align 8, !tbaa !103, !noalias !234
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 16
+  %274 = load ptr, ptr %273, align 8, !noalias !234
+  %275 = call noundef i32 %274(ptr noundef nonnull align 8 dereferenceable(8) %271) #21, !noalias !234
+  %.not.i.i.i123 = icmp eq i32 %275, 1
+  %rev.i.i.i.i.i.i124 = call i16 @llvm.bswap.i16(i16 %270)
+  %spec.select.i.i.i125 = select i1 %.not.i.i.i123, i16 %270, i16 %rev.i.i.i.i.i.i124
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   store i16 %spec.select.i.i.i125, ptr %6, align 2, !noalias !234
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull %6, i64 2) #21
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #21, !noalias !234
-  %275 = load ptr, ptr %0, align 8, !tbaa !162
-  %.not257 = icmp eq ptr %275, null
-  br i1 %.not257, label %258, label %.critedge
+  %276 = load ptr, ptr %0, align 8, !tbaa !162
+  %.not257 = icmp eq ptr %276, null
+  br i1 %.not257, label %259, label %.critedge
 
-.critedge92:                                      ; preds = %258, %.critedge89
+.critedge92:                                      ; preds = %259, %.critedge89
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.16)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #21
   call void @_ZN4llvm23WritableBinaryStreamRefC1ERNS_20WritableBinaryStreamE(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(8) %103) #21
   call void @llvm.experimental.noalias.scope.decl(metadata !237)
-  %276 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %277 = load ptr, ptr %276, align 8, !tbaa !217, !noalias !237
-  %.not.i127 = icmp eq ptr %277, null
-  br i1 %.not.i127, label %278, label %279
+  %277 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %278 = load ptr, ptr %277, align 8, !tbaa !217, !noalias !237
+  %.not.i127 = icmp eq ptr %278, null
+  br i1 %.not.i127, label %279, label %280
 
-278:                                              ; preds = %.critedge92
+279:                                              ; preds = %.critedge92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16, i8 0, i64 7, i1 false), !alias.scope !237
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm.exit
 
-279:                                              ; preds = %.critedge92
-  %280 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %281 = load i8, ptr %280, align 8, !tbaa !102, !range !107, !noalias !237, !noundef !108
-  %282 = trunc nuw i8 %281 to i1
-  br i1 %282, label %283, label %286
+280:                                              ; preds = %.critedge92
+  %281 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %282 = load i8, ptr %281, align 8, !tbaa !102, !range !107, !noalias !237, !noundef !108
+  %283 = trunc nuw i8 %282 to i1
+  br i1 %283, label %284, label %287
 
-283:                                              ; preds = %279
-  %284 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %285 = load i64, ptr %284, align 8, !tbaa !216, !noalias !237
+284:                                              ; preds = %280
+  %285 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %286 = load i64, ptr %285, align 8, !tbaa !216, !noalias !237
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i128
 
-286:                                              ; preds = %279
-  %287 = load ptr, ptr %277, align 8, !tbaa !103, !noalias !237
-  %288 = getelementptr inbounds nuw i8, ptr %287, i64 40
-  %289 = load ptr, ptr %288, align 8, !noalias !237
-  %290 = call noundef i64 %289(ptr noundef nonnull align 8 dereferenceable(8) %277) #21, !noalias !237
-  %291 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %292 = load i64, ptr %291, align 8, !tbaa !218, !noalias !237
-  %293 = sub i64 %290, %292
+287:                                              ; preds = %280
+  %288 = load ptr, ptr %278, align 8, !tbaa !103, !noalias !237
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 40
+  %290 = load ptr, ptr %289, align 8, !noalias !237
+  %291 = call noundef i64 %290(ptr noundef nonnull align 8 dereferenceable(8) %278) #21, !noalias !237
+  %292 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %293 = load i64, ptr %292, align 8, !tbaa !218, !noalias !237
+  %294 = sub i64 %291, %293
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i128
 
-_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i128: ; preds = %286, %283
-  %.0.i.i129 = phi i64 [ %285, %283 ], [ %293, %286 ]
+_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i128: ; preds = %287, %284
+  %.0.i.i129 = phi i64 [ %286, %284 ], [ %294, %287 ]
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.0.i.i129, i64 %106)
-  %294 = load ptr, ptr %13, align 8, !tbaa !223, !noalias !237
-  %295 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %296 = load ptr, ptr %295, align 8, !tbaa !115, !noalias !237
-  %.not.i.i.i.i.i.i130 = icmp eq ptr %296, null
-  br i1 %.not.i.i.i.i.i.i130, label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i, label %297
+  %295 = load ptr, ptr %13, align 8, !tbaa !223, !noalias !237
+  %296 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %297 = load ptr, ptr %296, align 8, !tbaa !115, !noalias !237
+  %.not.i.i.i.i.i.i130 = icmp eq ptr %297, null
+  br i1 %.not.i.i.i.i.i.i130, label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i, label %298
 
-297:                                              ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i128
-  %298 = getelementptr inbounds nuw i8, ptr %296, i64 8
-  %299 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119, !noalias !237
-  %.not.i.i.i.i.i.i.i131 = icmp eq i8 %299, 0
-  br i1 %.not.i.i.i.i.i.i.i131, label %303, label %300
+298:                                              ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i128
+  %299 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  %300 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119, !noalias !237
+  %.not.i.i.i.i.i.i.i131 = icmp eq i8 %300, 0
+  br i1 %.not.i.i.i.i.i.i.i131, label %304, label %301
 
-300:                                              ; preds = %297
-  %301 = load i32, ptr %298, align 4, !tbaa !120, !noalias !237
-  %302 = add nsw i32 %301, 1
-  store i32 %302, ptr %298, align 4, !tbaa !120, !noalias !237
+301:                                              ; preds = %298
+  %302 = load i32, ptr %299, align 4, !tbaa !120, !noalias !237
+  %303 = add nsw i32 %302, 1
+  store i32 %303, ptr %299, align 4, !tbaa !120, !noalias !237
   br label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i
 
-303:                                              ; preds = %297
-  %304 = atomicrmw volatile add ptr %298, i32 1 acq_rel, align 4, !noalias !237
+304:                                              ; preds = %298
+  %305 = atomicrmw volatile add ptr %299, i32 1 acq_rel, align 4, !noalias !237
   br label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i
 
-_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i: ; preds = %303, %300, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i128
-  %.sroa.9.16.copyload = load ptr, ptr %276, align 8
+_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i: ; preds = %304, %301, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE9getLengthEv.exit.i128
+  %.sroa.9.16.copyload = load ptr, ptr %277, align 8
   %.sroa.11.16..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.sroa.11.16.copyload = load i64, ptr %.sroa.11.16..sroa_idx, align 8
   %.sroa.13.16..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
   %.sroa.13.16.copyload = load i64, ptr %.sroa.13.16..sroa_idx, align 8
-  %.sroa.15.16.copyload = load i8, ptr %280, align 8
+  %.sroa.15.16.copyload = load i8, ptr %281, align 8
   %.sroa.16.16..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16.16..sroa_idx, i64 7, i1 false)
-  %305 = icmp eq i64 %.sroa.speculated.i, 0
-  br i1 %305, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm.exit, label %306
+  %306 = icmp eq i64 %.sroa.speculated.i, 0
+  br i1 %306, label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm.exit, label %307
 
-306:                                              ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i
-  %307 = add i64 %.sroa.11.16.copyload, %.sroa.speculated.i
-  %308 = trunc nuw i8 %.sroa.15.16.copyload to i1
+307:                                              ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i
+  %308 = add i64 %.sroa.11.16.copyload, %.sroa.speculated.i
+  %309 = trunc nuw i8 %.sroa.15.16.copyload to i1
   %spec.select = and i8 %.sroa.15.16.copyload, 1
-  %309 = select i1 %308, i64 %.sroa.speculated.i, i64 0
-  %spec.select248 = sub i64 %.sroa.13.16.copyload, %309
+  %310 = select i1 %309, i64 %.sroa.speculated.i, i64 0
+  %spec.select248 = sub i64 %.sroa.13.16.copyload, %310
   br label %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm.exit
 
-_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm.exit: ; preds = %306, %278, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i
-  %.sroa.15.0 = phi i8 [ 0, %278 ], [ %.sroa.15.16.copyload, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i ], [ %spec.select, %306 ]
-  %.sroa.13.0 = phi i64 [ 0, %278 ], [ %.sroa.13.16.copyload, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i ], [ %spec.select248, %306 ]
-  %.sroa.11.0 = phi i64 [ 0, %278 ], [ %.sroa.11.16.copyload, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i ], [ %307, %306 ]
-  %.sroa.9.0 = phi ptr [ null, %278 ], [ %.sroa.9.16.copyload, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i ], [ %.sroa.9.16.copyload, %306 ]
-  %.sroa.6201.0 = phi ptr [ null, %278 ], [ %296, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i ], [ %296, %306 ]
-  %.sroa.0200.0 = phi ptr [ null, %278 ], [ %294, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i ], [ %294, %306 ]
-  %310 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  store ptr %.sroa.0200.0, ptr %310, align 8, !tbaa !240
-  %311 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %312 = load ptr, ptr %311, align 8, !tbaa !115
-  store ptr %.sroa.6201.0, ptr %311, align 8, !tbaa !115
-  %.not.i.i.i.i.i.i132 = icmp eq ptr %312, null
-  br i1 %.not.i.i.i.i.i.i132, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit138, label %313
+_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm.exit: ; preds = %307, %279, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i
+  %.sroa.15.0 = phi i8 [ 0, %279 ], [ %.sroa.15.16.copyload, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i ], [ %spec.select, %307 ]
+  %.sroa.13.0 = phi i64 [ 0, %279 ], [ %.sroa.13.16.copyload, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i ], [ %spec.select248, %307 ]
+  %.sroa.11.0 = phi i64 [ 0, %279 ], [ %.sroa.11.16.copyload, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i ], [ %308, %307 ]
+  %.sroa.9.0 = phi ptr [ null, %279 ], [ %.sroa.9.16.copyload, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i ], [ %.sroa.9.16.copyload, %307 ]
+  %.sroa.6201.0 = phi ptr [ null, %279 ], [ %297, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i ], [ %297, %307 ]
+  %.sroa.0200.0 = phi ptr [ null, %279 ], [ %295, %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit.i ], [ %295, %307 ]
+  %311 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  store ptr %.sroa.0200.0, ptr %311, align 8, !tbaa !240
+  %312 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %313 = load ptr, ptr %312, align 8, !tbaa !115
+  store ptr %.sroa.6201.0, ptr %312, align 8, !tbaa !115
+  %.not.i.i.i.i.i.i132 = icmp eq ptr %313, null
+  br i1 %.not.i.i.i.i.i.i132, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit138, label %314
 
-313:                                              ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm.exit
-  %314 = getelementptr inbounds nuw i8, ptr %312, i64 8
-  %315 = load atomic i64, ptr %314 acquire, align 8
-  %316 = icmp eq i64 %315, 4294967297
-  %317 = trunc i64 %315 to i32
-  br i1 %316, label %318, label %326
+314:                                              ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm.exit
+  %315 = getelementptr inbounds nuw i8, ptr %313, i64 8
+  %316 = load atomic i64, ptr %315 acquire, align 8
+  %317 = icmp eq i64 %316, 4294967297
+  %318 = trunc i64 %316 to i32
+  br i1 %317, label %319, label %327
 
-318:                                              ; preds = %313
-  store i32 0, ptr %314, align 8, !tbaa !116
-  %319 = getelementptr inbounds nuw i8, ptr %312, i64 12
-  store i32 0, ptr %319, align 4, !tbaa !118
-  %320 = load ptr, ptr %312, align 8, !tbaa !103
-  %321 = getelementptr inbounds nuw i8, ptr %320, i64 16
-  %322 = load ptr, ptr %321, align 8
-  call void %322(ptr noundef nonnull align 8 dereferenceable(16) %312) #21
-  %323 = load ptr, ptr %312, align 8, !tbaa !103
-  %324 = getelementptr inbounds nuw i8, ptr %323, i64 24
-  %325 = load ptr, ptr %324, align 8
-  call void %325(ptr noundef nonnull align 8 dereferenceable(16) %312) #21
+319:                                              ; preds = %314
+  store i32 0, ptr %315, align 8, !tbaa !116
+  %320 = getelementptr inbounds nuw i8, ptr %313, i64 12
+  store i32 0, ptr %320, align 4, !tbaa !118
+  %321 = load ptr, ptr %313, align 8, !tbaa !103
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 16
+  %323 = load ptr, ptr %322, align 8
+  call void %323(ptr noundef nonnull align 8 dereferenceable(16) %313) #21
+  %324 = load ptr, ptr %313, align 8, !tbaa !103
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 24
+  %326 = load ptr, ptr %325, align 8
+  call void %326(ptr noundef nonnull align 8 dereferenceable(16) %313) #21
   br label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit138
 
-326:                                              ; preds = %313
-  %327 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
-  %.not.i.i.i.i.i.i.i133 = icmp eq i8 %327, 0
-  br i1 %.not.i.i.i.i.i.i.i133, label %330, label %328
+327:                                              ; preds = %314
+  %328 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
+  %.not.i.i.i.i.i.i.i133 = icmp eq i8 %328, 0
+  br i1 %.not.i.i.i.i.i.i.i133, label %331, label %329
 
-328:                                              ; preds = %326
-  %329 = add nsw i32 %317, -1
-  store i32 %329, ptr %314, align 4, !tbaa !120
+329:                                              ; preds = %327
+  %330 = add nsw i32 %318, -1
+  store i32 %330, ptr %315, align 4, !tbaa !120
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
-330:                                              ; preds = %326
-  %331 = atomicrmw volatile add ptr %314, i32 -1 acq_rel, align 4
+331:                                              ; preds = %327
+  %332 = atomicrmw volatile add ptr %315, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %330, %328
-  %.0.i.i.i.i.i.i.i.i = phi i32 [ %317, %328 ], [ %331, %330 ]
-  %332 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %332, label %333, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit138, !prof !121
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %331, %329
+  %.0.i.i.i.i.i.i.i.i = phi i32 [ %318, %329 ], [ %332, %331 ]
+  %333 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
+  br i1 %333, label %334, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit138, !prof !121
 
-333:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %312) #21
+334:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %313) #21
   br label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit138
 
-_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit138: ; preds = %333, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %318, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm.exit
-  %334 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  store ptr %.sroa.9.0, ptr %334, align 8
+_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit138: ; preds = %334, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %319, %_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE10drop_frontEm.exit
+  %335 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  store ptr %.sroa.9.0, ptr %335, align 8
   %.sroa.11.16..sroa_idx204 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i64 %.sroa.11.0, ptr %.sroa.11.16..sroa_idx204, align 8
   %.sroa.13.16..sroa_idx206 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -2226,189 +2226,189 @@ _ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinarySt
   store i8 %.sroa.15.0, ptr %.sroa.15.16..sroa_idx208, align 8
   %.sroa.16.16..sroa_idx210 = getelementptr inbounds nuw i8, ptr %1, i64 297
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16.16..sroa_idx210, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16, i64 7, i1 false)
-  %335 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %336 = load ptr, ptr %335, align 8, !tbaa !115
-  %.not.i.i.i139 = icmp eq ptr %336, null
-  br i1 %.not.i.i.i139, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit143, label %337
+  %336 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %337 = load ptr, ptr %336, align 8, !tbaa !115
+  %.not.i.i.i139 = icmp eq ptr %337, null
+  br i1 %.not.i.i.i139, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit143, label %338
 
-337:                                              ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit138
-  %338 = getelementptr inbounds nuw i8, ptr %336, i64 8
-  %339 = load atomic i64, ptr %338 acquire, align 8
-  %340 = icmp eq i64 %339, 4294967297
-  %341 = trunc i64 %339 to i32
-  br i1 %340, label %342, label %350
+338:                                              ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit138
+  %339 = getelementptr inbounds nuw i8, ptr %337, i64 8
+  %340 = load atomic i64, ptr %339 acquire, align 8
+  %341 = icmp eq i64 %340, 4294967297
+  %342 = trunc i64 %340 to i32
+  br i1 %341, label %343, label %351
 
-342:                                              ; preds = %337
-  store i32 0, ptr %338, align 8, !tbaa !116
-  %343 = getelementptr inbounds nuw i8, ptr %336, i64 12
-  store i32 0, ptr %343, align 4, !tbaa !118
-  %344 = load ptr, ptr %336, align 8, !tbaa !103
-  %345 = getelementptr inbounds nuw i8, ptr %344, i64 16
-  %346 = load ptr, ptr %345, align 8
-  call void %346(ptr noundef nonnull align 8 dereferenceable(16) %336) #21
-  %347 = load ptr, ptr %336, align 8, !tbaa !103
-  %348 = getelementptr inbounds nuw i8, ptr %347, i64 24
-  %349 = load ptr, ptr %348, align 8
-  call void %349(ptr noundef nonnull align 8 dereferenceable(16) %336) #21
+343:                                              ; preds = %338
+  store i32 0, ptr %339, align 8, !tbaa !116
+  %344 = getelementptr inbounds nuw i8, ptr %337, i64 12
+  store i32 0, ptr %344, align 4, !tbaa !118
+  %345 = load ptr, ptr %337, align 8, !tbaa !103
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 16
+  %347 = load ptr, ptr %346, align 8
+  call void %347(ptr noundef nonnull align 8 dereferenceable(16) %337) #21
+  %348 = load ptr, ptr %337, align 8, !tbaa !103
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 24
+  %350 = load ptr, ptr %349, align 8
+  call void %350(ptr noundef nonnull align 8 dereferenceable(16) %337) #21
   br label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit143
 
-350:                                              ; preds = %337
-  %351 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
-  %.not.i.i.i.i140 = icmp eq i8 %351, 0
-  br i1 %.not.i.i.i.i140, label %354, label %352
+351:                                              ; preds = %338
+  %352 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
+  %.not.i.i.i.i140 = icmp eq i8 %352, 0
+  br i1 %.not.i.i.i.i140, label %355, label %353
 
-352:                                              ; preds = %350
-  %353 = add nsw i32 %341, -1
-  store i32 %353, ptr %338, align 4, !tbaa !120
+353:                                              ; preds = %351
+  %354 = add nsw i32 %342, -1
+  store i32 %354, ptr %339, align 4, !tbaa !120
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i141
 
-354:                                              ; preds = %350
-  %355 = atomicrmw volatile add ptr %338, i32 -1 acq_rel, align 4
+355:                                              ; preds = %351
+  %356 = atomicrmw volatile add ptr %339, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i141
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i141: ; preds = %354, %352
-  %.0.i.i.i.i.i142 = phi i32 [ %341, %352 ], [ %355, %354 ]
-  %356 = icmp eq i32 %.0.i.i.i.i.i142, 1
-  br i1 %356, label %357, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit143, !prof !121
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i141: ; preds = %355, %353
+  %.0.i.i.i.i.i142 = phi i32 [ %342, %353 ], [ %356, %355 ]
+  %357 = icmp eq i32 %.0.i.i.i.i.i142, 1
+  br i1 %357, label %358, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit143, !prof !121
 
-357:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i141
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %336) #21
+358:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i141
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %337) #21
   br label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit143
 
-_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit143: ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit138, %342, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i141, %357
+_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit143: ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit138, %343, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i141, %358
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #21
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.16)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #21
-  %358 = load ptr, ptr %310, align 8, !tbaa !223
-  store ptr %358, ptr %15, align 8, !tbaa !223
-  %359 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %360 = load ptr, ptr %311, align 8, !tbaa !115
-  store ptr %360, ptr %359, align 8, !tbaa !115
-  %.not.i.i.i.i.i144 = icmp eq ptr %360, null
-  br i1 %.not.i.i.i.i.i144, label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit146, label %361
+  %359 = load ptr, ptr %311, align 8, !tbaa !223
+  store ptr %359, ptr %15, align 8, !tbaa !223
+  %360 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %361 = load ptr, ptr %312, align 8, !tbaa !115
+  store ptr %361, ptr %360, align 8, !tbaa !115
+  %.not.i.i.i.i.i144 = icmp eq ptr %361, null
+  br i1 %.not.i.i.i.i.i144, label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit146, label %362
 
-361:                                              ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit143
-  %362 = getelementptr inbounds nuw i8, ptr %360, i64 8
-  %363 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
-  %.not.i.i.i.i.i.i145 = icmp eq i8 %363, 0
-  br i1 %.not.i.i.i.i.i.i145, label %367, label %364
+362:                                              ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit143
+  %363 = getelementptr inbounds nuw i8, ptr %361, i64 8
+  %364 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
+  %.not.i.i.i.i.i.i145 = icmp eq i8 %364, 0
+  br i1 %.not.i.i.i.i.i.i145, label %368, label %365
 
-364:                                              ; preds = %361
-  %365 = load i32, ptr %362, align 4, !tbaa !120
-  %366 = add nsw i32 %365, 1
-  store i32 %366, ptr %362, align 4, !tbaa !120
+365:                                              ; preds = %362
+  %366 = load i32, ptr %363, align 4, !tbaa !120
+  %367 = add nsw i32 %366, 1
+  store i32 %367, ptr %363, align 4, !tbaa !120
   br label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit146
 
-367:                                              ; preds = %361
-  %368 = atomicrmw volatile add ptr %362, i32 1 acq_rel, align 4
+368:                                              ; preds = %362
+  %369 = atomicrmw volatile add ptr %363, i32 1 acq_rel, align 4
   br label %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit146
 
-_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit146: ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit143, %364, %367
-  %369 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %369, ptr noundef nonnull align 8 dereferenceable(32) %334, i64 32, i1 false)
+_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit146: ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit143, %365, %368
+  %370 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %370, ptr noundef nonnull align 8 dereferenceable(32) %335, i64 32, i1 false)
   call void @_ZN4llvm18BinaryStreamWriterC1ENS_23WritableBinaryStreamRefE(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull %15) #21
-  %370 = load ptr, ptr %359, align 8, !tbaa !115
-  %.not.i.i.i147 = icmp eq ptr %370, null
-  br i1 %.not.i.i.i147, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151, label %371
+  %371 = load ptr, ptr %360, align 8, !tbaa !115
+  %.not.i.i.i147 = icmp eq ptr %371, null
+  br i1 %.not.i.i.i147, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151, label %372
 
-371:                                              ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit146
-  %372 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  %373 = load atomic i64, ptr %372 acquire, align 8
-  %374 = icmp eq i64 %373, 4294967297
-  %375 = trunc i64 %373 to i32
-  br i1 %374, label %376, label %384
+372:                                              ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit146
+  %373 = getelementptr inbounds nuw i8, ptr %371, i64 8
+  %374 = load atomic i64, ptr %373 acquire, align 8
+  %375 = icmp eq i64 %374, 4294967297
+  %376 = trunc i64 %374 to i32
+  br i1 %375, label %377, label %385
 
-376:                                              ; preds = %371
-  store i32 0, ptr %372, align 8, !tbaa !116
-  %377 = getelementptr inbounds nuw i8, ptr %370, i64 12
-  store i32 0, ptr %377, align 4, !tbaa !118
-  %378 = load ptr, ptr %370, align 8, !tbaa !103
-  %379 = getelementptr inbounds nuw i8, ptr %378, i64 16
-  %380 = load ptr, ptr %379, align 8
-  call void %380(ptr noundef nonnull align 8 dereferenceable(16) %370) #21
-  %381 = load ptr, ptr %370, align 8, !tbaa !103
-  %382 = getelementptr inbounds nuw i8, ptr %381, i64 24
-  %383 = load ptr, ptr %382, align 8
-  call void %383(ptr noundef nonnull align 8 dereferenceable(16) %370) #21
+377:                                              ; preds = %372
+  store i32 0, ptr %373, align 8, !tbaa !116
+  %378 = getelementptr inbounds nuw i8, ptr %371, i64 12
+  store i32 0, ptr %378, align 4, !tbaa !118
+  %379 = load ptr, ptr %371, align 8, !tbaa !103
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 16
+  %381 = load ptr, ptr %380, align 8
+  call void %381(ptr noundef nonnull align 8 dereferenceable(16) %371) #21
+  %382 = load ptr, ptr %371, align 8, !tbaa !103
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 24
+  %384 = load ptr, ptr %383, align 8
+  call void %384(ptr noundef nonnull align 8 dereferenceable(16) %371) #21
   br label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151
 
-384:                                              ; preds = %371
-  %385 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
-  %.not.i.i.i.i148 = icmp eq i8 %385, 0
-  br i1 %.not.i.i.i.i148, label %388, label %386
+385:                                              ; preds = %372
+  %386 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
+  %.not.i.i.i.i148 = icmp eq i8 %386, 0
+  br i1 %.not.i.i.i.i148, label %389, label %387
 
-386:                                              ; preds = %384
-  %387 = add nsw i32 %375, -1
-  store i32 %387, ptr %372, align 4, !tbaa !120
+387:                                              ; preds = %385
+  %388 = add nsw i32 %376, -1
+  store i32 %388, ptr %373, align 4, !tbaa !120
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i149
 
-388:                                              ; preds = %384
-  %389 = atomicrmw volatile add ptr %372, i32 -1 acq_rel, align 4
+389:                                              ; preds = %385
+  %390 = atomicrmw volatile add ptr %373, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i149
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i149: ; preds = %388, %386
-  %.0.i.i.i.i.i150 = phi i32 [ %375, %386 ], [ %389, %388 ]
-  %390 = icmp eq i32 %.0.i.i.i.i.i150, 1
-  br i1 %390, label %391, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151, !prof !121
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i149: ; preds = %389, %387
+  %.0.i.i.i.i.i150 = phi i32 [ %376, %387 ], [ %390, %389 ]
+  %391 = icmp eq i32 %.0.i.i.i.i.i150, 1
+  br i1 %391, label %392, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151, !prof !121
 
-391:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i149
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %370) #21
+392:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i149
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %371) #21
   br label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151
 
-_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151: ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit146, %376, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i149, %391
-  %392 = load ptr, ptr %35, align 8, !tbaa !124
-  %393 = load i32, ptr %37, align 8, !tbaa !123
-  %394 = icmp eq i32 %393, 0
-  br i1 %394, label %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit, label %.preheader.i.i.i
+_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151: ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit146, %377, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i149, %392
+  %393 = load ptr, ptr %35, align 8, !tbaa !124
+  %394 = load i32, ptr %37, align 8, !tbaa !123
+  %395 = icmp eq i32 %394, 0
+  br i1 %395, label %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151, %.critedge.i.i.i.i153
-  %.sroa.0.0.i = phi ptr [ %396, %.critedge.i.i.i.i153 ], [ %392, %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151 ]
-  %395 = load ptr, ptr %.sroa.0.0.i, align 8, !tbaa !125
-  %magicptr.i.i.i.i152 = ptrtoint ptr %395 to i64
+  %.sroa.0.0.i = phi ptr [ %397, %.critedge.i.i.i.i153 ], [ %393, %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151 ]
+  %396 = load ptr, ptr %.sroa.0.0.i, align 8, !tbaa !125
+  %magicptr.i.i.i.i152 = ptrtoint ptr %396 to i64
   switch i64 %magicptr.i.i.i.i152, label %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit [
     i64 0, label %.critedge.i.i.i.i153
     i64 -8, label %.critedge.i.i.i.i153
   ]
 
 .critedge.i.i.i.i153:                             ; preds = %.preheader.i.i.i, %.preheader.i.i.i
-  %396 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
+  %397 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
   br label %.preheader.i.i.i, !llvm.loop !241
 
 _ZN4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit: ; preds = %.preheader.i.i.i, %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151
-  %.sroa.0.1.i = phi ptr [ %392, %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151 ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
-  %397 = zext i32 %393 to i64
-  %398 = getelementptr inbounds nuw ptr, ptr %392, i64 %397
-  %.not252268 = icmp eq ptr %.sroa.0.1.i, %398
+  %.sroa.0.1.i = phi ptr [ %393, %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit151 ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
+  %398 = zext i32 %394 to i64
+  %399 = getelementptr inbounds nuw ptr, ptr %393, i64 %398
+  %.not252268 = icmp eq ptr %.sroa.0.1.i, %399
   br i1 %.not252268, label %.critedge95, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit
-  %399 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %400 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %.pre283 = load ptr, ptr %.sroa.0.1.i, align 8, !tbaa !125
-  br label %400
+  br label %401
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIjEENS_14StringMapEntryIjEEEppEv.exit.loopexit: ; preds = %_ZN4llvm5ErrorD2Ev.exit156
-  %.not252 = icmp eq ptr %storemerge.i, %398
-  br i1 %.not252, label %.critedge95, label %400
+  %.not252 = icmp eq ptr %storemerge.i, %399
+  br i1 %.not252, label %.critedge95, label %401
 
-400:                                              ; preds = %.lr.ph, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIjEENS_14StringMapEntryIjEEEppEv.exit.loopexit
-  %401 = phi ptr [ %.pre283, %.lr.ph ], [ %408, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIjEENS_14StringMapEntryIjEEEppEv.exit.loopexit ]
+401:                                              ; preds = %.lr.ph, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIjEENS_14StringMapEntryIjEEEppEv.exit.loopexit
+  %402 = phi ptr [ %.pre283, %.lr.ph ], [ %409, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIjEENS_14StringMapEntryIjEEEppEv.exit.loopexit ]
   %.sroa.0197.0269 = phi ptr [ %.sroa.0.1.i, %.lr.ph ], [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIjEENS_14StringMapEntryIjEEEppEv.exit.loopexit ]
-  %402 = load i64, ptr %399, align 8, !tbaa !242
-  %403 = trunc i64 %402 to i32
-  %404 = getelementptr inbounds nuw i8, ptr %401, i64 8
-  store i32 %403, ptr %404, align 8, !tbaa !244
-  %405 = getelementptr inbounds nuw i8, ptr %401, i64 16
-  %406 = load i64, ptr %401, align 8, !tbaa !127
-  call void @_ZN4llvm18BinaryStreamWriter12writeCStringENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr nonnull %405, i64 %406) #21
-  %407 = load ptr, ptr %0, align 8, !tbaa !162
-  %.not256 = icmp eq ptr %407, null
+  %403 = load i64, ptr %400, align 8, !tbaa !242
+  %404 = trunc i64 %403 to i32
+  %405 = getelementptr inbounds nuw i8, ptr %402, i64 8
+  store i32 %404, ptr %405, align 8, !tbaa !244
+  %406 = getelementptr inbounds nuw i8, ptr %402, i64 16
+  %407 = load i64, ptr %402, align 8, !tbaa !127
+  call void @_ZN4llvm18BinaryStreamWriter12writeCStringENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr nonnull %406, i64 %407) #21
+  %408 = load ptr, ptr %0, align 8, !tbaa !162
+  %.not256 = icmp eq ptr %408, null
   br i1 %.not256, label %_ZN4llvm5ErrorD2Ev.exit156, label %.critedge103
 
-_ZN4llvm5ErrorD2Ev.exit156:                       ; preds = %400, %_ZN4llvm5ErrorD2Ev.exit156.backedge
-  %.pn.i = phi ptr [ %storemerge.i, %_ZN4llvm5ErrorD2Ev.exit156.backedge ], [ %.sroa.0197.0269, %400 ]
+_ZN4llvm5ErrorD2Ev.exit156:                       ; preds = %401, %_ZN4llvm5ErrorD2Ev.exit156.backedge
+  %.pn.i = phi ptr [ %storemerge.i, %_ZN4llvm5ErrorD2Ev.exit156.backedge ], [ %.sroa.0197.0269, %401 ]
   %storemerge.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
-  %408 = load ptr, ptr %storemerge.i, align 8, !tbaa !125
-  %magicptr.i.i = ptrtoint ptr %408 to i64
+  %409 = load ptr, ptr %storemerge.i, align 8, !tbaa !125
+  %magicptr.i.i = ptrtoint ptr %409 to i64
   switch i64 %magicptr.i.i, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIjEENS_14StringMapEntryIjEEEppEv.exit.loopexit [
     i64 0, label %_ZN4llvm5ErrorD2Ev.exit156.backedge
     i64 -8, label %_ZN4llvm5ErrorD2Ev.exit156.backedge
@@ -2418,176 +2418,176 @@ _ZN4llvm5ErrorD2Ev.exit156.backedge:              ; preds = %_ZN4llvm5ErrorD2Ev.
   br label %_ZN4llvm5ErrorD2Ev.exit156, !llvm.loop !241
 
 .critedge95:                                      ; preds = %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIjEENS_14StringMapEntryIjEEEppEv.exit.loopexit, %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit
-  %409 = load ptr, ptr %17, align 8, !tbaa !172
-  %410 = load ptr, ptr %18, align 8, !tbaa !172
-  %.not253273 = icmp eq ptr %409, %410
+  %410 = load ptr, ptr %17, align 8, !tbaa !172
+  %411 = load ptr, ptr %18, align 8, !tbaa !172
+  %.not253273 = icmp eq ptr %410, %411
   br i1 %.not253273, label %.critedge101, label %.lr.ph275
 
 .lr.ph275:                                        ; preds = %.critedge95, %.critedge99
-  %.sroa.0193.0274 = phi ptr [ %444, %.critedge99 ], [ %409, %.critedge95 ]
-  %411 = load ptr, ptr %.sroa.0193.0274, align 8, !tbaa !141
-  %412 = getelementptr inbounds nuw i8, ptr %411, i64 80
-  %413 = load ptr, ptr %412, align 8, !tbaa !165
-  %414 = getelementptr inbounds nuw i8, ptr %411, i64 88
-  %415 = load ptr, ptr %414, align 8, !tbaa !168
-  %.not83270 = icmp eq ptr %413, %415
+  %.sroa.0193.0274 = phi ptr [ %445, %.critedge99 ], [ %410, %.critedge95 ]
+  %412 = load ptr, ptr %.sroa.0193.0274, align 8, !tbaa !141
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 80
+  %414 = load ptr, ptr %413, align 8, !tbaa !165
+  %415 = getelementptr inbounds nuw i8, ptr %412, i64 88
+  %416 = load ptr, ptr %415, align 8, !tbaa !168
+  %.not83270 = icmp eq ptr %414, %416
   br i1 %.not83270, label %.critedge99, label %.lr.ph272
 
-416:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit162
-  %417 = getelementptr inbounds nuw i8, ptr %.077271, i64 32
-  %.not83 = icmp eq ptr %417, %415
+417:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit162
+  %418 = getelementptr inbounds nuw i8, ptr %.077271, i64 32
+  %.not83 = icmp eq ptr %418, %416
   br i1 %.not83, label %.critedge99, label %.lr.ph272
 
-.lr.ph272:                                        ; preds = %.lr.ph275, %416
-  %.077271 = phi ptr [ %417, %416 ], [ %413, %.lr.ph275 ]
-  %418 = load ptr, ptr %.077271, align 8, !tbaa !246
-  %419 = getelementptr inbounds nuw i8, ptr %.077271, i64 8
-  %420 = load i64, ptr %419, align 8, !tbaa !249
-  %421 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %418, i64 %420) #21
-  %422 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr %418, i64 %420, i32 noundef %421) #21
-  %423 = icmp eq i32 %422, -1
-  %424 = load i32, ptr %37, align 8
-  %425 = zext i32 %424 to i64
-  %426 = sext i32 %422 to i64
-  %427 = icmp eq i64 %426, %425
-  %428 = select i1 %423, i1 true, i1 %427
-  br i1 %428, label %.critedge97, label %_ZN4llvm5ErrorD2Ev.exit162
+.lr.ph272:                                        ; preds = %.lr.ph275, %417
+  %.077271 = phi ptr [ %418, %417 ], [ %414, %.lr.ph275 ]
+  %419 = load ptr, ptr %.077271, align 8, !tbaa !246
+  %420 = getelementptr inbounds nuw i8, ptr %.077271, i64 8
+  %421 = load i64, ptr %420, align 8, !tbaa !249
+  %422 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %419, i64 %421) #21
+  %423 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr %419, i64 %421, i32 noundef %422) #21
+  %424 = icmp eq i32 %423, -1
+  %425 = load i32, ptr %37, align 8
+  %426 = zext i32 %425 to i64
+  %427 = sext i32 %423 to i64
+  %428 = icmp eq i64 %427, %426
+  %429 = select i1 %424, i1 true, i1 %428
+  br i1 %429, label %.critedge97, label %_ZN4llvm5ErrorD2Ev.exit162
 
 .critedge97:                                      ; preds = %.lr.ph272
   call void @llvm.experimental.noalias.scope.decl(metadata !250)
-  %429 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24, !noalias !253
-  %430 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm3pdb14RawErrCategoryEv() #21, !noalias !253
+  %430 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24, !noalias !253
+  %431 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm3pdb14RawErrCategoryEv() #21, !noalias !253
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21, !noalias !253
-  %431 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 1, ptr %431, align 1, !tbaa !190, !noalias !253
+  %432 = getelementptr inbounds nuw i8, ptr %5, i64 33
+  store i8 1, ptr %432, align 1, !tbaa !190, !noalias !253
   store ptr @.str.1, ptr %5, align 8, !tbaa !119, !noalias !253
-  %432 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 3, ptr %432, align 8, !tbaa !193, !noalias !253
-  call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %429, i32 10, ptr nonnull %430, ptr noundef nonnull align 8 dereferenceable(34) %5) #21, !noalias !253
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %429, align 8, !tbaa !103, !noalias !253
+  %433 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i8 3, ptr %433, align 8, !tbaa !193, !noalias !253
+  call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %430, i32 10, ptr nonnull %431, ptr noundef nonnull align 8 dereferenceable(34) %5) #21, !noalias !253
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %430, align 8, !tbaa !103, !noalias !253
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21, !noalias !253
-  store ptr %429, ptr %0, align 8, !tbaa !162, !alias.scope !250
+  store ptr %430, ptr %0, align 8, !tbaa !162, !alias.scope !250
   br label %.critedge103
 
 _ZN4llvm5ErrorD2Ev.exit162:                       ; preds = %.lr.ph272
-  %433 = load ptr, ptr %35, align 8
-  %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %433, i64 %426
-  %434 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !125
-  %435 = getelementptr inbounds nuw i8, ptr %434, i64 8
-  %436 = load i32, ptr %435, align 8, !tbaa !244
+  %434 = load ptr, ptr %35, align 8
+  %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %434, i64 %427
+  %435 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !125
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
+  %437 = load i32, ptr %436, align 8, !tbaa !244
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21, !noalias !256
-  %437 = load ptr, ptr %235, align 8, !tbaa !217, !noalias !256
-  %438 = load ptr, ptr %437, align 8, !tbaa !103, !noalias !256
-  %439 = getelementptr inbounds nuw i8, ptr %438, i64 16
-  %440 = load ptr, ptr %439, align 8, !noalias !256
-  %441 = call noundef i32 %440(ptr noundef nonnull align 8 dereferenceable(8) %437) #21, !noalias !256
-  %.not.i.i.i160 = icmp eq i32 %441, 1
-  %442 = call i32 @llvm.bswap.i32(i32 %436)
-  %spec.select.i.i.i161 = select i1 %.not.i.i.i160, i32 %436, i32 %442
+  %438 = load ptr, ptr %236, align 8, !tbaa !217, !noalias !256
+  %439 = load ptr, ptr %438, align 8, !tbaa !103, !noalias !256
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 16
+  %441 = load ptr, ptr %440, align 8, !noalias !256
+  %442 = call noundef i32 %441(ptr noundef nonnull align 8 dereferenceable(8) %438) #21, !noalias !256
+  %.not.i.i.i160 = icmp eq i32 %442, 1
+  %443 = call i32 @llvm.bswap.i32(i32 %437)
+  %spec.select.i.i.i161 = select i1 %.not.i.i.i160, i32 %437, i32 %443
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   store i32 %spec.select.i.i.i161, ptr %4, align 4, !noalias !256
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull %4, i64 4) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21, !noalias !256
-  %443 = load ptr, ptr %0, align 8, !tbaa !162
-  %.not255 = icmp eq ptr %443, null
-  br i1 %.not255, label %416, label %.critedge103
+  %444 = load ptr, ptr %0, align 8, !tbaa !162
+  %.not255 = icmp eq ptr %444, null
+  br i1 %.not255, label %417, label %.critedge103
 
-.critedge99:                                      ; preds = %416, %.lr.ph275
-  %444 = getelementptr inbounds nuw i8, ptr %.sroa.0193.0274, i64 8
-  %.not253 = icmp eq ptr %444, %410
+.critedge99:                                      ; preds = %417, %.lr.ph275
+  %445 = getelementptr inbounds nuw i8, ptr %.sroa.0193.0274, i64 8
+  %.not253 = icmp eq ptr %445, %411
   br i1 %.not253, label %.critedge101, label %.lr.ph275
 
 .critedge101:                                     ; preds = %.critedge99, %.critedge95
   call void @_ZN4llvm18BinaryStreamWriter14padToAlignmentEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %14, i32 noundef 4) #21
-  %445 = load ptr, ptr %0, align 8, !tbaa !162
-  %.not254 = icmp eq ptr %445, null
+  %446 = load ptr, ptr %0, align 8, !tbaa !162
+  %.not254 = icmp eq ptr %446, null
   br i1 %.not254, label %_ZN4llvm5ErrorD2Ev.exit163, label %.critedge103
 
 _ZN4llvm5ErrorD2Ev.exit163:                       ; preds = %.critedge101
-  %446 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %447 = load i8, ptr %446, align 8, !tbaa !102, !range !107, !noundef !108
-  %448 = trunc nuw i8 %447 to i1
-  br i1 %448, label %449, label %452
+  %447 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %448 = load i8, ptr %447, align 8, !tbaa !102, !range !107, !noundef !108
+  %449 = trunc nuw i8 %448 to i1
+  br i1 %449, label %450, label %453
 
-449:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit163
-  %450 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %451 = load i64, ptr %450, align 8, !tbaa !216
+450:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit163
+  %451 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %452 = load i64, ptr %451, align 8, !tbaa !216
   br label %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit
 
-452:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit163
-  %453 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %454 = load ptr, ptr %453, align 8, !tbaa !217
-  %.not.i.i.i164 = icmp eq ptr %454, null
-  br i1 %.not.i.i.i164, label %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit, label %455
+453:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit163
+  %454 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %455 = load ptr, ptr %454, align 8, !tbaa !217
+  %.not.i.i.i164 = icmp eq ptr %455, null
+  br i1 %.not.i.i.i164, label %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit, label %456
 
-455:                                              ; preds = %452
-  %456 = load ptr, ptr %454, align 8, !tbaa !103
-  %457 = getelementptr inbounds nuw i8, ptr %456, i64 40
-  %458 = load ptr, ptr %457, align 8
-  %459 = call noundef i64 %458(ptr noundef nonnull align 8 dereferenceable(8) %454) #21
-  %460 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %461 = load i64, ptr %460, align 8, !tbaa !218
-  %462 = sub i64 %459, %461
+456:                                              ; preds = %453
+  %457 = load ptr, ptr %455, align 8, !tbaa !103
+  %458 = getelementptr inbounds nuw i8, ptr %457, i64 40
+  %459 = load ptr, ptr %458, align 8
+  %460 = call noundef i64 %459(ptr noundef nonnull align 8 dereferenceable(8) %455) #21
+  %461 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %462 = load i64, ptr %461, align 8, !tbaa !218
+  %463 = sub i64 %460, %462
   br label %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit
 
-_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit: ; preds = %449, %452, %455
-  %.0.i.i.i165 = phi i64 [ %451, %449 ], [ %462, %455 ], [ 0, %452 ]
-  %463 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %464 = load i64, ptr %463, align 8, !tbaa !242
-  %.not84 = icmp eq i64 %.0.i.i.i165, %464
-  br i1 %.not84, label %470, label %465
+_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit: ; preds = %450, %453, %456
+  %.0.i.i.i165 = phi i64 [ %452, %450 ], [ %463, %456 ], [ 0, %453 ]
+  %464 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %465 = load i64, ptr %464, align 8, !tbaa !242
+  %.not84 = icmp eq i64 %.0.i.i.i165, %465
+  br i1 %.not84, label %471, label %466
 
-465:                                              ; preds = %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit
+466:                                              ; preds = %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !259)
-  %466 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24, !noalias !262
-  %467 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm3pdb14RawErrCategoryEv() #21, !noalias !262
+  %467 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24, !noalias !262
+  %468 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm3pdb14RawErrCategoryEv() #21, !noalias !262
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #21, !noalias !262
-  %468 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  store i8 1, ptr %468, align 1, !tbaa !190, !noalias !262
+  %469 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  store i8 1, ptr %469, align 1, !tbaa !190, !noalias !262
   store ptr @.str.2, ptr %3, align 8, !tbaa !119, !noalias !262
-  %469 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 3, ptr %469, align 8, !tbaa !193, !noalias !262
-  call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %466, i32 3, ptr nonnull %467, ptr noundef nonnull align 8 dereferenceable(34) %3) #21, !noalias !262
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %466, align 8, !tbaa !103, !noalias !262
+  %470 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i8 3, ptr %470, align 8, !tbaa !193, !noalias !262
+  call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %467, i32 3, ptr nonnull %468, ptr noundef nonnull align 8 dereferenceable(34) %3) #21, !noalias !262
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %467, align 8, !tbaa !103, !noalias !262
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #21, !noalias !262
-  store ptr %466, ptr %0, align 8, !tbaa !162, !alias.scope !259
+  store ptr %467, ptr %0, align 8, !tbaa !162, !alias.scope !259
   br label %.critedge103
 
-470:                                              ; preds = %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit
-  %471 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %472 = load i8, ptr %471, align 8, !tbaa !102, !range !107, !noundef !108
-  %473 = trunc nuw i8 %472 to i1
-  br i1 %473, label %474, label %477
+471:                                              ; preds = %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit
+  %472 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %473 = load i8, ptr %472, align 8, !tbaa !102, !range !107, !noundef !108
+  %474 = trunc nuw i8 %473 to i1
+  br i1 %474, label %475, label %478
 
-474:                                              ; preds = %470
-  %475 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %476 = load i64, ptr %475, align 8, !tbaa !216
+475:                                              ; preds = %471
+  %476 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %477 = load i64, ptr %476, align 8, !tbaa !216
   br label %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit169
 
-477:                                              ; preds = %470
-  %478 = load ptr, ptr %235, align 8, !tbaa !217
-  %.not.i.i.i167 = icmp eq ptr %478, null
-  br i1 %.not.i.i.i167, label %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit169, label %479
+478:                                              ; preds = %471
+  %479 = load ptr, ptr %236, align 8, !tbaa !217
+  %.not.i.i.i167 = icmp eq ptr %479, null
+  br i1 %.not.i.i.i167, label %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit169, label %480
 
-479:                                              ; preds = %477
-  %480 = load ptr, ptr %478, align 8, !tbaa !103
-  %481 = getelementptr inbounds nuw i8, ptr %480, i64 40
-  %482 = load ptr, ptr %481, align 8
-  %483 = call noundef i64 %482(ptr noundef nonnull align 8 dereferenceable(8) %478) #21
-  %484 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %485 = load i64, ptr %484, align 8, !tbaa !218
-  %486 = sub i64 %483, %485
+480:                                              ; preds = %478
+  %481 = load ptr, ptr %479, align 8, !tbaa !103
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 40
+  %483 = load ptr, ptr %482, align 8
+  %484 = call noundef i64 %483(ptr noundef nonnull align 8 dereferenceable(8) %479) #21
+  %485 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %486 = load i64, ptr %485, align 8, !tbaa !218
+  %487 = sub i64 %484, %486
   br label %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit169
 
-_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit169: ; preds = %474, %477, %479
-  %.0.i.i.i168 = phi i64 [ %476, %474 ], [ %486, %479 ], [ 0, %477 ]
-  %487 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %488 = load i64, ptr %487, align 8, !tbaa !242
-  %489 = sub i64 %.0.i.i.i168, %488
-  %490 = icmp ugt i64 %489, 4
-  br i1 %490, label %491, label %_ZN4llvm5ErrorD2Ev.exit170
+_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit169: ; preds = %475, %478, %480
+  %.0.i.i.i168 = phi i64 [ %477, %475 ], [ %487, %480 ], [ 0, %478 ]
+  %488 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %489 = load i64, ptr %488, align 8, !tbaa !242
+  %490 = sub i64 %.0.i.i.i168, %489
+  %491 = icmp ugt i64 %490, 4
+  br i1 %491, label %492, label %_ZN4llvm5ErrorD2Ev.exit170
 
-491:                                              ; preds = %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit169
+492:                                              ; preds = %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit169
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #21
   store i32 3, ptr %16, align 4, !tbaa !265
   call void @_ZN4llvm10make_errorINS_3pdb8RawErrorEJNS1_14raw_error_codeERA47_KcEEENS_5ErrorEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 1 dereferenceable(47) @.str.3)
@@ -2598,161 +2598,161 @@ _ZN4llvm5ErrorD2Ev.exit170:                       ; preds = %_ZNK4llvm18BinarySt
   store ptr null, ptr %0, align 8, !tbaa !162
   br label %.critedge103
 
-.critedge103:                                     ; preds = %400, %_ZN4llvm5ErrorD2Ev.exit162, %.critedge97, %.critedge101, %_ZN4llvm5ErrorD2Ev.exit170, %491, %465
+.critedge103:                                     ; preds = %401, %_ZN4llvm5ErrorD2Ev.exit162, %.critedge97, %.critedge101, %_ZN4llvm5ErrorD2Ev.exit170, %492, %466
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %14, align 8, !tbaa !103
-  %492 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %493 = load ptr, ptr %492, align 8, !tbaa !115
-  %.not.i.i.i.i171 = icmp eq ptr %493, null
-  br i1 %.not.i.i.i.i171, label %_ZN4llvm18BinaryStreamWriterD2Ev.exit, label %494
+  %493 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %494 = load ptr, ptr %493, align 8, !tbaa !115
+  %.not.i.i.i.i171 = icmp eq ptr %494, null
+  br i1 %.not.i.i.i.i171, label %_ZN4llvm18BinaryStreamWriterD2Ev.exit, label %495
 
-494:                                              ; preds = %.critedge103
-  %495 = getelementptr inbounds nuw i8, ptr %493, i64 8
-  %496 = load atomic i64, ptr %495 acquire, align 8
-  %497 = icmp eq i64 %496, 4294967297
-  %498 = trunc i64 %496 to i32
-  br i1 %497, label %499, label %507
+495:                                              ; preds = %.critedge103
+  %496 = getelementptr inbounds nuw i8, ptr %494, i64 8
+  %497 = load atomic i64, ptr %496 acquire, align 8
+  %498 = icmp eq i64 %497, 4294967297
+  %499 = trunc i64 %497 to i32
+  br i1 %498, label %500, label %508
 
-499:                                              ; preds = %494
-  store i32 0, ptr %495, align 8, !tbaa !116
-  %500 = getelementptr inbounds nuw i8, ptr %493, i64 12
-  store i32 0, ptr %500, align 4, !tbaa !118
-  %501 = load ptr, ptr %493, align 8, !tbaa !103
-  %502 = getelementptr inbounds nuw i8, ptr %501, i64 16
-  %503 = load ptr, ptr %502, align 8
-  call void %503(ptr noundef nonnull align 8 dereferenceable(16) %493) #21
-  %504 = load ptr, ptr %493, align 8, !tbaa !103
-  %505 = getelementptr inbounds nuw i8, ptr %504, i64 24
-  %506 = load ptr, ptr %505, align 8
-  call void %506(ptr noundef nonnull align 8 dereferenceable(16) %493) #21
+500:                                              ; preds = %495
+  store i32 0, ptr %496, align 8, !tbaa !116
+  %501 = getelementptr inbounds nuw i8, ptr %494, i64 12
+  store i32 0, ptr %501, align 4, !tbaa !118
+  %502 = load ptr, ptr %494, align 8, !tbaa !103
+  %503 = getelementptr inbounds nuw i8, ptr %502, i64 16
+  %504 = load ptr, ptr %503, align 8
+  call void %504(ptr noundef nonnull align 8 dereferenceable(16) %494) #21
+  %505 = load ptr, ptr %494, align 8, !tbaa !103
+  %506 = getelementptr inbounds nuw i8, ptr %505, i64 24
+  %507 = load ptr, ptr %506, align 8
+  call void %507(ptr noundef nonnull align 8 dereferenceable(16) %494) #21
   br label %_ZN4llvm18BinaryStreamWriterD2Ev.exit
 
-507:                                              ; preds = %494
-  %508 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
-  %.not.i.i.i.i.i172 = icmp eq i8 %508, 0
-  br i1 %.not.i.i.i.i.i172, label %511, label %509
+508:                                              ; preds = %495
+  %509 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
+  %.not.i.i.i.i.i172 = icmp eq i8 %509, 0
+  br i1 %.not.i.i.i.i.i172, label %512, label %510
 
-509:                                              ; preds = %507
-  %510 = add nsw i32 %498, -1
-  store i32 %510, ptr %495, align 4, !tbaa !120
+510:                                              ; preds = %508
+  %511 = add nsw i32 %499, -1
+  store i32 %511, ptr %496, align 4, !tbaa !120
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
-511:                                              ; preds = %507
-  %512 = atomicrmw volatile add ptr %495, i32 -1 acq_rel, align 4
+512:                                              ; preds = %508
+  %513 = atomicrmw volatile add ptr %496, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %511, %509
-  %.0.i.i.i.i.i.i = phi i32 [ %498, %509 ], [ %512, %511 ]
-  %513 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %513, label %514, label %_ZN4llvm18BinaryStreamWriterD2Ev.exit, !prof !121
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %512, %510
+  %.0.i.i.i.i.i.i = phi i32 [ %499, %510 ], [ %513, %512 ]
+  %514 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %514, label %515, label %_ZN4llvm18BinaryStreamWriterD2Ev.exit, !prof !121
 
-514:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %493) #21
+515:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %494) #21
   br label %_ZN4llvm18BinaryStreamWriterD2Ev.exit
 
-_ZN4llvm18BinaryStreamWriterD2Ev.exit:            ; preds = %.critedge103, %499, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %514
+_ZN4llvm18BinaryStreamWriterD2Ev.exit:            ; preds = %.critedge103, %500, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %515
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #21
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit122, %_ZN4llvm5ErrorD2Ev.exit126, %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit112, %_ZN4llvm18BinaryStreamWriterD2Ev.exit
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %11, align 8, !tbaa !103
-  %515 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %516 = load ptr, ptr %515, align 8, !tbaa !115
-  %.not.i.i.i.i173 = icmp eq ptr %516, null
-  br i1 %.not.i.i.i.i173, label %_ZN4llvm18BinaryStreamWriterD2Ev.exit177, label %517
+  %516 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %517 = load ptr, ptr %516, align 8, !tbaa !115
+  %.not.i.i.i.i173 = icmp eq ptr %517, null
+  br i1 %.not.i.i.i.i173, label %_ZN4llvm18BinaryStreamWriterD2Ev.exit177, label %518
 
-517:                                              ; preds = %.critedge
-  %518 = getelementptr inbounds nuw i8, ptr %516, i64 8
-  %519 = load atomic i64, ptr %518 acquire, align 8
-  %520 = icmp eq i64 %519, 4294967297
-  %521 = trunc i64 %519 to i32
-  br i1 %520, label %522, label %530
+518:                                              ; preds = %.critedge
+  %519 = getelementptr inbounds nuw i8, ptr %517, i64 8
+  %520 = load atomic i64, ptr %519 acquire, align 8
+  %521 = icmp eq i64 %520, 4294967297
+  %522 = trunc i64 %520 to i32
+  br i1 %521, label %523, label %531
 
-522:                                              ; preds = %517
-  store i32 0, ptr %518, align 8, !tbaa !116
-  %523 = getelementptr inbounds nuw i8, ptr %516, i64 12
-  store i32 0, ptr %523, align 4, !tbaa !118
-  %524 = load ptr, ptr %516, align 8, !tbaa !103
-  %525 = getelementptr inbounds nuw i8, ptr %524, i64 16
-  %526 = load ptr, ptr %525, align 8
-  call void %526(ptr noundef nonnull align 8 dereferenceable(16) %516) #21
-  %527 = load ptr, ptr %516, align 8, !tbaa !103
-  %528 = getelementptr inbounds nuw i8, ptr %527, i64 24
-  %529 = load ptr, ptr %528, align 8
-  call void %529(ptr noundef nonnull align 8 dereferenceable(16) %516) #21
+523:                                              ; preds = %518
+  store i32 0, ptr %519, align 8, !tbaa !116
+  %524 = getelementptr inbounds nuw i8, ptr %517, i64 12
+  store i32 0, ptr %524, align 4, !tbaa !118
+  %525 = load ptr, ptr %517, align 8, !tbaa !103
+  %526 = getelementptr inbounds nuw i8, ptr %525, i64 16
+  %527 = load ptr, ptr %526, align 8
+  call void %527(ptr noundef nonnull align 8 dereferenceable(16) %517) #21
+  %528 = load ptr, ptr %517, align 8, !tbaa !103
+  %529 = getelementptr inbounds nuw i8, ptr %528, i64 24
+  %530 = load ptr, ptr %529, align 8
+  call void %530(ptr noundef nonnull align 8 dereferenceable(16) %517) #21
   br label %_ZN4llvm18BinaryStreamWriterD2Ev.exit177
 
-530:                                              ; preds = %517
-  %531 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
-  %.not.i.i.i.i.i174 = icmp eq i8 %531, 0
-  br i1 %.not.i.i.i.i.i174, label %534, label %532
+531:                                              ; preds = %518
+  %532 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
+  %.not.i.i.i.i.i174 = icmp eq i8 %532, 0
+  br i1 %.not.i.i.i.i.i174, label %535, label %533
 
-532:                                              ; preds = %530
-  %533 = add nsw i32 %521, -1
-  store i32 %533, ptr %518, align 4, !tbaa !120
+533:                                              ; preds = %531
+  %534 = add nsw i32 %522, -1
+  store i32 %534, ptr %519, align 4, !tbaa !120
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i175
 
-534:                                              ; preds = %530
-  %535 = atomicrmw volatile add ptr %518, i32 -1 acq_rel, align 4
+535:                                              ; preds = %531
+  %536 = atomicrmw volatile add ptr %519, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i175
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i175: ; preds = %534, %532
-  %.0.i.i.i.i.i.i176 = phi i32 [ %521, %532 ], [ %535, %534 ]
-  %536 = icmp eq i32 %.0.i.i.i.i.i.i176, 1
-  br i1 %536, label %537, label %_ZN4llvm18BinaryStreamWriterD2Ev.exit177, !prof !121
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i175: ; preds = %535, %533
+  %.0.i.i.i.i.i.i176 = phi i32 [ %522, %533 ], [ %536, %535 ]
+  %537 = icmp eq i32 %.0.i.i.i.i.i.i176, 1
+  br i1 %537, label %538, label %_ZN4llvm18BinaryStreamWriterD2Ev.exit177, !prof !121
 
-537:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i175
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %516) #21
+538:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i175
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %517) #21
   br label %_ZN4llvm18BinaryStreamWriterD2Ev.exit177
 
-_ZN4llvm18BinaryStreamWriterD2Ev.exit177:         ; preds = %.critedge, %522, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i175, %537
+_ZN4llvm18BinaryStreamWriterD2Ev.exit177:         ; preds = %.critedge, %523, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i175, %538
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #21
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit182, label %538
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit182, label %539
 
-538:                                              ; preds = %_ZN4llvm18BinaryStreamWriterD2Ev.exit177
-  %539 = getelementptr inbounds nuw i8, ptr %.sroa.5231.0, i64 8
-  %540 = load atomic i64, ptr %539 acquire, align 8
-  %541 = icmp eq i64 %540, 4294967297
-  %542 = trunc i64 %540 to i32
-  br i1 %541, label %543, label %551
+539:                                              ; preds = %_ZN4llvm18BinaryStreamWriterD2Ev.exit177
+  %540 = getelementptr inbounds nuw i8, ptr %.sroa.5231.0, i64 8
+  %541 = load atomic i64, ptr %540 acquire, align 8
+  %542 = icmp eq i64 %541, 4294967297
+  %543 = trunc i64 %541 to i32
+  br i1 %542, label %544, label %552
 
-543:                                              ; preds = %538
-  store i32 0, ptr %539, align 8, !tbaa !116
-  %544 = getelementptr inbounds nuw i8, ptr %.sroa.5231.0, i64 12
-  store i32 0, ptr %544, align 4, !tbaa !118
-  %545 = load ptr, ptr %.sroa.5231.0, align 8, !tbaa !103
-  %546 = getelementptr inbounds nuw i8, ptr %545, i64 16
-  %547 = load ptr, ptr %546, align 8
-  call void %547(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5231.0) #21
-  %548 = load ptr, ptr %.sroa.5231.0, align 8, !tbaa !103
-  %549 = getelementptr inbounds nuw i8, ptr %548, i64 24
-  %550 = load ptr, ptr %549, align 8
-  call void %550(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5231.0) #21
+544:                                              ; preds = %539
+  store i32 0, ptr %540, align 8, !tbaa !116
+  %545 = getelementptr inbounds nuw i8, ptr %.sroa.5231.0, i64 12
+  store i32 0, ptr %545, align 4, !tbaa !118
+  %546 = load ptr, ptr %.sroa.5231.0, align 8, !tbaa !103
+  %547 = getelementptr inbounds nuw i8, ptr %546, i64 16
+  %548 = load ptr, ptr %547, align 8
+  call void %548(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5231.0) #21
+  %549 = load ptr, ptr %.sroa.5231.0, align 8, !tbaa !103
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 24
+  %551 = load ptr, ptr %550, align 8
+  call void %551(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5231.0) #21
   br label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit182
 
-551:                                              ; preds = %538
-  %552 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
-  %.not.i.i.i.i179 = icmp eq i8 %552, 0
-  br i1 %.not.i.i.i.i179, label %555, label %553
+552:                                              ; preds = %539
+  %553 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
+  %.not.i.i.i.i179 = icmp eq i8 %553, 0
+  br i1 %.not.i.i.i.i179, label %556, label %554
 
-553:                                              ; preds = %551
-  %554 = add nsw i32 %542, -1
-  store i32 %554, ptr %539, align 4, !tbaa !120
+554:                                              ; preds = %552
+  %555 = add nsw i32 %543, -1
+  store i32 %555, ptr %540, align 4, !tbaa !120
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i180
 
-555:                                              ; preds = %551
-  %556 = atomicrmw volatile add ptr %539, i32 -1 acq_rel, align 4
+556:                                              ; preds = %552
+  %557 = atomicrmw volatile add ptr %540, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i180
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i180: ; preds = %555, %553
-  %.0.i.i.i.i.i181 = phi i32 [ %542, %553 ], [ %556, %555 ]
-  %557 = icmp eq i32 %.0.i.i.i.i.i181, 1
-  br i1 %557, label %558, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit182, !prof !121
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i180: ; preds = %556, %554
+  %.0.i.i.i.i.i181 = phi i32 [ %543, %554 ], [ %557, %556 ]
+  %558 = icmp eq i32 %.0.i.i.i.i.i181, 1
+  br i1 %558, label %559, label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit182, !prof !121
 
-558:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i180
+559:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i180
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5231.0) #21
   br label %_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit182
 
-_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit182: ; preds = %_ZN4llvm18BinaryStreamWriterD2Ev.exit177, %543, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i180, %558
+_ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEED2Ev.exit182: ; preds = %_ZN4llvm18BinaryStreamWriterD2Ev.exit177, %544, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i180, %559
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.14)
   ret void

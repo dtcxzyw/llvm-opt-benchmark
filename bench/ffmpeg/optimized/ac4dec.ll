@@ -82,12 +82,12 @@ define internal range(i32 0, 101) i32 @ac4_probe(ptr noundef readonly captures(n
 .thread.loopexit:                                 ; preds = %.lr.ph, %9, %38, %41
   %.025.lcssa.ph = phi i32 [ %42, %41 ], [ %.02541, %38 ], [ %.02541, %9 ], [ %.02541, %.lr.ph ]
   %47 = mul nuw nsw i32 %.025.lcssa.ph, 7
+  %48 = tail call i32 @llvm.umin.i32(i32 %47, i32 100)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %1
-  %.025.lcssa = phi i32 [ 0, %1 ], [ %47, %.thread.loopexit ]
-  %48 = tail call i32 @llvm.umin.i32(i32 %.025.lcssa, i32 100)
-  ret i32 %48
+  %.025.lcssa = phi i32 [ 0, %1 ], [ %48, %.thread.loopexit ]
+  ret i32 %.025.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

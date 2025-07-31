@@ -1036,24 +1036,27 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h3cf1a0867148333
   %36 = xor i64 %35, %34
   %37 = mul i64 %36, 5871781006564002453
   %38 = icmp eq ptr %11, %7
-  br i1 %38, label %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %38, label %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i.loopexit, label %.lr.ph.i.i.i
 
-_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i: ; preds = %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i.i.i", %2
-  %39 = phi i64 [ 0, %2 ], [ %37, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i.i.i" ]
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %41 = load ptr, ptr %40, align 8, !alias.scope !141, !noalias !144, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %43 = load i64, ptr %42, align 8, !alias.scope !141, !noalias !144, !noundef !5
-  %44 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 5)
-  %45 = xor i64 %43, %44
+_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i.loopexit: ; preds = %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i.i.i"
+  %39 = tail call i64 @llvm.fshl.i64(i64 %37, i64 %37, i64 5)
+  br label %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i
+
+_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i: ; preds = %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i.loopexit, %2
+  %40 = phi i64 [ 0, %2 ], [ %39, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i.loopexit ]
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %42 = load ptr, ptr %41, align 8, !alias.scope !141, !noalias !144, !nonnull !5, !noundef !5
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %44 = load i64, ptr %43, align 8, !alias.scope !141, !noalias !144, !noundef !5
+  %45 = xor i64 %44, %40
   %46 = mul i64 %45, 5871781006564002453
-  %.idx.i7.i.i = mul nsw i64 %43, 12
-  %47 = getelementptr inbounds i8, ptr %41, i64 %.idx.i7.i.i
-  %48 = icmp eq i64 %43, 0
+  %.idx.i7.i.i = mul nsw i64 %44, 12
+  %47 = getelementptr inbounds i8, ptr %42, i64 %.idx.i7.i.i
+  %48 = icmp eq i64 %44, 0
   br i1 %48, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h89083779a47ad2baE.llvm.1715581770924364745.exit", label %.lr.ph.i10.i.i
 
 .lr.ph.i10.i.i:                                   ; preds = %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i.i"
-  %.sroa.0.06.i11.i.i = phi ptr [ %50, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i.i" ], [ %41, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i ]
+  %.sroa.0.06.i11.i.i = phi ptr [ %50, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i.i" ], [ %42, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i ]
   %49 = phi i64 [ %76, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i.i" ], [ %46, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i ]
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i11.i.i, i64 12
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i11.i.i, i64 8

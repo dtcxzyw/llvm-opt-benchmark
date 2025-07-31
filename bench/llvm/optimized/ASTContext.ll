@@ -62068,21 +62068,21 @@ _ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE.exit474: ; preds = %923, %925
   %964 = sub nuw nsw i64 64, %963
   %965 = shl nuw nsw i64 1, %964
   %966 = trunc nuw nsw i64 %965 to i32
+  %967 = tail call i32 @llvm.umax.i32(i32 %966, i32 8)
   br label %_ZNK5clang10TargetInfo14getBitIntAlignEj.exit
 
 _ZNK5clang10TargetInfo14getBitIntAlignEj.exit:    ; preds = %953, %960
-  %.0.i.i = phi i32 [ %966, %960 ], [ 0, %953 ]
-  %967 = getelementptr inbounds nuw i8, ptr %955, i64 36
-  %968 = getelementptr inbounds nuw i8, ptr %955, i64 33
-  %969 = getelementptr inbounds nuw i8, ptr %955, i64 40
-  %970 = load i8, ptr %969, align 4, !tbaa !1203, !range !411, !noundef !412
-  %971 = trunc nuw i8 %970 to i1
-  %972 = load i32, ptr %967, align 4
-  %973 = load i8, ptr %968, align 1
-  %974 = zext i8 %973 to i32
-  %.0.i.i.i = select i1 %971, i32 %972, i32 %974
-  %975 = tail call i32 @llvm.umax.i32(i32 %.0.i.i, i32 8)
-  %.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %.0.i.i.i, i32 %975)
+  %.0.i.i = phi i32 [ %967, %960 ], [ 8, %953 ]
+  %968 = getelementptr inbounds nuw i8, ptr %955, i64 36
+  %969 = getelementptr inbounds nuw i8, ptr %955, i64 33
+  %970 = getelementptr inbounds nuw i8, ptr %955, i64 40
+  %971 = load i8, ptr %970, align 4, !tbaa !1203, !range !411, !noundef !412
+  %972 = trunc nuw i8 %971 to i1
+  %973 = load i32, ptr %968, align 4
+  %974 = load i8, ptr %969, align 1
+  %975 = zext i8 %974 to i32
+  %.0.i.i.i = select i1 %972, i32 %973, i32 %975
+  %.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %.0.i.i.i, i32 %.0.i.i)
   %976 = tail call noundef i32 @_ZNK5clang10TargetInfo14getBitIntWidthEj(ptr noundef nonnull align 8 dereferenceable(489) %955, i32 noundef %959)
   %977 = zext i32 %976 to i64
   br label %.thread
@@ -65101,21 +65101,21 @@ define linkonce_odr hidden noundef i32 @_ZNK5clang10TargetInfo14getBitIntWidthEj
   %7 = sub nuw nsw i64 64, %6
   %8 = shl nuw nsw i64 1, %7
   %9 = trunc i64 %8 to i32
+  %10 = tail call i32 @llvm.umax.i32(i32 %9, i32 8)
   br label %_ZNK5clang10TargetInfo14getBitIntAlignEj.exit
 
 _ZNK5clang10TargetInfo14getBitIntAlignEj.exit:    ; preds = %2, %3
-  %.0.i.i = phi i32 [ %9, %3 ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load i8, ptr %12, align 8, !tbaa !1203, !range !411, !noundef !412
-  %14 = trunc nuw i8 %13 to i1
-  %15 = load i32, ptr %10, align 4
-  %16 = load i8, ptr %11, align 1
-  %17 = zext i8 %16 to i32
-  %.0.i.i.i = select i1 %14, i32 %15, i32 %17
-  %18 = tail call i32 @llvm.umax.i32(i32 %.0.i.i, i32 8)
-  %.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %.0.i.i.i, i32 %18)
+  %.0.i.i = phi i32 [ %10, %3 ], [ 8, %2 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = load i8, ptr %13, align 8, !tbaa !1203, !range !411, !noundef !412
+  %15 = trunc nuw i8 %14 to i1
+  %16 = load i32, ptr %11, align 4
+  %17 = load i8, ptr %12, align 1
+  %18 = zext i8 %17 to i32
+  %.0.i.i.i = select i1 %15, i32 %16, i32 %18
+  %.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %.0.i.i.i, i32 %.0.i.i)
   %19 = icmp ne i32 %1, 0
   %20 = zext i1 %19 to i32
   %21 = sub i32 %1, %20

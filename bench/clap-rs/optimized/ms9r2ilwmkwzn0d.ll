@@ -5836,9 +5836,9 @@ _ZN12clap_builder6parser9validator9Validator22is_missing_required_ok17h1d65ecf93
   %715 = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %.outer
 
-.outer:                                           ; preds = %925, %707
-  %.sroa.0199.0.i.ph = phi ptr [ %721, %925 ], [ %710, %707 ]
-  %.192.i.ph = phi i64 [ %.0.sroa.speculated.i.i, %925 ], [ %.091.i, %707 ]
+.outer:                                           ; preds = %922, %707
+  %.sroa.0199.0.i.ph = phi ptr [ %721, %922 ], [ %710, %707 ]
+  %.192.i.ph = phi i64 [ %925, %922 ], [ %.091.i, %707 ]
   br label %716
 
 716:                                              ; preds = %.backedge, %.outer
@@ -6372,23 +6372,19 @@ _ZN12clap_builder6parser9validator9Validator25fails_arg_required_unless17h0c5b81
   %.not250.i = icmp eq i32 %918, 0
   br i1 %.not250.i, label %919, label %.backedge
 
-.backedge:                                        ; preds = %909, %_ZN12clap_builder6parser9validator9Validator25fails_arg_required_unless17h0c5b81e9a7c62b6dE.exit.i
-  br label %716
-
 919:                                              ; preds = %909
   %920 = getelementptr inbounds nuw i8, ptr %718, i64 40
   %921 = load i64, ptr %920, align 8, !range !22, !noundef !7
   %trunc99.i = trunc nuw i64 %921 to i1
-  br i1 %trunc99.i, label %922, label %925
+  br i1 %trunc99.i, label %922, label %.backedge
+
+.backedge:                                        ; preds = %919, %909, %_ZN12clap_builder6parser9validator9Validator25fails_arg_required_unless17h0c5b81e9a7c62b6dE.exit.i
+  br label %716
 
 922:                                              ; preds = %919
   %923 = getelementptr inbounds nuw i8, ptr %718, i64 48
   %924 = load i64, ptr %923, align 8
-  br label %925
-
-925:                                              ; preds = %922, %919
-  %.085.i = phi i64 [ %924, %922 ], [ 0, %919 ]
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umax.i64(i64 %.192.i.ph, i64 %.085.i)
+  %925 = call i64 @llvm.umax.i64(i64 %.192.i.ph, i64 %924)
   br label %.outer
 
 .lr.ph.i:                                         ; preds = %839, %940
@@ -6695,16 +6691,12 @@ _ZN12clap_builder6parser11arg_matcher10ArgMatcher14check_explicit17h88c554e5b97e
   %1024 = getelementptr inbounds nuw i8, ptr %700, i64 40
   %1025 = load i64, ptr %1024, align 8, !range !22, !noundef !7
   %trunc.i = trunc nuw i64 %1025 to i1
-  br i1 %trunc.i, label %1026, label %1029
+  br i1 %trunc.i, label %1026, label %_ZN12clap_builder6parser9validator9Validator22is_missing_required_ok17h1d65ecf935ead1d3E.exit.thread.i.backedge
 
 1026:                                             ; preds = %1023
   %1027 = getelementptr inbounds nuw i8, ptr %700, i64 48
   %1028 = load i64, ptr %1027, align 8
-  br label %1029
-
-1029:                                             ; preds = %1026, %1023
-  %.086.i = phi i64 [ %1028, %1026 ], [ 0, %1023 ]
-  %.0.sroa.speculated.i181.i = call noundef i64 @llvm.umax.i64(i64 %.091.i, i64 %.086.i)
+  %1029 = call i64 @llvm.umax.i64(i64 %.091.i, i64 %1028)
   br label %_ZN12clap_builder6parser9validator9Validator22is_missing_required_ok17h1d65ecf935ead1d3E.exit.thread.i.backedge
 
 .thread243.i:                                     ; preds = %.noexc163.i, %.noexc162.i
@@ -6821,8 +6813,8 @@ _ZN12clap_builder6parser11arg_matcher10ArgMatcher14check_explicit17h88c554e5b97e
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48), !noalias !1220
   br label %_ZN12clap_builder6parser9validator9Validator22is_missing_required_ok17h1d65ecf935ead1d3E.exit.thread.i.backedge
 
-_ZN12clap_builder6parser9validator9Validator22is_missing_required_ok17h1d65ecf935ead1d3E.exit.thread.i.backedge: ; preds = %1068, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h60e7069439006c80E.exit196.i", %.thread243.i, %1029, %1013, %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..util..id..Id$GT$$GT$17h393d8ed8ea73829bE.exit7.i.i", %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..util..id..Id$GT$$GT$17h393d8ed8ea73829bE.exit3.i.i", %943
-  %.091.i.be = phi i64 [ %.091.i, %943 ], [ %.091.i, %1013 ], [ %.0.sroa.speculated.i181.i, %1029 ], [ %.091.i, %1068 ], [ %.091.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h60e7069439006c80E.exit196.i" ], [ %.091.i, %.thread243.i ], [ %.091.i, %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..util..id..Id$GT$$GT$17h393d8ed8ea73829bE.exit7.i.i" ], [ %.091.i, %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..util..id..Id$GT$$GT$17h393d8ed8ea73829bE.exit3.i.i" ]
+_ZN12clap_builder6parser9validator9Validator22is_missing_required_ok17h1d65ecf935ead1d3E.exit.thread.i.backedge: ; preds = %1068, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h60e7069439006c80E.exit196.i", %.thread243.i, %1026, %1023, %1013, %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..util..id..Id$GT$$GT$17h393d8ed8ea73829bE.exit7.i.i", %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..util..id..Id$GT$$GT$17h393d8ed8ea73829bE.exit3.i.i", %943
+  %.091.i.be = phi i64 [ %.091.i, %943 ], [ %.091.i, %1013 ], [ %.091.i, %1068 ], [ %.091.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h60e7069439006c80E.exit196.i" ], [ %.091.i, %.thread243.i ], [ %.091.i, %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..util..id..Id$GT$$GT$17h393d8ed8ea73829bE.exit7.i.i" ], [ %.091.i, %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..util..id..Id$GT$$GT$17h393d8ed8ea73829bE.exit3.i.i" ], [ %1029, %1026 ], [ %.091.i, %1023 ]
   br label %_ZN12clap_builder6parser9validator9Validator22is_missing_required_ok17h1d65ecf935ead1d3E.exit.thread.i
 
 1069:                                             ; preds = %.thread.i118, %1045

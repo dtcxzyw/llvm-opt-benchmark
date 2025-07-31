@@ -3831,21 +3831,17 @@ define dso_local range(i32 1, 0) i32 @regmap_get_val_endian(ptr noundef %0, ptr 
 
 18:                                               ; preds = %16
   %19 = icmp eq ptr %1, null
-  br i1 %19, label %23, label %20
+  br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %22 = load i32, ptr %21, align 8
-  br label %23
-
-23:                                               ; preds = %20, %18
-  %24 = phi i32 [ 0, %18 ], [ %22, %20 ]
-  %25 = tail call i32 @llvm.umax.i32(i32 %24, i32 1)
+  %23 = tail call i32 @llvm.umax.i32(i32 %22, i32 1)
   br label %.thread
 
-.thread:                                          ; preds = %14, %12, %23, %16, %7
-  %26 = phi i32 [ %10, %7 ], [ 3, %16 ], [ %25, %23 ], [ 2, %14 ], [ 1, %12 ]
-  ret i32 %26
+.thread:                                          ; preds = %14, %12, %18, %20, %16, %7
+  %24 = phi i32 [ %10, %7 ], [ 3, %16 ], [ 1, %18 ], [ %23, %20 ], [ 2, %14 ], [ 1, %12 ]
+  ret i32 %24
 }
 
 ; Function Attrs: null_pointer_is_valid

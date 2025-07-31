@@ -3087,7 +3087,7 @@ define internal range(i32 -30, 1) i32 @archive_write_zip_close(ptr noundef %0) #
   %31 = load i32, ptr %30, align 8, !tbaa !43
   %32 = and i32 %31, 2
   %.not48 = icmp eq i32 %32, 0
-  br i1 %.not48, label %52, label %._crit_edge._crit_edge
+  br i1 %.not48, label %53, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge, %29
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3131,14 +3131,14 @@ define internal range(i32 -30, 1) i32 @archive_write_zip_close(ptr noundef %0) #
   %51 = add nsw i64 %50, 20
   store i64 %51, ptr %5, align 8, !tbaa !47
   %.pre58 = load i64, ptr %38, align 8, !tbaa !86
-  br label %52
+  %52 = call i64 @llvm.umin.i64(i64 %.pre58, i64 65535)
+  br label %53
 
-52:                                               ; preds = %49, %29
-  %53 = phi i64 [ %.pre58, %49 ], [ %.pre, %29 ]
+53:                                               ; preds = %49, %29
+  %spec.select53 = phi i64 [ %52, %49 ], [ %.pre, %29 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i32 101010256, ptr %2, align 16
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %spec.select53 = call i64 @llvm.umin.i64(i64 %53, i64 65535)
   %spec.select = trunc nuw i64 %spec.select53 to i16
   store i16 %spec.select, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 10
@@ -3155,14 +3155,14 @@ define internal range(i32 -30, 1) i32 @archive_write_zip_close(ptr noundef %0) #
   %.not51 = icmp eq i32 %62, 0
   br i1 %.not51, label %63, label %.loopexit
 
-63:                                               ; preds = %52
+63:                                               ; preds = %53
   %64 = load i64, ptr %5, align 8, !tbaa !47
   %65 = add nsw i64 %64, 22
   store i64 %65, ptr %5, align 8, !tbaa !47
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %52, %43, %._crit_edge._crit_edge, %63
-  %.045 = phi i32 [ 0, %63 ], [ -30, %._crit_edge._crit_edge ], [ -30, %43 ], [ -30, %52 ], [ -30, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %53, %43, %._crit_edge._crit_edge, %63
+  %.045 = phi i32 [ 0, %63 ], [ -30, %._crit_edge._crit_edge ], [ -30, %43 ], [ -30, %53 ], [ -30, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #13
   ret i32 %.045
 }

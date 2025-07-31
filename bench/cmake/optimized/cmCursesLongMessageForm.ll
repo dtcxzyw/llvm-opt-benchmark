@@ -610,59 +610,59 @@ define dso_local void @_ZN23cmCursesLongMessageForm15UpdateStatusBarEv(ptr nound
   %13 = load i16, ptr %12, align 2, !tbaa !38
   %14 = sext i16 %13 to i32
   %15 = add nsw i32 %14, 1
+  %16 = tail call i32 @llvm.umin.i32(i32 %15, i32 511)
+  %17 = zext nneg i32 %16 to i64
   br label %.thread
 
 .thread:                                          ; preds = %1, %7
-  %16 = phi i32 [ %11, %7 ], [ -1, %1 ]
-  %17 = phi i32 [ %15, %7 ], [ -1, %1 ]
+  %18 = phi i32 [ %11, %7 ], [ -1, %1 ]
+  %narrow = phi i64 [ %17, %7 ], [ 511, %1 ]
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #17
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %20 = load i64, ptr %19, align 8, !tbaa !12
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %20, i64 511)
-  %21 = load ptr, ptr %18, align 8, !tbaa !21
-  %22 = call ptr @strncpy(ptr noundef nonnull %2, ptr noundef %21, i64 noundef %spec.store.select) #17
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %21 = load i64, ptr %20, align 8, !tbaa !12
+  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %21, i64 511)
+  %22 = load ptr, ptr %19, align 8, !tbaa !21
+  %23 = call ptr @strncpy(ptr noundef nonnull %2, ptr noundef %22, i64 noundef %spec.store.select) #17
   %scevgep = getelementptr nuw i8, ptr %2, i64 %spec.store.select
-  %23 = sub nuw nsw i64 512, %spec.store.select
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 32, i64 %23, i1 false), !tbaa !15
-  %narrow = call i32 @llvm.umin.i32(i32 %17, i32 511)
-  %.022 = zext nneg i32 %narrow to i64
-  %24 = getelementptr inbounds nuw [512 x i8], ptr %2, i64 0, i64 %.022
-  store i8 0, ptr %24, align 1, !tbaa !15
+  %24 = sub nuw nsw i64 512, %spec.store.select
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 32, i64 %24, i1 false), !tbaa !15
+  %25 = getelementptr inbounds nuw [512 x i8], ptr %2, i64 0, i64 %narrow
+  store i8 0, ptr %25, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3) #17
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #17
-  %25 = call noundef ptr @_ZN9cmVersion15GetCMakeVersionEv()
-  %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %25) #17
-  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
-  %28 = sub i64 %.022, %27
-  %.not30 = icmp eq i64 %27, %.022
+  %26 = call noundef ptr @_ZN9cmVersion15GetCMakeVersionEv()
+  %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %26) #17
+  %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
+  %29 = sub i64 %narrow, %28
+  %.not30 = icmp eq i64 %narrow, %28
   br i1 %.not30, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %3, i8 32, i64 %28, i1 false), !tbaa !15
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %3, i8 32, i64 %29, i1 false), !tbaa !15
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.thread
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %28
-  %30 = sub i64 512, %28
-  %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %29, i64 noundef %30, ptr noundef nonnull @__const._ZN23cmCursesLongMessageForm9PrintKeysEv.fmt_s, ptr noundef nonnull %4) #17
-  %32 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 0, i64 %.022
-  store i8 0, ptr %32, align 1, !tbaa !15
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %29
+  %31 = sub i64 512, %29
+  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %31, ptr noundef nonnull @__const._ZN23cmCursesLongMessageForm9PrintKeysEv.fmt_s, ptr noundef nonnull %4) #17
+  %33 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 0, i64 %narrow
+  store i8 0, ptr %33, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) @__const._ZN23cmCursesLongMessageForm9PrintKeysEv.fmt_s, i64 3, i1 false)
-  %33 = add nsw i32 %16, -4
-  %34 = call i32 @move(i32 noundef %33, i32 noundef 0)
-  %35 = load ptr, ptr @stdscr, align 8, !tbaa !28
-  %36 = call i32 @wattr_on(ptr noundef %35, i32 noundef 65536, ptr noundef null)
-  %37 = call i32 (ptr, ...) @printw(ptr noundef nonnull %5, ptr noundef nonnull %2)
-  %38 = load ptr, ptr @stdscr, align 8, !tbaa !28
-  %39 = call i32 @wattr_off(ptr noundef %38, i32 noundef 65536, ptr noundef null)
-  %40 = add nsw i32 %16, -3
-  %41 = call i32 @move(i32 noundef %40, i32 noundef 0)
-  %42 = call i32 (ptr, ...) @printw(ptr noundef nonnull %5, ptr noundef nonnull %3)
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !25
-  %45 = call i32 @pos_form_cursor(ptr noundef %44)
+  %34 = add nsw i32 %18, -4
+  %35 = call i32 @move(i32 noundef %34, i32 noundef 0)
+  %36 = load ptr, ptr @stdscr, align 8, !tbaa !28
+  %37 = call i32 @wattr_on(ptr noundef %36, i32 noundef 65536, ptr noundef null)
+  %38 = call i32 (ptr, ...) @printw(ptr noundef nonnull %5, ptr noundef nonnull %2)
+  %39 = load ptr, ptr @stdscr, align 8, !tbaa !28
+  %40 = call i32 @wattr_off(ptr noundef %39, i32 noundef 65536, ptr noundef null)
+  %41 = add nsw i32 %18, -3
+  %42 = call i32 @move(i32 noundef %41, i32 noundef 0)
+  %43 = call i32 (ptr, ...) @printw(ptr noundef nonnull %5, ptr noundef nonnull %3)
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !25
+  %46 = call i32 @pos_form_cursor(ptr noundef %45)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3) #17

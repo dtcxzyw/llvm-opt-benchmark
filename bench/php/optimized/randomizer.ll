@@ -479,11 +479,11 @@ zend_parse_arg_double.exit100:                    ; preds = %19
 
 34:                                               ; preds = %28
   %.not.i = icmp eq ptr %30, null
-  %.pre120 = load ptr, ptr %29, align 8, !tbaa !4
+  %.pre122 = load ptr, ptr %29, align 8, !tbaa !4
   br i1 %.not.i, label %.critedge, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %.pre120, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.pre122, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !12
   %38 = icmp eq ptr %37, %30
   br i1 %38, label %.critedge, label %instanceof_function.exit
@@ -518,10 +518,10 @@ thread-pre-split:                                 ; preds = %instanceof_function
   %.081.ph = phi ptr [ %29, %40 ], [ %20, %zend_parse_arg_double.exit100 ], [ %13, %zend_parse_arg_double.exit ], [ %29, %42 ], [ null, %11 ]
   %.080.ph = phi i32 [ 3, %40 ], [ 2, %zend_parse_arg_double.exit100 ], [ 1, %zend_parse_arg_double.exit ], [ 3, %42 ], [ 0, %11 ]
   call void @zend_wrong_parameter_error(i32 noundef %.085.ph, i32 noundef %.080.ph, ptr noundef %.083.ph, i32 noundef %.082.ph, ptr noundef %.081.ph) #9
-  br label %129
+  br label %127
 
 .critedge:                                        ; preds = %34, %35, %instanceof_function.exit.zend_parse_arg_obj.exit_crit_edge, %26
-  %.0102 = phi ptr [ null, %26 ], [ %.pre, %instanceof_function.exit.zend_parse_arg_obj.exit_crit_edge ], [ %.pre120, %35 ], [ %.pre120, %34 ]
+  %.0102 = phi ptr [ null, %26 ], [ %.pre, %instanceof_function.exit.zend_parse_arg_obj.exit_crit_edge ], [ %.pre122, %35 ], [ %.pre122, %34 ]
   %47 = load double, ptr %3, align 8, !tbaa !81
   %48 = call double @llvm.fabs.f64(double %47)
   %49 = fcmp ueq double %48, 0x7FF0000000000000
@@ -532,7 +532,7 @@ thread-pre-split:                                 ; preds = %instanceof_function
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !36
   %52 = icmp ne ptr %51, null
   call void @llvm.assume(i1 %52)
-  br label %129
+  br label %127
 
 53:                                               ; preds = %.critedge
   %54 = load double, ptr %4, align 8, !tbaa !81
@@ -545,11 +545,11 @@ thread-pre-split:                                 ; preds = %instanceof_function
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !36
   %59 = icmp ne ptr %58, null
   call void @llvm.assume(i1 %59)
-  br label %129
+  br label %127
 
 60:                                               ; preds = %53
   %.not98 = icmp eq ptr %.0102, null
-  br i1 %.not98, label %78, label %61
+  br i1 %.not98, label %.thread120, label %61
 
 61:                                               ; preds = %60
   %62 = getelementptr inbounds nuw i8, ptr %.0102, i64 16
@@ -569,114 +569,110 @@ thread-pre-split:                                 ; preds = %instanceof_function
   %75 = add i64 %74, %72
   %76 = trunc i64 %75 to i32
   %77 = add i32 %76, -77
-  br label %78
-
-78:                                               ; preds = %61, %60
-  %.0 = phi i32 [ %77, %61 ], [ 0, %60 ]
-  %79 = call i32 @llvm.fshl.i32(i32 %.0, i32 %.0, i32 31)
-  switch i32 %79, label %128 [
-    i32 0, label %80
-    i32 1, label %91
-    i32 6, label %102
-    i32 5, label %113
+  %78 = call i32 @llvm.fshl.i32(i32 %77, i32 %77, i32 31)
+  switch i32 %78, label %126 [
+    i32 0, label %.thread120
+    i32 1, label %89
+    i32 6, label %100
+    i32 5, label %111
   ]
 
-80:                                               ; preds = %78
-  %81 = fcmp ugt double %54, %47
-  br i1 %81, label %85, label %82, !prof !11
+.thread120:                                       ; preds = %60, %61
+  %79 = fcmp ugt double %54, %47
+  br i1 %79, label %83, label %80, !prof !11
 
-82:                                               ; preds = %80
+80:                                               ; preds = %.thread120
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.2) #9
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !36
-  %84 = icmp ne ptr %83, null
-  call void @llvm.assume(i1 %84)
-  br label %129
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !36
+  %82 = icmp ne ptr %81, null
+  call void @llvm.assume(i1 %82)
+  br label %127
 
-85:                                               ; preds = %80
-  %86 = load ptr, ptr %7, align 8
-  %87 = getelementptr inbounds i8, ptr %6, i64 -16
-  %88 = load ptr, ptr %87, align 8
-  %89 = call double @php_random_gammasection_closed_open(ptr %86, ptr %88, double noundef %47, double noundef %54) #9
-  store double %89, ptr %1, align 8, !tbaa !4
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 5, ptr %90, align 8, !tbaa !4
-  br label %129
+83:                                               ; preds = %.thread120
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds i8, ptr %6, i64 -16
+  %86 = load ptr, ptr %85, align 8
+  %87 = call double @php_random_gammasection_closed_open(ptr %84, ptr %86, double noundef %47, double noundef %54) #9
+  store double %87, ptr %1, align 8, !tbaa !4
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 5, ptr %88, align 8, !tbaa !4
+  br label %127
 
-91:                                               ; preds = %78
-  %92 = fcmp olt double %54, %47
-  br i1 %92, label %93, label %96, !prof !7
+89:                                               ; preds = %61
+  %90 = fcmp olt double %54, %47
+  br i1 %90, label %91, label %94, !prof !7
 
-93:                                               ; preds = %91
+91:                                               ; preds = %89
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.3) #9
-  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !36
-  %95 = icmp ne ptr %94, null
-  call void @llvm.assume(i1 %95)
-  br label %129
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !36
+  %93 = icmp ne ptr %92, null
+  call void @llvm.assume(i1 %93)
+  br label %127
 
-96:                                               ; preds = %91
-  %97 = load ptr, ptr %7, align 8
-  %98 = getelementptr inbounds i8, ptr %6, i64 -16
-  %99 = load ptr, ptr %98, align 8
-  %100 = call double @php_random_gammasection_closed_closed(ptr %97, ptr %99, double noundef %47, double noundef %54) #9
-  store double %100, ptr %1, align 8, !tbaa !4
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 5, ptr %101, align 8, !tbaa !4
-  br label %129
+94:                                               ; preds = %89
+  %95 = load ptr, ptr %7, align 8
+  %96 = getelementptr inbounds i8, ptr %6, i64 -16
+  %97 = load ptr, ptr %96, align 8
+  %98 = call double @php_random_gammasection_closed_closed(ptr %95, ptr %97, double noundef %47, double noundef %54) #9
+  store double %98, ptr %1, align 8, !tbaa !4
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 5, ptr %99, align 8, !tbaa !4
+  br label %127
 
-102:                                              ; preds = %78
-  %103 = fcmp ugt double %54, %47
-  br i1 %103, label %107, label %104, !prof !11
+100:                                              ; preds = %61
+  %101 = fcmp ugt double %54, %47
+  br i1 %101, label %105, label %102, !prof !11
 
-104:                                              ; preds = %102
+102:                                              ; preds = %100
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.2) #9
-  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !36
-  %106 = icmp ne ptr %105, null
-  call void @llvm.assume(i1 %106)
-  br label %129
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !36
+  %104 = icmp ne ptr %103, null
+  call void @llvm.assume(i1 %104)
+  br label %127
 
-107:                                              ; preds = %102
-  %108 = load ptr, ptr %7, align 8
-  %109 = getelementptr inbounds i8, ptr %6, i64 -16
-  %110 = load ptr, ptr %109, align 8
-  %111 = call double @php_random_gammasection_open_closed(ptr %108, ptr %110, double noundef %47, double noundef %54) #9
-  store double %111, ptr %1, align 8, !tbaa !4
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 5, ptr %112, align 8, !tbaa !4
-  br label %129
+105:                                              ; preds = %100
+  %106 = load ptr, ptr %7, align 8
+  %107 = getelementptr inbounds i8, ptr %6, i64 -16
+  %108 = load ptr, ptr %107, align 8
+  %109 = call double @php_random_gammasection_open_closed(ptr %106, ptr %108, double noundef %47, double noundef %54) #9
+  store double %109, ptr %1, align 8, !tbaa !4
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 5, ptr %110, align 8, !tbaa !4
+  br label %127
 
-113:                                              ; preds = %78
-  %114 = fcmp ugt double %54, %47
-  br i1 %114, label %118, label %115, !prof !11
+111:                                              ; preds = %61
+  %112 = fcmp ugt double %54, %47
+  br i1 %112, label %116, label %113, !prof !11
 
-115:                                              ; preds = %113
+113:                                              ; preds = %111
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.2) #9
-  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !36
-  %117 = icmp ne ptr %116, null
-  call void @llvm.assume(i1 %117)
-  br label %129
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !36
+  %115 = icmp ne ptr %114, null
+  call void @llvm.assume(i1 %115)
+  br label %127
 
-118:                                              ; preds = %113
-  %119 = load ptr, ptr %7, align 8
-  %120 = getelementptr inbounds i8, ptr %6, i64 -16
-  %121 = load ptr, ptr %120, align 8
-  %122 = call double @php_random_gammasection_open_open(ptr %119, ptr %121, double noundef %47, double noundef %54) #9
-  store double %122, ptr %1, align 8, !tbaa !4
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 5, ptr %123, align 8, !tbaa !4
-  %124 = fcmp uno double %122, 0.000000e+00
-  br i1 %124, label %125, label %129, !prof !7
+116:                                              ; preds = %111
+  %117 = load ptr, ptr %7, align 8
+  %118 = getelementptr inbounds i8, ptr %6, i64 -16
+  %119 = load ptr, ptr %118, align 8
+  %120 = call double @php_random_gammasection_open_open(ptr %117, ptr %119, double noundef %47, double noundef %54) #9
+  store double %120, ptr %1, align 8, !tbaa !4
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 5, ptr %121, align 8, !tbaa !4
+  %122 = fcmp uno double %120, 0.000000e+00
+  br i1 %122, label %123, label %127, !prof !7
 
-125:                                              ; preds = %118
+123:                                              ; preds = %116
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.4) #9
-  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !36
-  %127 = icmp ne ptr %126, null
-  call void @llvm.assume(i1 %127)
-  br label %129
+  %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !36
+  %125 = icmp ne ptr %124, null
+  call void @llvm.assume(i1 %125)
+  br label %127
 
-128:                                              ; preds = %78
+126:                                              ; preds = %61
   unreachable
 
-129:                                              ; preds = %46, %118, %125, %115, %107, %104, %96, %93, %85, %82, %57, %50
+127:                                              ; preds = %46, %116, %123, %113, %105, %102, %94, %91, %83, %80, %57, %50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   ret void

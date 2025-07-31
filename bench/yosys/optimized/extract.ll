@@ -3683,24 +3683,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit831: ; preds = %_Z
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit838
   %1221 = icmp sgt i64 %1241, 512
+  %1222 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1242, i1 true)
+  %1223 = shl nuw nsw i64 %1222, 1
+  %1224 = xor i64 %1223, 126
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1220
   %.lcssa3635 = phi ptr [ %1206, %1220 ], [ %1237, %._crit_edge.loopexit ]
   %.lcssa3633 = phi ptr [ %1207, %1220 ], [ %1238, %._crit_edge.loopexit ]
   %.lcssa3631 = phi i1 [ false, %1220 ], [ %1221, %._crit_edge.loopexit ]
-  %.lcssa3629 = phi i64 [ 0, %1220 ], [ %1242, %._crit_edge.loopexit ]
+  %.lcssa3629 = phi i64 [ poison, %1220 ], [ %1224, %._crit_edge.loopexit ]
   %.not.i.i832 = icmp eq ptr %.lcssa3633, %.lcssa3635
-  br i1 %.not.i.i832, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, label %1222
+  br i1 %.not.i.i832, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, label %1225
 
-1222:                                             ; preds = %._crit_edge
-  %1223 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.lcssa3629, i1 true)
-  %1224 = shl nuw nsw i64 %1223, 1
-  %1225 = xor i64 %1224, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_less_iterEEvT_SF_T0_T1_(ptr %.lcssa3633, ptr %.lcssa3635, i64 noundef %1225)
+1225:                                             ; preds = %._crit_edge
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_less_iterEEvT_SF_T0_T1_(ptr %.lcssa3633, ptr %.lcssa3635, i64 noundef %.lcssa3629)
           to label %.noexc833 unwind label %.loopexit.split-lp2968.loopexit.split-lp.loopexit
 
-.noexc833:                                        ; preds = %1222
+.noexc833:                                        ; preds = %1225
   br i1 %.lcssa3631, label %1226, label %1229
 
 1226:                                             ; preds = %.noexc833
@@ -3861,7 +3861,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit894
 
-.loopexit.split-lp2968.loopexit.split-lp.loopexit: ; preds = %1222, %1226, %1229, %1248, %1257, %1260, %.noexc.i851
+.loopexit.split-lp2968.loopexit.split-lp.loopexit: ; preds = %1225, %1226, %1229, %1248, %1257, %1260, %.noexc.i851
   %lpad.loopexit2976 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit894

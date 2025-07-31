@@ -8239,19 +8239,19 @@ sort_symbols.exit:                                ; preds = %.lr.ph.i.i, %heapif
 
 102:                                              ; preds = %sort_symbols.exit
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %106, label %103
+  br i1 %.not, label %108, label %103
 
 103:                                              ; preds = %102
   %104 = load i32, ptr %4, align 4, !tbaa !26
   %105 = and i32 %104, 1023
-  br label %106
+  %106 = tail call i32 @llvm.umax.i32(i32 %105, i32 1)
+  %107 = zext nneg i32 %106 to i64
+  br label %108
 
-106:                                              ; preds = %102, %103
-  %107 = phi i32 [ %105, %103 ], [ 0, %102 ]
-  %108 = tail call i32 @llvm.umax.i32(i32 %107, i32 1)
+108:                                              ; preds = %102, %103
+  %109 = phi i64 [ %107, %103 ], [ 1, %102 ]
   store i32 0, ptr %4, align 4, !tbaa !26
   store i8 1, ptr %3, align 1, !tbaa !25
-  %109 = zext nneg i32 %108 to i64
   %110 = getelementptr inbounds nuw i32, ptr %4, i64 %109
   store i32 1, ptr %110, align 4, !tbaa !26
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 %109
@@ -8539,7 +8539,7 @@ gen_codewords.exit:                               ; preds = %.preheader.i45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #15
   br label %248
 
-248:                                              ; preds = %gen_codewords.exit, %106
+248:                                              ; preds = %gen_codewords.exit, %108
   ret void
 }
 

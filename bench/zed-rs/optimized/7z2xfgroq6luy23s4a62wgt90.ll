@@ -18504,12 +18504,12 @@ default.unreachable:                              ; preds = %1
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3548
   %7 = load float, ptr %6, align 4, !alias.scope !2859, !noundef !4
+  %8 = tail call float @llvm.maxnum.f32(float %7, float 1.000000e+00)
   br label %_ZN5theme8settings16BufferLineHeight5value17hff38f1d4b2f4c73dE.exit
 
 _ZN5theme8settings16BufferLineHeight5value17hff38f1d4b2f4c73dE.exit: ; preds = %1, %4, %5
-  %.sroa.0.0.i = phi float [ 0x3FF4CCCCC0000000, %4 ], [ %7, %5 ], [ 0x3FF9E35400000000, %1 ]
-  %8 = tail call float @llvm.maxnum.f32(float %.sroa.0.0.i, float 1.000000e+00)
-  ret float %8
+  %.sroa.0.0.i = phi float [ 0x3FF4CCCCC0000000, %4 ], [ %8, %5 ], [ 0x3FF9E35400000000, %1 ]
+  ret float %.sroa.0.0.i
 }
 
 ; Function Attrs: nonlazybind uwtable

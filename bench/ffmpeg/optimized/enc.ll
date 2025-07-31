@@ -2219,11 +2219,11 @@ define internal fastcc void @celt_frame_mdct(ptr noundef %0, ptr noundef %1) unn
 
 ._crit_edge131.loopexit:                          ; preds = %.lr.ph130
   %.pre163 = load float, ptr %118, align 4, !tbaa !56
+  %123 = tail call nsz float @llvm.log2.f32(float %.pre163)
   br label %._crit_edge131
 
 ._crit_edge131:                                   ; preds = %._crit_edge127, %._crit_edge131.loopexit
-  %123 = phi float [ %.pre163, %._crit_edge131.loopexit ], [ 0x3E80000000000000, %._crit_edge127 ]
-  %124 = tail call nsz float @llvm.log2.f32(float %123)
+  %124 = phi float [ %123, %._crit_edge131.loopexit ], [ -2.300000e+01, %._crit_edge127 ]
   %125 = getelementptr inbounds nuw [0 x float], ptr @ff_celt_mean_energy, i64 0, i64 %indvars.iv154
   %126 = load float, ptr %125, align 4, !tbaa !56
   %127 = fsub nsz float %124, %126

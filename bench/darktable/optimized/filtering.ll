@@ -7627,7 +7627,7 @@ define internal void @_aperture_widget_init(ptr noundef %0, i32 noundef %1, ptr 
   %34 = load ptr, ptr %7, align 8, !tbaa !72
   %35 = call i32 @sqlite3_step(ptr noundef %34) #20
   %36 = icmp eq i32 %35, 100
-  br i1 %36, label %37, label %44
+  br i1 %36, label %37, label %49
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %7, align 8, !tbaa !72
@@ -7635,23 +7635,23 @@ define internal void @_aperture_widget_init(ptr noundef %0, i32 noundef %1, ptr 
   %40 = load ptr, ptr %7, align 8, !tbaa !72
   %41 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %40, i32 noundef 1) #20
   %42 = fmul reassoc nsz arcp contract afn double %39, 1.000000e+01
-  %43 = fmul reassoc nsz arcp contract afn double %41, 1.000000e+01
-  br label %44
+  %43 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %42)
+  %44 = fmul reassoc nsz arcp contract afn double %43, 1.000000e-01
+  %45 = fmul reassoc nsz arcp contract afn double %41, 1.000000e+01
+  %46 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %45)
+  %47 = fmul reassoc nsz arcp contract afn double %46, 1.000000e-01
+  %48 = fadd reassoc nsz arcp contract afn double %47, 1.000000e-01
+  br label %49
 
-44:                                               ; preds = %37, %33
-  %.017 = phi double [ %42, %37 ], [ 0.000000e+00, %33 ]
-  %.0 = phi double [ %43, %37 ], [ 2.200000e+02, %33 ]
-  %45 = load ptr, ptr %7, align 8, !tbaa !72
-  %46 = call i32 @sqlite3_finalize(ptr noundef %45) #20
-  %47 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %.017)
-  %48 = fmul reassoc nsz arcp contract afn double %47, 1.000000e-01
-  %49 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store double %48, ptr %49, align 8, !tbaa !230
-  %50 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %.0)
-  %51 = fmul reassoc nsz arcp contract afn double %50, 1.000000e-01
-  %52 = fadd reassoc nsz arcp contract afn double %51, 1.000000e-01
+49:                                               ; preds = %37, %33
+  %.017 = phi double [ %44, %37 ], [ 0.000000e+00, %33 ]
+  %.0 = phi double [ %48, %37 ], [ 2.210000e+01, %33 ]
+  %50 = load ptr, ptr %7, align 8, !tbaa !72
+  %51 = call i32 @sqlite3_finalize(ptr noundef %50) #20
+  %52 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store double %.017, ptr %52, align 8, !tbaa !230
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store double %52, ptr %53, align 8, !tbaa !231
+  store double %.0, ptr %53, align 8, !tbaa !231
   call fastcc void @_range_widget_add_to_rule(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #20
@@ -7853,27 +7853,27 @@ define internal void @_focal_widget_init(ptr noundef %0, i32 noundef %1, ptr nou
   %34 = load ptr, ptr %7, align 8, !tbaa !72
   %35 = call i32 @sqlite3_step(ptr noundef %34) #20
   %36 = icmp eq i32 %35, 100
-  br i1 %36, label %37, label %42
+  br i1 %36, label %37, label %45
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %7, align 8, !tbaa !72
   %39 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %38, i32 noundef 0) #20
   %40 = load ptr, ptr %7, align 8, !tbaa !72
   %41 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %40, i32 noundef 1) #20
-  br label %42
+  %42 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %39)
+  %43 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %41)
+  %44 = fadd reassoc nsz arcp contract afn double %43, 1.000000e+00
+  br label %45
 
-42:                                               ; preds = %37, %33
-  %.017 = phi nsz double [ %39, %37 ], [ 0.000000e+00, %33 ]
-  %.0 = phi nsz double [ %41, %37 ], [ 4.000000e+02, %33 ]
-  %43 = load ptr, ptr %7, align 8, !tbaa !72
-  %44 = call i32 @sqlite3_finalize(ptr noundef %43) #20
-  %45 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %.017)
-  %46 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store double %45, ptr %46, align 8, !tbaa !230
-  %47 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %.0)
-  %48 = fadd reassoc nsz arcp contract afn double %47, 1.000000e+00
+45:                                               ; preds = %37, %33
+  %.017 = phi double [ %42, %37 ], [ 0.000000e+00, %33 ]
+  %.0 = phi double [ %44, %37 ], [ 4.010000e+02, %33 ]
+  %46 = load ptr, ptr %7, align 8, !tbaa !72
+  %47 = call i32 @sqlite3_finalize(ptr noundef %46) #20
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store double %.017, ptr %48, align 8, !tbaa !230
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store double %48, ptr %49, align 8, !tbaa !231
+  store double %.0, ptr %49, align 8, !tbaa !231
   call fastcc void @_range_widget_add_to_rule(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #20
@@ -8074,27 +8074,27 @@ define internal void @_iso_widget_init(ptr noundef %0, i32 noundef %1, ptr nound
   %33 = load ptr, ptr %7, align 8, !tbaa !72
   %34 = call i32 @sqlite3_step(ptr noundef %33) #20
   %35 = icmp eq i32 %34, 100
-  br i1 %35, label %36, label %41
+  br i1 %35, label %36, label %44
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %7, align 8, !tbaa !72
   %38 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %37, i32 noundef 0) #20
   %39 = load ptr, ptr %7, align 8, !tbaa !72
   %40 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %39, i32 noundef 1) #20
-  br label %41
+  %41 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %38)
+  %42 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %40)
+  %43 = fadd reassoc nsz arcp contract afn double %42, 1.000000e+00
+  br label %44
 
-41:                                               ; preds = %36, %32
-  %.017 = phi nsz double [ %38, %36 ], [ 5.000000e+01, %32 ]
-  %.0 = phi nsz double [ %40, %36 ], [ 1.280000e+04, %32 ]
-  %42 = load ptr, ptr %7, align 8, !tbaa !72
-  %43 = call i32 @sqlite3_finalize(ptr noundef %42) #20
-  %44 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %.017)
-  %45 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store double %44, ptr %45, align 8, !tbaa !230
-  %46 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %.0)
-  %47 = fadd reassoc nsz arcp contract afn double %46, 1.000000e+00
+44:                                               ; preds = %36, %32
+  %.017 = phi double [ %41, %36 ], [ 5.000000e+01, %32 ]
+  %.0 = phi double [ %43, %36 ], [ 1.280100e+04, %32 ]
+  %45 = load ptr, ptr %7, align 8, !tbaa !72
+  %46 = call i32 @sqlite3_finalize(ptr noundef %45) #20
+  %47 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store double %.017, ptr %47, align 8, !tbaa !230
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store double %47, ptr %48, align 8, !tbaa !231
+  store double %.0, ptr %48, align 8, !tbaa !231
   call fastcc void @_range_widget_add_to_rule(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #20
@@ -8530,7 +8530,7 @@ define internal void @_exposure_bias_widget_init(ptr noundef %0, i32 noundef %1,
   %34 = load ptr, ptr %7, align 8, !tbaa !72
   %35 = call i32 @sqlite3_step(ptr noundef %34) #20
   %36 = icmp eq i32 %35, 100
-  br i1 %36, label %37, label %44
+  br i1 %36, label %37, label %49
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %7, align 8, !tbaa !72
@@ -8538,23 +8538,23 @@ define internal void @_exposure_bias_widget_init(ptr noundef %0, i32 noundef %1,
   %40 = load ptr, ptr %7, align 8, !tbaa !72
   %41 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %40, i32 noundef 1) #20
   %42 = fmul reassoc nsz arcp contract afn double %39, 1.000000e+02
-  %43 = fmul reassoc nsz arcp contract afn double %41, 1.000000e+02
-  br label %44
+  %43 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %42)
+  %44 = fmul reassoc nsz arcp contract afn double %43, 1.000000e-02
+  %45 = fmul reassoc nsz arcp contract afn double %41, 1.000000e+02
+  %46 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %45)
+  %47 = fmul reassoc nsz arcp contract afn double %46, 1.000000e-02
+  %48 = fadd reassoc nsz arcp contract afn double %47, 1.000000e-02
+  br label %49
 
-44:                                               ; preds = %37, %33
-  %.017 = phi double [ %42, %37 ], [ -5.000000e+02, %33 ]
-  %.0 = phi double [ %43, %37 ], [ 5.000000e+02, %33 ]
-  %45 = load ptr, ptr %7, align 8, !tbaa !72
-  %46 = call i32 @sqlite3_finalize(ptr noundef %45) #20
-  %47 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %.017)
-  %48 = fmul reassoc nsz arcp contract afn double %47, 1.000000e-02
-  %49 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store double %48, ptr %49, align 8, !tbaa !230
-  %50 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %.0)
-  %51 = fmul reassoc nsz arcp contract afn double %50, 1.000000e-02
-  %52 = fadd reassoc nsz arcp contract afn double %51, 1.000000e-02
+49:                                               ; preds = %37, %33
+  %.017 = phi double [ %44, %37 ], [ -5.000000e+00, %33 ]
+  %.0 = phi double [ %48, %37 ], [ 5.010000e+00, %33 ]
+  %50 = load ptr, ptr %7, align 8, !tbaa !72
+  %51 = call i32 @sqlite3_finalize(ptr noundef %50) #20
+  %52 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store double %.017, ptr %52, align 8, !tbaa !230
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store double %52, ptr %53, align 8, !tbaa !231
+  store double %.0, ptr %53, align 8, !tbaa !231
   call fastcc void @_range_widget_add_to_rule(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #20

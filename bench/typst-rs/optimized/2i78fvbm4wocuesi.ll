@@ -64727,23 +64727,27 @@ _ZN4core3str7pattern14TwoWaySearcher9next_back17h67879a9f72dfeb2bE.exit: ; preds
 
 158:                                              ; preds = %.lr.ph
   %159 = icmp eq i64 %.01255, %94
-  br i1 %159, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread", label %163
+  br i1 %159, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.loopexit", label %163
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit": ; preds = %.lr.ph
   %160 = getelementptr inbounds i8, ptr %92, i64 %.01255
   %161 = load i8, ptr %160, align 1, !alias.scope !13143, !noundef !4
   %162 = icmp sgt i8 %161, -65
-  br i1 %162, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread", label %163
+  br i1 %162, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.loopexit", label %163
 
 163:                                              ; preds = %158, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit"
   %164 = add i64 %.01255, -1
   %165 = icmp eq i64 %164, 0
-  br i1 %165, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread", label %.lr.ph
+  br i1 %165, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.loopexit", label %.lr.ph
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread": ; preds = %133, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit", %158, %163, %87, %.loopexit
-  %166 = phi i64 [ 0, %.loopexit ], [ 0, %87 ], [ %111, %163 ], [ %111, %158 ], [ %111, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit" ], [ 0, %133 ]
-  %.012.lcssa = phi i64 [ 0, %.loopexit ], [ 0, %87 ], [ %.01255, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit" ], [ %94, %158 ], [ 0, %163 ], [ 0, %133 ]
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %.012.lcssa, i64 %166)
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.loopexit": ; preds = %163, %158, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit"
+  %.012.lcssa.ph = phi i64 [ %.01255, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit" ], [ %94, %158 ], [ 0, %163 ]
+  %166 = tail call i64 @llvm.umin.i64(i64 %.012.lcssa.ph, i64 %111)
+  br label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread"
+
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread": ; preds = %133, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.loopexit", %87, %.loopexit
+  %.0.sroa.speculated.i = phi i64 [ 0, %.loopexit ], [ 0, %87 ], [ %166, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.loopexit" ], [ 0, %133 ]
+  %.012.lcssa = phi i64 [ 0, %.loopexit ], [ 0, %87 ], [ %.012.lcssa.ph, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.loopexit" ], [ 0, %133 ]
   store i64 %.0.sroa.speculated.i, ptr %9, align 8
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.012.lcssa, ptr %167, align 8

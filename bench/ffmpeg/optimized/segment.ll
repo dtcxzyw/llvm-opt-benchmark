@@ -2385,14 +2385,17 @@ define internal fastcc i32 @segment_list_open(ptr noundef %0) unnamed_addr #0 {
   %47 = getelementptr inbounds nuw i8, ptr %.03645, i64 48
   %.036 = load ptr, ptr %47, align 8, !tbaa !153
   %.not41 = icmp eq ptr %.036, null
-  br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !171
+  br i1 %.not41, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !171
 
-._crit_edge:                                      ; preds = %.lr.ph, %24
-  %.0.lcssa = phi double [ 0.000000e+00, %24 ], [ %.0., %.lr.ph ]
-  %48 = load ptr, ptr %13, align 8, !tbaa !156
-  %49 = tail call nsz double @llvm.ceil.f64(double %.0.lcssa)
-  %50 = fptosi double %49 to i64
-  %51 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %48, ptr noundef nonnull @.str.102, i64 noundef %50) #13
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %48 = tail call nsz double @llvm.ceil.f64(double %.0.)
+  %49 = fptosi double %48 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %24
+  %.0.lcssa = phi i64 [ 0, %24 ], [ %49, %._crit_edge.loopexit ]
+  %50 = load ptr, ptr %13, align 8, !tbaa !156
+  %51 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %50, ptr noundef nonnull @.str.102, i64 noundef %.0.lcssa) #13
   br label %.thread
 
 52:                                               ; preds = %18

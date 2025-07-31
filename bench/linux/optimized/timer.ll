@@ -3933,7 +3933,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @schedule_timeout(i64 no
 
 4:                                                ; preds = %1
   tail call void @schedule() #16
-  br label %47
+  br label %48
 
 5:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 40, i1 false), !annotation !24
@@ -3947,7 +3947,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @schedule_timeout(i64 no
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store volatile i32 0, ptr %11, align 8
-  br label %47
+  br label %48
 
 12:                                               ; preds = %5
   %13 = load volatile i64, ptr @jiffies, align 64
@@ -4008,11 +4008,11 @@ define dso_local range(i64 0, -9223372036854775808) i64 @schedule_timeout(i64 no
   %44 = call fastcc noundef i32 @__timer_delete_sync(ptr noundef nonnull %2, i1 noundef zeroext false), !range !52
   %45 = load volatile i64, ptr @jiffies, align 64
   %46 = sub i64 %14, %45
-  br label %47
+  %47 = call i64 @llvm.smax.i64(i64 %46, i64 0)
+  br label %48
 
-47:                                               ; preds = %38, %7, %4
-  %48 = phi i64 [ 9223372036854775807, %4 ], [ %0, %7 ], [ %46, %38 ]
-  %49 = call i64 @llvm.smax.i64(i64 %48, i64 0)
+48:                                               ; preds = %38, %7, %4
+  %49 = phi i64 [ 9223372036854775807, %4 ], [ 0, %7 ], [ %47, %38 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #16
   ret i64 %49
 }

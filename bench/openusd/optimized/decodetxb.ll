@@ -999,8 +999,8 @@ aom_read_symbol_.exit379:                         ; preds = %543, %update_cdf.ex
   %577 = icmp sgt i32 %544, 2
   %578 = add nuw nsw i32 %.0260418, 3
   %579 = icmp samesign ult i32 %.0260418, 9
-  %or.cond443 = select i1 %577, i1 %579, i1 false
-  br i1 %or.cond443, label %543, label %.loopexit, !llvm.loop !7
+  %or.cond444 = select i1 %577, i1 %579, i1 false
+  br i1 %or.cond444, label %543, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %aom_read_symbol_.exit379, %aom_read_symbol_.exit369
   %.0261 = phi i32 [ %516, %aom_read_symbol_.exit369 ], [ %576, %aom_read_symbol_.exit379 ]
@@ -1463,9 +1463,9 @@ set_dc_sign.exit:                                 ; preds = %834
   %840 = or i32 %838, 8
   %.not.i397 = icmp eq i32 %.2, 0
   %841 = add nsw i32 %838, 16
-  %.444 = select i1 %.not.i397, i32 %838, i32 %841
-  %spec.select445 = select i1 %839, i32 %840, i32 %.444
-  %842 = trunc i32 %spec.select445 to i8
+  %.445 = select i1 %.not.i397, i32 %838, i32 %841
+  %spec.select446 = select i1 %839, i32 %840, i32 %.445
+  %842 = trunc i32 %spec.select446 to i8
   br label %.thread
 
 .thread:                                          ; preds = %732, %set_dc_sign.exit, %112, %113

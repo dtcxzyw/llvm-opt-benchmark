@@ -5385,8 +5385,8 @@ invoke.cont28:                                    ; preds = %if.then24
 
 invoke.cont33:                                    ; preds = %invoke.cont28
   %not.call29 = xor i1 %call29, true
-  %23 = zext i1 %not.call29 to i32
-  %div2 = lshr i32 %call34, %23
+  %spec.select = zext i1 %not.call29 to i32
+  %div2 = lshr i32 %call34, %spec.select
   %cmp35.not = icmp ult i32 %22, %div2
   br i1 %cmp35.not, label %if.end41, label %if.then36
 
@@ -5396,15 +5396,15 @@ if.then36:                                        ; preds = %invoke.cont33
 
 if.end41:                                         ; preds = %if.end13, %invoke.cont18, %invoke.cont33, %if.then36, %if.then20, %invoke.cont2
   %ingressBodyOffset_42 = getelementptr inbounds nuw i8, ptr %this, i64 784
-  %24 = load i64, ptr %ingressBodyOffset_42, align 8
-  %add43 = add i64 %24, %call3
+  %23 = load i64, ptr %ingressBodyOffset_42, align 8
+  %add43 = add i64 %23, %call3
   store i64 %add43, ptr %ingressBodyOffset_42, align 8
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.end41, %entry
   %guardCount_.i5 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %25 = load i32, ptr %guardCount_.i5, align 8
-  %dec.i = add i32 %25, -1
+  %24 = load i32, ptr %guardCount_.i5, align 8
+  %dec.i = add i32 %24, -1
   store i32 %dec.i, ptr %guardCount_.i5, align 8
   %cmp5.i = icmp eq i32 %dec.i, 0
   br i1 %cmp5.i, label %if.then6.i, label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit
@@ -5412,15 +5412,15 @@ if.then.i:                                        ; preds = %if.end41, %entry
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
-  %26 = load ptr, ptr %vfn.i, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
+  %25 = load ptr, ptr %vfn.i, align 8
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then6.i
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #31
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #31
   unreachable
 
 _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.i, %if.then6.i

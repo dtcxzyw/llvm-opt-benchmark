@@ -2421,7 +2421,7 @@ define internal fastcc void @comp_ppf_gains(i32 noundef %0, ptr noundef nonnull 
   %9 = shl i32 %4, 1
   %10 = mul i32 %9, %4
   %11 = icmp sgt i32 %10, %8
-  br i1 %11, label %12, label %85
+  br i1 %11, label %12, label %87
 
 12:                                               ; preds = %6
   %.not = icmp slt i32 %4, %5
@@ -2522,19 +2522,19 @@ square_root.exit:                                 ; preds = %44, %.thread43
   %82 = sext i16 %79 to i32
   %83 = mul nsw i32 %82, %81
   %84 = ashr i32 %83, 15
-  br label %87
+  %85 = tail call i32 @llvm.smin.i32(i32 %84, i32 32767)
+  %86 = trunc nsw i32 %85 to i16
+  br label %89
 
-85:                                               ; preds = %6
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  store i16 32767, ptr %86, align 2, !tbaa !76
-  br label %87
+87:                                               ; preds = %6
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  store i16 32767, ptr %88, align 2, !tbaa !76
+  br label %89
 
-87:                                               ; preds = %85, %square_root.exit
-  %88 = phi i32 [ 0, %85 ], [ %84, %square_root.exit ]
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %90 = tail call i32 @llvm.smin.i32(i32 %88, i32 32767)
-  %.0.i = trunc nsw i32 %90 to i16
-  store i16 %.0.i, ptr %89, align 4, !tbaa !75
+89:                                               ; preds = %87, %square_root.exit
+  %.0.i = phi i16 [ 0, %87 ], [ %86, %square_root.exit ]
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i16 %.0.i, ptr %90, align 4, !tbaa !75
   ret void
 }
 

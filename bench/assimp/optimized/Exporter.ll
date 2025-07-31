@@ -9308,15 +9308,21 @@ define linkonce_odr void @_ZN6Assimp15ProgressHandler14UpdateFileReadEii(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Assimp15ProgressHandler17UpdatePostProcessEii(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 comdat align 2 {
   %.not = icmp eq i32 %2, 0
-  %4 = sitofp i32 %1 to float
-  %5 = sitofp i32 %2 to float
-  %6 = fdiv float %4, %5
-  %7 = tail call float @llvm.fmuladd.f32(float %6, float 5.000000e-01, float 5.000000e-01)
-  %8 = select i1 %.not, float 1.000000e+00, float %7
-  %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %8)
+  br i1 %.not, label %9, label %4
+
+4:                                                ; preds = %3
+  %5 = sitofp i32 %1 to float
+  %6 = sitofp i32 %2 to float
+  %7 = fdiv float %5, %6
+  %8 = tail call float @llvm.fmuladd.f32(float %7, float 5.000000e-01, float 5.000000e-01)
+  br label %9
+
+9:                                                ; preds = %3, %4
+  %10 = phi float [ %8, %4 ], [ 1.000000e+00, %3 ]
+  %11 = load ptr, ptr %0, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %10)
   ret void
 }
 

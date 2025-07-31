@@ -7740,7 +7740,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
 
 63:                                               ; preds = %60, %57, %51
   %64 = icmp sgt i64 %1, 0
-  br i1 %64, label %65, label %71
+  br i1 %64, label %65, label %72
 
 65:                                               ; preds = %63
   %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i64 8), align 8
@@ -7749,15 +7749,15 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
   %68 = udiv i64 %66, %67
   %69 = sdiv i64 %68, 4
   %70 = shl nsw i64 %69, 2
-  br label %71
+  %71 = tail call i64 @llvm.smax.i64(i64 %70, i64 4)
+  br label %72
 
-71:                                               ; preds = %63, %65
-  %72 = phi i64 [ %70, %65 ], [ 0, %63 ]
-  %.sroa.speculated371 = tail call i64 @llvm.smax.i64(i64 %72, i64 4)
+72:                                               ; preds = %63, %65
+  %.sroa.speculated371 = phi i64 [ %71, %65 ], [ 4, %63 ]
   %73 = icmp sgt i64 %0, 0
   br i1 %73, label %.lr.ph455, label %._crit_edge
 
-.lr.ph455:                                        ; preds = %71
+.lr.ph455:                                        ; preds = %72
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %76
@@ -8232,7 +8232,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   %269 = icmp slt i64 %268, %0
   br i1 %269, label %224, label %.loopexit416, !llvm.loop !182
 
-._crit_edge:                                      ; preds = %._crit_edge448, %71
+._crit_edge:                                      ; preds = %._crit_edge448, %72
   br i1 %54, label %270, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit337
 
 270:                                              ; preds = %._crit_edge
@@ -14248,7 +14248,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
 
 63:                                               ; preds = %60, %57, %51
   %64 = icmp sgt i64 %1, 0
-  br i1 %64, label %65, label %71
+  br i1 %64, label %65, label %72
 
 65:                                               ; preds = %63
   %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i64 8), align 8
@@ -14257,15 +14257,15 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
   %68 = udiv i64 %66, %67
   %69 = sdiv i64 %68, 4
   %70 = shl nsw i64 %69, 2
-  br label %71
+  %71 = tail call i64 @llvm.smax.i64(i64 %70, i64 4)
+  br label %72
 
-71:                                               ; preds = %63, %65
-  %72 = phi i64 [ %70, %65 ], [ 0, %63 ]
-  %.sroa.speculated378 = tail call i64 @llvm.smax.i64(i64 %72, i64 4)
+72:                                               ; preds = %63, %65
+  %.sroa.speculated378 = phi i64 [ %71, %65 ], [ 4, %63 ]
   %73 = icmp sgt i64 %0, 0
   br i1 %73, label %.lr.ph458, label %._crit_edge
 
-.lr.ph458:                                        ; preds = %71
+.lr.ph458:                                        ; preds = %72
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %75 = icmp sgt i64 %13, 0
   %76 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -14744,7 +14744,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   %280 = icmp slt i64 %279, %232
   br i1 %280, label %235, label %.loopexit423, !llvm.loop !410
 
-._crit_edge:                                      ; preds = %._crit_edge449, %71
+._crit_edge:                                      ; preds = %._crit_edge449, %72
   br i1 %54, label %281, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit344
 
 281:                                              ; preds = %._crit_edge

@@ -218,12 +218,12 @@ define hidden zeroext i16 @inStream_readChar(ptr noundef captures(none) %0) loca
   store ptr %11, ptr %0, align 8
   %12 = add nsw i32 %6, -2
   store i32 %12, ptr %5, align 8
+  %13 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload)
   br label %readBytes.exit
 
 readBytes.exit:                                   ; preds = %1, %8, %9
-  %.0 = phi i16 [ 0, %8 ], [ %.0.copyload, %9 ], [ 0, %1 ]
-  %rev = tail call i16 @llvm.bswap.i16(i16 %.0)
-  ret i16 %rev
+  %.0 = phi i16 [ 0, %8 ], [ %13, %9 ], [ 0, %1 ]
+  ret i16 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -250,12 +250,12 @@ define hidden signext i16 @inStream_readShort(ptr noundef captures(none) %0) loc
   store ptr %11, ptr %0, align 8
   %12 = add nsw i32 %6, -2
   store i32 %12, ptr %5, align 8
+  %13 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload)
   br label %readBytes.exit
 
 readBytes.exit:                                   ; preds = %1, %8, %9
-  %.0 = phi i16 [ 0, %8 ], [ %.0.copyload, %9 ], [ 0, %1 ]
-  %rev = tail call i16 @llvm.bswap.i16(i16 %.0)
-  ret i16 %rev
+  %.0 = phi i16 [ 0, %8 ], [ %13, %9 ], [ 0, %1 ]
+  ret i16 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -282,12 +282,12 @@ define hidden i32 @inStream_readInt(ptr noundef captures(none) %0) local_unnamed
   store ptr %11, ptr %0, align 8
   %12 = add nsw i32 %6, -4
   store i32 %12, ptr %5, align 8
+  %13 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload)
   br label %readBytes.exit
 
 readBytes.exit:                                   ; preds = %1, %8, %9
-  %.0 = phi i32 [ 0, %8 ], [ %.0.copyload, %9 ], [ 0, %1 ]
-  %13 = tail call i32 @llvm.bswap.i32(i32 %.0)
-  ret i32 %13
+  %.0 = phi i32 [ 0, %8 ], [ %13, %9 ], [ 0, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -314,12 +314,12 @@ define hidden i64 @inStream_readLong(ptr noundef captures(none) %0) local_unname
   store ptr %11, ptr %0, align 8
   %12 = add nsw i32 %6, -8
   store i32 %12, ptr %5, align 8
+  %13 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload)
   br label %readBytes.exit
 
 readBytes.exit:                                   ; preds = %1, %8, %9
-  %.0 = phi i64 [ 0, %8 ], [ %.0.copyload, %9 ], [ 0, %1 ]
-  %13 = tail call i64 @llvm.bswap.i64(i64 %.0)
-  ret i64 %13
+  %.0 = phi i64 [ 0, %8 ], [ %13, %9 ], [ 0, %1 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -540,12 +540,12 @@ define hidden i64 @inStream_readObjectID(ptr noundef captures(none) %0) local_un
   store ptr %11, ptr %0, align 8
   %12 = add nsw i32 %6, -8
   store i32 %12, ptr %5, align 8
+  %13 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i)
   br label %inStream_readLong.exit
 
 inStream_readLong.exit:                           ; preds = %1, %8, %9
-  %.0.i = phi i64 [ 0, %8 ], [ %.0.copyload.i, %9 ], [ 0, %1 ]
-  %13 = tail call i64 @llvm.bswap.i64(i64 %.0.i)
-  ret i64 %13
+  %.0.i = phi i64 [ 0, %8 ], [ %13, %9 ], [ 0, %1 ]
+  ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -962,12 +962,12 @@ define hidden i64 @inStream_readFrameID(ptr noundef captures(none) %0) local_unn
   store ptr %11, ptr %0, align 8
   %12 = add nsw i32 %6, -8
   store i32 %12, ptr %5, align 8
+  %13 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i)
   br label %inStream_readLong.exit
 
 inStream_readLong.exit:                           ; preds = %1, %8, %9
-  %.0.i = phi i64 [ 0, %8 ], [ %.0.copyload.i, %9 ], [ 0, %1 ]
-  %13 = tail call i64 @llvm.bswap.i64(i64 %.0.i)
-  ret i64 %13
+  %.0.i = phi i64 [ 0, %8 ], [ %13, %9 ], [ 0, %1 ]
+  ret i64 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -994,13 +994,13 @@ define hidden ptr @inStream_readMethodID(ptr noundef captures(none) %0) local_un
   store ptr %11, ptr %0, align 8
   %12 = add nsw i32 %6, -8
   store i32 %12, ptr %5, align 8
+  %13 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i)
+  %14 = inttoptr i64 %13 to ptr
   br label %inStream_readLong.exit
 
 inStream_readLong.exit:                           ; preds = %1, %8, %9
-  %.0.i = phi i64 [ 0, %8 ], [ %.0.copyload.i, %9 ], [ 0, %1 ]
-  %13 = tail call i64 @llvm.bswap.i64(i64 %.0.i)
-  %14 = inttoptr i64 %13 to ptr
-  ret ptr %14
+  %.0.i = phi ptr [ null, %8 ], [ %14, %9 ], [ null, %1 ]
+  ret ptr %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1027,13 +1027,13 @@ define hidden ptr @inStream_readFieldID(ptr noundef captures(none) %0) local_unn
   store ptr %11, ptr %0, align 8
   %12 = add nsw i32 %6, -8
   store i32 %12, ptr %5, align 8
+  %13 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i)
+  %14 = inttoptr i64 %13 to ptr
   br label %inStream_readLong.exit
 
 inStream_readLong.exit:                           ; preds = %1, %8, %9
-  %.0.i = phi i64 [ 0, %8 ], [ %.0.copyload.i, %9 ], [ 0, %1 ]
-  %13 = tail call i64 @llvm.bswap.i64(i64 %.0.i)
-  %14 = inttoptr i64 %13 to ptr
-  ret ptr %14
+  %.0.i = phi ptr [ null, %8 ], [ %14, %9 ], [ null, %1 ]
+  ret ptr %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1060,12 +1060,12 @@ define hidden i64 @inStream_readLocation(ptr noundef captures(none) %0) local_un
   store ptr %11, ptr %0, align 8
   %12 = add nsw i32 %6, -8
   store i32 %12, ptr %5, align 8
+  %13 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i)
   br label %inStream_readLong.exit
 
 inStream_readLong.exit:                           ; preds = %1, %8, %9
-  %.0.i = phi i64 [ 0, %8 ], [ %.0.copyload.i, %9 ], [ 0, %1 ]
-  %13 = tail call i64 @llvm.bswap.i64(i64 %.0.i)
-  ret i64 %13
+  %.0.i = phi i64 [ 0, %8 ], [ %13, %9 ], [ 0, %1 ]
+  ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1092,12 +1092,12 @@ define hidden ptr @inStream_readString(ptr noundef captures(none) %0) local_unna
   store ptr %11, ptr %0, align 8
   %12 = add nsw i32 %6, -4
   store i32 %12, ptr %5, align 8
+  %13 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i)
   br label %inStream_readInt.exit
 
 inStream_readInt.exit:                            ; preds = %1, %8, %9
-  %.0.i = phi i32 [ 0, %8 ], [ %.0.copyload.i, %9 ], [ 0, %1 ]
-  %13 = tail call i32 @llvm.bswap.i32(i32 %.0.i)
-  %14 = add nsw i32 %13, 1
+  %.0.i = phi i32 [ 0, %8 ], [ %13, %9 ], [ 0, %1 ]
+  %14 = add nsw i32 %.0.i, 1
   %15 = tail call ptr @jvmtiAllocate(i32 noundef %14) #9
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %35, label %16
@@ -1110,7 +1110,7 @@ inStream_readInt.exit:                            ; preds = %1, %8, %9
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i32, ptr %19, align 8
-  %21 = icmp sgt i32 %13, %20
+  %21 = icmp sgt i32 %.0.i, %20
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18
@@ -1119,28 +1119,28 @@ inStream_readInt.exit:                            ; preds = %1, %8, %9
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %0, align 8
-  %25 = sext i32 %13 to i64
+  %25 = sext i32 %.0.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %24, i64 %25, i1 false)
   %.pre.i = load i32, ptr %19, align 8
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 %25
   store ptr %27, ptr %0, align 8
-  %28 = sub nsw i32 %.pre.i, %13
+  %28 = sub nsw i32 %.pre.i, %.0.i
   store i32 %28, ptr %19, align 8
   br label %readBytes.exit
 
 readBytes.exit:                                   ; preds = %16, %22, %23
-  %29 = sext i32 %13 to i64
+  %29 = sext i32 %.0.i to i64
   %30 = getelementptr inbounds i8, ptr %15, i64 %29
   store i8 0, ptr %30, align 1
-  %31 = tail call i32 @utf8sToUtf8mLength(ptr noundef nonnull %15, i32 noundef %13) #9
-  %.not23 = icmp eq i32 %31, %13
+  %31 = tail call i32 @utf8sToUtf8mLength(ptr noundef nonnull %15, i32 noundef %.0.i) #9
+  %.not23 = icmp eq i32 %31, %.0.i
   br i1 %.not23, label %35, label %32
 
 32:                                               ; preds = %readBytes.exit
   %33 = add nsw i32 %31, 1
   %34 = tail call ptr @jvmtiAllocate(i32 noundef %33) #9
-  tail call void @utf8sToUtf8m(ptr noundef nonnull %15, i32 noundef %13, ptr noundef %34, i32 noundef %31) #9
+  tail call void @utf8sToUtf8m(ptr noundef nonnull %15, i32 noundef %.0.i, ptr noundef %34, i32 noundef %31) #9
   tail call void @jvmtiDeallocate(ptr noundef nonnull %15) #9
   br label %35
 
@@ -1261,15 +1261,15 @@ inStream_readObjectRef.exit:                      ; preds = %14, %20, %inStream_
   br label %inStream_readByte.exit62
 
 38:                                               ; preds = %9
-  switch i8 %.0.copyload.i, label %109 [
+  switch i8 %.0.copyload.i, label %111 [
     i8 66, label %39
     i8 67, label %49
-    i8 70, label %59
-    i8 68, label %62
-    i8 73, label %65
-    i8 74, label %76
-    i8 83, label %87
-    i8 90, label %97
+    i8 70, label %60
+    i8 68, label %63
+    i8 73, label %66
+    i8 74, label %77
+    i8 83, label %88
+    i8 90, label %99
   ]
 
 39:                                               ; preds = %38
@@ -1316,165 +1316,165 @@ inStream_readObjectRef.exit:                      ; preds = %14, %20, %inStream_
   store ptr %57, ptr %0, align 8
   %58 = add nsw i32 %52, -2
   store i32 %58, ptr %5, align 8
+  %59 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i65)
   br label %inStream_readChar.exit
 
 inStream_readChar.exit:                           ; preds = %49, %54, %55
-  %.0.i64 = phi i16 [ 0, %54 ], [ %.0.copyload.i65, %55 ], [ 0, %49 ]
-  %rev.i = tail call i16 @llvm.bswap.i16(i16 %.0.i64)
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc = trunc i16 %rev.i to i8
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift = lshr i16 %rev.i, 8
+  %.0.i64 = phi i16 [ 0, %54 ], [ %59, %55 ], [ 0, %49 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc = trunc i16 %.0.i64 to i8
+  %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift = lshr i16 %.0.i64, 8
   br label %inStream_readByte.exit62
 
-59:                                               ; preds = %38
-  %60 = tail call float @inStream_readFloat(ptr noundef nonnull %0)
-  %61 = bitcast float %60 to i32
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc32 = trunc i32 %61 to i8
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift3955 = lshr i32 %61, 8
+60:                                               ; preds = %38
+  %61 = tail call float @inStream_readFloat(ptr noundef nonnull %0)
+  %62 = bitcast float %61 to i32
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc32 = trunc i32 %62 to i8
+  %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift3955 = lshr i32 %62, 8
   %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc40 = trunc i32 %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift3955 to i16
-  %.sroa.0.sroa.0.sroa.11.0.extract.shift = lshr i32 %61, 16
+  %.sroa.0.sroa.0.sroa.11.0.extract.shift = lshr i32 %62, 16
   br label %inStream_readByte.exit62
 
-62:                                               ; preds = %38
-  %63 = tail call double @inStream_readDouble(ptr noundef nonnull %0)
-  %64 = bitcast double %63 to i64
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc35 = trunc i64 %64 to i8
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift4553 = lshr i64 %64, 8
+63:                                               ; preds = %38
+  %64 = tail call double @inStream_readDouble(ptr noundef nonnull %0)
+  %65 = bitcast double %64 to i64
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc35 = trunc i64 %65 to i8
+  %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift4553 = lshr i64 %65, 8
   %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc46 = trunc i64 %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift4553 to i16
-  %.sroa.0.sroa.0.sroa.11.0.extract.shift2754 = lshr i64 %64, 16
+  %.sroa.0.sroa.0.sroa.11.0.extract.shift2754 = lshr i64 %65, 16
   %.sroa.0.sroa.0.sroa.11.0.extract.trunc28 = trunc i64 %.sroa.0.sroa.0.sroa.11.0.extract.shift2754 to i32
-  %.sroa.0.sroa.11.0.extract.shift15 = and i64 %64, -4294967296
+  %.sroa.0.sroa.11.0.extract.shift15 = and i64 %65, -4294967296
   br label %inStream_readByte.exit62
 
-65:                                               ; preds = %38
-  %66 = load i16, ptr %2, align 4
-  %.not.i.i66 = icmp eq i16 %66, 0
-  br i1 %.not.i.i66, label %67, label %inStream_readInt.exit
+66:                                               ; preds = %38
+  %67 = load i16, ptr %2, align 4
+  %.not.i.i66 = icmp eq i16 %67, 0
+  br i1 %.not.i.i66, label %68, label %inStream_readInt.exit
 
-67:                                               ; preds = %65
-  %68 = load i32, ptr %5, align 8
-  %69 = icmp slt i32 %68, 4
-  br i1 %69, label %70, label %71
+68:                                               ; preds = %66
+  %69 = load i32, ptr %5, align 8
+  %70 = icmp slt i32 %69, 4
+  br i1 %70, label %71, label %72
 
-70:                                               ; preds = %67
+71:                                               ; preds = %68
   store i16 113, ptr %2, align 4
   br label %inStream_readInt.exit
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr %0, align 8
-  %.0.copyload.i68 = load i32, ptr %72, align 1
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store ptr %73, ptr %0, align 8
-  %74 = add nsw i32 %68, -4
-  store i32 %74, ptr %5, align 8
+72:                                               ; preds = %68
+  %73 = load ptr, ptr %0, align 8
+  %.0.copyload.i68 = load i32, ptr %73, align 1
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  store ptr %74, ptr %0, align 8
+  %75 = add nsw i32 %69, -4
+  store i32 %75, ptr %5, align 8
+  %76 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i68)
   br label %inStream_readInt.exit
 
-inStream_readInt.exit:                            ; preds = %65, %70, %71
-  %.0.i67 = phi i32 [ 0, %70 ], [ %.0.copyload.i68, %71 ], [ 0, %65 ]
-  %75 = tail call i32 @llvm.bswap.i32(i32 %.0.i67)
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc33 = trunc i32 %75 to i8
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift4152 = lshr i32 %75, 8
+inStream_readInt.exit:                            ; preds = %66, %71, %72
+  %.0.i67 = phi i32 [ 0, %71 ], [ %76, %72 ], [ 0, %66 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc33 = trunc i32 %.0.i67 to i8
+  %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift4152 = lshr i32 %.0.i67, 8
   %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc42 = trunc i32 %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift4152 to i16
-  %.sroa.0.sroa.0.sroa.11.0.extract.shift23 = lshr i32 %75, 16
+  %.sroa.0.sroa.0.sroa.11.0.extract.shift23 = lshr i32 %.0.i67, 16
   br label %inStream_readByte.exit62
 
-76:                                               ; preds = %38
-  %77 = load i16, ptr %2, align 4
-  %.not.i.i69 = icmp eq i16 %77, 0
-  br i1 %.not.i.i69, label %78, label %inStream_readLong.exit
+77:                                               ; preds = %38
+  %78 = load i16, ptr %2, align 4
+  %.not.i.i69 = icmp eq i16 %78, 0
+  br i1 %.not.i.i69, label %79, label %inStream_readLong.exit
 
-78:                                               ; preds = %76
-  %79 = load i32, ptr %5, align 8
-  %80 = icmp slt i32 %79, 8
-  br i1 %80, label %81, label %82
+79:                                               ; preds = %77
+  %80 = load i32, ptr %5, align 8
+  %81 = icmp slt i32 %80, 8
+  br i1 %81, label %82, label %83
 
-81:                                               ; preds = %78
+82:                                               ; preds = %79
   store i16 113, ptr %2, align 4
   br label %inStream_readLong.exit
 
-82:                                               ; preds = %78
-  %83 = load ptr, ptr %0, align 8
-  %.0.copyload.i71 = load i64, ptr %83, align 1
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store ptr %84, ptr %0, align 8
-  %85 = add nsw i32 %79, -8
-  store i32 %85, ptr %5, align 8
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %0, align 8
+  %.0.copyload.i71 = load i64, ptr %84, align 1
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store ptr %85, ptr %0, align 8
+  %86 = add nsw i32 %80, -8
+  store i32 %86, ptr %5, align 8
+  %87 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i71)
   br label %inStream_readLong.exit
 
-inStream_readLong.exit:                           ; preds = %76, %81, %82
-  %.0.i70 = phi i64 [ 0, %81 ], [ %.0.copyload.i71, %82 ], [ 0, %76 ]
-  %86 = tail call i64 @llvm.bswap.i64(i64 %.0.i70)
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc36 = trunc i64 %86 to i8
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift4750 = lshr i64 %86, 8
+inStream_readLong.exit:                           ; preds = %77, %82, %83
+  %.0.i70 = phi i64 [ 0, %82 ], [ %87, %83 ], [ 0, %77 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc36 = trunc i64 %.0.i70 to i8
+  %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift4750 = lshr i64 %.0.i70, 8
   %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc48 = trunc i64 %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift4750 to i16
-  %.sroa.0.sroa.0.sroa.11.0.extract.shift2951 = lshr i64 %86, 16
+  %.sroa.0.sroa.0.sroa.11.0.extract.shift2951 = lshr i64 %.0.i70, 16
   %.sroa.0.sroa.0.sroa.11.0.extract.trunc30 = trunc i64 %.sroa.0.sroa.0.sroa.11.0.extract.shift2951 to i32
-  %.sroa.0.sroa.11.0.extract.shift17 = and i64 %86, -4294967296
+  %.sroa.0.sroa.11.0.extract.shift17 = and i64 %.0.i70, -4294967296
   br label %inStream_readByte.exit62
 
-87:                                               ; preds = %38
-  %88 = load i16, ptr %2, align 4
-  %.not.i.i72 = icmp eq i16 %88, 0
-  br i1 %.not.i.i72, label %89, label %inStream_readShort.exit
+88:                                               ; preds = %38
+  %89 = load i16, ptr %2, align 4
+  %.not.i.i72 = icmp eq i16 %89, 0
+  br i1 %.not.i.i72, label %90, label %inStream_readShort.exit
 
-89:                                               ; preds = %87
-  %90 = load i32, ptr %5, align 8
-  %91 = icmp slt i32 %90, 2
-  br i1 %91, label %92, label %93
+90:                                               ; preds = %88
+  %91 = load i32, ptr %5, align 8
+  %92 = icmp slt i32 %91, 2
+  br i1 %92, label %93, label %94
 
-92:                                               ; preds = %89
+93:                                               ; preds = %90
   store i16 113, ptr %2, align 4
   br label %inStream_readShort.exit
 
-93:                                               ; preds = %89
-  %94 = load ptr, ptr %0, align 8
-  %.0.copyload.i75 = load i16, ptr %94, align 1
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 2
-  store ptr %95, ptr %0, align 8
-  %96 = add nsw i32 %90, -2
-  store i32 %96, ptr %5, align 8
+94:                                               ; preds = %90
+  %95 = load ptr, ptr %0, align 8
+  %.0.copyload.i74 = load i16, ptr %95, align 1
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 2
+  store ptr %96, ptr %0, align 8
+  %97 = add nsw i32 %91, -2
+  store i32 %97, ptr %5, align 8
+  %98 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i74)
   br label %inStream_readShort.exit
 
-inStream_readShort.exit:                          ; preds = %87, %92, %93
-  %.0.i73 = phi i16 [ 0, %92 ], [ %.0.copyload.i75, %93 ], [ 0, %87 ]
-  %rev.i74 = tail call i16 @llvm.bswap.i16(i16 %.0.i73)
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc31 = trunc i16 %rev.i74 to i8
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift37 = lshr i16 %rev.i74, 8
+inStream_readShort.exit:                          ; preds = %88, %93, %94
+  %.0.i73 = phi i16 [ 0, %93 ], [ %98, %94 ], [ 0, %88 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc31 = trunc i16 %.0.i73 to i8
+  %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift37 = lshr i16 %.0.i73, 8
   br label %inStream_readByte.exit62
 
-97:                                               ; preds = %38
-  %98 = load i16, ptr %2, align 4
-  %.not.i.i76 = icmp eq i16 %98, 0
-  br i1 %.not.i.i76, label %99, label %inStream_readByte.exit62
+99:                                               ; preds = %38
+  %100 = load i16, ptr %2, align 4
+  %.not.i.i75 = icmp eq i16 %100, 0
+  br i1 %.not.i.i75, label %101, label %inStream_readByte.exit62
 
-99:                                               ; preds = %97
-  %100 = load i32, ptr %5, align 8
-  %101 = icmp slt i32 %100, 1
-  br i1 %101, label %102, label %103
+101:                                              ; preds = %99
+  %102 = load i32, ptr %5, align 8
+  %103 = icmp slt i32 %102, 1
+  br i1 %103, label %104, label %105
 
-102:                                              ; preds = %99
+104:                                              ; preds = %101
   store i16 113, ptr %2, align 4
   br label %inStream_readByte.exit62
 
-103:                                              ; preds = %99
-  %104 = load ptr, ptr %0, align 8
-  %.0.copyload.i77 = load i8, ptr %104, align 1
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 1
-  store ptr %105, ptr %0, align 8
-  %106 = add nsw i32 %100, -1
-  store i32 %106, ptr %5, align 8
-  %107 = icmp ne i8 %.0.copyload.i77, 0
-  %108 = zext i1 %107 to i8
+105:                                              ; preds = %101
+  %106 = load ptr, ptr %0, align 8
+  %.0.copyload.i76 = load i8, ptr %106, align 1
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1
+  store ptr %107, ptr %0, align 8
+  %108 = add nsw i32 %102, -1
+  store i32 %108, ptr %5, align 8
+  %109 = icmp ne i8 %.0.copyload.i76, 0
+  %110 = zext i1 %109 to i8
   br label %inStream_readByte.exit62
 
-109:                                              ; preds = %38
+111:                                              ; preds = %38
   store i16 500, ptr %2, align 4
   br label %inStream_readByte.exit62
 
-inStream_readByte.exit62:                         ; preds = %8, %1, %103, %102, %97, %45, %44, %39, %inStream_readObjectRef.exit, %109, %inStream_readShort.exit, %inStream_readLong.exit, %inStream_readInt.exit, %62, %59, %inStream_readChar.exit
-  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc26, %inStream_readObjectRef.exit ], [ 0, %109 ], [ 0, %inStream_readChar.exit ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift, %59 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc28, %62 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift23, %inStream_readInt.exit ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc30, %inStream_readLong.exit ], [ 0, %inStream_readShort.exit ], [ 0, %39 ], [ 0, %44 ], [ 0, %45 ], [ 0, %97 ], [ 0, %102 ], [ 0, %103 ], [ 0, %1 ], [ 0, %8 ]
-  %.sroa.0.sroa.11.0 = phi i64 [ %.sroa.0.sroa.11.0.extract.shift, %inStream_readObjectRef.exit ], [ 0, %109 ], [ 0, %inStream_readChar.exit ], [ 0, %59 ], [ %.sroa.0.sroa.11.0.extract.shift15, %62 ], [ 0, %inStream_readInt.exit ], [ %.sroa.0.sroa.11.0.extract.shift17, %inStream_readLong.exit ], [ 0, %inStream_readShort.exit ], [ 0, %39 ], [ 0, %44 ], [ 0, %45 ], [ 0, %97 ], [ 0, %102 ], [ 0, %103 ], [ 0, %1 ], [ 0, %8 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc34, %inStream_readObjectRef.exit ], [ undef, %109 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %inStream_readChar.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc32, %59 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc35, %62 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc33, %inStream_readInt.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc36, %inStream_readLong.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc31, %inStream_readShort.exit ], [ 0, %39 ], [ 0, %44 ], [ %.0.copyload.i61, %45 ], [ 0, %97 ], [ 0, %102 ], [ %108, %103 ], [ 0, %1 ], [ 0, %8 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc44, %inStream_readObjectRef.exit ], [ 0, %109 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %inStream_readChar.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc40, %59 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc46, %62 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc42, %inStream_readInt.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc48, %inStream_readLong.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift37, %inStream_readShort.exit ], [ 0, %39 ], [ 0, %44 ], [ 0, %45 ], [ 0, %97 ], [ 0, %102 ], [ 0, %103 ], [ 0, %1 ], [ 0, %8 ]
+inStream_readByte.exit62:                         ; preds = %8, %1, %105, %104, %99, %45, %44, %39, %inStream_readObjectRef.exit, %111, %inStream_readShort.exit, %inStream_readLong.exit, %inStream_readInt.exit, %63, %60, %inStream_readChar.exit
+  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc26, %inStream_readObjectRef.exit ], [ 0, %111 ], [ 0, %inStream_readChar.exit ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift, %60 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc28, %63 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift23, %inStream_readInt.exit ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc30, %inStream_readLong.exit ], [ 0, %inStream_readShort.exit ], [ 0, %39 ], [ 0, %44 ], [ 0, %45 ], [ 0, %99 ], [ 0, %104 ], [ 0, %105 ], [ 0, %1 ], [ 0, %8 ]
+  %.sroa.0.sroa.11.0 = phi i64 [ %.sroa.0.sroa.11.0.extract.shift, %inStream_readObjectRef.exit ], [ 0, %111 ], [ 0, %inStream_readChar.exit ], [ 0, %60 ], [ %.sroa.0.sroa.11.0.extract.shift15, %63 ], [ 0, %inStream_readInt.exit ], [ %.sroa.0.sroa.11.0.extract.shift17, %inStream_readLong.exit ], [ 0, %inStream_readShort.exit ], [ 0, %39 ], [ 0, %44 ], [ 0, %45 ], [ 0, %99 ], [ 0, %104 ], [ 0, %105 ], [ 0, %1 ], [ 0, %8 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc34, %inStream_readObjectRef.exit ], [ undef, %111 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %inStream_readChar.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc32, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc35, %63 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc33, %inStream_readInt.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc36, %inStream_readLong.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc31, %inStream_readShort.exit ], [ 0, %39 ], [ 0, %44 ], [ %.0.copyload.i61, %45 ], [ 0, %99 ], [ 0, %104 ], [ %110, %105 ], [ 0, %1 ], [ 0, %8 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc44, %inStream_readObjectRef.exit ], [ 0, %111 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %inStream_readChar.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc40, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc46, %63 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc42, %inStream_readInt.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc48, %inStream_readLong.exit ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift37, %inStream_readShort.exit ], [ 0, %39 ], [ 0, %44 ], [ 0, %45 ], [ 0, %99 ], [ 0, %104 ], [ 0, %105 ], [ 0, %1 ], [ 0, %8 ]
   %.sroa.0.sroa.0.sroa.0.sroa.11.0.insert.ext = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0, 8
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0 to i16
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0.insert.ext, %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext

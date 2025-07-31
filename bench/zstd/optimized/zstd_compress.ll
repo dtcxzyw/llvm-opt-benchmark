@@ -3089,13 +3089,12 @@ ZSTD_resolveRowMatchFinderMode.exit.i7:           ; preds = %ZSTD_resolveRowMatc
   %57 = zext i1 %56 to i32
   %58 = load i64, ptr %36, align 8, !tbaa !79
   %59 = call fastcc i64 @ZSTD_estimateCCtxSize_usingCCtxParams_internal(ptr noundef nonnull %3, ptr noundef nonnull readonly %10, i32 noundef 1, i32 noundef 1, i64 noundef 0, i64 noundef 0, i64 noundef -1, i32 noundef %57, i64 noundef %58)
+  %60 = call i64 @llvm.umax.i64(i64 %53, i64 %59)
   br label %ZSTD_estimateCCtxSize_usingCCtxParams.exit12
 
 ZSTD_estimateCCtxSize_usingCCtxParams.exit12:     ; preds = %ZSTD_resolveRowMatchFinderMode.exit.i7.thread, %ZSTD_resolveRowMatchFinderMode.exit.i7, %55
-  %.0.i21 = phi i64 [ %53, %55 ], [ %53, %ZSTD_resolveRowMatchFinderMode.exit.i7 ], [ -1, %ZSTD_resolveRowMatchFinderMode.exit.i7.thread ]
-  %.0.i10 = phi i64 [ %59, %55 ], [ -1, %ZSTD_resolveRowMatchFinderMode.exit.i7 ], [ -1, %ZSTD_resolveRowMatchFinderMode.exit.i7.thread ]
+  %.0.i21 = phi i64 [ %60, %55 ], [ -1, %ZSTD_resolveRowMatchFinderMode.exit.i7 ], [ -1, %ZSTD_resolveRowMatchFinderMode.exit.i7.thread ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3) #28
-  %60 = call i64 @llvm.umax.i64(i64 %.0.i21, i64 %.0.i10)
   br label %69
 
 ZSTD_resolveRowMatchFinderMode.exit.i14:          ; preds = %ZSTD_makeCCtxParamsFromCParams.exit
@@ -3120,7 +3119,7 @@ ZSTD_estimateCCtxSize_usingCCtxParams.exit19:     ; preds = %ZSTD_resolveRowMatc
   br label %69
 
 69:                                               ; preds = %ZSTD_estimateCCtxSize_usingCCtxParams.exit19, %ZSTD_estimateCCtxSize_usingCCtxParams.exit12
-  %.0 = phi i64 [ %60, %ZSTD_estimateCCtxSize_usingCCtxParams.exit12 ], [ %.0.i17, %ZSTD_estimateCCtxSize_usingCCtxParams.exit19 ]
+  %.0 = phi i64 [ %.0.i21, %ZSTD_estimateCCtxSize_usingCCtxParams.exit12 ], [ %.0.i17, %ZSTD_estimateCCtxSize_usingCCtxParams.exit19 ]
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #28
   ret i64 %.0
 }

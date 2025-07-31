@@ -194,17 +194,17 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %_ZNK6vectorIN3sat7l
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 93
   %21 = load i8, ptr %20, align 1, !tbaa !18, !range !7, !noundef !8
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %229, label %74
+  br i1 %22, label %230, label %74
 
 23:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %230
+  br label %231
 
 25:                                               ; preds = %65, %48
   %26 = landingpad { ptr, i32 }
           cleanup
-  br label %230
+  br label %231
 
 27:                                               ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
   %28 = getelementptr inbounds nuw %"class.sat::literal", ptr %15, i64 %indvars.iv
@@ -468,7 +468,7 @@ _ZN6vectorIN3sat12local_search8var_infoELb1EjE3endEv.exit: ; preds = %145
           cleanup
   call void @_ZN3sat12local_search8var_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #27
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #27
-  br label %230
+  br label %231
 
 .lr.ph55:                                         ; preds = %_ZN6vectorIN3sat12local_search8var_infoELb1EjE3endEv.exit, %161
   %.02654 = phi ptr [ %162, %161 ], [ %143, %_ZN6vectorIN3sat12local_search8var_infoELb1EjE3endEv.exit ]
@@ -631,20 +631,20 @@ _ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit:          ; preds = %.lr.ph.preheader.i,
   %225 = load i32, ptr %224, align 4, !tbaa !13
   %226 = mul i32 %225, 20
   %227 = add i32 %226, -20
+  %228 = tail call i32 @llvm.umin.i32(i32 %227, i32 131072)
   br label %_ZN3sat12local_search14set_parametersEv.exit
 
 _ZN3sat12local_search14set_parametersEv.exit:     ; preds = %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit, %223
-  %.0.i.i.i = phi i32 [ %227, %223 ], [ -20, %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit ]
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %.0.i.i.i, i32 131072)
-  %228 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 %.sroa.speculated.i, ptr %228, align 4, !tbaa !76
-  br label %229
+  %.0.i.i.i = phi i32 [ %228, %223 ], [ 131072, %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit ]
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store i32 %.0.i.i.i, ptr %229, align 4, !tbaa !76
+  br label %230
 
-229:                                              ; preds = %_ZN3sat12local_search14set_parametersEv.exit, %.critedge
+230:                                              ; preds = %_ZN3sat12local_search14set_parametersEv.exit, %.critedge
   store i8 %4, ptr %3, align 8, !tbaa !3
   ret void
 
-230:                                              ; preds = %151, %25, %23
+231:                                              ; preds = %151, %25, %23
   %.pn29 = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ], [ %152, %151 ]
   store i8 %4, ptr %3, align 8, !tbaa !3
   resume { ptr, i32 } %.pn29
@@ -759,13 +759,13 @@ define hidden void @_ZN3sat12local_search14set_parametersEv(ptr noundef nonnull 
   %13 = load i32, ptr %12, align 4, !tbaa !13
   %14 = mul i32 %13, 20
   %15 = add i32 %14, -20
+  %16 = tail call i32 @llvm.umin.i32(i32 %15, i32 131072)
   br label %_ZNK3sat12local_search8num_varsEv.exit
 
 _ZNK3sat12local_search8num_varsEv.exit:           ; preds = %1, %11
-  %.0.i.i = phi i32 [ %15, %11 ], [ -20, %1 ]
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.0.i.i, i32 131072)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 %.sroa.speculated, ptr %16, align 4, !tbaa !76
+  %.0.i.i = phi i32 [ %16, %11 ], [ 131072, %1 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store i32 %.0.i.i, ptr %17, align 4, !tbaa !76
   ret void
 }
 

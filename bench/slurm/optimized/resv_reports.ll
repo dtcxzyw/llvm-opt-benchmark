@@ -133,47 +133,47 @@ define dso_local noundef i32 @resv_utilization(i32 noundef %0, ptr noundef reado
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @parse_option_end(ptr noundef %41) #10
   %.not124.i.i = icmp eq i32 %42, 0
-  br i1 %.not124.i.i, label %.thread.i.i, label %46
+  br i1 %.not124.i.i, label %.thread.i.i, label %48
 
 .thread.i.i:                                      ; preds = %39
   %43 = load ptr, ptr %40, align 8
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #11
   %45 = trunc i64 %44 to i32
-  br label %55
+  %46 = tail call i32 @llvm.smax.i32(i32 %45, i32 1)
+  %47 = zext nneg i32 %46 to i64
+  br label %57
 
-46:                                               ; preds = %39
-  %47 = add nsw i32 %42, -1
-  %48 = load ptr, ptr %40, align 8
-  %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds i8, ptr %48, i64 %49
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %51, 61
-  br i1 %52, label %53, label %.critedge.i.i
+48:                                               ; preds = %39
+  %49 = add nsw i32 %42, -1
+  %50 = load ptr, ptr %40, align 8
+  %51 = sext i32 %42 to i64
+  %52 = getelementptr inbounds i8, ptr %50, i64 %51
+  %53 = load i8, ptr %52, align 1
+  %54 = icmp eq i8 %53, 61
+  br i1 %54, label %55, label %.critedge.i.i
 
-53:                                               ; preds = %46
-  %54 = add nsw i32 %42, 1
-  %.not125.i.i = icmp eq i32 %54, 0
-  br i1 %.not125.i.i, label %55, label %.critedge.i.i
+55:                                               ; preds = %48
+  %56 = add nsw i32 %42, 1
+  %.not125.i.i = icmp eq i32 %56, 0
+  br i1 %.not125.i.i, label %57, label %.critedge.i.i
 
-55:                                               ; preds = %53, %.thread.i.i
-  %56 = phi ptr [ %43, %.thread.i.i ], [ %48, %53 ]
-  %.0147.i.i = phi i32 [ %45, %.thread.i.i ], [ -2, %53 ]
-  %57 = tail call i32 @llvm.smax.i32(i32 %.0147.i.i, i32 1)
-  %58 = zext nneg i32 %57 to i64
-  %59 = tail call i32 @xstrncasecmp(ptr noundef nonnull %56, ptr noundef nonnull @.str.10, i64 noundef %58) #10
+57:                                               ; preds = %55, %.thread.i.i
+  %58 = phi ptr [ %43, %.thread.i.i ], [ %50, %55 ]
+  %.0147.i.i = phi i64 [ %47, %.thread.i.i ], [ 1, %55 ]
+  %59 = tail call i32 @xstrncasecmp(ptr noundef nonnull %58, ptr noundef nonnull @.str.10, i64 noundef %.0147.i.i) #10
   %.not126.i.i = icmp eq i32 %59, 0
   br i1 %.not126.i.i, label %145, label %63
 
-.critedge.i.i:                                    ; preds = %53, %46
-  %.0111144.i.i = phi i32 [ %54, %53 ], [ %42, %46 ]
-  %60 = tail call i32 @llvm.smax.i32(i32 %47, i32 1)
+.critedge.i.i:                                    ; preds = %55, %48
+  %.0111144.i.i = phi i32 [ %56, %55 ], [ %42, %48 ]
+  %60 = tail call i32 @llvm.smax.i32(i32 %49, i32 1)
   %61 = zext nneg i32 %60 to i64
-  %62 = tail call i32 @xstrncasecmp(ptr noundef nonnull %48, ptr noundef nonnull @.str.11, i64 noundef %61) #10
+  %62 = tail call i32 @xstrncasecmp(ptr noundef nonnull %50, ptr noundef nonnull @.str.11, i64 noundef %61) #10
   %.not127.i.i = icmp eq i32 %62, 0
   br i1 %.not127.i.i, label %63, label %73
 
-63:                                               ; preds = %.critedge.i.i, %55
-  %.0111145.i.i = phi i32 [ %.0111144.i.i, %.critedge.i.i ], [ 0, %55 ]
+63:                                               ; preds = %.critedge.i.i, %57
+  %.0111145.i.i = phi i32 [ %.0111144.i.i, %.critedge.i.i ], [ 0, %57 ]
   %64 = load ptr, ptr %38, align 8
   %.not128.i.i = icmp eq ptr %64, null
   br i1 %.not128.i.i, label %65, label %67
@@ -222,7 +222,7 @@ define dso_local noundef i32 @resv_utilization(i32 noundef %0, ptr noundef reado
   br label %145
 
 91:                                               ; preds = %82
-  %92 = tail call i32 @llvm.smax.i32(i32 %47, i32 2)
+  %92 = tail call i32 @llvm.smax.i32(i32 %49, i32 2)
   %93 = zext nneg i32 %92 to i64
   %94 = tail call i32 @xstrncasecmp(ptr noundef %85, ptr noundef nonnull @.str.14, i64 noundef %93) #10
   %.not131.i.i = icmp eq i32 %94, 0
@@ -320,8 +320,8 @@ define dso_local noundef i32 @resv_utilization(i32 noundef %0, ptr noundef reado
   %144 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.20, ptr noundef %143) #12
   br label %145
 
-145:                                              ; preds = %141, %136, %128, %115, %103, %102, %96, %86, %76, %67, %55
-  %.1.i.i = phi i32 [ %.0110163.i.i, %141 ], [ %.0110163.i.i, %136 ], [ %.0110163.i.i, %128 ], [ %.0110163.i.i, %115 ], [ %.0110163.i.i, %103 ], [ %.0110163.i.i, %102 ], [ %.0110163.i.i, %96 ], [ %.0110163.i.i, %86 ], [ %.0110163.i.i, %76 ], [ %.0110163.i.i, %67 ], [ 1, %55 ]
+145:                                              ; preds = %141, %136, %128, %115, %103, %102, %96, %86, %76, %67, %57
+  %.1.i.i = phi i32 [ %.0110163.i.i, %141 ], [ %.0110163.i.i, %136 ], [ %.0110163.i.i, %128 ], [ %.0110163.i.i, %115 ], [ %.0110163.i.i, %103 ], [ %.0110163.i.i, %102 ], [ %.0110163.i.i, %96 ], [ %.0110163.i.i, %86 ], [ %.0110163.i.i, %76 ], [ %.0110163.i.i, %67 ], [ 1, %57 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %146 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %146, label %.loopexit.i.i, label %39, !llvm.loop !8

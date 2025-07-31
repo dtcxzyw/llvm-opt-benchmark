@@ -9029,26 +9029,26 @@ define hidden void @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$3new17h00f0
   %8 = lshr i64 -1, %7
   %9 = shl i64 %8, 2
   %10 = add i64 %9, 4
+  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 65536)
   br label %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17hb5e5b4461a10bd78E.llvm.9340333246167201960.exit"
 
 "_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17hb5e5b4461a10bd78E.llvm.9340333246167201960.exit": ; preds = %2, %5
-  %.0.i = phi i64 [ %10, %5 ], [ 4, %2 ]
-  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 65537) i64 @llvm.umin.i64(i64 %.0.i, i64 65536)
+  %.0.i = phi i64 [ %11, %5 ], [ 4, %2 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @"_ZN5tokio4util12sharded_list24ShardedList$LT$L$C$T$GT$3new17h96768b3880282718E"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { i64 }, i64 }) align 8 captures(none) dereferenceable(32) %3, i64 noundef %.0.sroa.speculated.i.i)
-  br label %11
+  call void @"_ZN5tokio4util12sharded_list24ShardedList$LT$L$C$T$GT$3new17h96768b3880282718E"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { i64 }, i64 }) align 8 captures(none) dereferenceable(32) %3, i64 noundef %.0.i)
+  br label %12
 
-11:                                               ; preds = %11, %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17hb5e5b4461a10bd78E.llvm.9340333246167201960.exit"
-  %12 = atomicrmw add ptr @_ZN5tokio7runtime4task4list19NEXT_OWNED_TASKS_ID17h52476638efe660d5E.llvm.18090272232049510573, i64 1 monotonic, align 8
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %11, label %_ZN5tokio7runtime4task4list11get_next_id17hb54683fad8142b31E.exit
+12:                                               ; preds = %12, %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17hb5e5b4461a10bd78E.llvm.9340333246167201960.exit"
+  %13 = atomicrmw add ptr @_ZN5tokio7runtime4task4list19NEXT_OWNED_TASKS_ID17h52476638efe660d5E.llvm.18090272232049510573, i64 1 monotonic, align 8
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %12, label %_ZN5tokio7runtime4task4list11get_next_id17hb54683fad8142b31E.exit
 
-_ZN5tokio7runtime4task4list11get_next_id17hb54683fad8142b31E.exit: ; preds = %11
+_ZN5tokio7runtime4task4list11get_next_id17hb54683fad8142b31E.exit: ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %12, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %15, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %13, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 0, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }
@@ -9065,26 +9065,26 @@ define hidden void @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$3new17h22ec
   %8 = lshr i64 -1, %7
   %9 = shl i64 %8, 2
   %10 = add i64 %9, 4
+  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 65536)
   br label %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17h114ea8f473f0b062E.llvm.9340333246167201960.exit"
 
 "_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17h114ea8f473f0b062E.llvm.9340333246167201960.exit": ; preds = %2, %5
-  %.0.i = phi i64 [ %10, %5 ], [ 4, %2 ]
-  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 65537) i64 @llvm.umin.i64(i64 %.0.i, i64 65536)
+  %.0.i = phi i64 [ %11, %5 ], [ 4, %2 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @"_ZN5tokio4util12sharded_list24ShardedList$LT$L$C$T$GT$3new17h9690d4574e36472aE"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { i64 }, i64 }) align 8 captures(none) dereferenceable(32) %3, i64 noundef %.0.sroa.speculated.i.i)
-  br label %11
+  call void @"_ZN5tokio4util12sharded_list24ShardedList$LT$L$C$T$GT$3new17h9690d4574e36472aE"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { i64 }, i64 }) align 8 captures(none) dereferenceable(32) %3, i64 noundef %.0.i)
+  br label %12
 
-11:                                               ; preds = %11, %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17h114ea8f473f0b062E.llvm.9340333246167201960.exit"
-  %12 = atomicrmw add ptr @_ZN5tokio7runtime4task4list19NEXT_OWNED_TASKS_ID17h52476638efe660d5E.llvm.18090272232049510573, i64 1 monotonic, align 8
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %11, label %_ZN5tokio7runtime4task4list11get_next_id17hb54683fad8142b31E.exit
+12:                                               ; preds = %12, %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17h114ea8f473f0b062E.llvm.9340333246167201960.exit"
+  %13 = atomicrmw add ptr @_ZN5tokio7runtime4task4list19NEXT_OWNED_TASKS_ID17h52476638efe660d5E.llvm.18090272232049510573, i64 1 monotonic, align 8
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %12, label %_ZN5tokio7runtime4task4list11get_next_id17hb54683fad8142b31E.exit
 
-_ZN5tokio7runtime4task4list11get_next_id17hb54683fad8142b31E.exit: ; preds = %11
+_ZN5tokio7runtime4task4list11get_next_id17hb54683fad8142b31E.exit: ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %12, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %15, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %13, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 0, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }
@@ -9362,7 +9362,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$6rem
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i64 0, 65537) i64 @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17h114ea8f473f0b062E.llvm.9340333246167201960"(i64 noundef %0) unnamed_addr #11 personality ptr @rust_eh_personality {
   %2 = icmp ult i64 %0, 2
-  br i1 %2, label %9, label %3
+  br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
   %4 = add i64 %0, -1
@@ -9370,18 +9370,18 @@ define hidden noundef range(i64 0, 65537) i64 @"_ZN5tokio7runtime4task4list19Own
   %6 = lshr i64 -1, %5
   %7 = shl i64 %6, 2
   %8 = add i64 %7, 4
-  br label %9
+  %9 = tail call i64 @llvm.umin.i64(i64 %8, i64 65536)
+  br label %10
 
-9:                                                ; preds = %1, %3
-  %.0 = phi i64 [ %8, %3 ], [ 4, %1 ]
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %.0, i64 65536)
-  ret i64 %.0.sroa.speculated.i
+10:                                               ; preds = %1, %3
+  %.0 = phi i64 [ %9, %3 ], [ 4, %1 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i64 0, 65537) i64 @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17hb5e5b4461a10bd78E.llvm.9340333246167201960"(i64 noundef %0) unnamed_addr #11 personality ptr @rust_eh_personality {
   %2 = icmp ult i64 %0, 2
-  br i1 %2, label %9, label %3
+  br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
   %4 = add i64 %0, -1
@@ -9389,12 +9389,12 @@ define hidden noundef range(i64 0, 65537) i64 @"_ZN5tokio7runtime4task4list19Own
   %6 = lshr i64 -1, %5
   %7 = shl i64 %6, 2
   %8 = add i64 %7, 4
-  br label %9
+  %9 = tail call i64 @llvm.umin.i64(i64 %8, i64 65536)
+  br label %10
 
-9:                                                ; preds = %1, %3
-  %.0 = phi i64 [ %8, %3 ], [ 4, %1 ]
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %.0, i64 65536)
-  ret i64 %.0.sroa.speculated.i
+10:                                               ; preds = %1, %3
+  %.0 = phi i64 [ %9, %3 ], [ 4, %1 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

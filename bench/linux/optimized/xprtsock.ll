@@ -6193,7 +6193,7 @@ define internal range(i32 -2147483648, 1) i32 @bc_send_request(ptr noundef %0) #
   %9 = load volatile i64, ptr %8, align 8
   %10 = and i64 %9, 32
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %39
+  br i1 %11, label %12, label %40
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6236,12 +6236,12 @@ define internal range(i32 -2147483648, 1) i32 @bc_send_request(ptr noundef %0) #
   %38 = phi i32 [ %20, %12 ], [ -11, %22 ], [ %36, %29 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %2) #12
-  br label %39
+  %39 = call i32 @llvm.smin.i32(i32 %38, i32 0)
+  br label %40
 
-39:                                               ; preds = %37, %1
-  %40 = phi i32 [ %38, %37 ], [ -107, %1 ]
+40:                                               ; preds = %37, %1
+  %41 = phi i32 [ %39, %37 ], [ -107, %1 ]
   call void @mutex_unlock(ptr noundef nonnull %7) #12
-  %41 = call i32 @llvm.smin.i32(i32 %40, i32 0)
   ret i32 %41
 }
 

@@ -12493,9 +12493,9 @@ if.end:                                           ; preds = %entry
 
 if.then7:                                         ; preds = %if.end
   %cmp.i2 = fcmp ugt float %timeoutVariationFrac, 0.000000e+00
-  br i1 %cmp.i2, label %if.end.i, label %if.end15
+  br i1 %cmp.i2, label %if.end15, label %if.then20
 
-if.end.i:                                         ; preds = %if.then7
+if.end15:                                         ; preds = %if.then7
   %call3.i = tail call noundef i64 @_ZN5folly18getCurrentThreadIDEv()
   %call7.i = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #28
   %xor.i.i.i.i = xor i64 %call7.i, %call3.i
@@ -12526,16 +12526,14 @@ if.end.i:                                         ; preds = %if.then7
   %add.i = fadd float %mul.i, 1.000000e+00
   %mul19.i = fmul float %add.i, %conv18.i
   %conv20.i = fptoui float %mul19.i to i64
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.end.i, %if.then7
-  %retval.sroa.0.0.i = phi i64 [ %conv20.i, %if.end.i ], [ %idleTimeout.coerce, %if.then7 ]
-  %cmp.i.i4.not = icmp slt i64 %retval.sroa.0.0.i, 1
+  %1 = tail call i64 @llvm.smax.i64(i64 %conv20.i, i64 0)
+  %cmp.i.i4.not = icmp slt i64 %conv20.i, 1
   br i1 %cmp.i.i4.not, label %if.end34, label %if.then20
 
-if.then20:                                        ; preds = %if.end15
+if.then20:                                        ; preds = %if.then7, %if.end15
+  %idleTimeout.sroa.0.022 = phi i64 [ %1, %if.end15 ], [ %idleTimeout.coerce, %if.then7 ]
   %call22 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %add.i.i5 = add nsw i64 %call22, %retval.sroa.0.0.i
+  %add.i.i5 = add nsw i64 %call22, %idleTimeout.sroa.0.022
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %deadline, align 8
   %cmp.i.i7 = icmp slt i64 %add.i.i5, %retval.sroa.0.0.copyload.i1.i
   br i1 %cmp.i.i7, label %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit, label %return

@@ -3351,11 +3351,11 @@ define internal fastcc void @progress_report(i32 noundef %0, i1 noundef zeroext 
   %13 = mul nuw nsw i64 %.pre25, 100
   %14 = udiv i64 %13, %11
   %15 = trunc i64 %14 to i32
+  %16 = tail call i32 @llvm.smin.i32(i32 %15, i32 100)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %12
-  %16 = phi i32 [ %15, %12 ], [ 0, %10 ]
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %16, i32 100)
+  %spec.store.select = phi i32 [ %16, %12 ], [ 0, %10 ]
   %17 = icmp ugt i64 %.pre25, %11
   br i1 %17, label %18, label %19
 

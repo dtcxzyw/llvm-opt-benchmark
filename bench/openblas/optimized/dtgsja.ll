@@ -604,16 +604,19 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %329 = add nuw nsw i32 %.1588, 1
   %.1.neg = xor i32 %.1588, -1
   %.not520.not = icmp slt i32 %.1588, %300
-  br i1 %.not520.not, label %.lr.ph592, label %._crit_edge593, !llvm.loop !12
+  br i1 %.not520.not, label %.lr.ph592, label %._crit_edge593.loopexit, !llvm.loop !12
 
-._crit_edge593:                                   ; preds = %.lr.ph592, %295
-  %.0.lcssa = phi double [ 0.000000e+00, %295 ], [ %328, %.lr.ph592 ]
-  %330 = call double @llvm.fabs.f64(double %.0.lcssa)
+._crit_edge593.loopexit:                          ; preds = %.lr.ph592
+  %330 = call double @llvm.fabs.f64(double %328)
+  br label %._crit_edge593
+
+._crit_edge593:                                   ; preds = %._crit_edge593.loopexit, %295
+  %.0.lcssa = phi double [ 0.000000e+00, %295 ], [ %330, %._crit_edge593.loopexit ]
   %331 = load double, ptr %12, align 8, !tbaa !9
   %332 = load double, ptr %13, align 8, !tbaa !9
   %.inv = fcmp ole double %331, %332
   %.539 = select i1 %.inv, double %331, double %332
-  %333 = fcmp ugt double %330, %.539
+  %333 = fcmp ugt double %.0.lcssa, %.539
   br i1 %333, label %334, label %337
 
 334:                                              ; preds = %._crit_edge, %._crit_edge593

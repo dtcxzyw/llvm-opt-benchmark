@@ -5499,7 +5499,7 @@ place_children_horiz.exit:                        ; preds = %.lr.ph.i, %12
   %29 = add i32 %.027.lcssa.i, %26
   store i32 %29, ptr %6, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #28
-  br label %219
+  br label %220
 
 30:                                               ; preds = %7
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 932
@@ -5619,7 +5619,7 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   %89 = add i32 %88, %.039.lcssa.i
   store i32 %89, ptr %6, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
-  br label %219
+  br label %220
 
 90:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #28
@@ -5817,7 +5817,7 @@ find_children_rectangle.exit.i:                   ; preds = %152, %188, %165, %.
   br i1 %196, label %197, label %200
 
 197:                                              ; preds = %194
-  %spec.select.i28 = tail call i32 @llvm.umax.i32(i32 %.05568.i, i32 %.072.i)
+  %spec.select.i27 = tail call i32 @llvm.umax.i32(i32 %.05568.i, i32 %.072.i)
   %198 = add i32 %.05269.i, %4
   %199 = add i32 %198, %.05767.i
   br label %200
@@ -5826,7 +5826,7 @@ find_children_rectangle.exit.i:                   ; preds = %152, %188, %165, %.
   %.158.i = phi i32 [ %199, %197 ], [ %.05767.i, %194 ], [ %.05767.i, %.lr.ph.i25 ]
   %.156.i = phi i32 [ 0, %197 ], [ %.05568.i, %194 ], [ %.05568.i, %.lr.ph.i25 ]
   %.153.i = phi i32 [ 0, %197 ], [ %.05269.i, %194 ], [ %.05269.i, %.lr.ph.i25 ]
-  %.1.i = phi i32 [ %spec.select.i28, %197 ], [ %.072.i, %194 ], [ %.072.i, %.lr.ph.i25 ]
+  %.1.i = phi i32 [ %spec.select.i27, %197 ], [ %.072.i, %194 ], [ %.072.i, %.lr.ph.i25 ]
   %201 = add i32 %.156.i, %3
   %202 = getelementptr inbounds nuw i8, ptr %193, i64 208
   store i32 %201, ptr %202, align 8, !tbaa !183
@@ -5846,24 +5846,23 @@ find_children_rectangle.exit.i:                   ; preds = %152, %188, %165, %.
   br i1 %.not.i26, label %._crit_edge.loopexit.i, label %.lr.ph.i25, !llvm.loop !190
 
 ._crit_edge.loopexit.i:                           ; preds = %200
-  %213 = add i32 %spec.select61.i, %.158.i
+  %213 = tail call i32 @llvm.umax.i32(i32 %208, i32 %.1.i)
+  %214 = add i32 %spec.select61.i, %.158.i
   br label %place_children_rect.exit
 
 place_children_rect.exit:                         ; preds = %find_children_rectangle.exit.i, %._crit_edge.loopexit.i
-  %.055.lcssa.i = phi i32 [ 0, %find_children_rectangle.exit.i ], [ %208, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i27 = phi i32 [ 0, %find_children_rectangle.exit.i ], [ %.1.i, %._crit_edge.loopexit.i ]
-  %214 = phi i32 [ 0, %find_children_rectangle.exit.i ], [ %213, %._crit_edge.loopexit.i ]
-  %spec.select62.i = tail call i32 @llvm.umax.i32(i32 %.055.lcssa.i, i32 %.0.lcssa.i27)
-  %215 = shl i32 %3, 1
-  %216 = sub i32 %215, %4
-  %217 = add i32 %216, %spec.select62.i
-  store i32 %217, ptr %5, align 4, !tbaa !4
-  %218 = add i32 %214, %215
-  store i32 %218, ptr %6, align 4, !tbaa !4
+  %.055.lcssa.i = phi i32 [ 0, %find_children_rectangle.exit.i ], [ %213, %._crit_edge.loopexit.i ]
+  %215 = phi i32 [ 0, %find_children_rectangle.exit.i ], [ %214, %._crit_edge.loopexit.i ]
+  %216 = shl i32 %3, 1
+  %217 = sub i32 %216, %4
+  %218 = add i32 %217, %.055.lcssa.i
+  store i32 %218, ptr %5, align 4, !tbaa !4
+  %219 = add i32 %215, %216
+  store i32 %219, ptr %6, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #28
-  br label %219
+  br label %220
 
-219:                                              ; preds = %place_children_vert.exit, %place_children_rect.exit, %place_children_horiz.exit
+220:                                              ; preds = %place_children_vert.exit, %place_children_rect.exit, %place_children_horiz.exit
   ret void
 }
 

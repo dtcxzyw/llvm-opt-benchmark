@@ -18678,8 +18678,8 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN17cranelift_codegen2ir6layout6Layou
   %.0.i11 = select i1 %.not12, ptr %14, ptr %10
   %15 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 12
   %16 = load i32, ptr %15, align 4, !noundef !4
-  %.0 = tail call i8 @llvm.ucmp.i8.i32(i32 %12, i32 %16)
-  ret i8 %.0
+  %17 = tail call i8 @llvm.ucmp.i8.i32(i32 %12, i32 %16)
+  ret i8 %17
 }
 
 ; Function Attrs: nonlazybind uwtable

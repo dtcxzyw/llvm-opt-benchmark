@@ -1675,37 +1675,40 @@ Vec_IntPush.exit69:                               ; preds = %.Vec_IntGrow.exit10
   %106 = add nuw nsw i32 %105, %103
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !85
 
-._crit_edge:                                      ; preds = %.lr.ph, %Vec_IntPush.exit69
-  %.051.lcssa = phi i32 [ 0, %Vec_IntPush.exit69 ], [ %106, %.lr.ph ]
-  %umax86 = tail call i32 @llvm.umax.i32(i32 %.051.lcssa, i32 1)
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %107 = tail call i32 @llvm.umax.i32(i32 %106, i32 1)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Vec_IntPush.exit69
+  %.051.lcssa = phi i32 [ 1, %Vec_IntPush.exit69 ], [ %107, %._crit_edge.loopexit ]
   br i1 %.not, label %.preheader, label %.preheader70
 
 .preheader70:                                     ; preds = %._crit_edge, %.preheader70
-  %.073 = phi i32 [ %108, %.preheader70 ], [ 0, %._crit_edge ]
-  %107 = tail call i32 @Fxch_DivAdd(ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #21
-  %108 = add nuw i32 %.073, 1
-  %exitcond85.not = icmp eq i32 %108, %umax86
+  %.073 = phi i32 [ %109, %.preheader70 ], [ 0, %._crit_edge ]
+  %108 = tail call i32 @Fxch_DivAdd(ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #21
+  %109 = add nuw i32 %.073, 1
+  %exitcond85.not = icmp eq i32 %109, %.051.lcssa
   br i1 %exitcond85.not, label %.loopexit, label %.preheader70, !llvm.loop !86
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader
-  %.174 = phi i32 [ %110, %.preheader ], [ 0, %._crit_edge ]
-  %109 = tail call i32 @Fxch_DivRemove(ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #21
-  %110 = add nuw i32 %.174, 1
-  %exitcond87.not = icmp eq i32 %110, %umax86
+  %.174 = phi i32 [ %111, %.preheader ], [ 0, %._crit_edge ]
+  %110 = tail call i32 @Fxch_DivRemove(ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #21
+  %111 = add nuw i32 %.174, 1
+  %exitcond87.not = icmp eq i32 %111, %.051.lcssa
   br i1 %exitcond87.not, label %.loopexit, label %.preheader, !llvm.loop !87
 
 .loopexit:                                        ; preds = %.preheader70, %.preheader
   %.sink107 = phi i32 [ -1, %.preheader ], [ 1, %.preheader70 ]
-  %111 = load i32, ptr %15, align 8, !tbaa !88
-  %112 = add nsw i32 %111, %.sink107
-  store i32 %112, ptr %15, align 8, !tbaa !88
+  %112 = load i32, ptr %15, align 8, !tbaa !88
+  %113 = add nsw i32 %112, %.sink107
+  store i32 %113, ptr %15, align 8, !tbaa !88
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %.val59 = load i32, ptr %9, align 4, !tbaa !26
-  %113 = trunc nuw i64 %indvars.iv.next91 to i32
-  %114 = icmp sgt i32 %.val59, %113
-  br i1 %114, label %24, label %.critedge2.loopexit, !llvm.loop !89
+  %114 = trunc nuw i64 %indvars.iv.next91 to i32
+  %115 = icmp sgt i32 %.val59, %114
+  br i1 %115, label %24, label %.critedge2.loopexit, !llvm.loop !89
 
 .critedge:                                        ; preds = %17, %.critedge2.loopexit, %4
   ret void
@@ -1965,12 +1968,15 @@ define range(i32 0, 801) i32 @Fxch_ManComputeLevelDiv(ptr noundef readonly captu
   %16 = tail call noundef i32 @llvm.smax.i32(i32 %.012, i32 %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !96
+  br i1 %exitcond.not, label %.critedge.loopexit, label %9, !llvm.loop !96
 
-.critedge:                                        ; preds = %9, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %16, %9 ]
-  %17 = tail call noundef range(i32 -2147483648, 801) i32 @llvm.smin.i32(i32 %.0.lcssa, i32 800)
-  ret i32 %17
+.critedge.loopexit:                               ; preds = %9
+  %17 = tail call range(i32 -2147483648, 801) i32 @llvm.smin.i32(i32 %16, i32 800)
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %2
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %17, %.critedge.loopexit ]
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

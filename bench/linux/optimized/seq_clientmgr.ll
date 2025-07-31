@@ -3045,16 +3045,16 @@ define internal range(i32 -2147483648, 1) i32 @snd_seq_ioctl_set_queue_tempo(ptr
   %5 = load i32, ptr %1, align 4
   %6 = tail call i32 @snd_seq_queue_check_access(i32 noundef %5, i32 noundef %4) #19
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %11, label %8
+  br i1 %7, label %12, label %8
 
 8:                                                ; preds = %2
   %9 = load i32, ptr %1, align 4
   %10 = tail call i32 @snd_seq_queue_timer_set_tempo(i32 noundef %9, i32 noundef %4, ptr noundef %1) #19
-  br label %11
+  %11 = tail call i32 @llvm.smin.i32(i32 %10, i32 0)
+  br label %12
 
-11:                                               ; preds = %8, %2
-  %12 = phi i32 [ %10, %8 ], [ -1, %2 ]
-  %13 = tail call i32 @llvm.smin.i32(i32 %12, i32 0)
+12:                                               ; preds = %8, %2
+  %13 = phi i32 [ %11, %8 ], [ -1, %2 ]
   ret i32 %13
 }
 

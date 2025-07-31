@@ -2608,51 +2608,51 @@ get_relative_dist.exit76:                         ; preds = %get_relative_dist.e
 98:                                               ; preds = %89
   %99 = add nuw nsw i32 %96, 8192
   %100 = lshr i32 %99, 14
-  br label %105
+  br label %106
 
 101:                                              ; preds = %89
   %102 = sub i32 8192, %96
   %103 = lshr i32 %102, 14
   %104 = sub nsw i32 0, %103
-  br label %105
+  %105 = tail call i32 @llvm.smax.i32(i32 %104, i32 -16383)
+  br label %106
 
-105:                                              ; preds = %101, %98
-  %106 = phi i32 [ %104, %101 ], [ %100, %98 ]
-  %107 = sext i16 %.sroa.3.0.copyload.us to i32
-  %108 = mul i32 %95, %107
-  %109 = icmp slt i32 %108, 0
-  br i1 %109, label %113, label %110
+106:                                              ; preds = %101, %98
+  %107 = phi i32 [ %105, %101 ], [ %100, %98 ]
+  %108 = sext i16 %.sroa.3.0.copyload.us to i32
+  %109 = mul i32 %95, %108
+  %110 = icmp slt i32 %109, 0
+  br i1 %110, label %114, label %111
 
-110:                                              ; preds = %105
-  %111 = add nuw nsw i32 %108, 8192
-  %112 = lshr i32 %111, 14
+111:                                              ; preds = %106
+  %112 = add nuw nsw i32 %109, 8192
+  %113 = lshr i32 %112, 14
   br label %get_mv_projection.exit.us
 
-113:                                              ; preds = %105
-  %114 = sub i32 8192, %108
-  %115 = lshr i32 %114, 14
-  %116 = sub nsw i32 0, %115
+114:                                              ; preds = %106
+  %115 = sub i32 8192, %109
+  %116 = lshr i32 %115, 14
+  %117 = sub nsw i32 0, %116
+  %118 = tail call i32 @llvm.smax.i32(i32 %117, i32 -16383)
   br label %get_mv_projection.exit.us
 
-get_mv_projection.exit.us:                        ; preds = %113, %110
-  %117 = phi i32 [ %116, %113 ], [ %112, %110 ]
-  %118 = tail call i32 @llvm.smax.i32(i32 %106, i32 -16383)
-  %119 = tail call i32 @llvm.smin.i32(i32 %118, i32 16383)
-  %120 = tail call i32 @llvm.smax.i32(i32 %117, i32 -16383)
-  %121 = tail call i32 @llvm.smin.i32(i32 %120, i32 16383)
+get_mv_projection.exit.us:                        ; preds = %114, %111
+  %119 = phi i32 [ %118, %114 ], [ %113, %111 ]
+  %120 = tail call i32 @llvm.smin.i32(i32 %107, i32 16383)
+  %121 = tail call i32 @llvm.smin.i32(i32 %119, i32 16383)
   %122 = trunc nuw nsw i64 %indvars.iv116 to i32
   %123 = and i32 %122, 2147483640
-  %124 = lshr i32 %119, 6
-  %125 = sub nsw i32 0, %119
+  %124 = lshr i32 %120, 6
+  %125 = sub nsw i32 0, %120
   %126 = lshr i32 %125, 6
   %127 = sub nsw i32 0, %126
-  %128 = icmp slt i32 %106, 0
+  %128 = icmp slt i32 %107, 0
   %129 = select i1 %128, i32 %127, i32 %124
   %130 = lshr i32 %121, 6
   %131 = sub nsw i32 0, %121
   %132 = lshr i32 %131, 6
   %133 = sub nsw i32 0, %132
-  %134 = icmp slt i32 %117, 0
+  %134 = icmp slt i32 %119, 0
   %135 = select i1 %134, i32 %133, i32 %130
   %136 = sub nsw i32 0, %129
   %.p.i.us = select i1 %.not.i78, i32 %129, i32 %136
@@ -2789,12 +2789,15 @@ define hidden zeroext range(i8 1, 0) i8 @av1_selectSamples(ptr noundef readonly 
   %.1 = phi i8 [ %.041, %17 ], [ %50, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %17, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %51, %5
-  %.0.lcssa = phi i8 [ 0, %5 ], [ %.1, %51 ]
-  %52 = tail call i8 @llvm.umax.i8(i8 %.0.lcssa, i8 1)
-  ret i8 %52
+._crit_edge.loopexit:                             ; preds = %51
+  %52 = tail call i8 @llvm.umax.i8(i8 %.1, i8 1)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
+  %.0.lcssa = phi i8 [ 1, %5 ], [ %52, %._crit_edge.loopexit ]
+  ret i8 %.0.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -4349,55 +4352,55 @@ get_relative_dist.exit:                           ; preds = %av1_set_ref_frame.e
   %104 = mul i32 %103, %99
   %105 = mul i32 %104, %100
   %106 = icmp slt i32 %105, 0
-  br i1 %106, label %107, label %111
+  br i1 %106, label %107, label %112
 
 107:                                              ; preds = %98
   %108 = sub i32 8192, %105
   %109 = lshr i32 %108, 14
   %110 = sub nsw i32 0, %109
-  br label %114
+  %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 -16383)
+  br label %115
 
-111:                                              ; preds = %98
-  %112 = add nuw nsw i32 %105, 8192
-  %113 = lshr i32 %112, 14
-  br label %114
+112:                                              ; preds = %98
+  %113 = add nuw nsw i32 %105, 8192
+  %114 = lshr i32 %113, 14
+  br label %115
 
-114:                                              ; preds = %111, %107
-  %115 = phi i32 [ %110, %107 ], [ %113, %111 ]
-  %116 = ashr i32 %44, 16
-  %117 = mul i32 %104, %116
-  %118 = icmp slt i32 %117, 0
-  br i1 %118, label %119, label %123
+115:                                              ; preds = %112, %107
+  %116 = phi i32 [ %111, %107 ], [ %114, %112 ]
+  %117 = ashr i32 %44, 16
+  %118 = mul i32 %104, %117
+  %119 = icmp slt i32 %118, 0
+  br i1 %119, label %120, label %125
 
-119:                                              ; preds = %114
-  %120 = sub i32 8192, %117
-  %121 = lshr i32 %120, 14
-  %122 = sub nsw i32 0, %121
+120:                                              ; preds = %115
+  %121 = sub i32 8192, %118
+  %122 = lshr i32 %121, 14
+  %123 = sub nsw i32 0, %122
+  %124 = tail call i32 @llvm.smax.i32(i32 %123, i32 -16383)
   br label %get_mv_projection.exit
 
-123:                                              ; preds = %114
-  %124 = add nuw nsw i32 %117, 8192
-  %125 = lshr i32 %124, 14
+125:                                              ; preds = %115
+  %126 = add nuw nsw i32 %118, 8192
+  %127 = lshr i32 %126, 14
   br label %get_mv_projection.exit
 
-get_mv_projection.exit:                           ; preds = %119, %123
-  %126 = phi i32 [ %122, %119 ], [ %125, %123 ]
-  %127 = tail call i32 @llvm.smax.i32(i32 %115, i32 -16383)
-  %128 = tail call i32 @llvm.smin.i32(i32 %127, i32 16383)
-  %129 = trunc nsw i32 %128 to i16
-  %130 = tail call i32 @llvm.smax.i32(i32 %126, i32 -16383)
-  %131 = tail call i32 @llvm.smin.i32(i32 %130, i32 16383)
+get_mv_projection.exit:                           ; preds = %120, %125
+  %128 = phi i32 [ %124, %120 ], [ %127, %125 ]
+  %129 = tail call i32 @llvm.smin.i32(i32 %116, i32 16383)
+  %130 = trunc nsw i32 %129 to i16
+  %131 = tail call i32 @llvm.smin.i32(i32 %128, i32 16383)
   %132 = trunc nsw i32 %131 to i16
   %.not.i101 = icmp eq i8 %89, 0
   br i1 %.not.i101, label %149, label %133
 
 133:                                              ; preds = %get_mv_projection.exit
-  %134 = srem i16 %129, 8
+  %134 = srem i16 %130, 8
   %.not.i.i = icmp eq i16 %134, 0
   br i1 %.not.i.i, label %141, label %135
 
 135:                                              ; preds = %133
-  %136 = sub nsw i16 %129, %134
+  %136 = sub nsw i16 %130, %134
   %137 = tail call i16 @llvm.abs.i16(i16 %134, i1 true)
   %138 = icmp samesign ugt i16 %137, 4
   br i1 %138, label %.sink.split.i.i, label %141
@@ -4409,7 +4412,7 @@ get_mv_projection.exit:                           ; preds = %119, %123
   br label %141
 
 141:                                              ; preds = %.sink.split.i.i, %135, %133
-  %.sroa.0138.0 = phi i16 [ %129, %133 ], [ %140, %.sink.split.i.i ], [ %136, %135 ]
+  %.sroa.0138.0 = phi i16 [ %130, %133 ], [ %140, %.sink.split.i.i ], [ %136, %135 ]
   %142 = srem i16 %132, 8
   %.not16.i.i = icmp eq i16 %142, 0
   br i1 %.not16.i.i, label %lower_mv_precision.exit, label %143
@@ -4431,25 +4434,25 @@ get_mv_projection.exit:                           ; preds = %119, %123
   br i1 %.not8.i, label %150, label %lower_mv_precision.exit
 
 150:                                              ; preds = %149
-  %151 = and i16 %129, 1
+  %151 = and i16 %130, 1
   %.not9.i = icmp eq i16 %151, 0
-  %.inv.i = icmp slt i32 %115, 1
+  %.inv.i = icmp slt i32 %116, 1
   %152 = select i1 %.inv.i, i16 1, i16 -1
   %153 = select i1 %.not9.i, i16 0, i16 %152
-  %.sroa.0138.1 = add nsw i16 %153, %129
+  %.sroa.0138.1 = add nsw i16 %153, %130
   %154 = and i16 %132, 1
   %.not10.i = icmp eq i16 %154, 0
   br i1 %.not10.i, label %lower_mv_precision.exit, label %155
 
 155:                                              ; preds = %150
-  %.inv11.i = icmp slt i32 %126, 1
+  %.inv11.i = icmp slt i32 %128, 1
   %156 = select i1 %.inv11.i, i16 1, i16 -1
   %157 = add nsw i16 %156, %132
   br label %lower_mv_precision.exit
 
 lower_mv_precision.exit:                          ; preds = %141, %143, %.sink.split20.i.i, %149, %150, %155
   %.sroa.12.0 = phi i16 [ %132, %150 ], [ %157, %155 ], [ %132, %149 ], [ %132, %141 ], [ %148, %.sink.split20.i.i ], [ %144, %143 ]
-  %.sroa.0138.2 = phi i16 [ %.sroa.0138.1, %150 ], [ %.sroa.0138.1, %155 ], [ %129, %149 ], [ %.sroa.0138.0, %141 ], [ %.sroa.0138.0, %.sink.split20.i.i ], [ %.sroa.0138.0, %143 ]
+  %.sroa.0138.2 = phi i16 [ %.sroa.0138.1, %150 ], [ %.sroa.0138.1, %155 ], [ %130, %149 ], [ %.sroa.0138.0, %141 ], [ %.sroa.0138.0, %.sink.split20.i.i ], [ %.sroa.0138.0, %143 ]
   %158 = icmp eq i8 %.sink.i, -1
   br i1 %158, label %159, label %get_ref_frame_map_idx.exit.i103
 
@@ -4585,53 +4588,53 @@ get_relative_dist.exit108.thread:                 ; preds = %get_ref_frame_map_i
   %228 = mul i32 %227, %103
   %229 = mul i32 %228, %100
   %230 = icmp slt i32 %229, 0
-  br i1 %230, label %231, label %235
+  br i1 %230, label %231, label %236
 
 231:                                              ; preds = %226
   %232 = sub i32 8192, %229
   %233 = lshr i32 %232, 14
   %234 = sub nsw i32 0, %233
-  br label %238
+  %235 = tail call i32 @llvm.smax.i32(i32 %234, i32 -16383)
+  br label %239
 
-235:                                              ; preds = %226
-  %236 = add nuw nsw i32 %229, 8192
-  %237 = lshr i32 %236, 14
-  br label %238
+236:                                              ; preds = %226
+  %237 = add nuw nsw i32 %229, 8192
+  %238 = lshr i32 %237, 14
+  br label %239
 
-238:                                              ; preds = %235, %231
-  %239 = phi i32 [ %234, %231 ], [ %237, %235 ]
-  %240 = mul i32 %228, %116
-  %241 = icmp slt i32 %240, 0
-  br i1 %241, label %242, label %246
+239:                                              ; preds = %236, %231
+  %240 = phi i32 [ %235, %231 ], [ %238, %236 ]
+  %241 = mul i32 %228, %117
+  %242 = icmp slt i32 %241, 0
+  br i1 %242, label %243, label %248
 
-242:                                              ; preds = %238
-  %243 = sub i32 8192, %240
-  %244 = lshr i32 %243, 14
-  %245 = sub nsw i32 0, %244
+243:                                              ; preds = %239
+  %244 = sub i32 8192, %241
+  %245 = lshr i32 %244, 14
+  %246 = sub nsw i32 0, %245
+  %247 = tail call i32 @llvm.smax.i32(i32 %246, i32 -16383)
   br label %get_mv_projection.exit110
 
-246:                                              ; preds = %238
-  %247 = add nuw nsw i32 %240, 8192
-  %248 = lshr i32 %247, 14
+248:                                              ; preds = %239
+  %249 = add nuw nsw i32 %241, 8192
+  %250 = lshr i32 %249, 14
   br label %get_mv_projection.exit110
 
-get_mv_projection.exit110:                        ; preds = %242, %246
-  %249 = phi i32 [ %245, %242 ], [ %248, %246 ]
-  %250 = tail call i32 @llvm.smax.i32(i32 %239, i32 -16383)
-  %251 = tail call i32 @llvm.smin.i32(i32 %250, i32 16383)
-  %252 = trunc nsw i32 %251 to i16
-  %253 = tail call i32 @llvm.smax.i32(i32 %249, i32 -16383)
-  %254 = tail call i32 @llvm.smin.i32(i32 %253, i32 16383)
+get_mv_projection.exit110:                        ; preds = %243, %248
+  %251 = phi i32 [ %247, %243 ], [ %250, %248 ]
+  %252 = tail call i32 @llvm.smin.i32(i32 %240, i32 16383)
+  %253 = trunc nsw i32 %252 to i16
+  %254 = tail call i32 @llvm.smin.i32(i32 %251, i32 16383)
   %255 = trunc nsw i32 %254 to i16
   br i1 %.not.i101, label %272, label %256
 
 256:                                              ; preds = %get_mv_projection.exit110
-  %257 = srem i16 %252, 8
+  %257 = srem i16 %253, 8
   %.not.i.i112 = icmp eq i16 %257, 0
   br i1 %.not.i.i112, label %264, label %258
 
 258:                                              ; preds = %256
-  %259 = sub nsw i16 %252, %257
+  %259 = sub nsw i16 %253, %257
   %260 = tail call i16 @llvm.abs.i16(i16 %257, i1 true)
   %261 = icmp samesign ugt i16 %260, 4
   br i1 %261, label %.sink.split.i.i116, label %264
@@ -4643,7 +4646,7 @@ get_mv_projection.exit110:                        ; preds = %242, %246
   br label %264
 
 264:                                              ; preds = %.sink.split.i.i116, %258, %256
-  %.sroa.0.0 = phi i16 [ %252, %256 ], [ %263, %.sink.split.i.i116 ], [ %259, %258 ]
+  %.sroa.0.0 = phi i16 [ %253, %256 ], [ %263, %.sink.split.i.i116 ], [ %259, %258 ]
   %265 = srem i16 %255, 8
   %.not16.i.i113 = icmp eq i16 %265, 0
   br i1 %.not16.i.i113, label %lower_mv_precision.exit123, label %266
@@ -4665,25 +4668,25 @@ get_mv_projection.exit110:                        ; preds = %242, %246
   br i1 %.not8.i118, label %273, label %lower_mv_precision.exit123
 
 273:                                              ; preds = %272
-  %274 = and i16 %252, 1
+  %274 = and i16 %253, 1
   %.not9.i119 = icmp eq i16 %274, 0
-  %.inv.i120 = icmp slt i32 %239, 1
+  %.inv.i120 = icmp slt i32 %240, 1
   %275 = select i1 %.inv.i120, i16 1, i16 -1
   %276 = select i1 %.not9.i119, i16 0, i16 %275
-  %.sroa.0.1 = add nsw i16 %276, %252
+  %.sroa.0.1 = add nsw i16 %276, %253
   %277 = and i16 %255, 1
   %.not10.i121 = icmp eq i16 %277, 0
   br i1 %.not10.i121, label %lower_mv_precision.exit123, label %278
 
 278:                                              ; preds = %273
-  %.inv11.i122 = icmp slt i32 %249, 1
+  %.inv11.i122 = icmp slt i32 %251, 1
   %279 = select i1 %.inv11.i122, i16 1, i16 -1
   %280 = add nsw i16 %279, %255
   br label %lower_mv_precision.exit123
 
 lower_mv_precision.exit123:                       ; preds = %264, %266, %.sink.split20.i.i114, %272, %273, %278
   %.sroa.9.0 = phi i16 [ %255, %273 ], [ %280, %278 ], [ %255, %272 ], [ %255, %264 ], [ %271, %.sink.split20.i.i114 ], [ %267, %266 ]
-  %.sroa.0.2 = phi i16 [ %.sroa.0.1, %273 ], [ %.sroa.0.1, %278 ], [ %252, %272 ], [ %.sroa.0.0, %264 ], [ %.sroa.0.0, %.sink.split20.i.i114 ], [ %.sroa.0.0, %266 ]
+  %.sroa.0.2 = phi i16 [ %.sroa.0.1, %273 ], [ %.sroa.0.1, %278 ], [ %253, %272 ], [ %.sroa.0.0, %264 ], [ %.sroa.0.0, %.sink.split20.i.i114 ], [ %.sroa.0.0, %266 ]
   %281 = or i32 %6, %5
   %or.cond3 = icmp eq i32 %281, 0
   br i1 %or.cond3, label %282, label %318

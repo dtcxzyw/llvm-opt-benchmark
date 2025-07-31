@@ -1559,7 +1559,7 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
   tail call void (...) @Extra_UtilGetoptReset() #19
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.65) #19
   %.not = icmp eq i32 %4, -1
-  br i1 %.not, label %5, label %68
+  br i1 %.not, label %5, label %69
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1571,7 +1571,7 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8, !tbaa !35
   %12 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 15, i64 1, ptr %11)
-  br label %78
+  br label %79
 
 13:                                               ; preds = %5
   %14 = tail call ptr @Cmd_FlagReadByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.108) #19
@@ -1585,7 +1585,7 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
 
 19:                                               ; preds = %13, %16
   %.061 = phi i32 [ %18, %16 ], [ 1, %13 ]
-  switch i32 %1, label %68 [
+  switch i32 %1, label %69 [
     i32 1, label %20
     i32 2, label %30
   ]
@@ -1601,12 +1601,12 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %26 = load ptr, ptr %25, align 8, !tbaa !35
   %27 = tail call i64 @fwrite(ptr nonnull @.str.109, i64 38, i64 1, ptr %26)
-  br label %78
+  br label %79
 
 28:                                               ; preds = %20
   %29 = tail call ptr @Abc_NtkDup(ptr noundef nonnull %.val) #19
   tail call void @Abc_FrameSetCurrentNetwork(ptr noundef nonnull %0, ptr noundef %29) #19
-  br label %78
+  br label %79
 
 30:                                               ; preds = %19
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1629,11 +1629,11 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
 
 42:                                               ; preds = %37
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.110, i32 noundef %spec.store.select) #19
-  br label %78
+  br label %79
 
 44:                                               ; preds = %37
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.111, i32 noundef %spec.store.select, i32 noundef %spec.store.select2) #19
-  br label %78
+  br label %79
 
 46:                                               ; preds = %30
   %47 = icmp slt i32 %34, 0
@@ -1643,7 +1643,7 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %50 = load ptr, ptr %49, align 8, !tbaa !35
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.112, i32 noundef %34) #19
-  br label %78
+  br label %79
 
 52:                                               ; preds = %46
   %53 = icmp eq i32 %34, 0
@@ -1656,56 +1656,59 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
 
 54:                                               ; preds = %52
   tail call void @Abc_FrameDeleteAllNetworks(ptr noundef nonnull %0) #19
-  br label %78
+  br label %79
 
 .lr.ph:                                           ; preds = %.preheader, %57
   %.06079 = phi ptr [ %.060, %57 ], [ %.06077, %.preheader ]
   %55 = getelementptr i8, ptr %.06079, i64 168
   %.060.val72 = load i32, ptr %55, align 8, !tbaa !73
   %56 = icmp eq i32 %.060.val72, %34
-  br i1 %56, label %66, label %57
+  br i1 %56, label %67, label %57
 
 57:                                               ; preds = %.lr.ph
   %58 = getelementptr i8, ptr %.06079, i64 160
   %.060 = load ptr, ptr %58, align 8, !tbaa !72
   %.not71 = icmp eq ptr %.060, null
-  br i1 %.not71, label %._crit_edge, label %.lr.ph, !llvm.loop !74
+  br i1 %.not71, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !74
 
-._crit_edge:                                      ; preds = %57, %.preheader
-  %.062.lcssa = phi i32 [ 0, %.preheader ], [ %.060.val72, %57 ]
-  %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %.062.lcssa, i32 1)
-  %59 = icmp eq i32 %spec.store.select1, %36
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %61 = load ptr, ptr %60, align 8, !tbaa !35
-  br i1 %59, label %62, label %64
+._crit_edge.loopexit:                             ; preds = %57
+  %59 = tail call i32 @llvm.smax.i32(i32 %.060.val72, i32 1)
+  br label %._crit_edge
 
-62:                                               ; preds = %._crit_edge
-  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.110, i32 noundef %36) #19
-  br label %78
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.062.lcssa = phi i32 [ 1, %.preheader ], [ %59, %._crit_edge.loopexit ]
+  %60 = icmp eq i32 %.062.lcssa, %36
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %62 = load ptr, ptr %61, align 8, !tbaa !35
+  br i1 %60, label %63, label %65
 
-64:                                               ; preds = %._crit_edge
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.111, i32 noundef %spec.store.select1, i32 noundef %36) #19
-  br label %78
+63:                                               ; preds = %._crit_edge
+  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.110, i32 noundef %36) #19
+  br label %79
 
-66:                                               ; preds = %.lr.ph
-  %67 = tail call ptr @Abc_NtkDup(ptr noundef nonnull %.06079) #19
-  tail call void @Abc_FrameSetCurrentNetwork(ptr noundef nonnull %0, ptr noundef %67) #19
-  br label %78
+65:                                               ; preds = %._crit_edge
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.111, i32 noundef %.062.lcssa, i32 noundef %36) #19
+  br label %79
 
-68:                                               ; preds = %19, %3
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %70 = load ptr, ptr %69, align 8, !tbaa !36
-  %71 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 23, i64 1, ptr %70)
-  %72 = load ptr, ptr %69, align 8, !tbaa !36
-  %73 = tail call i64 @fwrite(ptr nonnull @.str.114, i64 68, i64 1, ptr %72)
-  %74 = load ptr, ptr %69, align 8, !tbaa !36
-  %75 = tail call i64 @fwrite(ptr nonnull @.str.115, i64 49, i64 1, ptr %74)
-  %76 = load ptr, ptr %69, align 8, !tbaa !36
-  %77 = tail call i64 @fwrite(ptr nonnull @.str.116, i64 33, i64 1, ptr %76)
-  br label %78
+67:                                               ; preds = %.lr.ph
+  %68 = tail call ptr @Abc_NtkDup(ptr noundef nonnull %.06079) #19
+  tail call void @Abc_FrameSetCurrentNetwork(ptr noundef nonnull %0, ptr noundef %68) #19
+  br label %79
 
-78:                                               ; preds = %44, %42, %54, %62, %64, %66, %48, %24, %28, %68, %9
-  %.0 = phi i32 [ 1, %68 ], [ 0, %9 ], [ 0, %28 ], [ 0, %24 ], [ 0, %48 ], [ 0, %66 ], [ 0, %64 ], [ 0, %62 ], [ 0, %54 ], [ 0, %42 ], [ 0, %44 ]
+69:                                               ; preds = %19, %3
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %71 = load ptr, ptr %70, align 8, !tbaa !36
+  %72 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 23, i64 1, ptr %71)
+  %73 = load ptr, ptr %70, align 8, !tbaa !36
+  %74 = tail call i64 @fwrite(ptr nonnull @.str.114, i64 68, i64 1, ptr %73)
+  %75 = load ptr, ptr %70, align 8, !tbaa !36
+  %76 = tail call i64 @fwrite(ptr nonnull @.str.115, i64 49, i64 1, ptr %75)
+  %77 = load ptr, ptr %70, align 8, !tbaa !36
+  %78 = tail call i64 @fwrite(ptr nonnull @.str.116, i64 33, i64 1, ptr %77)
+  br label %79
+
+79:                                               ; preds = %44, %42, %54, %63, %65, %67, %48, %24, %28, %69, %9
+  %.0 = phi i32 [ 1, %69 ], [ 0, %9 ], [ 0, %28 ], [ 0, %24 ], [ 0, %48 ], [ 0, %67 ], [ 0, %65 ], [ 0, %63 ], [ 0, %54 ], [ 0, %42 ], [ 0, %44 ]
   ret i32 %.0
 }
 

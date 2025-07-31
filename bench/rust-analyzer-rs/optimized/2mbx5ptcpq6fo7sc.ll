@@ -21531,7 +21531,7 @@ _ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h0f8e3beecada9572E
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load i64, ptr %20, align 8, !alias.scope !9622, !noalias !9623, !noundef !4
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %27, label %23, !prof !9614
+  br i1 %22, label %28, label %23, !prof !9614
 
 23:                                               ; preds = %19
   %24 = udiv i64 %17, %21
@@ -21539,24 +21539,24 @@ _ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h0f8e3beecada9572E
   %.not.i.i1 = icmp ne i64 %25, 0
   %26 = zext i1 %.not.i.i1 to i64
   %.0.i.i2 = add i64 %24, %26
+  %27 = tail call i64 @llvm.umin.i64(i64 %.0.sink4.i.i, i64 %.0.i.i2)
   br label %_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h0f8e3beecada9572E.exit4
 
-27:                                               ; preds = %19
+28:                                               ; preds = %19
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.4.llvm.6579604558243679033, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cb126e8220c221b8d58de877eca30dfb.104.llvm.6579604558243679033) #63, !noalias !9625
   unreachable
 
 _ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h0f8e3beecada9572E.exit4: ; preds = %_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h0f8e3beecada9572E.exit, %23
-  %.0.sink4.i.i3 = phi i64 [ %.0.i.i2, %23 ], [ 0, %_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h0f8e3beecada9572E.exit ]
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %.0.sink4.i.i, i64 %.0.sink4.i.i3)
+  %.0.sink4.i.i3 = phi i64 [ %27, %23 ], [ 0, %_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h0f8e3beecada9572E.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %.0.sroa.speculated.i, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %.0.sink4.i.i, ptr %31, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 0, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %.0.sink4.i.i3, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %.0.sink4.i.i, ptr %32, align 8
   ret void
 }
 

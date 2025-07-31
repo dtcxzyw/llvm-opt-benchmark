@@ -4494,11 +4494,11 @@ _ZNK4llvm5APInt3ugtEm.exit.i5239:                 ; preds = %_ZNK4llvm5APInt13ge
   %981 = load ptr, ptr %974, align 8
   %.0.in.i.i.i5240 = select i1 %977, ptr %974, ptr %981
   %.0.i.i.i5241 = load i64, ptr %.0.in.i.i.i5240, align 8, !tbaa !239
+  %982 = tail call i64 @llvm.umin.i64(i64 %941, i64 %.0.i.i.i5241)
   br label %_ZNK4llvm5APInt15getLimitedValueEm.exit5243
 
 _ZNK4llvm5APInt15getLimitedValueEm.exit5243:      ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i5238, %_ZNK4llvm5APInt3ugtEm.exit.i5239
-  %982 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i5238 ], [ %.0.i.i.i5241, %_ZNK4llvm5APInt3ugtEm.exit.i5239 ]
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %941, i64 %982)
+  %.sroa.speculated = phi i64 [ %941, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i5238 ], [ %982, %_ZNK4llvm5APInt3ugtEm.exit.i5239 ]
   %983 = tail call i64 @_ZN5clang4ento18tryExpandAsIntegerEN4llvm9StringRefERKNS_12PreprocessorE(ptr nonnull @.str.11, i64 3, ptr noundef nonnull align 8 dereferenceable(3288) %901) #22
   %984 = and i64 %983, 4294967296
   %.not = icmp eq i64 %984, 0

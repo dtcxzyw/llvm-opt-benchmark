@@ -55878,26 +55878,26 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %337
   br label %406
 
 406:                                              ; preds = %435, %.lr.ph144.i.i.i
-  %.lcssa4760.i.i = phi i64 [ %.promoted.i.i.i, %.lr.ph144.i.i.i ], [ %412, %435 ]
-  %.sink114.i.i95.us143.i.i.i = phi i64 [ %.promoted91.i.i.i, %.lr.ph144.i.i.i ], [ %spec.select75.i.i, %435 ]
+  %.lcssa4659.i.i = phi i64 [ %.promoted.i.i.i, %.lr.ph144.i.i.i ], [ %412, %435 ]
+  %.sink114.i.i95.us143.i.i.i = phi i64 [ %.promoted91.i.i.i, %.lr.ph144.i.i.i ], [ %spec.select74.i.i, %435 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !14304)
   call void @llvm.experimental.noalias.scope.decl(metadata !14305)
   call void @llvm.experimental.noalias.scope.decl(metadata !14308)
-  %407 = sub i64 %.lcssa4760.i.i, %399
+  %407 = sub i64 %.lcssa4659.i.i, %399
   %.not3867.i.i.us.i.i.i = icmp ult i64 %407, %381
   br i1 %.not3867.i.i.us.i.i.i, label %.lr.ph.i.i.us.i.i.i, label %.loopexit.i
 
 .lr.ph.i.i.us.i.i.i:                              ; preds = %406
-  %408 = sub i64 %.lcssa4760.i.i, %405
-  %.neg.i.i.us.i.i.i = sub i64 %.lcssa4760.i.i, %377
+  %408 = sub i64 %.lcssa4659.i.i, %405
+  %.neg.i.i.us.i.i.i = sub i64 %.lcssa4659.i.i, %377
   br label %409
 
 409:                                              ; preds = %450, %.lr.ph.i.i.us.i.i.i
-  %410 = phi i64 [ %.lcssa4760.i.i, %.lr.ph.i.i.us.i.i.i ], [ %452, %450 ]
+  %410 = phi i64 [ %.lcssa4659.i.i, %.lr.ph.i.i.us.i.i.i ], [ %452, %450 ]
   %.sink114.i.i94.us.i.i.i = phi i64 [ %.sink114.i.i95.us143.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %.sink114.i.i93.us.i.i.i, %450 ]
   %411 = phi i64 [ %.sink114.i.i95.us143.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %451, %450 ]
   %412 = phi i64 [ %407, %.lr.ph.i.i.us.i.i.i ], [ %453, %450 ]
-  %.not.i.i.us.i.i.i = icmp eq i64 %.lcssa4760.i.i, %410
+  %.not.i.i.us.i.i.i = icmp eq i64 %.lcssa4659.i.i, %410
   br i1 %.not.i.i.us.i.i.i, label %413, label %.loopexit.i
 
 413:                                              ; preds = %409
@@ -55955,7 +55955,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %337
   br i1 %434, label %437, label %435
 
 435:                                              ; preds = %433
-  %spec.select75.i.i = select i1 %395, i64 %.sink114.i.i94.us.i.i.i, i64 %399
+  %spec.select74.i.i = select i1 %395, i64 %.sink114.i.i94.us.i.i.i, i64 %399
   %436 = icmp eq i64 %412, 0
   br i1 %436, label %.loopexit.i, label %406, !llvm.loop !14315
 
@@ -56177,7 +56177,7 @@ _ZN4core3str11validations23next_code_point_reverse17h2ba4c7ebad5fff00E.exit.thre
   unreachable
 
 .loopexit.i:                                      ; preds = %_ZN4core3str11validations23next_code_point_reverse17h2ba4c7ebad5fff00E.exit.thread.i.i.i.us129.i, %_ZN4core3str11validations23next_code_point_reverse17h2ba4c7ebad5fff00E.exit.thread.i.i.i.us.i, %435, %406, %450, %409, %.thread21.i.loopexit.i.critedge.i.i, %.thread.i.us.i.preheader.i.i, %.split.i.i.i, %.split.us.i.i.i
-  %526 = phi i64 [ 0, %.split.i.i.i ], [ 0, %.split.us.i.i.i ], [ 0, %.thread.i.us.i.preheader.i.i ], [ 0, %.thread21.i.loopexit.i.critedge.i.i ], [ %.lcssa4760.i.i, %409 ], [ %.lcssa4760.i.i, %450 ], [ %.lcssa4760.i.i, %406 ], [ 0, %435 ], [ %.sroa.4.1.i.ph.i.i.i.us.i, %_ZN4core3str11validations23next_code_point_reverse17h2ba4c7ebad5fff00E.exit.thread.i.i.i.us.i ], [ %.sroa.4.1.i.ph.i.i.i.us130.i, %_ZN4core3str11validations23next_code_point_reverse17h2ba4c7ebad5fff00E.exit.thread.i.i.i.us129.i ]
+  %526 = phi i64 [ 0, %.split.i.i.i ], [ 0, %.split.us.i.i.i ], [ 0, %.thread.i.us.i.preheader.i.i ], [ 0, %.thread21.i.loopexit.i.critedge.i.i ], [ %.lcssa4659.i.i, %409 ], [ %.lcssa4659.i.i, %450 ], [ %.lcssa4659.i.i, %406 ], [ 0, %435 ], [ %.sroa.4.1.i.ph.i.i.i.us.i, %_ZN4core3str11validations23next_code_point_reverse17h2ba4c7ebad5fff00E.exit.thread.i.i.i.us.i ], [ %.sroa.4.1.i.ph.i.i.i.us130.i, %_ZN4core3str11validations23next_code_point_reverse17h2ba4c7ebad5fff00E.exit.thread.i.i.i.us129.i ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %16), !noalias !14291
   invoke fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h47f9b6f1aa0dc747E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 %368, i64 noundef %526, i32 noundef 95, ptr noalias noundef nonnull readonly align 1 @anon.8e48b6470a27d08b5500ade55998fee0.308, i64 noundef 1)
           to label %527 unwind label %363, !noalias !14269

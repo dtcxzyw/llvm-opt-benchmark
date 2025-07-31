@@ -241,13 +241,16 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr noundef readonly captures(none
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
   %124 = call ptr @xa_find_after(ptr noundef nonnull %15, ptr noundef nonnull %4, i64 noundef -1, i32 noundef 8) #6
   %125 = icmp eq ptr %124, null
-  br i1 %125, label %.loopexit23, label %20, !llvm.loop !18
+  br i1 %125, label %.loopexit23.loopexit, label %20, !llvm.loop !18
 
-.loopexit23:                                      ; preds = %122, %14
-  %126 = phi i64 [ 0, %14 ], [ %123, %122 ]
+.loopexit23.loopexit:                             ; preds = %122
+  %126 = call i64 @llvm.smin.i64(i64 %123, i64 0)
+  %127 = trunc i64 %126 to i32
+  br label %.loopexit23
+
+.loopexit23:                                      ; preds = %.loopexit23.loopexit, %14
+  %128 = phi i32 [ 0, %14 ], [ %127, %.loopexit23.loopexit ]
   call void @__rcu_read_unlock() #6
-  %127 = call i64 @llvm.smin.i64(i64 %126, i64 0)
-  %128 = trunc i64 %127 to i32
   br label %129
 
 129:                                              ; preds = %.loopexit23, %3

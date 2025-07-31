@@ -94782,7 +94782,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %45, %51
 
 59:                                               ; preds = %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit
   %60 = call fastcc noundef zeroext i1 @_ZL32MaybeElementDependentArrayFillerPKN5clang4ExprE(ptr noundef %4)
-  br i1 %60, label %74, label %61
+  br i1 %60, label %._crit_edge, label %61
 
 61:                                               ; preds = %59, %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit
   %.idx = shl nuw nsw i64 %3, 3
@@ -94790,36 +94790,35 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %45, %51
   %.not94203 = icmp eq i64 %3, 0
   br i1 %.not94203, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %72, %61
-  %.072.lcssa = phi i32 [ 0, %61 ], [ %.173, %72 ]
-  %spec.select = call i32 @llvm.umin.i32(i32 %.072.lcssa, i32 %58)
-  br label %74
+._crit_edge.loopexit:                             ; preds = %73
+  %63 = call i32 @llvm.umin.i32(i32 %.173, i32 %58)
+  br label %._crit_edge
 
-.lr.ph:                                           ; preds = %61, %72
-  %.072205 = phi i32 [ %.173, %72 ], [ %46, %61 ]
-  %.075204 = phi ptr [ %73, %72 ], [ %2, %61 ]
-  %63 = load ptr, ptr %.075204, align 8, !tbaa !869
-  %64 = call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #29
-  %65 = load i16, ptr %64, align 8
-  %66 = and i16 %65, 511
-  %.not192 = icmp eq i16 %66, 68
-  br i1 %.not192, label %67, label %72
+.lr.ph:                                           ; preds = %61, %73
+  %.072205 = phi i32 [ %.173, %73 ], [ %46, %61 ]
+  %.075204 = phi ptr [ %74, %73 ], [ %2, %61 ]
+  %64 = load ptr, ptr %.075204, align 8, !tbaa !869
+  %65 = call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #29
+  %66 = load i16, ptr %65, align 8
+  %67 = and i16 %66, 511
+  %.not192 = icmp eq i16 %67, 68
+  br i1 %.not192, label %68, label %73
 
-67:                                               ; preds = %.lr.ph
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 52
-  %69 = load i32, ptr %68, align 4, !tbaa !2068
-  %70 = add i32 %.072205, -1
-  %71 = add i32 %70, %69
-  br label %72
+68:                                               ; preds = %.lr.ph
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 52
+  %70 = load i32, ptr %69, align 4, !tbaa !2068
+  %71 = add i32 %.072205, -1
+  %72 = add i32 %71, %70
+  br label %73
 
-72:                                               ; preds = %67, %.lr.ph
-  %.173 = phi i32 [ %71, %67 ], [ %.072205, %.lr.ph ]
-  %73 = getelementptr inbounds nuw i8, ptr %.075204, i64 8
-  %.not94 = icmp eq ptr %73, %62
-  br i1 %.not94, label %._crit_edge, label %.lr.ph
+73:                                               ; preds = %68, %.lr.ph
+  %.173 = phi i32 [ %72, %68 ], [ %.072205, %.lr.ph ]
+  %74 = getelementptr inbounds nuw i8, ptr %.075204, i64 8
+  %.not94 = icmp eq ptr %74, %62
+  br i1 %.not94, label %._crit_edge.loopexit, label %.lr.ph
 
-74:                                               ; preds = %._crit_edge, %59
-  %.274 = phi i32 [ %58, %59 ], [ %spec.select, %._crit_edge ]
+._crit_edge:                                      ; preds = %61, %._crit_edge.loopexit, %59
+  %.274 = phi i32 [ %58, %59 ], [ 0, %61 ], [ %63, %._crit_edge.loopexit ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #30
   store i32 0, ptr %10, align 8, !tbaa !669
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -94833,11 +94832,11 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %45, %51
   %switch.i = icmp ult i32 %80, 2
   br i1 %switch.i, label %_ZN5clang7APValueD2Ev.exit, label %81
 
-81:                                               ; preds = %74
+81:                                               ; preds = %._crit_edge
   call void @_ZN5clang7APValue24DestroyDataAndMakeUninitEv(ptr noundef nonnull align 8 dereferenceable(56) %10) #30
   br label %_ZN5clang7APValueD2Ev.exit
 
-_ZN5clang7APValueD2Ev.exit:                       ; preds = %74, %81
+_ZN5clang7APValueD2Ev.exit:                       ; preds = %._crit_edge, %81
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #30
   %82 = load i32, ptr %9, align 8, !tbaa !669
   %spec.select.i = icmp ugt i32 %82, 1

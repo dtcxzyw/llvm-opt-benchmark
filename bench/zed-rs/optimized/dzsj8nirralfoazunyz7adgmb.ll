@@ -32442,17 +32442,17 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hb14d195
   %spec.select = sext i1 %21 to i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !6330
   %22 = tail call noundef i64 @_ZN4core3cmp6min_by17hadab494987bd8355E.llvm.17157331752085172275(i64 noundef %spec.select, i64 noundef %18), !noalias !6327
+  %23 = tail call i64 @llvm.uadd.sat.i64(i64 %22, i64 1)
   %.pre = load i64, ptr %5, align 8
   %.pre6 = load i64, ptr %0, align 8
   br label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0b6bcbca23096465E.exit"
 
 "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0b6bcbca23096465E.exit": ; preds = %17, %"_ZN102_$LT$core..iter..adapters..cycle..Cycle$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfec6b643043df422E.llvm.17157331752085172275.exit.i.i"
-  %23 = phi i64 [ %.pre6, %"_ZN102_$LT$core..iter..adapters..cycle..Cycle$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfec6b643043df422E.llvm.17157331752085172275.exit.i.i" ], [ %14, %17 ]
-  %24 = phi i64 [ %.pre, %"_ZN102_$LT$core..iter..adapters..cycle..Cycle$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfec6b643043df422E.llvm.17157331752085172275.exit.i.i" ], [ %14, %17 ]
-  %.sink.i.i = phi i64 [ %22, %"_ZN102_$LT$core..iter..adapters..cycle..Cycle$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfec6b643043df422E.llvm.17157331752085172275.exit.i.i" ], [ 0, %17 ]
-  %25 = tail call i64 @llvm.uadd.sat.i64(i64 %.sink.i.i, i64 1)
-  %26 = sub i64 %23, %24
-  %27 = icmp ugt i64 %25, %26
+  %24 = phi i64 [ %.pre6, %"_ZN102_$LT$core..iter..adapters..cycle..Cycle$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfec6b643043df422E.llvm.17157331752085172275.exit.i.i" ], [ %14, %17 ]
+  %25 = phi i64 [ %.pre, %"_ZN102_$LT$core..iter..adapters..cycle..Cycle$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfec6b643043df422E.llvm.17157331752085172275.exit.i.i" ], [ %14, %17 ]
+  %.sink.i.i = phi i64 [ %23, %"_ZN102_$LT$core..iter..adapters..cycle..Cycle$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfec6b643043df422E.llvm.17157331752085172275.exit.i.i" ], [ 1, %17 ]
+  %26 = sub i64 %24, %25
+  %27 = icmp ugt i64 %.sink.i.i, %26
   br i1 %27, label %34, label %28
 
 28:                                               ; preds = %12, %34, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0b6bcbca23096465E.exit"
@@ -32466,7 +32466,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hb14d195
   br i1 %33, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h641a266af16759ddE.llvm.17157331752085172275.exit.i._crit_edge", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h641a266af16759ddE.llvm.17157331752085172275.exit.i"
 
 34:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0b6bcbca23096465E.exit"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h78731a7ac26e453bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %24, i64 noundef %25)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h78731a7ac26e453bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %25, i64 noundef %.sink.i.i)
   br label %28
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h641a266af16759ddE.llvm.17157331752085172275.exit.i._crit_edge": ; preds = %28, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h641a266af16759ddE.llvm.17157331752085172275.exit.i", %2

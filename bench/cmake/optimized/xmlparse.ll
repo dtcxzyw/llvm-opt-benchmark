@@ -4945,194 +4945,175 @@ define dso_local ptr @XML_GetBuffer(ptr noundef captures(address_is_null) %0, i3
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = load ptr, ptr %52, align 8, !tbaa !100
   %.not141 = icmp eq ptr %53, null
-  br i1 %.not141, label %62, label %54
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %55 = load ptr, ptr %54, align 8, !tbaa !11
+  %.not143 = icmp eq ptr %55, null
+  br i1 %.not141, label %.thread.thread, label %56
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %56 = load ptr, ptr %55, align 8, !tbaa !11
-  %.not142 = icmp eq ptr %56, null
-  br i1 %.not142, label %62, label %57
+56:                                               ; preds = %51
+  br i1 %.not143, label %.thread.thread, label %57
 
-57:                                               ; preds = %54
+57:                                               ; preds = %56
   %58 = ptrtoint ptr %53 to i64
-  %59 = ptrtoint ptr %56 to i64
+  %59 = ptrtoint ptr %55 to i64
   %60 = sub i64 %58, %59
   %61 = trunc i64 %60 to i32
-  br label %62
+  %62 = tail call i32 @llvm.smin.i32(i32 %61, i32 1024)
+  %63 = sub nuw nsw i32 2147483647, %47
+  %64 = icmp sgt i32 %62, %63
+  br i1 %64, label %65, label %.thread166
 
-62:                                               ; preds = %51, %54, %57
-  %63 = phi i32 [ %61, %57 ], [ 0, %54 ], [ 0, %51 ]
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %63, i32 1024)
-  %64 = sub nuw nsw i32 2147483647, %47
-  %65 = icmp sgt i32 %spec.store.select, %64
-  br i1 %65, label %66, label %68
-
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store i32 1, ptr %67, align 8, !tbaa !104
+65:                                               ; preds = %57
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  store i32 1, ptr %66, align 8, !tbaa !104
   br label %.critedge.thread
 
-68:                                               ; preds = %62
-  %69 = add nsw i32 %spec.store.select, %47
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !11
-  %.not143 = icmp eq ptr %71, null
-  br i1 %.not143, label %.thread158, label %72
+.thread166:                                       ; preds = %57
+  %67 = add nsw i32 %62, %47
+  %68 = sext i32 %67 to i64
+  %69 = ptrtoint ptr %19 to i64
+  %70 = sub i64 %69, %59
+  %71 = select i1 %.not, i64 0, i64 %70
+  %.not146 = icmp slt i64 %71, %68
+  br i1 %.not146, label %.thread.thread, label %72
 
-72:                                               ; preds = %68
-  br i1 %.not141, label %._crit_edge167, label %73
+72:                                               ; preds = %.thread166
+  %73 = sext i32 %62 to i64
+  %74 = ptrtoint ptr %53 to i64
+  %75 = sub i64 %74, %59
+  %76 = icmp sgt i64 %75, %73
+  br i1 %76, label %77, label %.critedge
 
-._crit_edge167:                                   ; preds = %72
-  %.pre168 = ptrtoint ptr %19 to i64
-  %.pre169 = ptrtoint ptr %71 to i64
-  %.pre171 = sub i64 %.pre168, %.pre169
-  br label %97
-
-73:                                               ; preds = %72
-  %74 = sext i32 %69 to i64
-  %75 = ptrtoint ptr %19 to i64
-  %76 = ptrtoint ptr %71 to i64
-  %77 = sub i64 %75, %76
-  %78 = select i1 %.not, i64 0, i64 %77
-  %.not146 = icmp slt i64 %78, %74
-  br i1 %.not146, label %97, label %79
-
-79:                                               ; preds = %73
-  %80 = sext i32 %spec.store.select to i64
-  %81 = ptrtoint ptr %53 to i64
-  %82 = sub i64 %81, %76
-  %83 = icmp sgt i64 %82, %80
-  br i1 %83, label %84, label %.critedge
-
-84:                                               ; preds = %79
-  %85 = trunc i64 %82 to i32
-  %86 = sub nsw i32 %85, %spec.store.select
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %71, i64 %87
-  %89 = ptrtoint ptr %36 to i64
-  %90 = sub i64 %89, %81
-  %91 = add nsw i64 %90, %80
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull align 1 %88, i64 %91, i1 false)
-  %92 = load ptr, ptr %35, align 8, !tbaa !101
-  %93 = sub nsw i64 0, %87
-  %94 = getelementptr inbounds i8, ptr %92, i64 %93
-  store ptr %94, ptr %35, align 8, !tbaa !101
-  %95 = load ptr, ptr %52, align 8, !tbaa !100
-  %96 = getelementptr inbounds i8, ptr %95, i64 %93
+77:                                               ; preds = %72
+  %78 = trunc i64 %75 to i32
+  %79 = sub nsw i32 %78, %62
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds i8, ptr %55, i64 %80
+  %82 = ptrtoint ptr %36 to i64
+  %83 = sub i64 %82, %74
+  %84 = add nsw i64 %83, %73
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull align 1 %81, i64 %84, i1 false)
+  %85 = load ptr, ptr %35, align 8, !tbaa !101
+  %86 = sub nsw i64 0, %80
+  %87 = getelementptr inbounds i8, ptr %85, i64 %86
+  store ptr %87, ptr %35, align 8, !tbaa !101
+  %88 = load ptr, ptr %52, align 8, !tbaa !100
+  %89 = getelementptr inbounds i8, ptr %88, i64 %86
   br label %.critedge.sink.split
 
-97:                                               ; preds = %._crit_edge167, %73
-  %.pre-phi172 = phi i64 [ %.pre171, %._crit_edge167 ], [ %77, %73 ]
-  %.fr162 = freeze i64 %.pre-phi172
-  %98 = trunc i64 %.fr162 to i32
-  %99 = icmp eq i32 %98, 0
-  %or.cond = or i1 %.not, %99
-  br i1 %or.cond, label %.thread158, label %.preheader
+.thread.thread:                                   ; preds = %51, %56, %.thread166
+  %.not143165 = phi i1 [ false, %.thread166 ], [ true, %56 ], [ %.not143, %51 ]
+  %90 = phi ptr [ %55, %.thread166 ], [ null, %56 ], [ %55, %51 ]
+  %91 = phi i32 [ %67, %.thread166 ], [ %47, %56 ], [ %47, %51 ]
+  %spec.store.select158163 = phi i32 [ %62, %.thread166 ], [ 0, %56 ], [ 0, %51 ]
+  %brmerge = select i1 %.not, i1 true, i1 %.not143165
+  %92 = ptrtoint ptr %19 to i64
+  %93 = ptrtoint ptr %90 to i64
+  %94 = sub i64 %92, %93
+  %.fr180 = freeze i64 %94
+  %95 = trunc i64 %.fr180 to i32
+  %96 = icmp eq i32 %95, 0
+  %or.cond = or i1 %brmerge, %96
+  %97 = select i1 %or.cond, i32 1024, i32 %95
+  br label %98
 
-.thread158:                                       ; preds = %97, %68
-  br label %.preheader
+98:                                               ; preds = %98, %.thread.thread
+  %.0 = phi i32 [ %97, %.thread.thread ], [ %99, %98 ]
+  %99 = shl i32 %.0, 1
+  %100 = icmp slt i32 %99, %91
+  %101 = icmp sgt i32 %99, 0
+  %102 = and i1 %100, %101
+  br i1 %102, label %98, label %103, !llvm.loop !199
 
-.preheader:                                       ; preds = %97, %.thread158
-  %.0.ph = phi i32 [ %98, %97 ], [ 1024, %.thread158 ]
-  br label %100
+103:                                              ; preds = %98
+  %104 = icmp slt i32 %99, 1
+  br i1 %104, label %105, label %107
 
-100:                                              ; preds = %.preheader, %100
-  %.0 = phi i32 [ %101, %100 ], [ %.0.ph, %.preheader ]
-  %101 = shl i32 %.0, 1
-  %102 = icmp slt i32 %101, %69
-  %103 = icmp sgt i32 %101, 0
-  %104 = and i1 %102, %103
-  br i1 %104, label %100, label %105, !llvm.loop !199
-
-105:                                              ; preds = %100
-  %106 = icmp slt i32 %101, 1
-  br i1 %106, label %107, label %109
-
-107:                                              ; preds = %105
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store i32 1, ptr %108, align 8, !tbaa !104
+105:                                              ; preds = %103
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  store i32 1, ptr %106, align 8, !tbaa !104
   br label %.critedge.thread
 
-109:                                              ; preds = %105
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %111 = load ptr, ptr %110, align 8, !tbaa !60
-  %112 = zext nneg i32 %101 to i64
-  %113 = tail call ptr %111(i64 noundef %112) #25
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %115, label %117
+107:                                              ; preds = %103
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %109 = load ptr, ptr %108, align 8, !tbaa !60
+  %110 = zext nneg i32 %99 to i64
+  %111 = tail call ptr %109(i64 noundef %110) #25
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %113, label %115
 
-115:                                              ; preds = %109
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store i32 1, ptr %116, align 8, !tbaa !104
+113:                                              ; preds = %107
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  store i32 1, ptr %114, align 8, !tbaa !104
   br label %.critedge.thread
 
-117:                                              ; preds = %109
-  %118 = getelementptr inbounds nuw i8, ptr %113, i64 %112
-  store ptr %118, ptr %18, align 8, !tbaa !30
-  %119 = load ptr, ptr %52, align 8, !tbaa !100
-  %.not149 = icmp eq ptr %119, null
-  br i1 %.not149, label %146, label %120
+115:                                              ; preds = %107
+  %116 = getelementptr inbounds nuw i8, ptr %111, i64 %110
+  store ptr %116, ptr %18, align 8, !tbaa !30
+  %117 = load ptr, ptr %52, align 8, !tbaa !100
+  %.not149 = icmp eq ptr %117, null
+  br i1 %.not149, label %144, label %118
 
-120:                                              ; preds = %117
-  %121 = sub nsw i32 0, %spec.store.select
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i8, ptr %119, i64 %122
-  %124 = load ptr, ptr %35, align 8, !tbaa !101
-  %.not150 = icmp eq ptr %124, null
-  %125 = ptrtoint ptr %124 to i64
-  %126 = ptrtoint ptr %119 to i64
-  %127 = sub i64 %125, %126
-  %128 = select i1 %.not150, i64 0, i64 %127
-  %129 = sext i32 %spec.store.select to i64
-  %130 = add nsw i64 %128, %129
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %113, ptr nonnull align 1 %123, i64 %130, i1 false)
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %132 = load ptr, ptr %131, align 8, !tbaa !59
-  %133 = load ptr, ptr %70, align 8, !tbaa !11
-  tail call void %132(ptr noundef %133) #25
-  store ptr %113, ptr %70, align 8, !tbaa !11
-  %134 = load ptr, ptr %35, align 8, !tbaa !101
-  %.not151 = icmp eq ptr %134, null
-  br i1 %.not151, label %141, label %135
+118:                                              ; preds = %115
+  %119 = sub nsw i32 0, %spec.store.select158163
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i8, ptr %117, i64 %120
+  %122 = load ptr, ptr %35, align 8, !tbaa !101
+  %.not150 = icmp eq ptr %122, null
+  %123 = ptrtoint ptr %122 to i64
+  %124 = ptrtoint ptr %117 to i64
+  %125 = sub i64 %123, %124
+  %126 = select i1 %.not150, i64 0, i64 %125
+  %127 = sext i32 %spec.store.select158163 to i64
+  %128 = add nsw i64 %126, %127
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull align 1 %121, i64 %128, i1 false)
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %130 = load ptr, ptr %129, align 8, !tbaa !59
+  %131 = load ptr, ptr %54, align 8, !tbaa !11
+  tail call void %130(ptr noundef %131) #25
+  store ptr %111, ptr %54, align 8, !tbaa !11
+  %132 = load ptr, ptr %35, align 8, !tbaa !101
+  %.not151 = icmp eq ptr %132, null
+  br i1 %.not151, label %139, label %133
 
-135:                                              ; preds = %120
-  %136 = load ptr, ptr %52, align 8, !tbaa !100
-  %.not152 = icmp eq ptr %136, null
-  br i1 %.not152, label %141, label %137
+133:                                              ; preds = %118
+  %134 = load ptr, ptr %52, align 8, !tbaa !100
+  %.not152 = icmp eq ptr %134, null
+  br i1 %.not152, label %139, label %135
 
-137:                                              ; preds = %135
-  %138 = ptrtoint ptr %134 to i64
-  %139 = ptrtoint ptr %136 to i64
-  %140 = sub i64 %138, %139
-  br label %141
+135:                                              ; preds = %133
+  %136 = ptrtoint ptr %132 to i64
+  %137 = ptrtoint ptr %134 to i64
+  %138 = sub i64 %136, %137
+  br label %139
 
-141:                                              ; preds = %120, %135, %137
-  %142 = phi i64 [ %140, %137 ], [ 0, %135 ], [ 0, %120 ]
-  %143 = getelementptr inbounds i8, ptr %113, i64 %142
-  %144 = getelementptr inbounds i8, ptr %143, i64 %129
-  store ptr %144, ptr %35, align 8, !tbaa !101
-  %145 = getelementptr inbounds i8, ptr %113, i64 %129
+139:                                              ; preds = %118, %133, %135
+  %140 = phi i64 [ %138, %135 ], [ 0, %133 ], [ 0, %118 ]
+  %141 = getelementptr inbounds i8, ptr %111, i64 %140
+  %142 = getelementptr inbounds i8, ptr %141, i64 %127
+  store ptr %142, ptr %35, align 8, !tbaa !101
+  %143 = getelementptr inbounds i8, ptr %111, i64 %127
   br label %.critedge.sink.split
 
-146:                                              ; preds = %117
-  store ptr %113, ptr %35, align 8, !tbaa !101
-  store ptr %113, ptr %70, align 8, !tbaa !11
+144:                                              ; preds = %115
+  store ptr %111, ptr %35, align 8, !tbaa !101
+  store ptr %111, ptr %54, align 8, !tbaa !11
   br label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %141, %146, %84
-  %.sink = phi ptr [ %96, %84 ], [ %113, %146 ], [ %145, %141 ]
-  %.ph = phi ptr [ %94, %84 ], [ %113, %146 ], [ %144, %141 ]
+.critedge.sink.split:                             ; preds = %139, %144, %77
+  %.sink = phi ptr [ %89, %77 ], [ %111, %144 ], [ %143, %139 ]
+  %.ph = phi ptr [ %87, %77 ], [ %111, %144 ], [ %142, %139 ]
   store ptr %.sink, ptr %52, align 8, !tbaa !100
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %79
-  %147 = phi ptr [ %36, %79 ], [ %.ph, %.critedge.sink.split ]
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %148, i8 0, i64 24, i1 false)
+.critedge:                                        ; preds = %.critedge.sink.split, %72
+  %145 = phi ptr [ %36, %72 ], [ %.ph, %.critedge.sink.split ]
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %146, i8 0, i64 24, i1 false)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge, %._crit_edge, %107, %115, %66, %49, %2, %13, %11, %6
-  %.0111 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %13 ], [ null, %2 ], [ null, %49 ], [ null, %66 ], [ null, %115 ], [ null, %107 ], [ %.pre, %._crit_edge ], [ %147, %.critedge ]
+.critedge.thread:                                 ; preds = %.critedge, %._crit_edge, %105, %113, %65, %49, %2, %13, %11, %6
+  %.0111 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %13 ], [ null, %2 ], [ null, %49 ], [ null, %65 ], [ null, %113 ], [ null, %105 ], [ %.pre, %._crit_edge ], [ %145, %.critedge ]
   ret ptr %.0111
 }
 
@@ -5228,43 +5209,43 @@ define dso_local range(i32 0, 3) i32 @XML_ParseBuffer(ptr noundef %0, i32 nounde
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %49 = load i64, ptr %48, align 8, !tbaa !203
   %.not45.i = icmp eq ptr %27, null
-  br i1 %.not45.i, label %56, label %50
+  br i1 %.not45.i, label %57, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !11
   %.not46.i = icmp eq ptr %52, null
-  br i1 %.not46.i, label %56, label %53
+  br i1 %.not46.i, label %57, label %53
 
 53:                                               ; preds = %50
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %42, %54
-  br label %56
+  %56 = tail call i64 @llvm.usub.sat.i64(i64 %55, i64 1024)
+  br label %57
 
-56:                                               ; preds = %53, %50, %47
-  %57 = phi i64 [ %55, %53 ], [ 0, %50 ], [ 0, %47 ]
-  %58 = shl i64 %49, 1
-  %.not49.i = icmp ult i64 %44, %58
-  br i1 %.not49.i, label %59, label %.critedge.i
+57:                                               ; preds = %53, %50, %47
+  %58 = phi i64 [ %56, %53 ], [ 0, %50 ], [ 0, %47 ]
+  %59 = shl i64 %49, 1
+  %.not49.i = icmp ult i64 %44, %59
+  br i1 %.not49.i, label %60, label %.critedge.i
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %61 = load ptr, ptr %60, align 8, !tbaa !30
-  %.not47.i = icmp eq ptr %61, null
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %62 = load ptr, ptr %61, align 8, !tbaa !30
+  %.not47.i = icmp eq ptr %62, null
   %.not48.i = icmp eq ptr %30, null
   %or.cond49 = select i1 %.not47.i, i1 true, i1 %.not48.i
-  %62 = ptrtoint ptr %61 to i64
-  %63 = sub i64 %62, %41
-  %64 = select i1 %or.cond49, i64 0, i64 %63
-  %65 = tail call i64 @llvm.usub.sat.i64(i64 %57, i64 1024)
-  %66 = add i64 %64, %65
+  %63 = ptrtoint ptr %62 to i64
+  %64 = sub i64 %63, %41
+  %65 = select i1 %or.cond49, i64 0, i64 %64
+  %66 = add i64 %65, %58
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %68 = load i32, ptr %67, align 4, !tbaa !103
   %69 = sext i32 %68 to i64
   %70 = icmp ult i64 %66, %69
   br i1 %70, label %.critedge.i, label %83
 
-.critedge.i:                                      ; preds = %59, %56, %25
+.critedge.i:                                      ; preds = %60, %57, %25
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %72 = load ptr, ptr %71, align 8, !tbaa !96
   %73 = tail call i32 %72(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %32, ptr noundef nonnull %26) #25
@@ -5289,8 +5270,8 @@ define dso_local range(i32 0, 3) i32 @XML_ParseBuffer(ptr noundef %0, i32 nounde
   store ptr @errorProcessor, ptr %71, align 8, !tbaa !96
   br label %98
 
-83:                                               ; preds = %.sink.split, %59
-  %84 = phi ptr [ %27, %59 ], [ %75, %.sink.split ]
+83:                                               ; preds = %.sink.split, %60
+  %84 = phi ptr [ %27, %60 ], [ %75, %.sink.split ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i32 0, ptr %85, align 8, !tbaa !104
   %86 = load i32, ptr %6, align 8, !tbaa !108
@@ -5431,28 +5412,28 @@ define dso_local range(i32 0, 3) i32 @XML_ResumeParser(ptr noundef %0) local_unn
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %26 = load i64, ptr %25, align 8, !tbaa !203
   %.not45.i = icmp eq ptr %10, null
-  br i1 %.not45.i, label %33, label %27
+  br i1 %.not45.i, label %34, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !11
   %.not46.i = icmp eq ptr %29, null
-  br i1 %.not46.i, label %33, label %30
+  br i1 %.not46.i, label %34, label %30
 
 30:                                               ; preds = %27
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %16, %31
-  br label %33
+  %33 = tail call i64 @llvm.usub.sat.i64(i64 %32, i64 1024)
+  br label %34
 
-33:                                               ; preds = %30, %27, %24
-  %34 = phi i64 [ %32, %30 ], [ 0, %27 ], [ 0, %24 ]
-  %35 = tail call i64 @llvm.usub.sat.i64(i64 %34, i64 1024)
+34:                                               ; preds = %30, %27, %24
+  %35 = phi i64 [ %33, %30 ], [ 0, %27 ], [ 0, %24 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8, !tbaa !30
   %.not47.i = icmp eq ptr %37, null
   br i1 %.not47.i, label %45, label %38
 
-38:                                               ; preds = %33
+38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %39, align 8, !tbaa !101
   %.not48.i = icmp eq ptr %40, null
@@ -5464,8 +5445,8 @@ define dso_local range(i32 0, 3) i32 @XML_ResumeParser(ptr noundef %0) local_unn
   %44 = sub i64 %42, %43
   br label %45
 
-45:                                               ; preds = %41, %38, %33
-  %46 = phi i64 [ %44, %41 ], [ 0, %38 ], [ 0, %33 ]
+45:                                               ; preds = %41, %38, %34
+  %46 = phi i64 [ %44, %41 ], [ 0, %38 ], [ 0, %34 ]
   %47 = shl i64 %26, 1
   %.not49.i = icmp ult i64 %18, %47
   br i1 %.not49.i, label %48, label %.critedge.i

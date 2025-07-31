@@ -30292,12 +30292,12 @@ PyUnicode_MAX_CHAR_VALUE.exit:                    ; preds = %33, %37
   %switch.select.i49 = select i1 %switch.selectcmp.i48, i32 65535, i32 1114111
   %switch.selectcmp5.i50 = icmp eq i16 %42, 1
   %switch.select6.i51 = select i1 %switch.selectcmp5.i50, i32 255, i32 %switch.select.i49
+  %43 = tail call i32 @llvm.umax.i32(i32 %.0.i45, i32 %switch.select6.i51)
   br label %PyUnicode_MAX_CHAR_VALUE.exit52
 
 PyUnicode_MAX_CHAR_VALUE.exit52:                  ; preds = %PyUnicode_MAX_CHAR_VALUE.exit, %41
-  %.0.i47 = phi i32 [ 127, %PyUnicode_MAX_CHAR_VALUE.exit ], [ %switch.select6.i51, %41 ]
-  %43 = tail call i32 @llvm.umax.i32(i32 %.0.i45, i32 %.0.i47)
-  %44 = tail call ptr @PyUnicode_New(i64 noundef %34, i32 noundef %43)
+  %.0.i47 = phi i32 [ %.0.i45, %PyUnicode_MAX_CHAR_VALUE.exit ], [ %43, %41 ]
+  %44 = tail call ptr @PyUnicode_New(i64 noundef %34, i32 noundef %.0.i47)
   %45 = icmp eq ptr %44, null
   br i1 %45, label %49, label %46
 
@@ -30489,12 +30489,12 @@ PyUnicode_MAX_CHAR_VALUE.exit:                    ; preds = %unicode_modifiable.
   %switch.select.i93 = select i1 %switch.selectcmp.i92, i32 65535, i32 1114111
   %switch.selectcmp5.i94 = icmp eq i16 %71, 1
   %switch.select6.i95 = select i1 %switch.selectcmp5.i94, i32 255, i32 %switch.select.i93
+  %72 = tail call i32 @llvm.umax.i32(i32 %.0.i89, i32 %switch.select6.i95)
   br label %PyUnicode_MAX_CHAR_VALUE.exit96
 
 PyUnicode_MAX_CHAR_VALUE.exit96:                  ; preds = %PyUnicode_MAX_CHAR_VALUE.exit, %70
-  %.0.i91 = phi i32 [ 127, %PyUnicode_MAX_CHAR_VALUE.exit ], [ %switch.select6.i95, %70 ]
-  %72 = tail call i32 @llvm.umax.i32(i32 %.0.i89, i32 %.0.i91)
-  %73 = tail call ptr @PyUnicode_New(i64 noundef %44, i32 noundef %72)
+  %.0.i91 = phi i32 [ %.0.i89, %PyUnicode_MAX_CHAR_VALUE.exit ], [ %72, %70 ]
+  %73 = tail call ptr @PyUnicode_New(i64 noundef %44, i32 noundef %.0.i91)
   %74 = icmp eq ptr %73, null
   br i1 %74, label %83, label %75
 

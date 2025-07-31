@@ -662,22 +662,21 @@ demosaic_qual_flags.exit:                         ; preds = %48, %45, %44, %34
   br label %181
 
 181:                                              ; preds = %126, %163, %179, %145, %104
-  %182 = phi i32 [ %112, %126 ], [ 10, %163 ], [ 6, %179 ], [ 10, %145 ], [ 5, %104 ]
-  %183 = phi float [ %127, %126 ], [ %.sink172, %163 ], [ %.sink173, %179 ], [ %.sink171, %145 ], [ %.sink, %104 ]
-  %184 = load i32, ptr %36, align 8, !tbaa !45
-  %185 = and i32 %184, 2048
-  %.not165 = icmp eq i32 %185, 0
-  br i1 %.not165, label %189, label %186
+  %spec.select = phi i32 [ %112, %126 ], [ 10, %163 ], [ 6, %179 ], [ 10, %145 ], [ 6, %104 ]
+  %182 = phi float [ %127, %126 ], [ %.sink172, %163 ], [ %.sink173, %179 ], [ %.sink171, %145 ], [ %.sink, %104 ]
+  %183 = load i32, ptr %36, align 8, !tbaa !45
+  %184 = and i32 %183, 2048
+  %.not165 = icmp eq i32 %184, 0
+  br i1 %.not165, label %188, label %185
 
-186:                                              ; preds = %181
-  %187 = fadd reassoc nsz arcp contract afn float %183, 1.000000e+00
-  store float %187, ptr %4, align 4, !tbaa !120
-  %188 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %182, i32 6)
-  store i32 %spec.select, ptr %188, align 4, !tbaa !121
-  br label %189
+185:                                              ; preds = %181
+  %186 = fadd reassoc nsz arcp contract afn float %182, 1.000000e+00
+  store float %186, ptr %4, align 4, !tbaa !120
+  %187 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 %spec.select, ptr %187, align 4, !tbaa !121
+  br label %188
 
-189:                                              ; preds = %186, %181
+188:                                              ; preds = %185, %181
   ret void
 }
 

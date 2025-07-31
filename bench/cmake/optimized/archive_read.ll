@@ -591,7 +591,7 @@ choose_filters.exit:                              ; preds = %73
 141:                                              ; preds = %138
   %142 = call i32 %140(ptr noundef nonnull %0, i32 noundef %.02436.i) #15
   %143 = icmp eq i32 %142, -30
-  br i1 %143, label %.loopexit82, label %144
+  br i1 %143, label %.loopexit81, label %144
 
 144:                                              ; preds = %141
   %145 = load ptr, ptr %49, align 8, !tbaa !53
@@ -633,9 +633,9 @@ choose_filters.exit:                              ; preds = %73
 .loopexit.sink.split.i:                           ; preds = %158, %156
   %.str.34.sink.i = phi ptr [ @.str.33, %156 ], [ @.str.34, %158 ]
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull %.str.34.sink.i) #15
-  br label %.loopexit82
+  br label %.loopexit81
 
-.loopexit82:                                      ; preds = %141, %.loopexit.sink.split.i
+.loopexit81:                                      ; preds = %141, %.loopexit.sink.split.i
   %.val = load ptr, ptr %49, align 8, !tbaa !53
   call fastcc void @close_filters(ptr %.val)
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -687,24 +687,24 @@ choose_format.exit:                               ; preds = %158
   %186 = getelementptr inbounds nuw i8, ptr %165, i64 40
   %187 = load ptr, ptr %186, align 8, !tbaa !46
   %188 = call i32 %184(ptr noundef nonnull %167, ptr noundef %187) #15
-  %.pre.i77 = load ptr, ptr %166, align 8, !tbaa !41
+  %.pre.i76 = load ptr, ptr %166, align 8, !tbaa !41
   br label %189
 
 189:                                              ; preds = %185, %182
-  %190 = phi ptr [ %.pre.i77, %185 ], [ %167, %182 ]
+  %190 = phi ptr [ %.pre.i76, %185 ], [ %167, %182 ]
   %191 = getelementptr inbounds nuw i8, ptr %165, i64 40
   store ptr %175, ptr %191, align 8, !tbaa !46
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 176
   %193 = load ptr, ptr %192, align 8, !tbaa !32
-  %.not.i.i79 = icmp eq ptr %193, null
-  br i1 %.not.i.i79, label %read_client_close_proxy.exit, label %194
+  %.not.i.i78 = icmp eq ptr %193, null
+  br i1 %.not.i.i78, label %read_client_close_proxy.exit, label %194
 
 194:                                              ; preds = %189
   %195 = call i32 %193(ptr noundef nonnull %190, ptr noundef %175) #15
   br label %read_client_close_proxy.exit
 
-read_client_close_proxy.exit:                     ; preds = %.lr.ph.i, %163, %194, %189, %178, %.preheader.i, %19, %33, %1, %.loopexit82, %.loopexit, %8
-  %.1 = phi i32 [ -30, %8 ], [ -30, %.loopexit82 ], [ -30, %.loopexit ], [ -30, %1 ], [ -30, %33 ], [ %18, %19 ], [ %18, %.preheader.i ], [ 0, %178 ], [ 0, %189 ], [ 0, %194 ], [ 0, %163 ], [ %18, %.lr.ph.i ]
+read_client_close_proxy.exit:                     ; preds = %.lr.ph.i, %178, %163, %194, %189, %.preheader.i, %19, %33, %1, %.loopexit81, %.loopexit, %8
+  %.1 = phi i32 [ -30, %8 ], [ -30, %.loopexit81 ], [ -30, %.loopexit ], [ -30, %1 ], [ -30, %33 ], [ %18, %19 ], [ %18, %.preheader.i ], [ 0, %189 ], [ 0, %194 ], [ 0, %163 ], [ 0, %178 ], [ %18, %.lr.ph.i ]
   ret i32 %.1
 }
 
@@ -1053,7 +1053,7 @@ define internal fastcc i32 @client_switch_proxy(ptr noundef captures(none) %0, i
   %18 = load ptr, ptr %17, align 8, !tbaa !46
   %19 = tail call i32 %15(ptr noundef nonnull %4, ptr noundef %18, ptr noundef %13) #15
   store ptr %13, ptr %17, align 8, !tbaa !46
-  br label %client_open_proxy.exit
+  br label %35
 
 20:                                               ; preds = %8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 208
@@ -1082,14 +1082,13 @@ define internal fastcc i32 @client_switch_proxy(ptr noundef captures(none) %0, i
   %33 = tail call i32 %31(ptr noundef nonnull %28, ptr noundef %13) #15
   br label %client_open_proxy.exit
 
-client_open_proxy.exit:                           ; preds = %32, %27, %16
-  %.024 = phi i32 [ %19, %16 ], [ %.1, %27 ], [ %.1, %32 ]
-  %.0 = phi i32 [ %19, %16 ], [ 0, %27 ], [ %33, %32 ]
-  %34 = tail call i32 @llvm.smin.i32(i32 %.024, i32 %.0)
+client_open_proxy.exit:                           ; preds = %27, %32
+  %.0.i = phi i32 [ %33, %32 ], [ 0, %27 ]
+  %34 = tail call i32 @llvm.smin.i32(i32 %.1, i32 %.0.i)
   br label %35
 
-35:                                               ; preds = %2, %client_open_proxy.exit
-  %.025 = phi i32 [ %34, %client_open_proxy.exit ], [ 0, %2 ]
+35:                                               ; preds = %16, %client_open_proxy.exit, %2
+  %.025 = phi i32 [ 0, %2 ], [ %19, %16 ], [ %34, %client_open_proxy.exit ]
   ret i32 %.025
 }
 
@@ -1795,17 +1794,20 @@ define dso_local ptr @__archive_read_filter_ahead(ptr noundef %0, i64 noundef %1
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 176
   %96 = load ptr, ptr %95, align 8, !tbaa !32
   %.not.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i, label %client_switch_proxy.exit, label %97
+  br i1 %.not.i.i, label %client_open_proxy.exit.i, label %97
 
 97:                                               ; preds = %93
   %98 = tail call i32 %96(ptr noundef nonnull %94, ptr noundef %81) #15
+  br label %client_open_proxy.exit.i
+
+client_open_proxy.exit.i:                         ; preds = %97, %93
+  %.0.i.i = phi i32 [ %98, %97 ], [ 0, %93 ]
+  %99 = tail call i32 @llvm.smin.i32(i32 %.1.i, i32 %.0.i.i)
   br label %client_switch_proxy.exit
 
-client_switch_proxy.exit:                         ; preds = %84, %93, %97
-  %.024.i = phi i32 [ %86, %84 ], [ %.1.i, %93 ], [ %.1.i, %97 ]
-  %.0.i = phi i32 [ %86, %84 ], [ 0, %93 ], [ %98, %97 ]
-  %99 = tail call i32 @llvm.smin.i32(i32 %.024.i, i32 %.0.i)
-  %100 = icmp eq i32 %99, 0
+client_switch_proxy.exit:                         ; preds = %84, %client_open_proxy.exit.i
+  %.025.i = phi i32 [ %86, %84 ], [ %99, %client_open_proxy.exit.i ]
+  %100 = icmp eq i32 %.025.i, 0
   br i1 %100, label %.backedge, label %101
 
 101:                                              ; preds = %client_switch_proxy.exit, %68
@@ -2040,7 +2042,7 @@ define dso_local range(i64 -30, -9223372036854775808) i64 @__archive_read_filter
   %49 = icmp eq i64 %48, 0
   %50 = icmp eq i64 %48, %.185.i
   %or.cond4550.i.i = or i1 %49, %50
-  br i1 %or.cond4550.i.i, label %client_skip_proxy.exit.thread107.i, label %.lr.ph.i.i
+  br i1 %or.cond4550.i.i, label %client_skip_proxy.exit.thread106.i, label %.lr.ph.i.i
 
 51:                                               ; preds = %.lr.ph.i.i
   %52 = sub nsw i64 %.03551.i.i, %62
@@ -2069,7 +2071,7 @@ define dso_local range(i64 -30, -9223372036854775808) i64 @__archive_read_filter
   %67 = icmp ne ptr %66, null
   %68 = icmp samesign ugt i64 %.185.i, 65536
   %or.cond.i.i = and i1 %68, %67
-  br i1 %or.cond.i.i, label %69, label %client_skip_proxy.exit.thread107.i
+  br i1 %or.cond.i.i, label %69, label %client_skip_proxy.exit.thread106.i
 
 69:                                               ; preds = %64
   %70 = load i64, ptr %0, align 8, !tbaa !76
@@ -2084,26 +2086,26 @@ define dso_local range(i64 -30, -9223372036854775808) i64 @__archive_read_filter
 client_skip_proxy.exit.i:                         ; preds = %51, %69
   %.0.i.i = phi i64 [ %75, %69 ], [ %58, %51 ]
   %76 = icmp slt i64 %.0.i.i, 0
-  br i1 %76, label %client_skip_proxy.exit.thread.i, label %client_skip_proxy.exit.thread107.i
+  br i1 %76, label %client_skip_proxy.exit.thread.i, label %client_skip_proxy.exit.thread106.i
 
 client_skip_proxy.exit.thread.i:                  ; preds = %.lr.ph.i.i, %client_skip_proxy.exit.i, %69
-  %.0.i105.i = phi i64 [ %.0.i.i, %client_skip_proxy.exit.i ], [ -30, %69 ], [ -30, %.lr.ph.i.i ]
+  %.0.i104.i = phi i64 [ %.0.i.i, %client_skip_proxy.exit.i ], [ -30, %69 ], [ -30, %.lr.ph.i.i ]
   store i8 1, ptr %7, align 2, !tbaa !108
   br label %advance_file_pointer.exit
 
-client_skip_proxy.exit.thread107.i:               ; preds = %client_skip_proxy.exit.i, %64, %.preheader.i.i
-  %.0.i109.i = phi i64 [ %.0.i.i, %client_skip_proxy.exit.i ], [ %48, %.preheader.i.i ], [ 0, %64 ]
+client_skip_proxy.exit.thread106.i:               ; preds = %client_skip_proxy.exit.i, %64, %.preheader.i.i
+  %.0.i108.i = phi i64 [ %.0.i.i, %client_skip_proxy.exit.i ], [ %48, %.preheader.i.i ], [ 0, %64 ]
   %77 = load i64, ptr %0, align 8, !tbaa !76
-  %78 = add nsw i64 %77, %.0.i109.i
+  %78 = add nsw i64 %77, %.0.i108.i
   store i64 %78, ptr %0, align 8, !tbaa !76
-  %79 = add nsw i64 %.0.i109.i, %.1.i
-  %80 = sub nsw i64 %.185.i, %.0.i109.i
+  %79 = add nsw i64 %.0.i108.i, %.1.i
+  %80 = sub nsw i64 %.185.i, %.0.i108.i
   %81 = icmp eq i64 %80, 0
   br i1 %81, label %advance_file_pointer.exit, label %82
 
-82:                                               ; preds = %client_skip_proxy.exit.thread107.i, %34
-  %.286.i = phi i64 [ %80, %client_skip_proxy.exit.thread107.i ], [ %.185.i, %34 ]
-  %.2.i = phi i64 [ %79, %client_skip_proxy.exit.thread107.i ], [ %.1.i, %34 ]
+82:                                               ; preds = %client_skip_proxy.exit.thread106.i, %34
+  %.286.i = phi i64 [ %80, %client_skip_proxy.exit.thread106.i ], [ %.185.i, %34 ]
+  %.2.i = phi i64 [ %79, %client_skip_proxy.exit.thread106.i ], [ %.1.i, %34 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2179,17 +2181,20 @@ client_skip_proxy.exit.thread107.i:               ; preds = %client_skip_proxy.e
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 176
   %123 = load ptr, ptr %122, align 8, !tbaa !32
   %.not.i.i.i = icmp eq ptr %123, null
-  br i1 %.not.i.i.i, label %client_switch_proxy.exit.i, label %124
+  br i1 %.not.i.i.i, label %client_open_proxy.exit.i.i, label %124
 
 124:                                              ; preds = %120
   %125 = tail call i32 %123(ptr noundef nonnull %121, ptr noundef %108) #15
+  br label %client_open_proxy.exit.i.i
+
+client_open_proxy.exit.i.i:                       ; preds = %124, %120
+  %.0.i.i.i = phi i32 [ %125, %124 ], [ 0, %120 ]
+  %126 = tail call i32 @llvm.smin.i32(i32 %.1.i.i, i32 %.0.i.i.i)
   br label %client_switch_proxy.exit.i
 
-client_switch_proxy.exit.i:                       ; preds = %124, %120, %111
-  %.024.i.i = phi i32 [ %113, %111 ], [ %.1.i.i, %120 ], [ %.1.i.i, %124 ]
-  %.0.i103.i = phi i32 [ %113, %111 ], [ 0, %120 ], [ %125, %124 ]
-  %126 = tail call i32 @llvm.smin.i32(i32 %.024.i.i, i32 %.0.i103.i)
-  %127 = icmp eq i32 %126, 0
+client_switch_proxy.exit.i:                       ; preds = %client_open_proxy.exit.i.i, %111
+  %.025.i.i = phi i32 [ %113, %111 ], [ %126, %client_open_proxy.exit.i.i ]
+  %127 = icmp eq i32 %.025.i.i, 0
   br i1 %127, label %87, label %128
 
 128:                                              ; preds = %client_switch_proxy.exit.i, %95
@@ -2225,8 +2230,8 @@ client_switch_proxy.exit.i:                       ; preds = %124, %120, %111
   %144 = sub nsw i64 %.387.ph.i, %90
   br label %.outer.i
 
-advance_file_pointer.exit:                        ; preds = %6, %32, %client_skip_proxy.exit.thread.i, %client_skip_proxy.exit.thread107.i, %92, %128, %131
-  %.0.i = phi i64 [ %.0.i105.i, %client_skip_proxy.exit.thread.i ], [ %90, %92 ], [ %.3.ph.i, %128 ], [ %137, %131 ], [ -1, %6 ], [ %.1.i, %32 ], [ %79, %client_skip_proxy.exit.thread107.i ]
+advance_file_pointer.exit:                        ; preds = %6, %32, %client_skip_proxy.exit.thread.i, %client_skip_proxy.exit.thread106.i, %92, %128, %131
+  %.0.i = phi i64 [ %.0.i104.i, %client_skip_proxy.exit.thread.i ], [ %90, %92 ], [ %.3.ph.i, %128 ], [ %137, %131 ], [ -1, %6 ], [ %.1.i, %32 ], [ %79, %client_skip_proxy.exit.thread106.i ]
   %145 = icmp eq i64 %.0.i, %1
   br i1 %145, label %149, label %146
 
@@ -2275,27 +2280,27 @@ define dso_local i64 @__archive_read_filter_seek(ptr noundef captures(none) %0, 
   switch i32 %2, label %.loopexit [
     i32 1, label %26
     i32 0, label %29
-    i32 2, label %.preheader181
+    i32 2, label %.preheader179
   ]
 
-.preheader181:                                    ; preds = %13
+.preheader179:                                    ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 240
   %17 = load ptr, ptr %16, align 8, !tbaa !119
   %18 = load i64, ptr %17, align 8, !tbaa !52
   %19 = icmp slt i64 %18, 0
   br i1 %19, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader181
+.lr.ph:                                           ; preds = %.preheader179
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 224
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !120
   %23 = icmp slt i64 %22, 0
-  br i1 %23, label %._crit_edge, label %.lr.ph317.preheader
+  br i1 %23, label %._crit_edge, label %.lr.ph307.preheader
 
-.lr.ph317.preheader:                              ; preds = %.lr.ph
+.lr.ph307.preheader:                              ; preds = %.lr.ph
   %24 = load i32, ptr %20, align 8, !tbaa !121
   %25 = zext i32 %24 to i64
-  br label %.lr.ph317
+  br label %.lr.ph307
 
 26:                                               ; preds = %13
   %27 = load i64, ptr %0, align 8, !tbaa !76
@@ -2308,53 +2313,53 @@ define dso_local i64 @__archive_read_filter_seek(ptr noundef captures(none) %0, 
   %31 = load ptr, ptr %30, align 8, !tbaa !119
   %32 = load i64, ptr %31, align 8, !tbaa !52
   %33 = icmp slt i64 %32, 0
-  br i1 %33, label %._crit_edge229, label %.lr.ph228
+  br i1 %33, label %._crit_edge225, label %.lr.ph224
 
-.lr.ph228:                                        ; preds = %29
+.lr.ph224:                                        ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 224
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !120
   %37 = icmp slt i64 %36, 0
-  br i1 %37, label %._crit_edge229, label %.lr.ph331
+  br i1 %37, label %._crit_edge225, label %.lr.ph321
 
-.lr.ph331:                                        ; preds = %.lr.ph228, %46
-  %38 = phi i64 [ %49, %46 ], [ %36, %.lr.ph228 ]
-  %39 = phi i64 [ %40, %46 ], [ %32, %.lr.ph228 ]
-  %indvars.iv261330 = phi i64 [ %indvars.iv.next262, %46 ], [ 0, %.lr.ph228 ]
+.lr.ph321:                                        ; preds = %.lr.ph224, %46
+  %38 = phi i64 [ %49, %46 ], [ %36, %.lr.ph224 ]
+  %39 = phi i64 [ %40, %46 ], [ %32, %.lr.ph224 ]
+  %indvars.iv255320 = phi i64 [ %indvars.iv.next256, %46 ], [ 0, %.lr.ph224 ]
   %40 = add nuw nsw i64 %38, %39
   %41 = add nsw i64 %40, -1
   %42 = icmp sgt i64 %41, %.0128
-  br i1 %42, label %._crit_edge229.loopexit.loopexit, label %43
+  br i1 %42, label %._crit_edge225.loopexit.loopexit, label %43
 
-43:                                               ; preds = %.lr.ph331
-  %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261330, 1
+43:                                               ; preds = %.lr.ph321
+  %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255320, 1
   %44 = load i32, ptr %34, align 8, !tbaa !121
   %45 = zext i32 %44 to i64
-  %.not158 = icmp samesign ult i64 %indvars.iv.next262, %45
-  br i1 %.not158, label %46, label %._crit_edge229.loopexit.loopexit
+  %.not158 = icmp samesign ult i64 %indvars.iv.next256, %45
+  br i1 %.not158, label %46, label %._crit_edge225.loopexit.loopexit
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %31, i64 %indvars.iv.next262
+  %47 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %31, i64 %indvars.iv.next256
   store i64 %40, ptr %47, align 8, !tbaa !52
-  %48 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %31, i64 %indvars.iv.next262, i32 1
+  %48 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %31, i64 %indvars.iv.next256, i32 1
   %49 = load i64, ptr %48, align 8, !tbaa !120
   %50 = icmp slt i64 %49, 0
-  br i1 %50, label %._crit_edge229.loopexit.loopexit, label %.lr.ph331
+  br i1 %50, label %._crit_edge225.loopexit.loopexit, label %.lr.ph321
 
-._crit_edge229.loopexit.loopexit:                 ; preds = %46, %.lr.ph331, %43
-  %indvars.iv261.lcssa.ph = phi i64 [ %indvars.iv261330, %43 ], [ %indvars.iv261330, %.lr.ph331 ], [ %indvars.iv.next262, %46 ]
-  %51 = trunc nuw i64 %indvars.iv261.lcssa.ph to i32
-  br label %._crit_edge229
+._crit_edge225.loopexit.loopexit:                 ; preds = %46, %.lr.ph321, %43
+  %indvars.iv255.lcssa.ph = phi i64 [ %indvars.iv255320, %43 ], [ %indvars.iv255320, %.lr.ph321 ], [ %indvars.iv.next256, %46 ]
+  %51 = trunc nuw i64 %indvars.iv255.lcssa.ph to i32
+  br label %._crit_edge225
 
-._crit_edge229:                                   ; preds = %.lr.ph228, %._crit_edge229.loopexit.loopexit, %29
-  %.0.lcssa = phi i32 [ 0, %29 ], [ 0, %.lr.ph228 ], [ %51, %._crit_edge229.loopexit.loopexit ]
+._crit_edge225:                                   ; preds = %.lr.ph224, %._crit_edge225.loopexit.loopexit, %29
+  %.0.lcssa = phi i32 [ 0, %29 ], [ 0, %.lr.ph224 ], [ %51, %._crit_edge225.loopexit.loopexit ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %53 = getelementptr inbounds nuw i8, ptr %15, i64 224
   br label %54
 
-54:                                               ; preds = %104, %._crit_edge229
-  %55 = phi ptr [ %15, %._crit_edge229 ], [ %.pre266, %104 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge229 ], [ %102, %104 ]
+54:                                               ; preds = %104, %._crit_edge225
+  %55 = phi ptr [ %15, %._crit_edge225 ], [ %.pre260, %104 ]
+  %.1 = phi i32 [ %.0.lcssa, %._crit_edge225 ], [ %102, %104 ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 228
   %57 = load i32, ptr %56, align 4, !tbaa !78
   %58 = icmp eq i32 %57, %.1
@@ -2397,29 +2402,32 @@ define dso_local i64 @__archive_read_filter_seek(ptr noundef captures(none) %0, 
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 176
   %79 = load ptr, ptr %78, align 8, !tbaa !32
   %.not.i.i = icmp eq ptr %79, null
-  br i1 %.not.i.i, label %client_switch_proxy.exit, label %80
+  br i1 %.not.i.i, label %client_open_proxy.exit.i, label %80
 
 80:                                               ; preds = %76
   %81 = tail call i32 %79(ptr noundef nonnull %77, ptr noundef %64) #15
+  br label %client_open_proxy.exit.i
+
+client_open_proxy.exit.i:                         ; preds = %80, %76
+  %.0.i.i = phi i32 [ %81, %80 ], [ 0, %76 ]
+  %82 = tail call i32 @llvm.smin.i32(i32 %.1.i, i32 %.0.i.i)
   br label %client_switch_proxy.exit
 
-client_switch_proxy.exit:                         ; preds = %67, %76, %80
-  %.024.i = phi i32 [ %69, %67 ], [ %.1.i, %76 ], [ %.1.i, %80 ]
-  %.0.i = phi i32 [ %69, %67 ], [ 0, %76 ], [ %81, %80 ]
-  %82 = tail call i32 @llvm.smin.i32(i32 %.024.i, i32 %.0.i)
-  %.not159 = icmp eq i32 %82, 0
+client_switch_proxy.exit:                         ; preds = %67, %client_open_proxy.exit.i
+  %.025.i = phi i32 [ %69, %67 ], [ %82, %client_open_proxy.exit.i ]
+  %.not159 = icmp eq i32 %.025.i, 0
   br i1 %.not159, label %client_switch_proxy.exit.client_switch_proxy.exit.thread_crit_edge, label %83
 
 client_switch_proxy.exit.client_switch_proxy.exit.thread_crit_edge: ; preds = %client_switch_proxy.exit
-  %.pre267 = load ptr, ptr %14, align 8, !tbaa !41
+  %.pre261 = load ptr, ptr %14, align 8, !tbaa !41
   br label %client_switch_proxy.exit.thread
 
 83:                                               ; preds = %client_switch_proxy.exit
-  %84 = sext i32 %82 to i64
+  %84 = sext i32 %.025.i to i64
   br label %.loopexit
 
 client_switch_proxy.exit.thread:                  ; preds = %client_switch_proxy.exit.client_switch_proxy.exit.thread_crit_edge, %54
-  %85 = phi ptr [ %.pre267, %client_switch_proxy.exit.client_switch_proxy.exit.thread_crit_edge ], [ %55, %54 ]
+  %85 = phi ptr [ %.pre261, %client_switch_proxy.exit.client_switch_proxy.exit.thread_crit_edge ], [ %55, %54 ]
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 200
   %87 = load ptr, ptr %86, align 8, !tbaa !81
   %88 = icmp eq ptr %87, null
@@ -2457,7 +2465,7 @@ client_seek_proxy.exit:                           ; preds = %client_switch_proxy
   %105 = zext i32 %102 to i64
   %106 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %93, i64 %105
   store i64 %98, ptr %106, align 8, !tbaa !52
-  %.pre266 = load ptr, ptr %14, align 8, !tbaa !41
+  %.pre260 = load ptr, ptr %14, align 8, !tbaa !41
   br label %54
 
 107:                                              ; preds = %92, %101
@@ -2470,30 +2478,30 @@ client_seek_proxy.exit:                           ; preds = %client_switch_proxy
   %111 = icmp slt i64 %110, 0
   br i1 %111, label %.loopexit, label %199
 
-.lr.ph317:                                        ; preds = %.lr.ph317.preheader, %114
-  %112 = phi i64 [ %118, %114 ], [ %22, %.lr.ph317.preheader ]
-  %113 = phi i64 [ %115, %114 ], [ %18, %.lr.ph317.preheader ]
-  %indvars.iv316 = phi i64 [ %indvars.iv.next, %114 ], [ 0, %.lr.ph317.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv316, 1
+.lr.ph307:                                        ; preds = %.lr.ph307.preheader, %114
+  %112 = phi i64 [ %118, %114 ], [ %22, %.lr.ph307.preheader ]
+  %113 = phi i64 [ %115, %114 ], [ %18, %.lr.ph307.preheader ]
+  %indvars.iv306 = phi i64 [ %indvars.iv.next, %114 ], [ 0, %.lr.ph307.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv306, 1
   %.not153 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %.not153, label %114, label %._crit_edge.loopexit.loopexit
 
-114:                                              ; preds = %.lr.ph317
+114:                                              ; preds = %.lr.ph307
   %115 = add nuw nsw i64 %112, %113
   %116 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %17, i64 %indvars.iv.next
   store i64 %115, ptr %116, align 8, !tbaa !52
   %117 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %17, i64 %indvars.iv.next, i32 1
   %118 = load i64, ptr %117, align 8, !tbaa !120
   %119 = icmp slt i64 %118, 0
-  br i1 %119, label %._crit_edge.loopexit.loopexit, label %.lr.ph317
+  br i1 %119, label %._crit_edge.loopexit.loopexit, label %.lr.ph307
 
-._crit_edge.loopexit.loopexit:                    ; preds = %114, %.lr.ph317
-  %indvars.iv.lcssa.ph = phi i64 [ %indvars.iv316, %.lr.ph317 ], [ %indvars.iv.next, %114 ]
+._crit_edge.loopexit.loopexit:                    ; preds = %114, %.lr.ph307
+  %indvars.iv.lcssa.ph = phi i64 [ %indvars.iv306, %.lr.ph307 ], [ %indvars.iv.next, %114 ]
   %120 = trunc nuw i64 %indvars.iv.lcssa.ph to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge.loopexit.loopexit, %.preheader181
-  %.3.lcssa = phi i32 [ 0, %.preheader181 ], [ 0, %.lr.ph ], [ %120, %._crit_edge.loopexit.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge.loopexit.loopexit, %.preheader179
+  %.3.lcssa = phi i32 [ 0, %.preheader179 ], [ 0, %.lr.ph ], [ %120, %._crit_edge.loopexit.loopexit ]
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %122 = getelementptr inbounds nuw i8, ptr %15, i64 224
   br label %123
@@ -2504,7 +2512,7 @@ client_seek_proxy.exit:                           ; preds = %client_switch_proxy
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 228
   %126 = load i32, ptr %125, align 4, !tbaa !78
   %127 = icmp eq i32 %126, %.4
-  br i1 %127, label %client_switch_proxy.exit171.thread, label %128
+  br i1 %127, label %client_switch_proxy.exit169.thread, label %128
 
 128:                                              ; preds = %123
   store i32 %.4, ptr %125, align 4, !tbaa !78
@@ -2515,73 +2523,76 @@ client_seek_proxy.exit:                           ; preds = %client_switch_proxy
   %133 = load ptr, ptr %132, align 8, !tbaa !37
   %134 = getelementptr inbounds nuw i8, ptr %124, i64 216
   %135 = load ptr, ptr %134, align 8, !tbaa !79
-  %.not.i162 = icmp eq ptr %135, null
-  br i1 %.not.i162, label %139, label %136
+  %.not.i161 = icmp eq ptr %135, null
+  br i1 %.not.i161, label %139, label %136
 
 136:                                              ; preds = %128
   %137 = load ptr, ptr %121, align 8, !tbaa !46
   %138 = tail call i32 %135(ptr noundef nonnull %124, ptr noundef %137, ptr noundef %133) #15
   store ptr %133, ptr %121, align 8, !tbaa !46
-  br label %client_switch_proxy.exit171
+  br label %client_switch_proxy.exit169
 
 139:                                              ; preds = %128
   %140 = getelementptr inbounds nuw i8, ptr %124, i64 208
   %141 = load ptr, ptr %140, align 8, !tbaa !34
-  %.not29.i167 = icmp eq ptr %141, null
-  br i1 %.not29.i167, label %145, label %142
+  %.not29.i163 = icmp eq ptr %141, null
+  br i1 %.not29.i163, label %145, label %142
 
 142:                                              ; preds = %139
   %143 = load ptr, ptr %121, align 8, !tbaa !46
   %144 = tail call i32 %141(ptr noundef nonnull %124, ptr noundef %143) #15
-  %.pre.i168 = load ptr, ptr %14, align 8, !tbaa !41
+  %.pre.i164 = load ptr, ptr %14, align 8, !tbaa !41
   br label %145
 
 145:                                              ; preds = %142, %139
-  %146 = phi ptr [ %.pre.i168, %142 ], [ %124, %139 ]
-  %.1.i169 = phi i32 [ %144, %142 ], [ 0, %139 ]
+  %146 = phi ptr [ %.pre.i164, %142 ], [ %124, %139 ]
+  %.1.i165 = phi i32 [ %144, %142 ], [ 0, %139 ]
   store ptr %133, ptr %121, align 8, !tbaa !46
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 176
   %148 = load ptr, ptr %147, align 8, !tbaa !32
-  %.not.i.i170 = icmp eq ptr %148, null
-  br i1 %.not.i.i170, label %client_switch_proxy.exit171, label %149
+  %.not.i.i166 = icmp eq ptr %148, null
+  br i1 %.not.i.i166, label %client_open_proxy.exit.i167, label %149
 
 149:                                              ; preds = %145
   %150 = tail call i32 %148(ptr noundef nonnull %146, ptr noundef %133) #15
-  br label %client_switch_proxy.exit171
+  br label %client_open_proxy.exit.i167
 
-client_switch_proxy.exit171:                      ; preds = %136, %145, %149
-  %.024.i164 = phi i32 [ %138, %136 ], [ %.1.i169, %145 ], [ %.1.i169, %149 ]
-  %.0.i165 = phi i32 [ %138, %136 ], [ 0, %145 ], [ %150, %149 ]
-  %151 = tail call i32 @llvm.smin.i32(i32 %.024.i164, i32 %.0.i165)
-  %.not154 = icmp eq i32 %151, 0
-  br i1 %.not154, label %client_switch_proxy.exit171.client_switch_proxy.exit171.thread_crit_edge, label %152
+client_open_proxy.exit.i167:                      ; preds = %149, %145
+  %.0.i.i168 = phi i32 [ %150, %149 ], [ 0, %145 ]
+  %151 = tail call i32 @llvm.smin.i32(i32 %.1.i165, i32 %.0.i.i168)
+  br label %client_switch_proxy.exit169
 
-client_switch_proxy.exit171.client_switch_proxy.exit171.thread_crit_edge: ; preds = %client_switch_proxy.exit171
-  %.pre265 = load ptr, ptr %14, align 8, !tbaa !41
-  br label %client_switch_proxy.exit171.thread
+client_switch_proxy.exit169:                      ; preds = %136, %client_open_proxy.exit.i167
+  %.025.i162 = phi i32 [ %138, %136 ], [ %151, %client_open_proxy.exit.i167 ]
+  %.not154 = icmp eq i32 %.025.i162, 0
+  br i1 %.not154, label %client_switch_proxy.exit169.client_switch_proxy.exit169.thread_crit_edge, label %152
 
-152:                                              ; preds = %client_switch_proxy.exit171
-  %153 = sext i32 %151 to i64
+client_switch_proxy.exit169.client_switch_proxy.exit169.thread_crit_edge: ; preds = %client_switch_proxy.exit169
+  %.pre259 = load ptr, ptr %14, align 8, !tbaa !41
+  br label %client_switch_proxy.exit169.thread
+
+152:                                              ; preds = %client_switch_proxy.exit169
+  %153 = sext i32 %.025.i162 to i64
   br label %.loopexit
 
-client_switch_proxy.exit171.thread:               ; preds = %client_switch_proxy.exit171.client_switch_proxy.exit171.thread_crit_edge, %123
-  %154 = phi ptr [ %.pre265, %client_switch_proxy.exit171.client_switch_proxy.exit171.thread_crit_edge ], [ %124, %123 ]
+client_switch_proxy.exit169.thread:               ; preds = %client_switch_proxy.exit169.client_switch_proxy.exit169.thread_crit_edge, %123
+  %154 = phi ptr [ %.pre259, %client_switch_proxy.exit169.client_switch_proxy.exit169.thread_crit_edge ], [ %124, %123 ]
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 200
   %156 = load ptr, ptr %155, align 8, !tbaa !81
   %157 = icmp eq ptr %156, null
-  br i1 %157, label %client_seek_proxy.exit173.thread, label %client_seek_proxy.exit173
+  br i1 %157, label %client_seek_proxy.exit171.thread, label %client_seek_proxy.exit171
 
-client_seek_proxy.exit173.thread:                 ; preds = %client_switch_proxy.exit171.thread
+client_seek_proxy.exit171.thread:                 ; preds = %client_switch_proxy.exit169.thread
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %154, i32 noundef -1, ptr noundef nonnull @.str.36) #15
   br label %.loopexit
 
-client_seek_proxy.exit173:                        ; preds = %client_switch_proxy.exit171.thread
+client_seek_proxy.exit171:                        ; preds = %client_switch_proxy.exit169.thread
   %158 = load ptr, ptr %121, align 8, !tbaa !46
   %159 = tail call i64 %156(ptr noundef nonnull %154, ptr noundef %158, i64 noundef 0, i32 noundef 2) #15
   %160 = icmp slt i64 %159, 0
   br i1 %160, label %.loopexit, label %161
 
-161:                                              ; preds = %client_seek_proxy.exit173
+161:                                              ; preds = %client_seek_proxy.exit171
   %162 = load ptr, ptr %16, align 8, !tbaa !119
   %163 = zext i32 %.4 to i64
   %164 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %162, i64 %163, i32 1
@@ -2596,15 +2607,15 @@ client_seek_proxy.exit173:                        ; preds = %client_switch_proxy
 
 .preheader:                                       ; preds = %161
   %170 = add nsw i64 %167, %1
-  %.not156211 = icmp slt i64 %170, %166
-  br i1 %.not156211, label %.lr.ph215.preheader, label %._crit_edge216
+  %.not156207 = icmp slt i64 %170, %166
+  br i1 %.not156207, label %.lr.ph211.preheader, label %._crit_edge212
 
-.lr.ph215.preheader:                              ; preds = %.preheader
+.lr.ph211.preheader:                              ; preds = %.preheader
   %171 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %162, i64 %163, i32 1
   %172 = load i64, ptr %171, align 8, !tbaa !120
   %173 = add nsw i64 %172, %1
   %174 = icmp eq i32 %.4, 0
-  br i1 %174, label %._crit_edge216, label %.lr.ph321
+  br i1 %174, label %._crit_edge212, label %.lr.ph311
 
 175:                                              ; preds = %161
   %176 = zext i32 %168 to i64
@@ -2613,17 +2624,17 @@ client_seek_proxy.exit173:                        ; preds = %client_switch_proxy
   %.pre = load ptr, ptr %14, align 8, !tbaa !41
   br label %123
 
-.lr.ph215:                                        ; preds = %.lr.ph321
+.lr.ph211:                                        ; preds = %.lr.ph311
   %178 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %162, i64 %184, i32 1
   %179 = load i64, ptr %178, align 8, !tbaa !120
   %180 = add nsw i64 %179, %182
   %181 = icmp eq i32 %183, 0
-  br i1 %181, label %._crit_edge216, label %.lr.ph321
+  br i1 %181, label %._crit_edge212, label %.lr.ph311
 
-.lr.ph321:                                        ; preds = %.lr.ph215.preheader, %.lr.ph215
-  %182 = phi i64 [ %180, %.lr.ph215 ], [ %173, %.lr.ph215.preheader ]
-  %.5214320 = phi i32 [ %183, %.lr.ph215 ], [ %.4, %.lr.ph215.preheader ]
-  %183 = add i32 %.5214320, -1
+.lr.ph311:                                        ; preds = %.lr.ph211.preheader, %.lr.ph211
+  %182 = phi i64 [ %180, %.lr.ph211 ], [ %173, %.lr.ph211.preheader ]
+  %.5210310 = phi i32 [ %183, %.lr.ph211 ], [ %.4, %.lr.ph211.preheader ]
+  %183 = add i32 %.5210310, -1
   %184 = zext i32 %183 to i64
   %185 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %162, i64 %184
   %186 = load i64, ptr %185, align 8, !tbaa !52
@@ -2632,35 +2643,35 @@ client_seek_proxy.exit173:                        ; preds = %client_switch_proxy
   %189 = add nsw i64 %188, %186
   %190 = add nsw i64 %189, %182
   %.not156 = icmp slt i64 %190, %186
-  br i1 %.not156, label %.lr.ph215, label %._crit_edge216
+  br i1 %.not156, label %.lr.ph211, label %._crit_edge212
 
-._crit_edge216:                                   ; preds = %.lr.ph215, %.lr.ph321, %.lr.ph215.preheader, %.preheader
-  %.1126.lcssa = phi i64 [ %167, %.preheader ], [ %167, %.lr.ph215.preheader ], [ %189, %.lr.ph321 ], [ %189, %.lr.ph215 ]
-  %.5.lcssa = phi i32 [ %.4, %.preheader ], [ 0, %.lr.ph215.preheader ], [ %183, %.lr.ph321 ], [ 0, %.lr.ph215 ]
-  %.lcssa193 = phi i64 [ %166, %.preheader ], [ %166, %.lr.ph215.preheader ], [ %186, %.lr.ph321 ], [ %186, %.lr.ph215 ]
-  %.2130 = phi i64 [ %1, %.preheader ], [ %173, %.lr.ph215.preheader ], [ %182, %.lr.ph321 ], [ %180, %.lr.ph215 ]
+._crit_edge212:                                   ; preds = %.lr.ph211, %.lr.ph311, %.lr.ph211.preheader, %.preheader
+  %.1126.lcssa = phi i64 [ %167, %.preheader ], [ %167, %.lr.ph211.preheader ], [ %189, %.lr.ph311 ], [ %189, %.lr.ph211 ]
+  %.5.lcssa = phi i32 [ %.4, %.preheader ], [ 0, %.lr.ph211.preheader ], [ %183, %.lr.ph311 ], [ 0, %.lr.ph211 ]
+  %.lcssa190 = phi i64 [ %166, %.preheader ], [ %166, %.lr.ph211.preheader ], [ %186, %.lr.ph311 ], [ %186, %.lr.ph211 ]
+  %.2130 = phi i64 [ %1, %.preheader ], [ %173, %.lr.ph211.preheader ], [ %182, %.lr.ph311 ], [ %180, %.lr.ph211 ]
   %191 = tail call fastcc i32 @client_switch_proxy(ptr noundef %0, i32 noundef %.5.lcssa)
   %.not157 = icmp eq i32 %191, 0
   br i1 %.not157, label %194, label %192
 
-192:                                              ; preds = %._crit_edge216
+192:                                              ; preds = %._crit_edge212
   %193 = sext i32 %191 to i64
   br label %.loopexit
 
-194:                                              ; preds = %._crit_edge216
-  %195 = sub i64 %.1126.lcssa, %.lcssa193
+194:                                              ; preds = %._crit_edge212
+  %195 = sub i64 %.1126.lcssa, %.lcssa190
   %196 = add i64 %195, %.2130
   %197 = tail call fastcc i64 @client_seek_proxy(ptr noundef %0, i64 noundef %196, i32 noundef 0)
   %198 = icmp slt i64 %197, 0
-  br i1 %198, label %.loopexit, label %._crit_edge268
+  br i1 %198, label %.loopexit, label %._crit_edge262
 
-._crit_edge268:                                   ; preds = %194
-  %.pre269 = zext i32 %.5.lcssa to i64
+._crit_edge262:                                   ; preds = %194
+  %.pre263 = zext i32 %.5.lcssa to i64
   br label %199
 
-199:                                              ; preds = %._crit_edge268, %109
-  %.pre-phi = phi i64 [ %.pre269, %._crit_edge268 ], [ %94, %109 ]
-  %.0125 = phi i64 [ %197, %._crit_edge268 ], [ %110, %109 ]
+199:                                              ; preds = %._crit_edge262, %109
+  %.pre-phi = phi i64 [ %.pre263, %._crit_edge262 ], [ %94, %109 ]
+  %.0125 = phi i64 [ %197, %._crit_edge262 ], [ %110, %109 ]
   %200 = getelementptr inbounds nuw i8, ptr %15, i64 240
   %201 = load ptr, ptr %200, align 8, !tbaa !119
   %202 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %201, i64 %.pre-phi
@@ -2683,8 +2694,8 @@ client_seek_proxy.exit173:                        ; preds = %client_switch_proxy
   store i8 0, ptr %212, align 8, !tbaa !115
   br label %.loopexit
 
-.loopexit:                                        ; preds = %client_seek_proxy.exit173, %client_seek_proxy.exit, %client_seek_proxy.exit173.thread, %client_seek_proxy.exit.thread, %199, %206, %13, %194, %109, %107, %9, %3, %6, %192, %152, %83
-  %.0127 = phi i64 [ %84, %83 ], [ %153, %152 ], [ %193, %192 ], [ -30, %6 ], [ -30, %3 ], [ -25, %9 ], [ -30, %107 ], [ %110, %109 ], [ %197, %194 ], [ -30, %13 ], [ %204, %206 ], [ %204, %199 ], [ -25, %client_seek_proxy.exit.thread ], [ -25, %client_seek_proxy.exit173.thread ], [ %90, %client_seek_proxy.exit ], [ %159, %client_seek_proxy.exit173 ]
+.loopexit:                                        ; preds = %client_seek_proxy.exit171, %client_seek_proxy.exit, %client_seek_proxy.exit171.thread, %client_seek_proxy.exit.thread, %199, %206, %13, %194, %109, %107, %9, %3, %6, %192, %152, %83
+  %.0127 = phi i64 [ %84, %83 ], [ %153, %152 ], [ %193, %192 ], [ -30, %6 ], [ -30, %3 ], [ -25, %9 ], [ -30, %107 ], [ %110, %109 ], [ %197, %194 ], [ -30, %13 ], [ %204, %206 ], [ %204, %199 ], [ -25, %client_seek_proxy.exit.thread ], [ -25, %client_seek_proxy.exit171.thread ], [ %90, %client_seek_proxy.exit ], [ %159, %client_seek_proxy.exit171 ]
   ret i64 %.0127
 }
 

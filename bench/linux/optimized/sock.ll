@@ -7276,7 +7276,7 @@ define internal fastcc void @sk_stream_moderate_sndbuf(ptr noundef %0) unnamed_a
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %22, label %16, !prof !8
+  br i1 %15, label %23, label %16, !prof !8
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -7284,16 +7284,16 @@ define internal fastcc void @sk_stream_moderate_sndbuf(ptr noundef %0) unnamed_a
   %19 = add i32 %10, %18
   %20 = sub i32 %14, %19
   %21 = tail call i32 @llvm.smax.i32(i32 %20, i32 0)
-  br label %22
+  %22 = tail call i32 @llvm.umax.i32(i32 %12, i32 %21)
+  br label %23
 
-22:                                               ; preds = %16, %6
-  %23 = phi i32 [ %21, %16 ], [ 0, %6 ]
-  %24 = tail call i32 @llvm.umax.i32(i32 %12, i32 %23)
+23:                                               ; preds = %16, %6
+  %24 = phi i32 [ %22, %16 ], [ %12, %6 ]
   %25 = tail call i32 @llvm.umax.i32(i32 %24, i32 4608)
   store volatile i32 %25, ptr %7, align 4
   br label %26
 
-26:                                               ; preds = %22, %1
+26:                                               ; preds = %23, %1
   ret void
 }
 
@@ -7951,7 +7951,7 @@ define dso_local noundef range(i32 0, 2) i32 @__sk_mem_raise_allocated(ptr nound
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %163 = load i32, ptr %162, align 4
   %164 = icmp eq i32 %163, 0
-  br i1 %164, label %171, label %165, !prof !8
+  br i1 %164, label %172, label %165, !prof !8
 
 165:                                              ; preds = %155
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -7959,18 +7959,18 @@ define dso_local noundef range(i32 0, 2) i32 @__sk_mem_raise_allocated(ptr nound
   %168 = add i32 %159, %167
   %169 = sub i32 %163, %168
   %170 = tail call i32 @llvm.smax.i32(i32 %169, i32 0)
-  br label %171
+  %171 = tail call i32 @llvm.umax.i32(i32 %161, i32 %170)
+  br label %172
 
-171:                                              ; preds = %165, %155
-  %172 = phi i32 [ %170, %165 ], [ 0, %155 ]
-  %173 = tail call i32 @llvm.umax.i32(i32 %161, i32 %172)
+172:                                              ; preds = %165, %155
+  %173 = phi i32 [ %171, %165 ], [ %161, %155 ]
   %174 = tail call i32 @llvm.umax.i32(i32 %173, i32 4608)
   store volatile i32 %174, ptr %156, align 4
   br label %175
 
-175:                                              ; preds = %._crit_edge, %171
-  %176 = phi i32 [ %.pre18, %._crit_edge ], [ %174, %171 ]
-  %177 = phi i32 [ %.pre16, %._crit_edge ], [ %159, %171 ]
+175:                                              ; preds = %._crit_edge, %172
+  %176 = phi i32 [ %.pre18, %._crit_edge ], [ %174, %172 ]
+  %177 = phi i32 [ %.pre16, %._crit_edge ], [ %159, %172 ]
   %178 = add i32 %177, %1
   %179 = icmp slt i32 %178, %176
   br i1 %179, label %180, label %225

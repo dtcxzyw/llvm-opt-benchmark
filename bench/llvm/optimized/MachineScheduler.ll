@@ -12713,58 +12713,64 @@ _ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i: ; preds = %1
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %21, i32 %.01320.i)
   %22 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 8
   %.not.i = icmp eq ptr %22, %8
-  br i1 %.not.i, label %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit.loopexit, label %.lr.ph.i
 
-_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit: ; preds = %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i, %1
-  %.013.lcssa.i = phi i32 [ 0, %1 ], [ %spec.select.i, %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %24 = load ptr, ptr %23, align 8, !tbaa !615
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %26 = load ptr, ptr %25, align 8, !tbaa !621
-  %.not18.i10 = icmp eq ptr %26, %24
+_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit.loopexit: ; preds = %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i
+  %23 = tail call i32 @llvm.umax.i32(i32 %3, i32 %spec.select.i)
+  br label %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit
+
+_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit: ; preds = %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit.loopexit, %1
+  %.013.lcssa.i = phi i32 [ %3, %1 ], [ %23, %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit.loopexit ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %25 = load ptr, ptr %24, align 8, !tbaa !615
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %27 = load ptr, ptr %26, align 8, !tbaa !621
+  %.not18.i10 = icmp eq ptr %27, %25
   br i1 %.not18.i10, label %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit20, label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit, %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14
   %.01320.i12 = phi i32 [ %spec.select.i16, %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14 ], [ 0, %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit ]
-  %.01519.i13 = phi ptr [ %40, %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14 ], [ %24, %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit ]
-  %27 = load ptr, ptr %.01519.i13, align 8, !tbaa !302
-  %28 = load i32, ptr %4, align 8, !tbaa !681
-  %29 = icmp eq i32 %28, 1
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 254
-  %31 = load i8, ptr %30, align 2
-  br i1 %29, label %32, label %35
+  %.01519.i13 = phi ptr [ %41, %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14 ], [ %25, %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit ]
+  %28 = load ptr, ptr %.01519.i13, align 8, !tbaa !302
+  %29 = load i32, ptr %4, align 8, !tbaa !681
+  %30 = icmp eq i32 %29, 1
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 254
+  %32 = load i8, ptr %31, align 2
+  br i1 %30, label %33, label %36
 
-32:                                               ; preds = %.lr.ph.i11
-  %33 = and i8 %31, 2
-  %.not.i.i.i19 = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i19, label %34, label %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14
+33:                                               ; preds = %.lr.ph.i11
+  %34 = and i8 %32, 2
+  %.not.i.i.i19 = icmp eq i8 %34, 0
+  br i1 %.not.i.i.i19, label %35, label %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14
 
-34:                                               ; preds = %32
-  tail call void @_ZN4llvm5SUnit13ComputeHeightEv(ptr noundef nonnull align 8 dereferenceable(255) %27) #31
+35:                                               ; preds = %33
+  tail call void @_ZN4llvm5SUnit13ComputeHeightEv(ptr noundef nonnull align 8 dereferenceable(255) %28) #31
   br label %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14
 
-35:                                               ; preds = %.lr.ph.i11
-  %36 = trunc i8 %31 to i1
-  br i1 %36, label %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14, label %37
+36:                                               ; preds = %.lr.ph.i11
+  %37 = trunc i8 %32 to i1
+  br i1 %37, label %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14, label %38
 
-37:                                               ; preds = %35
-  tail call void @_ZN4llvm5SUnit12ComputeDepthEv(ptr noundef nonnull align 8 dereferenceable(255) %27) #31
+38:                                               ; preds = %36
+  tail call void @_ZN4llvm5SUnit12ComputeDepthEv(ptr noundef nonnull align 8 dereferenceable(255) %28) #31
   br label %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14
 
-_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14: ; preds = %37, %35, %34, %32
-  %.sink.i.i15 = phi i64 [ 244, %32 ], [ 244, %34 ], [ 240, %35 ], [ 240, %37 ]
-  %38 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink.i.i15
-  %39 = load i32, ptr %38, align 4, !tbaa !75
-  %spec.select.i16 = tail call i32 @llvm.umax.i32(i32 %39, i32 %.01320.i12)
-  %40 = getelementptr inbounds nuw i8, ptr %.01519.i13, i64 8
-  %.not.i17 = icmp eq ptr %40, %26
-  br i1 %.not.i17, label %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit20, label %.lr.ph.i11
+_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14: ; preds = %38, %36, %35, %33
+  %.sink.i.i15 = phi i64 [ 244, %33 ], [ 244, %35 ], [ 240, %36 ], [ 240, %38 ]
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink.i.i15
+  %40 = load i32, ptr %39, align 4, !tbaa !75
+  %spec.select.i16 = tail call i32 @llvm.umax.i32(i32 %40, i32 %.01320.i12)
+  %41 = getelementptr inbounds nuw i8, ptr %.01519.i13, i64 8
+  %.not.i17 = icmp eq ptr %41, %27
+  br i1 %.not.i17, label %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit20.loopexit, label %.lr.ph.i11
 
-_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit20: ; preds = %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14, %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit
-  %.013.lcssa.i18 = phi i32 [ 0, %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit ], [ %spec.select.i16, %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14 ]
-  %.sroa.speculated24 = tail call i32 @llvm.umax.i32(i32 %3, i32 %.013.lcssa.i)
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.sroa.speculated24, i32 %.013.lcssa.i18)
-  ret i32 %.sroa.speculated
+_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit20.loopexit: ; preds = %_ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit.i14
+  %42 = tail call i32 @llvm.umax.i32(i32 %.013.lcssa.i, i32 %spec.select.i16)
+  br label %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit20
+
+_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit20: ; preds = %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit20.loopexit, %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit
+  %.013.lcssa.i18 = phi i32 [ %.013.lcssa.i, %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit ], [ %42, %_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit20.loopexit ]
+  ret i32 %.013.lcssa.i18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -15358,25 +15358,25 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %33
   %54 = icmp ne ptr %2, null
   call void @llvm.assume(i1 %54)
   %55 = icmp eq ptr %1, %2
-  br i1 %55, label %59, label %_ZN4core4iter6traits8iterator8Iterator6min_by17hfbdf82fc98e60d22E.exit.i.i
+  br i1 %55, label %60, label %_ZN4core4iter6traits8iterator8Iterator6min_by17hfbdf82fc98e60d22E.exit.i.i
 
 _ZN4core4iter6traits8iterator8Iterator6min_by17hfbdf82fc98e60d22E.exit.i.i: ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %57 = getelementptr i8, ptr %1, i64 80
   %.val.i.i.i.i.i = load i64, ptr %57, align 8, !noalias !2770, !noundef !4
   %58 = call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hdabd29775622cfd5E.llvm.9060417697508566391"(ptr noundef nonnull %56, ptr noundef nonnull %2, i64 noundef %.val.i.i.i.i.i), !noalias !2776
-  br label %59
+  %59 = call i64 @llvm.bswap.i64(i64 %58)
+  br label %60
 
-59:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6min_by17hfbdf82fc98e60d22E.exit.i.i, %53
-  %60 = phi i64 [ %58, %_ZN4core4iter6traits8iterator8Iterator6min_by17hfbdf82fc98e60d22E.exit.i.i ], [ 0, %53 ]
+60:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6min_by17hfbdf82fc98e60d22E.exit.i.i, %53
+  %61 = phi i64 [ %59, %_ZN4core4iter6traits8iterator8Iterator6min_by17hfbdf82fc98e60d22E.exit.i.i ], [ 0, %53 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !2777
-  %61 = call i64 @llvm.bswap.i64(i64 %60)
   store i64 %61, ptr %13, align 8, !noalias !2777
   call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9bd64ff34b6c4b6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef 8), !noalias !2783
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !2777
   br label %62
 
-62:                                               ; preds = %59, %51
+62:                                               ; preds = %60, %51
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12), !noalias !2784
   store i32 -1, ptr %12, align 4, !noalias !2784
   call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9bd64ff34b6c4b6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef 4), !noalias !2787

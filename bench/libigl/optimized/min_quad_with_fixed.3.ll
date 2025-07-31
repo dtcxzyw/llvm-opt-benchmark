@@ -8657,8 +8657,8 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi1ELin1ELb0EEE
   %120 = fcmp une double %119, 0.000000e+00
   br i1 %120, label %121, label %._crit_edge
 
-._crit_edge.sink.split:                           ; preds = %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE4normEv.exit, %139
-  %.sink = phi double [ %140, %139 ], [ %.scalar.i90, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE4normEv.exit ]
+._crit_edge.sink.split:                           ; preds = %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE4normEv.exit, %140
+  %.sink = phi double [ %141, %140 ], [ %139, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE4normEv.exit ]
   store double %.sink, ptr %118, align 8, !tbaa !7
   br label %._crit_edge
 
@@ -8682,19 +8682,19 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi1ELin1ELb0EEE
   %134 = fmul double %133, %133
   %135 = fmul double %134, %130
   %136 = fcmp ugt double %135, 0x3E50000000000000
-  br i1 %136, label %139, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE4normEv.exit
+  br i1 %136, label %140, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE4normEv.exit
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE4normEv.exit: ; preds = %121
   %gep154 = getelementptr inbounds nuw double, ptr %invariant.gep153, i64 %114
   %137 = load double, ptr %gep154, align 8, !tbaa !7
   %138 = fmul double %137, %137
-  %.scalar.i90 = call noundef double @llvm.sqrt.f64(double %138)
-  store double %.scalar.i90, ptr %131, align 8, !tbaa !7
+  %139 = call double @llvm.sqrt.f64(double %138)
+  store double %139, ptr %131, align 8, !tbaa !7
   br label %._crit_edge.sink.split
 
-139:                                              ; preds = %121
+140:                                              ; preds = %121
   %.scalar = call double @llvm.sqrt.f64(double %130)
-  %140 = fmul double %119, %.scalar
+  %141 = fmul double %119, %.scalar
   br label %._crit_edge.sink.split
 }
 

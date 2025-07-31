@@ -1656,90 +1656,93 @@ define dso_local void @_ZNK4absl12crc_internal5CRC3216UnextendByZeroesEPjm(ptr n
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  br label %12
+  br label %14
 
-12:                                               ; preds = %61, %8
-  %.03042.i = phi i64 [ %2, %8 ], [ %63, %61 ]
-  %.03141.i = phi i32 [ %6, %8 ], [ %.1.i, %61 ]
-  %.03240.i = phi i32 [ 0, %8 ], [ %62, %61 ]
-  %13 = trunc i64 %.03042.i to i32
-  %14 = and i32 %13, 15
-  %.not36.i = icmp eq i32 %14, 0
-  br i1 %.not36.i, label %61, label %15
+12:                                               ; preds = %63
+  %13 = tail call i32 @llvm.bitreverse.i32(i32 %.1.i)
+  br label %_ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_.exit
 
-15:                                               ; preds = %12
-  %16 = add nuw nsw i32 %14, %.03240.i
-  %17 = zext nneg i32 %16 to i64
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %17
-  %18 = load i32, ptr %gep.i, align 4, !tbaa !4
-  %19 = zext i32 %18 to i64
-  %20 = shl nuw nsw i64 %19, 1
-  %21 = shl nuw nsw i64 %19, 2
+14:                                               ; preds = %63, %8
+  %.03042.i = phi i64 [ %2, %8 ], [ %65, %63 ]
+  %.03141.i = phi i32 [ %6, %8 ], [ %.1.i, %63 ]
+  %.03240.i = phi i32 [ 0, %8 ], [ %64, %63 ]
+  %15 = trunc i64 %.03042.i to i32
+  %16 = and i32 %15, 15
+  %.not36.i = icmp eq i32 %16, 0
+  br i1 %.not36.i, label %63, label %17
+
+17:                                               ; preds = %14
+  %18 = add nuw nsw i32 %16, %.03240.i
+  %19 = zext nneg i32 %18 to i64
+  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %19
+  %20 = load i32, ptr %gep.i, align 4, !tbaa !4
+  %21 = zext i32 %20 to i64
+  %22 = shl nuw nsw i64 %21, 1
+  %23 = shl nuw nsw i64 %21, 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
   store i64 0, ptr %4, align 16, !tbaa !29
-  store i64 %20, ptr %9, align 8, !tbaa !29
-  store i64 %21, ptr %10, align 16, !tbaa !29
-  %22 = xor i64 %21, %20
-  store i64 %22, ptr %11, align 8, !tbaa !29
-  br label %25
+  store i64 %22, ptr %9, align 8, !tbaa !29
+  store i64 %23, ptr %10, align 16, !tbaa !29
+  %24 = xor i64 %23, %22
+  store i64 %24, ptr %11, align 8, !tbaa !29
+  br label %27
 
-23:                                               ; preds = %25
-  %24 = trunc i64 %58 to i32
+25:                                               ; preds = %27
+  %26 = trunc i64 %60 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #20
-  br label %61
+  br label %63
 
-25:                                               ; preds = %25, %15
-  %.039.i = phi i32 [ 0, %15 ], [ %59, %25 ]
-  %.02938.i = phi i64 [ 0, %15 ], [ %58, %25 ]
-  %.237.i = phi i32 [ %.03141.i, %15 ], [ %52, %25 ]
-  %26 = and i32 %.237.i, 3
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %27
-  %29 = load i64, ptr %28, align 8, !tbaa !29
-  %30 = lshr i32 %.237.i, 2
-  %31 = and i32 %30, 3
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %32
-  %34 = load i64, ptr %33, align 8, !tbaa !29
-  %35 = shl i64 %34, 2
-  %36 = lshr i32 %.237.i, 4
-  %37 = and i32 %36, 3
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %38
-  %40 = load i64, ptr %39, align 8, !tbaa !29
-  %41 = shl i64 %40, 4
-  %42 = lshr i32 %.237.i, 6
-  %43 = and i32 %42, 3
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %44
-  %46 = load i64, ptr %45, align 8, !tbaa !29
-  %47 = shl i64 %46, 6
-  %48 = xor i64 %29, %.02938.i
-  %49 = xor i64 %48, %35
-  %50 = xor i64 %49, %41
-  %51 = xor i64 %50, %47
-  %52 = lshr i32 %.237.i, 8
-  %53 = lshr i64 %51, 8
-  %54 = and i64 %51, 255
-  %55 = getelementptr inbounds nuw i32, ptr %7, i64 %54
-  %56 = load i32, ptr %55, align 4, !tbaa !4
-  %57 = zext i32 %56 to i64
-  %58 = xor i64 %53, %57
-  %59 = add nuw nsw i32 %.039.i, 8
-  %60 = icmp samesign ult i32 %.039.i, 24
-  br i1 %60, label %25, label %23, !llvm.loop !31
+27:                                               ; preds = %27, %17
+  %.039.i = phi i32 [ 0, %17 ], [ %61, %27 ]
+  %.02938.i = phi i64 [ 0, %17 ], [ %60, %27 ]
+  %.237.i = phi i32 [ %.03141.i, %17 ], [ %54, %27 ]
+  %28 = and i32 %.237.i, 3
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %29
+  %31 = load i64, ptr %30, align 8, !tbaa !29
+  %32 = lshr i32 %.237.i, 2
+  %33 = and i32 %32, 3
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %34
+  %36 = load i64, ptr %35, align 8, !tbaa !29
+  %37 = shl i64 %36, 2
+  %38 = lshr i32 %.237.i, 4
+  %39 = and i32 %38, 3
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %40
+  %42 = load i64, ptr %41, align 8, !tbaa !29
+  %43 = shl i64 %42, 4
+  %44 = lshr i32 %.237.i, 6
+  %45 = and i32 %44, 3
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %46
+  %48 = load i64, ptr %47, align 8, !tbaa !29
+  %49 = shl i64 %48, 6
+  %50 = xor i64 %31, %.02938.i
+  %51 = xor i64 %50, %37
+  %52 = xor i64 %51, %43
+  %53 = xor i64 %52, %49
+  %54 = lshr i32 %.237.i, 8
+  %55 = lshr i64 %53, 8
+  %56 = and i64 %53, 255
+  %57 = getelementptr inbounds nuw i32, ptr %7, i64 %56
+  %58 = load i32, ptr %57, align 4, !tbaa !4
+  %59 = zext i32 %58 to i64
+  %60 = xor i64 %55, %59
+  %61 = add nuw nsw i32 %.039.i, 8
+  %62 = icmp samesign ult i32 %.039.i, 24
+  br i1 %62, label %27, label %25, !llvm.loop !31
 
-61:                                               ; preds = %23, %12
-  %.1.i = phi i32 [ %24, %23 ], [ %.03141.i, %12 ]
-  %62 = add nuw nsw i32 %.03240.i, 15
-  %63 = lshr i64 %.03042.i, 4
+63:                                               ; preds = %25, %14
+  %.1.i = phi i32 [ %26, %25 ], [ %.03141.i, %14 ]
+  %64 = add nuw nsw i32 %.03240.i, 15
+  %65 = lshr i64 %.03042.i, 4
   %.not35.i = icmp ult i64 %.03042.i, 16
-  br i1 %.not35.i, label %_ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_.exit, label %12, !llvm.loop !32
+  br i1 %.not35.i, label %12, label %14, !llvm.loop !32
 
-_ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_.exit: ; preds = %61, %3
-  %64 = phi i32 [ %6, %3 ], [ %.1.i, %61 ]
-  %65 = tail call noundef i32 @llvm.bitreverse.i32(i32 %64)
-  store i32 %65, ptr %1, align 4, !tbaa !4
+_ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_.exit: ; preds = %3, %12
+  %66 = phi i32 [ %5, %3 ], [ %13, %12 ]
+  store i32 %66, ptr %1, align 4, !tbaa !4
   ret void
 }
 

@@ -4254,18 +4254,18 @@ encode_putfh.exit:                                ; preds = %21, %25
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 136
   %62 = load i64, ptr %61, align 8
   %63 = icmp eq i64 %62, 9223372036854775807
-  br i1 %63, label %69, label %64
+  br i1 %63, label %70, label %64
 
 64:                                               ; preds = %35
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 128
   %66 = load i64, ptr %65, align 8
   %67 = add nsw i64 %62, 1
   %68 = sub i64 %67, %66
-  br label %69
+  %69 = tail call i64 @llvm.bswap.i64(i64 %68)
+  br label %70
 
-69:                                               ; preds = %64, %35
-  %70 = phi i64 [ %68, %64 ], [ -1, %35 ]
-  %71 = tail call i64 @llvm.bswap.i64(i64 %70)
+70:                                               ; preds = %64, %35
+  %71 = phi i64 [ %69, %64 ], [ -1, %35 ]
   store i64 %71, ptr %59, align 1
   %72 = getelementptr i8, ptr %32, i64 24
   %73 = load i8, ptr %38, align 8
@@ -4279,7 +4279,7 @@ encode_putfh.exit:                                ; preds = %21, %25
   %80 = icmp eq i8 %79, 0
   br i1 %80, label %142, label %81
 
-81:                                               ; preds = %69
+81:                                               ; preds = %70
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
@@ -4405,7 +4405,7 @@ encode_putfh.exit:                                ; preds = %21, %25
   store i64 %141, ptr %138, align 1
   br label %167
 
-142:                                              ; preds = %69
+142:                                              ; preds = %70
   %143 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 16) #12
   %144 = icmp eq ptr %143, null
   br i1 %144, label %148, label %145, !prof !6
@@ -4743,29 +4743,29 @@ encode_putfh.exit:                                ; preds = %21, %25
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 136
   %50 = load i64, ptr %49, align 8
   %51 = icmp eq i64 %50, 9223372036854775807
-  br i1 %51, label %57, label %52
+  br i1 %51, label %58, label %52
 
 52:                                               ; preds = %35
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 128
   %54 = load i64, ptr %53, align 8
   %55 = add nsw i64 %50, 1
   %56 = sub i64 %55, %54
-  br label %57
+  %57 = tail call i64 @llvm.bswap.i64(i64 %56)
+  br label %58
 
-57:                                               ; preds = %52, %35
-  %58 = phi i64 [ %56, %52 ], [ -1, %35 ]
-  %59 = tail call i64 @llvm.bswap.i64(i64 %58)
+58:                                               ; preds = %52, %35
+  %59 = phi i64 [ %57, %52 ], [ -1, %35 ]
   store i64 %59, ptr %47, align 1
   %60 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #12
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %63, !prof !6
 
-62:                                               ; preds = %57
+62:                                               ; preds = %58
   tail call void asm sideeffect "1515: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1515b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1515) #12, !srcloc !45
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 967, i32 0, i64 12) #12, !srcloc !46
   unreachable
 
-63:                                               ; preds = %57
+63:                                               ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %65 = load i64, ptr %64, align 8
   %66 = tail call i64 @llvm.bswap.i64(i64 %65)
@@ -5131,30 +5131,30 @@ encode_putfh.exit:                                ; preds = %21, %25
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 136
   %78 = load i64, ptr %77, align 8
   %79 = icmp eq i64 %78, 9223372036854775807
-  br i1 %79, label %85, label %80
+  br i1 %79, label %86, label %80
 
 80:                                               ; preds = %71
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 128
   %82 = load i64, ptr %81, align 8
   %83 = add nsw i64 %78, 1
   %84 = sub i64 %83, %82
-  br label %85
+  %85 = tail call i64 @llvm.bswap.i64(i64 %84)
+  br label %86
 
-85:                                               ; preds = %80, %71
-  %86 = phi i64 [ %84, %80 ], [ -1, %71 ]
-  %87 = getelementptr i8, ptr %68, i64 8
-  %88 = tail call i64 @llvm.bswap.i64(i64 %86)
-  store i64 %88, ptr %87, align 1
+86:                                               ; preds = %80, %71
+  %87 = phi i64 [ %85, %80 ], [ -1, %71 ]
+  %88 = getelementptr i8, ptr %68, i64 8
+  store i64 %87, ptr %88, align 1
   %89 = icmp ugt i32 %31, 8
   br i1 %89, label %90, label %91, !prof !6
 
-90:                                               ; preds = %85
+90:                                               ; preds = %86
   tail call void asm sideeffect "1528: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1528) #12, !srcloc !47
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 1059, i32 2307, i64 12) #12, !srcloc !48
   tail call void asm sideeffect "1529: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1529b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1529) #12, !srcloc !49
   br label %91
 
-91:                                               ; preds = %90, %85
+91:                                               ; preds = %90, %86
   %92 = tail call i32 @llvm.bswap.i32(i32 %31)
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %94 = load ptr, ptr %93, align 8
@@ -14938,7 +14938,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_change_attr_typ
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 32768
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %16, label %8
+  br i1 %7, label %17, label %8
 
 8:                                                ; preds = %3
   %9 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #12
@@ -14948,19 +14948,19 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_change_attr_typ
 11:                                               ; preds = %8
   %12 = load i32, ptr %9, align 4
   %13 = tail call i32 @llvm.bswap.i32(i32 %12)
-  %14 = load i32, ptr %4, align 4
-  %15 = and i32 %14, -32769
-  store i32 %15, ptr %4, align 4
-  br label %16
+  %14 = tail call i32 @llvm.umin.i32(i32 %13, i32 4)
+  %15 = load i32, ptr %4, align 4
+  %16 = and i32 %15, -32769
+  store i32 %16, ptr %4, align 4
+  br label %17
 
-16:                                               ; preds = %11, %3
-  %17 = phi i32 [ 4, %3 ], [ %13, %11 ]
-  %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 4)
+17:                                               ; preds = %11, %3
+  %18 = phi i32 [ 4, %3 ], [ %14, %11 ]
   store i32 %18, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %8, %16
-  %19 = phi i32 [ 0, %16 ], [ -5, %8 ]
+.thread:                                          ; preds = %8, %17
+  %19 = phi i32 [ 0, %17 ], [ -5, %8 ]
   ret i32 %19
 }
 

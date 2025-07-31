@@ -20284,21 +20284,21 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm6obje
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 0, 20) i32 @_ZN4llvm6object23WasmSectionOrderChecker15getSectionOrderEjNS_9StringRefE(ptr nonnull readnone align 1 captures(none) %0, i32 noundef %1, ptr readonly captures(none) %2, i64 %3) local_unnamed_addr #14 align 2 {
-  switch i32 %1, label %24 [
+  switch i32 %1, label %25 [
     i32 0, label %5
-    i32 1, label %25
-    i32 2, label %25
-    i32 3, label %25
-    i32 4, label %25
-    i32 5, label %25
-    i32 6, label %16
-    i32 7, label %17
-    i32 8, label %18
-    i32 9, label %19
-    i32 10, label %20
-    i32 11, label %21
-    i32 12, label %22
-    i32 13, label %23
+    i32 1, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
+    i32 2, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
+    i32 3, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
+    i32 4, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
+    i32 5, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
+    i32 6, label %17
+    i32 7, label %18
+    i32 8, label %19
+    i32 9, label %20
+    i32 10, label %21
+    i32 11, label %22
+    i32 12, label %23
+    i32 13, label %24
   ]
 
 5:                                                ; preds = %4
@@ -20363,44 +20363,38 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit35.thread.thread: ; pre
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i40:          ; preds = %13
   %bcmp.i.i.i41 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %2, ptr noundef nonnull dereferenceable(15) @.str.87, i64 15)
   %15 = icmp eq i32 %bcmp.i.i.i41, 0
-  %spec.select = select i1 %15, i64 4294967315, i64 0
+  %16 = select i1 %15, i32 19, i32 0
   br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
 
-_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %13, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit35.thread.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32
-  %.sroa.18.6 = phi i64 [ 4294967314, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 0, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit35.thread.thread ], [ 4294967313, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 4294967312, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.thread ], [ 4294967312, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 0, %13 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ], [ 4294967311, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ 4294967310, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4294967310, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ]
-  %spec.select.i153 = tail call i64 @llvm.umax.i64(i64 %.sroa.18.6, i64 4294967296)
-  %spec.select.i = trunc i64 %spec.select.i153 to i32
-  br label %25
-
-16:                                               ; preds = %4
-  br label %25
-
 17:                                               ; preds = %4
-  br label %25
+  br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
 
 18:                                               ; preds = %4
-  br label %25
+  br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
 
 19:                                               ; preds = %4
-  br label %25
+  br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
 
 20:                                               ; preds = %4
-  br label %25
+  br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
 
 21:                                               ; preds = %4
-  br label %25
+  br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
 
 22:                                               ; preds = %4
-  br label %25
+  br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
 
 23:                                               ; preds = %4
-  br label %25
+  br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
 
 24:                                               ; preds = %4
-  br label %25
+  br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
 
-25:                                               ; preds = %4, %4, %4, %4, %4, %24, %23, %22, %21, %20, %19, %18, %17, %16, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
-  %.0 = phi i32 [ 0, %24 ], [ %spec.select.i, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43 ], [ 7, %16 ], [ 8, %17 ], [ 9, %18 ], [ 10, %19 ], [ 12, %20 ], [ 13, %21 ], [ 11, %22 ], [ 6, %23 ], [ %1, %4 ], [ %1, %4 ], [ %1, %4 ], [ %1, %4 ], [ %1, %4 ]
+25:                                               ; preds = %4
+  br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43
+
+_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit43: ; preds = %4, %4, %4, %4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit35.thread.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %13, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %4, %25, %24, %23, %22, %21, %20, %19, %18, %17
+  %.0 = phi i32 [ 0, %25 ], [ 7, %17 ], [ 8, %18 ], [ 9, %19 ], [ 10, %20 ], [ 12, %21 ], [ 13, %22 ], [ 11, %23 ], [ 6, %24 ], [ %1, %4 ], [ 18, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 0, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit35.thread.thread ], [ 17, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 16, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.thread ], [ 16, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 0, %13 ], [ %16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ], [ 15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ 14, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 14, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ %1, %4 ], [ %1, %4 ], [ %1, %4 ], [ %1, %4 ]
   ret i32 %.0
 }
 

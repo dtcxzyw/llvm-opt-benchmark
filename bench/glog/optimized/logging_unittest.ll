@@ -3046,58 +3046,58 @@ define internal void @_ZL9BM_Check3i(i32 %0) #14 {
 define internal void @_ZL9BM_Check2i(i32 noundef %0) #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.google::LogMessageFatal", align 8
   %3 = icmp eq i32 %0, 17
-  br i1 %3, label %5, label %._crit_edge
+  br i1 %3, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1
   %.b67.pre = load i1, ptr @_ZL1x, align 4
   %.b67.pre.fr = freeze i1 %.b67.pre
   %4 = select i1 %.b67.pre.fr, i32 5, i32 -1
-  br label %6
+  %5 = tail call i32 @llvm.smin.i32(i32 %4, i32 %0)
+  br label %7
 
-5:                                                ; preds = %1
+6:                                                ; preds = %1
   store i1 true, ptr @_ZL1x, align 4
-  br label %6
+  br label %7
 
-6:                                                ; preds = %._crit_edge, %5
-  %.b61 = phi i32 [ %4, %._crit_edge ], [ 5, %5 ]
+7:                                                ; preds = %._crit_edge, %6
+  %.b61 = phi i32 [ %5, %._crit_edge ], [ 5, %6 ]
   %smin = tail call i32 @llvm.smin.i32(i32 %0, i32 0)
-  %7 = sub i32 %0, %smin
-  %smin103 = tail call i32 @llvm.smin.i32(i32 %.b61, i32 %0)
-  %8 = sub i32 %0, %smin103
-  %.not.not = icmp ugt i32 %7, %8
-  br i1 %.not.not, label %.split, label %15
+  %8 = sub i32 %0, %smin
+  %9 = sub i32 %0, %.b61
+  %.not.not = icmp ugt i32 %8, %9
+  br i1 %.not.not, label %.split, label %16
 
-.split:                                           ; preds = %6
+.split:                                           ; preds = %7
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #46
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull @.str.32, i32 noundef 160)
-  %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %2)
-          to label %10 unwind label %12
+  %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %2)
+          to label %11 unwind label %13
 
-10:                                               ; preds = %.split
-  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.217, i64 noundef 21)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %12
+11:                                               ; preds = %.split
+  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.217, i64 noundef 21)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %13
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %11
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #49
   unreachable
 
-12:                                               ; preds = %10, %.split
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %11, %.split
+  %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #49
-          to label %14 unwind label %16
+          to label %15 unwind label %17
 
-14:                                               ; preds = %12
+15:                                               ; preds = %13
   unreachable
 
-15:                                               ; preds = %6
+16:                                               ; preds = %7
   ret void
 
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #47
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #47
   unreachable
 }
 

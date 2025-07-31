@@ -1616,7 +1616,7 @@ _ZNKSt8functionIFvN11OpenImageIO6v3_1_03ROIEEEclES2_.exit: ; preds = %35
 
 56:                                               ; preds = %45, %41
   %.0 = phi i16 [ %55, %45 ], [ %43, %41 ]
-  switch i16 %.0, label %95 [
+  switch i16 %.0, label %96 [
     i16 1, label %57
     i16 0, label %62
     i16 4, label %69
@@ -1627,7 +1627,7 @@ _ZNKSt8functionIFvN11OpenImageIO6v3_1_03ROIEEEclES2_.exit: ; preds = %35
   %59 = load i32, ptr %58, align 4, !tbaa !16
   %60 = sub nsw i32 %59, %7
   %61 = sext i32 %60 to i64
-  br label %100
+  br label %_ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12
 
 62:                                               ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1636,7 +1636,7 @@ _ZNKSt8functionIFvN11OpenImageIO6v3_1_03ROIEEEclES2_.exit: ; preds = %35
   %66 = load i32, ptr %65, align 8, !tbaa !13
   %67 = sub nsw i32 %64, %66
   %68 = sext i32 %67 to i64
-  br label %100
+  br label %_ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12
 
 69:                                               ; preds = %56
   br i1 %.not.i, label %_ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12, label %70
@@ -1660,30 +1660,26 @@ _ZNKSt8functionIFvN11OpenImageIO6v3_1_03ROIEEEclES2_.exit: ; preds = %35
   %86 = sub nsw i32 %83, %85
   %87 = sext i32 %86 to i64
   %88 = mul i64 %81, %87
-  br label %_ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12
-
-_ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12:    ; preds = %69, %70
-  %89 = phi i64 [ %88, %70 ], [ 0, %69 ]
-  %.sroa.speculated27 = call i64 @llvm.umin.i64(i64 %89, i64 %30)
-  %90 = sitofp i64 %.sroa.speculated27 to double
-  %91 = call noundef double @llvm.sqrt.f64(double %90)
+  %89 = call i64 @llvm.umin.i64(i64 %88, i64 %30)
+  %90 = sitofp i64 %89 to double
+  %91 = call double @llvm.sqrt.f64(double %90)
   %92 = fptosi double %91 to i32
   %93 = sdiv i32 %92, 4
-  %.sroa.speculated22 = call i32 @llvm.smax.i32(i32 %93, i32 1)
-  %94 = zext nneg i32 %.sroa.speculated22 to i64
-  br label %100
+  %94 = call i32 @llvm.smax.i32(i32 %93, i32 1)
+  %95 = zext nneg i32 %94 to i64
+  br label %_ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12
 
-95:                                               ; preds = %56
-  %96 = sitofp i32 %.sroa.speculated32 to double
-  %97 = call noundef double @llvm.sqrt.f64(double %96)
-  %98 = fptosi double %97 to i64
-  %99 = sdiv i64 %98, 2
-  %.sroa.speculated = call i64 @llvm.smax.i64(i64 %99, i64 1)
-  br label %100
+96:                                               ; preds = %56
+  %97 = sitofp i32 %.sroa.speculated32 to double
+  %98 = call noundef double @llvm.sqrt.f64(double %97)
+  %99 = fptosi double %98 to i64
+  %100 = sdiv i64 %99, 2
+  %.sroa.speculated = call i64 @llvm.smax.i64(i64 %100, i64 1)
+  br label %_ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12
 
-100:                                              ; preds = %62, %95, %_ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12, %57
-  %.09 = phi i64 [ 0, %57 ], [ %68, %62 ], [ %94, %_ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12 ], [ %.sroa.speculated, %95 ]
-  %.08 = phi i64 [ %61, %57 ], [ 0, %62 ], [ %94, %_ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12 ], [ %.sroa.speculated, %95 ]
+_ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12:    ; preds = %70, %69, %62, %96, %57
+  %.09 = phi i64 [ 0, %57 ], [ %68, %62 ], [ %.sroa.speculated, %96 ], [ %95, %70 ], [ 1, %69 ]
+  %.08 = phi i64 [ %61, %57 ], [ 0, %62 ], [ %.sroa.speculated, %96 ], [ %95, %70 ], [ 1, %69 ]
   %101 = sext i32 %7 to i64
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %103 = load i32, ptr %102, align 4, !tbaa !16
@@ -1705,7 +1701,7 @@ _ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12:    ; preds = %69, %70
   invoke void @_ZN11OpenImageIO6v3_1_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS0_6paroptE(i64 noundef %101, i64 noundef %104, i64 noundef %.08, i64 noundef %107, i64 noundef %110, i64 noundef %.09, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull byval(%"class.OpenImageIO::v3_1_0::paropt") align 8 %1)
           to label %113 unwind label %121
 
-113:                                              ; preds = %100
+113:                                              ; preds = %_ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12
   %114 = load ptr, ptr %111, align 8, !tbaa !39
   %.not.i16 = icmp eq ptr %114, null
   br i1 %.not.i16, label %_ZNSt14_Function_baseD2Ev.exit, label %115
@@ -1728,7 +1724,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %113, %115
 120:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit, %_ZNKSt8functionIFvN11OpenImageIO6v3_1_03ROIEEEclES2_.exit
   ret void
 
-121:                                              ; preds = %100
+121:                                              ; preds = %_ZNK11OpenImageIO6v3_1_03ROI7npixelsEv.exit12
   %122 = landingpad { ptr, i32 }
           cleanup
   %123 = load ptr, ptr %111, align 8, !tbaa !39

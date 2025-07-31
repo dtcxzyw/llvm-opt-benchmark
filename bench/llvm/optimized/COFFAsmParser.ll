@@ -1044,7 +1044,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113COFFAsmParser15par
 21:                                               ; preds = %12, %11
   %.sroa.0.0.copyload.i.pn.i = phi ptr [ %.sroa.0.0.copyload.i.i, %11 ], [ %19, %12 ]
   %.sroa.2.0.copyload.i.pn.i = phi i64 [ %.sroa.2.0.copyload.i.i, %11 ], [ %20, %12 ]
-  switch i64 %.sroa.2.0.copyload.i.pn.i, label %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51.thread [
+  switch i64 %.sroa.2.0.copyload.i.pn.i, label %_ZN4llvmplERKNS_5TwineES2_.exit [
     i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
     i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8
     i64 9, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16
@@ -1056,86 +1056,76 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113COFFAsmParser15par
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %21
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.sroa.0.0.copyload.i.pn.i, ptr noundef nonnull dereferenceable(8) @.str.42, i64 8)
   %22 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %22, label %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51, label %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51.thread
+  br i1 %22, label %select.unfold, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i8:           ; preds = %21
   %bcmp.i.i.i9 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.0.0.copyload.i.pn.i, ptr noundef nonnull dereferenceable(7) @.str.43, i64 7)
   %23 = icmp eq i32 %bcmp.i.i.i9, 0
-  br i1 %23, label %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40
+  br i1 %23, label %select.unfold, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i16:          ; preds = %21
   %bcmp.i.i.i17 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %.sroa.0.0.copyload.i.pn.i, ptr noundef nonnull dereferenceable(9) @.str.44, i64 9)
   %24 = icmp eq i32 %bcmp.i.i.i17, 0
-  br i1 %24, label %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51, label %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51.thread
+  br i1 %24, label %select.unfold, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i24:          ; preds = %21
   %bcmp.i.i.i25 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %.sroa.0.0.copyload.i.pn.i, ptr noundef nonnull dereferenceable(13) @.str.45, i64 13)
   %25 = icmp eq i32 %bcmp.i.i.i25, 0
-  br i1 %25, label %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51, label %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51.thread
+  br i1 %25, label %select.unfold, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i32:          ; preds = %21
   %bcmp.i.i.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %.sroa.0.0.copyload.i.pn.i, ptr noundef nonnull dereferenceable(11) @.str.46, i64 11)
   %26 = icmp eq i32 %bcmp.i.i.i33, 0
-  br i1 %26, label %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51, label %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51.thread
+  br i1 %26, label %select.unfold, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i40:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8
   %bcmp.i.i.i41 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.0.0.copyload.i.pn.i, ptr noundef nonnull dereferenceable(7) @.str.47, i64 7)
   %27 = icmp eq i32 %bcmp.i.i.i41, 0
-  %spec.select = select i1 %27, i16 262, i16 0
-  br label %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51
+  br i1 %27, label %select.unfold, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i48:          ; preds = %21
   %bcmp.i.i.i49 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.0.0.copyload.i.pn.i, ptr noundef nonnull dereferenceable(6) @.str.48, i64 6)
   %28 = icmp eq i32 %bcmp.i.i.i49, 0
-  br i1 %28, label %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51, label %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51.thread
+  br i1 %28, label %select.unfold, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
-_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51.thread: ; preds = %21, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32
+_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48, %21
   store i8 0, ptr %1, align 1, !tbaa !31
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit
-
-_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32
-  %.sroa.18.6 = phi i16 [ 261, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 263, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48 ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ 260, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ], [ 258, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
-  %spec.select.i173 = tail call i16 @llvm.umax.i16(i16 %.sroa.18.6, i16 256)
-  %spec.select.i = trunc i16 %spec.select.i173 to i8
-  store i8 %spec.select.i, ptr %1, align 1, !tbaa !31
-  %29 = icmp eq i8 %spec.select.i, 0
-  br i1 %29, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %39
-
-_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51.thread, %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #12
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 3, ptr %30, align 8, !tbaa !26, !alias.scope !43
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 5, ptr %31, align 1, !tbaa !22, !alias.scope !43
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 3, ptr %29, align 8, !tbaa !26, !alias.scope !43
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 5, ptr %30, align 1, !tbaa !22, !alias.scope !43
   store ptr @.str.49, ptr %4, align 8, !tbaa !25, !alias.scope !43
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.sroa.0.0.copyload.i.pn.i, ptr %32, align 8, !tbaa !25, !alias.scope !43
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.sroa.2.0.copyload.i.pn.i, ptr %33, align 8, !tbaa !25, !alias.scope !43
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %.sroa.0.0.copyload.i.pn.i, ptr %31, align 8, !tbaa !25, !alias.scope !43
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.sroa.2.0.copyload.i.pn.i, ptr %32, align 8, !tbaa !25, !alias.scope !43
   store ptr %4, ptr %3, align 8, !alias.scope !46
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @.str.50, ptr %34, align 8, !alias.scope !46
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 2, ptr %35, align 8, !tbaa !26, !alias.scope !46
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  store i8 3, ptr %36, align 1, !tbaa !22, !alias.scope !46
-  %37 = load ptr, ptr %5, align 8, !tbaa !6
-  %38 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %37, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr null, ptr null) #12
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr @.str.50, ptr %33, align 8, !alias.scope !46
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i8 2, ptr %34, align 8, !tbaa !26, !alias.scope !46
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  store i8 3, ptr %35, align 1, !tbaa !22, !alias.scope !46
+  %36 = load ptr, ptr %5, align 8, !tbaa !6
+  %37 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %36, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr null, ptr null) #12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #12
-  br label %45
+  br label %43
 
-39:                                               ; preds = %_ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exit51
-  %40 = load ptr, ptr %5, align 8, !tbaa !6
-  %41 = load ptr, ptr %40, align 8, !tbaa !3
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 184
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef nonnull align 8 dereferenceable(40) ptr %43(ptr noundef nonnull align 8 dereferenceable(34) %40) #12
-  br label %45
+select.unfold:                                    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
+  %.sroa.18.6.ph = phi i8 [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48 ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ]
+  store i8 %.sroa.18.6.ph, ptr %1, align 1, !tbaa !31
+  %38 = load ptr, ptr %5, align 8, !tbaa !6
+  %39 = load ptr, ptr %38, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 184
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call noundef nonnull align 8 dereferenceable(40) ptr %41(ptr noundef nonnull align 8 dereferenceable(34) %38) #12
+  br label %43
 
-45:                                               ; preds = %39, %_ZN4llvmplERKNS_5TwineES2_.exit
-  %.0 = phi i1 [ %38, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ false, %39 ]
+43:                                               ; preds = %select.unfold, %_ZN4llvmplERKNS_5TwineES2_.exit
+  %.0 = phi i1 [ %37, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ false, %select.unfold ]
   ret i1 %.0
 }
 
@@ -3148,9 +3138,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #10
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -4335,7 +4335,7 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
 "_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i": ; preds = %28, %27, %26, %25, %24, %12
   %.0.i.i = phi i8 [ 21, %24 ], [ 22, %25 ], [ 23, %26 ], [ 24, %27 ], [ %19, %28 ], [ 20, %12 ]
   switch i16 %21, label %default.unreachable [
-    i16 0, label %38
+    i16 0, label %39
     i16 1, label %29
     i16 2, label %30
     i16 3, label %31
@@ -4348,44 +4348,44 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
   ]
 
 29:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %38
+  br label %39
 
 30:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %38
+  br label %39
 
 31:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %38
+  br label %39
 
 32:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %38
+  br label %39
 
 33:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %38
+  br label %39
 
 34:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %38
+  br label %39
 
 35:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %38
+  br label %39
 
 36:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %38
+  br label %39
 
 37:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %38
+  %38 = tail call i16 @llvm.bswap.i16(i16 %23)
+  br label %39
 
-38:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i", %29, %30, %31, %32, %33, %34, %35, %36, %37
-  %.0.i1.i = phi i16 [ 768, %29 ], [ 769, %30 ], [ 770, %31 ], [ 771, %32 ], [ 772, %33 ], [ -257, %34 ], [ -259, %35 ], [ -260, %36 ], [ %23, %37 ], [ 512, %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i" ]
-  %39 = tail call i64 @llvm.bswap.i64(i64 %3)
-  %40 = tail call i16 @llvm.bswap.i16(i16 %.0.i1.i)
+39:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i", %29, %30, %31, %32, %33, %34, %35, %36, %37
+  %.0.i1.i = phi i16 [ 3, %29 ], [ 259, %30 ], [ 515, %31 ], [ 771, %32 ], [ 1027, %33 ], [ -2, %34 ], [ -514, %35 ], [ -770, %36 ], [ %38, %37 ], [ 2, %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i" ]
+  %40 = tail call i64 @llvm.bswap.i64(i64 %3)
   %41 = trunc i64 %9 to i16
   %42 = add i16 %41, -24
   %43 = tail call i16 @llvm.bswap.i16(i16 %42)
-  store i64 %39, ptr %6, align 8
+  store i64 %40, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %.0.i.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 9
-  store i16 %40, ptr %.sroa.5.0..sroa_idx, align 1
+  store i16 %.0.i1.i, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 11
   store i16 %43, ptr %.sroa.6.0..sroa_idx, align 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !857
@@ -4399,11 +4399,11 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
   %47 = icmp eq ptr %45, null
   br i1 %47, label %50, label %48
 
-48:                                               ; preds = %38
+48:                                               ; preds = %39
   %49 = icmp ugt i64 %46, 16384
   br i1 %49, label %52, label %51
 
-50:                                               ; preds = %38
+50:                                               ; preds = %39
   store i8 5, ptr %0, align 8
   %.sroa.328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %.sroa.328.0..sroa_idx, align 8
@@ -4566,7 +4566,7 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
 "_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i": ; preds = %57, %56, %55, %54, %53, %45
   %.0.i.i = phi i8 [ 21, %53 ], [ 22, %54 ], [ 23, %55 ], [ 24, %56 ], [ %58, %57 ], [ 20, %45 ]
   switch i16 %50, label %default.unreachable [
-    i16 0, label %68
+    i16 0, label %69
     i16 1, label %59
     i16 2, label %60
     i16 3, label %61
@@ -4579,42 +4579,42 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
   ]
 
 59:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %68
+  br label %69
 
 60:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %68
+  br label %69
 
 61:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %68
+  br label %69
 
 62:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %68
+  br label %69
 
 63:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %68
+  br label %69
 
 64:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %68
+  br label %69
 
 65:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %68
+  br label %69
 
 66:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %68
+  br label %69
 
 67:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %68
+  %68 = call i16 @llvm.bswap.i16(i16 %52)
+  br label %69
 
-68:                                               ; preds = %67, %66, %65, %64, %63, %62, %61, %60, %59, %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  %.0.i1.i = phi i16 [ 768, %59 ], [ 769, %60 ], [ 770, %61 ], [ 771, %62 ], [ 772, %63 ], [ -257, %64 ], [ -259, %65 ], [ -260, %66 ], [ %52, %67 ], [ 512, %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i" ]
-  %69 = call i16 @llvm.bswap.i16(i16 %.0.i1.i)
+69:                                               ; preds = %67, %66, %65, %64, %63, %62, %61, %60, %59, %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
+  %.0.i1.i = phi i16 [ 3, %59 ], [ 259, %60 ], [ 515, %61 ], [ 771, %62 ], [ 1027, %63 ], [ -2, %64 ], [ -514, %65 ], [ -770, %66 ], [ %68, %67 ], [ 2, %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i" ]
   %70 = trunc i64 %.0.i to i16
   %71 = call i16 @llvm.bswap.i16(i16 %70)
   store i64 %37, ptr %15, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i8 %.0.i.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 9
-  store i16 %69, ptr %.sroa.5.0..sroa_idx, align 1
+  store i16 %.0.i1.i, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 11
   store i16 %71, ptr %.sroa.6.0..sroa_idx, align 1
   %72 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -4625,7 +4625,7 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
   %77 = icmp ult i64 %76, 8
   br i1 %77, label %78, label %79
 
-78:                                               ; preds = %68
+78:                                               ; preds = %69
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %74, i64 noundef 8)
           to label %.noexc unwind label %151
 
@@ -4633,8 +4633,8 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
   %.pre.i.i.i = load i64, ptr %73, align 8, !alias.scope !906, !noalias !903
   br label %79
 
-79:                                               ; preds = %.noexc, %68
-  %80 = phi i64 [ %74, %68 ], [ %.pre.i.i.i, %.noexc ]
+79:                                               ; preds = %.noexc, %69
+  %80 = phi i64 [ %74, %69 ], [ %.pre.i.i.i, %.noexc ]
   %81 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %82 = load ptr, ptr %81, align 8, !alias.scope !906, !noalias !903, !nonnull !15, !noundef !15
   %83 = getelementptr inbounds i8, ptr %82, i64 %80
@@ -4966,7 +4966,7 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
 "_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i": ; preds = %36, %35, %34, %33, %32, %23
   %.0.i.i = phi i8 [ 21, %32 ], [ 22, %33 ], [ 23, %34 ], [ 24, %35 ], [ %27, %36 ], [ 20, %23 ]
   switch i16 %29, label %default.unreachable [
-    i16 0, label %46
+    i16 0, label %47
     i16 1, label %37
     i16 2, label %38
     i16 3, label %39
@@ -4979,35 +4979,35 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
   ]
 
 37:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %46
+  br label %47
 
 38:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %46
+  br label %47
 
 39:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %46
+  br label %47
 
 40:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %46
+  br label %47
 
 41:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %46
+  br label %47
 
 42:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %46
+  br label %47
 
 43:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %46
+  br label %47
 
 44:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %46
+  br label %47
 
 45:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %46
+  %46 = tail call i16 @llvm.bswap.i16(i16 %31)
+  br label %47
 
-46:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i", %37, %38, %39, %40, %41, %42, %43, %44, %45
-  %.0.i1.i = phi i16 [ 768, %37 ], [ 769, %38 ], [ 770, %39 ], [ 771, %40 ], [ 772, %41 ], [ -257, %42 ], [ -259, %43 ], [ -260, %44 ], [ %31, %45 ], [ 512, %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i" ]
-  %47 = tail call i16 @llvm.bswap.i16(i16 %.0.i1.i)
+47:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i", %37, %38, %39, %40, %41, %42, %43, %44, %45
+  %.0.i1.i = phi i16 [ 3, %37 ], [ 259, %38 ], [ 515, %39 ], [ 771, %40 ], [ 1027, %41 ], [ -2, %42 ], [ -514, %43 ], [ -770, %44 ], [ %46, %45 ], [ 2, %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i" ]
   %48 = trunc i64 %10 to i16
   %49 = add i16 %48, -16
   %50 = tail call i16 @llvm.bswap.i16(i16 %49)
@@ -5015,7 +5015,7 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %.0.i.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 9
-  store i16 %47, ptr %.sroa.5.0..sroa_idx, align 1
+  store i16 %.0.i1.i, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 11
   store i16 %50, ptr %.sroa.6.0..sroa_idx, align 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !1076
@@ -5027,11 +5027,11 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
   %54 = icmp eq ptr %52, null
   br i1 %54, label %57, label %55
 
-55:                                               ; preds = %46
+55:                                               ; preds = %47
   %56 = icmp ugt i64 %53, 16384
   br i1 %56, label %59, label %58
 
-57:                                               ; preds = %46
+57:                                               ; preds = %47
   store i8 5, ptr %0, align 8
   %.sroa.328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %.sroa.328.0..sroa_idx, align 8
@@ -5186,7 +5186,7 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
 "_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i": ; preds = %53, %52, %51, %50, %49, %41
   %.0.i.i = phi i8 [ 21, %49 ], [ 22, %50 ], [ 23, %51 ], [ 24, %52 ], [ %54, %53 ], [ 20, %41 ]
   switch i16 %46, label %default.unreachable [
-    i16 0, label %64
+    i16 0, label %65
     i16 1, label %55
     i16 2, label %56
     i16 3, label %57
@@ -5199,48 +5199,48 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
   ]
 
 55:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %64
+  br label %65
 
 56:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %64
+  br label %65
 
 57:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %64
+  br label %65
 
 58:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %64
+  br label %65
 
 59:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %64
+  br label %65
 
 60:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %64
+  br label %65
 
 61:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %64
+  br label %65
 
 62:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %64
+  br label %65
 
 63:                                               ; preds = %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  br label %64
+  %64 = call i16 @llvm.bswap.i16(i16 %48)
+  br label %65
 
-64:                                               ; preds = %63, %62, %61, %60, %59, %58, %57, %56, %55, %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
-  %.0.i1.i = phi i16 [ 768, %55 ], [ 769, %56 ], [ 770, %57 ], [ 771, %58 ], [ 772, %59 ], [ -257, %60 ], [ -259, %61 ], [ -260, %62 ], [ %48, %63 ], [ 512, %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i" ]
-  %65 = call i16 @llvm.bswap.i16(i16 %.0.i1.i)
+65:                                               ; preds = %63, %62, %61, %60, %59, %58, %57, %56, %55, %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i"
+  %.0.i1.i = phi i16 [ 3, %55 ], [ 259, %56 ], [ 515, %57 ], [ 771, %58 ], [ 1027, %59 ], [ -2, %60 ], [ -514, %61 ], [ -770, %62 ], [ %64, %63 ], [ 2, %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit.i" ]
   %66 = trunc i64 %.0.i to i16
   %67 = call i16 @llvm.bswap.i16(i16 %66)
   store i64 %34, ptr %12, align 8
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 %.0.i.i, ptr %.sroa.418.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 9
-  store i16 %65, ptr %.sroa.5.0..sroa_idx, align 1
+  store i16 %.0.i1.i, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 11
   store i16 %67, ptr %.sroa.6.0..sroa_idx, align 1
   invoke void @_ZN6rustls4msgs7message8outbound14OutboundChunks11copy_to_vec17hbcf570416ad32d56E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
           to label %_ZN6rustls4msgs7message8outbound15PrefixedPayload18extend_from_chunks17h8cfa78da94ed6d09E.exit unwind label %125
 
-_ZN6rustls4msgs7message8outbound15PrefixedPayload18extend_from_chunks17h8cfa78da94ed6d09E.exit: ; preds = %64
+_ZN6rustls4msgs7message8outbound15PrefixedPayload18extend_from_chunks17h8cfa78da94ed6d09E.exit: ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5440,7 +5440,7 @@ _ZN6rustls4msgs7message8outbound15PrefixedPayload18extend_from_chunks17h8cfa78da
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   ret void
 
-125:                                              ; preds = %64
+125:                                              ; preds = %65
   %126 = landingpad { ptr, i32 }
           cleanup
   br label %.lr.ph.i.i.i.i.i

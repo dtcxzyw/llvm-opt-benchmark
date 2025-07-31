@@ -3724,12 +3724,12 @@ define dso_local noundef range(i64 -22, 1) i64 @__ia32_compat_sys_getrlimit(ptr 
   %27 = load ptr, ptr %21, align 32
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2056
   tail call void @_raw_spin_unlock(ptr noundef nonnull %28) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
   %29 = tail call i64 @llvm.umin.i64(i64 %24, i64 4294967295)
   %30 = trunc nuw i64 %29 to i32
-  store i32 %30, ptr %2, align 8
   %31 = tail call i64 @llvm.umin.i64(i64 %26, i64 4294967295)
   %32 = trunc nuw i64 %31 to i32
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
+  store i32 %30, ptr %2, align 8
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %32, ptr %33, align 4
   %34 = call i64 @_copy_to_user(ptr noundef %12, ptr noundef nonnull %2, i64 noundef 8) #13

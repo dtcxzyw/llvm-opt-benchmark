@@ -277,7 +277,7 @@ define range(i32 -1, -2147483648) i32 @DSA_size(ptr noundef readonly captures(no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !32
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %18, label %6
+  br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
@@ -309,17 +309,17 @@ define range(i32 -1, -2147483648) i32 @DSA_size(ptr noundef readonly captures(no
 15:                                               ; preds = %12
   %16 = load i64, ptr %2, align 8, !tbaa !31
   %17 = trunc i64 %16 to i32
+  %18 = call i32 @llvm.smax.i32(i32 %17, i32 0)
   br label %i2d_DSA_SIG.exit
 
 i2d_DSA_SIG.exit:                                 ; preds = %6, %14, %15
-  %.015.i = phi i32 [ %17, %15 ], [ -1, %14 ], [ -1, %6 ]
+  %.015.i = phi i32 [ %18, %15 ], [ 0, %14 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %.015.i, i32 0)
-  br label %18
+  br label %19
 
-18:                                               ; preds = %i2d_DSA_SIG.exit, %1
-  %.0 = phi i32 [ %spec.store.select, %i2d_DSA_SIG.exit ], [ -1, %1 ]
+19:                                               ; preds = %i2d_DSA_SIG.exit, %1
+  %.0 = phi i32 [ %.015.i, %i2d_DSA_SIG.exit ], [ -1, %1 ]
   ret i32 %.0
 }
 

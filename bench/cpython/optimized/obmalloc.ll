@@ -10115,42 +10115,42 @@ define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages_interleave(i64 noun
   br label %_mi_os_numa_node_count.exit
 
 _mi_os_numa_node_count.exit:                      ; preds = %8, %6, %5
-  %10 = phi i64 [ %1, %5 ], [ %9, %8 ], [ %7, %6 ]
-  %11 = udiv i64 %0, %10
-  %12 = urem i64 %0, %10
-  %13 = icmp eq i64 %2, 0
-  br i1 %13, label %17, label %14
+  %spec.store.select = phi i64 [ %1, %5 ], [ %9, %8 ], [ %7, %6 ]
+  %10 = udiv i64 %0, %spec.store.select
+  %11 = urem i64 %0, %spec.store.select
+  %12 = icmp eq i64 %2, 0
+  br i1 %12, label %16, label %13
 
-14:                                               ; preds = %_mi_os_numa_node_count.exit
-  %15 = udiv i64 %2, %10
-  %16 = add i64 %15, 50
-  br label %17
+13:                                               ; preds = %_mi_os_numa_node_count.exit
+  %14 = udiv i64 %2, %spec.store.select
+  %15 = add i64 %14, 50
+  br label %16
 
-17:                                               ; preds = %_mi_os_numa_node_count.exit, %14
-  %18 = phi i64 [ %16, %14 ], [ 0, %_mi_os_numa_node_count.exit ]
-  br label %19
+16:                                               ; preds = %_mi_os_numa_node_count.exit, %13
+  %17 = phi i64 [ %15, %13 ], [ 0, %_mi_os_numa_node_count.exit ]
+  br label %18
 
-19:                                               ; preds = %17, %24
-  %.03549 = phi i64 [ 0, %17 ], [ %25, %24 ]
-  %.03648 = phi i64 [ %0, %17 ], [ %.238, %24 ]
-  %20 = icmp ult i64 %.03549, %12
-  %21 = zext i1 %20 to i64
-  %spec.select = add i64 %11, %21
-  %22 = trunc i64 %.03549 to i32
-  %23 = tail call range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select, i32 noundef %22, i64 noundef %18, i1 noundef zeroext false, ptr noundef null)
-  %.not43 = icmp eq i32 %23, 0
-  br i1 %.not43, label %24, label %.loopexit
+18:                                               ; preds = %16, %23
+  %.03549 = phi i64 [ 0, %16 ], [ %24, %23 ]
+  %.03648 = phi i64 [ %0, %16 ], [ %.238, %23 ]
+  %19 = icmp ult i64 %.03549, %11
+  %20 = zext i1 %19 to i64
+  %spec.select = add i64 %10, %20
+  %21 = trunc i64 %.03549 to i32
+  %22 = tail call range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select, i32 noundef %21, i64 noundef %17, i1 noundef zeroext false, ptr noundef null)
+  %.not43 = icmp eq i32 %22, 0
+  br i1 %.not43, label %23, label %.loopexit
 
-24:                                               ; preds = %19
+23:                                               ; preds = %18
   %.238 = tail call i64 @llvm.usub.sat.i64(i64 %.03648, i64 %spec.select)
-  %25 = add nuw i64 %.03549, 1
-  %26 = icmp uge i64 %25, %10
-  %27 = icmp ule i64 %.03648, %spec.select
-  %.not46 = select i1 %26, i1 true, i1 %27
-  br i1 %.not46, label %.loopexit, label %19, !llvm.loop !163
+  %24 = add nuw i64 %.03549, 1
+  %25 = icmp uge i64 %24, %spec.store.select
+  %26 = icmp ule i64 %.03648, %spec.select
+  %.not46 = select i1 %25, i1 true, i1 %26
+  br i1 %.not46, label %.loopexit, label %18, !llvm.loop !163
 
-.loopexit:                                        ; preds = %19, %24, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %24 ], [ %23, %19 ]
+.loopexit:                                        ; preds = %18, %23, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %23 ], [ %22, %18 ]
   ret i32 %.0
 }
 
@@ -10180,49 +10180,49 @@ define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages(i64 noundef %0, dou
   br label %_mi_os_numa_node_count.exit.i
 
 _mi_os_numa_node_count.exit.i:                    ; preds = %11, %9
-  %13 = phi i64 [ %12, %11 ], [ %10, %9 ]
-  %14 = udiv i64 %0, %13
-  %15 = urem i64 %0, %13
-  %16 = icmp eq i64 %7, 0
-  br i1 %16, label %20, label %17
+  %spec.store.select.i = phi i64 [ %12, %11 ], [ %10, %9 ]
+  %13 = udiv i64 %0, %spec.store.select.i
+  %14 = urem i64 %0, %spec.store.select.i
+  %15 = icmp eq i64 %7, 0
+  br i1 %15, label %19, label %16
 
-17:                                               ; preds = %_mi_os_numa_node_count.exit.i
-  %18 = udiv i64 %7, %13
-  %19 = add i64 %18, 50
-  br label %20
+16:                                               ; preds = %_mi_os_numa_node_count.exit.i
+  %17 = udiv i64 %7, %spec.store.select.i
+  %18 = add i64 %17, 50
+  br label %19
 
-20:                                               ; preds = %17, %_mi_os_numa_node_count.exit.i
-  %21 = phi i64 [ %19, %17 ], [ 0, %_mi_os_numa_node_count.exit.i ]
-  br label %22
+19:                                               ; preds = %16, %_mi_os_numa_node_count.exit.i
+  %20 = phi i64 [ %18, %16 ], [ 0, %_mi_os_numa_node_count.exit.i ]
+  br label %21
 
-22:                                               ; preds = %27, %20
-  %.03549.i = phi i64 [ 0, %20 ], [ %28, %27 ]
-  %.03648.i = phi i64 [ %0, %20 ], [ %.238.i, %27 ]
-  %23 = icmp ult i64 %.03549.i, %15
-  %24 = zext i1 %23 to i64
-  %spec.select.i = add i64 %14, %24
-  %25 = trunc i64 %.03549.i to i32
-  %26 = tail call range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select.i, i32 noundef %25, i64 noundef %21, i1 noundef zeroext false, ptr noundef null)
-  %.not43.i = icmp eq i32 %26, 0
-  br i1 %.not43.i, label %27, label %mi_reserve_huge_os_pages_interleave.exit.thread
+21:                                               ; preds = %26, %19
+  %.03549.i = phi i64 [ 0, %19 ], [ %27, %26 ]
+  %.03648.i = phi i64 [ %0, %19 ], [ %.238.i, %26 ]
+  %22 = icmp ult i64 %.03549.i, %14
+  %23 = zext i1 %22 to i64
+  %spec.select.i = add i64 %13, %23
+  %24 = trunc i64 %.03549.i to i32
+  %25 = tail call range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select.i, i32 noundef %24, i64 noundef %20, i1 noundef zeroext false, ptr noundef null)
+  %.not43.i = icmp eq i32 %25, 0
+  br i1 %.not43.i, label %26, label %mi_reserve_huge_os_pages_interleave.exit.thread
 
-27:                                               ; preds = %22
+26:                                               ; preds = %21
   %.238.i = tail call i64 @llvm.usub.sat.i64(i64 %.03648.i, i64 %spec.select.i)
-  %28 = add nuw i64 %.03549.i, 1
-  %29 = icmp uge i64 %28, %13
-  %30 = icmp ule i64 %.03648.i, %spec.select.i
-  %.not46.i = select i1 %29, i1 true, i1 %30
-  br i1 %.not46.i, label %mi_reserve_huge_os_pages_interleave.exit, label %22, !llvm.loop !163
+  %27 = add nuw i64 %.03549.i, 1
+  %28 = icmp uge i64 %27, %spec.store.select.i
+  %29 = icmp ule i64 %.03648.i, %spec.select.i
+  %.not46.i = select i1 %28, i1 true, i1 %29
+  br i1 %.not46.i, label %mi_reserve_huge_os_pages_interleave.exit, label %21, !llvm.loop !163
 
-mi_reserve_huge_os_pages_interleave.exit:         ; preds = %27, %5
-  br i1 %.not, label %mi_reserve_huge_os_pages_interleave.exit.thread, label %31
+mi_reserve_huge_os_pages_interleave.exit:         ; preds = %26, %5
+  br i1 %.not, label %mi_reserve_huge_os_pages_interleave.exit.thread, label %30
 
-31:                                               ; preds = %mi_reserve_huge_os_pages_interleave.exit
+30:                                               ; preds = %mi_reserve_huge_os_pages_interleave.exit
   store i64 %0, ptr %2, align 8, !tbaa !101
   br label %mi_reserve_huge_os_pages_interleave.exit.thread
 
-mi_reserve_huge_os_pages_interleave.exit.thread:  ; preds = %22, %31, %mi_reserve_huge_os_pages_interleave.exit
-  %.0.i11 = phi i32 [ 0, %31 ], [ 0, %mi_reserve_huge_os_pages_interleave.exit ], [ %26, %22 ]
+mi_reserve_huge_os_pages_interleave.exit.thread:  ; preds = %21, %30, %mi_reserve_huge_os_pages_interleave.exit
+  %.0.i11 = phi i32 [ 0, %30 ], [ 0, %mi_reserve_huge_os_pages_interleave.exit ], [ %25, %21 ]
   ret i32 %.0.i11
 }
 
@@ -14363,67 +14363,67 @@ mi_option_get.exit:                               ; preds = %mi_option_get_clamp
   br label %_mi_os_numa_node_count.exit.i
 
 _mi_os_numa_node_count.exit.i:                    ; preds = %111, %109
-  %113 = phi i64 [ %112, %111 ], [ %110, %109 ]
-  %114 = udiv i64 %97, %113
-  %115 = urem i64 %97, %113
-  %116 = udiv i64 %107, %113
-  %117 = add nuw nsw i64 %116, 50
-  br label %118
+  %spec.store.select.i = phi i64 [ %112, %111 ], [ %110, %109 ]
+  %113 = udiv i64 %97, %spec.store.select.i
+  %114 = urem i64 %97, %spec.store.select.i
+  %115 = udiv i64 %107, %spec.store.select.i
+  %116 = add nuw nsw i64 %115, 50
+  br label %117
 
-118:                                              ; preds = %123, %_mi_os_numa_node_count.exit.i
-  %.03549.i = phi i64 [ 0, %_mi_os_numa_node_count.exit.i ], [ %124, %123 ]
-  %.03648.i = phi i64 [ %96, %_mi_os_numa_node_count.exit.i ], [ %.238.i, %123 ]
-  %119 = icmp ult i64 %.03549.i, %115
-  %120 = zext i1 %119 to i64
-  %spec.select.i = add nuw nsw i64 %114, %120
-  %121 = trunc i64 %.03549.i to i32
-  %122 = call range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select.i, i32 noundef %121, i64 noundef %117, i1 noundef zeroext false, ptr noundef null)
-  %.not43.i = icmp eq i32 %122, 0
-  br i1 %.not43.i, label %123, label %mi_reserve_huge_os_pages_interleave.exit
+117:                                              ; preds = %122, %_mi_os_numa_node_count.exit.i
+  %.03549.i = phi i64 [ 0, %_mi_os_numa_node_count.exit.i ], [ %123, %122 ]
+  %.03648.i = phi i64 [ %96, %_mi_os_numa_node_count.exit.i ], [ %.238.i, %122 ]
+  %118 = icmp ult i64 %.03549.i, %114
+  %119 = zext i1 %118 to i64
+  %spec.select.i = add nuw nsw i64 %113, %119
+  %120 = trunc i64 %.03549.i to i32
+  %121 = call range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select.i, i32 noundef %120, i64 noundef %116, i1 noundef zeroext false, ptr noundef null)
+  %.not43.i = icmp eq i32 %121, 0
+  br i1 %.not43.i, label %122, label %mi_reserve_huge_os_pages_interleave.exit
 
-123:                                              ; preds = %118
+122:                                              ; preds = %117
   %.238.i = call i64 @llvm.usub.sat.i64(i64 %.03648.i, i64 %spec.select.i)
-  %124 = add nuw i64 %.03549.i, 1
-  %125 = icmp uge i64 %124, %113
-  %126 = icmp ule i64 %.03648.i, %spec.select.i
-  %.not46.i = select i1 %125, i1 true, i1 %126
-  br i1 %.not46.i, label %mi_reserve_huge_os_pages_interleave.exit, label %118, !llvm.loop !163
+  %123 = add nuw i64 %.03549.i, 1
+  %124 = icmp uge i64 %123, %spec.store.select.i
+  %125 = icmp ule i64 %.03648.i, %spec.select.i
+  %.not46.i = select i1 %124, i1 true, i1 %125
+  br i1 %.not46.i, label %mi_reserve_huge_os_pages_interleave.exit, label %117, !llvm.loop !163
 
-mi_reserve_huge_os_pages_interleave.exit:         ; preds = %123, %118, %106, %102, %mi_option_is_enabled.exit
-  %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 296), align 8, !tbaa !107
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %129, label %mi_option_is_enabled.exit12, !prof !13
+mi_reserve_huge_os_pages_interleave.exit:         ; preds = %122, %117, %106, %102, %mi_option_is_enabled.exit
+  %126 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 296), align 8, !tbaa !107
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %mi_option_is_enabled.exit12, !prof !13
 
-129:                                              ; preds = %mi_reserve_huge_os_pages_interleave.exit
+128:                                              ; preds = %mi_reserve_huge_os_pages_interleave.exit
   call fastcc void @mi_option_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @options, i64 288))
   br label %mi_option_is_enabled.exit12
 
-mi_option_is_enabled.exit12:                      ; preds = %mi_reserve_huge_os_pages_interleave.exit, %129
-  %130 = load i64, ptr getelementptr inbounds nuw (i8, ptr @options, i64 288), align 16, !tbaa !109
-  %.not18 = icmp eq i64 %130, 0
-  br i1 %.not18, label %mi_atomic_once.exit.thread, label %131
+mi_option_is_enabled.exit12:                      ; preds = %mi_reserve_huge_os_pages_interleave.exit, %128
+  %129 = load i64, ptr getelementptr inbounds nuw (i8, ptr @options, i64 288), align 16, !tbaa !109
+  %.not18 = icmp eq i64 %129, 0
+  br i1 %.not18, label %mi_atomic_once.exit.thread, label %130
 
-131:                                              ; preds = %mi_option_is_enabled.exit12
-  %132 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 296), align 8, !tbaa !107
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %134, label %mi_option_get.exit14, !prof !13
+130:                                              ; preds = %mi_option_is_enabled.exit12
+  %131 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 296), align 8, !tbaa !107
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %133, label %mi_option_get.exit14, !prof !13
 
-134:                                              ; preds = %131
+133:                                              ; preds = %130
   call fastcc void @mi_option_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @options, i64 288))
   %.pr = load i64, ptr getelementptr inbounds nuw (i8, ptr @options, i64 288), align 16, !tbaa !109
   br label %mi_option_get.exit14
 
-mi_option_get.exit14:                             ; preds = %131, %134
-  %135 = phi i64 [ %130, %131 ], [ %.pr, %134 ]
-  %136 = icmp sgt i64 %135, 0
-  br i1 %136, label %137, label %mi_atomic_once.exit.thread
+mi_option_get.exit14:                             ; preds = %130, %133
+  %134 = phi i64 [ %129, %130 ], [ %.pr, %133 ]
+  %135 = icmp sgt i64 %134, 0
+  br i1 %135, label %136, label %mi_atomic_once.exit.thread
 
-137:                                              ; preds = %mi_option_get.exit14
-  %138 = shl i64 %135, 10
-  %139 = call range(i32 0, 13) i32 @mi_reserve_os_memory_ex(i64 noundef %138, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null)
+136:                                              ; preds = %mi_option_get.exit14
+  %137 = shl i64 %134, 10
+  %138 = call range(i32 0, 13) i32 @mi_reserve_os_memory_ex(i64 noundef %137, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null)
   br label %mi_atomic_once.exit.thread
 
-mi_atomic_once.exit.thread:                       ; preds = %0, %mi_option_get.exit14, %137, %mi_atomic_once.exit, %mi_option_is_enabled.exit12
+mi_atomic_once.exit.thread:                       ; preds = %0, %mi_option_get.exit14, %136, %mi_atomic_once.exit, %mi_option_is_enabled.exit12
   ret void
 }
 
@@ -15451,13 +15451,13 @@ define hidden range(i64 0, -1023) i64 @mi_option_get_size(i32 noundef %0) local_
 
 10:                                               ; preds = %9, %3
   %11 = load i64, ptr %5, align 16, !tbaa !109
+  %12 = tail call i64 @llvm.smax.i64(i64 %11, i64 0)
+  %13 = shl i64 %12, 10
   br label %mi_option_get.exit
 
 mi_option_get.exit:                               ; preds = %1, %10
-  %.0.i = phi i64 [ %11, %10 ], [ 0, %1 ]
-  %12 = tail call i64 @llvm.smax.i64(i64 %.0.i, i64 0)
-  %13 = shl i64 %12, 10
-  ret i64 %13
+  %.0.i = phi i64 [ %13, %10 ], [ 0, %1 ]
+  ret i64 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -19591,12 +19591,12 @@ _mi_page_start.exit.i.i.i:                        ; preds = %140, %138, %128
 149:                                              ; preds = %_mi_page_start.exit.i.i.i
   %.rhs.trunc.i.i.i = trunc nuw nsw i64 %144 to i16
   %150 = udiv i16 4096, %.rhs.trunc.i.i.i
-  %151 = zext nneg i16 %150 to i64
+  %151 = tail call i16 @llvm.umax.i16(i16 %150, i16 4)
+  %152 = zext nneg i16 %151 to i64
   br label %mi_page_extend_free.exit.i.i
 
 mi_page_extend_free.exit.i.i:                     ; preds = %149, %_mi_page_start.exit.i.i.i
-  %152 = phi i64 [ %151, %149 ], [ 4, %_mi_page_start.exit.i.i.i ]
-  %spec.store.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %152, i64 4)
+  %spec.store.select.i.i.i = phi i64 [ %152, %149 ], [ 4, %_mi_page_start.exit.i.i.i ]
   %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %147, i64 %spec.store.select.i.i.i)
   tail call fastcc void @mi_page_free_list_extend(ptr noundef nonnull %.02649.i.i, i64 noundef %144, i64 noundef %spec.select.i.i.i)
   %153 = trunc nuw nsw i64 %spec.select.i.i.i to i16
@@ -30106,17 +30106,17 @@ _mi_page_start.exit.i.i:                          ; preds = %76, %74, %71
   %82 = zext i16 %70 to i64
   %83 = sub nsw i64 %81, %82
   %84 = icmp ugt i64 %80, 4095
-  br i1 %84, label %88, label %85
+  br i1 %84, label %89, label %85
 
 85:                                               ; preds = %_mi_page_start.exit.i.i
   %.rhs.trunc.i.i = trunc nuw nsw i64 %80 to i16
   %86 = udiv i16 4096, %.rhs.trunc.i.i
-  %87 = zext nneg i16 %86 to i64
-  br label %88
+  %87 = tail call i16 @llvm.umax.i16(i16 %86, i16 4)
+  %88 = zext nneg i16 %87 to i64
+  br label %89
 
-88:                                               ; preds = %85, %_mi_page_start.exit.i.i
-  %89 = phi i64 [ %87, %85 ], [ 4, %_mi_page_start.exit.i.i ]
-  %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %89, i64 4)
+89:                                               ; preds = %85, %_mi_page_start.exit.i.i
+  %spec.store.select.i.i = phi i64 [ %88, %85 ], [ 4, %_mi_page_start.exit.i.i ]
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %83, i64 %spec.store.select.i.i)
   tail call fastcc void @mi_page_free_list_extend(ptr noundef nonnull %8, i64 noundef %80, i64 noundef %spec.select.i.i)
   %90 = trunc nuw nsw i64 %spec.select.i.i to i16
@@ -30125,7 +30125,7 @@ _mi_page_start.exit.i.i:                          ; preds = %76, %74, %71
   store i16 %92, ptr %69, align 2, !tbaa !69
   br label %mi_page_init.exit
 
-mi_page_init.exit:                                ; preds = %_mi_segment_page_start.exit.i21, %68, %88
+mi_page_init.exit:                                ; preds = %_mi_segment_page_start.exit.i21, %68, %89
   br i1 %11, label %94, label %93
 
 93:                                               ; preds = %mi_page_init.exit
@@ -33437,6 +33437,9 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #58
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #60
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umax.i16(i16, i16) #58
 
 attributes #0 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -1906,120 +1906,120 @@ define hidden noundef zeroext i1 @_ZN10ClipperLib15FirstIsBottomPtEPKNS_5OutPtES
   %21 = sub nsw i64 %12, %6
   %22 = sitofp i64 %21 to double
   %23 = fdiv double %20, %22
+  %24 = tail call double @llvm.fabs.f64(double %23)
   br label %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit
 
 _ZN10ClipperLib5GetDxENS_8IntPointES0_.exit:      ; preds = %17, %18
-  %24 = phi double [ %23, %18 ], [ -1.000000e+40, %17 ]
-  br label %25
+  %25 = phi double [ %24, %18 ], [ 1.000000e+40, %17 ]
+  br label %26
 
-25:                                               ; preds = %25, %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit
-  %.pn51 = phi ptr [ %0, %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit ], [ %.1, %25 ]
+26:                                               ; preds = %26, %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit
+  %.pn51 = phi ptr [ %0, %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit ], [ %.1, %26 ]
   %.1.in = getelementptr inbounds nuw i8, ptr %.pn51, i64 24
   %.1 = load ptr, ptr %.1.in, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %27 = load i64, ptr %26, align 8
-  %28 = icmp eq i64 %27, %4
-  %29 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %30 = load i64, ptr %29, align 8
-  %31 = icmp eq i64 %30, %6
-  %32 = select i1 %28, i1 %31, i1 false
-  %33 = icmp ne ptr %.1, %0
-  %34 = and i1 %33, %32
-  br i1 %34, label %25, label %35, !llvm.loop !17
+  %27 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp eq i64 %28, %4
+  %30 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %31 = load i64, ptr %30, align 8
+  %32 = icmp eq i64 %31, %6
+  %33 = select i1 %29, i1 %32, i1 false
+  %34 = icmp ne ptr %.1, %0
+  %35 = and i1 %34, %33
+  br i1 %35, label %26, label %36, !llvm.loop !17
 
-35:                                               ; preds = %25
-  %36 = tail call double @llvm.fabs.f64(double %24)
-  br i1 %31, label %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit54, label %37
+36:                                               ; preds = %26
+  br i1 %32, label %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit54, label %37
 
-37:                                               ; preds = %35
-  %38 = sub nsw i64 %27, %4
+37:                                               ; preds = %36
+  %38 = sub nsw i64 %28, %4
   %39 = sitofp i64 %38 to double
-  %40 = sub nsw i64 %30, %6
+  %40 = sub nsw i64 %31, %6
   %41 = sitofp i64 %40 to double
   %42 = fdiv double %39, %41
+  %43 = tail call double @llvm.fabs.f64(double %42)
   br label %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit54
 
-_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit54:    ; preds = %35, %37
-  %43 = phi double [ %42, %37 ], [ -1.000000e+40, %35 ]
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %47 = load i64, ptr %46, align 8
-  br label %48
+_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit54:    ; preds = %36, %37
+  %44 = phi double [ %43, %37 ], [ 1.000000e+40, %36 ]
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %46 = load i64, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %48 = load i64, ptr %47, align 8
+  br label %49
 
-48:                                               ; preds = %48, %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit54
-  %.pn50 = phi ptr [ %1, %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit54 ], [ %.2, %48 ]
+49:                                               ; preds = %49, %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit54
+  %.pn50 = phi ptr [ %1, %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit54 ], [ %.2, %49 ]
   %.2.in = getelementptr inbounds nuw i8, ptr %.pn50, i64 32
   %.2 = load ptr, ptr %.2.in, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %50 = load i64, ptr %49, align 8
-  %51 = icmp eq i64 %50, %45
-  %52 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  %53 = load i64, ptr %52, align 8
-  %54 = icmp eq i64 %53, %47
-  %55 = select i1 %51, i1 %54, i1 false
-  %56 = icmp ne ptr %.2, %1
-  %57 = and i1 %56, %55
-  br i1 %57, label %48, label %58, !llvm.loop !18
+  %50 = getelementptr inbounds nuw i8, ptr %.2, i64 8
+  %51 = load i64, ptr %50, align 8
+  %52 = icmp eq i64 %51, %46
+  %53 = getelementptr inbounds nuw i8, ptr %.2, i64 16
+  %54 = load i64, ptr %53, align 8
+  %55 = icmp eq i64 %54, %48
+  %56 = select i1 %52, i1 %55, i1 false
+  %57 = icmp ne ptr %.2, %1
+  %58 = and i1 %57, %56
+  br i1 %58, label %49, label %59, !llvm.loop !18
 
-58:                                               ; preds = %48
-  %59 = tail call double @llvm.fabs.f64(double %43)
-  br i1 %54, label %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit55, label %60
+59:                                               ; preds = %49
+  br i1 %55, label %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit55, label %60
 
-60:                                               ; preds = %58
-  %61 = sub nsw i64 %50, %45
+60:                                               ; preds = %59
+  %61 = sub nsw i64 %51, %46
   %62 = sitofp i64 %61 to double
-  %63 = sub nsw i64 %53, %47
+  %63 = sub nsw i64 %54, %48
   %64 = sitofp i64 %63 to double
   %65 = fdiv double %62, %64
+  %66 = tail call double @llvm.fabs.f64(double %65)
   br label %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit55
 
-_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit55:    ; preds = %58, %60
-  %66 = phi double [ %65, %60 ], [ -1.000000e+40, %58 ]
-  br label %67
+_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit55:    ; preds = %59, %60
+  %67 = phi double [ %66, %60 ], [ 1.000000e+40, %59 ]
+  br label %68
 
-67:                                               ; preds = %67, %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit55
-  %.pn = phi ptr [ %1, %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit55 ], [ %.3, %67 ]
+68:                                               ; preds = %68, %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit55
+  %.pn = phi ptr [ %1, %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit55 ], [ %.3, %68 ]
   %.3.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %.3 = load ptr, ptr %.3.in, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %.3, i64 8
-  %69 = load i64, ptr %68, align 8
-  %70 = icmp eq i64 %69, %45
-  %71 = getelementptr inbounds nuw i8, ptr %.3, i64 16
-  %72 = load i64, ptr %71, align 8
-  %73 = icmp eq i64 %72, %47
-  %74 = select i1 %70, i1 %73, i1 false
-  %75 = icmp ne ptr %.3, %1
-  %76 = and i1 %75, %74
-  br i1 %76, label %67, label %77, !llvm.loop !19
+  %69 = getelementptr inbounds nuw i8, ptr %.3, i64 8
+  %70 = load i64, ptr %69, align 8
+  %71 = icmp eq i64 %70, %46
+  %72 = getelementptr inbounds nuw i8, ptr %.3, i64 16
+  %73 = load i64, ptr %72, align 8
+  %74 = icmp eq i64 %73, %48
+  %75 = select i1 %71, i1 %74, i1 false
+  %76 = icmp ne ptr %.3, %1
+  %77 = and i1 %76, %75
+  br i1 %77, label %68, label %78, !llvm.loop !19
 
-77:                                               ; preds = %67
-  %78 = tail call double @llvm.fabs.f64(double %66)
-  br i1 %73, label %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit56, label %79
+78:                                               ; preds = %68
+  br i1 %74, label %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit56, label %79
 
-79:                                               ; preds = %77
-  %80 = sub nsw i64 %69, %45
+79:                                               ; preds = %78
+  %80 = sub nsw i64 %70, %46
   %81 = sitofp i64 %80 to double
-  %82 = sub nsw i64 %72, %47
+  %82 = sub nsw i64 %73, %48
   %83 = sitofp i64 %82 to double
   %84 = fdiv double %81, %83
+  %85 = tail call double @llvm.fabs.f64(double %84)
   br label %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit56
 
-_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit56:    ; preds = %77, %79
-  %85 = phi double [ %84, %79 ], [ -1.000000e+40, %77 ]
-  %86 = tail call double @llvm.fabs.f64(double %85)
-  %87 = fcmp olt double %36, %59
-  %.sroa.speculated75 = select i1 %87, double %59, double %36
-  %88 = fcmp olt double %78, %86
-  %.sroa.speculated65 = select i1 %88, double %86, double %78
+_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit56:    ; preds = %78, %79
+  %86 = phi double [ %85, %79 ], [ 1.000000e+40, %78 ]
+  %87 = fcmp olt double %25, %44
+  %.sroa.speculated75 = select i1 %87, double %44, double %25
+  %88 = fcmp olt double %67, %86
+  %.sroa.speculated65 = select i1 %88, double %86, double %67
   %89 = fcmp oeq double %.sroa.speculated75, %.sroa.speculated65
   br i1 %89, label %90, label %113
 
 90:                                               ; preds = %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit56
-  %91 = fcmp olt double %59, %36
-  %.sroa.speculated72 = select i1 %91, double %59, double %36
-  %92 = fcmp olt double %86, %78
-  %.sroa.speculated = select i1 %92, double %86, double %78
+  %91 = fcmp olt double %44, %25
+  %.sroa.speculated72 = select i1 %91, double %44, double %25
+  %92 = fcmp olt double %86, %67
+  %.sroa.speculated = select i1 %92, double %86, double %67
   %93 = fcmp oeq double %.sroa.speculated72, %.sroa.speculated
   br i1 %93, label %.preheader.i, label %113
 
@@ -2052,14 +2052,14 @@ _ZN10ClipperLib4AreaEPKNS_5OutPtE.exit:           ; preds = %.preheader.i
   br label %120
 
 113:                                              ; preds = %90, %_ZN10ClipperLib5GetDxENS_8IntPointES0_.exit56
-  %114 = fcmp ult double %36, %78
-  %115 = fcmp ult double %36, %86
+  %114 = fcmp ult double %25, %67
+  %115 = fcmp ult double %25, %86
   %or.cond = or i1 %114, %115
   br i1 %or.cond, label %116, label %120
 
 116:                                              ; preds = %113
-  %117 = fcmp oge double %59, %78
-  %118 = fcmp oge double %59, %86
+  %117 = fcmp oge double %44, %67
+  %118 = fcmp oge double %44, %86
   %119 = and i1 %117, %118
   br label %120
 

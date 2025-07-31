@@ -12068,13 +12068,13 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEE
   %.0.i.i8.i.i.i.i = select i1 %4010, ptr @_hb_NullPool, ptr %4013, !prof !33
   %4014 = call noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13VarRegionListEPf(ptr noundef nonnull align 1 dereferenceable(8) %.0.i.i.i.i.i.i, i32 noundef %3999, ptr noundef %3979, i32 noundef %3980, ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i8.i.i.i.i, ptr noundef %.064.i)
   %4015 = fadd float %4014, 5.000000e-01
+  %4016 = call float @llvm.floor.f32(float %4015)
+  %4017 = fptosi float %4016 to i32
   br label %_ZNK2OT8HVARVVAR26get_advance_delta_unscaledEjPKijPf.exit.i
 
 _ZNK2OT8HVARVVAR26get_advance_delta_unscaledEjPKijPf.exit.i: ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEEixEi.exit.i.i.i.i, %3975
-  %.0.i.i6.i.i = phi float [ %4015, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEEixEi.exit.i.i.i.i ], [ 5.000000e-01, %3975 ]
-  %4016 = call noundef float @llvm.floor.f32(float %.0.i.i6.i.i)
-  %4017 = fptosi float %4016 to i32
-  %4018 = add nsw i32 %.0.i.i291, %4017
+  %.0.i.i6.i.i = phi i32 [ %4017, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEEixEi.exit.i.i.i.i ], [ 0, %3975 ]
+  %4018 = add nsw i32 %.0.i.i6.i.i, %.0.i.i291
   %.pre.i293 = load i32, ptr %9, align 4, !tbaa !436
   br label %4019
 
@@ -12254,13 +12254,13 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEE
   %.0.i.i8.i.i.i161.i = select i1 %4109, ptr @_hb_NullPool, ptr %4112, !prof !33
   %4113 = call noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13VarRegionListEPf(ptr noundef nonnull align 1 dereferenceable(8) %.0.i.i.i.i.i160.i, i32 noundef %4098, ptr noundef %4078, i32 noundef %4079, ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i8.i.i.i161.i, ptr noundef %.065.i)
   %4114 = fadd float %4113, 5.000000e-01
+  %4115 = call float @llvm.floor.f32(float %4114)
+  %4116 = fptosi float %4115 to i32
   br label %_ZNK2OT8HVARVVAR26get_advance_delta_unscaledEjPKijPf.exit162.i
 
 _ZNK2OT8HVARVVAR26get_advance_delta_unscaledEjPKijPf.exit162.i: ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEEixEi.exit.i.i.i159.i, %4074
-  %.0.i.i6.i158.i = phi float [ %4114, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEEixEi.exit.i.i.i159.i ], [ 5.000000e-01, %4074 ]
-  %4115 = call noundef float @llvm.floor.f32(float %.0.i.i6.i158.i)
-  %4116 = fptosi float %4115 to i32
-  %4117 = add nsw i32 %.0.i146.i, %4116
+  %.0.i.i6.i158.i = phi i32 [ %4116, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEEixEi.exit.i.i.i159.i ], [ 0, %4074 ]
+  %4117 = add nsw i32 %.0.i.i6.i158.i, %.0.i146.i
   br label %4118
 
 4118:                                             ; preds = %_ZNK2OT8HVARVVAR26get_advance_delta_unscaledEjPKijPf.exit162.i, %_ZNK2OT8hmtxvmtxINS_4vmtxENS_4vheaENS_4VVAREE13accelerator_t32get_advance_without_var_unscaledEj.exit.i
@@ -76078,7 +76078,7 @@ define internal fastcc void @_ZL24_remap_variation_indicesRKN2OT18ItemVariationS
   %16 = alloca %struct.hb_pair_t.1007, align 4
   %17 = alloca %struct.hb_pair_t.1007, align 4
   %18 = icmp eq ptr %0, @_hb_NullPool
-  br i1 %18, label %134, label %19
+  br i1 %18, label %133, label %19
 
 19:                                               ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -76182,13 +76182,13 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE7get_minEv.exit: ; preds = %42, %
   br label %64
 
 64:                                               ; preds = %.lr.ph, %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit
-  %65 = phi i32 [ %54, %.lr.ph ], [ %130, %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit ]
+  %65 = phi i32 [ %54, %.lr.ph ], [ %129, %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit ]
   %.060 = phi i32 [ 0, %.lr.ph ], [ %.1.ph, %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit ]
   %.02959 = phi i32 [ 0, %.lr.ph ], [ %.130.ph, %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit ]
   %.03658 = phi i32 [ %57, %.lr.ph ], [ %.137.ph, %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #20
   store i32 %65, ptr %15, align 4, !tbaa !246
-  br i1 %3, label %66, label %90
+  br i1 %3, label %66, label %_ZNK2OT18ItemVariationStore9get_deltaEjPKijPf.exit
 
 66:                                               ; preds = %64
   %67 = lshr i32 %65, 16
@@ -76219,130 +76219,126 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEE
   %.0.i.i8.i.i = select i1 %82, ptr @_hb_NullPool, ptr %85, !prof !33
   %86 = call noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13VarRegionListEPf(ptr noundef nonnull align 1 dereferenceable(8) %.0.i.i.i.i, i32 noundef %73, ptr noundef %72, i32 noundef %71, ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i8.i.i, ptr noundef %35)
   %87 = fadd float %86, 5.000000e-01
+  %88 = call float @llvm.floor.f32(float %87)
+  %89 = fptosi float %88 to i32
   br label %_ZNK2OT18ItemVariationStore9get_deltaEjPKijPf.exit
 
-_ZNK2OT18ItemVariationStore9get_deltaEjPKijPf.exit: ; preds = %66, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEEixEi.exit.i.i
-  %.0.i.i = phi float [ %87, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEEixEi.exit.i.i ], [ 5.000000e-01, %66 ]
-  %88 = call noundef float @llvm.floor.f32(float %.0.i.i)
-  %89 = fptosi float %88 to i32
-  br label %90
+_ZNK2OT18ItemVariationStore9get_deltaEjPKijPf.exit: ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEEixEi.exit.i.i, %66, %64
+  %.033 = phi i32 [ 0, %64 ], [ %89, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEEixEi.exit.i.i ], [ 0, %66 ]
+  br i1 %4, label %90, label %93
 
-90:                                               ; preds = %_ZNK2OT18ItemVariationStore9get_deltaEjPKijPf.exit, %64
-  %.033 = phi i32 [ %89, %_ZNK2OT18ItemVariationStore9get_deltaEjPKijPf.exit ], [ 0, %64 ]
-  br i1 %4, label %91, label %94
-
-91:                                               ; preds = %90
+90:                                               ; preds = %_ZNK2OT18ItemVariationStore9get_deltaEjPKijPf.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #20
   store i32 -1, ptr %16, align 4, !tbaa !535
   store i32 %.033, ptr %62, align 4, !tbaa !537
   %.val.i = load i32, ptr %15, align 4, !tbaa !246
-  %92 = mul i32 %.val.i, -1640531535
-  %93 = call noundef zeroext i1 @_ZN12hb_hashmap_tIj9hb_pair_tIjiELb0EE13set_with_hashIRKjS1_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 4 dereferenceable(4) %15, i32 noundef %92, ptr noundef nonnull align 4 dereferenceable(8) %16, i1 noundef zeroext true)
+  %91 = mul i32 %.val.i, -1640531535
+  %92 = call noundef zeroext i1 @_ZN12hb_hashmap_tIj9hb_pair_tIjiELb0EE13set_with_hashIRKjS1_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 4 dereferenceable(4) %15, i32 noundef %91, ptr noundef nonnull align 4 dereferenceable(8) %16, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #20
-  br label %105
+  br label %104
 
-94:                                               ; preds = %90
-  %95 = load i32, ptr %15, align 4, !tbaa !246
-  %96 = lshr i32 %95, 16
-  %.not = icmp samesign ult i32 %96, %23
-  br i1 %.not, label %97, label %104
+93:                                               ; preds = %_ZNK2OT18ItemVariationStore9get_deltaEjPKijPf.exit
+  %94 = load i32, ptr %15, align 4, !tbaa !246
+  %95 = lshr i32 %94, 16
+  %.not = icmp samesign ult i32 %95, %23
+  br i1 %.not, label %96, label %103
 
-97:                                               ; preds = %94
-  %.not41 = icmp ne i32 %96, %.03658
+96:                                               ; preds = %93
+  %.not41 = icmp ne i32 %95, %.03658
   %spec.select = select i1 %.not41, i32 0, i32 %.02959
-  %98 = zext i1 %.not41 to i32
-  %spec.select42 = add i32 %.060, %98
-  %99 = shl i32 %spec.select42, 16
-  %100 = add i32 %99, %spec.select
+  %97 = zext i1 %.not41 to i32
+  %spec.select42 = add i32 %.060, %97
+  %98 = shl i32 %spec.select42, 16
+  %99 = add i32 %98, %spec.select
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #20
-  store i32 %100, ptr %17, align 4, !tbaa !535
+  store i32 %99, ptr %17, align 4, !tbaa !535
   store i32 %.033, ptr %61, align 4, !tbaa !537
-  %101 = mul i32 %95, -1640531535
-  %102 = call noundef zeroext i1 @_ZN12hb_hashmap_tIj9hb_pair_tIjiELb0EE13set_with_hashIRKjS1_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 4 dereferenceable(4) %15, i32 noundef %101, ptr noundef nonnull align 4 dereferenceable(8) %17, i1 noundef zeroext true)
+  %100 = mul i32 %94, -1640531535
+  %101 = call noundef zeroext i1 @_ZN12hb_hashmap_tIj9hb_pair_tIjiELb0EE13set_with_hashIRKjS1_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 4 dereferenceable(4) %15, i32 noundef %100, ptr noundef nonnull align 4 dereferenceable(8) %17, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #20
-  %103 = add i32 %spec.select, 1
-  br label %105
+  %102 = add i32 %spec.select, 1
+  br label %104
 
-104:                                              ; preds = %94
+103:                                              ; preds = %93
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #20
   br label %.loopexit
 
-105:                                              ; preds = %91, %97
-  %.137.ph = phi i32 [ %96, %97 ], [ %.03658, %91 ]
-  %.130.ph = phi i32 [ %103, %97 ], [ %.02959, %91 ]
-  %.1.ph = phi i32 [ %spec.select42, %97 ], [ %.060, %91 ]
+104:                                              ; preds = %90, %96
+  %.137.ph = phi i32 [ %95, %96 ], [ %.03658, %90 ]
+  %.130.ph = phi i32 [ %102, %96 ], [ %.02959, %90 ]
+  %.1.ph = phi i32 [ %spec.select42, %96 ], [ %.060, %90 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #20
-  %106 = load ptr, ptr %14, align 8, !tbaa !278
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 48
-  %108 = load i8, ptr %107, align 8, !tbaa !30, !range !31, !noundef !32
-  %109 = trunc nuw i8 %108 to i1
-  br i1 %109, label %112, label %110, !prof !33
+  %105 = load ptr, ptr %14, align 8, !tbaa !278
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 48
+  %107 = load i8, ptr %106, align 8, !tbaa !30, !range !31, !noundef !32
+  %108 = trunc nuw i8 %107 to i1
+  br i1 %108, label %111, label %109, !prof !33
 
-110:                                              ; preds = %105
-  %111 = call noundef zeroext i1 @_ZNK12hb_bit_set_t4nextEPj(ptr noundef nonnull align 8 dereferenceable(49) %106, ptr noundef nonnull %53)
+109:                                              ; preds = %104
+  %110 = call noundef zeroext i1 @_ZNK12hb_bit_set_t4nextEPj(ptr noundef nonnull align 8 dereferenceable(49) %105, ptr noundef nonnull %53)
   br label %_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i
 
-112:                                              ; preds = %105
+111:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
-  %113 = load i32, ptr %53, align 8, !tbaa !246
-  store i32 %113, ptr %7, align 4, !tbaa !246
-  %114 = icmp eq i32 %113, -2
-  br i1 %114, label %115, label %116, !prof !33
+  %112 = load i32, ptr %53, align 8, !tbaa !246
+  store i32 %112, ptr %7, align 4, !tbaa !246
+  %113 = icmp eq i32 %112, -2
+  br i1 %113, label %114, label %115, !prof !33
 
-115:                                              ; preds = %112
+114:                                              ; preds = %111
   store i32 -1, ptr %53, align 8, !tbaa !246
-  br label %126
-
-116:                                              ; preds = %112
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
-  store i32 %113, ptr %8, align 4, !tbaa !246
-  %117 = call noundef zeroext i1 @_ZNK12hb_bit_set_t4nextEPj(ptr noundef nonnull align 8 dereferenceable(49) %106, ptr noundef nonnull %8)
-  %118 = add i32 %113, 1
-  %119 = load i32, ptr %8, align 4, !tbaa !246
-  %120 = icmp ult i32 %118, %119
-  br i1 %120, label %125, label %121
-
-121:                                              ; preds = %116
-  store i32 %113, ptr %8, align 4, !tbaa !246
-  %122 = call noundef zeroext i1 @_ZNK12hb_bit_set_t10next_rangeEPjS0_(ptr noundef nonnull align 8 dereferenceable(49) %106, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  %123 = load i32, ptr %8, align 4, !tbaa !246
-  %124 = add i32 %123, 1
   br label %125
 
-125:                                              ; preds = %121, %116
-  %.sink.i.i.i49 = phi i32 [ %124, %121 ], [ %118, %116 ]
+115:                                              ; preds = %111
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
+  store i32 %112, ptr %8, align 4, !tbaa !246
+  %116 = call noundef zeroext i1 @_ZNK12hb_bit_set_t4nextEPj(ptr noundef nonnull align 8 dereferenceable(49) %105, ptr noundef nonnull %8)
+  %117 = add i32 %112, 1
+  %118 = load i32, ptr %8, align 4, !tbaa !246
+  %119 = icmp ult i32 %117, %118
+  br i1 %119, label %124, label %120
+
+120:                                              ; preds = %115
+  store i32 %112, ptr %8, align 4, !tbaa !246
+  %121 = call noundef zeroext i1 @_ZNK12hb_bit_set_t10next_rangeEPjS0_(ptr noundef nonnull align 8 dereferenceable(49) %105, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %122 = load i32, ptr %8, align 4, !tbaa !246
+  %123 = add i32 %122, 1
+  br label %124
+
+124:                                              ; preds = %120, %115
+  %.sink.i.i.i49 = phi i32 [ %123, %120 ], [ %117, %115 ]
   store i32 %.sink.i.i.i49, ptr %53, align 8, !tbaa !246
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
-  br label %126
+  br label %125
 
-126:                                              ; preds = %125, %115
+125:                                              ; preds = %124, %114
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
   br label %_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i
 
-_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i:   ; preds = %126, %110
-  %127 = load i32, ptr %63, align 4, !tbaa !281
-  %.not.i.i48 = icmp eq i32 %127, 0
-  br i1 %.not.i.i48, label %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit, label %128, !prof !33
+_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i:   ; preds = %125, %109
+  %126 = load i32, ptr %63, align 4, !tbaa !281
+  %.not.i.i48 = icmp eq i32 %126, 0
+  br i1 %.not.i.i48, label %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit, label %127, !prof !33
 
-128:                                              ; preds = %_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i
-  %129 = add i32 %127, -1
-  store i32 %129, ptr %63, align 4, !tbaa !281
+127:                                              ; preds = %_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i
+  %128 = add i32 %126, -1
+  store i32 %128, ptr %63, align 4, !tbaa !281
   br label %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit
 
-_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit: ; preds = %_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i, %128
-  %130 = load i32, ptr %53, align 8, !tbaa !282
-  %.not.i45 = icmp ne i32 %130, -1
-  %131 = load ptr, ptr %14, align 8
-  %132 = icmp ne ptr %131, %.fca.0.load.i.i.i43
-  %133 = select i1 %.not.i45, i1 true, i1 %132
-  br i1 %133, label %64, label %.loopexit
+_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit: ; preds = %_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i, %127
+  %129 = load i32, ptr %53, align 8, !tbaa !282
+  %.not.i45 = icmp ne i32 %129, -1
+  %130 = load ptr, ptr %14, align 8
+  %131 = icmp ne ptr %130, %.fca.0.load.i.i.i43
+  %132 = select i1 %.not.i45, i1 true, i1 %131
+  br i1 %132, label %64, label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE7get_minEv.exit, %104
+.loopexit:                                        ; preds = %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE7get_minEv.exit, %103
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #20
   call void @free(ptr noundef %35) #20
-  br label %134
+  br label %133
 
-134:                                              ; preds = %6, %.loopexit
+133:                                              ; preds = %6, %.loopexit
   ret void
 }
 

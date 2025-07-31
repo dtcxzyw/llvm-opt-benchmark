@@ -142989,7 +142989,7 @@ define void @_ZNK5Yosys5RTLIL7SigSpec7updhashEv(ptr noundef nonnull align 8 dere
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !919
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %67
+  br i1 %.not, label %4, label %68
 
 4:                                                ; preds = %1
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec7updhashEvE3__d, i64 28), align 1, !tbaa !112
@@ -143005,90 +143005,93 @@ define void @_ZNK5Yosys5RTLIL7SigSpec7updhashEv(ptr noundef nonnull align 8 dere
 
 .lr.ph40:                                         ; preds = %4
   %11 = load i32, ptr @_ZN5Yosys7hashlib11HasherDJB325fudgeE, align 4
-  br label %12
+  br label %13
 
-._crit_edge:                                      ; preds = %.loopexit, %4
-  %.sroa.027.0.lcssa = phi i32 [ 5381, %4 ], [ %.sroa.027.2, %.loopexit ]
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %.sroa.027.0.lcssa, i32 1)
-  store i32 %spec.select, ptr %2, align 4, !tbaa !919
-  br label %67
+._crit_edge.loopexit:                             ; preds = %.loopexit
+  %12 = tail call i32 @llvm.umax.i32(i32 %.sroa.027.2, i32 1)
+  br label %._crit_edge
 
-12:                                               ; preds = %.lr.ph40, %.loopexit
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
+  %.sroa.027.0.lcssa = phi i32 [ 5381, %4 ], [ %12, %._crit_edge.loopexit ]
+  store i32 %.sroa.027.0.lcssa, ptr %2, align 4, !tbaa !919
+  br label %68
+
+13:                                               ; preds = %.lr.ph40, %.loopexit
   %.sroa.027.039 = phi i32 [ 5381, %.lr.ph40 ], [ %.sroa.027.2, %.loopexit ]
-  %.sroa.024.038 = phi ptr [ %8, %.lr.ph40 ], [ %66, %.loopexit ]
-  %13 = load ptr, ptr %.sroa.024.038, align 8, !tbaa !484
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %32
+  %.sroa.024.038 = phi ptr [ %8, %.lr.ph40 ], [ %67, %.loopexit ]
+  %14 = load ptr, ptr %.sroa.024.038, align 8, !tbaa !484
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %33
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.024.038, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !79
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.024.038, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !79
-  %.not3334 = icmp eq ptr %17, %19
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.024.038, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !79
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.024.038, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !79
+  %.not3334 = icmp eq ptr %18, %20
   br i1 %.not3334, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %15, %.lr.ph
-  %.sroa.027.136 = phi i32 [ %30, %.lr.ph ], [ %.sroa.027.039, %15 ]
-  %.sroa.020.035 = phi ptr [ %31, %.lr.ph ], [ %17, %15 ]
-  %20 = load i8, ptr %.sroa.020.035, align 1, !tbaa !70
-  %21 = zext i8 %20 to i32
-  %22 = mul nuw nsw i32 %21, 33
-  %23 = xor i32 %.sroa.027.136, %22
-  %24 = xor i32 %23, %11
-  %25 = shl i32 %24, 13
-  %26 = xor i32 %25, %24
-  %27 = lshr i32 %26, 17
-  %28 = xor i32 %27, %26
-  %29 = shl i32 %28, 5
-  %30 = xor i32 %29, %28
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.020.035, i64 1
-  %.not33 = icmp eq ptr %31, %19
+.lr.ph:                                           ; preds = %16, %.lr.ph
+  %.sroa.027.136 = phi i32 [ %31, %.lr.ph ], [ %.sroa.027.039, %16 ]
+  %.sroa.020.035 = phi ptr [ %32, %.lr.ph ], [ %18, %16 ]
+  %21 = load i8, ptr %.sroa.020.035, align 1, !tbaa !70
+  %22 = zext i8 %21 to i32
+  %23 = mul nuw nsw i32 %22, 33
+  %24 = xor i32 %.sroa.027.136, %23
+  %25 = xor i32 %24, %11
+  %26 = shl i32 %25, 13
+  %27 = xor i32 %26, %25
+  %28 = lshr i32 %27, 17
+  %29 = xor i32 %28, %27
+  %30 = shl i32 %29, 5
+  %31 = xor i32 %30, %29
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.020.035, i64 1
+  %.not33 = icmp eq ptr %32, %20
   br i1 %.not33, label %.loopexit, label %.lr.ph
 
-32:                                               ; preds = %12
-  %33 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  %34 = load i32, ptr %33, align 4, !tbaa !29
-  %35 = mul i32 %34, 33
-  %36 = xor i32 %35, %.sroa.027.039
-  %37 = xor i32 %36, %11
-  %38 = shl i32 %37, 13
-  %39 = xor i32 %38, %37
-  %40 = lshr i32 %39, 17
-  %41 = xor i32 %40, %39
-  %42 = shl i32 %41, 5
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.024.038, i64 36
-  %44 = load i32, ptr %43, align 4, !tbaa !29
-  %45 = mul i32 %44, 33
-  %46 = xor i32 %45, %42
-  %47 = xor i32 %46, %11
-  %48 = xor i32 %47, %41
-  %49 = shl i32 %48, 13
-  %50 = xor i32 %49, %48
-  %51 = lshr i32 %50, 17
-  %52 = xor i32 %51, %50
-  %53 = shl i32 %52, 5
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.024.038, i64 32
-  %55 = load i32, ptr %54, align 4, !tbaa !29
-  %56 = mul i32 %55, 33
-  %57 = xor i32 %56, %53
-  %58 = xor i32 %57, %11
-  %59 = xor i32 %58, %52
-  %60 = shl i32 %59, 13
-  %61 = xor i32 %60, %59
-  %62 = lshr i32 %61, 17
-  %63 = xor i32 %62, %61
-  %64 = shl i32 %63, 5
-  %65 = xor i32 %64, %63
+33:                                               ; preds = %13
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 88
+  %35 = load i32, ptr %34, align 4, !tbaa !29
+  %36 = mul i32 %35, 33
+  %37 = xor i32 %36, %.sroa.027.039
+  %38 = xor i32 %37, %11
+  %39 = shl i32 %38, 13
+  %40 = xor i32 %39, %38
+  %41 = lshr i32 %40, 17
+  %42 = xor i32 %41, %40
+  %43 = shl i32 %42, 5
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.024.038, i64 36
+  %45 = load i32, ptr %44, align 4, !tbaa !29
+  %46 = mul i32 %45, 33
+  %47 = xor i32 %46, %43
+  %48 = xor i32 %47, %11
+  %49 = xor i32 %48, %42
+  %50 = shl i32 %49, 13
+  %51 = xor i32 %50, %49
+  %52 = lshr i32 %51, 17
+  %53 = xor i32 %52, %51
+  %54 = shl i32 %53, 5
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.024.038, i64 32
+  %56 = load i32, ptr %55, align 4, !tbaa !29
+  %57 = mul i32 %56, 33
+  %58 = xor i32 %57, %54
+  %59 = xor i32 %58, %11
+  %60 = xor i32 %59, %53
+  %61 = shl i32 %60, 13
+  %62 = xor i32 %61, %60
+  %63 = lshr i32 %62, 17
+  %64 = xor i32 %63, %62
+  %65 = shl i32 %64, 5
+  %66 = xor i32 %65, %64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %15, %32
-  %.sroa.027.2 = phi i32 [ %65, %32 ], [ %.sroa.027.039, %15 ], [ %30, %.lr.ph ]
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.024.038, i64 40
-  %.not32 = icmp eq ptr %66, %10
-  br i1 %.not32, label %._crit_edge, label %12
+.loopexit:                                        ; preds = %.lr.ph, %16, %33
+  %.sroa.027.2 = phi i32 [ %66, %33 ], [ %.sroa.027.039, %16 ], [ %31, %.lr.ph ]
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.024.038, i64 40
+  %.not32 = icmp eq ptr %67, %10
+  br i1 %.not32, label %._crit_edge.loopexit, label %13
 
-67:                                               ; preds = %1, %._crit_edge
+68:                                               ; preds = %1, %._crit_edge
   ret void
 }
 

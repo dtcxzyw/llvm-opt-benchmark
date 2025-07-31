@@ -956,12 +956,15 @@ define hidden range(i32 0, 16) i32 @FLAC__format_get_max_rice_partition_order_fr
   %4 = lshr exact i32 %.057, 1
   %5 = and i32 %.057, 2
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !51
+  br i1 %.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !51
 
-._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %3, %.lr.ph ]
-  %6 = tail call i32 @llvm.umin.i32(i32 %.0.lcssa, i32 15)
-  ret i32 %6
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %6 = tail call i32 @llvm.umin.i32(i32 %3, i32 15)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %6, %._crit_edge.loopexit ]
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(none) uwtable

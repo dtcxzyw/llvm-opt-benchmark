@@ -24841,7 +24841,7 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit: ; pr
   %.not = icmp eq ptr %46, %32
   br i1 %.not, label %.preheader, label %.lr.ph
 
-.loopexit:                                        ; preds = %245, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit
+.loopexit:                                        ; preds = %246, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit
   %47 = load ptr, ptr %24, align 8, !tbaa !1203
   %48 = load ptr, ptr %19, align 8, !tbaa !1203
   %49 = icmp eq ptr %47, %48
@@ -24889,8 +24889,8 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds =
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 80
   br label %72
 
-72:                                               ; preds = %.lr.ph74, %245
-  %.sroa.046.071 = phi ptr [ %66, %.lr.ph74 ], [ %252, %245 ]
+72:                                               ; preds = %.lr.ph74, %246
+  %.sroa.046.071 = phi ptr [ %66, %.lr.ph74 ], [ %253, %246 ]
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.046.071, i64 40
   %74 = call { ptr, i64 } @_ZNK4llvm15ContextTrieNode11getFuncNameEv(ptr noundef nonnull align 8 dereferenceable(96) %73) #25
   %75 = extractvalue { ptr, i64 } %74, 0
@@ -25058,7 +25058,7 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit28: ; 
   %165 = call noundef ptr @_ZNK4llvm15ContextTrieNode18getFunctionSamplesEv(ptr noundef nonnull align 8 dereferenceable(96) %73) #25
   %166 = icmp ne ptr %165, null
   %or.cond = and i1 %68, %166
-  br i1 %or.cond, label %167, label %245
+  br i1 %or.cond, label %167, label %246
 
 167:                                              ; preds = %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit28
   %168 = call noundef i64 @_ZNK4llvm10sampleprof15FunctionSamples22getHeadSamplesEstimateEv(ptr noundef nonnull align 8 dereferenceable(176) %165)
@@ -25225,57 +25225,57 @@ _ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i.i.i: ; preds = 
 242:                                              ; preds = %238
   %243 = getelementptr inbounds nuw i8, ptr %241, i64 24
   %244 = load i64, ptr %243, align 8, !tbaa !1003
+  %245 = call i64 @llvm.umax.i64(i64 %244, i64 %168)
   br label %_ZNK4llvm10sampleprof15FunctionSamples19findCallTargetMapAtERKNS0_12LineLocationE.exit.thread
 
 _ZNK4llvm10sampleprof15FunctionSamples19findCallTargetMapAtERKNS0_12LineLocationE.exit.thread: ; preds = %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i.i.i, %229, %_ZNKSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_12SampleRecordEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %_ZNK4llvm10sampleprof15FunctionSamples20mapIRLocToProfileLocERKNS0_12LineLocationE.exit.i, %238, %242
-  %.056 = phi i64 [ %244, %242 ], [ 0, %238 ], [ 0, %_ZNK4llvm10sampleprof15FunctionSamples20mapIRLocToProfileLocERKNS0_12LineLocationE.exit.i ], [ 0, %_ZNKSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_12SampleRecordEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i.i ], [ 0, %229 ], [ 0, %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i.i.i ]
-  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %.056, i64 %168)
+  %.056 = phi i64 [ %245, %242 ], [ %168, %238 ], [ %168, %_ZNK4llvm10sampleprof15FunctionSamples20mapIRLocToProfileLocERKNS0_12LineLocationE.exit.i ], [ %168, %_ZNKSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_12SampleRecordEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i.i ], [ %168, %229 ], [ %168, %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  br label %245
+  br label %246
 
-245:                                              ; preds = %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit28, %_ZNK4llvm10sampleprof15FunctionSamples19findCallTargetMapAtERKNS0_12LineLocationE.exit.thread
-  %.0 = phi i64 [ %.sroa.speculated, %_ZNK4llvm10sampleprof15FunctionSamples19findCallTargetMapAtERKNS0_12LineLocationE.exit.thread ], [ 0, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit28 ]
-  %246 = call { ptr, i64 } @_ZNK4llvm15ContextTrieNode11getFuncNameEv(ptr noundef nonnull align 8 dereferenceable(96) %52) #25
-  %247 = extractvalue { ptr, i64 } %246, 0
-  %248 = extractvalue { ptr, i64 } %246, 1
-  %249 = call { ptr, i64 } @_ZNK4llvm15ContextTrieNode11getFuncNameEv(ptr noundef nonnull align 8 dereferenceable(96) %73) #25
-  %250 = extractvalue { ptr, i64 } %249, 0
-  %251 = extractvalue { ptr, i64 } %249, 1
-  call void @_ZN4llvm10sampleprof17ProfiledCallGraph15addProfiledCallENS0_10FunctionIdES2_m(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr %247, i64 %248, ptr %250, i64 %251, i64 noundef %.0)
-  %252 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.046.071) #29
-  %.not57 = icmp eq ptr %252, %67
+246:                                              ; preds = %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit28, %_ZNK4llvm10sampleprof15FunctionSamples19findCallTargetMapAtERKNS0_12LineLocationE.exit.thread
+  %.0 = phi i64 [ %.056, %_ZNK4llvm10sampleprof15FunctionSamples19findCallTargetMapAtERKNS0_12LineLocationE.exit.thread ], [ 0, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit28 ]
+  %247 = call { ptr, i64 } @_ZNK4llvm15ContextTrieNode11getFuncNameEv(ptr noundef nonnull align 8 dereferenceable(96) %52) #25
+  %248 = extractvalue { ptr, i64 } %247, 0
+  %249 = extractvalue { ptr, i64 } %247, 1
+  %250 = call { ptr, i64 } @_ZNK4llvm15ContextTrieNode11getFuncNameEv(ptr noundef nonnull align 8 dereferenceable(96) %73) #25
+  %251 = extractvalue { ptr, i64 } %250, 0
+  %252 = extractvalue { ptr, i64 } %250, 1
+  call void @_ZN4llvm10sampleprof17ProfiledCallGraph15addProfiledCallENS0_10FunctionIdES2_m(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr %248, i64 %249, ptr %251, i64 %252, i64 noundef %.0)
+  %253 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.046.071) #29
+  %.not57 = icmp eq ptr %253, %67
   br i1 %.not57, label %.loopexit, label %72
 
 ._crit_edge:                                      ; preds = %.loopexit, %3, %.preheader
   call void @_ZN4llvm10sampleprof17ProfiledCallGraph12trimColdEgesEm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %2)
-  %253 = load ptr, ptr %4, align 8, !tbaa !1196
-  %.not.i.i.i = icmp eq ptr %253, null
-  br i1 %.not.i.i.i, label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit, label %254
+  %254 = load ptr, ptr %4, align 8, !tbaa !1196
+  %.not.i.i.i = icmp eq ptr %254, null
+  br i1 %.not.i.i.i, label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit, label %255
 
-254:                                              ; preds = %._crit_edge
-  %255 = load ptr, ptr %20, align 8, !tbaa !1210
-  %256 = load ptr, ptr %25, align 8, !tbaa !1214
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
-  %258 = icmp ult ptr %255, %257
-  br i1 %258, label %.lr.ph.i.i.i.i30, label %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i
+255:                                              ; preds = %._crit_edge
+  %256 = load ptr, ptr %20, align 8, !tbaa !1210
+  %257 = load ptr, ptr %25, align 8, !tbaa !1214
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
+  %259 = icmp ult ptr %256, %258
+  br i1 %259, label %.lr.ph.i.i.i.i30, label %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i
 
-.lr.ph.i.i.i.i30:                                 ; preds = %254, %.lr.ph.i.i.i.i30
-  %.06.i.i.i.i = phi ptr [ %260, %.lr.ph.i.i.i.i30 ], [ %255, %254 ]
-  %259 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !1197
-  call void @_ZdlPvm(ptr noundef %259, i64 noundef 512) #26
-  %260 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
-  %261 = icmp ult ptr %.06.i.i.i.i, %256
-  br i1 %261, label %.lr.ph.i.i.i.i30, label %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i, !llvm.loop !1215
+.lr.ph.i.i.i.i30:                                 ; preds = %255, %.lr.ph.i.i.i.i30
+  %.06.i.i.i.i = phi ptr [ %261, %.lr.ph.i.i.i.i30 ], [ %256, %255 ]
+  %260 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !1197
+  call void @_ZdlPvm(ptr noundef %260, i64 noundef 512) #26
+  %261 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
+  %262 = icmp ult ptr %.06.i.i.i.i, %257
+  br i1 %262, label %.lr.ph.i.i.i.i30, label %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i, !llvm.loop !1215
 
 _ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i30
   %.pre.i.i.i = load ptr, ptr %4, align 8, !tbaa !1196
   br label %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i
 
-_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i, %254
-  %262 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i ], [ %253, %254 ]
-  %263 = load i64, ptr %16, align 8, !tbaa !1191
-  %264 = shl i64 %263, 3
-  call void @_ZdlPvm(ptr noundef %262, i64 noundef %264) #26
+_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i, %255
+  %263 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i ], [ %254, %255 ]
+  %264 = load i64, ptr %16, align 8, !tbaa !1191
+  %265 = shl i64 %264, 3
+  call void @_ZdlPvm(ptr noundef %263, i64 noundef %265) #26
   br label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit
 
 _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit: ; preds = %._crit_edge, %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i

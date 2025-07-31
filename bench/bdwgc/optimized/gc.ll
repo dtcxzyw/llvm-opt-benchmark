@@ -40634,7 +40634,7 @@ define internal fastcc signext range(i8 0, 2) i8 @GC_collect_or_expand(i64 nound
   store i64 %41, ptr @last_fo_entries, align 8, !tbaa !10
   %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 88), align 8, !tbaa !166
   store i64 %42, ptr @last_bytes_finalized, align 8, !tbaa !10
-  br label %103
+  br label %104
 
 43:                                               ; preds = %35, %28, %3
   %.037 = phi i1 [ false, %3 ], [ true, %35 ], [ false, %28 ]
@@ -40646,7 +40646,7 @@ define internal fastcc signext range(i8 0, 2) i8 @GC_collect_or_expand(i64 nound
   %49 = udiv i64 %46, %48
   %50 = add i64 %49, %0
   %51 = icmp ugt i64 %50, 2048
-  br i1 %51, label %52, label %59
+  br i1 %51, label %52, label %60
 
 52:                                               ; preds = %43
   %.not52 = icmp eq i32 %1, 0
@@ -40662,107 +40662,107 @@ define internal fastcc signext range(i8 0, 2) i8 @GC_collect_or_expand(i64 nound
 57:                                               ; preds = %53, %52
   %.035 = phi i64 [ 4, %52 ], [ %spec.select58, %53 ]
   %58 = add nuw nsw i64 %.035, %0
-  %. = call i64 @llvm.umax.i64(i64 %58, i64 2048)
-  %spec.store.select = call i64 @llvm.umin.i64(i64 %., i64 4503599627370495)
-  br label %60
+  %59 = call i64 @llvm.umax.i64(i64 %58, i64 2048)
+  %.036 = call i64 @llvm.umin.i64(i64 %59, i64 4503599627370495)
+  br label %61
 
-59:                                               ; preds = %43
+60:                                               ; preds = %43
   %spec.store.select8 = call i64 @llvm.umax.i64(i64 %50, i64 16)
-  br label %60
+  br label %61
 
-60:                                               ; preds = %59, %57
-  %.1 = phi i64 [ %spec.store.select, %57 ], [ %spec.store.select8, %59 ]
-  %61 = load i64, ptr @GC_max_heapsize, align 8, !tbaa !10
-  %62 = icmp ugt i64 %61, %44
-  br i1 %62, label %63, label %68
+61:                                               ; preds = %60, %57
+  %.1 = phi i64 [ %.036, %57 ], [ %spec.store.select8, %60 ]
+  %62 = load i64, ptr @GC_max_heapsize, align 8, !tbaa !10
+  %63 = icmp ugt i64 %62, %44
+  br i1 %63, label %64, label %69
 
-63:                                               ; preds = %60
-  %64 = sub nuw i64 %61, %44
-  %65 = lshr i64 %64, 12
-  %66 = icmp samesign ugt i64 %.1, %65
-  %67 = call i64 @llvm.umax.i64(i64 %65, i64 %0)
-  %.3 = select i1 %66, i64 %67, i64 %.1
-  br label %68
+64:                                               ; preds = %61
+  %65 = sub nuw i64 %62, %44
+  %66 = lshr i64 %65, 12
+  %67 = icmp samesign ugt i64 %.1, %66
+  %68 = call i64 @llvm.umax.i64(i64 %66, i64 %0)
+  %.3 = select i1 %67, i64 %68, i64 %.1
+  br label %69
 
-68:                                               ; preds = %63, %60
-  %.2 = phi i64 [ %.3, %63 ], [ %.1, %60 ]
-  %69 = load i32, ptr @GC_unmap_threshold, align 4, !tbaa !3
-  %70 = icmp ugt i32 %69, 1
-  br i1 %70, label %71, label %72
+69:                                               ; preds = %64, %61
+  %.2 = phi i64 [ %.3, %64 ], [ %.1, %61 ]
+  %70 = load i32, ptr @GC_unmap_threshold, align 4, !tbaa !3
+  %71 = icmp ugt i32 %70, 1
+  br i1 %71, label %72, label %73
 
-71:                                               ; preds = %68
+72:                                               ; preds = %69
   call fastcc void @GC_unmap_old(i32 noundef 0)
-  br label %72
+  br label %73
 
-72:                                               ; preds = %71, %68
-  %73 = call fastcc signext i8 @GC_expand_hp_inner(i64 noundef %.2)
-  %.not53 = icmp eq i8 %73, 0
-  br i1 %.not53, label %74, label %99
+73:                                               ; preds = %72, %69
+  %74 = call fastcc signext i8 @GC_expand_hp_inner(i64 noundef %.2)
+  %.not53 = icmp eq i8 %74, 0
+  br i1 %.not53, label %75, label %100
 
-74:                                               ; preds = %72
-  %75 = icmp eq i64 %.2, %0
-  br i1 %75, label %78, label %76
+75:                                               ; preds = %73
+  %76 = icmp eq i64 %.2, %0
+  br i1 %76, label %79, label %77
 
-76:                                               ; preds = %74
-  %77 = call fastcc signext i8 @GC_expand_hp_inner(i64 noundef %0)
-  %.not54 = icmp eq i8 %77, 0
-  br i1 %.not54, label %78, label %99
+77:                                               ; preds = %75
+  %78 = call fastcc signext i8 @GC_expand_hp_inner(i64 noundef %0)
+  %.not54 = icmp eq i8 %78, 0
+  br i1 %.not54, label %79, label %100
 
-78:                                               ; preds = %76, %74
-  br i1 %.037, label %79, label %81
+79:                                               ; preds = %77, %75
+  br i1 %.037, label %80, label %82
 
-79:                                               ; preds = %78
-  %80 = call fastcc signext i8 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
-  br label %103
+80:                                               ; preds = %79
+  %81 = call fastcc signext i8 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
+  br label %104
 
-81:                                               ; preds = %78
-  %82 = load i32, ptr @GC_fail_count, align 4, !tbaa !3
-  %83 = add i32 %82, 1
-  store i32 %83, ptr @GC_fail_count, align 4, !tbaa !3
-  %84 = zext i32 %82 to i64
-  %85 = load i64, ptr @GC_max_retries, align 8, !tbaa !10
-  %86 = icmp ugt i64 %85, %84
-  br i1 %86, label %87, label %90
+82:                                               ; preds = %79
+  %83 = load i32, ptr @GC_fail_count, align 4, !tbaa !3
+  %84 = add i32 %83, 1
+  store i32 %84, ptr @GC_fail_count, align 4, !tbaa !3
+  %85 = zext i32 %83 to i64
+  %86 = load i64, ptr @GC_max_retries, align 8, !tbaa !10
+  %87 = icmp ugt i64 %86, %85
+  br i1 %87, label %88, label %91
 
-87:                                               ; preds = %81
-  %88 = load ptr, ptr @GC_current_warn_proc, align 8, !tbaa !12
-  call void %88(ptr noundef nonnull @.str.210, i64 noundef 0) #47
-  %89 = call fastcc signext i8 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
-  br label %103
+88:                                               ; preds = %82
+  %89 = load ptr, ptr @GC_current_warn_proc, align 8, !tbaa !12
+  call void %89(ptr noundef nonnull @.str.210, i64 noundef 0) #47
+  %90 = call fastcc signext i8 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
+  br label %104
 
-90:                                               ; preds = %81
-  %91 = load i64, ptr @GC_arrays, align 8, !tbaa !92
-  %92 = icmp ugt i64 %91, 5242880
-  %93 = load ptr, ptr @GC_current_warn_proc, align 8, !tbaa !12
-  %94 = load i64, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 216), align 8, !tbaa !95
-  %95 = sub i64 %91, %94
-  br i1 %92, label %96, label %98
+91:                                               ; preds = %82
+  %92 = load i64, ptr @GC_arrays, align 8, !tbaa !92
+  %93 = icmp ugt i64 %92, 5242880
+  %94 = load ptr, ptr @GC_current_warn_proc, align 8, !tbaa !12
+  %95 = load i64, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 216), align 8, !tbaa !95
+  %96 = sub i64 %92, %95
+  br i1 %93, label %97, label %99
 
-96:                                               ; preds = %90
-  %97 = lshr i64 %95, 20
-  call void %93(ptr noundef nonnull @.str.211, i64 noundef %97) #47
-  br label %103
+97:                                               ; preds = %91
+  %98 = lshr i64 %96, 20
+  call void %94(ptr noundef nonnull @.str.211, i64 noundef %98) #47
+  br label %104
 
-98:                                               ; preds = %90
-  call void %93(ptr noundef nonnull @.str.212, i64 noundef %95) #47
-  br label %103
+99:                                               ; preds = %91
+  call void %94(ptr noundef nonnull @.str.212, i64 noundef %96) #47
+  br label %104
 
-99:                                               ; preds = %76, %72
-  %100 = load i32, ptr @GC_fail_count, align 4, !tbaa !3
-  %.not56 = icmp eq i32 %100, 0
-  %101 = load i32, ptr @GC_print_stats, align 4
-  %.not57 = icmp eq i32 %101, 0
+100:                                              ; preds = %77, %73
+  %101 = load i32, ptr @GC_fail_count, align 4, !tbaa !3
+  %.not56 = icmp eq i32 %101, 0
+  %102 = load i32, ptr @GC_print_stats, align 4
+  %.not57 = icmp eq i32 %102, 0
   %or.cond59 = select i1 %.not56, i1 true, i1 %.not57
-  br i1 %or.cond59, label %103, label %102, !prof !31
+  br i1 %or.cond59, label %104, label %103, !prof !31
 
-102:                                              ; preds = %99
+103:                                              ; preds = %100
   call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.213)
-  br label %103
+  br label %104
 
-103:                                              ; preds = %99, %102, %79, %87, %98, %96, %40
-  %.0 = phi i8 [ 1, %40 ], [ 0, %96 ], [ 0, %98 ], [ 1, %87 ], [ 1, %79 ], [ 1, %102 ], [ 1, %99 ]
-  %104 = load i32, ptr %4, align 4, !tbaa !3
-  %105 = call i32 @pthread_setcancelstate(i32 noundef %104, ptr noundef null) #47
+104:                                              ; preds = %100, %103, %80, %88, %99, %97, %40
+  %.0 = phi i8 [ 1, %40 ], [ 0, %97 ], [ 0, %99 ], [ 1, %88 ], [ 1, %80 ], [ 1, %103 ], [ 1, %100 ]
+  %105 = load i32, ptr %4, align 4, !tbaa !3
+  %106 = call i32 @pthread_setcancelstate(i32 noundef %105, ptr noundef null) #47
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #47
   ret i8 %.0
 }

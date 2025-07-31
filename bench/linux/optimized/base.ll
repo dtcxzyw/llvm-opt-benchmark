@@ -3766,38 +3766,38 @@ define internal i64 @oom_adj_read(ptr noundef readonly captures(none) %0, ptr no
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1010
   %16 = load i16, ptr %15, align 2
   %17 = icmp eq i16 %16, 1000
-  br i1 %17, label %22, label %18
+  br i1 %17, label %23, label %18
 
 18:                                               ; preds = %12
   %19 = sext i16 %16 to i32
   %20 = mul nsw i32 %19, 17
   %21 = sdiv i32 %20, 1000
-  br label %22
+  %22 = tail call i32 @llvm.smin.i32(i32 %21, i32 15)
+  br label %23
 
-22:                                               ; preds = %18, %12
-  %23 = phi i32 [ %21, %18 ], [ 15, %12 ]
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %25 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, i32 -1, ptr nonnull elementtype(i32) %24) #18, !srcloc !6
-  %26 = icmp eq i32 %25, 1
-  br i1 %26, label %30, label %27
+23:                                               ; preds = %18, %12
+  %24 = phi i32 [ %22, %18 ], [ 15, %12 ]
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %26 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 -1, ptr nonnull elementtype(i32) %25) #18, !srcloc !6
+  %27 = icmp eq i32 %26, 1
+  br i1 %27, label %31, label %28
 
-27:                                               ; preds = %22
-  %28 = icmp sgt i32 %25, 0
-  br i1 %28, label %.thread, label %29, !prof !7
+28:                                               ; preds = %23
+  %29 = icmp sgt i32 %26, 0
+  br i1 %29, label %.thread, label %30, !prof !7
 
-29:                                               ; preds = %27
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %24, i32 noundef 3) #18
+30:                                               ; preds = %28
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %25, i32 noundef 3) #18
   br label %.thread
 
-30:                                               ; preds = %22
+31:                                               ; preds = %23
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !8
   tail call void @__put_task_struct(ptr noundef nonnull %10) #18
   br label %.thread
 
-.thread:                                          ; preds = %27, %29, %30
+.thread:                                          ; preds = %28, %30, %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %5, i8 0, i64 13, i1 false), !annotation !10
-  %31 = tail call i32 @llvm.smin.i32(i32 %23, i32 15)
-  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 13, ptr noundef nonnull @.str.92, i32 noundef %31) #18
+  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 13, ptr noundef nonnull @.str.92, i32 noundef %24) #18
   %33 = sext i32 %32 to i64
   %34 = call i64 @simple_read_from_buffer(ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef nonnull %5, i64 noundef %33) #18
   br label %35

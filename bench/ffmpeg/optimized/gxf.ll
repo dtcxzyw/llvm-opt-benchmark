@@ -701,39 +701,39 @@ define internal i32 @gxf_seek(ptr noundef readonly captures(none) %0, i32 nounde
   %23 = load i32, ptr %22, align 8, !tbaa !75
   %24 = add nsw i32 %23, -2
   %25 = icmp slt i32 %14, %24
-  br i1 %25, label %26, label %30
+  br i1 %25, label %26, label %31
 
 26:                                               ; preds = %16
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %28 = load i64, ptr %27, align 8, !tbaa !73
   %29 = sub i64 %28, %21
-  br label %30
+  %30 = tail call i64 @llvm.umax.i64(i64 %29, i64 204800)
+  br label %31
 
-30:                                               ; preds = %26, %16
-  %.034 = phi i64 [ %29, %26 ], [ 104857600, %16 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !11
-  %33 = tail call i64 @avio_seek(ptr noundef %32, i64 noundef %21, i32 noundef 0) #7
-  %34 = icmp slt i64 %33, 0
-  br i1 %34, label %35, label %37
+31:                                               ; preds = %26, %16
+  %.034 = phi i64 [ %30, %26 ], [ 104857600, %16 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %33 = load ptr, ptr %32, align 8, !tbaa !11
+  %34 = tail call i64 @avio_seek(ptr noundef %33, i64 noundef %21, i32 noundef 0) #7
+  %35 = icmp slt i64 %34, 0
+  br i1 %35, label %36, label %38
 
-35:                                               ; preds = %30
-  %36 = trunc i64 %33 to i32
+36:                                               ; preds = %31
+  %37 = trunc i64 %34 to i32
   br label %44
 
-37:                                               ; preds = %30
-  %38 = tail call i64 @llvm.umax.i64(i64 %.034, i64 204800)
+38:                                               ; preds = %31
   %39 = trunc i64 %spec.select to i32
-  %.val = load ptr, ptr %31, align 8, !tbaa !11
-  %40 = tail call fastcc i64 @gxf_resync_media(ptr %.val, i64 noundef %38, i32 noundef %39)
+  %.val = load ptr, ptr %32, align 8, !tbaa !11
+  %40 = tail call fastcc i64 @gxf_resync_media(ptr %.val, i64 noundef %.034, i32 noundef %39)
   %41 = sub nsw i64 %40, %spec.select
   %42 = tail call i64 @llvm.abs.i64(i64 %41, i1 true)
   %43 = icmp samesign ugt i64 %42, 4
   %spec.select40 = sext i1 %43 to i32
   br label %44
 
-44:                                               ; preds = %37, %4, %35
-  %.0 = phi i32 [ %36, %35 ], [ -1, %4 ], [ %spec.select40, %37 ]
+44:                                               ; preds = %38, %4, %36
+  %.0 = phi i32 [ %37, %36 ], [ -1, %4 ], [ %spec.select40, %38 ]
   ret i32 %.0
 }
 

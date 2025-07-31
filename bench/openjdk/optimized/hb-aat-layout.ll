@@ -3866,17 +3866,21 @@ define linkonce_odr hidden noundef i32 @_ZNK3AAT9TrackData12get_trackingEPKvf(pt
 105:                                              ; preds = %.lr.ph33
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %._crit_edge, label %.lr.ph33, !llvm.loop !29
+  br i1 %exitcond43.not, label %._crit_edge.loopexit, label %.lr.ph33, !llvm.loop !29
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph33
   %106 = trunc nuw i64 %indvars.iv39 to i32
+  br label %._crit_edge.loopexit
+
+._crit_edge.loopexit:                             ; preds = %105, %._crit_edge.loopexit.split.loop.exit
+  %.0.lcssa.ph = phi i32 [ %106, %._crit_edge.loopexit.split.loop.exit ], [ %82, %105 ]
+  %107 = tail call i32 @llvm.usub.sat.i32(i32 %.0.lcssa.ph, i32 1)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %105, %._crit_edge.loopexit.split.loop.exit, %62
-  %.0.lcssa = phi i32 [ 0, %62 ], [ %106, %._crit_edge.loopexit.split.loop.exit ], [ %82, %105 ]
-  %107 = tail call i32 @llvm.usub.sat.i32(i32 %.0.lcssa, i32 1)
-  %.not.i.i.i = icmp ult i32 %107, %43
-  %108 = zext i32 %107 to i64
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %62
+  %.0.lcssa = phi i32 [ 0, %62 ], [ %107, %._crit_edge.loopexit ]
+  %.not.i.i.i = icmp ult i32 %.0.lcssa, %43
+  %108 = zext i32 %.0.lcssa to i64
   %109 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %81, i64 %108
   %.0.i.i.i = select i1 %.not.i.i.i, ptr %109, ptr @_hb_NullPool
   %110 = load i8, ptr %.0.i.i.i, align 1
@@ -3898,7 +3902,7 @@ define linkonce_odr hidden noundef i32 @_ZNK3AAT9TrackData12get_trackingEPKvf(pt
   %126 = or disjoint i32 %122, %125
   %127 = sitofp i32 %126 to float
   %128 = fmul float %127, 0x3EF0000000000000
-  %129 = add nuw i32 %107, 1
+  %129 = add nuw i32 %.0.lcssa, 1
   %.not.i.i18.i = icmp ult i32 %129, %43
   %130 = zext i32 %129 to i64
   %131 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %81, i64 %130

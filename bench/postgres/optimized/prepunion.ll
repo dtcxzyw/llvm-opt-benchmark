@@ -295,7 +295,7 @@ define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %
   store i8 1, ptr %7, align 1
   tail call void @check_stack_depth() #7
   %20 = load i32, ptr %0, align 4
-  switch i32 %20, label %543 [
+  switch i32 %20, label %538 [
     i32 63, label %21
     i32 142, label %52
   ]
@@ -344,13 +344,13 @@ define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %
   %51 = load i8, ptr %18, align 1, !range !6, !noundef !7
   store i8 %51, ptr %7, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #7
-  br label %547
+  br label %542
 
 52:                                               ; preds = %8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 1
-  br i1 %55, label %56, label %325
+  br i1 %55, label %56, label %320
 
 56:                                               ; preds = %52
   %57 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %0) #7
@@ -723,13 +723,13 @@ generate_setop_grouplist.exit:                    ; preds = %.lr.ph8.i, %list_he
 249:                                              ; preds = %.preheader
   %250 = load i8, ptr @enable_parallel_append, align 1, !range !6, !noundef !7
   %251 = trunc nuw i8 %250 to i1
-  br i1 %251, label %list_length.exit104, label %269
+  br i1 %251, label %list_length.exit104, label %264
 
 .thread143:                                       ; preds = %254, %.lr.ph223
   %.0196.i.lcssa161 = phi i32 [ 0, %.lr.ph223 ], [ %.0196..i, %254 ]
   %252 = load i8, ptr @enable_parallel_append, align 1, !range !6, !noundef !7
   %253 = trunc nuw i8 %252 to i1
-  br i1 %253, label %list_length.exit106.thread, label %269
+  br i1 %253, label %list_length.exit106.thread, label %264
 
 254:                                              ; preds = %.lr.ph230, %254
   %indvars.iv247 = phi i64 [ 0, %.lr.ph230 ], [ %indvars.iv.next248, %254 ]
@@ -746,146 +746,140 @@ generate_setop_grouplist.exit:                    ; preds = %.lr.ph8.i, %list_he
 list_length.exit106.thread:                       ; preds = %.thread143
   %259 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %212, i1 true)
   %260 = sub nuw nsw i32 32, %259
-  %261 = icmp sgt i32 %.0196.i.lcssa161, %260
-  br i1 %261, label %265, label %list_length.exit104
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.0196.i.lcssa161, i32 %260)
+  br label %list_length.exit104
 
 list_length.exit104:                              ; preds = %list_length.exit106.thread, %249
-  %262 = phi i32 [ 0, %249 ], [ %212, %list_length.exit106.thread ]
-  %263 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %262, i1 true)
-  %264 = sub nuw nsw i32 32, %263
-  br label %265
+  %261 = phi i32 [ poison, %249 ], [ %spec.select, %list_length.exit106.thread ]
+  %262 = load i32, ptr @max_parallel_workers_per_gather, align 4
+  %263 = tail call i32 @llvm.smin.i32(i32 %261, i32 %262)
+  br label %264
 
-265:                                              ; preds = %list_length.exit106.thread, %list_length.exit104
-  %266 = phi i32 [ %264, %list_length.exit104 ], [ %.0196.i.lcssa161, %list_length.exit106.thread ]
-  %267 = load i32, ptr @max_parallel_workers_per_gather, align 4
-  %268 = tail call i32 @llvm.smin.i32(i32 %266, i32 %267)
-  br label %269
-
-269:                                              ; preds = %249, %265, %.thread143
-  %270 = phi i1 [ true, %265 ], [ false, %249 ], [ false, %.thread143 ]
-  %.1197.i = phi i32 [ %268, %265 ], [ 0, %249 ], [ %.0196.i.lcssa161, %.thread143 ]
-  %271 = tail call ptr @create_append_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef null, ptr noundef %.0190.i.lcssa, ptr noundef null, ptr noundef null, i32 noundef %.1197.i, i1 noundef zeroext %270, double noundef -1.000000e+00) #7
-  %272 = load ptr, ptr %200, align 8
-  %273 = tail call ptr @create_gather_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef %271, ptr noundef %272, ptr noundef null, ptr noundef null) #7
-  %274 = load i8, ptr %113, align 8, !range !6, !noundef !7
-  %275 = trunc nuw i8 %274 to i1
-  br i1 %275, label %323, label %278
+264:                                              ; preds = %249, %list_length.exit104, %.thread143
+  %265 = phi i1 [ true, %list_length.exit104 ], [ false, %249 ], [ false, %.thread143 ]
+  %.1197.i = phi i32 [ %263, %list_length.exit104 ], [ 0, %249 ], [ %.0196.i.lcssa161, %.thread143 ]
+  %266 = tail call ptr @create_append_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef null, ptr noundef %.0190.i.lcssa, ptr noundef null, ptr noundef null, i32 noundef %.1197.i, i1 noundef zeroext %265, double noundef -1.000000e+00) #7
+  %267 = load ptr, ptr %200, align 8
+  %268 = tail call ptr @create_gather_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef %266, ptr noundef %267, ptr noundef null, ptr noundef null) #7
+  %269 = load i8, ptr %113, align 8, !range !6, !noundef !7
+  %270 = trunc nuw i8 %269 to i1
+  br i1 %270, label %318, label %273
 
 .thread146:                                       ; preds = %._crit_edge
-  %276 = load i8, ptr %113, align 8, !range !6, !noundef !7
-  %277 = trunc nuw i8 %276 to i1
-  br i1 %277, label %.thread150, label %278
+  %271 = load i8, ptr %113, align 8, !range !6, !noundef !7
+  %272 = trunc nuw i8 %271 to i1
+  br i1 %272, label %.thread150, label %273
 
 .thread150:                                       ; preds = %.thread146
   tail call void @add_path(ptr noundef nonnull %197, ptr noundef nonnull %207) #7
   br label %generate_union_paths.exit
 
-278:                                              ; preds = %.thread146, %269
-  %.0199.i148 = phi ptr [ null, %.thread146 ], [ %273, %269 ]
-  %279 = tail call zeroext i1 @grouping_is_sortable(ptr noundef %.0198.i) #7
-  %280 = tail call zeroext i1 @grouping_is_hashable(ptr noundef %.0198.i) #7
-  %281 = load double, ptr %208, align 8
-  br i1 %280, label %282, label %290
+273:                                              ; preds = %.thread146, %264
+  %.0199.i148 = phi ptr [ null, %.thread146 ], [ %268, %264 ]
+  %274 = tail call zeroext i1 @grouping_is_sortable(ptr noundef %.0198.i) #7
+  %275 = tail call zeroext i1 @grouping_is_hashable(ptr noundef %.0198.i) #7
+  %276 = load double, ptr %208, align 8
+  br i1 %275, label %277, label %285
 
-282:                                              ; preds = %278
-  %283 = tail call ptr @make_pathtarget_from_tlist(ptr noundef %112) #7
-  %284 = tail call ptr @set_pathtarget_cost_width(ptr noundef nonnull %1, ptr noundef %283) #7
-  %285 = tail call ptr @create_agg_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef nonnull %207, ptr noundef %284, i32 noundef 2, i32 noundef 0, ptr noundef %.0198.i, ptr noundef null, ptr noundef null, double noundef %281) #7
-  tail call void @add_path(ptr noundef nonnull %197, ptr noundef %285) #7
+277:                                              ; preds = %273
+  %278 = tail call ptr @make_pathtarget_from_tlist(ptr noundef %112) #7
+  %279 = tail call ptr @set_pathtarget_cost_width(ptr noundef nonnull %1, ptr noundef %278) #7
+  %280 = tail call ptr @create_agg_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef nonnull %207, ptr noundef %279, i32 noundef 2, i32 noundef 0, ptr noundef %.0198.i, ptr noundef null, ptr noundef null, double noundef %276) #7
+  tail call void @add_path(ptr noundef nonnull %197, ptr noundef %280) #7
   %.not218.i = icmp eq ptr %.0199.i148, null
-  br i1 %.not218.i, label %290, label %286
+  br i1 %.not218.i, label %285, label %281
 
-286:                                              ; preds = %282
-  %287 = tail call ptr @make_pathtarget_from_tlist(ptr noundef %112) #7
-  %288 = tail call ptr @set_pathtarget_cost_width(ptr noundef nonnull %1, ptr noundef %287) #7
-  %289 = tail call ptr @create_agg_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef nonnull %.0199.i148, ptr noundef %288, i32 noundef 2, i32 noundef 0, ptr noundef %.0198.i, ptr noundef null, ptr noundef null, double noundef %281) #7
-  tail call void @add_path(ptr noundef nonnull %197, ptr noundef %289) #7
+281:                                              ; preds = %277
+  %282 = tail call ptr @make_pathtarget_from_tlist(ptr noundef %112) #7
+  %283 = tail call ptr @set_pathtarget_cost_width(ptr noundef nonnull %1, ptr noundef %282) #7
+  %284 = tail call ptr @create_agg_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef nonnull %.0199.i148, ptr noundef %283, i32 noundef 2, i32 noundef 0, ptr noundef %.0198.i, ptr noundef null, ptr noundef null, double noundef %276) #7
+  tail call void @add_path(ptr noundef nonnull %197, ptr noundef %284) #7
+  br label %285
+
+285:                                              ; preds = %281, %277, %273
+  br i1 %274, label %286, label %308
+
+286:                                              ; preds = %285
+  %.not219.i = icmp eq ptr %.0198.i, null
+  br i1 %.not219.i, label %290, label %287
+
+287:                                              ; preds = %286
+  %288 = tail call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef nonnull %.0198.i, ptr noundef %112) #7
+  %289 = tail call ptr @create_sort_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef nonnull %207, ptr noundef %288, double noundef -1.000000e+00) #7
   br label %290
 
-290:                                              ; preds = %286, %282, %278
-  br i1 %279, label %291, label %313
+290:                                              ; preds = %287, %286
+  %.0185.i = phi ptr [ %289, %287 ], [ %207, %286 ]
+  %291 = getelementptr inbounds nuw i8, ptr %.0185.i, i64 72
+  %292 = load ptr, ptr %291, align 8
+  %.not.i101 = icmp eq ptr %292, null
+  br i1 %.not.i101, label %list_length.exit102, label %293
 
-291:                                              ; preds = %290
-  %.not219.i = icmp eq ptr %.0198.i, null
-  br i1 %.not219.i, label %295, label %292
-
-292:                                              ; preds = %291
-  %293 = tail call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef nonnull %.0198.i, ptr noundef %112) #7
-  %294 = tail call ptr @create_sort_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef nonnull %207, ptr noundef %293, double noundef -1.000000e+00) #7
-  br label %295
-
-295:                                              ; preds = %292, %291
-  %.0185.i = phi ptr [ %294, %292 ], [ %207, %291 ]
-  %296 = getelementptr inbounds nuw i8, ptr %.0185.i, i64 72
-  %297 = load ptr, ptr %296, align 8
-  %.not.i101 = icmp eq ptr %297, null
-  br i1 %.not.i101, label %list_length.exit102, label %298
-
-298:                                              ; preds = %295
-  %299 = getelementptr inbounds nuw i8, ptr %297, i64 4
-  %300 = load i32, ptr %299, align 4
+293:                                              ; preds = %290
+  %294 = getelementptr inbounds nuw i8, ptr %292, i64 4
+  %295 = load i32, ptr %294, align 4
   br label %list_length.exit102
 
-list_length.exit102:                              ; preds = %295, %298
-  %301 = phi i32 [ %300, %298 ], [ 0, %295 ]
-  %302 = tail call ptr @create_upper_unique_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef nonnull %.0185.i, i32 noundef %301, double noundef %281) #7
-  tail call void @add_path(ptr noundef nonnull %197, ptr noundef %302) #7
+list_length.exit102:                              ; preds = %290, %293
+  %296 = phi i32 [ %295, %293 ], [ 0, %290 ]
+  %297 = tail call ptr @create_upper_unique_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef nonnull %.0185.i, i32 noundef %296, double noundef %276) #7
+  tail call void @add_path(ptr noundef nonnull %197, ptr noundef %297) #7
   %.not220.i = icmp eq ptr %.0199.i148, null
-  br i1 %.not220.i, label %313, label %303
+  br i1 %.not220.i, label %308, label %298
 
-303:                                              ; preds = %list_length.exit102
-  %304 = tail call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef %.0198.i, ptr noundef %112) #7
-  %305 = tail call ptr @create_sort_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef nonnull %.0199.i148, ptr noundef %304, double noundef -1.000000e+00) #7
-  %306 = getelementptr inbounds nuw i8, ptr %305, i64 72
-  %307 = load ptr, ptr %306, align 8
-  %.not.i99 = icmp eq ptr %307, null
-  br i1 %.not.i99, label %list_length.exit100, label %308
+298:                                              ; preds = %list_length.exit102
+  %299 = tail call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef %.0198.i, ptr noundef %112) #7
+  %300 = tail call ptr @create_sort_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef nonnull %.0199.i148, ptr noundef %299, double noundef -1.000000e+00) #7
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 72
+  %302 = load ptr, ptr %301, align 8
+  %.not.i99 = icmp eq ptr %302, null
+  br i1 %.not.i99, label %list_length.exit100, label %303
 
-308:                                              ; preds = %303
-  %309 = getelementptr inbounds nuw i8, ptr %307, i64 4
-  %310 = load i32, ptr %309, align 4
+303:                                              ; preds = %298
+  %304 = getelementptr inbounds nuw i8, ptr %302, i64 4
+  %305 = load i32, ptr %304, align 4
   br label %list_length.exit100
 
-list_length.exit100:                              ; preds = %303, %308
-  %311 = phi i32 [ %310, %308 ], [ 0, %303 ]
-  %312 = tail call ptr @create_upper_unique_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef nonnull %305, i32 noundef %311, double noundef %281) #7
-  tail call void @add_path(ptr noundef nonnull %197, ptr noundef %312) #7
-  br label %313
+list_length.exit100:                              ; preds = %298, %303
+  %306 = phi i32 [ %305, %303 ], [ 0, %298 ]
+  %307 = tail call ptr @create_upper_unique_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef nonnull %300, i32 noundef %306, double noundef %276) #7
+  tail call void @add_path(ptr noundef nonnull %197, ptr noundef %307) #7
+  br label %308
 
-313:                                              ; preds = %list_length.exit100, %list_length.exit102, %290
-  %314 = trunc nuw i8 %.1201.i.lcssa to i1
-  %315 = icmp ne ptr %.0198.i, null
-  %or.cond3.i = and i1 %315, %314
-  br i1 %or.cond3.i, label %316, label %generate_union_paths.exit
+308:                                              ; preds = %list_length.exit100, %list_length.exit102, %285
+  %309 = trunc nuw i8 %.1201.i.lcssa to i1
+  %310 = icmp ne ptr %.0198.i, null
+  %or.cond3.i = and i1 %310, %309
+  br i1 %or.cond3.i, label %311, label %generate_union_paths.exit
 
-316:                                              ; preds = %313
-  %317 = tail call ptr @create_merge_append_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef %.0188.i.lcssa, ptr noundef %.0202.i, ptr noundef null) #7
+311:                                              ; preds = %308
+  %312 = tail call ptr @create_merge_append_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef %.0188.i.lcssa, ptr noundef %.0202.i, ptr noundef null) #7
   %.not.i98 = icmp eq ptr %112, null
-  br i1 %.not.i98, label %list_length.exit, label %318
+  br i1 %.not.i98, label %list_length.exit, label %313
 
-318:                                              ; preds = %316
-  %319 = getelementptr inbounds nuw i8, ptr %112, i64 4
-  %320 = load i32, ptr %319, align 4
+313:                                              ; preds = %311
+  %314 = getelementptr inbounds nuw i8, ptr %112, i64 4
+  %315 = load i32, ptr %314, align 4
   br label %list_length.exit
 
-list_length.exit:                                 ; preds = %316, %318
-  %321 = phi i32 [ %320, %318 ], [ 0, %316 ]
-  %322 = tail call ptr @create_upper_unique_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef %317, i32 noundef %321, double noundef %281) #7
-  tail call void @add_path(ptr noundef nonnull %197, ptr noundef %322) #7
+list_length.exit:                                 ; preds = %311, %313
+  %316 = phi i32 [ %315, %313 ], [ 0, %311 ]
+  %317 = tail call ptr @create_upper_unique_path(ptr noundef nonnull %1, ptr noundef nonnull %197, ptr noundef %312, i32 noundef %316, double noundef %276) #7
+  tail call void @add_path(ptr noundef nonnull %197, ptr noundef %317) #7
   br label %generate_union_paths.exit
 
-323:                                              ; preds = %269
+318:                                              ; preds = %264
   tail call void @add_path(ptr noundef nonnull %197, ptr noundef nonnull %207) #7
-  %.not221.i = icmp eq ptr %273, null
-  br i1 %.not221.i, label %generate_union_paths.exit, label %324
+  %.not221.i = icmp eq ptr %268, null
+  br i1 %.not221.i, label %generate_union_paths.exit, label %319
 
-324:                                              ; preds = %323
-  tail call void @add_path(ptr noundef nonnull %197, ptr noundef nonnull %273) #7
+319:                                              ; preds = %318
+  tail call void @add_path(ptr noundef nonnull %197, ptr noundef nonnull %268) #7
   br label %generate_union_paths.exit
 
-325:                                              ; preds = %52
-  %326 = getelementptr inbounds nuw i8, ptr %1, i64 576
-  %327 = load double, ptr %326, align 8
+320:                                              ; preds = %52
+  %321 = getelementptr inbounds nuw i8, ptr %1, i64 576
+  %322 = load double, ptr %321, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #7
@@ -893,294 +887,294 @@ list_length.exit:                                 ; preds = %316, %318
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #7
-  store double 0.000000e+00, ptr %326, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store double 0.000000e+00, ptr %321, align 8
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %324 = load ptr, ptr %323, align 8
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %326 = load ptr, ptr %325, align 8
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %328 = load ptr, ptr %327, align 8
+  %329 = call fastcc ptr @recurse_set_operations(ptr noundef %324, ptr noundef %1, ptr noundef nonnull %0, ptr noundef %326, ptr noundef %328, ptr noundef %5, ptr noundef %11, ptr noundef %13)
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %333 = load ptr, ptr %332, align 8
-  %334 = call fastcc ptr @recurse_set_operations(ptr noundef %329, ptr noundef %1, ptr noundef nonnull %0, ptr noundef %331, ptr noundef %333, ptr noundef %5, ptr noundef %11, ptr noundef %13)
-  %335 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %336 = load ptr, ptr %335, align 8
-  %337 = load ptr, ptr %330, align 8
-  %338 = load ptr, ptr %332, align 8
-  %339 = call fastcc ptr @recurse_set_operations(ptr noundef %336, ptr noundef %1, ptr noundef nonnull %0, ptr noundef %337, ptr noundef %338, ptr noundef %5, ptr noundef %12, ptr noundef %14)
-  %340 = load ptr, ptr %330, align 8
-  %341 = load ptr, ptr %332, align 8
-  %342 = load ptr, ptr %11, align 8
-  %343 = call fastcc ptr @generate_setop_tlist(ptr noundef %340, ptr noundef %341, i32 noundef 0, i1 noundef zeroext false, ptr noundef %342, ptr noundef %5, ptr noundef %15)
-  store ptr %343, ptr %6, align 8
-  %344 = getelementptr i8, ptr %0, i64 56
-  %.val.i93 = load ptr, ptr %344, align 8
-  %345 = tail call ptr @copyObjectImpl(ptr noundef %.val.i93) #7
-  %.not.i.i113 = icmp eq ptr %345, null
-  br i1 %.not.i.i113, label %list_head.exit.i114, label %346
+  %332 = load ptr, ptr %325, align 8
+  %333 = load ptr, ptr %327, align 8
+  %334 = call fastcc ptr @recurse_set_operations(ptr noundef %331, ptr noundef %1, ptr noundef nonnull %0, ptr noundef %332, ptr noundef %333, ptr noundef %5, ptr noundef %12, ptr noundef %14)
+  %335 = load ptr, ptr %325, align 8
+  %336 = load ptr, ptr %327, align 8
+  %337 = load ptr, ptr %11, align 8
+  %338 = call fastcc ptr @generate_setop_tlist(ptr noundef %335, ptr noundef %336, i32 noundef 0, i1 noundef zeroext false, ptr noundef %337, ptr noundef %5, ptr noundef %15)
+  store ptr %338, ptr %6, align 8
+  %339 = getelementptr i8, ptr %0, i64 56
+  %.val.i93 = load ptr, ptr %339, align 8
+  %340 = tail call ptr @copyObjectImpl(ptr noundef %.val.i93) #7
+  %.not.i.i113 = icmp eq ptr %340, null
+  br i1 %.not.i.i113, label %list_head.exit.i114, label %341
 
-346:                                              ; preds = %325
-  %347 = getelementptr inbounds nuw i8, ptr %345, i64 16
-  %348 = load ptr, ptr %347, align 8
+341:                                              ; preds = %320
+  %342 = getelementptr inbounds nuw i8, ptr %340, i64 16
+  %343 = load ptr, ptr %342, align 8
   br label %list_head.exit.i114
 
-list_head.exit.i114:                              ; preds = %346, %325
-  %349 = phi ptr [ %348, %346 ], [ null, %325 ]
-  %350 = getelementptr inbounds nuw i8, ptr %343, i64 4
-  %.not.i115 = icmp eq ptr %343, null
+list_head.exit.i114:                              ; preds = %341, %320
+  %344 = phi ptr [ %343, %341 ], [ null, %320 ]
+  %345 = getelementptr inbounds nuw i8, ptr %338, i64 4
+  %.not.i115 = icmp eq ptr %338, null
   br i1 %.not.i115, label %generate_setop_grouplist.exit124, label %.lr.ph.i116
 
 .lr.ph.i116:                                      ; preds = %list_head.exit.i114
-  %351 = getelementptr inbounds nuw i8, ptr %343, i64 16
-  %352 = getelementptr i8, ptr %345, i64 4
-  %353 = getelementptr i8, ptr %345, i64 16
-  %354 = load i32, ptr %350, align 4
-  %355 = icmp sgt i32 %354, 0
-  br i1 %355, label %.lr.ph8.i117, label %generate_setop_grouplist.exit124
+  %346 = getelementptr inbounds nuw i8, ptr %338, i64 16
+  %347 = getelementptr i8, ptr %340, i64 4
+  %348 = getelementptr i8, ptr %340, i64 16
+  %349 = load i32, ptr %345, align 4
+  %350 = icmp sgt i32 %349, 0
+  br i1 %350, label %.lr.ph8.i117, label %generate_setop_grouplist.exit124
 
 .lr.ph8.i117:                                     ; preds = %.lr.ph.i116, %.lr.ph8.i117
   %indvars.iv.i118 = phi i64 [ %indvars.iv.next.i123, %.lr.ph8.i117 ], [ 0, %.lr.ph.i116 ]
-  %.046.i119 = phi ptr [ %..i.i122, %.lr.ph8.i117 ], [ %349, %.lr.ph.i116 ]
-  %356 = load ptr, ptr %351, align 8
-  %357 = getelementptr inbounds nuw %union.ListCell, ptr %356, i64 %indvars.iv.i118
-  %358 = load ptr, ptr %357, align 8
-  %359 = load ptr, ptr %.046.i119, align 8
-  %.val.i120 = load i32, ptr %352, align 4
-  %.val17.i121 = load ptr, ptr %353, align 8
-  %360 = getelementptr inbounds nuw i8, ptr %.046.i119, i64 8
-  %361 = sext i32 %.val.i120 to i64
-  %362 = getelementptr inbounds %union.ListCell, ptr %.val17.i121, i64 %361
-  %363 = icmp ult ptr %360, %362
-  %..i.i122 = select i1 %363, ptr %360, ptr null
-  %364 = getelementptr inbounds nuw i8, ptr %358, i64 32
-  %365 = load i32, ptr %364, align 8
-  %366 = getelementptr inbounds nuw i8, ptr %359, i64 4
-  store i32 %365, ptr %366, align 4
+  %.046.i119 = phi ptr [ %..i.i122, %.lr.ph8.i117 ], [ %344, %.lr.ph.i116 ]
+  %351 = load ptr, ptr %346, align 8
+  %352 = getelementptr inbounds nuw %union.ListCell, ptr %351, i64 %indvars.iv.i118
+  %353 = load ptr, ptr %352, align 8
+  %354 = load ptr, ptr %.046.i119, align 8
+  %.val.i120 = load i32, ptr %347, align 4
+  %.val17.i121 = load ptr, ptr %348, align 8
+  %355 = getelementptr inbounds nuw i8, ptr %.046.i119, i64 8
+  %356 = sext i32 %.val.i120 to i64
+  %357 = getelementptr inbounds %union.ListCell, ptr %.val17.i121, i64 %356
+  %358 = icmp ult ptr %355, %357
+  %..i.i122 = select i1 %358, ptr %355, ptr null
+  %359 = getelementptr inbounds nuw i8, ptr %353, i64 32
+  %360 = load i32, ptr %359, align 8
+  %361 = getelementptr inbounds nuw i8, ptr %354, i64 4
+  store i32 %360, ptr %361, align 4
   %indvars.iv.next.i123 = add nuw nsw i64 %indvars.iv.i118, 1
-  %367 = load i32, ptr %350, align 4
-  %368 = sext i32 %367 to i64
-  %369 = icmp slt i64 %indvars.iv.next.i123, %368
-  br i1 %369, label %.lr.ph8.i117, label %generate_setop_grouplist.exit124
+  %362 = load i32, ptr %345, align 4
+  %363 = sext i32 %362 to i64
+  %364 = icmp slt i64 %indvars.iv.next.i123, %363
+  br i1 %364, label %.lr.ph8.i117, label %generate_setop_grouplist.exit124
 
 generate_setop_grouplist.exit124:                 ; preds = %.lr.ph8.i117, %list_head.exit.i114, %.lr.ph.i116
-  %370 = tail call zeroext i1 @grouping_is_sortable(ptr noundef %345) #7
-  %371 = tail call zeroext i1 @grouping_is_hashable(ptr noundef %345) #7
-  %or.cond.i94 = select i1 %370, i1 true, i1 %371
-  br i1 %or.cond.i94, label %380, label %372
+  %365 = tail call zeroext i1 @grouping_is_sortable(ptr noundef %340) #7
+  %366 = tail call zeroext i1 @grouping_is_hashable(ptr noundef %340) #7
+  %or.cond.i94 = select i1 %365, i1 true, i1 %366
+  br i1 %or.cond.i94, label %375, label %367
 
-372:                                              ; preds = %generate_setop_grouplist.exit124
-  %373 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %373)
-  %374 = tail call i32 @errcode(i32 noundef 1088) #7
-  %375 = load i32, ptr %53, align 4
-  %376 = icmp eq i32 %375, 2
-  %377 = select i1 %376, ptr @.str.5, ptr @.str.6
-  %378 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %377) #7
-  %379 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.7) #7
+367:                                              ; preds = %generate_setop_grouplist.exit124
+  %368 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %368)
+  %369 = tail call i32 @errcode(i32 noundef 1088) #7
+  %370 = load i32, ptr %53, align 4
+  %371 = icmp eq i32 %370, 2
+  %372 = select i1 %371, ptr @.str.5, ptr @.str.6
+  %373 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %372) #7
+  %374 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.7) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1073, ptr noundef nonnull @__func__.generate_nonunion_paths) #7
   unreachable
 
-380:                                              ; preds = %generate_setop_grouplist.exit124
-  br i1 %370, label %381, label %384
+375:                                              ; preds = %generate_setop_grouplist.exit124
+  br i1 %365, label %376, label %379
 
-381:                                              ; preds = %380
-  %382 = tail call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef %345, ptr noundef %343) #7
-  %383 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  store ptr %382, ptr %383, align 8
-  br label %384
+376:                                              ; preds = %375
+  %377 = tail call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef %340, ptr noundef %338) #7
+  %378 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  store ptr %377, ptr %378, align 8
+  br label %379
 
-384:                                              ; preds = %381, %380
-  %.0125.i = phi ptr [ %382, %381 ], [ null, %380 ]
-  %385 = getelementptr inbounds nuw i8, ptr %334, i64 120
-  %386 = load i32, ptr %385, align 8
-  %387 = icmp eq i32 %386, 1
-  br i1 %387, label %388, label %391
+379:                                              ; preds = %376, %375
+  %.0125.i = phi ptr [ %377, %376 ], [ null, %375 ]
+  %380 = getelementptr inbounds nuw i8, ptr %329, i64 120
+  %381 = load i32, ptr %380, align 8
+  %382 = icmp eq i32 %381, 1
+  br i1 %382, label %383, label %386
 
-388:                                              ; preds = %384
-  %389 = load i8, ptr %13, align 1, !range !6, !noundef !7
-  %390 = trunc nuw i8 %389 to i1
-  call fastcc void @build_setop_child_paths(ptr noundef nonnull %1, ptr noundef nonnull %334, i1 noundef zeroext %390, ptr noundef %342, ptr noundef %.0125.i, ptr noundef nonnull %16)
-  br label %394
+383:                                              ; preds = %379
+  %384 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %385 = trunc nuw i8 %384 to i1
+  call fastcc void @build_setop_child_paths(ptr noundef nonnull %1, ptr noundef nonnull %329, i1 noundef zeroext %385, ptr noundef %337, ptr noundef %.0125.i, ptr noundef nonnull %16)
+  br label %389
 
-391:                                              ; preds = %384
-  %392 = getelementptr inbounds nuw i8, ptr %334, i64 16
-  %393 = load double, ptr %392, align 8
-  store double %393, ptr %16, align 8
-  br label %394
+386:                                              ; preds = %379
+  %387 = getelementptr inbounds nuw i8, ptr %329, i64 16
+  %388 = load double, ptr %387, align 8
+  store double %388, ptr %16, align 8
+  br label %389
 
-394:                                              ; preds = %391, %388
-  %395 = getelementptr inbounds nuw i8, ptr %339, i64 120
-  %396 = load i32, ptr %395, align 8
-  %397 = icmp eq i32 %396, 1
-  br i1 %397, label %398, label %402
+389:                                              ; preds = %386, %383
+  %390 = getelementptr inbounds nuw i8, ptr %334, i64 120
+  %391 = load i32, ptr %390, align 8
+  %392 = icmp eq i32 %391, 1
+  br i1 %392, label %393, label %397
 
-398:                                              ; preds = %394
-  %399 = load i8, ptr %14, align 1, !range !6, !noundef !7
-  %400 = trunc nuw i8 %399 to i1
-  %401 = load ptr, ptr %12, align 8
-  call fastcc void @build_setop_child_paths(ptr noundef nonnull %1, ptr noundef nonnull %339, i1 noundef zeroext %400, ptr noundef %401, ptr noundef %.0125.i, ptr noundef nonnull %17)
-  br label %405
+393:                                              ; preds = %389
+  %394 = load i8, ptr %14, align 1, !range !6, !noundef !7
+  %395 = trunc nuw i8 %394 to i1
+  %396 = load ptr, ptr %12, align 8
+  call fastcc void @build_setop_child_paths(ptr noundef nonnull %1, ptr noundef nonnull %334, i1 noundef zeroext %395, ptr noundef %396, ptr noundef %.0125.i, ptr noundef nonnull %17)
+  br label %400
 
-402:                                              ; preds = %394
-  %403 = getelementptr inbounds nuw i8, ptr %339, i64 16
-  %404 = load double, ptr %403, align 8
-  store double %404, ptr %17, align 8
-  br label %405
+397:                                              ; preds = %389
+  %398 = getelementptr inbounds nuw i8, ptr %334, i64 16
+  %399 = load double, ptr %398, align 8
+  store double %399, ptr %17, align 8
+  br label %400
 
-405:                                              ; preds = %402, %398
-  store double %327, ptr %326, align 8
-  %406 = load i32, ptr %53, align 4
-  %.not.i95 = icmp eq i32 %406, 3
-  br i1 %.not.i95, label %413, label %407
+400:                                              ; preds = %397, %393
+  store double %322, ptr %321, align 8
+  %401 = load i32, ptr %53, align 4
+  %.not.i95 = icmp eq i32 %401, 3
+  br i1 %.not.i95, label %408, label %402
 
-407:                                              ; preds = %405
-  %408 = load double, ptr %16, align 8
-  %409 = load double, ptr %17, align 8
-  %410 = fcmp ogt double %408, %409
-  br i1 %410, label %411, label %413
+402:                                              ; preds = %400
+  %403 = load double, ptr %16, align 8
+  %404 = load double, ptr %17, align 8
+  %405 = fcmp ogt double %403, %404
+  br i1 %405, label %406, label %408
 
-411:                                              ; preds = %407
-  %412 = load ptr, ptr %12, align 8
-  store ptr %342, ptr %12, align 8
-  store double %409, ptr %16, align 8
-  br label %413
+406:                                              ; preds = %402
+  %407 = load ptr, ptr %12, align 8
+  store ptr %337, ptr %12, align 8
+  store double %404, ptr %16, align 8
+  br label %408
 
-413:                                              ; preds = %411, %407, %405
-  %414 = phi ptr [ %412, %411 ], [ %342, %407 ], [ %342, %405 ]
-  %.0123.i = phi ptr [ %334, %411 ], [ %339, %407 ], [ %339, %405 ]
-  %.0122.i = phi ptr [ %339, %411 ], [ %334, %407 ], [ %334, %405 ]
-  %415 = getelementptr inbounds nuw i8, ptr %.0122.i, i64 72
-  %416 = load ptr, ptr %415, align 8
-  %417 = getelementptr inbounds nuw i8, ptr %.0123.i, i64 72
-  %418 = load ptr, ptr %417, align 8
-  %419 = getelementptr inbounds nuw i8, ptr %.0122.i, i64 8
-  %420 = load ptr, ptr %419, align 8
-  %421 = getelementptr inbounds nuw i8, ptr %.0123.i, i64 8
-  %422 = load ptr, ptr %421, align 8
-  %423 = call ptr @bms_union(ptr noundef %420, ptr noundef %422) #7
-  %424 = call ptr @fetch_upper_rel(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %423) #7
-  %425 = call ptr @make_pathtarget_from_tlist(ptr noundef %343) #7
-  %426 = call ptr @set_pathtarget_cost_width(ptr noundef nonnull %1, ptr noundef %425) #7
-  %427 = getelementptr inbounds nuw i8, ptr %424, i64 32
-  store ptr %426, ptr %427, align 8
-  %428 = load i32, ptr %53, align 4
-  %429 = icmp eq i32 %428, 3
-  %430 = load double, ptr %16, align 8
-  %431 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %432 = load i8, ptr %431, align 8, !range !6, !noundef !7
-  %433 = trunc nuw i8 %432 to i1
-  br i1 %429, label %434, label %438
+408:                                              ; preds = %406, %402, %400
+  %409 = phi ptr [ %407, %406 ], [ %337, %402 ], [ %337, %400 ]
+  %.0123.i = phi ptr [ %329, %406 ], [ %334, %402 ], [ %334, %400 ]
+  %.0122.i = phi ptr [ %334, %406 ], [ %329, %402 ], [ %329, %400 ]
+  %410 = getelementptr inbounds nuw i8, ptr %.0122.i, i64 72
+  %411 = load ptr, ptr %410, align 8
+  %412 = getelementptr inbounds nuw i8, ptr %.0123.i, i64 72
+  %413 = load ptr, ptr %412, align 8
+  %414 = getelementptr inbounds nuw i8, ptr %.0122.i, i64 8
+  %415 = load ptr, ptr %414, align 8
+  %416 = getelementptr inbounds nuw i8, ptr %.0123.i, i64 8
+  %417 = load ptr, ptr %416, align 8
+  %418 = call ptr @bms_union(ptr noundef %415, ptr noundef %417) #7
+  %419 = call ptr @fetch_upper_rel(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %418) #7
+  %420 = call ptr @make_pathtarget_from_tlist(ptr noundef %338) #7
+  %421 = call ptr @set_pathtarget_cost_width(ptr noundef nonnull %1, ptr noundef %420) #7
+  %422 = getelementptr inbounds nuw i8, ptr %419, i64 32
+  store ptr %421, ptr %422, align 8
+  %423 = load i32, ptr %53, align 4
+  %424 = icmp eq i32 %423, 3
+  %425 = load double, ptr %16, align 8
+  %426 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %427 = load i8, ptr %426, align 8, !range !6, !noundef !7
+  %428 = trunc nuw i8 %427 to i1
+  br i1 %424, label %429, label %433
 
-434:                                              ; preds = %413
-  br i1 %433, label %435, label %445
+429:                                              ; preds = %408
+  br i1 %428, label %430, label %440
 
-435:                                              ; preds = %434
-  %436 = getelementptr inbounds nuw i8, ptr %416, i64 40
-  %437 = load double, ptr %436, align 8
-  br label %445
+430:                                              ; preds = %429
+  %431 = getelementptr inbounds nuw i8, ptr %411, i64 40
+  %432 = load double, ptr %431, align 8
+  br label %440
 
-438:                                              ; preds = %413
-  br i1 %433, label %439, label %445
+433:                                              ; preds = %408
+  br i1 %428, label %434, label %440
 
-439:                                              ; preds = %438
-  %440 = getelementptr inbounds nuw i8, ptr %416, i64 40
-  %441 = load double, ptr %440, align 8
-  %442 = getelementptr inbounds nuw i8, ptr %418, i64 40
-  %443 = load double, ptr %442, align 8
-  %444 = fcmp olt double %441, %443
-  %..i = select i1 %444, double %441, double %443
-  br label %445
+434:                                              ; preds = %433
+  %435 = getelementptr inbounds nuw i8, ptr %411, i64 40
+  %436 = load double, ptr %435, align 8
+  %437 = getelementptr inbounds nuw i8, ptr %413, i64 40
+  %438 = load double, ptr %437, align 8
+  %439 = fcmp olt double %436, %438
+  %..i = select i1 %439, double %436, double %438
+  br label %440
 
-445:                                              ; preds = %439, %438, %435, %434
-  %.0127.i = phi double [ %437, %435 ], [ %430, %434 ], [ %..i, %439 ], [ %430, %438 ]
-  %446 = getelementptr inbounds nuw i8, ptr %424, i64 16
-  store double %.0127.i, ptr %446, align 8
-  %447 = load i32, ptr %53, align 4
-  switch i32 %447, label %457 [
-    i32 2, label %448
-    i32 3, label %452
+440:                                              ; preds = %434, %433, %430, %429
+  %.0127.i = phi double [ %432, %430 ], [ %425, %429 ], [ %..i, %434 ], [ %425, %433 ]
+  %441 = getelementptr inbounds nuw i8, ptr %419, i64 16
+  store double %.0127.i, ptr %441, align 8
+  %442 = load i32, ptr %53, align 4
+  switch i32 %442, label %452 [
+    i32 2, label %443
+    i32 3, label %447
   ]
 
-448:                                              ; preds = %445
-  %449 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %450 = load i8, ptr %449, align 8, !range !6, !noundef !7
-  %451 = zext nneg i8 %450 to i32
-  br label %461
+443:                                              ; preds = %440
+  %444 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %445 = load i8, ptr %444, align 8, !range !6, !noundef !7
+  %446 = zext nneg i8 %445 to i32
+  br label %456
 
-452:                                              ; preds = %445
-  %453 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %454 = load i8, ptr %453, align 8, !range !6, !noundef !7
-  %455 = trunc nuw i8 %454 to i1
-  %456 = select i1 %455, i32 3, i32 2
-  br label %461
+447:                                              ; preds = %440
+  %448 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %449 = load i8, ptr %448, align 8, !range !6, !noundef !7
+  %450 = trunc nuw i8 %449 to i1
+  %451 = select i1 %450, i32 3, i32 2
+  br label %456
 
-457:                                              ; preds = %445
-  %458 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %458)
-  %459 = load i32, ptr %53, align 4
-  %460 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %459) #7
+452:                                              ; preds = %440
+  %453 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %453)
+  %454 = load i32, ptr %53, align 4
+  %455 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %454) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1165, ptr noundef nonnull @__func__.generate_nonunion_paths) #7
   unreachable
 
-461:                                              ; preds = %452, %448
-  %.0124.i = phi i32 [ %451, %448 ], [ %456, %452 ]
-  br i1 %371, label %462, label %464
+456:                                              ; preds = %447, %443
+  %.0124.i = phi i32 [ %446, %443 ], [ %451, %447 ]
+  br i1 %366, label %457, label %459
 
-462:                                              ; preds = %461
-  %463 = call ptr @create_setop_path(ptr noundef nonnull %1, ptr noundef nonnull %424, ptr noundef %416, ptr noundef %418, i32 noundef %.0124.i, i32 noundef 1, ptr noundef %345, double noundef %430, double noundef %.0127.i) #7
-  call void @add_path(ptr noundef nonnull %424, ptr noundef %463) #7
-  br label %464
+457:                                              ; preds = %456
+  %458 = call ptr @create_setop_path(ptr noundef nonnull %1, ptr noundef nonnull %419, ptr noundef %411, ptr noundef %413, i32 noundef %.0124.i, i32 noundef 1, ptr noundef %340, double noundef %425, double noundef %.0127.i) #7
+  call void @add_path(ptr noundef nonnull %419, ptr noundef %458) #7
+  br label %459
 
-464:                                              ; preds = %462, %461
-  br i1 %370, label %465, label %generate_nonunion_paths.exit
+459:                                              ; preds = %457, %456
+  br i1 %365, label %460, label %generate_nonunion_paths.exit
 
-465:                                              ; preds = %464
-  %466 = call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef %345, ptr noundef %414) #7
-  %467 = getelementptr inbounds nuw i8, ptr %416, i64 72
-  %468 = load ptr, ptr %467, align 8
-  %469 = call zeroext i1 @pathkeys_contained_in(ptr noundef %466, ptr noundef %468) #7
-  br i1 %469, label %479, label %470
+460:                                              ; preds = %459
+  %461 = call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef %340, ptr noundef %409) #7
+  %462 = getelementptr inbounds nuw i8, ptr %411, i64 72
+  %463 = load ptr, ptr %462, align 8
+  %464 = call zeroext i1 @pathkeys_contained_in(ptr noundef %461, ptr noundef %463) #7
+  br i1 %464, label %474, label %465
+
+465:                                              ; preds = %460
+  %466 = getelementptr inbounds nuw i8, ptr %.0122.i, i64 40
+  %467 = load ptr, ptr %466, align 8
+  %468 = call ptr @get_cheapest_path_for_pathkeys(ptr noundef %467, ptr noundef %.0125.i, ptr noundef null, i32 noundef 1, i1 noundef zeroext false) #7
+  %469 = icmp eq ptr %468, null
+  br i1 %469, label %470, label %474
 
 470:                                              ; preds = %465
-  %471 = getelementptr inbounds nuw i8, ptr %.0122.i, i64 40
+  %471 = getelementptr inbounds nuw i8, ptr %411, i64 8
   %472 = load ptr, ptr %471, align 8
-  %473 = call ptr @get_cheapest_path_for_pathkeys(ptr noundef %472, ptr noundef %.0125.i, ptr noundef null, i32 noundef 1, i1 noundef zeroext false) #7
-  %474 = icmp eq ptr %473, null
-  br i1 %474, label %475, label %479
+  %473 = call ptr @create_sort_path(ptr noundef nonnull %1, ptr noundef %472, ptr noundef nonnull %411, ptr noundef %461, double noundef -1.000000e+00) #7
+  br label %474
 
-475:                                              ; preds = %470
-  %476 = getelementptr inbounds nuw i8, ptr %416, i64 8
-  %477 = load ptr, ptr %476, align 8
-  %478 = call ptr @create_sort_path(ptr noundef nonnull %1, ptr noundef %477, ptr noundef nonnull %416, ptr noundef %466, double noundef -1.000000e+00) #7
-  br label %479
+474:                                              ; preds = %470, %465, %460
+  %.0121.i = phi ptr [ %473, %470 ], [ %468, %465 ], [ %411, %460 ]
+  %475 = load ptr, ptr %12, align 8
+  %476 = call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef %340, ptr noundef %475) #7
+  %477 = getelementptr inbounds nuw i8, ptr %413, i64 72
+  %478 = load ptr, ptr %477, align 8
+  %479 = call zeroext i1 @pathkeys_contained_in(ptr noundef %476, ptr noundef %478) #7
+  br i1 %479, label %489, label %480
 
-479:                                              ; preds = %475, %470, %465
-  %.0121.i = phi ptr [ %478, %475 ], [ %473, %470 ], [ %416, %465 ]
-  %480 = load ptr, ptr %12, align 8
-  %481 = call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef %345, ptr noundef %480) #7
-  %482 = getelementptr inbounds nuw i8, ptr %418, i64 72
-  %483 = load ptr, ptr %482, align 8
-  %484 = call zeroext i1 @pathkeys_contained_in(ptr noundef %481, ptr noundef %483) #7
-  br i1 %484, label %494, label %485
+480:                                              ; preds = %474
+  %481 = getelementptr inbounds nuw i8, ptr %.0123.i, i64 40
+  %482 = load ptr, ptr %481, align 8
+  %483 = call ptr @get_cheapest_path_for_pathkeys(ptr noundef %482, ptr noundef %.0125.i, ptr noundef null, i32 noundef 1, i1 noundef zeroext false) #7
+  %484 = icmp eq ptr %483, null
+  br i1 %484, label %485, label %489
 
-485:                                              ; preds = %479
-  %486 = getelementptr inbounds nuw i8, ptr %.0123.i, i64 40
+485:                                              ; preds = %480
+  %486 = getelementptr inbounds nuw i8, ptr %413, i64 8
   %487 = load ptr, ptr %486, align 8
-  %488 = call ptr @get_cheapest_path_for_pathkeys(ptr noundef %487, ptr noundef %.0125.i, ptr noundef null, i32 noundef 1, i1 noundef zeroext false) #7
-  %489 = icmp eq ptr %488, null
-  br i1 %489, label %490, label %494
+  %488 = call ptr @create_sort_path(ptr noundef nonnull %1, ptr noundef %487, ptr noundef nonnull %413, ptr noundef %476, double noundef -1.000000e+00) #7
+  br label %489
 
-490:                                              ; preds = %485
-  %491 = getelementptr inbounds nuw i8, ptr %418, i64 8
-  %492 = load ptr, ptr %491, align 8
-  %493 = call ptr @create_sort_path(ptr noundef nonnull %1, ptr noundef %492, ptr noundef nonnull %418, ptr noundef %481, double noundef -1.000000e+00) #7
-  br label %494
-
-494:                                              ; preds = %490, %485, %479
-  %.0.i96 = phi ptr [ %493, %490 ], [ %488, %485 ], [ %418, %479 ]
-  %495 = call ptr @create_setop_path(ptr noundef nonnull %1, ptr noundef nonnull %424, ptr noundef %.0121.i, ptr noundef %.0.i96, i32 noundef %.0124.i, i32 noundef 0, ptr noundef %345, double noundef %430, double noundef %.0127.i) #7
-  call void @add_path(ptr noundef nonnull %424, ptr noundef %495) #7
+489:                                              ; preds = %485, %480, %474
+  %.0.i96 = phi ptr [ %488, %485 ], [ %483, %480 ], [ %413, %474 ]
+  %490 = call ptr @create_setop_path(ptr noundef nonnull %1, ptr noundef nonnull %419, ptr noundef %.0121.i, ptr noundef %.0.i96, i32 noundef %.0124.i, i32 noundef 0, ptr noundef %340, double noundef %425, double noundef %.0127.i) #7
+  call void @add_path(ptr noundef nonnull %419, ptr noundef %490) #7
   br label %generate_nonunion_paths.exit
 
-generate_nonunion_paths.exit:                     ; preds = %464, %494
+generate_nonunion_paths.exit:                     ; preds = %459, %489
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #7
@@ -1190,115 +1184,115 @@ generate_nonunion_paths.exit:                     ; preds = %464, %494
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
   br label %generate_union_paths.exit
 
-generate_union_paths.exit:                        ; preds = %324, %323, %list_length.exit, %313, %.thread150, %generate_nonunion_paths.exit
-  %.1 = phi ptr [ %424, %generate_nonunion_paths.exit ], [ %197, %.thread150 ], [ %197, %313 ], [ %197, %list_length.exit ], [ %197, %323 ], [ %197, %324 ]
-  %496 = load ptr, ptr %6, align 8
-  %497 = call zeroext i1 @tlist_same_datatypes(ptr noundef %496, ptr noundef %3, i1 noundef zeroext false) #7
-  br i1 %497, label %498, label %501
+generate_union_paths.exit:                        ; preds = %319, %318, %list_length.exit, %308, %.thread150, %generate_nonunion_paths.exit
+  %.1 = phi ptr [ %419, %generate_nonunion_paths.exit ], [ %197, %.thread150 ], [ %197, %308 ], [ %197, %list_length.exit ], [ %197, %318 ], [ %197, %319 ]
+  %491 = load ptr, ptr %6, align 8
+  %492 = call zeroext i1 @tlist_same_datatypes(ptr noundef %491, ptr noundef %3, i1 noundef zeroext false) #7
+  br i1 %492, label %493, label %496
 
-498:                                              ; preds = %generate_union_paths.exit
-  %499 = load ptr, ptr %6, align 8
-  %500 = call zeroext i1 @tlist_same_collations(ptr noundef %499, ptr noundef %4, i1 noundef zeroext false) #7
-  br i1 %500, label %540, label %501
+493:                                              ; preds = %generate_union_paths.exit
+  %494 = load ptr, ptr %6, align 8
+  %495 = call zeroext i1 @tlist_same_collations(ptr noundef %494, ptr noundef %4, i1 noundef zeroext false) #7
+  br i1 %495, label %535, label %496
 
-501:                                              ; preds = %498, %generate_union_paths.exit
+496:                                              ; preds = %493, %generate_union_paths.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #7
-  %502 = load ptr, ptr %6, align 8
-  %503 = call fastcc ptr @generate_setop_tlist(ptr noundef %3, ptr noundef %4, i32 noundef 0, i1 noundef zeroext false, ptr noundef %502, ptr noundef %5, ptr noundef %19)
-  store ptr %503, ptr %6, align 8
-  %504 = load i8, ptr %19, align 1, !range !6, !noundef !7
-  store i8 %504, ptr %7, align 1
-  %505 = load ptr, ptr %6, align 8
-  %506 = call ptr @make_pathtarget_from_tlist(ptr noundef %505) #7
-  %507 = call ptr @set_pathtarget_cost_width(ptr noundef nonnull %1, ptr noundef %506) #7
-  %508 = getelementptr inbounds nuw i8, ptr %.1, i64 40
-  %509 = load ptr, ptr %508, align 8
-  %510 = getelementptr inbounds nuw i8, ptr %509, i64 4
-  %.not = icmp eq ptr %509, null
+  %497 = load ptr, ptr %6, align 8
+  %498 = call fastcc ptr @generate_setop_tlist(ptr noundef %3, ptr noundef %4, i32 noundef 0, i1 noundef zeroext false, ptr noundef %497, ptr noundef %5, ptr noundef %19)
+  store ptr %498, ptr %6, align 8
+  %499 = load i8, ptr %19, align 1, !range !6, !noundef !7
+  store i8 %499, ptr %7, align 1
+  %500 = load ptr, ptr %6, align 8
+  %501 = call ptr @make_pathtarget_from_tlist(ptr noundef %500) #7
+  %502 = call ptr @set_pathtarget_cost_width(ptr noundef nonnull %1, ptr noundef %501) #7
+  %503 = getelementptr inbounds nuw i8, ptr %.1, i64 40
+  %504 = load ptr, ptr %503, align 8
+  %505 = getelementptr inbounds nuw i8, ptr %504, i64 4
+  %.not = icmp eq ptr %504, null
   br i1 %.not, label %._crit_edge235, label %.lr.ph234
 
-.lr.ph234:                                        ; preds = %501
-  %511 = getelementptr inbounds nuw i8, ptr %509, i64 16
-  %512 = load i32, ptr %510, align 4
-  %513 = icmp sgt i32 %512, 0
-  br i1 %513, label %.lr.ph238, label %._crit_edge235
+.lr.ph234:                                        ; preds = %496
+  %506 = getelementptr inbounds nuw i8, ptr %504, i64 16
+  %507 = load i32, ptr %505, align 4
+  %508 = icmp sgt i32 %507, 0
+  br i1 %508, label %.lr.ph238, label %._crit_edge235
 
-._crit_edge235:                                   ; preds = %527, %.lr.ph234, %501
-  %514 = getelementptr inbounds nuw i8, ptr %.1, i64 56
-  %515 = load ptr, ptr %514, align 8
-  %516 = getelementptr inbounds nuw i8, ptr %515, i64 4
-  %.not89 = icmp eq ptr %515, null
+._crit_edge235:                                   ; preds = %522, %.lr.ph234, %496
+  %509 = getelementptr inbounds nuw i8, ptr %.1, i64 56
+  %510 = load ptr, ptr %509, align 8
+  %511 = getelementptr inbounds nuw i8, ptr %510, i64 4
+  %.not89 = icmp eq ptr %510, null
   br i1 %.not89, label %._crit_edge242, label %.lr.ph241
 
 .lr.ph241:                                        ; preds = %._crit_edge235
-  %517 = getelementptr inbounds nuw i8, ptr %515, i64 16
-  %518 = load i32, ptr %516, align 4
-  %519 = icmp sgt i32 %518, 0
-  br i1 %519, label %.lr.ph245, label %._crit_edge242
+  %512 = getelementptr inbounds nuw i8, ptr %510, i64 16
+  %513 = load i32, ptr %511, align 4
+  %514 = icmp sgt i32 %513, 0
+  br i1 %514, label %.lr.ph245, label %._crit_edge242
 
-.lr.ph238:                                        ; preds = %.lr.ph234, %527
-  %indvars.iv250 = phi i64 [ %indvars.iv.next251, %527 ], [ 0, %.lr.ph234 ]
-  %520 = load ptr, ptr %511, align 8
-  %521 = getelementptr inbounds nuw %union.ListCell, ptr %520, i64 %indvars.iv250
-  %522 = load ptr, ptr %521, align 8
-  %523 = getelementptr inbounds nuw i8, ptr %522, i64 8
-  %524 = load ptr, ptr %523, align 8
-  %525 = call ptr @apply_projection_to_path(ptr noundef %1, ptr noundef %524, ptr noundef %522, ptr noundef %507) #7
-  %.not91 = icmp eq ptr %525, %522
-  br i1 %.not91, label %527, label %526
+.lr.ph238:                                        ; preds = %.lr.ph234, %522
+  %indvars.iv250 = phi i64 [ %indvars.iv.next251, %522 ], [ 0, %.lr.ph234 ]
+  %515 = load ptr, ptr %506, align 8
+  %516 = getelementptr inbounds nuw %union.ListCell, ptr %515, i64 %indvars.iv250
+  %517 = load ptr, ptr %516, align 8
+  %518 = getelementptr inbounds nuw i8, ptr %517, i64 8
+  %519 = load ptr, ptr %518, align 8
+  %520 = call ptr @apply_projection_to_path(ptr noundef %1, ptr noundef %519, ptr noundef %517, ptr noundef %502) #7
+  %.not91 = icmp eq ptr %520, %517
+  br i1 %.not91, label %522, label %521
 
-526:                                              ; preds = %.lr.ph238
-  store ptr %525, ptr %521, align 8
-  br label %527
+521:                                              ; preds = %.lr.ph238
+  store ptr %520, ptr %516, align 8
+  br label %522
 
-527:                                              ; preds = %526, %.lr.ph238
+522:                                              ; preds = %521, %.lr.ph238
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
-  %528 = load i32, ptr %510, align 4
-  %529 = sext i32 %528 to i64
-  %530 = icmp slt i64 %indvars.iv.next251, %529
-  br i1 %530, label %.lr.ph238, label %._crit_edge235
+  %523 = load i32, ptr %505, align 4
+  %524 = sext i32 %523 to i64
+  %525 = icmp slt i64 %indvars.iv.next251, %524
+  br i1 %525, label %.lr.ph238, label %._crit_edge235
 
 ._crit_edge242:                                   ; preds = %.lr.ph245, %.lr.ph241, %._crit_edge235
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #7
-  br label %540
+  br label %535
 
 .lr.ph245:                                        ; preds = %.lr.ph241, %.lr.ph245
   %indvars.iv253 = phi i64 [ %indvars.iv.next254, %.lr.ph245 ], [ 0, %.lr.ph241 ]
-  %531 = load ptr, ptr %517, align 8
-  %532 = getelementptr inbounds nuw %union.ListCell, ptr %531, i64 %indvars.iv253
-  %533 = load ptr, ptr %532, align 8
-  %534 = getelementptr inbounds nuw i8, ptr %533, i64 8
-  %535 = load ptr, ptr %534, align 8
-  %536 = call ptr @create_projection_path(ptr noundef %1, ptr noundef %535, ptr noundef %533, ptr noundef %507) #7
-  store ptr %536, ptr %532, align 8
+  %526 = load ptr, ptr %512, align 8
+  %527 = getelementptr inbounds nuw %union.ListCell, ptr %526, i64 %indvars.iv253
+  %528 = load ptr, ptr %527, align 8
+  %529 = getelementptr inbounds nuw i8, ptr %528, i64 8
+  %530 = load ptr, ptr %529, align 8
+  %531 = call ptr @create_projection_path(ptr noundef %1, ptr noundef %530, ptr noundef %528, ptr noundef %502) #7
+  store ptr %531, ptr %527, align 8
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
-  %537 = load i32, ptr %516, align 4
-  %538 = sext i32 %537 to i64
-  %539 = icmp slt i64 %indvars.iv.next254, %538
-  br i1 %539, label %.lr.ph245, label %._crit_edge242
+  %532 = load i32, ptr %511, align 4
+  %533 = sext i32 %532 to i64
+  %534 = icmp slt i64 %indvars.iv.next254, %533
+  br i1 %534, label %.lr.ph245, label %._crit_edge242
 
-540:                                              ; preds = %._crit_edge242, %498
-  %541 = load ptr, ptr @create_upper_paths_hook, align 8
-  %.not.i97 = icmp eq ptr %541, null
-  br i1 %.not.i97, label %postprocess_setop_rel.exit, label %542
+535:                                              ; preds = %._crit_edge242, %493
+  %536 = load ptr, ptr @create_upper_paths_hook, align 8
+  %.not.i97 = icmp eq ptr %536, null
+  br i1 %.not.i97, label %postprocess_setop_rel.exit, label %537
 
-542:                                              ; preds = %540
-  call void %541(ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef nonnull %.1, ptr noundef null) #7
+537:                                              ; preds = %535
+  call void %536(ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef nonnull %.1, ptr noundef null) #7
   br label %postprocess_setop_rel.exit
 
-postprocess_setop_rel.exit:                       ; preds = %540, %542
+postprocess_setop_rel.exit:                       ; preds = %535, %537
   call void @set_cheapest(ptr noundef nonnull %.1) #7
-  br label %547
+  br label %542
 
-543:                                              ; preds = %8
-  %544 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %544)
-  %545 = load i32, ptr %0, align 4
-  %546 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %545) #7
+538:                                              ; preds = %8
+  %539 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %539)
+  %540 = load i32, ptr %0, align 4
+  %541 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %540) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 345, ptr noundef nonnull @__func__.recurse_set_operations) #7
   unreachable
 
-547:                                              ; preds = %postprocess_setop_rel.exit, %43
+542:                                              ; preds = %postprocess_setop_rel.exit, %43
   %.0 = phi ptr [ %31, %43 ], [ %.1, %postprocess_setop_rel.exit ]
   ret ptr %.0
 }

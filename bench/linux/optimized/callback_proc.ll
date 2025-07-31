@@ -47,25 +47,25 @@ define dso_local i32 @nfs4_callback_getattr(ptr noundef %0, ptr noundef captures
 
 12:                                               ; preds = %6
   %13 = icmp eq ptr %10, inttoptr (i64 -11 to ptr)
-  br i1 %13, label %14, label %._crit_edge
+  br i1 %13, label %15, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12
   %.pre = load i32, ptr %1, align 8
-  br label %15
+  %14 = tail call i32 @llvm.bswap.i32(i32 %.pre)
+  br label %16
 
-14:                                               ; preds = %12
+15:                                               ; preds = %12
   store i32 405209088, ptr %1, align 8
-  br label %15
+  br label %16
 
-15:                                               ; preds = %._crit_edge, %14
-  %16 = phi i32 [ %.pre, %._crit_edge ], [ 405209088, %14 ]
-  %17 = load ptr, ptr %2, align 8
-  %18 = tail call i32 @llvm.bswap.i32(i32 %16)
-  %19 = sub i32 0, %18
+16:                                               ; preds = %._crit_edge, %15
+  %17 = phi i32 [ %14, %._crit_edge ], [ 10008, %15 ]
+  %18 = load ptr, ptr %2, align 8
+  %19 = sub i32 0, %17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_cb_getattr, i64 8), i32 2) #6
           to label %112 [label %20], !srcloc !6
 
-20:                                               ; preds = %15
+20:                                               ; preds = %16
   %21 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #6, !srcloc !7
   %22 = zext i32 %21 to i64
   %23 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %22) #6, !srcloc !8
@@ -84,7 +84,7 @@ define dso_local i32 @nfs4_callback_getattr(ptr noundef %0, ptr noundef captures
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @__SCT__tp_func_nfs4_cb_getattr(ptr noundef %31, ptr noundef %17, ptr noundef %0, ptr noundef null, i32 noundef %19) #6
+  %32 = tail call i32 @__SCT__tp_func_nfs4_cb_getattr(ptr noundef %31, ptr noundef %18, ptr noundef %0, ptr noundef null, i32 noundef %19) #6
   br label %33
 
 33:                                               ; preds = %29, %26
@@ -222,7 +222,7 @@ define dso_local i32 @nfs4_callback_getattr(ptr noundef %0, ptr noundef captures
   tail call void @nfs_sb_deactive(ptr noundef %111) #6
   br label %112
 
-112:                                              ; preds = %109, %107, %37, %33, %20, %15, %3
+112:                                              ; preds = %109, %107, %37, %33, %20, %16, %3
   %113 = load i32, ptr %1, align 8
   ret i32 %113
 }

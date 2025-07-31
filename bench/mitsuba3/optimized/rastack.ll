@@ -104,7 +104,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator19calculateStac
   %21 = load i16, ptr %20, align 2, !tbaa !19
   %22 = and i16 %21, 1
   %23 = icmp eq i16 %22, 0
-  br i1 %23, label %32, label %24
+  br i1 %23, label %33, label %24
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -113,28 +113,28 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator19calculateStac
   %28 = xor i8 %19, 7
   %29 = zext nneg i8 %28 to i64
   %30 = mul nuw nsw i64 %27, %29
-  %31 = add nuw nsw i64 %30, 16
-  br label %34
+  %31 = tail call i64 @llvm.umin.i64(i64 %30, i64 4294967279)
+  %32 = add nuw nsw i64 %31, 16
+  br label %35
 
-32:                                               ; preds = %14
-  %33 = zext nneg i8 %19 to i64
-  br label %34
+33:                                               ; preds = %14
+  %34 = zext nneg i8 %19 to i64
+  br label %35
 
-34:                                               ; preds = %32, %24
-  %35 = phi i64 [ %31, %24 ], [ %33, %32 ]
-  %36 = tail call i64 @llvm.umin.i64(i64 %35, i64 4294967295)
+35:                                               ; preds = %33, %24
+  %36 = phi i64 [ %32, %24 ], [ %34, %33 ]
   %37 = trunc nuw i64 %36 to i32
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %37, ptr %38, align 4, !tbaa !22
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %40
 
-40:                                               ; preds = %34, %11
-  %41 = phi ptr [ %5, %11 ], [ %39, %34 ]
+40:                                               ; preds = %35, %11
+  %41 = phi ptr [ %5, %11 ], [ %39, %35 ]
   %42 = icmp eq i32 %7, 1
   br i1 %42, label %.loopexit36, label %.preheader35
 
-.loopexit36:                                      ; preds = %216, %40, %1
+.loopexit36:                                      ; preds = %217, %40, %1
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #6
   br label %43
 
@@ -358,8 +358,8 @@ split:                                            ; preds = %107, %._crit_edge
   %170 = icmp eq i32 %167, 0
   br i1 %170, label %319, label %.preheader32
 
-.preheader35:                                     ; preds = %40, %216
-  %171 = phi ptr [ %221, %216 ], [ %41, %40 ]
+.preheader35:                                     ; preds = %40, %217
+  %171 = phi ptr [ %221, %217 ], [ %41, %40 ]
   %172 = load ptr, ptr %171, align 8, !tbaa !27
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 1
   %174 = load i8, ptr %173, align 1, !tbaa !18
@@ -369,7 +369,7 @@ split:                                            ; preds = %107, %._crit_edge
   %178 = load i16, ptr %177, align 2, !tbaa !19
   %179 = and i16 %178, 1
   %180 = icmp eq i16 %179, 0
-  br i1 %180, label %189, label %181
+  br i1 %180, label %190, label %181
 
 181:                                              ; preds = %.preheader35
   %182 = getelementptr inbounds nuw i8, ptr %172, i64 8
@@ -378,16 +378,16 @@ split:                                            ; preds = %107, %._crit_edge
   %185 = xor i8 %176, 7
   %186 = zext nneg i8 %185 to i64
   %187 = mul nuw nsw i64 %184, %186
-  %188 = add nuw nsw i64 %187, 16
-  br label %191
+  %188 = tail call i64 @llvm.umin.i64(i64 %187, i64 4294967279)
+  %189 = add nuw nsw i64 %188, 16
+  br label %192
 
-189:                                              ; preds = %.preheader35
-  %190 = zext nneg i8 %176 to i64
-  br label %191
+190:                                              ; preds = %.preheader35
+  %191 = zext nneg i8 %176 to i64
+  br label %192
 
-191:                                              ; preds = %189, %181
-  %192 = phi i64 [ %188, %181 ], [ %190, %189 ]
-  %193 = tail call i64 @llvm.umin.i64(i64 %192, i64 4294967295)
+192:                                              ; preds = %190, %181
+  %193 = phi i64 [ %189, %181 ], [ %191, %190 ]
   %194 = trunc nuw i64 %193 to i32
   %195 = getelementptr inbounds nuw i8, ptr %172, i64 12
   store i32 %194, ptr %195, align 4, !tbaa !22
@@ -401,25 +401,25 @@ split:                                            ; preds = %107, %._crit_edge
   %203 = load i16, ptr %202, align 2, !tbaa !19
   %204 = and i16 %203, 1
   %205 = icmp eq i16 %204, 0
-  br i1 %205, label %214, label %206
+  br i1 %205, label %215, label %206
 
-206:                                              ; preds = %191
+206:                                              ; preds = %192
   %207 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %208 = load i32, ptr %207, align 4, !tbaa !20
   %209 = zext i32 %208 to i64
   %210 = xor i8 %201, 7
   %211 = zext nneg i8 %210 to i64
   %212 = mul nuw nsw i64 %209, %211
-  %213 = add nuw nsw i64 %212, 16
-  br label %216
+  %213 = tail call i64 @llvm.umin.i64(i64 %212, i64 4294967279)
+  %214 = add nuw nsw i64 %213, 16
+  br label %217
 
-214:                                              ; preds = %191
-  %215 = zext nneg i8 %201 to i64
-  br label %216
+215:                                              ; preds = %192
+  %216 = zext nneg i8 %201 to i64
+  br label %217
 
-216:                                              ; preds = %214, %206
-  %217 = phi i64 [ %213, %206 ], [ %215, %214 ]
-  %218 = tail call i64 @llvm.umin.i64(i64 %217, i64 4294967295)
+217:                                              ; preds = %215, %206
+  %218 = phi i64 [ %214, %206 ], [ %216, %215 ]
   %219 = trunc nuw i64 %218 to i32
   %220 = getelementptr inbounds nuw i8, ptr %197, i64 12
   store i32 %219, ptr %220, align 4, !tbaa !22

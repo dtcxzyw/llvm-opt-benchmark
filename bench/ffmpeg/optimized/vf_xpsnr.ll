@@ -1746,16 +1746,16 @@ calc_squared_error.exit.i.us.i:                   ; preds = %calc_squared_error.
   %409 = fcmp nsz olt double %405, %408
   %storemerge.i.us.i = select i1 %409, double %408, double %405
   %410 = fmul nsz double %storemerge.i.us.i, %storemerge.i.us.i
+  %411 = call nsz double @llvm.sqrt.f64(double %410)
   br label %calc_squared_error_and_weight.exit.us.i
 
 calc_squared_error_and_weight.exit.us.i:          ; preds = %.loopexit.i.us.i, %calc_squared_error.exit.i.us.i
-  %.0277.us.i = phi nsz double [ %410, %.loopexit.i.us.i ], [ 1.000000e+00, %calc_squared_error.exit.i.us.i ]
-  %411 = zext i32 %.1238304.us.i to i64
-  %412 = getelementptr inbounds nuw double, ptr %214, i64 %411
-  store double %.012.lcssa.i.i.us.i, ptr %412, align 8, !tbaa !38
-  %413 = call nsz double @llvm.sqrt.f64(double %.0277.us.i)
-  %414 = fdiv nsz double 1.000000e+00, %413
-  %415 = getelementptr inbounds nuw double, ptr %216, i64 %411
+  %.0277.us.i = phi double [ %411, %.loopexit.i.us.i ], [ 1.000000e+00, %calc_squared_error.exit.i.us.i ]
+  %412 = zext i32 %.1238304.us.i to i64
+  %413 = getelementptr inbounds nuw double, ptr %214, i64 %412
+  store double %.012.lcssa.i.i.us.i, ptr %413, align 8, !tbaa !38
+  %414 = fdiv nsz double 1.000000e+00, %.0277.us.i
+  %415 = getelementptr inbounds nuw double, ptr %216, i64 %412
   store double %414, ptr %415, align 8, !tbaa !38
   br i1 %239, label %416, label %.thread281.us.i
 

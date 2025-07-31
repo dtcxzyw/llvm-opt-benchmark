@@ -89,40 +89,40 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_txn(i32 noundef %0, ptr nou
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 @parse_option_end(ptr noundef %36) #8
   %.not.i = icmp eq i32 %37, 0
-  br i1 %.not.i, label %.thread.i, label %41
+  br i1 %.not.i, label %.thread.i, label %43
 
 .thread.i:                                        ; preds = %34
   %38 = load ptr, ptr %35, align 8
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #9
   %40 = trunc i64 %39 to i32
-  br label %50
+  %41 = call i32 @llvm.smax.i32(i32 %40, i32 5)
+  %42 = zext nneg i32 %41 to i64
+  br label %52
 
-41:                                               ; preds = %34
-  %42 = add nsw i32 %37, -1
-  %43 = load ptr, ptr %35, align 8
-  %44 = sext i32 %37 to i64
-  %45 = getelementptr inbounds i8, ptr %43, i64 %44
-  %46 = load i8, ptr %45, align 1
-  %47 = icmp eq i8 %46, 61
-  br i1 %47, label %48, label %.critedge158.i
+43:                                               ; preds = %34
+  %44 = add nsw i32 %37, -1
+  %45 = load ptr, ptr %35, align 8
+  %46 = sext i32 %37 to i64
+  %47 = getelementptr inbounds i8, ptr %45, i64 %46
+  %48 = load i8, ptr %47, align 1
+  %49 = icmp eq i8 %48, 61
+  br i1 %49, label %50, label %.critedge158.i
 
-48:                                               ; preds = %41
-  %49 = add nsw i32 %37, 1
-  %.not131.i = icmp eq i32 %49, 0
-  br i1 %.not131.i, label %50, label %.critedge158.i
+50:                                               ; preds = %43
+  %51 = add nsw i32 %37, 1
+  %.not131.i = icmp eq i32 %51, 0
+  br i1 %.not131.i, label %52, label %.critedge158.i
 
-50:                                               ; preds = %48, %.thread.i
-  %51 = phi ptr [ %38, %.thread.i ], [ %43, %48 ]
-  %.0170.i = phi i32 [ %40, %.thread.i ], [ -2, %48 ]
-  %52 = call i32 @llvm.smax.i32(i32 %.0170.i, i32 5)
-  %53 = zext nneg i32 %52 to i64
-  %54 = call i32 @xstrncasecmp(ptr noundef nonnull %51, ptr noundef nonnull @.str.7, i64 noundef %53) #8
+52:                                               ; preds = %50, %.thread.i
+  %53 = phi ptr [ %38, %.thread.i ], [ %45, %50 ]
+  %.0170.i = phi i64 [ %42, %.thread.i ], [ 5, %50 ]
+  %54 = call i32 @xstrncasecmp(ptr noundef nonnull %53, ptr noundef nonnull @.str.7, i64 noundef %.0170.i) #8
   %.not132.i = icmp eq i32 %54, 0
   br i1 %.not132.i, label %183, label %55
 
-55:                                               ; preds = %50
+55:                                               ; preds = %52
   %56 = load ptr, ptr %35, align 8
-  %57 = call i32 @xstrncasecmp(ptr noundef %56, ptr noundef nonnull @.str.8, i64 noundef %53) #8
+  %57 = call i32 @xstrncasecmp(ptr noundef %56, ptr noundef nonnull @.str.8, i64 noundef %.0170.i) #8
   %.not133.i = icmp eq i32 %57, 0
   br i1 %.not133.i, label %58, label %.critedge.i
 
@@ -130,11 +130,11 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_txn(i32 noundef %0, ptr nou
   store i16 1, ptr %14, align 8
   br label %183
 
-.critedge158.i:                                   ; preds = %48, %41
-  %.0125168.i = phi i32 [ %49, %48 ], [ %37, %41 ]
-  %59 = call i32 @llvm.smax.i32(i32 %42, i32 1)
+.critedge158.i:                                   ; preds = %50, %43
+  %.0125168.i = phi i32 [ %51, %50 ], [ %37, %43 ]
+  %59 = call i32 @llvm.smax.i32(i32 %44, i32 1)
   %60 = zext nneg i32 %59 to i64
-  %61 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.9, i64 noundef %60) #8
+  %61 = call i32 @xstrncasecmp(ptr noundef nonnull %45, ptr noundef nonnull @.str.9, i64 noundef %60) #8
   %.not134.i = icmp eq i32 %61, 0
   br i1 %.not134.i, label %.critedge.i, label %62
 
@@ -192,7 +192,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_txn(i32 noundef %0, ptr nou
 
 83:                                               ; preds = %62
   %84 = load ptr, ptr %35, align 8
-  %85 = call i32 @llvm.smax.i32(i32 %42, i32 3)
+  %85 = call i32 @llvm.smax.i32(i32 %44, i32 3)
   %86 = zext nneg i32 %85 to i64
   %87 = call i32 @xstrncasecmp(ptr noundef %84, ptr noundef nonnull @.str.12, i64 noundef %86) #8
   %.not140.i = icmp eq i32 %87, 0
@@ -218,7 +218,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_txn(i32 noundef %0, ptr nou
 
 98:                                               ; preds = %83
   %99 = load ptr, ptr %35, align 8
-  %100 = call i32 @llvm.smax.i32(i32 %42, i32 4)
+  %100 = call i32 @llvm.smax.i32(i32 %44, i32 4)
   %101 = zext nneg i32 %100 to i64
   %102 = call i32 @xstrncasecmp(ptr noundef %99, ptr noundef nonnull @.str.13, i64 noundef %101) #8
   %.not143.i = icmp eq i32 %102, 0
@@ -370,7 +370,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_txn(i32 noundef %0, ptr nou
   %182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %180, ptr noundef nonnull @.str.20, ptr noundef %181) #10
   br label %183
 
-183:                                              ; preds = %179, %171, %161, %152, %151, %145, %135, %122, %114, %107, %92, %._crit_edge.i, %58, %50
+183:                                              ; preds = %179, %171, %161, %152, %151, %145, %135, %122, %114, %107, %92, %._crit_edge.i, %58, %52
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i

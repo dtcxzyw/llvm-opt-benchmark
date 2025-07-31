@@ -552,76 +552,81 @@ Abc_Clock.exit:                                   ; preds = %3, %8
 23:                                               ; preds = %Abc_Clock.exit, %17
   %24 = phi i32 [ %22, %17 ], [ 0, %Abc_Clock.exit ]
   %.not23 = icmp eq ptr %1, null
-  br i1 %.not23, label %31, label %25
+  br i1 %.not23, label %.thread, label %32
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %27 = load i64, ptr %26, align 8
-  %28 = lshr i64 %27, 32
-  %29 = trunc nuw i64 %28 to i32
-  %30 = and i32 %29, 16777215
-  br label %31
+.thread:                                          ; preds = %23
+  %25 = uitofp nneg i32 %24 to double
+  %26 = load ptr, ptr %0, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %28 = load double, ptr %27, align 8, !tbaa !68
+  %29 = fsub double 1.000000e+00, %28
+  %30 = fmul double %29, %25
+  %31 = fptosi double %30 to i32
+  br label %50
 
-31:                                               ; preds = %23, %25
-  %32 = phi i32 [ %30, %25 ], [ 0, %23 ]
-  %33 = call range(i32 0, 16777216) i32 @llvm.umax.i32(i32 range(i32 0, 16777216) %24, i32 range(i32 0, 16777216) %32)
-  %34 = uitofp nneg i32 %33 to double
-  %35 = load ptr, ptr %0, align 8, !tbaa !3
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = load double, ptr %36, align 8, !tbaa !68
-  %38 = fsub double 1.000000e+00, %37
-  %39 = fmul double %38, %34
-  %40 = fptosi double %39 to i32
-  br i1 %.not23, label %46, label %41
+32:                                               ; preds = %23
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %34 = load i64, ptr %33, align 8
+  %35 = lshr i64 %34, 32
+  %36 = trunc nuw i64 %35 to i32
+  %37 = and i32 %36, 16777215
+  %38 = call range(i32 0, 16777216) i32 @llvm.umax.i32(i32 range(i32 0, 16777216) %24, i32 range(i32 0, 16777216) %37)
+  %39 = uitofp nneg i32 %38 to double
+  %40 = load ptr, ptr %0, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %42 = load double, ptr %41, align 8, !tbaa !68
+  %43 = fsub double 1.000000e+00, %42
+  %44 = fmul double %43, %39
+  %45 = fptosi double %44 to i32
+  %46 = getelementptr i8, ptr %1, i64 24
+  %.val = load i64, ptr %46, align 8
+  %47 = and i64 %.val, 7
+  %.not29 = icmp eq i64 %47, 1
+  br i1 %.not29, label %50, label %48
 
-41:                                               ; preds = %31
-  %42 = getelementptr i8, ptr %1, i64 24
-  %.val = load i64, ptr %42, align 8
-  %43 = and i64 %.val, 7
-  %.not29 = icmp eq i64 %43, 1
-  br i1 %.not29, label %46, label %44
+48:                                               ; preds = %32
+  %49 = call i32 @Fra_SetActivityFactors_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %45, i32 noundef %38)
+  br label %50
 
-44:                                               ; preds = %41
-  %45 = call i32 @Fra_SetActivityFactors_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %40, i32 noundef %33)
-  br label %46
+50:                                               ; preds = %.thread, %48, %32
+  %51 = phi i32 [ %31, %.thread ], [ %45, %48 ], [ %45, %32 ]
+  %52 = phi i32 [ %24, %.thread ], [ %38, %48 ], [ %38, %32 ]
+  br i1 %.not, label %58, label %53
 
-46:                                               ; preds = %44, %41, %31
-  br i1 %.not, label %52, label %47
+53:                                               ; preds = %50
+  %54 = getelementptr i8, ptr %2, i64 24
+  %.val26 = load i64, ptr %54, align 8
+  %55 = and i64 %.val26, 7
+  %.not30 = icmp eq i64 %55, 1
+  br i1 %.not30, label %58, label %56
 
-47:                                               ; preds = %46
-  %48 = getelementptr i8, ptr %2, i64 24
-  %.val26 = load i64, ptr %48, align 8
-  %49 = and i64 %.val26, 7
-  %.not30 = icmp eq i64 %49, 1
-  br i1 %.not30, label %52, label %50
+56:                                               ; preds = %53
+  %57 = call i32 @Fra_SetActivityFactors_rec(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %51, i32 noundef %52)
+  br label %58
 
-50:                                               ; preds = %47
-  %51 = call i32 @Fra_SetActivityFactors_rec(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %40, i32 noundef %33)
-  br label %52
-
-52:                                               ; preds = %50, %47, %46
+58:                                               ; preds = %56, %53, %50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  %53 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %Abc_Clock.exit28, label %55
+  %59 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %Abc_Clock.exit28, label %61
 
-55:                                               ; preds = %52
-  %56 = load i64, ptr %4, align 8, !tbaa !46
-  %57 = mul nsw i64 %56, 1000000
-  %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %59 = load i64, ptr %58, align 8, !tbaa !48
-  %60 = sdiv i64 %59, 1000
-  %61 = add nsw i64 %60, %57
+61:                                               ; preds = %58
+  %62 = load i64, ptr %4, align 8, !tbaa !46
+  %63 = mul nsw i64 %62, 1000000
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %65 = load i64, ptr %64, align 8, !tbaa !48
+  %66 = sdiv i64 %65, 1000
+  %67 = add nsw i64 %66, %63
   br label %Abc_Clock.exit28
 
-Abc_Clock.exit28:                                 ; preds = %52, %55
-  %.0.i27 = phi i64 [ %61, %55 ], [ -1, %52 ]
+Abc_Clock.exit28:                                 ; preds = %58, %61
+  %.0.i27 = phi i64 [ %67, %61 ], [ -1, %58 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  %62 = add i64 %.0.i27, %.0.i.neg
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %64 = load i64, ptr %63, align 8, !tbaa !69
-  %65 = add nsw i64 %62, %64
-  store i64 %65, ptr %63, align 8, !tbaa !69
+  %68 = add i64 %.0.i27, %.0.i.neg
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %70 = load i64, ptr %69, align 8, !tbaa !69
+  %71 = add nsw i64 %68, %70
+  store i64 %71, ptr %69, align 8, !tbaa !69
   ret void
 }
 

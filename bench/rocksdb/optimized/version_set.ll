@@ -21803,7 +21803,7 @@ _ZNK7rocksdb16MutableCFOptions27MaxBytesMultiplerAdditionalEi.exit: ; preds = %7
   store i32 %.072.lcssa, ptr %157, align 16, !tbaa !969
   %158 = add nsw i32 %51, -1
   %159 = icmp slt i32 %.072.lcssa, %158
-  br i1 %159, label %160, label %179
+  br i1 %159, label %160, label %180
 
 160:                                              ; preds = %155
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 592
@@ -21812,7 +21812,7 @@ _ZNK7rocksdb16MutableCFOptions27MaxBytesMultiplerAdditionalEi.exit: ; preds = %7
   %.pre182 = load double, ptr %127, align 8, !tbaa !1319
   %.pre183 = load i32, ptr %157, align 16, !tbaa !969
   %.pre184 = load i32, ptr %50, align 16, !tbaa !915
-  br label %179
+  br label %180
 
 163:                                              ; preds = %._crit_edge141
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 2800
@@ -21820,7 +21820,7 @@ _ZNK7rocksdb16MutableCFOptions27MaxBytesMultiplerAdditionalEi.exit: ; preds = %7
   %165 = icmp sgt i32 %.072.lcssa, 1
   %166 = icmp ugt i64 %.0107.lcssa, %125
   %167 = select i1 %165, i1 %166, i1 false
-  br i1 %167, label %.lr.ph146, label %176
+  br i1 %167, label %.lr.ph146, label %177
 
 .lr.ph146:                                        ; preds = %163, %.lr.ph146
   %.1108144 = phi i64 [ %172, %.lr.ph146 ], [ %.0107.lcssa, %163 ]
@@ -21836,60 +21836,60 @@ _ZNK7rocksdb16MutableCFOptions27MaxBytesMultiplerAdditionalEi.exit: ; preds = %7
 
 ._crit_edge147:                                   ; preds = %.lr.ph146
   store i32 %169, ptr %164, align 16, !tbaa !969
-  br i1 %174, label %179, label %177
+  %176 = tail call i64 @llvm.umax.i64(i64 %172, i64 1)
+  br i1 %174, label %180, label %178
 
-176:                                              ; preds = %163
-  br i1 %166, label %179, label %177
+177:                                              ; preds = %163
+  br i1 %166, label %180, label %178
 
-177:                                              ; preds = %._crit_edge147, %176
-  %.1108.lcssa186 = phi i64 [ %172, %._crit_edge147 ], [ %.0107.lcssa, %176 ]
-  %178 = phi i32 [ %169, %._crit_edge147 ], [ %.072.lcssa, %176 ]
-  %.sroa.speculated90 = tail call i64 @llvm.umax.i64(i64 %.1108.lcssa186, i64 1)
-  br label %179
+178:                                              ; preds = %._crit_edge147, %177
+  %.1108.lcssa186 = phi i64 [ %176, %._crit_edge147 ], [ %.0107.lcssa, %177 ]
+  %179 = phi i32 [ %169, %._crit_edge147 ], [ %.072.lcssa, %177 ]
+  br label %180
 
-179:                                              ; preds = %._crit_edge147, %176, %177, %155, %160
-  %180 = phi i32 [ %.pre184, %160 ], [ %51, %155 ], [ %51, %177 ], [ %51, %176 ], [ %51, %._crit_edge147 ]
-  %181 = phi i32 [ %.pre183, %160 ], [ %.072.lcssa, %155 ], [ %178, %177 ], [ %.072.lcssa, %176 ], [ %169, %._crit_edge147 ]
-  %182 = phi double [ %.pre182, %160 ], [ %128, %155 ], [ %128, %177 ], [ %128, %176 ], [ %128, %._crit_edge147 ]
-  %.064 = phi i64 [ %156, %160 ], [ %156, %155 ], [ %.sroa.speculated90, %177 ], [ %125, %176 ], [ %125, %._crit_edge147 ]
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 2808
-  store double %182, ptr %183, align 8, !tbaa !971
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 2800
-  %185 = icmp slt i32 %181, %180
-  br i1 %185, label %.lr.ph154.preheader, label %.loopexit
+180:                                              ; preds = %._crit_edge147, %177, %178, %155, %160
+  %181 = phi i32 [ %.pre184, %160 ], [ %51, %155 ], [ %51, %178 ], [ %51, %177 ], [ %51, %._crit_edge147 ]
+  %182 = phi i32 [ %.pre183, %160 ], [ %.072.lcssa, %155 ], [ %179, %178 ], [ %.072.lcssa, %177 ], [ %169, %._crit_edge147 ]
+  %183 = phi double [ %.pre182, %160 ], [ %128, %155 ], [ %128, %178 ], [ %128, %177 ], [ %128, %._crit_edge147 ]
+  %.064 = phi i64 [ %156, %160 ], [ %156, %155 ], [ %.1108.lcssa186, %178 ], [ %125, %177 ], [ %125, %._crit_edge147 ]
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 2808
+  store double %183, ptr %184, align 8, !tbaa !971
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 2800
+  %186 = icmp slt i32 %182, %181
+  br i1 %186, label %.lr.ph154.preheader, label %.loopexit
 
-.lr.ph154.preheader:                              ; preds = %179
-  %186 = sext i32 %181 to i64
+.lr.ph154.preheader:                              ; preds = %180
+  %187 = sext i32 %182 to i64
   br label %.lr.ph154
 
-.lr.ph154:                                        ; preds = %.lr.ph154.preheader, %194
-  %187 = phi i32 [ %180, %.lr.ph154.preheader ], [ %195, %194 ]
-  %indvars.iv179 = phi i64 [ %186, %.lr.ph154.preheader ], [ %indvars.iv.next180, %194 ]
-  %.0105151 = phi i64 [ %.064, %.lr.ph154.preheader ], [ %.1106, %194 ]
-  %188 = load i32, ptr %184, align 16, !tbaa !969
-  %189 = sext i32 %188 to i64
-  %190 = icmp sgt i64 %indvars.iv179, %189
-  br i1 %190, label %191, label %194
+.lr.ph154:                                        ; preds = %.lr.ph154.preheader, %195
+  %188 = phi i32 [ %181, %.lr.ph154.preheader ], [ %196, %195 ]
+  %indvars.iv179 = phi i64 [ %187, %.lr.ph154.preheader ], [ %indvars.iv.next180, %195 ]
+  %.0105151 = phi i64 [ %.064, %.lr.ph154.preheader ], [ %.1106, %195 ]
+  %189 = load i32, ptr %185, align 16, !tbaa !969
+  %190 = sext i32 %189 to i64
+  %191 = icmp sgt i64 %indvars.iv179, %190
+  br i1 %191, label %192, label %195
 
-191:                                              ; preds = %.lr.ph154
-  %192 = load double, ptr %183, align 8, !tbaa !971
-  %193 = tail call noundef i64 @_ZN7rocksdb21MultiplyCheckOverflowEmd(i64 noundef %.0105151, double noundef %192)
+192:                                              ; preds = %.lr.ph154
+  %193 = load double, ptr %184, align 8, !tbaa !971
+  %194 = tail call noundef i64 @_ZN7rocksdb21MultiplyCheckOverflowEmd(i64 noundef %.0105151, double noundef %193)
   %.pre185 = load i32, ptr %50, align 16, !tbaa !915
-  br label %194
+  br label %195
 
-194:                                              ; preds = %191, %.lr.ph154
-  %195 = phi i32 [ %.pre185, %191 ], [ %187, %.lr.ph154 ]
-  %.1106 = phi i64 [ %193, %191 ], [ %.0105151, %.lr.ph154 ]
+195:                                              ; preds = %192, %.lr.ph154
+  %196 = phi i32 [ %.pre185, %192 ], [ %188, %.lr.ph154 ]
+  %.1106 = phi i64 [ %194, %192 ], [ %.0105151, %.lr.ph154 ]
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %.1106, i64 %125)
-  %196 = load ptr, ptr %27, align 8, !tbaa !402
-  %197 = getelementptr inbounds nuw i64, ptr %196, i64 %indvars.iv179
-  store i64 %.sroa.speculated, ptr %197, align 8, !tbaa !285
+  %197 = load ptr, ptr %27, align 8, !tbaa !402
+  %198 = getelementptr inbounds nuw i64, ptr %197, i64 %indvars.iv179
+  store i64 %.sroa.speculated, ptr %198, align 8, !tbaa !285
   %indvars.iv.next180 = add nsw i64 %indvars.iv179, 1
-  %198 = sext i32 %195 to i64
-  %199 = icmp slt i64 %indvars.iv.next180, %198
-  br i1 %199, label %.lr.ph154, label %.loopexit, !llvm.loop !1325
+  %199 = sext i32 %196 to i64
+  %200 = icmp slt i64 %indvars.iv.next180, %199
+  br i1 %200, label %.lr.ph154, label %.loopexit, !llvm.loop !1325
 
-.loopexit:                                        ; preds = %97, %194, %54, %179, %120
+.loopexit:                                        ; preds = %97, %195, %54, %180, %120
   ret void
 }
 
@@ -26244,7 +26244,7 @@ define void @_ZN7rocksdb18VersionStorageInfo22ComputeCompactionScoreERKNS_16Immu
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 3904
   %36 = load ptr, ptr %35, align 16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 3928
-  br label %325
+  br label %326
 
 38:                                               ; preds = %.lr.ph229, %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread
   %indvars.iv242 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next243, %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread ]
@@ -26254,7 +26254,7 @@ define void @_ZN7rocksdb18VersionStorageInfo22ComputeCompactionScoreERKNS_16Immu
   %41 = phi i32 [ %12, %.lr.ph229 ], [ %.pr, %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread ]
   %42 = icmp eq i64 %indvars.iv242, 0
   %43 = load ptr, ptr %16, align 8, !tbaa !360
-  br i1 %42, label %44, label %240
+  br i1 %42, label %44, label %241
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %43, align 8, !tbaa !655
@@ -26624,7 +26624,7 @@ _ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsER
 204:                                              ; preds = %198
   %205 = load i8, ptr %17, align 4, !tbaa !1317, !range !170, !noundef !171
   %206 = trunc nuw i8 %205 to i1
-  br i1 %206, label %207, label %234
+  br i1 %206, label %207, label %235
 
 207:                                              ; preds = %204
   %208 = load i64, ptr %21, align 8, !tbaa !1318
@@ -26638,7 +26638,7 @@ _ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsER
   %213 = getelementptr inbounds nuw i64, ptr %212, i64 %211
   %214 = load i64, ptr %213, align 8, !tbaa !285
   %215 = icmp ugt i64 %.0111.lcssa, %214
-  br i1 %215, label %216, label %230
+  br i1 %215, label %216, label %231
 
 216:                                              ; preds = %207
   %217 = getelementptr inbounds %"class.std::vector.296", ptr %43, i64 %211
@@ -26648,242 +26648,245 @@ _ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsER
   %.not193217 = icmp eq ptr %218, %220
   br i1 %.not193217, label %._crit_edge222, label %.lr.ph221
 
-._crit_edge222:                                   ; preds = %.lr.ph221, %216
-  %.0187.lcssa = phi i64 [ 0, %216 ], [ %228, %.lr.ph221 ]
-  %221 = uitofp i64 %.0111.lcssa to double
-  %.sroa.speculated155 = call i64 @llvm.umax.i64(i64 %.0187.lcssa, i64 %214)
-  %222 = uitofp i64 %.sroa.speculated155 to double
-  %223 = fdiv double %221, %222
-  %224 = fcmp olt double %.2185, %223
-  %.sroa.speculated146 = select i1 %224, double %223, double %.2185
-  br label %230
+._crit_edge222.loopexit:                          ; preds = %.lr.ph221
+  %221 = call i64 @llvm.umax.i64(i64 %229, i64 %214)
+  br label %._crit_edge222
+
+._crit_edge222:                                   ; preds = %._crit_edge222.loopexit, %216
+  %.0187.lcssa = phi i64 [ %214, %216 ], [ %221, %._crit_edge222.loopexit ]
+  %222 = uitofp i64 %.0111.lcssa to double
+  %223 = uitofp i64 %.0187.lcssa to double
+  %224 = fdiv double %222, %223
+  %225 = fcmp olt double %.2185, %224
+  %.sroa.speculated146 = select i1 %225, double %224, double %.2185
+  br label %231
 
 .lr.ph221:                                        ; preds = %216, %.lr.ph221
-  %.0187219 = phi i64 [ %228, %.lr.ph221 ], [ 0, %216 ]
-  %.sroa.0150.0218 = phi ptr [ %229, %.lr.ph221 ], [ %218, %216 ]
-  %225 = load ptr, ptr %.sroa.0150.0218, align 8, !tbaa !410
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 120
-  %227 = load i64, ptr %226, align 8, !tbaa !1312
-  %228 = add i64 %227, %.0187219
-  %229 = getelementptr inbounds nuw i8, ptr %.sroa.0150.0218, i64 8
-  %.not193 = icmp eq ptr %229, %220
-  br i1 %.not193, label %._crit_edge222, label %.lr.ph221
+  %.0187219 = phi i64 [ %229, %.lr.ph221 ], [ 0, %216 ]
+  %.sroa.0150.0218 = phi ptr [ %230, %.lr.ph221 ], [ %218, %216 ]
+  %226 = load ptr, ptr %.sroa.0150.0218, align 8, !tbaa !410
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 120
+  %228 = load i64, ptr %227, align 8, !tbaa !1312
+  %229 = add i64 %228, %.0187219
+  %230 = getelementptr inbounds nuw i8, ptr %.sroa.0150.0218, i64 8
+  %.not193 = icmp eq ptr %230, %220
+  br i1 %.not193, label %._crit_edge222.loopexit, label %.lr.ph221
 
-230:                                              ; preds = %._crit_edge222, %207
+231:                                              ; preds = %._crit_edge222, %207
   %.3 = phi double [ %.sroa.speculated146, %._crit_edge222 ], [ %.2185, %207 ]
-  %231 = fcmp ogt double %.3, 1.000000e+00
-  br i1 %231, label %232, label %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread
+  %232 = fcmp ogt double %.3, 1.000000e+00
+  br i1 %232, label %233, label %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread
 
-232:                                              ; preds = %230
-  %233 = fmul double %.3, 1.000000e+01
+233:                                              ; preds = %231
+  %234 = fmul double %.3, 1.000000e+01
   br label %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread
 
-234:                                              ; preds = %204
-  %235 = uitofp i64 %.0111.lcssa to double
-  %236 = load i64, ptr %21, align 8, !tbaa !1318
-  %237 = uitofp i64 %236 to double
-  %238 = fdiv double %235, %237
-  %239 = fcmp olt double %202, %238
-  %.sroa.speculated142 = select i1 %239, double %238, double %202
+235:                                              ; preds = %204
+  %236 = uitofp i64 %.0111.lcssa to double
+  %237 = load i64, ptr %21, align 8, !tbaa !1318
+  %238 = uitofp i64 %237 to double
+  %239 = fdiv double %236, %238
+  %240 = fcmp olt double %202, %239
+  %.sroa.speculated142 = select i1 %240, double %239, double %202
   br label %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread
 
-240:                                              ; preds = %38
-  %241 = getelementptr inbounds nuw %"class.std::vector.296", ptr %43, i64 %indvars.iv242
-  %242 = load ptr, ptr %241, align 8, !tbaa !655
-  %243 = getelementptr inbounds nuw i8, ptr %241, i64 8
-  %244 = load ptr, ptr %243, align 8, !tbaa !655
-  %.not191196 = icmp eq ptr %242, %244
+241:                                              ; preds = %38
+  %242 = getelementptr inbounds nuw %"class.std::vector.296", ptr %43, i64 %indvars.iv242
+  %243 = load ptr, ptr %242, align 8, !tbaa !655
+  %244 = getelementptr inbounds nuw i8, ptr %242, i64 8
+  %245 = load ptr, ptr %244, align 8, !tbaa !655
+  %.not191196 = icmp eq ptr %243, %245
   br i1 %.not191196, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %258, %240
-  %.0109.lcssa = phi i64 [ 0, %240 ], [ %.1110, %258 ]
-  %.0108.lcssa = phi i64 [ 0, %240 ], [ %250, %258 ]
-  %245 = load i8, ptr %17, align 4, !tbaa !1317, !range !170, !noundef !171
-  %246 = trunc nuw i8 %245 to i1
-  br i1 %246, label %267, label %260
+._crit_edge:                                      ; preds = %259, %241
+  %.0109.lcssa = phi i64 [ 0, %241 ], [ %.1110, %259 ]
+  %.0108.lcssa = phi i64 [ 0, %241 ], [ %251, %259 ]
+  %246 = load i8, ptr %17, align 4, !tbaa !1317, !range !170, !noundef !171
+  %247 = trunc nuw i8 %246 to i1
+  br i1 %247, label %268, label %261
 
-.lr.ph:                                           ; preds = %240, %258
-  %.0108199 = phi i64 [ %250, %258 ], [ 0, %240 ]
-  %.0109198 = phi i64 [ %.1110, %258 ], [ 0, %240 ]
-  %.sroa.0138.0197 = phi ptr [ %259, %258 ], [ %242, %240 ]
-  %247 = load ptr, ptr %.sroa.0138.0197, align 8, !tbaa !410
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
-  %249 = load i64, ptr %248, align 8, !tbaa !598
-  %250 = add i64 %249, %.0108199
-  %251 = getelementptr inbounds nuw i8, ptr %247, i64 180
-  %252 = load i8, ptr %251, align 4, !tbaa !1430, !range !170, !noundef !171
-  %253 = trunc nuw i8 %252 to i1
-  br i1 %253, label %258, label %254
+.lr.ph:                                           ; preds = %241, %259
+  %.0108199 = phi i64 [ %251, %259 ], [ 0, %241 ]
+  %.0109198 = phi i64 [ %.1110, %259 ], [ 0, %241 ]
+  %.sroa.0138.0197 = phi ptr [ %260, %259 ], [ %243, %241 ]
+  %248 = load ptr, ptr %.sroa.0138.0197, align 8, !tbaa !410
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
+  %250 = load i64, ptr %249, align 8, !tbaa !598
+  %251 = add i64 %250, %.0108199
+  %252 = getelementptr inbounds nuw i8, ptr %248, i64 180
+  %253 = load i8, ptr %252, align 4, !tbaa !1430, !range !170, !noundef !171
+  %254 = trunc nuw i8 %253 to i1
+  br i1 %254, label %259, label %255
 
-254:                                              ; preds = %.lr.ph
-  %255 = getelementptr inbounds nuw i8, ptr %247, i64 120
-  %256 = load i64, ptr %255, align 8, !tbaa !1312
-  %257 = add i64 %256, %.0109198
-  br label %258
+255:                                              ; preds = %.lr.ph
+  %256 = getelementptr inbounds nuw i8, ptr %248, i64 120
+  %257 = load i64, ptr %256, align 8, !tbaa !1312
+  %258 = add i64 %257, %.0109198
+  br label %259
 
-258:                                              ; preds = %254, %.lr.ph
-  %.1110 = phi i64 [ %.0109198, %.lr.ph ], [ %257, %254 ]
-  %259 = getelementptr inbounds nuw i8, ptr %.sroa.0138.0197, i64 8
-  %.not191 = icmp eq ptr %259, %244
+259:                                              ; preds = %255, %.lr.ph
+  %.1110 = phi i64 [ %.0109198, %.lr.ph ], [ %258, %255 ]
+  %260 = getelementptr inbounds nuw i8, ptr %.sroa.0138.0197, i64 8
+  %.not191 = icmp eq ptr %260, %245
   br i1 %.not191, label %._crit_edge, label %.lr.ph
 
-260:                                              ; preds = %._crit_edge
-  %261 = uitofp i64 %.0109.lcssa to double
-  %262 = load ptr, ptr %18, align 8, !tbaa !402
-  %263 = getelementptr inbounds nuw i64, ptr %262, i64 %indvars.iv242
-  %264 = load i64, ptr %263, align 8, !tbaa !285
-  %265 = uitofp i64 %264 to double
-  %266 = fdiv double %261, %265
+261:                                              ; preds = %._crit_edge
+  %262 = uitofp i64 %.0109.lcssa to double
+  %263 = load ptr, ptr %18, align 8, !tbaa !402
+  %264 = getelementptr inbounds nuw i64, ptr %263, i64 %indvars.iv242
+  %265 = load i64, ptr %264, align 8, !tbaa !285
+  %266 = uitofp i64 %265 to double
+  %267 = fdiv double %262, %266
   %.pre = load i32, ptr %19, align 4, !tbaa !970
-  br label %286
+  br label %287
 
-267:                                              ; preds = %._crit_edge
-  %268 = load ptr, ptr %18, align 8, !tbaa !402
-  %269 = getelementptr inbounds nuw i64, ptr %268, i64 %indvars.iv242
-  %270 = load i64, ptr %269, align 8, !tbaa !285
-  %271 = icmp ult i64 %.0109.lcssa, %270
-  %272 = uitofp i64 %.0109.lcssa to double
-  %273 = uitofp i64 %270 to double
-  %274 = fadd double %.0227, %273
-  %275 = fdiv double %272, %274
-  %276 = fmul double %275, 1.000000e+01
-  %277 = fdiv double %272, %273
-  %storemerge = select i1 %271, double %277, double %276
+268:                                              ; preds = %._crit_edge
+  %269 = load ptr, ptr %18, align 8, !tbaa !402
+  %270 = getelementptr inbounds nuw i64, ptr %269, i64 %indvars.iv242
+  %271 = load i64, ptr %270, align 8, !tbaa !285
+  %272 = icmp ult i64 %.0109.lcssa, %271
+  %273 = uitofp i64 %.0109.lcssa to double
+  %274 = uitofp i64 %271 to double
+  %275 = fadd double %.0227, %274
+  %276 = fdiv double %273, %275
+  %277 = fmul double %276, 1.000000e+01
+  %278 = fdiv double %273, %274
+  %storemerge = select i1 %272, double %278, double %277
   %.not115 = icmp eq i64 %.0109.lcssa, 0
   %.pre252 = load i32, ptr %19, align 4, !tbaa !970
-  %278 = sext i32 %.pre252 to i64
-  %.not116 = icmp sgt i64 %indvars.iv242, %278
+  %279 = sext i32 %.pre252 to i64
+  %.not116 = icmp sgt i64 %indvars.iv242, %279
   %or.cond257 = select i1 %.not115, i1 true, i1 %.not116
-  br i1 %or.cond257, label %286, label %279
+  br i1 %or.cond257, label %287, label %280
 
-279:                                              ; preds = %267
-  %280 = trunc nuw nsw i64 %indvars.iv242 to i32
-  %281 = sub nsw i32 %.pre252, %280
-  %282 = sitofp i32 %281 to double
-  %283 = call double @llvm.fmuladd.f64(double %282, double 1.000000e-03, double 1.001000e+00)
-  %284 = fmul double %283, 1.000000e+01
-  %285 = fcmp olt double %storemerge, %284
-  %.sroa.speculated = select i1 %285, double %284, double %storemerge
-  br label %286
+280:                                              ; preds = %268
+  %281 = trunc nuw nsw i64 %indvars.iv242 to i32
+  %282 = sub nsw i32 %.pre252, %281
+  %283 = sitofp i32 %282 to double
+  %284 = call double @llvm.fmuladd.f64(double %283, double 1.000000e-03, double 1.001000e+00)
+  %285 = fmul double %284, 1.000000e+01
+  %286 = fcmp olt double %storemerge, %285
+  %.sroa.speculated = select i1 %286, double %285, double %storemerge
+  br label %287
 
-286:                                              ; preds = %267, %279, %260
-  %287 = phi i64 [ %270, %267 ], [ %270, %279 ], [ %264, %260 ]
-  %288 = phi i32 [ %.pre252, %267 ], [ %.pre252, %279 ], [ %.pre, %260 ]
-  %.5 = phi double [ %storemerge, %267 ], [ %.sroa.speculated, %279 ], [ %266, %260 ]
-  %289 = sext i32 %288 to i64
-  %.not117 = icmp sgt i64 %indvars.iv242, %289
-  br i1 %.not117, label %293, label %290
+287:                                              ; preds = %268, %280, %261
+  %288 = phi i64 [ %271, %268 ], [ %271, %280 ], [ %265, %261 ]
+  %289 = phi i32 [ %.pre252, %268 ], [ %.pre252, %280 ], [ %.pre, %261 ]
+  %.5 = phi double [ %storemerge, %268 ], [ %.sroa.speculated, %280 ], [ %267, %261 ]
+  %290 = sext i32 %289 to i64
+  %.not117 = icmp sgt i64 %indvars.iv242, %290
+  br i1 %.not117, label %294, label %291
 
-290:                                              ; preds = %286
-  %291 = uitofp i64 %.0108.lcssa to double
-  %292 = fadd double %.0227, %291
+291:                                              ; preds = %287
+  %292 = uitofp i64 %.0108.lcssa to double
+  %293 = fadd double %.0227, %292
   br label %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread
 
-293:                                              ; preds = %286
-  %294 = icmp ugt i64 %.0108.lcssa, %287
-  br i1 %294, label %295, label %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread
+294:                                              ; preds = %287
+  %295 = icmp ugt i64 %.0108.lcssa, %288
+  br i1 %295, label %296, label %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread
 
-295:                                              ; preds = %293
-  %296 = sub nuw i64 %.0108.lcssa, %287
-  %297 = uitofp i64 %296 to double
-  %298 = fadd double %.0227, %297
+296:                                              ; preds = %294
+  %297 = sub nuw i64 %.0108.lcssa, %288
+  %298 = uitofp i64 %297 to double
+  %299 = fadd double %.0227, %298
   br label %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread
 
-_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread: ; preds = %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit, %131, %126, %290, %295, %293, %124, %234, %232, %230, %198
-  %.4186 = phi double [ %.1184, %124 ], [ %233, %232 ], [ %.3, %230 ], [ %.sroa.speculated142, %234 ], [ %202, %198 ], [ %.5, %295 ], [ %.5, %293 ], [ %.5, %290 ], [ %.1184, %126 ], [ %.1184, %131 ], [ %.6.i, %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit ]
-  %.2 = phi double [ %.1.lcssa, %124 ], [ %.1.lcssa, %232 ], [ %.1.lcssa, %230 ], [ %.1.lcssa, %234 ], [ %.1.lcssa, %198 ], [ %298, %295 ], [ %.0227, %293 ], [ %292, %290 ], [ %.1.lcssa, %126 ], [ %.1.lcssa, %131 ], [ %.1.lcssa, %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit ]
-  %299 = load ptr, ptr %31, align 8, !tbaa !369
-  %300 = getelementptr inbounds nuw i32, ptr %299, i64 %indvars.iv242
-  %301 = trunc nuw nsw i64 %indvars.iv242 to i32
-  store i32 %301, ptr %300, align 4, !tbaa !211
-  %302 = load ptr, ptr %32, align 16, !tbaa !371
-  %303 = getelementptr inbounds nuw double, ptr %302, i64 %indvars.iv242
-  store double %.4186, ptr %303, align 8, !tbaa !977
+_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread: ; preds = %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit, %131, %126, %291, %296, %294, %124, %235, %233, %231, %198
+  %.4186 = phi double [ %.1184, %124 ], [ %234, %233 ], [ %.3, %231 ], [ %.sroa.speculated142, %235 ], [ %202, %198 ], [ %.5, %296 ], [ %.5, %294 ], [ %.5, %291 ], [ %.1184, %126 ], [ %.1184, %131 ], [ %.6.i, %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit ]
+  %.2 = phi double [ %.1.lcssa, %124 ], [ %.1.lcssa, %233 ], [ %.1.lcssa, %231 ], [ %.1.lcssa, %235 ], [ %.1.lcssa, %198 ], [ %299, %296 ], [ %.0227, %294 ], [ %293, %291 ], [ %.1.lcssa, %126 ], [ %.1.lcssa, %131 ], [ %.1.lcssa, %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit ]
+  %300 = load ptr, ptr %31, align 8, !tbaa !369
+  %301 = getelementptr inbounds nuw i32, ptr %300, i64 %indvars.iv242
+  %302 = trunc nuw nsw i64 %indvars.iv242 to i32
+  store i32 %302, ptr %301, align 4, !tbaa !211
+  %303 = load ptr, ptr %32, align 16, !tbaa !371
+  %304 = getelementptr inbounds nuw double, ptr %303, i64 %indvars.iv242
+  store double %.4186, ptr %304, align 8, !tbaa !977
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %.pr = load i32, ptr %11, align 16
-  %304 = load i8, ptr %13, align 16, !tbaa !968
-  %305 = icmp eq i8 %304, 0
-  %306 = add nsw i32 %.pr, -2
-  %307 = sext i32 %306 to i64
-  %.not.not238 = icmp slt i64 %indvars.iv242, %307
-  %.not.not = select i1 %305, i1 %.not.not238, i1 false
+  %305 = load i8, ptr %13, align 16, !tbaa !968
+  %306 = icmp eq i8 %305, 0
+  %307 = add nsw i32 %.pr, -2
+  %308 = sext i32 %307 to i64
+  %.not.not238 = icmp slt i64 %indvars.iv242, %308
+  %.not.not = select i1 %306, i1 %.not.not238, i1 false
   br i1 %.not.not, label %38, label %.preheader, !llvm.loop !1439
 
-.loopexit:                                        ; preds = %344, %325
-  %308 = phi i32 [ %326, %325 ], [ %345, %344 ]
-  %309 = add nsw i32 %308, -2
-  %310 = sext i32 %309 to i64
-  %311 = icmp slt i64 %indvars.iv.next250, %310
+.loopexit:                                        ; preds = %345, %326
+  %309 = phi i32 [ %327, %326 ], [ %346, %345 ]
+  %310 = add nsw i32 %309, -2
+  %311 = sext i32 %310 to i64
+  %312 = icmp slt i64 %indvars.iv.next250, %311
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
-  br i1 %311, label %325, label %._crit_edge235, !llvm.loop !1440
+  br i1 %312, label %326, label %._crit_edge235, !llvm.loop !1440
 
 ._crit_edge235:                                   ; preds = %.loopexit, %3, %.preheader
   call void @_ZN7rocksdb18VersionStorageInfo31ComputeFilesMarkedForCompactionEi(ptr noundef nonnull align 16 dereferenceable(4120) %0, i32 noundef %.0.i)
-  %312 = load i8, ptr %8, align 1, !tbaa !1429, !range !170, !noundef !171
-  %313 = trunc nuw i8 %312 to i1
-  call void @_ZN7rocksdb18VersionStorageInfo41ComputeBottommostFilesMarkedForCompactionEb(ptr noundef nonnull align 16 dereferenceable(4120) %0, i1 noundef zeroext %313)
-  %314 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %315 = load i64, ptr %314, align 8, !tbaa !1348
-  call void @_ZN7rocksdb18VersionStorageInfo22ComputeExpiredTtlFilesERKNS_16ImmutableOptionsEm(ptr noundef nonnull align 16 dereferenceable(4120) %0, ptr noundef nonnull align 8 dereferenceable(849) %1, i64 noundef %315)
-  %316 = getelementptr inbounds nuw i8, ptr %2, i64 200
-  %317 = load i64, ptr %316, align 8, !tbaa !1441
-  call void @_ZN7rocksdb18VersionStorageInfo39ComputeFilesMarkedForPeriodicCompactionERKNS_16ImmutableOptionsEmi(ptr noundef nonnull align 16 dereferenceable(4120) %0, ptr noundef nonnull align 8 dereferenceable(849) %1, i64 noundef %317, i32 noundef %.0.i)
-  %318 = getelementptr inbounds nuw i8, ptr %2, i64 360
-  %319 = load double, ptr %318, align 8, !tbaa !1442
-  %320 = getelementptr inbounds nuw i8, ptr %2, i64 368
-  %321 = load double, ptr %320, align 8, !tbaa !1443
-  %322 = getelementptr inbounds nuw i8, ptr %2, i64 353
-  %323 = load i8, ptr %322, align 1, !tbaa !1444, !range !170, !noundef !171
-  %324 = trunc nuw i8 %323 to i1
-  call void @_ZN7rocksdb18VersionStorageInfo33ComputeFilesMarkedForForcedBlobGCEddb(ptr noundef nonnull align 16 dereferenceable(4120) %0, double noundef %319, double noundef %321, i1 noundef zeroext %324)
+  %313 = load i8, ptr %8, align 1, !tbaa !1429, !range !170, !noundef !171
+  %314 = trunc nuw i8 %313 to i1
+  call void @_ZN7rocksdb18VersionStorageInfo41ComputeBottommostFilesMarkedForCompactionEb(ptr noundef nonnull align 16 dereferenceable(4120) %0, i1 noundef zeroext %314)
+  %315 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  %316 = load i64, ptr %315, align 8, !tbaa !1348
+  call void @_ZN7rocksdb18VersionStorageInfo22ComputeExpiredTtlFilesERKNS_16ImmutableOptionsEm(ptr noundef nonnull align 16 dereferenceable(4120) %0, ptr noundef nonnull align 8 dereferenceable(849) %1, i64 noundef %316)
+  %317 = getelementptr inbounds nuw i8, ptr %2, i64 200
+  %318 = load i64, ptr %317, align 8, !tbaa !1441
+  call void @_ZN7rocksdb18VersionStorageInfo39ComputeFilesMarkedForPeriodicCompactionERKNS_16ImmutableOptionsEmi(ptr noundef nonnull align 16 dereferenceable(4120) %0, ptr noundef nonnull align 8 dereferenceable(849) %1, i64 noundef %318, i32 noundef %.0.i)
+  %319 = getelementptr inbounds nuw i8, ptr %2, i64 360
+  %320 = load double, ptr %319, align 8, !tbaa !1442
+  %321 = getelementptr inbounds nuw i8, ptr %2, i64 368
+  %322 = load double, ptr %321, align 8, !tbaa !1443
+  %323 = getelementptr inbounds nuw i8, ptr %2, i64 353
+  %324 = load i8, ptr %323, align 1, !tbaa !1444, !range !170, !noundef !171
+  %325 = trunc nuw i8 %324 to i1
+  call void @_ZN7rocksdb18VersionStorageInfo33ComputeFilesMarkedForForcedBlobGCEddb(ptr noundef nonnull align 16 dereferenceable(4120) %0, double noundef %320, double noundef %322, i1 noundef zeroext %325)
   call void @_ZN7rocksdb18VersionStorageInfo29EstimateCompactionBytesNeededERKNS_16MutableCFOptionsE(ptr noundef nonnull align 16 dereferenceable(4120) %0, ptr noundef nonnull align 8 dereferenceable(608) %2)
   ret void
 
-325:                                              ; preds = %.lr.ph234, %.loopexit
-  %326 = phi i32 [ %.pr, %.lr.ph234 ], [ %308, %.loopexit ]
+326:                                              ; preds = %.lr.ph234, %.loopexit
+  %327 = phi i32 [ %.pr, %.lr.ph234 ], [ %309, %.loopexit ]
   %indvars.iv249 = phi i64 [ 0, %.lr.ph234 ], [ %indvars.iv.next250, %.loopexit ]
   %indvars.iv244 = phi i64 [ 1, %.lr.ph234 ], [ %indvars.iv.next245, %.loopexit ]
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
-  %327 = add nsw i32 %326, -1
-  %328 = sext i32 %327 to i64
-  %329 = icmp slt i64 %indvars.iv.next250, %328
-  br i1 %329, label %.lr.ph232, label %.loopexit
+  %328 = add nsw i32 %327, -1
+  %329 = sext i32 %328 to i64
+  %330 = icmp slt i64 %indvars.iv.next250, %329
+  br i1 %330, label %.lr.ph232, label %.loopexit
 
-.lr.ph232:                                        ; preds = %325
-  %330 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv249
-  %331 = load ptr, ptr %37, align 8
-  %332 = getelementptr inbounds nuw i32, ptr %331, i64 %indvars.iv249
-  br label %333
+.lr.ph232:                                        ; preds = %326
+  %331 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv249
+  %332 = load ptr, ptr %37, align 8
+  %333 = getelementptr inbounds nuw i32, ptr %332, i64 %indvars.iv249
+  br label %334
 
-333:                                              ; preds = %.lr.ph232, %344
-  %334 = phi i32 [ %326, %.lr.ph232 ], [ %345, %344 ]
-  %335 = phi i32 [ %326, %.lr.ph232 ], [ %346, %344 ]
-  %indvars.iv246 = phi i64 [ %indvars.iv244, %.lr.ph232 ], [ %indvars.iv.next247, %344 ]
-  %336 = load double, ptr %330, align 8, !tbaa !977
-  %337 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv246
-  %338 = load double, ptr %337, align 8, !tbaa !977
-  %339 = fcmp olt double %336, %338
-  br i1 %339, label %340, label %344
+334:                                              ; preds = %.lr.ph232, %345
+  %335 = phi i32 [ %327, %.lr.ph232 ], [ %346, %345 ]
+  %336 = phi i32 [ %327, %.lr.ph232 ], [ %347, %345 ]
+  %indvars.iv246 = phi i64 [ %indvars.iv244, %.lr.ph232 ], [ %indvars.iv.next247, %345 ]
+  %337 = load double, ptr %331, align 8, !tbaa !977
+  %338 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv246
+  %339 = load double, ptr %338, align 8, !tbaa !977
+  %340 = fcmp olt double %337, %339
+  br i1 %340, label %341, label %345
 
-340:                                              ; preds = %333
-  %341 = load i32, ptr %332, align 4, !tbaa !211
-  store double %338, ptr %330, align 8, !tbaa !977
-  %342 = getelementptr inbounds nuw i32, ptr %331, i64 %indvars.iv246
-  %343 = load i32, ptr %342, align 4, !tbaa !211
-  store i32 %343, ptr %332, align 4, !tbaa !211
-  store double %336, ptr %337, align 8, !tbaa !977
-  store i32 %341, ptr %342, align 4, !tbaa !211
+341:                                              ; preds = %334
+  %342 = load i32, ptr %333, align 4, !tbaa !211
+  store double %339, ptr %331, align 8, !tbaa !977
+  %343 = getelementptr inbounds nuw i32, ptr %332, i64 %indvars.iv246
+  %344 = load i32, ptr %343, align 4, !tbaa !211
+  store i32 %344, ptr %333, align 4, !tbaa !211
+  store double %337, ptr %338, align 8, !tbaa !977
+  store i32 %342, ptr %343, align 4, !tbaa !211
   %.pre253 = load i32, ptr %11, align 16, !tbaa !915
-  br label %344
+  br label %345
 
-344:                                              ; preds = %333, %340
-  %345 = phi i32 [ %334, %333 ], [ %.pre253, %340 ]
-  %346 = phi i32 [ %335, %333 ], [ %.pre253, %340 ]
+345:                                              ; preds = %334, %341
+  %346 = phi i32 [ %335, %334 ], [ %.pre253, %341 ]
+  %347 = phi i32 [ %336, %334 ], [ %.pre253, %341 ]
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
-  %347 = add nsw i32 %346, -1
-  %348 = sext i32 %347 to i64
-  %349 = icmp slt i64 %indvars.iv.next247, %348
-  br i1 %349, label %333, label %.loopexit, !llvm.loop !1445
+  %348 = add nsw i32 %347, -1
+  %349 = sext i32 %348 to i64
+  %350 = icmp slt i64 %indvars.iv.next247, %349
+  br i1 %350, label %334, label %.loopexit, !llvm.loop !1445
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

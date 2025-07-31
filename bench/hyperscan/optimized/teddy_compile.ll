@@ -4157,39 +4157,39 @@ define linkonce_odr hidden void @_ZN5boost9container6vectorItNS0_22small_vector_
 22:                                               ; preds = %17
   %23 = icmp ugt i64 %10, -6917529027641081857
   %24 = shl i64 %10, 3
-  %spec.select.i.i = select i1 %23, i64 -1, i64 %24
+  %25 = tail call i64 @llvm.umin.i64(i64 %24, i64 4611686018427387903)
+  %26 = select i1 %23, i64 4611686018427387903, i64 %25
   br label %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
 
 _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit: ; preds = %19, %22
-  %.0.i.i = phi i64 [ %21, %19 ], [ %spec.select.i.i, %22 ]
-  %25 = add i64 %13, %3
-  %26 = tail call i64 @llvm.umin.i64(i64 %.0.i.i, i64 4611686018427387903)
-  %27 = tail call noundef i64 @llvm.umax.i64(i64 %25, i64 %26)
-  %28 = icmp ugt i64 %25, 4611686018427387903
-  br i1 %28, label %29, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
+  %.0.i.i = phi i64 [ %21, %19 ], [ %26, %22 ]
+  %27 = add i64 %13, %3
+  %28 = tail call noundef i64 @llvm.umax.i64(i64 %27, i64 %.0.i.i)
+  %29 = icmp ugt i64 %27, 4611686018427387903
+  br i1 %29, label %30, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
 
-29:                                               ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
+30:                                               ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
   tail call void @_ZN5boost9container18throw_length_errorEPKc(ptr noundef nonnull @.str.1) #23
   unreachable
 
 _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit: ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
-  %30 = shl nuw nsw i64 %27, 1
-  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #27
-  %32 = load ptr, ptr %1, align 8
-  %.not.i = icmp ne ptr %32, null
-  %33 = icmp ne ptr %32, %6
-  %or.cond = select i1 %.not.i, i1 %33, i1 false
-  br i1 %or.cond, label %34, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit.i, !prof !70
+  %31 = shl nuw nsw i64 %28, 1
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #27
+  %33 = load ptr, ptr %1, align 8
+  %.not.i = icmp ne ptr %33, null
+  %34 = icmp ne ptr %33, %6
+  %or.cond = select i1 %.not.i, i1 %34, i1 false
+  br i1 %or.cond, label %35, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit.i, !prof !70
 
-34:                                               ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
-  %35 = ptrtoint ptr %32 to i64
-  %36 = sub i64 %8, %35
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %31, ptr nonnull align 2 %32, i64 %36, i1 false)
-  %37 = getelementptr inbounds i8, ptr %31, i64 %36
+35:                                               ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
+  %36 = ptrtoint ptr %33 to i64
+  %37 = sub i64 %8, %36
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %32, ptr nonnull align 2 %33, i64 %37, i1 false)
+  %38 = getelementptr inbounds i8, ptr %32, i64 %37
   br label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit.i
 
-_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit.i: ; preds = %34, %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
-  %.0.i = phi ptr [ %31, %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit ], [ %37, %34 ]
+_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit.i: ; preds = %35, %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
+  %.0.i = phi ptr [ %32, %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit ], [ %38, %35 ]
   %.not14.i.i.i = icmp eq i64 %3, 0
   br i1 %.not14.i.i.i, label %_ZNK5boost9container3dtl21insert_n_copies_proxyINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtE31uninitialized_copy_n_and_updateERS6_S7_m.exit.i, label %.lr.ph.preheader.i.i.i
 
@@ -4198,56 +4198,56 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
-  %.016.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i ], [ %3, %.lr.ph.preheader.i.i.i ]
-  %.01315.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i ], [ %.0.i, %.lr.ph.preheader.i.i.i ]
-  %38 = add i64 %.016.i.i.i, -1
+  %.016.i.i.i = phi i64 [ %39, %.lr.ph.i.i.i ], [ %3, %.lr.ph.preheader.i.i.i ]
+  %.01315.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i ], [ %.0.i, %.lr.ph.preheader.i.i.i ]
+  %39 = add i64 %.016.i.i.i, -1
   store i16 %.pre.i.i.i, ptr %.01315.i.i.i, align 2
-  %39 = getelementptr inbounds nuw i8, ptr %.01315.i.i.i, i64 2
-  %.not.i.i.i = icmp eq i64 %38, 0
+  %40 = getelementptr inbounds nuw i8, ptr %.01315.i.i.i, i64 2
+  %.not.i.i.i = icmp eq i64 %39, 0
   br i1 %.not.i.i.i, label %_ZNK5boost9container3dtl21insert_n_copies_proxyINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtE31uninitialized_copy_n_and_updateERS6_S7_m.exit.i, label %.lr.ph.i.i.i, !llvm.loop !206
 
 _ZNK5boost9container3dtl21insert_n_copies_proxyINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtE31uninitialized_copy_n_and_updateERS6_S7_m.exit.i: ; preds = %.lr.ph.i.i.i, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit.i
-  %40 = getelementptr inbounds nuw i16, ptr %.0.i, i64 %3
-  br i1 %.not.i, label %41, label %_ZN5boost9container6vectorItNS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl21insert_n_copies_proxyIS5_PtEEEEvSA_mSA_mT_.exit
+  %41 = getelementptr inbounds nuw i16, ptr %.0.i, i64 %3
+  br i1 %.not.i, label %42, label %_ZN5boost9container6vectorItNS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl21insert_n_copies_proxyIS5_PtEEEEvSA_mSA_mT_.exit
 
-41:                                               ; preds = %_ZNK5boost9container3dtl21insert_n_copies_proxyINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtE31uninitialized_copy_n_and_updateERS6_S7_m.exit.i
-  %42 = load i64, ptr %12, align 8
-  %43 = getelementptr inbounds nuw i16, ptr %32, i64 %42
-  %44 = icmp ne ptr %6, %43
-  %45 = icmp ne ptr %6, null
-  %spec.select.i.i21.i = and i1 %45, %44
-  br i1 %spec.select.i.i21.i, label %46, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit23.i, !prof !76
+42:                                               ; preds = %_ZNK5boost9container3dtl21insert_n_copies_proxyINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtE31uninitialized_copy_n_and_updateERS6_S7_m.exit.i
+  %43 = load i64, ptr %12, align 8
+  %44 = getelementptr inbounds nuw i16, ptr %33, i64 %43
+  %45 = icmp ne ptr %6, %44
+  %46 = icmp ne ptr %6, null
+  %spec.select.i.i21.i = and i1 %46, %45
+  br i1 %spec.select.i.i21.i, label %47, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit23.i, !prof !76
 
-46:                                               ; preds = %41
-  %47 = ptrtoint ptr %43 to i64
-  %48 = sub i64 %47, %8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %40, ptr nonnull align 2 %6, i64 %48, i1 false)
-  %49 = getelementptr inbounds i8, ptr %40, i64 %48
+47:                                               ; preds = %42
+  %48 = ptrtoint ptr %44 to i64
+  %49 = sub i64 %48, %8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %41, ptr nonnull align 2 %6, i64 %49, i1 false)
+  %50 = getelementptr inbounds i8, ptr %41, i64 %49
   br label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit23.i
 
-_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit23.i: ; preds = %46, %41
-  %.0.i.i22.i = phi ptr [ %49, %46 ], [ %40, %41 ]
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = icmp eq ptr %50, %32
-  br i1 %51, label %_ZN5boost9container6vectorItNS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl21insert_n_copies_proxyIS5_PtEEEEvSA_mSA_mT_.exit, label %52
+_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit23.i: ; preds = %47, %42
+  %.0.i.i22.i = phi ptr [ %50, %47 ], [ %41, %42 ]
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %52 = icmp eq ptr %51, %33
+  br i1 %52, label %_ZN5boost9container6vectorItNS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl21insert_n_copies_proxyIS5_PtEEEEvSA_mSA_mT_.exit, label %53
 
-52:                                               ; preds = %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit23.i
-  tail call void @_ZdlPv(ptr noundef nonnull %32) #21
+53:                                               ; preds = %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit23.i
+  tail call void @_ZdlPv(ptr noundef nonnull %33) #21
   br label %_ZN5boost9container6vectorItNS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl21insert_n_copies_proxyIS5_PtEEEEvSA_mSA_mT_.exit
 
-_ZN5boost9container6vectorItNS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl21insert_n_copies_proxyIS5_PtEEEEvSA_mSA_mT_.exit: ; preds = %_ZNK5boost9container3dtl21insert_n_copies_proxyINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtE31uninitialized_copy_n_and_updateERS6_S7_m.exit.i, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit23.i, %52
-  %.1.i = phi ptr [ %40, %_ZNK5boost9container3dtl21insert_n_copies_proxyINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtE31uninitialized_copy_n_and_updateERS6_S7_m.exit.i ], [ %.0.i.i22.i, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit23.i ], [ %.0.i.i22.i, %52 ]
-  %53 = ptrtoint ptr %7 to i64
-  %54 = sub i64 %8, %53
-  store ptr %31, ptr %1, align 8
-  %55 = ptrtoint ptr %.1.i to i64
-  %56 = ptrtoint ptr %31 to i64
-  %57 = sub i64 %55, %56
-  %58 = ashr exact i64 %57, 1
-  store i64 %58, ptr %12, align 8
-  store i64 %27, ptr %9, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %31, i64 %54
-  store ptr %59, ptr %0, align 8
+_ZN5boost9container6vectorItNS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl21insert_n_copies_proxyIS5_PtEEEEvSA_mSA_mT_.exit: ; preds = %_ZNK5boost9container3dtl21insert_n_copies_proxyINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtE31uninitialized_copy_n_and_updateERS6_S7_m.exit.i, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit23.i, %53
+  %.1.i = phi ptr [ %41, %_ZNK5boost9container3dtl21insert_n_copies_proxyINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtE31uninitialized_copy_n_and_updateERS6_S7_m.exit.i ], [ %.0.i.i22.i, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItNS0_13new_allocatorIvEEvEEPtS6_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit23.i ], [ %.0.i.i22.i, %53 ]
+  %54 = ptrtoint ptr %7 to i64
+  %55 = sub i64 %8, %54
+  store ptr %32, ptr %1, align 8
+  %56 = ptrtoint ptr %.1.i to i64
+  %57 = ptrtoint ptr %32 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 1
+  store i64 %59, ptr %12, align 8
+  store i64 %28, ptr %9, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %32, i64 %55
+  store ptr %60, ptr %0, align 8
   ret void
 }
 

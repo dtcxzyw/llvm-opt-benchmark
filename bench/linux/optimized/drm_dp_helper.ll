@@ -5087,13 +5087,13 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_edp_backlight_init(ptr nound
   %142 = lshr i32 %141, 1
   %143 = add nuw nsw i32 %142, %79
   %144 = lshr i32 %143, %140
+  %145 = call i32 @llvm.smax.i32(i32 %144, i32 1)
+  %146 = call i32 @llvm.umin.i32(i32 %145, i32 255)
   br label %.preheader._crit_edge
 
 .preheader._crit_edge:                            ; preds = %.preheader, %139
   %.pre-phi = phi i32 [ %140, %139 ], [ 31, %.preheader ]
-  %145 = phi i32 [ %144, %139 ], [ 0, %.preheader ]
-  %146 = call i32 @llvm.smax.i32(i32 %145, i32 1)
-  %147 = call i32 @llvm.umin.i32(i32 %146, i32 255)
+  %147 = phi i32 [ %146, %139 ], [ 1, %.preheader ]
   %148 = shl i32 %147, %.pre-phi
   %149 = icmp sgt i32 %114, %148
   %150 = icmp sgt i32 %148, %117

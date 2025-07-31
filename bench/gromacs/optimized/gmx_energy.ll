@@ -6461,22 +6461,22 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.i514.backedge: ; preds = %2444, %2448
   %.0186.ph219.i = phi i32 [ %2484, %.thread198.loopexit240.i ], [ %2485, %.thread198.loopexit241.i ], [ 0, %2407 ], [ 0, %2414 ]
   %2486 = load i32, ptr %569, align 8, !tbaa !67
   %.not105.i = icmp eq i32 %2486, %.0186.ph219.i
-  br i1 %.not105.i, label %2490, label %2487
+  br i1 %.not105.i, label %2491, label %2487
 
 2487:                                             ; preds = %.thread198.i
   %2488 = load ptr, ptr @stderr, align 8, !tbaa !131
   %2489 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2488, ptr noundef nonnull @.str.303, i32 noundef %2486, i32 noundef %.0186.ph219.i) #31
   %.pre.i515 = load i32, ptr %569, align 8, !tbaa !4
-  br label %2490
+  %2490 = call i32 @llvm.smin.i32(i32 %.0186.ph219.i, i32 %.pre.i515)
+  br label %2491
 
-2490:                                             ; preds = %2487, %.thread198.i
-  %2491 = phi i32 [ %.pre.i515, %2487 ], [ %.0186.ph219.i, %.thread198.i ]
-  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %.0186.ph219.i, i32 %2491)
+2491:                                             ; preds = %2487, %.thread198.i
+  %.sroa.speculated.i = phi i32 [ %2490, %2487 ], [ %.0186.ph219.i, %.thread198.i ]
   %2492 = load ptr, ptr %6, align 8, !tbaa !22
   %.not106.i = icmp eq ptr %2492, null
   br i1 %.not106.i, label %2543, label %2493
 
-2493:                                             ; preds = %2490
+2493:                                             ; preds = %2491
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #27
   invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(8) %6, i8 noundef zeroext 2)
           to label %._crit_edge.i.i125.i unwind label %2526
@@ -6625,8 +6625,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #27
   br label %.loopexit.split-lp.i
 
-2543:                                             ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit143.i, %2490
-  %.091.i = phi ptr [ %2500, %_ZNSt10filesystem7__cxx114pathD2Ev.exit143.i ], [ null, %2490 ]
+2543:                                             ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit143.i, %2491
+  %.091.i = phi ptr [ %2500, %_ZNSt10filesystem7__cxx114pathD2Ev.exit143.i ], [ null, %2491 ]
   %2544 = load ptr, ptr @stdout, align 8, !tbaa !131
   %2545 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2544, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.226, ptr noundef nonnull @.str.307) #27
   br i1 %2404, label %.lr.ph236.i, label %._crit_edge237.i

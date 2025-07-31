@@ -213,21 +213,21 @@ define dso_local i32 @early_irq_init() local_unnamed_addr #0 section ".init.text
   %1 = alloca %struct.ma_state, align 8
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
   %3 = icmp eq i64 %2, 0
-  br i1 %3, label %7, label %4
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %0
   %5 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %2) #12, !srcloc !10
   %6 = trunc i64 %5 to i32
-  br label %7
+  %7 = tail call i32 @llvm.umin.i32(i32 %6, i32 64)
+  br label %8
 
-7:                                                ; preds = %4, %0
-  %8 = phi i32 [ %6, %4 ], [ 64, %0 ]
-  %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 64)
+8:                                                ; preds = %4, %0
+  %9 = phi i32 [ %7, %4 ], [ 64, %0 ]
   %10 = load i64, ptr @irq_default_affinity, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %18
 
-12:                                               ; preds = %7
+12:                                               ; preds = %8
   %13 = load i32, ptr @nr_cpu_ids, align 4
   %14 = sub i32 0, %13
   %15 = and i32 %14, 63
@@ -236,7 +236,7 @@ define dso_local i32 @early_irq_init() local_unnamed_addr #0 section ".init.text
   store i64 %17, ptr @irq_default_affinity, align 8
   br label %18
 
-18:                                               ; preds = %12, %7
+18:                                               ; preds = %12, %8
   %19 = tail call i32 @arch_probe_nr_irqs() #11
   %20 = load i32, ptr @nr_irqs, align 4
   %21 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef 4352, i32 noundef %20, i32 noundef %19) #13

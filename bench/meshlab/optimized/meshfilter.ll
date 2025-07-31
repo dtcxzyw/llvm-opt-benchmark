@@ -148869,7 +148869,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
 
 63:                                               ; preds = %60, %57, %51
   %64 = icmp sgt i64 %1, 0
-  br i1 %64, label %65, label %71
+  br i1 %64, label %65, label %72
 
 65:                                               ; preds = %63
   %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i64 8), align 8
@@ -148878,15 +148878,15 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
   %68 = udiv i64 %66, %67
   %69 = sdiv i64 %68, 4
   %70 = shl nsw i64 %69, 2
-  br label %71
+  %71 = tail call i64 @llvm.smax.i64(i64 %70, i64 4)
+  br label %72
 
-71:                                               ; preds = %63, %65
-  %72 = phi i64 [ %70, %65 ], [ 0, %63 ]
-  %.sroa.speculated374 = tail call i64 @llvm.smax.i64(i64 %72, i64 4)
+72:                                               ; preds = %63, %65
+  %.sroa.speculated374 = phi i64 [ %71, %65 ], [ 4, %63 ]
   %73 = icmp sgt i64 %0, 0
   br i1 %73, label %.lr.ph461, label %._crit_edge
 
-.lr.ph461:                                        ; preds = %71
+.lr.ph461:                                        ; preds = %72
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %76
@@ -149443,7 +149443,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIflNS0_22const_blas_data_mapperIflLi0EEELi8ELi4
   %326 = icmp slt i64 %325, %0
   br i1 %326, label %281, label %.loopexit419, !llvm.loop !1515
 
-._crit_edge:                                      ; preds = %._crit_edge452, %71
+._crit_edge:                                      ; preds = %._crit_edge452, %72
   br i1 %54, label %327, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit337
 
 327:                                              ; preds = %._crit_edge
@@ -152685,7 +152685,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
 
 63:                                               ; preds = %60, %57, %51
   %64 = icmp sgt i64 %1, 0
-  br i1 %64, label %65, label %71
+  br i1 %64, label %65, label %72
 
 65:                                               ; preds = %63
   %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i64 8), align 8
@@ -152694,15 +152694,15 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
   %68 = udiv i64 %66, %67
   %69 = sdiv i64 %68, 4
   %70 = shl nsw i64 %69, 2
-  br label %71
+  %71 = tail call i64 @llvm.smax.i64(i64 %70, i64 4)
+  br label %72
 
-71:                                               ; preds = %63, %65
-  %72 = phi i64 [ %70, %65 ], [ 0, %63 ]
-  %.sroa.speculated381 = tail call i64 @llvm.smax.i64(i64 %72, i64 4)
+72:                                               ; preds = %63, %65
+  %.sroa.speculated381 = phi i64 [ %71, %65 ], [ 4, %63 ]
   %73 = icmp sgt i64 %0, 0
   br i1 %73, label %.lr.ph465, label %._crit_edge
 
-.lr.ph465:                                        ; preds = %71
+.lr.ph465:                                        ; preds = %72
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %75 = icmp sgt i64 %13, 0
   %76 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -153268,7 +153268,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIflNS0_22const_blas_data_mapperIflLi0EEELi8ELi4
   %338 = icmp slt i64 %337, %290
   br i1 %338, label %293, label %.loopexit426, !llvm.loop !1593
 
-._crit_edge:                                      ; preds = %._crit_edge456, %71
+._crit_edge:                                      ; preds = %._crit_edge456, %72
   br i1 %54, label %339, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit344
 
 339:                                              ; preds = %._crit_edge
@@ -169665,7 +169665,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit292:     ; preds = %47, %38, %44
 
 62:                                               ; preds = %59, %56, %_ZN5Eigen8internal14aligned_mallocEm.exit292
   %63 = icmp sgt i64 %1, 0
-  br i1 %63, label %64, label %70
+  br i1 %63, label %64, label %71
 
 64:                                               ; preds = %62
   %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i64 8), align 8
@@ -169674,15 +169674,15 @@ _ZN5Eigen8internal14aligned_mallocEm.exit292:     ; preds = %47, %38, %44
   %67 = udiv i64 %65, %66
   %68 = sdiv i64 %67, 4
   %69 = shl nsw i64 %68, 2
-  br label %70
+  %70 = tail call i64 @llvm.smax.i64(i64 %69, i64 4)
+  br label %71
 
-70:                                               ; preds = %62, %64
-  %71 = phi i64 [ %69, %64 ], [ 0, %62 ]
-  %.sroa.speculated371 = tail call i64 @llvm.smax.i64(i64 %71, i64 4)
+71:                                               ; preds = %62, %64
+  %.sroa.speculated371 = phi i64 [ %70, %64 ], [ 4, %62 ]
   %72 = icmp sgt i64 %0, 0
   br i1 %72, label %.lr.ph455, label %._crit_edge
 
-.lr.ph455:                                        ; preds = %70
+.lr.ph455:                                        ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %75
@@ -170157,7 +170157,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   %268 = icmp slt i64 %267, %0
   br i1 %268, label %223, label %.loopexit416, !llvm.loop !2016
 
-._crit_edge:                                      ; preds = %._crit_edge448, %70
+._crit_edge:                                      ; preds = %._crit_edge448, %71
   br i1 %53, label %269, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit337
 
 269:                                              ; preds = %._crit_edge
@@ -186465,7 +186465,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit299:     ; preds = %47, %38, %44
 
 62:                                               ; preds = %59, %56, %_ZN5Eigen8internal14aligned_mallocEm.exit299
   %63 = icmp sgt i64 %1, 0
-  br i1 %63, label %64, label %70
+  br i1 %63, label %64, label %71
 
 64:                                               ; preds = %62
   %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i64 8), align 8
@@ -186474,15 +186474,15 @@ _ZN5Eigen8internal14aligned_mallocEm.exit299:     ; preds = %47, %38, %44
   %67 = udiv i64 %65, %66
   %68 = sdiv i64 %67, 4
   %69 = shl nsw i64 %68, 2
-  br label %70
+  %70 = tail call i64 @llvm.smax.i64(i64 %69, i64 4)
+  br label %71
 
-70:                                               ; preds = %62, %64
-  %71 = phi i64 [ %69, %64 ], [ 0, %62 ]
-  %.sroa.speculated378 = tail call i64 @llvm.smax.i64(i64 %71, i64 4)
+71:                                               ; preds = %62, %64
+  %.sroa.speculated378 = phi i64 [ %70, %64 ], [ 4, %62 ]
   %72 = icmp sgt i64 %0, 0
   br i1 %72, label %.lr.ph458, label %._crit_edge
 
-.lr.ph458:                                        ; preds = %70
+.lr.ph458:                                        ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %74 = icmp sgt i64 %13, 0
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -186961,7 +186961,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   %279 = icmp slt i64 %278, %231
   br i1 %279, label %234, label %.loopexit423, !llvm.loop !2655
 
-._crit_edge:                                      ; preds = %._crit_edge449, %70
+._crit_edge:                                      ; preds = %._crit_edge449, %71
   br i1 %53, label %280, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit344
 
 280:                                              ; preds = %._crit_edge
@@ -213239,107 +213239,107 @@ define linkonce_odr noundef float @_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInt
   %36 = tail call float @llvm.fmuladd.f32(float %7, float %19, float %35)
   %37 = tail call noundef float @llvm.fmuladd.f32(float %17, float %25, float %36)
   %38 = fdiv float %37, %32
+  %39 = tail call float @llvm.fabs.f32(float %38)
   br label %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit
 
 _ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit: ; preds = %4, %34
-  %.0.i = phi float [ %38, %34 ], [ 0.000000e+00, %4 ]
-  %39 = fsub float %18, %5
-  %40 = fsub float %21, %9
-  %41 = fsub float %24, %14
-  %42 = load float, ptr %3, align 4
-  %43 = fsub float %18, %42
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %45 = load float, ptr %44, align 4
-  %46 = fsub float %21, %45
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %48 = load float, ptr %47, align 4
-  %49 = fsub float %24, %48
-  %50 = fmul float %40, %40
-  %51 = tail call float @llvm.fmuladd.f32(float %39, float %39, float %50)
-  %52 = tail call float @llvm.fmuladd.f32(float %41, float %41, float %51)
-  %sqrt.i.i17 = tail call noundef float @llvm.sqrt.f32(float %52)
-  %53 = fmul float %46, %46
-  %54 = tail call float @llvm.fmuladd.f32(float %43, float %43, float %53)
-  %55 = tail call float @llvm.fmuladd.f32(float %49, float %49, float %54)
-  %sqrt.i16.i18 = tail call noundef float @llvm.sqrt.f32(float %55)
-  %56 = fmul float %sqrt.i.i17, %sqrt.i16.i18
-  %57 = fcmp oeq float %56, 0.000000e+00
-  br i1 %57, label %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit20, label %58
+  %.0.i = phi float [ %39, %34 ], [ 0.000000e+00, %4 ]
+  %40 = fsub float %18, %5
+  %41 = fsub float %21, %9
+  %42 = fsub float %24, %14
+  %43 = load float, ptr %3, align 4
+  %44 = fsub float %18, %43
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %46 = load float, ptr %45, align 4
+  %47 = fsub float %21, %46
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %49 = load float, ptr %48, align 4
+  %50 = fsub float %24, %49
+  %51 = fmul float %41, %41
+  %52 = tail call float @llvm.fmuladd.f32(float %40, float %40, float %51)
+  %53 = tail call float @llvm.fmuladd.f32(float %42, float %42, float %52)
+  %sqrt.i.i17 = tail call noundef float @llvm.sqrt.f32(float %53)
+  %54 = fmul float %47, %47
+  %55 = tail call float @llvm.fmuladd.f32(float %44, float %44, float %54)
+  %56 = tail call float @llvm.fmuladd.f32(float %50, float %50, float %55)
+  %sqrt.i16.i18 = tail call noundef float @llvm.sqrt.f32(float %56)
+  %57 = fmul float %sqrt.i.i17, %sqrt.i16.i18
+  %58 = fcmp oeq float %57, 0.000000e+00
+  br i1 %58, label %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit20, label %59
 
-58:                                               ; preds = %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit
-  %59 = fmul float %40, %46
-  %60 = tail call float @llvm.fmuladd.f32(float %39, float %43, float %59)
-  %61 = tail call noundef float @llvm.fmuladd.f32(float %41, float %49, float %60)
-  %62 = fdiv float %61, %56
+59:                                               ; preds = %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit
+  %60 = fmul float %41, %47
+  %61 = tail call float @llvm.fmuladd.f32(float %40, float %44, float %60)
+  %62 = tail call noundef float @llvm.fmuladd.f32(float %42, float %50, float %61)
+  %63 = fdiv float %62, %57
+  %64 = tail call float @llvm.fabs.f32(float %63)
   br label %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit20
 
-_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit20: ; preds = %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit, %58
-  %.0.i19 = phi float [ %62, %58 ], [ 0.000000e+00, %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit ]
-  %63 = fsub float %42, %18
-  %64 = fsub float %45, %21
-  %65 = fsub float %48, %24
-  %66 = fsub float %42, %6
-  %67 = fsub float %45, %11
-  %68 = fsub float %48, %16
-  %69 = fmul float %64, %64
-  %70 = tail call float @llvm.fmuladd.f32(float %63, float %63, float %69)
-  %71 = tail call float @llvm.fmuladd.f32(float %65, float %65, float %70)
-  %sqrt.i.i21 = tail call noundef float @llvm.sqrt.f32(float %71)
-  %72 = fmul float %67, %67
-  %73 = tail call float @llvm.fmuladd.f32(float %66, float %66, float %72)
-  %74 = tail call float @llvm.fmuladd.f32(float %68, float %68, float %73)
-  %sqrt.i16.i22 = tail call noundef float @llvm.sqrt.f32(float %74)
-  %75 = fmul float %sqrt.i.i21, %sqrt.i16.i22
-  %76 = fcmp oeq float %75, 0.000000e+00
-  br i1 %76, label %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit24, label %77
+_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit20: ; preds = %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit, %59
+  %.0.i19 = phi float [ %64, %59 ], [ 0.000000e+00, %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit ]
+  %65 = fsub float %43, %18
+  %66 = fsub float %46, %21
+  %67 = fsub float %49, %24
+  %68 = fsub float %43, %6
+  %69 = fsub float %46, %11
+  %70 = fsub float %49, %16
+  %71 = fmul float %66, %66
+  %72 = tail call float @llvm.fmuladd.f32(float %65, float %65, float %71)
+  %73 = tail call float @llvm.fmuladd.f32(float %67, float %67, float %72)
+  %sqrt.i.i21 = tail call noundef float @llvm.sqrt.f32(float %73)
+  %74 = fmul float %69, %69
+  %75 = tail call float @llvm.fmuladd.f32(float %68, float %68, float %74)
+  %76 = tail call float @llvm.fmuladd.f32(float %70, float %70, float %75)
+  %sqrt.i16.i22 = tail call noundef float @llvm.sqrt.f32(float %76)
+  %77 = fmul float %sqrt.i.i21, %sqrt.i16.i22
+  %78 = fcmp oeq float %77, 0.000000e+00
+  br i1 %78, label %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit24, label %79
 
-77:                                               ; preds = %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit20
-  %78 = fmul float %64, %67
-  %79 = tail call float @llvm.fmuladd.f32(float %63, float %66, float %78)
-  %80 = tail call noundef float @llvm.fmuladd.f32(float %65, float %68, float %79)
-  %81 = fdiv float %80, %75
+79:                                               ; preds = %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit20
+  %80 = fmul float %66, %69
+  %81 = tail call float @llvm.fmuladd.f32(float %65, float %68, float %80)
+  %82 = tail call noundef float @llvm.fmuladd.f32(float %67, float %70, float %81)
+  %83 = fdiv float %82, %77
+  %84 = tail call float @llvm.fabs.f32(float %83)
   br label %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit24
 
-_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit24: ; preds = %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit20, %77
-  %.0.i23 = phi float [ %81, %77 ], [ 0.000000e+00, %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit20 ]
-  %82 = fsub float %6, %42
-  %83 = fsub float %11, %45
-  %84 = fsub float %16, %48
-  %85 = fsub float %6, %5
-  %86 = fsub float %11, %9
-  %87 = fsub float %16, %14
-  %88 = fmul float %83, %83
-  %89 = tail call float @llvm.fmuladd.f32(float %82, float %82, float %88)
-  %90 = tail call float @llvm.fmuladd.f32(float %84, float %84, float %89)
-  %sqrt.i.i25 = tail call noundef float @llvm.sqrt.f32(float %90)
+_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit24: ; preds = %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit20, %79
+  %.0.i23 = phi float [ %84, %79 ], [ 0.000000e+00, %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit20 ]
+  %85 = fsub float %6, %43
+  %86 = fsub float %11, %46
+  %87 = fsub float %16, %49
+  %88 = fsub float %6, %5
+  %89 = fsub float %11, %9
+  %90 = fsub float %16, %14
   %91 = fmul float %86, %86
   %92 = tail call float @llvm.fmuladd.f32(float %85, float %85, float %91)
   %93 = tail call float @llvm.fmuladd.f32(float %87, float %87, float %92)
-  %sqrt.i16.i26 = tail call noundef float @llvm.sqrt.f32(float %93)
-  %94 = fmul float %sqrt.i16.i26, %sqrt.i.i25
-  %95 = fcmp oeq float %94, 0.000000e+00
-  br i1 %95, label %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit28, label %96
+  %sqrt.i.i25 = tail call noundef float @llvm.sqrt.f32(float %93)
+  %94 = fmul float %89, %89
+  %95 = tail call float @llvm.fmuladd.f32(float %88, float %88, float %94)
+  %96 = tail call float @llvm.fmuladd.f32(float %90, float %90, float %95)
+  %sqrt.i16.i26 = tail call noundef float @llvm.sqrt.f32(float %96)
+  %97 = fmul float %sqrt.i16.i26, %sqrt.i.i25
+  %98 = fcmp oeq float %97, 0.000000e+00
+  br i1 %98, label %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit28, label %99
 
-96:                                               ; preds = %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit24
-  %97 = fmul float %86, %83
-  %98 = tail call float @llvm.fmuladd.f32(float %82, float %85, float %97)
-  %99 = tail call noundef float @llvm.fmuladd.f32(float %84, float %87, float %98)
-  %100 = fdiv float %99, %94
+99:                                               ; preds = %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit24
+  %100 = fmul float %89, %86
+  %101 = tail call float @llvm.fmuladd.f32(float %85, float %88, float %100)
+  %102 = tail call noundef float @llvm.fmuladd.f32(float %87, float %90, float %101)
+  %103 = fdiv float %102, %97
+  %104 = tail call float @llvm.fabs.f32(float %103)
   br label %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit28
 
-_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit28: ; preds = %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit24, %96
-  %.0.i27 = phi float [ %100, %96 ], [ 0.000000e+00, %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit24 ]
-  %101 = tail call noundef float @llvm.fabs.f32(float %.0.i)
-  %102 = fsub float 1.000000e+00, %101
-  %103 = tail call noundef float @llvm.fabs.f32(float %.0.i19)
-  %104 = fsub float 1.000000e+00, %103
-  %105 = fadd float %102, %104
-  %106 = tail call noundef float @llvm.fabs.f32(float %.0.i23)
-  %107 = fsub float 1.000000e+00, %106
-  %108 = fadd float %105, %107
-  %109 = tail call noundef float @llvm.fabs.f32(float %.0.i27)
-  %110 = fsub float 1.000000e+00, %109
-  %111 = fadd float %108, %110
+_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit28: ; preds = %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit24, %99
+  %.0.i27 = phi float [ %104, %99 ], [ 0.000000e+00, %_ZN3vcg3tri7BitQuadI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE3CosERKNS_6Point3IfEESA_SA_.exit24 ]
+  %105 = fsub float 1.000000e+00, %.0.i
+  %106 = fsub float 1.000000e+00, %.0.i19
+  %107 = fadd float %105, %106
+  %108 = fsub float 1.000000e+00, %.0.i23
+  %109 = fadd float %107, %108
+  %110 = fsub float 1.000000e+00, %.0.i27
+  %111 = fadd float %109, %110
   %112 = fmul float %111, 2.500000e-01
   ret float %112
 }

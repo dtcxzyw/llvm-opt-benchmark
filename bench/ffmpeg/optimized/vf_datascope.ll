@@ -231,9 +231,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %33 = load i32, ptr %32, align 4, !tbaa !44
   br label %37
 
-._crit_edge:                                      ; preds = %37, %24
-  %.0106.lcssa = phi i32 [ 0, %24 ], [ %spec.select, %37 ]
-  %34 = tail call i32 @llvm.smax.i32(i32 %.0106.lcssa, i32 1)
+._crit_edge.loopexit:                             ; preds = %37
+  %34 = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 1)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %24
+  %.0106.lcssa = phi i32 [ 1, %24 ], [ %34, %._crit_edge.loopexit ]
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %36 = load i32, ptr %35, align 8, !tbaa !45
   %.not113 = icmp eq i32 %36, 0
@@ -248,13 +251,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %spec.select = add nuw nsw i32 %39, %.0106117
   %40 = add nuw nsw i32 %.0104118, 1
   %exitcond.not = icmp eq i32 %40, %.
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %37, !llvm.loop !46
 
 41:                                               ; preds = %._crit_edge
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %43 = load i32, ptr %42, align 4, !tbaa !48
   %44 = load i32, ptr %20, align 4, !tbaa !43
-  %45 = mul nuw nsw i32 %34, 12
+  %45 = mul nuw nsw i32 %.0106.lcssa, 12
   %46 = sdiv i32 %44, %45
   %47 = mul nsw i32 %43, 10
   %48 = sdiv i32 %.pre130, %47
@@ -286,7 +289,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph121:                                        ; preds = %41
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 388
-  %71 = add nuw nsw i32 %34, 1
+  %71 = add nuw nsw i32 %.0106.lcssa, 1
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %73 = getelementptr inbounds nuw i8, ptr %22, i64 104
   %74 = getelementptr inbounds nuw i8, ptr %22, i64 108
@@ -312,7 +315,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 256, ptr noundef nonnull @.str.7, i32 noundef %83) #15
   %85 = mul i32 %.0119, 12
   %reass.add = add i32 %71, %85
-  %reass.mul = mul i32 %reass.add, %34
+  %reass.mul = mul i32 %reass.add, %.0106.lcssa
   %86 = add i32 %reass.mul, %62
   %.reass = add i32 %reass.mul, %invariant.op
   tail call void @ff_fill_rectangle(ptr noundef nonnull %26, ptr noundef nonnull %70, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef 0, i32 noundef %.reass, i32 noundef %55, i32 noundef 10) #15
@@ -413,7 +416,7 @@ draw_text.exit115:                                ; preds = %.split.i
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %.0105, ptr %123, align 8, !tbaa !68
   %124 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %34, ptr %124, align 8, !tbaa !69
+  store i32 %.0106.lcssa, ptr %124, align 8, !tbaa !69
   %125 = getelementptr inbounds nuw i8, ptr %9, i64 472
   %126 = load ptr, ptr %125, align 8, !tbaa !70
   %127 = tail call i32 @ff_filter_get_nb_threads(ptr noundef %7) #16

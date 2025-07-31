@@ -5472,7 +5472,7 @@ evbuffer_read_setup_vecs_.exit.thread:            ; preds = %43, %25, %evbuffer_
   %84 = load i32, ptr %83, align 8
   %85 = and i32 %84, 8
   %.not56 = icmp eq i32 %85, 0
-  br i1 %.not56, label %86, label %95
+  br i1 %.not56, label %86, label %96
 
 86:                                               ; preds = %.lr.ph
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -5483,25 +5483,25 @@ evbuffer_read_setup_vecs_.exit.thread:            ; preds = %43, %25, %evbuffer_
   %92 = load i64, ptr %91, align 8
   %93 = add i64 %90, %92
   %94 = sub i64 %88, %93
-  br label %95
+  %95 = call i64 @llvm.umin.i64(i64 %94, i64 9223372036854775807)
+  br label %96
 
-95:                                               ; preds = %.lr.ph, %86
-  %96 = phi i64 [ %94, %86 ], [ 0, %.lr.ph ]
-  %spec.store.select = call i64 @llvm.umin.i64(i64 %96, i64 9223372036854775807)
+96:                                               ; preds = %.lr.ph, %86
+  %spec.store.select = phi i64 [ %95, %86 ], [ 0, %.lr.ph ]
   %97 = sext i32 %.04385 to i64
   %98 = icmp slt i64 %spec.store.select, %97
   %99 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %100 = load i64, ptr %99, align 8
   br i1 %98, label %104, label %101
 
-101:                                              ; preds = %95
+101:                                              ; preds = %96
   %102 = add i64 %100, %97
   store i64 %102, ptr %99, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.06183, ptr %103, align 8
   br label %.loopexit
 
-104:                                              ; preds = %95
+104:                                              ; preds = %96
   %105 = add i64 %100, %spec.store.select
   store i64 %105, ptr %99, align 8
   %106 = trunc nuw nsw i64 %spec.store.select to i32

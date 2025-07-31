@@ -385,7 +385,7 @@ define dso_local void @ioam6_fill_trace_data(ptr noundef readonly captures(none)
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %97, label %91
+  br i1 %90, label %98, label %91
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 184
@@ -393,11 +393,11 @@ define dso_local void @ioam6_fill_trace_data(ptr noundef readonly captures(none)
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 884
   %95 = load i32, ptr %94, align 4
   %96 = trunc i32 %95 to i16
-  br label %97
+  %97 = tail call i16 @llvm.bswap.i16(i16 %96)
+  br label %98
 
-97:                                               ; preds = %91, %87
-  %98 = phi i16 [ %96, %91 ], [ -1, %87 ]
-  %99 = tail call i16 @llvm.bswap.i16(i16 %98)
+98:                                               ; preds = %91, %87
+  %99 = phi i16 [ %97, %91 ], [ -1, %87 ]
   store i16 %99, ptr %84, align 2
   %100 = getelementptr i8, ptr %84, i64 2
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -409,27 +409,27 @@ define dso_local void @ioam6_fill_trace_data(ptr noundef readonly captures(none)
   %107 = load i32, ptr %106, align 8
   %108 = and i32 %107, 8
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %116
+  br i1 %109, label %110, label %117
 
-110:                                              ; preds = %97
+110:                                              ; preds = %98
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 184
   %112 = load volatile ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 884
   %114 = load i32, ptr %113, align 4
   %115 = trunc i32 %114 to i16
-  br label %116
+  %116 = tail call i16 @llvm.bswap.i16(i16 %115)
+  br label %117
 
-116:                                              ; preds = %110, %97
-  %117 = phi i16 [ %115, %110 ], [ -1, %97 ]
-  %118 = tail call i16 @llvm.bswap.i16(i16 %117)
+117:                                              ; preds = %110, %98
+  %118 = phi i16 [ %116, %110 ], [ -1, %98 ]
   store i16 %118, ptr %100, align 2
   %119 = getelementptr i8, ptr %84, i64 4
   %.pre8 = load i32, ptr %13, align 1
   br label %120
 
-120:                                              ; preds = %116, %82
-  %121 = phi i32 [ %.pre8, %116 ], [ %83, %82 ]
-  %122 = phi ptr [ %119, %116 ], [ %84, %82 ]
+120:                                              ; preds = %117, %82
+  %121 = phi i32 [ %.pre8, %117 ], [ %83, %82 ]
+  %122 = phi ptr [ %119, %117 ], [ %84, %82 ]
   %123 = and i32 %121, 32
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %152, label %125
@@ -672,18 +672,18 @@ define dso_local void @ioam6_fill_trace_data(ptr noundef readonly captures(none)
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %281 = load ptr, ptr %280, align 8
   %282 = icmp eq ptr %281, null
-  br i1 %282, label %288, label %283
+  br i1 %282, label %289, label %283
 
 283:                                              ; preds = %279
   %284 = getelementptr inbounds nuw i8, ptr %281, i64 184
   %285 = load volatile ptr, ptr %284, align 8
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 888
   %287 = load i32, ptr %286, align 8
-  br label %288
+  %288 = call i32 @llvm.bswap.i32(i32 %287)
+  br label %289
 
-288:                                              ; preds = %283, %279
-  %289 = phi i32 [ %287, %283 ], [ -1, %279 ]
-  %290 = call i32 @llvm.bswap.i32(i32 %289)
+289:                                              ; preds = %283, %279
+  %290 = phi i32 [ %288, %283 ], [ -1, %279 ]
   store i32 %290, ptr %276, align 4
   %291 = getelementptr i8, ptr %276, i64 4
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -695,26 +695,26 @@ define dso_local void @ioam6_fill_trace_data(ptr noundef readonly captures(none)
   %298 = load i32, ptr %297, align 8
   %299 = and i32 %298, 8
   %300 = icmp eq i32 %299, 0
-  br i1 %300, label %301, label %306
+  br i1 %300, label %301, label %307
 
-301:                                              ; preds = %288
+301:                                              ; preds = %289
   %302 = getelementptr inbounds nuw i8, ptr %296, i64 184
   %303 = load volatile ptr, ptr %302, align 8
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 888
   %305 = load i32, ptr %304, align 8
-  br label %306
+  %306 = call i32 @llvm.bswap.i32(i32 %305)
+  br label %307
 
-306:                                              ; preds = %301, %288
-  %307 = phi i32 [ %305, %301 ], [ -1, %288 ]
-  %308 = call i32 @llvm.bswap.i32(i32 %307)
+307:                                              ; preds = %301, %289
+  %308 = phi i32 [ %306, %301 ], [ -1, %289 ]
   store i32 %308, ptr %291, align 4
   %309 = getelementptr i8, ptr %276, i64 8
   %.pre16 = load i32, ptr %13, align 1
   br label %310
 
-310:                                              ; preds = %306, %274
-  %311 = phi i32 [ %.pre16, %306 ], [ %275, %274 ]
-  %312 = phi ptr [ %309, %306 ], [ %276, %274 ]
+310:                                              ; preds = %307, %274
+  %311 = phi i32 [ %.pre16, %307 ], [ %275, %274 ]
+  %312 = phi ptr [ %309, %307 ], [ %276, %274 ]
   %313 = and i32 %311, 8192
   %314 = icmp eq i32 %313, 0
   br i1 %314, label %319, label %315
@@ -1166,46 +1166,46 @@ define internal i32 @ioam6_genl_addns(ptr readnone captures(none) %0, ptr nounde
   %29 = getelementptr i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %35, label %32
+  br i1 %31, label %36, label %32
 
 32:                                               ; preds = %25
   %33 = getelementptr i8, ptr %30, i64 4
   %34 = load i32, ptr %33, align 4
-  br label %35
+  %35 = call i32 @llvm.bswap.i32(i32 %34)
+  br label %36
 
-35:                                               ; preds = %32, %25
-  %36 = phi i32 [ %34, %32 ], [ -1, %25 ]
-  %37 = getelementptr i8, ptr %28, i64 24
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %43, label %40
+36:                                               ; preds = %32, %25
+  %37 = phi i32 [ %35, %32 ], [ -1, %25 ]
+  %38 = getelementptr i8, ptr %28, i64 24
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %45, label %41
 
-40:                                               ; preds = %35
+41:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   store i64 0, ptr %3, align 8, !annotation !18
-  %41 = call i32 @nla_memcpy(ptr noundef nonnull %3, ptr noundef nonnull %38, i32 noundef 8) #16
-  %42 = load i64, ptr %3, align 8
+  %42 = call i32 @nla_memcpy(ptr noundef nonnull %3, ptr noundef nonnull %39, i32 noundef 8) #16
+  %43 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  br label %43
+  %44 = call i64 @llvm.bswap.i64(i64 %43)
+  br label %45
 
-43:                                               ; preds = %40, %35
-  %44 = phi i64 [ %42, %40 ], [ -1, %35 ]
-  %45 = call i32 @llvm.bswap.i32(i32 %36)
-  %46 = getelementptr inbounds nuw i8, ptr %23, i64 36
-  store i32 %45, ptr %46, align 4
-  %47 = call i64 @llvm.bswap.i64(i64 %44)
+45:                                               ; preds = %41, %36
+  %46 = phi i64 [ %44, %41 ], [ -1, %36 ]
+  %47 = getelementptr inbounds nuw i8, ptr %23, i64 36
+  store i32 %37, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store i64 %47, ptr %48, align 8
+  store i64 %46, ptr %48, align 8
   %49 = call fastcc i32 @rhashtable_lookup_insert_fast(ptr noundef nonnull %18, ptr noundef nonnull %23, ptr noundef nonnull byval(%struct.rhashtable_params) align 8 @rht_ns_params)
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %52, label %51
 
-51:                                               ; preds = %43
+51:                                               ; preds = %45
   call void @kfree(ptr noundef nonnull %23) #16
   br label %52
 
-52:                                               ; preds = %51, %43, %21, %10
-  %53 = phi i32 [ %49, %51 ], [ 0, %43 ], [ -17, %10 ], [ -12, %21 ]
+52:                                               ; preds = %51, %45, %21, %10
+  %53 = phi i32 [ %49, %51 ], [ 0, %45 ], [ -17, %10 ], [ -12, %21 ]
   call void @mutex_unlock(ptr noundef %17) #16
   br label %54
 

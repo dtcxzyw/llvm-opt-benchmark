@@ -4437,15 +4437,15 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit42:        ; preds = %_ZNK4pbrt6Tuple3INS
   %114 = fcmp ogt float %112, 1.000000e+00
   %..i.i = select i1 %114, float 1.000000e+00, float %112
   %115 = fmul float %..i.i, 6.553500e+04
-  %116 = select i1 %113, float 0.000000e+00, float %115
+  %116 = tail call float @llvm.floor.f32(float %115)
+  %117 = select i1 %113, float 0.000000e+00, float %116
+  %118 = fptoui float %117 to i16
   br label %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit
 
 _ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit: ; preds = %107, %109
-  %.0.i44 = phi float [ %116, %109 ], [ 0.000000e+00, %107 ]
-  %117 = tail call noundef float @llvm.floor.f32(float %.0.i44)
-  %118 = fptoui float %117 to i16
+  %.0.i44 = phi i16 [ %118, %109 ], [ 0, %107 ]
   %119 = getelementptr inbounds nuw [3 x i16], ptr %96, i64 0, i64 %indvars.iv
-  store i16 %118, ptr %119, align 2, !tbaa !35
+  store i16 %.0.i44, ptr %119, align 2, !tbaa !35
   %.sroa.01.0.copyload.i45 = load <2 x float>, ptr %97, align 4
   switch i32 %101, label %121 [
     i32 0, label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit54.thread95
@@ -4491,15 +4491,15 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit57:        ; preds = %_ZNK4pbrt6Tuple3INS
   %132 = fcmp ogt float %130, 1.000000e+00
   %..i.i59 = select i1 %132, float 1.000000e+00, float %130
   %133 = fmul float %..i.i59, 6.553500e+04
-  %134 = select i1 %131, float 0.000000e+00, float %133
+  %134 = tail call float @llvm.ceil.f32(float %133)
+  %135 = select i1 %131, float 0.000000e+00, float %134
+  %136 = fptoui float %135 to i16
   br label %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit61
 
 _ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit61: ; preds = %125, %127
-  %.0.i60 = phi float [ %134, %127 ], [ 0.000000e+00, %125 ]
-  %135 = tail call noundef float @llvm.ceil.f32(float %.0.i60)
-  %136 = fptoui float %135 to i16
+  %.0.i60 = phi i16 [ %136, %127 ], [ 0, %125 ]
   %137 = getelementptr inbounds nuw [3 x i16], ptr %98, i64 0, i64 %indvars.iv
-  store i16 %136, ptr %137, align 2, !tbaa !35
+  store i16 %.0.i60, ptr %137, align 2, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %99, label %100, !llvm.loop !245

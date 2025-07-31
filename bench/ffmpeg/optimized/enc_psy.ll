@@ -282,14 +282,17 @@ ff_bufqueue_peek.exit189.i:                       ; preds = %ff_bufqueue_peek.ex
   %155 = tail call nsz float @llvm.fmuladd.f32(float %154, float %154, float %.0181206.i)
   %indvars.iv.next253.i = add nuw nsw i64 %indvars.iv252.i, 1
   %exitcond256.not.i = icmp eq i64 %indvars.iv.next253.i, %wide.trip.count255.i
-  br i1 %exitcond256.not.i, label %._crit_edge210.i, label %.lr.ph209.i, !llvm.loop !73
+  br i1 %exitcond256.not.i, label %._crit_edge210.loopexit.i, label %.lr.ph209.i, !llvm.loop !73
 
-._crit_edge210.i:                                 ; preds = %.lr.ph209.i, %._crit_edge204.i
-  %.0181.lcssa.i = phi float [ 0.000000e+00, %._crit_edge204.i ], [ %155, %.lr.ph209.i ]
-  %156 = tail call nsz float @llvm.sqrt.f32(float %.0181.lcssa.i)
+._crit_edge210.loopexit.i:                        ; preds = %.lr.ph209.i
+  %156 = tail call nsz float @llvm.sqrt.f32(float %155)
+  br label %._crit_edge210.i
+
+._crit_edge210.i:                                 ; preds = %._crit_edge210.loopexit.i, %._crit_edge204.i
+  %.0181.lcssa.i = phi float [ 0.000000e+00, %._crit_edge204.i ], [ %156, %._crit_edge210.loopexit.i ]
   %157 = getelementptr inbounds nuw [21 x float], ptr %130, i64 0, i64 %indvars.iv257.i
   %158 = load float, ptr %157, align 4, !tbaa !71
-  %159 = fadd nsz float %156, %158
+  %159 = fadd nsz float %.0181.lcssa.i, %158
   store float %159, ptr %157, align 4, !tbaa !71
   %indvars.iv.next258.i = add nuw nsw i64 %indvars.iv257.i, 1
   %exitcond260.not.i = icmp eq i64 %indvars.iv.next258.i, 21
@@ -346,13 +349,16 @@ ff_bufqueue_peek.exit189.i:                       ; preds = %ff_bufqueue_peek.ex
   %182 = tail call nsz float @llvm.fmuladd.f32(float %181, float %181, float %.0179218.i)
   %indvars.iv.next267.i = add nuw nsw i64 %indvars.iv266.i, 1
   %exitcond270.not.i = icmp eq i64 %indvars.iv.next267.i, %wide.trip.count269.i
-  br i1 %exitcond270.not.i, label %._crit_edge222.i, label %.lr.ph221.i, !llvm.loop !77
+  br i1 %exitcond270.not.i, label %._crit_edge222.loopexit.i, label %.lr.ph221.i, !llvm.loop !77
 
-._crit_edge222.i:                                 ; preds = %.lr.ph221.i, %167
-  %.0179.lcssa.i = phi float [ 0.000000e+00, %167 ], [ %182, %.lr.ph221.i ]
-  %183 = tail call nsz float @llvm.sqrt.f32(float %.0179.lcssa.i)
+._crit_edge222.loopexit.i:                        ; preds = %.lr.ph221.i
+  %183 = tail call nsz float @llvm.sqrt.f32(float %182)
+  br label %._crit_edge222.i
+
+._crit_edge222.i:                                 ; preds = %._crit_edge222.loopexit.i, %167
+  %.0179.lcssa.i = phi float [ 0.000000e+00, %167 ], [ %183, %._crit_edge222.loopexit.i ]
   %184 = getelementptr inbounds nuw [21 x float], ptr %166, i64 0, i64 %indvars.iv271.i
-  store float %183, ptr %184, align 4, !tbaa !71
+  store float %.0179.lcssa.i, ptr %184, align 4, !tbaa !71
   %indvars.iv.next272.i = add nuw nsw i64 %indvars.iv271.i, 1
   %exitcond274.not.i = icmp eq i64 %indvars.iv.next272.i, 21
   br i1 %exitcond274.not.i, label %.loopexit.i, label %167, !llvm.loop !78
@@ -1862,7 +1868,7 @@ define internal fastcc void @bands_dist(ptr noundef readonly captures(none) %0, 
 
 27:                                               ; preds = %3, %pvq_band_cost.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %pvq_band_cost.exit ]
-  %.01019 = phi i32 [ 0, %3 ], [ %171, %pvq_band_cost.exit ]
+  %.01018 = phi i32 [ 0, %3 ], [ %171, %pvq_band_cost.exit ]
   %28 = load ptr, ptr %10, align 16, !tbaa !161
   %29 = load float, ptr %11, align 4, !tbaa !138
   %30 = load i32, ptr %12, align 4, !tbaa !118
@@ -2031,7 +2037,7 @@ opus_rc_tell_frac.exit122.i:                      ; preds = %75
   %130 = call nsz float @llvm.fmuladd.f32(float %129, float %129, float %.0106140.us.i)
   %indvars.iv.next158.i = add nuw nsw i64 %indvars.iv157.i, 1
   %exitcond161.not.i = icmp eq i64 %indvars.iv.next158.i, %wide.trip.count160.i
-  br i1 %exitcond161.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !175
+  br i1 %exitcond161.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !175
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -2046,51 +2052,54 @@ opus_rc_tell_frac.exit122.i:                      ; preds = %75
   %exitcond156.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count160.i
   br i1 %exitcond156.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !176
 
-._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %117
-  %.0106.lcssa.i = phi float [ 0.000000e+00, %117 ], [ %130, %.lr.ph.split.us.i ], [ 0.000000e+00, %.lr.ph.split.i ]
-  %.0105.lcssa.i = phi float [ 0.000000e+00, %117 ], [ %124, %.lr.ph.split.us.i ], [ %136, %.lr.ph.split.i ]
-  %137 = load i32, ptr %15, align 8, !tbaa !162
-  %138 = load i32, ptr %16, align 8, !tbaa !166
-  %.not.i.i123.i = icmp ult i32 %138, 65536
-  %139 = lshr i32 %138, 16
-  %spec.select.i.i124.i = select i1 %.not.i.i123.i, i32 %138, i32 %139
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.split.us.i
+  %137 = call nsz float @llvm.sqrt.f32(float %130)
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %._crit_edge.loopexit.i, %117
+  %.0106.lcssa.i = phi float [ 0.000000e+00, %117 ], [ %137, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.lr.ph.split.i ]
+  %.0105.lcssa.i = phi float [ 0.000000e+00, %117 ], [ %124, %._crit_edge.loopexit.i ], [ %136, %.lr.ph.split.i ]
+  %138 = load i32, ptr %15, align 8, !tbaa !162
+  %139 = load i32, ptr %16, align 8, !tbaa !166
+  %.not.i.i123.i = icmp ult i32 %139, 65536
+  %140 = lshr i32 %139, 16
+  %spec.select.i.i124.i = select i1 %.not.i.i123.i, i32 %139, i32 %140
   %spec.select12.i.i125.i = select i1 %.not.i.i123.i, i32 0, i32 16
   %.not11.i.i126.i = icmp samesign ult i32 %spec.select.i.i124.i, 256
-  %140 = lshr i32 %spec.select.i.i124.i, 8
-  %141 = or disjoint i32 %spec.select12.i.i125.i, 8
-  %.110.i.i127.i = select i1 %.not11.i.i126.i, i32 %spec.select.i.i124.i, i32 %140
-  %.1.i.i128.i = select i1 %.not11.i.i126.i, i32 %spec.select12.i.i125.i, i32 %141
-  %142 = zext nneg i32 %.110.i.i127.i to i64
-  %143 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %142
-  %144 = load i8, ptr %143, align 1, !tbaa !68
-  %145 = zext i8 %144 to i32
-  %146 = add nuw nsw i32 %.1.i.i128.i, %145
-  %147 = add nuw nsw i32 %146, 1
-  %148 = add nsw i32 %146, -15
-  %149 = lshr i32 %138, %148
-  br label %150
+  %141 = lshr i32 %spec.select.i.i124.i, 8
+  %142 = or disjoint i32 %spec.select12.i.i125.i, 8
+  %.110.i.i127.i = select i1 %.not11.i.i126.i, i32 %spec.select.i.i124.i, i32 %141
+  %.1.i.i128.i = select i1 %.not11.i.i126.i, i32 %spec.select12.i.i125.i, i32 %142
+  %143 = zext nneg i32 %.110.i.i127.i to i64
+  %144 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %143
+  %145 = load i8, ptr %144, align 1, !tbaa !68
+  %146 = zext i8 %145 to i32
+  %147 = add nuw nsw i32 %.1.i.i128.i, %146
+  %148 = add nuw nsw i32 %147, 1
+  %149 = add nsw i32 %147, -15
+  %150 = lshr i32 %139, %149
+  br label %151
 
-150:                                              ; preds = %150, %._crit_edge.i
-  %.0.i131147.i = phi i32 [ 0, %._crit_edge.i ], [ %157, %150 ]
-  %.014.i130146.i = phi i32 [ %149, %._crit_edge.i ], [ %156, %150 ]
-  %.015.i129145.i = phi i32 [ %147, %._crit_edge.i ], [ %155, %150 ]
-  %151 = mul i32 %.014.i130146.i, %.014.i130146.i
-  %152 = lshr i32 %151, 15
-  %153 = lshr i32 %151, 31
-  %154 = shl i32 %.015.i129145.i, 1
-  %155 = or disjoint i32 %153, %154
-  %156 = lshr i32 %152, %153
-  %157 = add nuw nsw i32 %.0.i131147.i, 1
-  %exitcond162.not.i = icmp eq i32 %157, 3
-  br i1 %exitcond162.not.i, label %pvq_band_cost.exit, label %150, !llvm.loop !167
+151:                                              ; preds = %151, %._crit_edge.i
+  %.0.i131147.i = phi i32 [ 0, %._crit_edge.i ], [ %158, %151 ]
+  %.014.i130146.i = phi i32 [ %150, %._crit_edge.i ], [ %157, %151 ]
+  %.015.i129145.i = phi i32 [ %148, %._crit_edge.i ], [ %156, %151 ]
+  %152 = mul i32 %.014.i130146.i, %.014.i130146.i
+  %153 = lshr i32 %152, 15
+  %154 = lshr i32 %152, 31
+  %155 = shl i32 %.015.i129145.i, 1
+  %156 = or disjoint i32 %154, %155
+  %157 = lshr i32 %153, %154
+  %158 = add nuw nsw i32 %.0.i131147.i, 1
+  %exitcond162.not.i = icmp eq i32 %158, 3
+  br i1 %exitcond162.not.i, label %pvq_band_cost.exit, label %151, !llvm.loop !167
 
-pvq_band_cost.exit:                               ; preds = %150
-  %158 = call nsz float @llvm.sqrt.f32(float %.0105.lcssa.i)
-  %159 = call nsz float @llvm.sqrt.f32(float %.0106.lcssa.i)
-  %160 = fadd nsz float %159, %158
-  %161 = shl i32 %137, 3
+pvq_band_cost.exit:                               ; preds = %151
+  %159 = call nsz float @llvm.sqrt.f32(float %.0105.lcssa.i)
+  %160 = fadd nsz float %.0106.lcssa.i, %159
+  %161 = shl i32 %138, 3
   %162 = add i32 %55, %161
-  %163 = add i32 %68, %155
+  %163 = add i32 %68, %156
   %164 = sub i32 %162, %163
   %165 = uitofp i32 %164 to float
   %166 = fmul nsz float %165, 1.250000e-01
@@ -2102,7 +2111,7 @@ pvq_band_cost.exit:                               ; preds = %150
   call void @llvm.lifetime.end.p0(i64 704, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 704, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 1408, ptr nonnull %4) #13
-  %169 = sitofp i32 %.01019 to float
+  %169 = sitofp i32 %.01018 to float
   %170 = fadd nsz float %168, %169
   %171 = fptosi float %170 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

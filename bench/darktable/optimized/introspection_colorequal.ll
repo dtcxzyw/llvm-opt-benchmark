@@ -6711,30 +6711,30 @@ define internal noundef i32 @_iop_colorequalizer_draw(ptr noundef %0, ptr nounde
   %157 = getelementptr inbounds nuw [3 x ptr], ptr %109, i64 0, i64 %indvars.iv90.i
   br label %159
 
-158:                                              ; preds = %167
+158:                                              ; preds = %169
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %exitcond93.not.i = icmp eq i64 %indvars.iv.next91.i, 3
   br i1 %exitcond93.not.i, label %153, label %154
 
-159:                                              ; preds = %167, %154
-  %.078.us.i = phi i64 [ 0, %154 ], [ %175, %167 ]
+159:                                              ; preds = %169, %154
+  %.078.us.i = phi i64 [ 0, %154 ], [ %175, %169 ]
   %160 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %.078.us.i
   %161 = load float, ptr %160, align 4, !tbaa !6, !noalias !490
   %162 = fcmp reassoc nsz arcp contract afn ult float %161, 0.000000e+00
-  br i1 %162, label %167, label %163
+  br i1 %162, label %169, label %163
 
 163:                                              ; preds = %159
   %164 = fcmp reassoc nsz arcp contract afn ugt float %161, 1.000000e+00
-  br i1 %164, label %167, label %165
+  br i1 %164, label %169, label %165
 
 165:                                              ; preds = %163
   %166 = fmul reassoc nsz arcp contract afn float %161, 2.550000e+02
-  br label %167
+  %167 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %166)
+  %168 = fptoui float %167 to i8
+  br label %169
 
-167:                                              ; preds = %165, %163, %159
-  %168 = phi float [ %166, %165 ], [ 2.550000e+02, %163 ], [ 0.000000e+00, %159 ]
-  %169 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %168)
-  %170 = fptoui float %169 to i8
+169:                                              ; preds = %165, %163, %159
+  %170 = phi i8 [ %168, %165 ], [ -1, %163 ], [ 0, %159 ]
   %171 = load ptr, ptr %157, align 8, !tbaa !423, !noalias !490
   %172 = getelementptr i8, ptr %171, i64 %.078.us.i
   %173 = getelementptr i8, ptr %172, i64 %141

@@ -2427,131 +2427,131 @@ define void @opt_help(ptr noundef readonly captures(none) %0) local_unnamed_addr
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %18
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %.122, i32 30)
+  %20 = tail call i32 @llvm.smin.i32(i32 %.122, i32 30)
   br i1 %.not, label %.lr.ph40, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
-  %spec.store.select44 = phi i32 [ %spec.store.select, %._crit_edge ], [ 5, %1 ]
-  %20 = tail call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.51, ptr noundef nonnull @prog) #20
-  %21 = load ptr, ptr %0, align 8, !tbaa !17
-  %.not29 = icmp eq ptr %21, @OPT_SECTION_STR
-  br i1 %.not29, label %.lr.ph40, label %22
+  %.021.lcssa43 = phi i32 [ %20, %._crit_edge ], [ 5, %1 ]
+  %21 = tail call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.51, ptr noundef nonnull @prog) #20
+  %22 = load ptr, ptr %0, align 8, !tbaa !17
+  %.not29 = icmp eq ptr %22, @OPT_SECTION_STR
+  br i1 %.not29, label %.lr.ph40, label %23
 
-22:                                               ; preds = %._crit_edge.thread
-  %23 = tail call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.52, ptr noundef nonnull @prog) #20
+23:                                               ; preds = %._crit_edge.thread
+  %24 = tail call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.52, ptr noundef nonnull @prog) #20
   %.pre = load ptr, ptr %0, align 8, !tbaa !17
   %.not3036 = icmp eq ptr %.pre, null
   br i1 %.not3036, label %._crit_edge41, label %.lr.ph40
 
-.lr.ph40:                                         ; preds = %._crit_edge, %._crit_edge.thread, %22
-  %24 = phi ptr [ %.pre, %22 ], [ @OPT_HELP_STR, %._crit_edge ], [ @OPT_SECTION_STR, %._crit_edge.thread ]
-  %spec.store.select4548 = phi i32 [ %spec.store.select44, %22 ], [ %spec.store.select, %._crit_edge ], [ %spec.store.select44, %._crit_edge.thread ]
-  %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 range(i32 5, -2147483648) %spec.store.select4548, i32 80)
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %invariant.smin = tail call i32 @llvm.umin.i32(i32 %spec.store.select4548, i32 29)
-  %26 = zext nneg i32 %spec.store.select.i to i64
-  %27 = getelementptr inbounds nuw [81 x i8], ptr %2, i64 0, i64 %26
-  br label %28
+.lr.ph40:                                         ; preds = %._crit_edge, %._crit_edge.thread, %23
+  %25 = phi ptr [ %.pre, %23 ], [ @OPT_HELP_STR, %._crit_edge ], [ @OPT_SECTION_STR, %._crit_edge.thread ]
+  %.021.lcssa4447 = phi i32 [ %.021.lcssa43, %23 ], [ %20, %._crit_edge ], [ %.021.lcssa43, %._crit_edge.thread ]
+  %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 range(i32 5, -2147483648) %.021.lcssa4447, i32 80)
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %invariant.smin = tail call i32 @llvm.umin.i32(i32 %.021.lcssa4447, i32 29)
+  %27 = zext nneg i32 %spec.store.select.i to i64
+  %28 = getelementptr inbounds nuw [81 x i8], ptr %2, i64 0, i64 %27
+  br label %29
 
-28:                                               ; preds = %.lr.ph40, %opt_print.exit
-  %29 = phi ptr [ %24, %.lr.ph40 ], [ %76, %opt_print.exit ]
-  %.138 = phi ptr [ %0, %.lr.ph40 ], [ %75, %opt_print.exit ]
+29:                                               ; preds = %.lr.ph40, %opt_print.exit
+  %30 = phi ptr [ %25, %.lr.ph40 ], [ %77, %opt_print.exit ]
+  %.138 = phi ptr [ %0, %.lr.ph40 ], [ %76, %opt_print.exit ]
   %.02337 = phi i32 [ 0, %.lr.ph40 ], [ %spec.select32, %opt_print.exit ]
-  %30 = icmp eq ptr %29, @OPT_PARAM_STR
-  %spec.select32 = select i1 %30, i32 1, i32 %.02337
+  %31 = icmp eq ptr %30, @OPT_PARAM_STR
+  %spec.select32 = select i1 %31, i32 1, i32 %.02337
   call void @llvm.lifetime.start.p0(i64 81, ptr nonnull %2) #20
-  %31 = getelementptr inbounds nuw i8, ptr %.138, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !47
-  %.not.i = icmp eq ptr %32, null
-  %spec.select.i = select i1 %.not.i, ptr @.str.93, ptr %32
-  %33 = icmp eq ptr %29, @OPT_HELP_STR
-  br i1 %33, label %34, label %36
+  %32 = getelementptr inbounds nuw i8, ptr %.138, i64 16
+  %33 = load ptr, ptr %32, align 8, !tbaa !47
+  %.not.i = icmp eq ptr %33, null
+  %spec.select.i = select i1 %.not.i, ptr @.str.93, ptr %33
+  %34 = icmp eq ptr %30, @OPT_HELP_STR
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %28
-  %35 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @prog) #20
+35:                                               ; preds = %29
+  %36 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @prog) #20
   br label %opt_print.exit
 
-36:                                               ; preds = %28
-  %37 = icmp eq ptr %29, @OPT_SECTION_STR
-  br i1 %37, label %38, label %41
+37:                                               ; preds = %29
+  %38 = icmp eq ptr %30, @OPT_SECTION_STR
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %36
-  %39 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.54) #20
-  %40 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @prog) #20
+39:                                               ; preds = %37
+  %40 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.54) #20
+  %41 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @prog) #20
   br label %opt_print.exit
 
-41:                                               ; preds = %36
-  br i1 %30, label %42, label %44
+42:                                               ; preds = %37
+  br i1 %31, label %43, label %45
 
-42:                                               ; preds = %41
-  %43 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.94) #20
+43:                                               ; preds = %42
+  %44 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.94) #20
   br label %opt_print.exit
 
-44:                                               ; preds = %41
+45:                                               ; preds = %42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %2, i8 32, i64 80, i1 false)
-  store i8 0, ptr %25, align 16, !tbaa !3
-  %45 = icmp eq ptr %29, @OPT_MORE_STR
-  br i1 %45, label %46, label %48
+  store i8 0, ptr %26, align 16, !tbaa !3
+  %46 = icmp eq ptr %30, @OPT_MORE_STR
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %44
-  store i8 0, ptr %27, align 1, !tbaa !3
-  %47 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.95, ptr noundef nonnull %2, ptr noundef nonnull %spec.select.i) #20
+47:                                               ; preds = %45
+  store i8 0, ptr %28, align 1, !tbaa !3
+  %48 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.95, ptr noundef nonnull %2, ptr noundef nonnull %spec.select.i) #20
   br label %opt_print.exit
 
-48:                                               ; preds = %44
+49:                                               ; preds = %45
   %.not33.i = icmp eq i32 %.02337, 0
-  %49 = select i1 %.not33.i, ptr @.str.96, ptr @.str.76
-  %50 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull %49) #20
-  %51 = icmp sgt i32 %50, 0
-  %52 = select i1 %51, i32 %50, i32 30
-  %53 = load ptr, ptr %.138, align 8, !tbaa !17
-  %54 = load i8, ptr %53, align 1, !tbaa !3
-  %.not34.i = icmp eq i8 %54, 0
-  %spec.select36.i = select i1 %.not34.i, ptr @.str.98, ptr %53
-  %55 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.97, ptr noundef nonnull %spec.select36.i) #20
-  %56 = icmp sgt i32 %55, 0
-  %57 = select i1 %56, i32 %55, i32 30
-  %58 = add nsw i32 %57, %52
-  %59 = getelementptr inbounds nuw i8, ptr %.138, i64 12
-  %60 = load i32, ptr %59, align 4, !tbaa !21
-  %.not35.i = icmp eq i32 %60, 45
-  br i1 %.not35.i, label %67, label %61
+  %50 = select i1 %.not33.i, ptr @.str.96, ptr @.str.76
+  %51 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull %50) #20
+  %52 = icmp sgt i32 %51, 0
+  %53 = select i1 %52, i32 %51, i32 30
+  %54 = load ptr, ptr %.138, align 8, !tbaa !17
+  %55 = load i8, ptr %54, align 1, !tbaa !3
+  %.not34.i = icmp eq i8 %55, 0
+  %spec.select36.i = select i1 %.not34.i, ptr @.str.98, ptr %54
+  %56 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.97, ptr noundef nonnull %spec.select36.i) #20
+  %57 = icmp sgt i32 %56, 0
+  %58 = select i1 %57, i32 %56, i32 30
+  %59 = add nsw i32 %58, %53
+  %60 = getelementptr inbounds nuw i8, ptr %.138, i64 12
+  %61 = load i32, ptr %60, align 4, !tbaa !21
+  %.not35.i = icmp eq i32 %61, 45
+  br i1 %.not35.i, label %68, label %62
 
-61:                                               ; preds = %48
-  %62 = call fastcc ptr @valtype2param(i32 %60)
-  %63 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull %62) #20
-  %64 = icmp sgt i32 %63, 0
-  %65 = select i1 %64, i32 %63, i32 30
-  %66 = add nsw i32 %65, %58
-  br label %67
+62:                                               ; preds = %49
+  %63 = call fastcc ptr @valtype2param(i32 %61)
+  %64 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull %63) #20
+  %65 = icmp sgt i32 %64, 0
+  %66 = select i1 %65, i32 %64, i32 30
+  %67 = add nsw i32 %66, %59
+  br label %68
 
-67:                                               ; preds = %61, %48
-  %.0.i = phi i32 [ %66, %61 ], [ %58, %48 ]
+68:                                               ; preds = %62, %49
+  %.0.i = phi i32 [ %67, %62 ], [ %59, %49 ]
   %or.cond.i = icmp sgt i32 %.0.i, %invariant.smin
-  br i1 %or.cond.i, label %68, label %70
+  br i1 %or.cond.i, label %69, label %71
 
-68:                                               ; preds = %67
-  %69 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.54) #20
+69:                                               ; preds = %68
+  %70 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.54) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(81) %2, i8 32, i64 81, i1 false)
-  br label %70
+  br label %71
 
-70:                                               ; preds = %68, %67
-  %.1.i = phi i32 [ 0, %68 ], [ %.0.i, %67 ]
-  %71 = sub nsw i32 %spec.store.select.i, %.1.i
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds [81 x i8], ptr %2, i64 0, i64 %72
-  store i8 0, ptr %73, align 1, !tbaa !3
-  %74 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.95, ptr noundef nonnull %2, ptr noundef nonnull %spec.select.i) #20
+71:                                               ; preds = %69, %68
+  %.1.i = phi i32 [ 0, %69 ], [ %.0.i, %68 ]
+  %72 = sub nsw i32 %spec.store.select.i, %.1.i
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds [81 x i8], ptr %2, i64 0, i64 %73
+  store i8 0, ptr %74, align 1, !tbaa !3
+  %75 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.95, ptr noundef nonnull %2, ptr noundef nonnull %spec.select.i) #20
   br label %opt_print.exit
 
-opt_print.exit:                                   ; preds = %34, %38, %42, %46, %70
+opt_print.exit:                                   ; preds = %35, %39, %43, %47, %71
   call void @llvm.lifetime.end.p0(i64 81, ptr nonnull %2) #20
-  %75 = getelementptr inbounds nuw i8, ptr %.138, i64 24
-  %76 = load ptr, ptr %75, align 8, !tbaa !17
-  %.not30 = icmp eq ptr %76, null
-  br i1 %.not30, label %._crit_edge41, label %28, !llvm.loop !48
+  %76 = getelementptr inbounds nuw i8, ptr %.138, i64 24
+  %77 = load ptr, ptr %76, align 8, !tbaa !17
+  %.not30 = icmp eq ptr %77, null
+  br i1 %.not30, label %._crit_edge41, label %29, !llvm.loop !48
 
-._crit_edge41:                                    ; preds = %opt_print.exit, %22
+._crit_edge41:                                    ; preds = %opt_print.exit, %23
   ret void
 }
 

@@ -5570,7 +5570,7 @@ define noundef i32 @_ZN14ruff_formatter14format_element9TextWidth9from_text17h21
   store i8 %2, ptr %4, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %6 = icmp samesign eq i64 %1, 0
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  br i1 %6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %49
   %.sroa.04.025 = phi i32 [ %50, %49 ], [ 0, %3 ]
@@ -5636,13 +5636,12 @@ define noundef i32 @_ZN14ruff_formatter14format_element9TextWidth9from_text17h21
     i32 10, label %.loopexit
   ]
 
-._crit_edge:                                      ; preds = %49, %3
-  %.sroa.04.0.lcssa = phi i32 [ 0, %3 ], [ %50, %49 ]
-  %44 = call noundef range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %.sroa.04.0.lcssa, i32 1)
+._crit_edge.loopexit:                             ; preds = %49
+  %44 = call range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %50, i32 1)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %42, %._crit_edge
-  %.sroa.0.0 = phi i32 [ %44, %._crit_edge ], [ 0, %42 ]
+.loopexit:                                        ; preds = %42, %3, %._crit_edge.loopexit
+  %.sroa.0.0 = phi i32 [ 1, %3 ], [ %44, %._crit_edge.loopexit ], [ 0, %42 ]
   ret i32 %.sroa.0.0
 
 45:                                               ; preds = %42
@@ -5657,7 +5656,7 @@ define noundef i32 @_ZN14ruff_formatter14format_element9TextWidth9from_text17h21
   %.sroa.03.0 = phi i32 [ %48, %47 ], [ 0, %52 ], [ %92, %_ZN13unicode_width6tables12lookup_width17h4e08546b925643e3E.exit ], [ %spec.select, %54 ]
   %50 = add i32 %.sroa.03.0, %.sroa.04.025
   %51 = icmp eq ptr %.sroa.0.1.ph, %5
-  br i1 %51, label %._crit_edge, label %.lr.ph
+  br i1 %51, label %._crit_edge.loopexit, label %.lr.ph
 
 52:                                               ; preds = %45
   %53 = icmp samesign ugt i32 %.sroa.4.0.i.ph, 159

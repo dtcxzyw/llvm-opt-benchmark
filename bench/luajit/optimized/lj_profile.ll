@@ -67,15 +67,15 @@ define dso_local void @luaJIT_profile_start(ptr noundef %0, ptr noundef readonly
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %9
 
-9:                                                ; preds = %.lr.ph39, %27
-  %10 = phi i8 [ %7, %.lr.ph39 ], [ %28, %27 ]
-  %.038 = phi ptr [ %1, %.lr.ph39 ], [ %.2, %27 ]
-  %.02537 = phi i32 [ 10, %.lr.ph39 ], [ %.227, %27 ]
+9:                                                ; preds = %.lr.ph39, %.critedge
+  %10 = phi i8 [ %7, %.lr.ph39 ], [ %28, %.critedge ]
+  %.038 = phi ptr [ %1, %.lr.ph39 ], [ %.2, %.critedge ]
+  %.02537 = phi i32 [ 10, %.lr.ph39 ], [ %.227, %.critedge ]
   %11 = getelementptr inbounds nuw i8, ptr %.038, i64 1
-  switch i8 %10, label %27 [
+  switch i8 %10, label %.critedgethread-pre-split [
     i8 105, label %.preheader
-    i8 108, label %21
-    i8 102, label %21
+    i8 108, label %22
+    i8 102, label %22
   ]
 
 .preheader:                                       ; preds = %9
@@ -96,32 +96,34 @@ define dso_local void @luaJIT_profile_start(ptr noundef %0, ptr noundef readonly
   %19 = load i8, ptr %16, align 1, !tbaa !33
   %20 = add i8 %19, -48
   %or.cond = icmp ult i8 %20, 10
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !34
+  br i1 %or.cond, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !34
 
-.critedge:                                        ; preds = %.lr.ph, %.preheader
-  %.126.lcssa = phi i32 [ 0, %.preheader ], [ %18, %.lr.ph ]
-  %.1.lcssa = phi ptr [ %11, %.preheader ], [ %16, %.lr.ph ]
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %.126.lcssa, i32 1)
-  br label %27
+.critedge.loopexit:                               ; preds = %.lr.ph
+  %21 = tail call i32 @llvm.smax.i32(i32 %18, i32 1)
+  br label %.critedge
 
-21:                                               ; preds = %9, %9
-  %22 = zext nneg i8 %10 to i32
-  %23 = load i64, ptr %8, align 8, !tbaa !4
-  %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 3844
-  store i32 %22, ptr %25, align 4, !tbaa !36
-  %26 = tail call i32 @lj_trace_flushall(ptr noundef %0) #7
-  br label %27
+22:                                               ; preds = %9, %9
+  %23 = zext nneg i8 %10 to i32
+  %24 = load i64, ptr %8, align 8, !tbaa !4
+  %25 = inttoptr i64 %24 to ptr
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 3844
+  store i32 %23, ptr %26, align 4, !tbaa !36
+  %27 = tail call i32 @lj_trace_flushall(ptr noundef %0) #7
+  br label %.critedgethread-pre-split
 
-27:                                               ; preds = %9, %21, %.critedge
-  %.227 = phi i32 [ %.02537, %9 ], [ %spec.store.select, %.critedge ], [ %.02537, %21 ]
-  %.2 = phi ptr [ %11, %9 ], [ %.1.lcssa, %.critedge ], [ %11, %21 ]
-  %28 = load i8, ptr %.2, align 1, !tbaa !33
+.critedgethread-pre-split:                        ; preds = %22, %9
+  %.pr = load i8, ptr %11, align 1, !tbaa !33
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedgethread-pre-split, %.preheader, %.critedge.loopexit
+  %28 = phi i8 [ %.pr, %.critedgethread-pre-split ], [ %12, %.preheader ], [ %19, %.critedge.loopexit ]
+  %.227 = phi i32 [ %.02537, %.critedgethread-pre-split ], [ 1, %.preheader ], [ %21, %.critedge.loopexit ]
+  %.2 = phi ptr [ %11, %.critedgethread-pre-split ], [ %11, %.preheader ], [ %16, %.critedge.loopexit ]
   %.not = icmp eq i8 %28, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !51
 
-._crit_edge:                                      ; preds = %27, %4
-  %.025.lcssa = phi i32 [ 10, %4 ], [ %.227, %27 ]
+._crit_edge:                                      ; preds = %.critedge, %4
+  %.025.lcssa = phi i32 [ 10, %4 ], [ %.227, %.critedge ]
   %29 = load ptr, ptr @profile_state, align 8, !tbaa !52
   %.not30 = icmp eq ptr %29, null
   br i1 %.not30, label %32, label %30

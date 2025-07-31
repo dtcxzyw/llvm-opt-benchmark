@@ -532,134 +532,130 @@ define hidden void @av1_filter_block_plane_vert(ptr noundef %0, ptr noundef read
   %34 = add i32 %21, %33
   br label %35
 
-35:                                               ; preds = %.lr.ph.us, %96
-  %.05865.us = phi ptr [ %32, %.lr.ph.us ], [ %102, %96 ]
-  %.06064.us = phi i32 [ 0, %.lr.ph.us ], [ %99, %96 ]
+35:                                               ; preds = %.lr.ph.us, %93
+  %.05865.us = phi ptr [ %32, %.lr.ph.us ], [ %99, %93 ]
+  %.06064.us = phi i32 [ 0, %.lr.ph.us ], [ %96, %93 ]
   %36 = shl nsw i32 %.06064.us, 2
   %37 = add i32 %36, %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %38 = call fastcc zeroext i8 @set_lpf_parameters(ptr noundef %7, i64 noundef %23, ptr noundef %0, ptr noundef %1, i8 noundef zeroext 0, i32 noundef %37, i32 noundef %34, i32 noundef %2, ptr noundef %3)
   %39 = icmp eq i8 %38, -1
-  br i1 %39, label %42, label %._crit_edge
+  br i1 %39, label %.thread, label %40
 
-._crit_edge:                                      ; preds = %35
-  %.pre = load i32, ptr %7, align 8
-  %40 = add i32 %.pre, -4
-  %41 = zext i8 %38 to i64
-  br label %43
-
-42:                                               ; preds = %35
+.thread:                                          ; preds = %35
   store i32 0, ptr %7, align 8
-  br label %43
+  br label %93
 
-43:                                               ; preds = %._crit_edge, %42
-  %44 = phi i32 [ -4, %42 ], [ %40, %._crit_edge ]
-  %.059.us = phi i64 [ 0, %42 ], [ %41, %._crit_edge ]
-  %45 = load i8, ptr %24, align 4
-  %46 = load i32, ptr %25, align 8
-  %47 = tail call i32 @llvm.fshl.i32(i32 %44, i32 %44, i32 31)
-  switch i32 %47, label %96 [
-    i32 0, label %84
-    i32 1, label %72
-    i32 2, label %60
-    i32 5, label %48
+40:                                               ; preds = %35
+  %.pre = load i32, ptr %7, align 8
+  %41 = add i32 %.pre, -4
+  %42 = tail call i32 @llvm.fshl.i32(i32 %41, i32 %41, i32 31)
+  %43 = load i8, ptr %24, align 4
+  %44 = load i32, ptr %25, align 8
+  switch i32 %42, label %93 [
+    i32 0, label %81
+    i32 1, label %69
+    i32 2, label %57
+    i32 5, label %45
   ]
 
-48:                                               ; preds = %43
-  %.not.us = icmp eq i8 %45, 0
-  br i1 %.not.us, label %56, label %49
+45:                                               ; preds = %40
+  %.not.us = icmp eq i8 %43, 0
+  br i1 %.not.us, label %53, label %46
 
-49:                                               ; preds = %48
-  %50 = ptrtoint ptr %.05865.us to i64
-  %51 = shl i64 %50, 1
-  %52 = inttoptr i64 %51 to ptr
-  %53 = load ptr, ptr %26, align 8
-  %54 = load ptr, ptr %27, align 8
-  %55 = load ptr, ptr %28, align 8
-  tail call void @aom_highbd_lpf_vertical_14_c(ptr noundef %52, i32 noundef %15, ptr noundef %53, ptr noundef %54, ptr noundef %55, i32 noundef %46) #8
-  br label %96
+46:                                               ; preds = %45
+  %47 = ptrtoint ptr %.05865.us to i64
+  %48 = shl i64 %47, 1
+  %49 = inttoptr i64 %48 to ptr
+  %50 = load ptr, ptr %26, align 8
+  %51 = load ptr, ptr %27, align 8
+  %52 = load ptr, ptr %28, align 8
+  tail call void @aom_highbd_lpf_vertical_14_c(ptr noundef %49, i32 noundef %15, ptr noundef %50, ptr noundef %51, ptr noundef %52, i32 noundef %44) #8
+  br label %93
 
-56:                                               ; preds = %48
-  %57 = load ptr, ptr %26, align 8
-  %58 = load ptr, ptr %27, align 8
-  %59 = load ptr, ptr %28, align 8
-  tail call void @aom_lpf_vertical_14_c(ptr noundef %.05865.us, i32 noundef %15, ptr noundef %57, ptr noundef %58, ptr noundef %59) #8
-  br label %96
+53:                                               ; preds = %45
+  %54 = load ptr, ptr %26, align 8
+  %55 = load ptr, ptr %27, align 8
+  %56 = load ptr, ptr %28, align 8
+  tail call void @aom_lpf_vertical_14_c(ptr noundef %.05865.us, i32 noundef %15, ptr noundef %54, ptr noundef %55, ptr noundef %56) #8
+  br label %93
 
-60:                                               ; preds = %43
-  %.not61.us = icmp eq i8 %45, 0
-  br i1 %.not61.us, label %68, label %61
+57:                                               ; preds = %40
+  %.not61.us = icmp eq i8 %43, 0
+  br i1 %.not61.us, label %65, label %58
 
-61:                                               ; preds = %60
-  %62 = ptrtoint ptr %.05865.us to i64
-  %63 = shl i64 %62, 1
-  %64 = inttoptr i64 %63 to ptr
-  %65 = load ptr, ptr %26, align 8
-  %66 = load ptr, ptr %27, align 8
-  %67 = load ptr, ptr %28, align 8
-  tail call void @aom_highbd_lpf_vertical_8_c(ptr noundef %64, i32 noundef %15, ptr noundef %65, ptr noundef %66, ptr noundef %67, i32 noundef %46) #8
-  br label %96
+58:                                               ; preds = %57
+  %59 = ptrtoint ptr %.05865.us to i64
+  %60 = shl i64 %59, 1
+  %61 = inttoptr i64 %60 to ptr
+  %62 = load ptr, ptr %26, align 8
+  %63 = load ptr, ptr %27, align 8
+  %64 = load ptr, ptr %28, align 8
+  tail call void @aom_highbd_lpf_vertical_8_c(ptr noundef %61, i32 noundef %15, ptr noundef %62, ptr noundef %63, ptr noundef %64, i32 noundef %44) #8
+  br label %93
 
-68:                                               ; preds = %60
-  %69 = load ptr, ptr %26, align 8
-  %70 = load ptr, ptr %27, align 8
-  %71 = load ptr, ptr %28, align 8
-  tail call void @aom_lpf_vertical_8_c(ptr noundef %.05865.us, i32 noundef %15, ptr noundef %69, ptr noundef %70, ptr noundef %71) #8
-  br label %96
+65:                                               ; preds = %57
+  %66 = load ptr, ptr %26, align 8
+  %67 = load ptr, ptr %27, align 8
+  %68 = load ptr, ptr %28, align 8
+  tail call void @aom_lpf_vertical_8_c(ptr noundef %.05865.us, i32 noundef %15, ptr noundef %66, ptr noundef %67, ptr noundef %68) #8
+  br label %93
 
-72:                                               ; preds = %43
-  %.not62.us = icmp eq i8 %45, 0
-  br i1 %.not62.us, label %80, label %73
+69:                                               ; preds = %40
+  %.not62.us = icmp eq i8 %43, 0
+  br i1 %.not62.us, label %77, label %70
 
-73:                                               ; preds = %72
-  %74 = ptrtoint ptr %.05865.us to i64
-  %75 = shl i64 %74, 1
-  %76 = inttoptr i64 %75 to ptr
-  %77 = load ptr, ptr %26, align 8
-  %78 = load ptr, ptr %27, align 8
-  %79 = load ptr, ptr %28, align 8
-  tail call void @aom_highbd_lpf_vertical_6_c(ptr noundef %76, i32 noundef %15, ptr noundef %77, ptr noundef %78, ptr noundef %79, i32 noundef %46) #8
-  br label %96
+70:                                               ; preds = %69
+  %71 = ptrtoint ptr %.05865.us to i64
+  %72 = shl i64 %71, 1
+  %73 = inttoptr i64 %72 to ptr
+  %74 = load ptr, ptr %26, align 8
+  %75 = load ptr, ptr %27, align 8
+  %76 = load ptr, ptr %28, align 8
+  tail call void @aom_highbd_lpf_vertical_6_c(ptr noundef %73, i32 noundef %15, ptr noundef %74, ptr noundef %75, ptr noundef %76, i32 noundef %44) #8
+  br label %93
 
-80:                                               ; preds = %72
-  %81 = load ptr, ptr %26, align 8
-  %82 = load ptr, ptr %27, align 8
-  %83 = load ptr, ptr %28, align 8
-  tail call void @aom_lpf_vertical_6_c(ptr noundef %.05865.us, i32 noundef %15, ptr noundef %81, ptr noundef %82, ptr noundef %83) #8
-  br label %96
+77:                                               ; preds = %69
+  %78 = load ptr, ptr %26, align 8
+  %79 = load ptr, ptr %27, align 8
+  %80 = load ptr, ptr %28, align 8
+  tail call void @aom_lpf_vertical_6_c(ptr noundef %.05865.us, i32 noundef %15, ptr noundef %78, ptr noundef %79, ptr noundef %80) #8
+  br label %93
 
-84:                                               ; preds = %43
-  %.not63.us = icmp eq i8 %45, 0
-  br i1 %.not63.us, label %92, label %85
+81:                                               ; preds = %40
+  %.not63.us = icmp eq i8 %43, 0
+  br i1 %.not63.us, label %89, label %82
 
-85:                                               ; preds = %84
-  %86 = ptrtoint ptr %.05865.us to i64
-  %87 = shl i64 %86, 1
-  %88 = inttoptr i64 %87 to ptr
-  %89 = load ptr, ptr %26, align 8
-  %90 = load ptr, ptr %27, align 8
-  %91 = load ptr, ptr %28, align 8
-  tail call void @aom_highbd_lpf_vertical_4_c(ptr noundef %88, i32 noundef %15, ptr noundef %89, ptr noundef %90, ptr noundef %91, i32 noundef %46) #8
-  br label %96
+82:                                               ; preds = %81
+  %83 = ptrtoint ptr %.05865.us to i64
+  %84 = shl i64 %83, 1
+  %85 = inttoptr i64 %84 to ptr
+  %86 = load ptr, ptr %26, align 8
+  %87 = load ptr, ptr %27, align 8
+  %88 = load ptr, ptr %28, align 8
+  tail call void @aom_highbd_lpf_vertical_4_c(ptr noundef %85, i32 noundef %15, ptr noundef %86, ptr noundef %87, ptr noundef %88, i32 noundef %44) #8
+  br label %93
 
-92:                                               ; preds = %84
-  %93 = load ptr, ptr %26, align 8
-  %94 = load ptr, ptr %27, align 8
-  %95 = load ptr, ptr %28, align 8
-  tail call void @aom_lpf_vertical_4_c(ptr noundef %.05865.us, i32 noundef %15, ptr noundef %93, ptr noundef %94, ptr noundef %95) #8
-  br label %96
+89:                                               ; preds = %81
+  %90 = load ptr, ptr %26, align 8
+  %91 = load ptr, ptr %27, align 8
+  %92 = load ptr, ptr %28, align 8
+  tail call void @aom_lpf_vertical_4_c(ptr noundef %.05865.us, i32 noundef %15, ptr noundef %90, ptr noundef %91, ptr noundef %92) #8
+  br label %93
 
-96:                                               ; preds = %92, %85, %80, %73, %68, %61, %56, %49, %43
-  %97 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide_unit, i64 0, i64 %.059.us
-  %98 = load i32, ptr %97, align 4
-  %99 = add i32 %98, %.06064.us
-  %100 = shl i32 %98, 2
-  %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw i8, ptr %.05865.us, i64 %101
-  %103 = icmp slt i32 %99, %17
-  br i1 %103, label %35, label %._crit_edge.us, !llvm.loop !14
+93:                                               ; preds = %.thread, %89, %82, %77, %70, %65, %58, %53, %46, %40
+  %.059.us74.shrunk = phi i8 [ 0, %.thread ], [ %38, %89 ], [ %38, %82 ], [ %38, %77 ], [ %38, %70 ], [ %38, %65 ], [ %38, %58 ], [ %38, %53 ], [ %38, %46 ], [ %38, %40 ]
+  %.059.us74 = zext i8 %.059.us74.shrunk to i64
+  %94 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide_unit, i64 0, i64 %.059.us74
+  %95 = load i32, ptr %94, align 4
+  %96 = add i32 %95, %.06064.us
+  %97 = shl i32 %95, 2
+  %98 = zext i32 %97 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %.05865.us, i64 %98
+  %100 = icmp slt i32 %96, %17
+  br i1 %100, label %35, label %._crit_edge.us, !llvm.loop !14
 
-._crit_edge.us:                                   ; preds = %96
+._crit_edge.us:                                   ; preds = %93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge69, label %.lr.ph.us, !llvm.loop !15
@@ -913,9 +909,9 @@ define hidden void @av1_filter_block_plane_horz(ptr noundef %0, ptr noundef read
   %32 = add i32 %19, %31
   br label %33
 
-33:                                               ; preds = %.lr.ph.us, %97
-  %.05966.us = phi ptr [ %30, %.lr.ph.us ], [ %103, %97 ]
-  %.06165.us = phi i32 [ 0, %.lr.ph.us ], [ %100, %97 ]
+33:                                               ; preds = %.lr.ph.us, %94
+  %.05966.us = phi ptr [ %30, %.lr.ph.us ], [ %100, %94 ]
+  %.06165.us = phi i32 [ 0, %.lr.ph.us ], [ %97, %94 ]
   %34 = shl nsw i32 %.06165.us, 2
   %35 = add i32 %34, %21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
@@ -924,126 +920,122 @@ define hidden void @av1_filter_block_plane_horz(ptr noundef %0, ptr noundef read
   %38 = sext i32 %37 to i64
   %39 = call fastcc zeroext i8 @set_lpf_parameters(ptr noundef %7, i64 noundef %38, ptr noundef %0, ptr noundef %1, i8 noundef zeroext 1, i32 noundef %32, i32 noundef %35, i32 noundef %2, ptr noundef %3)
   %40 = icmp eq i8 %39, -1
-  br i1 %40, label %43, label %._crit_edge
+  br i1 %40, label %.thread, label %41
 
-._crit_edge:                                      ; preds = %33
-  %.pre = load i32, ptr %7, align 8
-  %41 = add i32 %.pre, -4
-  %42 = zext i8 %39 to i64
-  br label %44
-
-43:                                               ; preds = %33
+.thread:                                          ; preds = %33
   store i32 0, ptr %7, align 8
-  br label %44
+  br label %94
 
-44:                                               ; preds = %._crit_edge, %43
-  %45 = phi i32 [ -4, %43 ], [ %41, %._crit_edge ]
-  %.060.us = phi i64 [ 0, %43 ], [ %42, %._crit_edge ]
-  %46 = load i8, ptr %23, align 4
-  %47 = load i32, ptr %24, align 8
-  %48 = tail call i32 @llvm.fshl.i32(i32 %45, i32 %45, i32 31)
-  switch i32 %48, label %97 [
-    i32 0, label %85
-    i32 1, label %73
-    i32 2, label %61
-    i32 5, label %49
+41:                                               ; preds = %33
+  %.pre = load i32, ptr %7, align 8
+  %42 = add i32 %.pre, -4
+  %43 = tail call i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 31)
+  %44 = load i8, ptr %23, align 4
+  %45 = load i32, ptr %24, align 8
+  switch i32 %43, label %94 [
+    i32 0, label %82
+    i32 1, label %70
+    i32 2, label %58
+    i32 5, label %46
   ]
 
-49:                                               ; preds = %44
-  %.not.us = icmp eq i8 %46, 0
-  br i1 %.not.us, label %57, label %50
+46:                                               ; preds = %41
+  %.not.us = icmp eq i8 %44, 0
+  br i1 %.not.us, label %54, label %47
 
-50:                                               ; preds = %49
-  %51 = ptrtoint ptr %.05966.us to i64
-  %52 = shl i64 %51, 1
-  %53 = inttoptr i64 %52 to ptr
-  %54 = load ptr, ptr %25, align 8
-  %55 = load ptr, ptr %26, align 8
-  %56 = load ptr, ptr %27, align 8
-  tail call void @aom_highbd_lpf_horizontal_14_c(ptr noundef %53, i32 noundef %15, ptr noundef %54, ptr noundef %55, ptr noundef %56, i32 noundef %47) #8
-  br label %97
+47:                                               ; preds = %46
+  %48 = ptrtoint ptr %.05966.us to i64
+  %49 = shl i64 %48, 1
+  %50 = inttoptr i64 %49 to ptr
+  %51 = load ptr, ptr %25, align 8
+  %52 = load ptr, ptr %26, align 8
+  %53 = load ptr, ptr %27, align 8
+  tail call void @aom_highbd_lpf_horizontal_14_c(ptr noundef %50, i32 noundef %15, ptr noundef %51, ptr noundef %52, ptr noundef %53, i32 noundef %45) #8
+  br label %94
 
-57:                                               ; preds = %49
-  %58 = load ptr, ptr %25, align 8
-  %59 = load ptr, ptr %26, align 8
-  %60 = load ptr, ptr %27, align 8
-  tail call void @aom_lpf_horizontal_14_c(ptr noundef %.05966.us, i32 noundef %15, ptr noundef %58, ptr noundef %59, ptr noundef %60) #8
-  br label %97
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %25, align 8
+  %56 = load ptr, ptr %26, align 8
+  %57 = load ptr, ptr %27, align 8
+  tail call void @aom_lpf_horizontal_14_c(ptr noundef %.05966.us, i32 noundef %15, ptr noundef %55, ptr noundef %56, ptr noundef %57) #8
+  br label %94
 
-61:                                               ; preds = %44
-  %.not62.us = icmp eq i8 %46, 0
-  br i1 %.not62.us, label %69, label %62
+58:                                               ; preds = %41
+  %.not62.us = icmp eq i8 %44, 0
+  br i1 %.not62.us, label %66, label %59
 
-62:                                               ; preds = %61
-  %63 = ptrtoint ptr %.05966.us to i64
-  %64 = shl i64 %63, 1
-  %65 = inttoptr i64 %64 to ptr
-  %66 = load ptr, ptr %25, align 8
-  %67 = load ptr, ptr %26, align 8
-  %68 = load ptr, ptr %27, align 8
-  tail call void @aom_highbd_lpf_horizontal_8_c(ptr noundef %65, i32 noundef %15, ptr noundef %66, ptr noundef %67, ptr noundef %68, i32 noundef %47) #8
-  br label %97
+59:                                               ; preds = %58
+  %60 = ptrtoint ptr %.05966.us to i64
+  %61 = shl i64 %60, 1
+  %62 = inttoptr i64 %61 to ptr
+  %63 = load ptr, ptr %25, align 8
+  %64 = load ptr, ptr %26, align 8
+  %65 = load ptr, ptr %27, align 8
+  tail call void @aom_highbd_lpf_horizontal_8_c(ptr noundef %62, i32 noundef %15, ptr noundef %63, ptr noundef %64, ptr noundef %65, i32 noundef %45) #8
+  br label %94
 
-69:                                               ; preds = %61
-  %70 = load ptr, ptr %25, align 8
-  %71 = load ptr, ptr %26, align 8
-  %72 = load ptr, ptr %27, align 8
-  tail call void @aom_lpf_horizontal_8_c(ptr noundef %.05966.us, i32 noundef %15, ptr noundef %70, ptr noundef %71, ptr noundef %72) #8
-  br label %97
+66:                                               ; preds = %58
+  %67 = load ptr, ptr %25, align 8
+  %68 = load ptr, ptr %26, align 8
+  %69 = load ptr, ptr %27, align 8
+  tail call void @aom_lpf_horizontal_8_c(ptr noundef %.05966.us, i32 noundef %15, ptr noundef %67, ptr noundef %68, ptr noundef %69) #8
+  br label %94
 
-73:                                               ; preds = %44
-  %.not63.us = icmp eq i8 %46, 0
-  br i1 %.not63.us, label %81, label %74
+70:                                               ; preds = %41
+  %.not63.us = icmp eq i8 %44, 0
+  br i1 %.not63.us, label %78, label %71
 
-74:                                               ; preds = %73
-  %75 = ptrtoint ptr %.05966.us to i64
-  %76 = shl i64 %75, 1
-  %77 = inttoptr i64 %76 to ptr
-  %78 = load ptr, ptr %25, align 8
-  %79 = load ptr, ptr %26, align 8
-  %80 = load ptr, ptr %27, align 8
-  tail call void @aom_highbd_lpf_horizontal_6_c(ptr noundef %77, i32 noundef %15, ptr noundef %78, ptr noundef %79, ptr noundef %80, i32 noundef %47) #8
-  br label %97
+71:                                               ; preds = %70
+  %72 = ptrtoint ptr %.05966.us to i64
+  %73 = shl i64 %72, 1
+  %74 = inttoptr i64 %73 to ptr
+  %75 = load ptr, ptr %25, align 8
+  %76 = load ptr, ptr %26, align 8
+  %77 = load ptr, ptr %27, align 8
+  tail call void @aom_highbd_lpf_horizontal_6_c(ptr noundef %74, i32 noundef %15, ptr noundef %75, ptr noundef %76, ptr noundef %77, i32 noundef %45) #8
+  br label %94
 
-81:                                               ; preds = %73
-  %82 = load ptr, ptr %25, align 8
-  %83 = load ptr, ptr %26, align 8
-  %84 = load ptr, ptr %27, align 8
-  tail call void @aom_lpf_horizontal_6_c(ptr noundef %.05966.us, i32 noundef %15, ptr noundef %82, ptr noundef %83, ptr noundef %84) #8
-  br label %97
+78:                                               ; preds = %70
+  %79 = load ptr, ptr %25, align 8
+  %80 = load ptr, ptr %26, align 8
+  %81 = load ptr, ptr %27, align 8
+  tail call void @aom_lpf_horizontal_6_c(ptr noundef %.05966.us, i32 noundef %15, ptr noundef %79, ptr noundef %80, ptr noundef %81) #8
+  br label %94
 
-85:                                               ; preds = %44
-  %.not64.us = icmp eq i8 %46, 0
-  br i1 %.not64.us, label %93, label %86
+82:                                               ; preds = %41
+  %.not64.us = icmp eq i8 %44, 0
+  br i1 %.not64.us, label %90, label %83
 
-86:                                               ; preds = %85
-  %87 = ptrtoint ptr %.05966.us to i64
-  %88 = shl i64 %87, 1
-  %89 = inttoptr i64 %88 to ptr
-  %90 = load ptr, ptr %25, align 8
-  %91 = load ptr, ptr %26, align 8
-  %92 = load ptr, ptr %27, align 8
-  tail call void @aom_highbd_lpf_horizontal_4_c(ptr noundef %89, i32 noundef %15, ptr noundef %90, ptr noundef %91, ptr noundef %92, i32 noundef %47) #8
-  br label %97
+83:                                               ; preds = %82
+  %84 = ptrtoint ptr %.05966.us to i64
+  %85 = shl i64 %84, 1
+  %86 = inttoptr i64 %85 to ptr
+  %87 = load ptr, ptr %25, align 8
+  %88 = load ptr, ptr %26, align 8
+  %89 = load ptr, ptr %27, align 8
+  tail call void @aom_highbd_lpf_horizontal_4_c(ptr noundef %86, i32 noundef %15, ptr noundef %87, ptr noundef %88, ptr noundef %89, i32 noundef %45) #8
+  br label %94
 
-93:                                               ; preds = %85
-  %94 = load ptr, ptr %25, align 8
-  %95 = load ptr, ptr %26, align 8
-  %96 = load ptr, ptr %27, align 8
-  tail call void @aom_lpf_horizontal_4_c(ptr noundef %.05966.us, i32 noundef %15, ptr noundef %94, ptr noundef %95, ptr noundef %96) #8
-  br label %97
+90:                                               ; preds = %82
+  %91 = load ptr, ptr %25, align 8
+  %92 = load ptr, ptr %26, align 8
+  %93 = load ptr, ptr %27, align 8
+  tail call void @aom_lpf_horizontal_4_c(ptr noundef %.05966.us, i32 noundef %15, ptr noundef %91, ptr noundef %92, ptr noundef %93) #8
+  br label %94
 
-97:                                               ; preds = %93, %86, %81, %74, %69, %62, %57, %50, %44
-  %98 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high_unit, i64 0, i64 %.060.us
-  %99 = load i32, ptr %98, align 4
-  %100 = add i32 %99, %.06165.us
-  %101 = mul i32 %28, %99
-  %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw i8, ptr %.05966.us, i64 %102
-  %104 = icmp slt i32 %100, %16
-  br i1 %104, label %33, label %._crit_edge.us, !llvm.loop !16
+94:                                               ; preds = %.thread, %90, %83, %78, %71, %66, %59, %54, %47, %41
+  %.060.us75.shrunk = phi i8 [ 0, %.thread ], [ %39, %90 ], [ %39, %83 ], [ %39, %78 ], [ %39, %71 ], [ %39, %66 ], [ %39, %59 ], [ %39, %54 ], [ %39, %47 ], [ %39, %41 ]
+  %.060.us75 = zext i8 %.060.us75.shrunk to i64
+  %95 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high_unit, i64 0, i64 %.060.us75
+  %96 = load i32, ptr %95, align 4
+  %97 = add i32 %96, %.06165.us
+  %98 = mul i32 %28, %96
+  %99 = zext i32 %98 to i64
+  %100 = getelementptr inbounds nuw i8, ptr %.05966.us, i64 %99
+  %101 = icmp slt i32 %97, %16
+  br i1 %101, label %33, label %._crit_edge.us, !llvm.loop !16
 
-._crit_edge.us:                                   ; preds = %97
+._crit_edge.us:                                   ; preds = %94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge70, label %.lr.ph.us, !llvm.loop !17

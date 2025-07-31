@@ -11211,8 +11211,8 @@ define void @_Z25common_kv_cache_dump_viewRK19llama_kv_cache_viewi(ptr noundef n
   ret void
 
 .lr.ph35:                                         ; preds = %.lr.ph35.preheader, %._crit_edge
-  %.02433 = phi i32 [ %32, %._crit_edge ], [ 0, %.lr.ph35.preheader ]
-  %.02532 = phi ptr [ %35, %._crit_edge ], [ %18, %.lr.ph35.preheader ]
+  %.02433 = phi i32 [ %33, %._crit_edge ], [ 0, %.lr.ph35.preheader ]
+  %.02532 = phi ptr [ %36, %._crit_edge ], [ %18, %.lr.ph35.preheader ]
   %19 = srem i32 %.02433, %1
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %23
@@ -11230,34 +11230,37 @@ define void @_Z25common_kv_cache_dump_viewRK19llama_kv_cache_viewi(ptr noundef n
   %wide.trip.count = zext nneg i32 %24 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %23
-  %.023.lcssa = phi i32 [ 0, %23 ], [ %spec.select, %.lr.ph ]
-  %26 = tail call i32 @llvm.umin.i32(i32 %.023.lcssa, i32 62)
-  %.sroa.speculated = zext nneg i32 %26 to i64
-  %27 = getelementptr inbounds nuw [64 x i8], ptr @_ZZ25common_kv_cache_dump_viewRK19llama_kv_cache_viewiE10slot_chars, i64 0, i64 %.sroa.speculated
-  %28 = load i8, ptr %27, align 1, !tbaa !28
-  %29 = sext i8 %28 to i32
-  %30 = load ptr, ptr @stdout, align 8, !tbaa !480
-  %31 = tail call i32 @putc(i32 noundef %29, ptr noundef %30)
-  %32 = add nuw nsw i32 %.02433, 1
-  %33 = load i32, ptr %4, align 4, !tbaa !474
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %.02532, i64 %34
-  %36 = load i32, ptr %0, align 8, !tbaa !471
-  %37 = icmp slt i32 %32, %36
-  br i1 %37, label %.lr.ph35, label %._crit_edge36, !llvm.loop !482
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %26 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 62)
+  %27 = zext nneg i32 %26 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %23
+  %.023.lcssa = phi i64 [ 0, %23 ], [ %27, %._crit_edge.loopexit ]
+  %28 = getelementptr inbounds nuw [64 x i8], ptr @_ZZ25common_kv_cache_dump_viewRK19llama_kv_cache_viewiE10slot_chars, i64 0, i64 %.023.lcssa
+  %29 = load i8, ptr %28, align 1, !tbaa !28
+  %30 = sext i8 %29 to i32
+  %31 = load ptr, ptr @stdout, align 8, !tbaa !480
+  %32 = tail call i32 @putc(i32 noundef %30, ptr noundef %31)
+  %33 = add nuw nsw i32 %.02433, 1
+  %34 = load i32, ptr %4, align 4, !tbaa !474
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds i32, ptr %.02532, i64 %35
+  %37 = load i32, ptr %0, align 8, !tbaa !471
+  %38 = icmp slt i32 %33, %37
+  br i1 %38, label %.lr.ph35, label %._crit_edge36, !llvm.loop !482
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02330 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %38 = getelementptr inbounds nuw i32, ptr %.02532, i64 %indvars.iv
-  %39 = load i32, ptr %38, align 4, !tbaa !72
-  %40 = icmp sgt i32 %39, -1
-  %41 = zext i1 %40 to i32
-  %spec.select = add nuw nsw i32 %.02330, %41
+  %39 = getelementptr inbounds nuw i32, ptr %.02532, i64 %indvars.iv
+  %40 = load i32, ptr %39, align 4, !tbaa !72
+  %41 = icmp sgt i32 %40, -1
+  %42 = zext i1 %41 to i32
+  %spec.select = add nuw nsw i32 %.02330, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !483
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !483
 }
 
 ; Function Attrs: nofree nounwind

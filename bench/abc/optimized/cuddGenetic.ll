@@ -1106,12 +1106,15 @@ define internal range(i32 0, -2147483648) i32 @array_hash(ptr noundef readonly c
   %8 = add nsw i32 %7, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !57
 
-._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %8, %.lr.ph ]
-  %9 = tail call i32 @llvm.abs.i32(i32 %.0.lcssa, i1 true)
-  %10 = srem i32 %9, %1
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %9 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %9, %._crit_edge.loopexit ]
+  %10 = srem i32 %.0.lcssa, %1
   ret i32 %10
 }
 

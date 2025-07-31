@@ -371,8 +371,8 @@ compute_channel_noise.exit.i:                     ; preds = %.split.us30.i.i, %.
   %118 = getelementptr inbounds nuw i8, ptr %gep.us.i, i64 %.idx.i
   %119 = load float, ptr %118, align 4, !tbaa !17, !alias.scope !56, !noalias !59
   %120 = fcmp reassoc nsz arcp contract afn olt float %119, 0.000000e+00
-  %121 = select reassoc nsz arcp contract afn i1 %120, float 0.000000e+00, float %119
-  %122 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %121)
+  %121 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %119)
+  %122 = select i1 %120, float 0.000000e+00, float %121
   %123 = getelementptr inbounds nuw float, ptr %115, i64 %indvars.iv.i
   store float %122, ptr %123, align 4, !tbaa !17, !noalias !61
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

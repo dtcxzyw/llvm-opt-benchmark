@@ -22824,11 +22824,11 @@ _ZNK4llvm5APInt3ugtEm.exit.i.i:                   ; preds = %_ZNK4llvm5APInt13ge
   %60 = load ptr, ptr %53, align 8
   %.0.in.i.i.i.i = select i1 %56, ptr %53, ptr %60
   %.0.i.i.i.i = load i64, ptr %.0.in.i.i.i.i, align 8, !tbaa !366
+  %61 = tail call i64 @llvm.umin.i64(i64 %.0.i.i.i.i, i64 %52)
   br label %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit
 
 _ZNK4llvm11ConstantInt15getLimitedValueEm.exit:   ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i, %_ZNK4llvm5APInt3ugtEm.exit.i.i
-  %61 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i ], [ %.0.i.i.i.i, %_ZNK4llvm5APInt3ugtEm.exit.i.i ]
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %61, i64 %52)
+  %.sroa.speculated = phi i64 [ %52, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i ], [ %61, %_ZNK4llvm5APInt3ugtEm.exit.i.i ]
   tail call fastcc void @_ZN12_GLOBAL__N_112AllocaSlices12SliceBuilder9insertUseERN4llvm11InstructionERKNS2_5APIntEmb(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(12) %43, i64 noundef %.sroa.speculated, i1 noundef zeroext true)
   br label %_ZN4llvm13PtrUseVisitorIN12_GLOBAL__N_112AllocaSlices12SliceBuilderEE18visitIntrinsicInstERNS_13IntrinsicInstE.exit
 

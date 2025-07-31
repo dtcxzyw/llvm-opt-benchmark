@@ -1008,15 +1008,15 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit76:           ; preds = %36
 .noexc78:                                         ; preds = %53
   %.pre.i = load i32, ptr %18, align 4, !alias.scope !6
   %60 = zext i32 %.pre.i to i64
+  %61 = call i32 @llvm.umin.i32(i32 %.pre.i, i32 1023)
   br label %_ZN8aiStringaSERKS_.exit
 
 _ZN8aiStringaSERKS_.exit:                         ; preds = %.noexc78, %.noexc
-  %61 = phi i32 [ %.pre.i, %.noexc78 ], [ 0, %.noexc ]
+  %spec.select.i = phi i32 [ %61, %.noexc78 ], [ 0, %.noexc ]
   %62 = phi i64 [ %60, %.noexc78 ], [ 0, %.noexc ]
   %63 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %64 = getelementptr inbounds nuw [1024 x i8], ptr %63, i64 0, i64 %62
   store i8 0, ptr %64, align 1, !alias.scope !6
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %61, i32 1023)
   store i32 %spec.select.i, ptr %46, align 4
   %65 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %66 = zext nneg i32 %spec.select.i to i64
@@ -1340,7 +1340,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.noexc78, %.noexc
 .noexc106:                                        ; preds = %177
   %182 = load i32, ptr %20, align 4, !alias.scope !11
   %.not.i104 = icmp eq i32 %182, 0
-  br i1 %.not.i104, label %190, label %183
+  br i1 %.not.i104, label %191, label %183
 
 183:                                              ; preds = %.noexc106
   %184 = zext i32 %182 to i64
@@ -1353,10 +1353,11 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.noexc78, %.noexc
 .noexc107:                                        ; preds = %183
   %.pre.i105 = load i32, ptr %20, align 4, !alias.scope !11
   %189 = zext i32 %.pre.i105 to i64
-  br label %190
+  %190 = call i32 @llvm.umin.i32(i32 %.pre.i105, i32 1023)
+  br label %191
 
-190:                                              ; preds = %.noexc107, %.noexc106
-  %191 = phi i32 [ %.pre.i105, %.noexc107 ], [ 0, %.noexc106 ]
+191:                                              ; preds = %.noexc107, %.noexc106
+  %spec.select.i109 = phi i32 [ %190, %.noexc107 ], [ 0, %.noexc106 ]
   %192 = phi i64 [ %189, %.noexc107 ], [ 0, %.noexc106 ]
   %193 = getelementptr inbounds nuw [1024 x i8], ptr %176, i64 0, i64 %192
   store i8 0, ptr %193, align 1, !alias.scope !11
@@ -1367,8 +1368,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.noexc78, %.noexc
   %198 = icmp eq ptr %197, %20
   br i1 %198, label %_ZN8aiStringaSERKS_.exit110, label %199
 
-199:                                              ; preds = %190
-  %spec.select.i109 = call i32 @llvm.umin.i32(i32 %191, i32 1023)
+199:                                              ; preds = %191
   store i32 %spec.select.i109, ptr %197, align 4
   %200 = getelementptr inbounds nuw i8, ptr %197, i64 4
   %201 = zext nneg i32 %spec.select.i109 to i64
@@ -1377,7 +1377,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.noexc78, %.noexc
   store i8 0, ptr %202, align 1
   br label %_ZN8aiStringaSERKS_.exit110
 
-_ZN8aiStringaSERKS_.exit110:                      ; preds = %190, %199
+_ZN8aiStringaSERKS_.exit110:                      ; preds = %191, %199
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %20) #18
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #18
   %203 = load ptr, ptr %1, align 8
@@ -2022,10 +2022,11 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit19:           ; preds = %24
   %45 = call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %41, i64 noundef 1)
   %.pre.i = load i32, ptr %7, align 4, !alias.scope !20
   %46 = zext i32 %.pre.i to i64
+  %47 = call i32 @llvm.umin.i32(i32 %.pre.i, i32 1023)
   br label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
 
 _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assimp8IOStreamE.exit19, %39
-  %47 = phi i32 [ %.pre.i, %39 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit19 ]
+  %spec.select.i = phi i32 [ %47, %39 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit19 ]
   %48 = phi i64 [ %46, %39 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit19 ]
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %50 = getelementptr inbounds nuw [1024 x i8], ptr %49, i64 0, i64 %48
@@ -2034,7 +2035,6 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   br i1 %51, label %_ZN8aiStringaSERKS_.exit, label %52
 
 52:                                               ; preds = %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %47, i32 1023)
   store i32 %spec.select.i, ptr %2, align 4
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %54 = zext nneg i32 %spec.select.i to i64
@@ -3096,10 +3096,11 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit19:           ; preds = %26
   %47 = call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %42, i64 noundef %43, i64 noundef 1)
   %.pre.i = load i32, ptr %10, align 4, !alias.scope !31
   %48 = zext i32 %.pre.i to i64
+  %49 = call i32 @llvm.umin.i32(i32 %.pre.i, i32 1023)
   br label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
 
 _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assimp8IOStreamE.exit19, %41
-  %49 = phi i32 [ %.pre.i, %41 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit19 ]
+  %spec.select.i = phi i32 [ %49, %41 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit19 ]
   %50 = phi i64 [ %48, %41 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit19 ]
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %52 = getelementptr inbounds nuw [1024 x i8], ptr %51, i64 0, i64 %50
@@ -3108,7 +3109,6 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   br i1 %53, label %_ZN8aiStringaSERKS_.exit, label %54
 
 54:                                               ; preds = %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %49, i32 1023)
   store i32 %spec.select.i, ptr %2, align 4
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %56 = zext nneg i32 %spec.select.i to i64
@@ -3515,10 +3515,11 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit49:           ; preds = %27
   %48 = call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %43, i64 noundef %44, i64 noundef 1)
   %.pre.i = load i32, ptr %11, align 4, !alias.scope !35
   %49 = zext i32 %.pre.i to i64
+  %50 = call i32 @llvm.umin.i32(i32 %.pre.i, i32 1023)
   br label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
 
 _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assimp8IOStreamE.exit49, %42
-  %50 = phi i32 [ %.pre.i, %42 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit49 ]
+  %spec.select.i = phi i32 [ %50, %42 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit49 ]
   %51 = phi i64 [ %49, %42 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit49 ]
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %53 = getelementptr inbounds nuw [1024 x i8], ptr %52, i64 0, i64 %51
@@ -3527,7 +3528,6 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   br i1 %54, label %_ZN8aiStringaSERKS_.exit, label %55
 
 55:                                               ; preds = %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %50, i32 1023)
   store i32 %spec.select.i, ptr %2, align 4
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %57 = zext nneg i32 %spec.select.i to i64
@@ -4034,10 +4034,11 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit26:           ; preds = %25
   %46 = call noundef i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %41, i64 noundef %42, i64 noundef 1)
   %.pre.i = load i32, ptr %9, align 4, !alias.scope !46
   %47 = zext i32 %.pre.i to i64
+  %48 = call i32 @llvm.umin.i32(i32 %.pre.i, i32 1023)
   br label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
 
 _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assimp8IOStreamE.exit26, %40
-  %48 = phi i32 [ %.pre.i, %40 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit26 ]
+  %spec.select.i = phi i32 [ %48, %40 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit26 ]
   %49 = phi i64 [ %47, %40 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit26 ]
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %51 = getelementptr inbounds nuw [1024 x i8], ptr %50, i64 0, i64 %49
@@ -4046,7 +4047,6 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   br i1 %52, label %_ZN8aiStringaSERKS_.exit, label %53
 
 53:                                               ; preds = %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %48, i32 1023)
   store i32 %spec.select.i, ptr %2, align 4
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %55 = zext nneg i32 %spec.select.i to i64
@@ -4478,10 +4478,11 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit46:           ; preds = %31
   %52 = call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %47, i64 noundef %48, i64 noundef 1)
   %.pre.i = load i32, ptr %12, align 4, !alias.scope !50
   %53 = zext i32 %.pre.i to i64
+  %54 = call i32 @llvm.umin.i32(i32 %.pre.i, i32 1023)
   br label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
 
 _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assimp8IOStreamE.exit46, %46
-  %54 = phi i32 [ %.pre.i, %46 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit46 ]
+  %spec.select.i = phi i32 [ %54, %46 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit46 ]
   %55 = phi i64 [ %53, %46 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit46 ]
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %57 = getelementptr inbounds nuw [1024 x i8], ptr %56, i64 0, i64 %55
@@ -4490,7 +4491,6 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   br i1 %58, label %_ZN8aiStringaSERKS_.exit, label %59
 
 59:                                               ; preds = %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %54, i32 1023)
   store i32 %spec.select.i, ptr %2, align 4
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %61 = zext nneg i32 %spec.select.i to i64
@@ -4940,10 +4940,11 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit33:           ; preds = %26
   %47 = call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %42, i64 noundef %43, i64 noundef 1)
   %.pre.i = load i32, ptr %10, align 4, !alias.scope !62
   %48 = zext i32 %.pre.i to i64
+  %49 = call i32 @llvm.umin.i32(i32 %.pre.i, i32 1023)
   br label %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
 
 _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assimp8IOStreamE.exit33, %41
-  %49 = phi i32 [ %.pre.i, %41 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit33 ]
+  %spec.select.i = phi i32 [ %49, %41 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit33 ]
   %50 = phi i64 [ %48, %41 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit33 ]
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %52 = getelementptr inbounds nuw [1024 x i8], ptr %51, i64 0, i64 %50
@@ -4952,7 +4953,6 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   br i1 %53, label %_ZN8aiStringaSERKS_.exit, label %54
 
 54:                                               ; preds = %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %49, i32 1023)
   store i32 %spec.select.i, ptr %2, align 4
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %56 = zext nneg i32 %spec.select.i to i64

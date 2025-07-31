@@ -1880,7 +1880,7 @@ switch.edge:
   %98 = zext i16 %97 to i32
   %99 = and i32 %98, 256
   %.not111 = icmp eq i32 %99, 0
-  br i1 %.not111, label %112, label %100
+  br i1 %.not111, label %113, label %100
 
 100:                                              ; preds = %93
   %101 = getelementptr inbounds nuw i8, ptr %.0107, i64 48
@@ -1894,21 +1894,21 @@ switch.edge:
   %109 = zext nneg i32 %108 to i64
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !32
-  br label %112
+  %112 = tail call i32 @llvm.bswap.i32(i32 %111)
+  br label %113
 
-112:                                              ; preds = %93, %100
-  %.sink = phi i32 [ %111, %100 ], [ 0, %93 ]
-  %113 = getelementptr inbounds nuw i8, ptr %3, i64 184
-  %114 = tail call noundef i32 @llvm.bswap.i32(i32 %.sink)
-  store i32 %114, ptr %113, align 8, !tbaa !28
+113:                                              ; preds = %93, %100
+  %.sink = phi i32 [ %112, %100 ], [ 0, %93 ]
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 184
+  store i32 %.sink, ptr %114, align 8, !tbaa !28
   %115 = load ptr, ptr %2, align 8, !tbaa !60
-  tail call void @resp_add_iov(ptr noundef %115, ptr noundef nonnull %113, i32 noundef 4) #11
+  tail call void @resp_add_iov(ptr noundef %115, ptr noundef nonnull %114, i32 noundef 4) #11
   switch i16 %10, label %125 [
     i16 35, label %116
     i16 12, label %116
   ]
 
-116:                                              ; preds = %112, %112
+116:                                              ; preds = %113, %113
   %117 = load ptr, ptr %2, align 8, !tbaa !60
   %118 = getelementptr inbounds nuw i8, ptr %.0107, i64 48
   %119 = load i16, ptr %87, align 2, !tbaa !31
@@ -1920,7 +1920,7 @@ switch.edge:
   tail call void @resp_add_iov(ptr noundef %117, ptr noundef nonnull %123, i32 noundef %124) #11
   br label %125
 
-125:                                              ; preds = %112, %116
+125:                                              ; preds = %113, %116
   br i1 %13, label %126, label %157
 
 126:                                              ; preds = %125

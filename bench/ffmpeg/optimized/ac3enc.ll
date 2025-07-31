@@ -431,7 +431,7 @@ define range(i32 -2147483648, 1) i32 @ff_ac3_encode_frame(ptr noundef %0, ptr no
 10:                                               ; preds = %4
   %11 = tail call fastcc i32 @ac3_validate_metadata(ptr noundef nonnull %7)
   %.not36 = icmp eq i32 %11, 0
-  br i1 %.not36, label %12, label %2414
+  br i1 %.not36, label %12, label %2412
 
 12:                                               ; preds = %10, %4
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 5164
@@ -1945,7 +1945,7 @@ reset_block_bap.exit.i.i:                         ; preds = %._crit_edge27.i.i.i
 
 ac3_compute_bit_allocation.exit:                  ; preds = %652, %648, %bit_alloc_masking.exit.i
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.71) #14
-  br label %2414
+  br label %2412
 
 .loopexit:                                        ; preds = %702, %646, %reset_block_bap.exit.i.i
   %704 = load i32, ptr %108, align 4, !tbaa !4
@@ -2346,7 +2346,7 @@ ac3_quantize_mantissas.exit:                      ; preds = %._crit_edge.i80, %.
   %905 = sext i32 %904 to i64
   %906 = tail call i32 @ff_get_encode_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %905, i32 noundef 0) #14
   %907 = icmp slt i32 %906, 0
-  br i1 %907, label %2414, label %908
+  br i1 %907, label %2412, label %908
 
 908:                                              ; preds = %ac3_quantize_mantissas.exit
   %909 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5150,13 +5150,13 @@ flush_put_bits.exit.i.i:                          ; preds = %flush_put_bits.exit
 
 mul_poly.exit.loopexit.i.i:                       ; preds = %.lr.ph.i40.i.i
   %2375 = trunc i32 %spec.select.i.i.i93 to i16
+  %2376 = call i16 @llvm.bswap.i16(i16 %2375)
   br label %mul_poly.exit.i.i
 
 mul_poly.exit.i.i:                                ; preds = %mul_poly.exit.loopexit.i.i, %2353
-  %.0.lcssa.i.i.i = phi i16 [ 0, %2353 ], [ %2375, %mul_poly.exit.loopexit.i.i ]
-  %2376 = call i16 @llvm.bswap.i16(i16 %.0.lcssa.i.i.i)
+  %.0.lcssa.i.i.i = phi i16 [ 0, %2353 ], [ %2376, %mul_poly.exit.loopexit.i.i ]
   %2377 = getelementptr inbounds nuw i8, ptr %2338, i64 2
-  store i16 %2376, ptr %2377, align 1, !tbaa !26
+  store i16 %.0.lcssa.i.i.i, ptr %2377, align 1, !tbaa !26
   %2378 = sext i32 %2317 to i64
   %2379 = getelementptr inbounds i8, ptr %2338, i64 %2378
   %2380 = load i32, ptr %631, align 4, !tbaa !67
@@ -5171,57 +5171,55 @@ mul_poly.exit.i.i:                                ; preds = %mul_poly.exit.loope
   %2384 = sext i32 %.sink44.i.i to i64
   %2385 = call i32 @av_crc(ptr noundef %2312, i32 noundef 0, ptr noundef nonnull %.sink.i11.i, i64 noundef %2384) #16
   %2386 = trunc i32 %2385 to i16
-  %2387 = call i16 @llvm.bswap.i16(i16 %2386)
-  %2388 = icmp eq i16 %2386, 30475
-  br i1 %2388, label %2389, label %ac3_output_frame.exit
+  %2387 = icmp eq i16 %2386, 30475
+  br i1 %2387, label %2388, label %ac3_output_frame.exit
 
-2389:                                             ; preds = %2382
-  %2390 = sext i32 %2383 to i64
-  %2391 = getelementptr i8, ptr %2338, i64 %2390
-  %2392 = getelementptr i8, ptr %2391, i64 -3
-  %2393 = load i8, ptr %2392, align 1, !tbaa !26
-  %2394 = xor i8 %2393, 1
-  store i8 %2394, ptr %2392, align 1, !tbaa !26
+2388:                                             ; preds = %2382
+  %2389 = sext i32 %2383 to i64
+  %2390 = getelementptr i8, ptr %2338, i64 %2389
+  %2391 = getelementptr i8, ptr %2390, i64 -3
+  %2392 = load i8, ptr %2391, align 1, !tbaa !26
+  %2393 = xor i8 %2392, 1
+  store i8 %2393, ptr %2391, align 1, !tbaa !26
   %.pre42.i.i = load i32, ptr %631, align 4, !tbaa !67
   br label %ac3_output_frame.exit
 
-ac3_output_frame.exit:                            ; preds = %2382, %2389
-  %2395 = phi i32 [ %.pre42.i.i, %2389 ], [ %2383, %2382 ]
-  %.1.i.i92 = phi i16 [ -29838, %2389 ], [ %2387, %2382 ]
-  %2396 = call i16 @llvm.bswap.i16(i16 %.1.i.i92)
-  %2397 = sext i32 %2395 to i64
-  %2398 = getelementptr inbounds i8, ptr %2338, i64 %2397
-  %2399 = getelementptr inbounds i8, ptr %2398, i64 -2
-  store i16 %2396, ptr %2399, align 1, !tbaa !26
+ac3_output_frame.exit:                            ; preds = %2382, %2388
+  %2394 = phi i32 [ %.pre42.i.i, %2388 ], [ %2383, %2382 ]
+  %.1.i.i92 = phi i16 [ 29323, %2388 ], [ %2386, %2382 ]
+  %2395 = sext i32 %2394 to i64
+  %2396 = getelementptr inbounds i8, ptr %2338, i64 %2395
+  %2397 = getelementptr inbounds i8, ptr %2396, i64 -2
+  store i16 %.1.i.i92, ptr %2397, align 1, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
-  %2400 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %2401 = load i64, ptr %2400, align 8, !tbaa !183
-  %.not39 = icmp eq i64 %2401, -9223372036854775808
-  br i1 %.not39, label %2413, label %2402
+  %2398 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %2399 = load i64, ptr %2398, align 8, !tbaa !183
+  %.not39 = icmp eq i64 %2399, -9223372036854775808
+  br i1 %.not39, label %2411, label %2400
 
-2402:                                             ; preds = %ac3_output_frame.exit
-  %2403 = getelementptr inbounds nuw i8, ptr %0, i64 396
-  %2404 = load i32, ptr %2403, align 4, !tbaa !184
-  %2405 = sext i32 %2404 to i64
-  %2406 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %2407 = load i32, ptr %2406, align 8, !tbaa !185
-  %.sroa.2.0.insert.ext.i = zext i32 %2407 to i64
+2400:                                             ; preds = %ac3_output_frame.exit
+  %2401 = getelementptr inbounds nuw i8, ptr %0, i64 396
+  %2402 = load i32, ptr %2401, align 4, !tbaa !184
+  %2403 = sext i32 %2402 to i64
+  %2404 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %2405 = load i32, ptr %2404, align 8, !tbaa !185
+  %.sroa.2.0.insert.ext.i = zext i32 %2405 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 1
-  %2408 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %2409 = load i64, ptr %2408, align 4
-  %2410 = call i64 @av_rescale_q(i64 noundef range(i64 -2147483648, 2147483648) %2405, i64 %.sroa.0.0.insert.insert.i, i64 %2409) #17
-  %2411 = sub nsw i64 %2401, %2410
-  %2412 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %2411, ptr %2412, align 8, !tbaa !186
-  br label %2413
+  %2406 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %2407 = load i64, ptr %2406, align 4
+  %2408 = call i64 @av_rescale_q(i64 noundef range(i64 -2147483648, 2147483648) %2403, i64 %.sroa.0.0.insert.insert.i, i64 %2407) #17
+  %2409 = sub nsw i64 %2399, %2408
+  %2410 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %2409, ptr %2410, align 8, !tbaa !186
+  br label %2411
 
-2413:                                             ; preds = %2402, %ac3_output_frame.exit
+2411:                                             ; preds = %2400, %ac3_output_frame.exit
   store i32 1, ptr %3, align 4, !tbaa !41
-  br label %2414
+  br label %2412
 
-2414:                                             ; preds = %ac3_quantize_mantissas.exit, %10, %2413, %ac3_compute_bit_allocation.exit
-  %.0 = phi i32 [ -22, %ac3_compute_bit_allocation.exit ], [ 0, %2413 ], [ %11, %10 ], [ %906, %ac3_quantize_mantissas.exit ]
+2412:                                             ; preds = %ac3_quantize_mantissas.exit, %10, %2411, %ac3_compute_bit_allocation.exit
+  %.0 = phi i32 [ -22, %ac3_compute_bit_allocation.exit ], [ 0, %2411 ], [ %11, %10 ], [ %906, %ac3_quantize_mantissas.exit ]
   ret i32 %.0
 }
 

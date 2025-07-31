@@ -8006,7 +8006,7 @@ _ZN3zip5write30write_central_directory_header17h65c32cc7a7eaa670E.exit: ; preds 
   %91 = load ptr, ptr %90, align 8
   %.not = icmp eq ptr %91, null
   %or.cond74 = select i1 %89, i1 %.not, i1 false
-  br i1 %or.cond74, label %122, label %92
+  br i1 %or.cond74, label %123, label %92
 
 92:                                               ; preds = %._crit_edge189, %88
   %93 = phi ptr [ %.pre, %._crit_edge189 ], [ %91, %88 ]
@@ -8108,7 +8108,7 @@ _ZN3zip4spec24Zip64CentralDirectoryEnd5write17h227a453162018879E.exit.thread: ; 
   %118 = call noundef ptr @_ZN3std2io5Write9write_all17h69a23bafc88256c0E(ptr noalias noundef nonnull align 8 dereferenceable(32) %21, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 20), !noalias !1245
   %119 = icmp eq ptr %118, null
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4), !noalias !1235
-  br i1 %119, label %120, label %121
+  br i1 %119, label %120, label %122
 
 _ZN3zip4spec24Zip64CentralDirectoryEnd5write17h227a453162018879E.exit.thread157: ; preds = %116, %_ZN3zip4spec24Zip64CentralDirectoryEnd5write17h227a453162018879E.exit
   store i64 0, ptr %0, align 8
@@ -8118,16 +8118,17 @@ _ZN3zip4spec24Zip64CentralDirectoryEnd5write17h227a453162018879E.exit.thread157:
 
 120:                                              ; preds = %_ZN3zip4spec24Zip64CentralDirectoryEnd5write17h227a453162018879E.exit.thread
   %.pre191 = load i64, ptr %84, align 8
-  br label %122
+  %121 = call range(i64 0, 65536) i64 @llvm.umin.i64(i64 %.pre191, i64 65535)
+  br label %123
 
-121:                                              ; preds = %_ZN3zip4spec24Zip64CentralDirectoryEnd5write17h227a453162018879E.exit.thread
+122:                                              ; preds = %_ZN3zip4spec24Zip64CentralDirectoryEnd5write17h227a453162018879E.exit.thread
   store i64 0, ptr %0, align 8
   %.sroa.258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %118, ptr %.sroa.258.0..sroa_idx, align 8
   br label %150
 
-122:                                              ; preds = %88, %120
-  %123 = phi i64 [ %85, %88 ], [ %.pre191, %120 ]
+123:                                              ; preds = %88, %120
+  %.sroa.0.0.sroa.speculated.i76 = phi i64 [ %85, %88 ], [ %121, %120 ]
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %125 = call { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6060601620ec5b72E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %124)
   %126 = extractvalue { ptr, i64 } %125, 0
@@ -8137,12 +8138,11 @@ _ZN3zip4spec24Zip64CentralDirectoryEnd5write17h227a453162018879E.exit.thread157:
   %129 = icmp ugt i64 %127, 65535
   br i1 %129, label %_ZN3zip4spec24Zip32CentralDirectoryEnd5write17h0098c2974528756fE.exit.thread178, label %130
 
-130:                                              ; preds = %122
+130:                                              ; preds = %123
   %.sroa.0.0.sroa.speculated.i81 = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %25, i64 4294967295)
   %131 = trunc nuw i64 %.sroa.0.0.sroa.speculated.i81 to i32
   %.sroa.0.0.sroa.speculated.i77 = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %83, i64 4294967295)
   %132 = trunc nuw i64 %.sroa.0.0.sroa.speculated.i77 to i32
-  %.sroa.0.0.sroa.speculated.i76 = call noundef range(i64 0, 65536) i64 @llvm.umin.i64(i64 %123, i64 65535)
   %133 = trunc nuw i64 %.sroa.0.0.sroa.speculated.i76 to i16
   %134 = trunc nuw i64 %127 to i16
   call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %3), !noalias !1246
@@ -8196,9 +8196,9 @@ _ZN3zip4spec24Zip64CentralDirectoryEnd5write17h227a453162018879E.exit.thread157:
   %148 = icmp eq i64 %127, 0
   br i1 %148, label %_ZN3zip4spec24Zip32CentralDirectoryEnd5write17h0098c2974528756fE.exit.thread173, label %_ZN3zip4spec24Zip32CentralDirectoryEnd5write17h0098c2974528756fE.exit.thread178
 
-_ZN3zip4spec24Zip32CentralDirectoryEnd5write17h0098c2974528756fE.exit.thread178: ; preds = %147, %122
-  %.sroa.0113.0.ph = phi i64 [ 1, %122 ], [ 0, %147 ]
-  %.sroa.6114.0.ph = phi ptr [ @anon.a36afcc231f82cf69f483f7961fbb938.36, %122 ], [ %.sink.i86, %147 ]
+_ZN3zip4spec24Zip32CentralDirectoryEnd5write17h0098c2974528756fE.exit.thread178: ; preds = %147, %123
+  %.sroa.0113.0.ph = phi i64 [ 1, %123 ], [ 0, %147 ]
+  %.sroa.6114.0.ph = phi ptr [ @anon.a36afcc231f82cf69f483f7961fbb938.36, %123 ], [ %.sink.i86, %147 ]
   call void @__rust_dealloc(ptr noundef nonnull %126, i64 noundef range(i64 1, 0) %127, i64 noundef 1) #32, !noalias !1260
   br label %_ZN3zip4spec24Zip32CentralDirectoryEnd5write17h0098c2974528756fE.exit.thread173
 
@@ -8222,7 +8222,7 @@ _ZN3zip4spec24Zip32CentralDirectoryEnd5write17h0098c2974528756fE.exit.thread173:
   store i64 36, ptr %.sroa.264.sroa.2.0..sroa.264.0..sroa_idx.sroa_idx, align 8
   br label %150
 
-150:                                              ; preds = %_ZN3zip4spec24Zip64CentralDirectoryEnd5write17h227a453162018879E.exit.thread157, %121, %_ZN3zip5write30write_central_directory_header17h65c32cc7a7eaa670E.exit.thread, %_ZN3zip4spec24Zip32CentralDirectoryEnd5write17h0098c2974528756fE.exit.thread173, %_ZN3zip4spec24Zip32CentralDirectoryEnd5write17h0098c2974528756fE.exit.thread, %87, %34
+150:                                              ; preds = %_ZN3zip4spec24Zip64CentralDirectoryEnd5write17h227a453162018879E.exit.thread157, %122, %_ZN3zip5write30write_central_directory_header17h65c32cc7a7eaa670E.exit.thread, %_ZN3zip4spec24Zip32CentralDirectoryEnd5write17h0098c2974528756fE.exit.thread173, %_ZN3zip4spec24Zip32CentralDirectoryEnd5write17h0098c2974528756fE.exit.thread, %87, %34
   ret void
 
 _ZN3zip5write30write_central_directory_header17h65c32cc7a7eaa670E.exit.thread148: ; preds = %74, %_ZN3zip5write30write_central_directory_header17h65c32cc7a7eaa670E.exit

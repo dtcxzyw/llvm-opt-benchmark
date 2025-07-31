@@ -2502,7 +2502,7 @@ _ZN3ue2L19literals_for_vertexERKNS_13RoseBuildImplENS_12graph_detail17vertex_des
   br label %913
 
 913:                                              ; preds = %._crit_edge.i, %.lr.ph143.i
-  %.259141.i = phi i32 [ %.057154.i, %.lr.ph143.i ], [ %943, %._crit_edge.i ]
+  %.259141.i = phi i32 [ %.057154.i, %.lr.ph143.i ], [ %.065.lcssa.i, %._crit_edge.i ]
   %.262140.i = phi i64 [ %.060153.i, %.lr.ph143.i ], [ %spec.select.i, %._crit_edge.i ]
   %.sroa.0100.0139.i = phi ptr [ %.pre.i107, %.lr.ph143.i ], [ %945, %._crit_edge.i ]
   %914 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0139.i, i64 116
@@ -2574,15 +2574,15 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit80.i: ; preds = %933, %922
 ._crit_edge.loopexit.i:                           ; preds = %937, %935
   %.065.lcssa.ph.i = phi i32 [ %938, %937 ], [ %.065135.i, %935 ]
   %.pre170.i = load i32, ptr %914, align 4
-  %940 = zext i32 %.pre170.i to i64
+  %940 = call i32 @llvm.umin.i32(i32 %.259141.i, i32 %.065.lcssa.ph.i)
+  %941 = zext i32 %.pre170.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %916
-  %941 = phi i64 [ 0, %916 ], [ %940, %._crit_edge.loopexit.i ]
-  %942 = phi i64 [ %.pre169.i, %916 ], [ %.pre168.pre.i, %._crit_edge.loopexit.i ]
-  %.065.lcssa.i = phi i32 [ 0, %916 ], [ %.065.lcssa.ph.i, %._crit_edge.loopexit.i ]
-  %943 = call i32 @llvm.umin.i32(i32 %.259141.i, i32 %.065.lcssa.i)
-  %944 = add i64 %942, %941
+  %942 = phi i64 [ 0, %916 ], [ %941, %._crit_edge.loopexit.i ]
+  %943 = phi i64 [ %.pre169.i, %916 ], [ %.pre168.pre.i, %._crit_edge.loopexit.i ]
+  %.065.lcssa.i = phi i32 [ 0, %916 ], [ %940, %._crit_edge.loopexit.i ]
+  %944 = add i64 %943, %942
   %spec.select.i = call i64 @llvm.umax.i64(i64 %.262140.i, i64 %944)
   %945 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0139.i, i64 128
   %.not116.i = icmp eq ptr %945, %.pre167.i
@@ -2590,7 +2590,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit80.i: ; preds = %933, %922
 
 .thread.i:                                        ; preds = %913, %._crit_edge.i
   %.262.lcssa.ph.i = phi i64 [ %.262140.i, %913 ], [ %spec.select.i, %._crit_edge.i ]
-  %.259.lcssa.ph.i = phi i32 [ %.259141.i, %913 ], [ %943, %._crit_edge.i ]
+  %.259.lcssa.ph.i = phi i32 [ %.259141.i, %913 ], [ %.065.lcssa.i, %._crit_edge.i ]
   %.pre171.i = load ptr, ptr %5, align 8
   %.pre172.i = load ptr, ptr %71, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %.pre171.i, %.pre172.i

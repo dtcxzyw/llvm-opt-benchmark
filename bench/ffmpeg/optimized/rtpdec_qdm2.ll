@@ -453,12 +453,15 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
   %260 = add i16 %.05777.i, %259
   %261 = getelementptr inbounds nuw i8, ptr %.078.i, i64 1
   %262 = icmp ult ptr %261, %256
-  br i1 %262, label %.lr.ph.i64, label %._crit_edge.i, !llvm.loop !43
+  br i1 %262, label %.lr.ph.i64, label %._crit_edge.loopexit.i, !llvm.loop !43
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i64, %252
-  %.057.lcssa.i = phi i16 [ 0, %252 ], [ %260, %.lr.ph.i64 ]
-  %263 = tail call i16 @llvm.bswap.i16(i16 %.057.lcssa.i)
-  store i16 %263, ptr %.058.i, align 1, !tbaa !9
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i64
+  %263 = tail call i16 @llvm.bswap.i16(i16 %260)
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %252
+  %.057.lcssa.i = phi i16 [ 0, %252 ], [ %263, %._crit_edge.loopexit.i ]
+  store i16 %.057.lcssa.i, ptr %.058.i, align 1, !tbaa !9
   br label %264
 
 264:                                              ; preds = %._crit_edge.i, %240

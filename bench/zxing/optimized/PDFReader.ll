@@ -1026,53 +1026,53 @@ _ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i: ; p
   %143 = call i32 @llvm.abs.i32(i32 %142, i1 true)
   %144 = mul nuw nsw i32 %143, 17
   %145 = udiv i32 %144, 18
+  %146 = call i32 @llvm.umax.i32(i32 %.0.i.i42, i32 %145)
   br label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
 
 _ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i: ; preds = %135, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
-  %.0.i23.i45 = phi i32 [ %145, %135 ], [ 0, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i ]
-  br i1 %97, label %146, label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
+  %.0.i23.i45 = phi i32 [ %146, %135 ], [ %.0.i.i42, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i ]
+  br i1 %97, label %147, label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
 
-146:                                              ; preds = %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0122, i64 144
-  %.val18.i54 = load double, ptr %147, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0122, i64 48
-  %.val16.i55 = load double, ptr %148, align 8
-  %149 = fptrunc double %.val16.i55 to float
-  %150 = fptosi float %149 to i32
-  %151 = fptrunc double %.val18.i54 to float
-  %152 = fptosi float %151 to i32
-  %153 = sub nsw i32 %150, %152
-  %154 = call i32 @llvm.abs.i32(i32 %153, i1 true)
+147:                                              ; preds = %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
+  %148 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0122, i64 144
+  %.val18.i54 = load double, ptr %148, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0122, i64 48
+  %.val16.i55 = load double, ptr %149, align 8
+  %150 = fptrunc double %.val16.i55 to float
+  %151 = fptosi float %150 to i32
+  %152 = fptrunc double %.val18.i54 to float
+  %153 = fptosi float %152 to i32
+  %154 = sub nsw i32 %151, %153
+  %155 = call i32 @llvm.abs.i32(i32 %154, i1 true)
   br label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
 
-_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i: ; preds = %146, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
-  %.0.i25.i48 = phi i32 [ %154, %146 ], [ 0, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i ]
-  br i1 %110, label %155, label %166
+_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i: ; preds = %147, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i
+  %.0.i25.i48 = phi i32 [ %155, %147 ], [ 0, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit24.i ]
+  br i1 %110, label %156, label %168
 
-155:                                              ; preds = %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
-  %156 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0122, i64 96
-  %.val22.i52 = load double, ptr %156, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0122, i64 192
-  %.val20.i53 = load double, ptr %157, align 8
-  %158 = fptrunc double %.val20.i53 to float
-  %159 = fptosi float %158 to i32
-  %160 = fptrunc double %.val22.i52 to float
-  %161 = fptosi float %160 to i32
-  %162 = sub nsw i32 %159, %161
-  %163 = call i32 @llvm.abs.i32(i32 %162, i1 true)
-  %164 = mul nuw nsw i32 %163, 17
-  %165 = udiv i32 %164, 18
-  br label %166
+156:                                              ; preds = %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0122, i64 96
+  %.val22.i52 = load double, ptr %157, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0122, i64 192
+  %.val20.i53 = load double, ptr %158, align 8
+  %159 = fptrunc double %.val20.i53 to float
+  %160 = fptosi float %159 to i32
+  %161 = fptrunc double %.val22.i52 to float
+  %162 = fptosi float %161 to i32
+  %163 = sub nsw i32 %160, %162
+  %164 = call i32 @llvm.abs.i32(i32 %163, i1 true)
+  %165 = mul nuw nsw i32 %164, 17
+  %166 = udiv i32 %165, 18
+  %167 = call i32 @llvm.umax.i32(i32 %.0.i25.i48, i32 %166)
+  br label %168
 
-166:                                              ; preds = %155, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
-  %.0.i27.i51 = phi i32 [ %165, %155 ], [ 0, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i ]
-  %167 = call i32 @llvm.umax.i32(i32 %.0.i.i42, i32 %.0.i23.i45)
-  %168 = call i32 @llvm.umax.i32(i32 %.0.i25.i48, i32 %.0.i27.i51)
-  %169 = call noundef range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %167, i32 %168)
+168:                                              ; preds = %156, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i
+  %.0.i27.i51 = phi i32 [ %167, %156 ], [ %.0.i25.i48, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i ]
+  %169 = call noundef range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %.0.i23.i45, i32 %.0.i27.i51)
   invoke void @_ZN5ZXing6Pdf41715ScanningDecoder6DecodeERKNS_9BitMatrixERKNS_8NullableINS_11ResultPointEEES9_S9_S9_ii(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DecoderResult") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %66, i32 noundef %125, i32 noundef %169)
           to label %170 unwind label %239
 
-170:                                              ; preds = %166
+170:                                              ; preds = %168
   %171 = load ptr, ptr %8, align 8, !tbaa !92
   %172 = load ptr, ptr %50, align 8, !tbaa !92
   %173 = icmp eq ptr %171, %172
@@ -1224,7 +1224,7 @@ _ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14De
   call void @_ZdlPvm(ptr noundef nonnull %233, i64 noundef %238) #22
   br label %249
 
-239:                                              ; preds = %166
+239:                                              ; preds = %168
   %240 = landingpad { ptr, i32 }
           cleanup
   br label %253

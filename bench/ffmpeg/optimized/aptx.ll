@@ -312,33 +312,33 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
 ._crit_edge.loopexit.i.i:                         ; preds = %147
   %168 = lshr i64 %167, 22
   %169 = trunc i64 %168 to i32
+  %170 = tail call i32 @llvm.smax.i32(i32 %169, i32 -8388608)
+  %171 = tail call i32 @llvm.smin.i32(i32 %170, i32 8388607)
   br label %aptx_process_subband.exit
 
 aptx_process_subband.exit:                        ; preds = %9, %._crit_edge.loopexit.i.i
-  %.0.lcssa.i.i = phi i32 [ 0, %9 ], [ %169, %._crit_edge.loopexit.i.i ]
-  %170 = sext i32 %.0.i38.i to i64
-  %171 = sext i32 %129 to i64
-  %172 = mul nsw i64 %170, %171
-  %173 = sext i32 %.0.i40.i to i64
-  %174 = sext i32 %.0.i.i41.i to i64
-  %175 = mul nsw i64 %173, %174
-  %176 = add nsw i64 %175, %172
-  %177 = lshr i64 %176, 22
-  %178 = trunc i64 %177 to i32
-  %179 = tail call i32 @llvm.smax.i32(i32 %178, i32 -8388608)
-  %.0.i35.i.i = tail call i32 @llvm.smin.i32(i32 %179, i32 8388607)
-  %180 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa.i.i, i32 -8388608)
-  %.0.i37.i.i = tail call i32 @llvm.smin.i32(i32 %180, i32 8388607)
-  store i32 %.0.i37.i.i, ptr %78, align 4, !tbaa !28
-  %181 = add nsw i32 %.0.i37.i.i, %.0.i35.i.i
-  %182 = tail call i32 @llvm.smax.i32(i32 %181, i32 -8388608)
-  %.0.i39.i.i = tail call i32 @llvm.smin.i32(i32 %182, i32 8388607)
+  %.0.lcssa.i.i = phi i32 [ 0, %9 ], [ %171, %._crit_edge.loopexit.i.i ]
+  %172 = sext i32 %.0.i38.i to i64
+  %173 = sext i32 %129 to i64
+  %174 = mul nsw i64 %172, %173
+  %175 = sext i32 %.0.i40.i to i64
+  %176 = sext i32 %.0.i.i41.i to i64
+  %177 = mul nsw i64 %175, %176
+  %178 = add nsw i64 %177, %174
+  %179 = lshr i64 %178, 22
+  %180 = trunc i64 %179 to i32
+  %181 = tail call i32 @llvm.smax.i32(i32 %180, i32 -8388608)
+  %.0.i35.i.i = tail call i32 @llvm.smin.i32(i32 %181, i32 8388607)
+  store i32 %.0.lcssa.i.i, ptr %78, align 4, !tbaa !28
+  %182 = add nsw i32 %.0.lcssa.i.i, %.0.i35.i.i
+  %183 = tail call i32 @llvm.smax.i32(i32 %182, i32 -8388608)
+  %.0.i39.i.i = tail call i32 @llvm.smin.i32(i32 %183, i32 8388607)
   store i32 %.0.i39.i.i, ptr %124, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %183, label %9, !llvm.loop !35
+  br i1 %exitcond.not, label %184, label %9, !llvm.loop !35
 
-183:                                              ; preds = %aptx_process_subband.exit
+184:                                              ; preds = %aptx_process_subband.exit
   ret void
 }
 

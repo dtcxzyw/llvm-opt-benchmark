@@ -175,24 +175,31 @@ dsa_minimum_size.exit:                            ; preds = %8
   store ptr %60, ptr %61, align 8
   tail call void @FreePageManagerInitialize(ptr noundef nonnull %58, ptr noundef nonnull %0) #11
   %.not78 = icmp ult i64 %28, 4096
-  br i1 %.not78, label %65, label %62
+  br i1 %.not78, label %contiguous_pages_to_segment_bin.exit.thread, label %62
+
+contiguous_pages_to_segment_bin.exit.thread:      ; preds = %55
+  store i64 0, ptr %41, align 8
+  br label %contiguous_pages_to_segment_bin.exit80
 
 62:                                               ; preds = %55
   %63 = load ptr, ptr %59, align 8
   %64 = lshr i64 %.072, 12
   tail call void @FreePageManagerPut(ptr noundef %63, i64 noundef %64, i64 noundef %29) #11
-  br label %65
+  %65 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %29, i1 true)
+  %66 = trunc nuw nsw i64 %65 to i32
+  %67 = xor i32 %66, 63
+  %68 = tail call i32 @llvm.umin.i32(i32 %67, i32 14)
+  %69 = add nuw nsw i32 %68, 1
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr inbounds nuw [16 x i64], ptr %41, i64 0, i64 %70
+  store i64 0, ptr %71, align 8
+  br label %contiguous_pages_to_segment_bin.exit80
 
-65:                                               ; preds = %62, %55
-  %66 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %29, i1 true)
-  %67 = sub nuw nsw i64 64, %66
-  %68 = tail call i64 @llvm.umin.i64(i64 %67, i64 15)
-  %69 = select i1 %.not78, i64 0, i64 %68
-  %70 = getelementptr inbounds nuw [16 x i64], ptr %41, i64 0, i64 %69
-  store i64 0, ptr %70, align 8
-  %71 = load ptr, ptr %57, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  store i64 %69, ptr %72, align 8
+contiguous_pages_to_segment_bin.exit80:           ; preds = %contiguous_pages_to_segment_bin.exit.thread, %62
+  %.0.i79 = phi i64 [ %70, %62 ], [ 0, %contiguous_pages_to_segment_bin.exit.thread ]
+  %72 = load ptr, ptr %57, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  store i64 %.0.i79, ptr %73, align 8
   ret ptr %44
 }
 
@@ -1315,209 +1322,227 @@ define internal fastcc ptr @get_best_segment(ptr noundef captures(ret: address, 
 
 check_for_freed_segments_locked.exit:             ; preds = %2, %25
   %26 = icmp eq i64 %1, 0
-  %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %1, i1 true)
-  %28 = sub nuw nsw i64 64, %27
-  %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 15)
-  %30 = select i1 %26, i64 0, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40976
-  br label %34
+  br i1 %26, label %.lr.ph50, label %27
 
-34:                                               ; preds = %check_for_freed_segments_locked.exit, %._crit_edge
-  %.02949 = phi i64 [ %30, %check_for_freed_segments_locked.exit ], [ %139, %._crit_edge ]
-  %35 = add nsw i64 %.02949, -1
-  %36 = shl nuw nsw i64 1, %35
-  %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4160
-  %39 = getelementptr inbounds nuw [16 x i64], ptr %38, i64 0, i64 %.02949
-  %40 = load i64, ptr %39, align 8
-  %.not47 = icmp eq i64 %40, -1
+27:                                               ; preds = %check_for_freed_segments_locked.exit
+  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %1, i1 true)
+  %29 = trunc nuw nsw i64 %28 to i32
+  %30 = xor i32 %29, 63
+  %31 = tail call i32 @llvm.umin.i32(i32 %30, i32 14)
+  %32 = add nuw nsw i32 %31, 1
+  %33 = zext nneg i32 %32 to i64
+  br label %.lr.ph50
+
+.lr.ph50:                                         ; preds = %27, %check_for_freed_segments_locked.exit
+  %.0.i = phi i64 [ %33, %27 ], [ 0, %check_for_freed_segments_locked.exit ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40976
+  br label %37
+
+37:                                               ; preds = %.lr.ph50, %._crit_edge
+  %.02949 = phi i64 [ %.0.i, %.lr.ph50 ], [ %145, %._crit_edge ]
+  %38 = add nsw i64 %.02949, -1
+  %39 = shl nuw nsw i64 1, %38
+  %40 = load ptr, ptr %0, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4160
+  %42 = getelementptr inbounds nuw [16 x i64], ptr %41, i64 0, i64 %.02949
+  %43 = load i64, ptr %42, align 8
+  %.not47 = icmp eq i64 %43, -1
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %34, %select.unfold
-  %.03048 = phi i64 [ %76, %select.unfold ], [ %40, %34 ]
-  %41 = getelementptr inbounds nuw [1024 x %struct.dsa_segment_map], ptr %31, i64 0, i64 %.03048
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %.lr.ph.get_segment_by_index.exit_crit_edge, !prof !11
+.lr.ph:                                           ; preds = %37, %select.unfold
+  %.03048 = phi i64 [ %79, %select.unfold ], [ %43, %37 ]
+  %44 = getelementptr inbounds nuw [1024 x %struct.dsa_segment_map], ptr %34, i64 0, i64 %.03048
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %.lr.ph.get_segment_by_index.exit_crit_edge, !prof !11
 
 .lr.ph.get_segment_by_index.exit_crit_edge:       ; preds = %.lr.ph
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %44, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert54 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %.pre55 = load ptr, ptr %.phi.trans.insert54, align 8
+  %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %.pre56 = load ptr, ptr %.phi.trans.insert55, align 8
   br label %get_segment_by_index.exit
 
-45:                                               ; preds = %.lr.ph
-  %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 60
-  %48 = getelementptr inbounds nuw [1024 x i32], ptr %47, i64 0, i64 %.03048
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %54
+48:                                               ; preds = %.lr.ph
+  %49 = load ptr, ptr %0, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 60
+  %51 = getelementptr inbounds nuw [1024 x i32], ptr %50, i64 0, i64 %.03048
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %57
 
-51:                                               ; preds = %45
-  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %52)
-  %53 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26) #11
+54:                                               ; preds = %48
+  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %55)
+  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1781, ptr noundef nonnull @__func__.get_segment_by_index) #11
   unreachable
 
-54:                                               ; preds = %45
-  %55 = load ptr, ptr @CurrentResourceOwner, align 8
-  %56 = load ptr, ptr %32, align 8
-  store ptr %56, ptr @CurrentResourceOwner, align 8
-  %57 = tail call ptr @dsm_attach(i32 noundef %49) #11
-  store ptr %55, ptr @CurrentResourceOwner, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %62
+57:                                               ; preds = %48
+  %58 = load ptr, ptr @CurrentResourceOwner, align 8
+  %59 = load ptr, ptr %35, align 8
+  store ptr %59, ptr @CurrentResourceOwner, align 8
+  %60 = tail call ptr @dsm_attach(i32 noundef %52) #11
+  store ptr %58, ptr @CurrentResourceOwner, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %62, label %65
 
-59:                                               ; preds = %54
-  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %60)
-  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27) #11
+62:                                               ; preds = %57
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %63)
+  %64 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1788, ptr noundef nonnull @__func__.get_segment_by_index) #11
   unreachable
 
-62:                                               ; preds = %54
-  store ptr %57, ptr %41, align 8
-  %63 = tail call ptr @dsm_segment_address(ptr noundef nonnull %57) #11
-  store ptr %63, ptr %42, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 56
-  %66 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr %65, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 1152
-  %68 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  store ptr %67, ptr %68, align 8
-  %69 = load i64, ptr %33, align 8
-  %70 = icmp ult i64 %69, %.03048
-  br i1 %70, label %71, label %get_segment_by_index.exit
+65:                                               ; preds = %57
+  store ptr %60, ptr %44, align 8
+  %66 = tail call ptr @dsm_segment_address(ptr noundef nonnull %60) #11
+  store ptr %66, ptr %45, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  store ptr %66, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  store ptr %68, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 1152
+  %71 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  store ptr %70, ptr %71, align 8
+  %72 = load i64, ptr %36, align 8
+  %73 = icmp ult i64 %72, %.03048
+  br i1 %73, label %74, label %get_segment_by_index.exit
 
-71:                                               ; preds = %62
-  store i64 %.03048, ptr %33, align 8
+74:                                               ; preds = %65
+  store i64 %.03048, ptr %36, align 8
   br label %get_segment_by_index.exit
 
-get_segment_by_index.exit:                        ; preds = %.lr.ph.get_segment_by_index.exit_crit_edge, %62, %71
-  %72 = phi ptr [ %.pre55, %.lr.ph.get_segment_by_index.exit_crit_edge ], [ %65, %62 ], [ %65, %71 ]
-  %73 = phi ptr [ %.pre, %.lr.ph.get_segment_by_index.exit_crit_edge ], [ %63, %62 ], [ %63, %71 ]
-  %74 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 48
-  %78 = load i64, ptr %77, align 8
-  %.not33 = icmp uge i64 %78, %36
-  %79 = icmp ult i64 %78, %1
-  %or.cond = and i1 %.not33, %79
-  br i1 %or.cond, label %select.unfold, label %80, !llvm.loop !18
+get_segment_by_index.exit:                        ; preds = %.lr.ph.get_segment_by_index.exit_crit_edge, %65, %74
+  %75 = phi ptr [ %.pre56, %.lr.ph.get_segment_by_index.exit_crit_edge ], [ %68, %65 ], [ %68, %74 ]
+  %76 = phi ptr [ %.pre, %.lr.ph.get_segment_by_index.exit_crit_edge ], [ %66, %65 ], [ %66, %74 ]
+  %77 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 48
+  %81 = load i64, ptr %80, align 8
+  %.not33 = icmp uge i64 %81, %39
+  %82 = icmp ult i64 %81, %1
+  %or.cond = and i1 %.not33, %82
+  br i1 %or.cond, label %select.unfold, label %83, !llvm.loop !18
 
-80:                                               ; preds = %get_segment_by_index.exit
-  %81 = icmp ult i64 %78, %36
-  br i1 %81, label %82, label %rebin_segment.exit
+83:                                               ; preds = %get_segment_by_index.exit
+  %84 = icmp ult i64 %81, %39
+  br i1 %84, label %85, label %rebin_segment.exit
 
-82:                                               ; preds = %80
-  %83 = icmp eq i64 %78, 0
-  %84 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %78, i1 true)
-  %85 = sub nuw nsw i64 64, %84
-  %86 = tail call i64 @llvm.umin.i64(i64 %85, i64 15)
-  %87 = select i1 %83, i64 0, i64 %86
-  %88 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %89 = load i64, ptr %88, align 8
-  %90 = icmp eq i64 %89, %87
-  br i1 %90, label %rebin_segment.exit, label %91
+85:                                               ; preds = %83
+  %86 = icmp eq i64 %81, 0
+  br i1 %86, label %contiguous_pages_to_segment_bin.exit.i, label %87
 
-91:                                               ; preds = %82
-  %92 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %93 = load i64, ptr %92, align 8
-  %.not.i.i = icmp eq i64 %93, -1
-  br i1 %.not.i.i, label %102, label %94
+87:                                               ; preds = %85
+  %88 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %81, i1 true)
+  %89 = trunc nuw nsw i64 %88 to i32
+  %90 = xor i32 %89, 63
+  %91 = tail call i32 @llvm.umin.i32(i32 %90, i32 14)
+  %92 = add nuw nsw i32 %91, 1
+  %93 = zext nneg i32 %92 to i64
+  br label %contiguous_pages_to_segment_bin.exit.i
 
-94:                                               ; preds = %91
-  %95 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %93)
-  %96 = load ptr, ptr %74, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
-  %98 = load i64, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  store i64 %98, ptr %101, align 8
-  br label %106
+contiguous_pages_to_segment_bin.exit.i:           ; preds = %87, %85
+  %.0.i.i = phi i64 [ %93, %87 ], [ 0, %85 ]
+  %94 = getelementptr inbounds nuw i8, ptr %76, i64 40
+  %95 = load i64, ptr %94, align 8
+  %96 = icmp eq i64 %95, %.0.i.i
+  br i1 %96, label %rebin_segment.exit, label %97
 
-102:                                              ; preds = %91
-  %103 = load ptr, ptr %0, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4160
-  %105 = getelementptr inbounds nuw [16 x i64], ptr %104, i64 0, i64 %89
-  store i64 %76, ptr %105, align 8
-  br label %106
+97:                                               ; preds = %contiguous_pages_to_segment_bin.exit.i
+  %98 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  %99 = load i64, ptr %98, align 8
+  %.not.i.i = icmp eq i64 %99, -1
+  br i1 %.not.i.i, label %108, label %100
 
-106:                                              ; preds = %102, %94
-  %107 = load ptr, ptr %74, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
-  %109 = load i64, ptr %108, align 8
-  %.not14.i.i = icmp eq i64 %109, -1
-  br i1 %.not14.i.i, label %unlink_segment.exit.i, label %110
+100:                                              ; preds = %97
+  %101 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %99)
+  %102 = load ptr, ptr %77, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
+  %104 = load i64, ptr %103, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
+  store i64 %104, ptr %107, align 8
+  br label %112
 
-110:                                              ; preds = %106
-  %111 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %109)
-  %112 = load ptr, ptr %74, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %114 = load i64, ptr %113, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store i64 %114, ptr %117, align 8
-  %.pre.i = load ptr, ptr %74, align 8
+108:                                              ; preds = %97
+  %109 = load ptr, ptr %0, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4160
+  %111 = getelementptr inbounds nuw [16 x i64], ptr %110, i64 0, i64 %95
+  store i64 %79, ptr %111, align 8
+  br label %112
+
+112:                                              ; preds = %108, %100
+  %113 = load ptr, ptr %77, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
+  %115 = load i64, ptr %114, align 8
+  %.not14.i.i = icmp eq i64 %115, -1
+  br i1 %.not14.i.i, label %unlink_segment.exit.i, label %116
+
+116:                                              ; preds = %112
+  %117 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %115)
+  %118 = load ptr, ptr %77, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
+  %120 = load i64, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  store i64 %120, ptr %123, align 8
+  %.pre.i = load ptr, ptr %77, align 8
   br label %unlink_segment.exit.i
 
-unlink_segment.exit.i:                            ; preds = %110, %106
-  %118 = phi ptr [ %107, %106 ], [ %.pre.i, %110 ]
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
-  store i64 -1, ptr %119, align 8
-  %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4160
-  %122 = getelementptr inbounds nuw [16 x i64], ptr %121, i64 0, i64 %87
-  %123 = load i64, ptr %122, align 8
-  %124 = load ptr, ptr %74, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
-  store i64 %123, ptr %125, align 8
-  %126 = load ptr, ptr %74, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
-  store i64 %87, ptr %127, align 8
-  %128 = load ptr, ptr %0, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 4160
-  %130 = getelementptr inbounds nuw [16 x i64], ptr %129, i64 0, i64 %87
-  store i64 %.03048, ptr %130, align 8
-  %131 = load ptr, ptr %74, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
-  %133 = load i64, ptr %132, align 8
-  %.not.i35 = icmp eq i64 %133, -1
-  br i1 %.not.i35, label %rebin_segment.exit, label %134
+unlink_segment.exit.i:                            ; preds = %116, %112
+  %124 = phi ptr [ %113, %112 ], [ %.pre.i, %116 ]
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
+  store i64 -1, ptr %125, align 8
+  %126 = load ptr, ptr %0, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 4160
+  %128 = getelementptr inbounds nuw [16 x i64], ptr %127, i64 0, i64 %.0.i.i
+  %129 = load i64, ptr %128, align 8
+  %130 = load ptr, ptr %77, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
+  store i64 %129, ptr %131, align 8
+  %132 = load ptr, ptr %77, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 40
+  store i64 %.0.i.i, ptr %133, align 8
+  %134 = load ptr, ptr %0, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 4160
+  %136 = getelementptr inbounds nuw [16 x i64], ptr %135, i64 0, i64 %.0.i.i
+  store i64 %.03048, ptr %136, align 8
+  %137 = load ptr, ptr %77, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
+  %139 = load i64, ptr %138, align 8
+  %.not.i35 = icmp eq i64 %139, -1
+  br i1 %.not.i35, label %rebin_segment.exit, label %140
 
-134:                                              ; preds = %unlink_segment.exit.i
-  %135 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %133)
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  store i64 %.03048, ptr %138, align 8
+140:                                              ; preds = %unlink_segment.exit.i
+  %141 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %139)
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
+  store i64 %.03048, ptr %144, align 8
   br label %rebin_segment.exit
 
-rebin_segment.exit:                               ; preds = %134, %unlink_segment.exit.i, %82, %80
-  br i1 %79, label %select.unfold, label %.loopexit
+rebin_segment.exit:                               ; preds = %140, %unlink_segment.exit.i, %contiguous_pages_to_segment_bin.exit.i, %83
+  br i1 %82, label %select.unfold, label %.loopexit
 
 select.unfold:                                    ; preds = %rebin_segment.exit, %get_segment_by_index.exit
-  %.not = icmp eq i64 %76, -1
+  %.not = icmp eq i64 %79, -1
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %select.unfold, %34
-  %139 = add nuw nsw i64 %.02949, 1
-  %exitcond.not = icmp eq i64 %139, 16
-  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !19
+._crit_edge:                                      ; preds = %select.unfold, %37
+  %145 = add nuw nsw i64 %.02949, 1
+  %exitcond.not = icmp eq i64 %145, 16
+  br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge, %rebin_segment.exit
-  %.4 = phi ptr [ %41, %rebin_segment.exit ], [ null, %._crit_edge ]
+  %.4 = phi ptr [ %44, %rebin_segment.exit ], [ null, %._crit_edge ]
   ret ptr %.4
 }
 
@@ -1668,51 +1693,60 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef captures(ret: a
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store i64 %.0101, ptr %91, align 8
   %92 = icmp eq i64 %.0102, 0
-  %93 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.0102, i1 true)
-  %94 = sub nuw nsw i64 64, %93
-  %95 = tail call i64 @llvm.umin.i64(i64 %94, i64 15)
-  %96 = select i1 %92, i64 0, i64 %95
-  %97 = load ptr, ptr %74, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 40
-  store i64 %96, ptr %98, align 8
-  %99 = load ptr, ptr %74, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  store i64 -1, ptr %100, align 8
-  %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 4160
-  %103 = load ptr, ptr %74, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 40
-  %105 = load i64, ptr %104, align 8
-  %106 = getelementptr inbounds nuw [16 x i64], ptr %102, i64 0, i64 %105
-  %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %103, i64 32
-  store i64 %107, ptr %108, align 8
-  %109 = load ptr, ptr %74, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 48
-  store i8 0, ptr %110, align 8
-  %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4160
-  %113 = load ptr, ptr %74, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds nuw [16 x i64], ptr %112, i64 0, i64 %115
-  store i64 %.099122, ptr %116, align 8
-  %117 = load ptr, ptr %74, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 32
-  %119 = load i64, ptr %118, align 8
-  %.not118 = icmp eq i64 %119, -1
-  br i1 %.not118, label %.loopexit, label %120
+  br i1 %92, label %contiguous_pages_to_segment_bin.exit, label %93
 
-120:                                              ; preds = %65
-  %121 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %119)
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  store i64 %.099122, ptr %124, align 8
+93:                                               ; preds = %65
+  %94 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.0102, i1 true)
+  %95 = trunc nuw nsw i64 %94 to i32
+  %96 = xor i32 %95, 63
+  %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 14)
+  %98 = add nuw nsw i32 %97, 1
+  %99 = zext nneg i32 %98 to i64
+  br label %contiguous_pages_to_segment_bin.exit
+
+contiguous_pages_to_segment_bin.exit:             ; preds = %65, %93
+  %.0.i = phi i64 [ %99, %93 ], [ 0, %65 ]
+  %100 = load ptr, ptr %74, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
+  store i64 %.0.i, ptr %101, align 8
+  %102 = load ptr, ptr %74, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  store i64 -1, ptr %103, align 8
+  %104 = load ptr, ptr %0, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 4160
+  %106 = load ptr, ptr %74, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
+  %108 = load i64, ptr %107, align 8
+  %109 = getelementptr inbounds nuw [16 x i64], ptr %105, i64 0, i64 %108
+  %110 = load i64, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 32
+  store i64 %110, ptr %111, align 8
+  %112 = load ptr, ptr %74, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 48
+  store i8 0, ptr %113, align 8
+  %114 = load ptr, ptr %0, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4160
+  %116 = load ptr, ptr %74, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 40
+  %118 = load i64, ptr %117, align 8
+  %119 = getelementptr inbounds nuw [16 x i64], ptr %115, i64 0, i64 %118
+  store i64 %.099122, ptr %119, align 8
+  %120 = load ptr, ptr %74, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
+  %122 = load i64, ptr %121, align 8
+  %.not118 = icmp eq i64 %122, -1
+  br i1 %.not118, label %.loopexit, label %123
+
+123:                                              ; preds = %contiguous_pages_to_segment_bin.exit
+  %124 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %122)
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  store i64 %.099122, ptr %127, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %9, %65, %120, %44, %34, %15, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %15 ], [ null, %34 ], [ null, %44 ], [ %71, %120 ], [ %71, %65 ], [ null, %9 ]
+.loopexit:                                        ; preds = %9, %contiguous_pages_to_segment_bin.exit, %123, %44, %34, %15, %.thread
+  %.0 = phi ptr [ null, %.thread ], [ null, %15 ], [ null, %34 ], [ null, %44 ], [ %71, %123 ], [ %71, %contiguous_pages_to_segment_bin.exit ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -2348,100 +2382,109 @@ define internal fastcc void @rebin_segment(ptr noundef %0, ptr noundef %1) unnam
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
-  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %6, i1 true)
-  %9 = sub nuw nsw i64 64, %8
-  %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 15)
-  %11 = select i1 %7, i64 0, i64 %10
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i64, ptr %14, align 8
-  %16 = icmp eq i64 %15, %11
-  br i1 %16, label %72, label %17
+  br i1 %7, label %contiguous_pages_to_segment_bin.exit, label %8
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %19 = load i64, ptr %18, align 8
-  %.not.i = icmp eq i64 %19, -1
-  br i1 %.not.i, label %28, label %20
+8:                                                ; preds = %2
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %6, i1 true)
+  %10 = trunc nuw nsw i64 %9 to i32
+  %11 = xor i32 %10, 63
+  %12 = tail call i32 @llvm.umin.i32(i32 %11, i32 14)
+  %13 = add nuw nsw i32 %12, 1
+  %14 = zext nneg i32 %13 to i64
+  br label %contiguous_pages_to_segment_bin.exit
 
-20:                                               ; preds = %17
-  %21 = tail call fastcc ptr @get_segment_by_index(ptr noundef %0, i64 noundef %19)
-  %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store i64 %24, ptr %27, align 8
-  br label %34
+contiguous_pages_to_segment_bin.exit:             ; preds = %2, %8
+  %.0.i = phi i64 [ %14, %8 ], [ 0, %2 ]
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %18 = load i64, ptr %17, align 8
+  %19 = icmp eq i64 %18, %.0.i
+  br i1 %19, label %75, label %20
 
-28:                                               ; preds = %17
-  %29 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %30 = load i64, ptr %29, align 8
-  %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4160
-  %33 = getelementptr inbounds nuw [16 x i64], ptr %32, i64 0, i64 %15
-  store i64 %30, ptr %33, align 8
-  br label %34
+20:                                               ; preds = %contiguous_pages_to_segment_bin.exit
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %22 = load i64, ptr %21, align 8
+  %.not.i = icmp eq i64 %22, -1
+  br i1 %.not.i, label %31, label %23
 
-34:                                               ; preds = %28, %20
-  %35 = load ptr, ptr %12, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %37 = load i64, ptr %36, align 8
-  %.not14.i = icmp eq i64 %37, -1
-  br i1 %.not14.i, label %unlink_segment.exit, label %38
+23:                                               ; preds = %20
+  %24 = tail call fastcc ptr @get_segment_by_index(ptr noundef %0, i64 noundef %22)
+  %25 = load ptr, ptr %15, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  store i64 %27, ptr %30, align 8
+  br label %37
 
-38:                                               ; preds = %34
-  %39 = tail call fastcc ptr @get_segment_by_index(ptr noundef %0, i64 noundef %37)
-  %40 = load ptr, ptr %12, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store i64 %42, ptr %45, align 8
-  %.pre = load ptr, ptr %12, align 8
+31:                                               ; preds = %20
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %0, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4160
+  %36 = getelementptr inbounds nuw [16 x i64], ptr %35, i64 0, i64 %18
+  store i64 %33, ptr %36, align 8
+  br label %37
+
+37:                                               ; preds = %31, %23
+  %38 = load ptr, ptr %15, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %40 = load i64, ptr %39, align 8
+  %.not14.i = icmp eq i64 %40, -1
+  br i1 %.not14.i, label %unlink_segment.exit, label %41
+
+41:                                               ; preds = %37
+  %42 = tail call fastcc ptr @get_segment_by_index(ptr noundef %0, i64 noundef %40)
+  %43 = load ptr, ptr %15, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %45 = load i64, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  store i64 %45, ptr %48, align 8
+  %.pre = load ptr, ptr %15, align 8
   br label %unlink_segment.exit
 
-unlink_segment.exit:                              ; preds = %34, %38
-  %46 = phi ptr [ %35, %34 ], [ %.pre, %38 ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %48 = ptrtoint ptr %1 to i64
-  %49 = ptrtoint ptr %47 to i64
-  %50 = sub i64 %48, %49
-  %51 = sdiv exact i64 %50, 40
-  %52 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store i64 -1, ptr %52, align 8
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4160
-  %55 = getelementptr inbounds nuw [16 x i64], ptr %54, i64 0, i64 %11
-  %56 = load i64, ptr %55, align 8
-  %57 = load ptr, ptr %12, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  store i64 %56, ptr %58, align 8
-  %59 = load ptr, ptr %12, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  store i64 %11, ptr %60, align 8
-  %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4160
-  %63 = getelementptr inbounds nuw [16 x i64], ptr %62, i64 0, i64 %11
-  store i64 %51, ptr %63, align 8
-  %64 = load ptr, ptr %12, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %66 = load i64, ptr %65, align 8
-  %.not = icmp eq i64 %66, -1
-  br i1 %.not, label %72, label %67
+unlink_segment.exit:                              ; preds = %37, %41
+  %49 = phi ptr [ %38, %37 ], [ %.pre, %41 ]
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %51 = ptrtoint ptr %1 to i64
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %51, %52
+  %54 = sdiv exact i64 %53, 40
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  store i64 -1, ptr %55, align 8
+  %56 = load ptr, ptr %0, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4160
+  %58 = getelementptr inbounds nuw [16 x i64], ptr %57, i64 0, i64 %.0.i
+  %59 = load i64, ptr %58, align 8
+  %60 = load ptr, ptr %15, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  store i64 %59, ptr %61, align 8
+  %62 = load ptr, ptr %15, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
+  store i64 %.0.i, ptr %63, align 8
+  %64 = load ptr, ptr %0, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4160
+  %66 = getelementptr inbounds nuw [16 x i64], ptr %65, i64 0, i64 %.0.i
+  store i64 %54, ptr %66, align 8
+  %67 = load ptr, ptr %15, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  %69 = load i64, ptr %68, align 8
+  %.not = icmp eq i64 %69, -1
+  br i1 %.not, label %75, label %70
 
-67:                                               ; preds = %unlink_segment.exit
-  %68 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %66)
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  store i64 %51, ptr %71, align 8
-  br label %72
+70:                                               ; preds = %unlink_segment.exit
+  %71 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %69)
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  store i64 %54, ptr %74, align 8
+  br label %75
 
-72:                                               ; preds = %unlink_segment.exit, %67, %2
+75:                                               ; preds = %unlink_segment.exit, %70, %contiguous_pages_to_segment_bin.exit
   ret void
 }
 
@@ -3722,6 +3765,9 @@ declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

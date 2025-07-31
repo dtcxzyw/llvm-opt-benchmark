@@ -409,7 +409,7 @@ HIDAPI_DriverSteam_RenewPairingState.exit:        ; preds = %SetPairingState.exi
   br label %107
 
 107:                                              ; preds = %.lr.ph, %.thread
-  %108 = phi i32 [ %49, %.lr.ph ], [ %450, %.thread ]
+  %108 = phi i32 [ %49, %.lr.ph ], [ %449, %.thread ]
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %110, label %116
 
@@ -498,7 +498,7 @@ WriteSegmentToSteamControllerPacketAssembler.exit: ; preds = %138, %135
   %.not.i125 = icmp eq i16 %141, 1
   %142 = trunc i16 %141 to i8
   %143 = lshr i16 %141, 8
-  br i1 %.not.i125, label %267, label %144
+  br i1 %.not.i125, label %266, label %144
 
 144:                                              ; preds = %WriteSegmentToSteamControllerPacketAssembler.exit
   %145 = and i16 %141, 15
@@ -524,534 +524,534 @@ WriteSegmentToSteamControllerPacketAssembler.exit: ; preds = %138, %135
   %.0.i.i = phi ptr [ %59, %153 ], [ %57, %147 ]
   %155 = and i32 %150, 32
   %.not99.i.i = icmp eq i32 %155, 0
-  br i1 %.not99.i.i, label %179, label %156
+  br i1 %.not99.i.i, label %178, label %RemapValClamped.exit.i.i
 
-156:                                              ; preds = %154
-  %157 = load i8, ptr %.0.i.i, align 1
-  %158 = zext i8 %157 to i32
-  %159 = shl nuw nsw i32 %158, 7
-  %160 = or i32 %159, %158
-  %161 = uitofp nneg i32 %160 to float
-  %162 = fdiv float %161, 2.600000e+04
-  %163 = fcmp ogt float %162, 1.000000e+00
-  %164 = call float @llvm.fmuladd.f32(float %162, float 3.276700e+04, float 0.000000e+00)
-  %165 = select i1 %163, float 3.276700e+04, float %164
-  %166 = fptoui float %165 to i16
-  store i16 %166, ptr %60, align 4
-  %167 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
-  %168 = load i8, ptr %167, align 1
-  %169 = zext i8 %168 to i32
-  %170 = shl nuw nsw i32 %169, 7
-  %171 = or i32 %170, %169
-  %172 = uitofp nneg i32 %171 to float
-  %173 = fdiv float %172, 2.600000e+04
-  %174 = fcmp ogt float %173, 1.000000e+00
-  %175 = call float @llvm.fmuladd.f32(float %173, float 3.276700e+04, float 0.000000e+00)
-  %176 = select i1 %174, float 3.276700e+04, float %175
-  %177 = fptoui float %176 to i16
-  store i16 %177, ptr %61, align 2
-  %178 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
-  br label %179
+RemapValClamped.exit.i.i:                         ; preds = %154
+  %156 = load i8, ptr %.0.i.i, align 1
+  %157 = zext i8 %156 to i32
+  %158 = shl nuw nsw i32 %157, 7
+  %159 = or i32 %158, %157
+  %160 = uitofp nneg i32 %159 to float
+  %161 = fdiv float %160, 2.600000e+04
+  %162 = fcmp ogt float %161, 1.000000e+00
+  %163 = call float @llvm.fmuladd.f32(float %161, float 3.276700e+04, float 0.000000e+00)
+  %164 = select i1 %162, float 3.276700e+04, float %163
+  %165 = fptoui float %164 to i16
+  store i16 %165, ptr %60, align 4
+  %166 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
+  %167 = load i8, ptr %166, align 1
+  %168 = zext i8 %167 to i32
+  %169 = shl nuw nsw i32 %168, 7
+  %170 = or i32 %169, %168
+  %171 = uitofp nneg i32 %170 to float
+  %172 = fdiv float %171, 2.600000e+04
+  %173 = fcmp ogt float %172, 1.000000e+00
+  %174 = call float @llvm.fmuladd.f32(float %172, float 3.276700e+04, float 0.000000e+00)
+  %175 = select i1 %173, float 3.276700e+04, float %174
+  %176 = fptoui float %175 to i16
+  store i16 %176, ptr %61, align 2
+  %177 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
+  br label %178
 
-179:                                              ; preds = %156, %154
-  %.1.i.i = phi ptr [ %178, %156 ], [ %.0.i.i, %154 ]
-  %180 = and i32 %150, 64
-  %.not100.i.i = icmp eq i32 %180, 0
-  br i1 %.not100.i.i, label %188, label %181
+178:                                              ; preds = %RemapValClamped.exit.i.i, %154
+  %.1.i.i = phi ptr [ %177, %RemapValClamped.exit.i.i ], [ %.0.i.i, %154 ]
+  %179 = and i32 %150, 64
+  %.not100.i.i = icmp eq i32 %179, 0
+  br i1 %.not100.i.i, label %187, label %180
 
-181:                                              ; preds = %179
-  %182 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
-  %183 = load i8, ptr %.1.i.i, align 1
-  store i8 %183, ptr %62, align 1
-  %184 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 2
-  %185 = load i8, ptr %182, align 1
-  store i8 %185, ptr %63, align 1
-  %186 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 3
-  %187 = load i8, ptr %184, align 1
-  store i8 %187, ptr %64, align 1
-  br label %188
+180:                                              ; preds = %178
+  %181 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
+  %182 = load i8, ptr %.1.i.i, align 1
+  store i8 %182, ptr %62, align 1
+  %183 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 2
+  %184 = load i8, ptr %181, align 1
+  store i8 %184, ptr %63, align 1
+  %185 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 3
+  %186 = load i8, ptr %183, align 1
+  store i8 %186, ptr %64, align 1
+  br label %187
 
-188:                                              ; preds = %181, %179
-  %.2.i.i = phi ptr [ %186, %181 ], [ %.1.i.i, %179 ]
+187:                                              ; preds = %180, %178
+  %.2.i.i = phi ptr [ %185, %180 ], [ %.1.i.i, %178 ]
   %.not101.i.i = icmp sgt i8 %142, -1
-  br i1 %.not101.i.i, label %192, label %189
+  br i1 %.not101.i.i, label %191, label %188
 
-189:                                              ; preds = %188
-  %190 = load i32, ptr %.2.i.i, align 1
-  store i32 %190, ptr %65, align 4
-  %191 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 4
-  br label %192
+188:                                              ; preds = %187
+  %189 = load i32, ptr %.2.i.i, align 1
+  store i32 %189, ptr %65, align 4
+  %190 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 4
+  br label %191
 
-192:                                              ; preds = %189, %188
-  %.3.i.i = phi ptr [ %191, %189 ], [ %.2.i.i, %188 ]
-  %193 = and i32 %151, 1
-  %.not102.i.i = icmp eq i32 %193, 0
-  br i1 %.not102.i.i, label %224, label %194
+191:                                              ; preds = %188, %187
+  %.3.i.i = phi ptr [ %190, %188 ], [ %.2.i.i, %187 ]
+  %192 = and i32 %151, 1
+  %.not102.i.i = icmp eq i32 %192, 0
+  br i1 %.not102.i.i, label %223, label %193
 
-194:                                              ; preds = %192
-  %195 = load i32, ptr %.3.i.i, align 1
-  store i32 %195, ptr %66, align 8
-  %196 = load i64, ptr %58, align 8
-  %197 = and i64 %196, 524288
-  %.not103.i.i = icmp eq i64 %197, 0
+193:                                              ; preds = %191
+  %194 = load i32, ptr %.3.i.i, align 1
+  store i32 %194, ptr %66, align 8
+  %195 = load i64, ptr %58, align 8
+  %196 = and i64 %195, 524288
+  %.not103.i.i = icmp eq i64 %196, 0
   %..i.i = select i1 %.not103.i.i, i32 0, i32 1000
-  %198 = trunc i32 %195 to i16
-  %199 = lshr i32 %195, 16
-  %200 = trunc nuw i32 %199 to i16
-  %201 = call float @SDL_cosf_REAL(float noundef 0xBFD0C150A0000000) #9
-  %202 = sitofp i16 %198 to float
-  %203 = call float @SDL_sinf_REAL(float noundef 0xBFD0C150A0000000) #9
-  %204 = sitofp i16 %200 to float
-  %205 = fneg float %204
-  %206 = fmul float %203, %205
-  %207 = call float @llvm.fmuladd.f32(float %201, float %202, float %206)
-  %208 = fptosi float %207 to i16
-  store i16 %208, ptr %66, align 2
-  %209 = call float @SDL_sinf_REAL(float noundef 0xBFD0C150A0000000) #9
-  %210 = call float @SDL_cosf_REAL(float noundef 0xBFD0C150A0000000) #9
-  %211 = fmul float %210, %204
-  %212 = call float @llvm.fmuladd.f32(float %209, float %202, float %211)
-  %213 = fptosi float %212 to i16
-  %214 = load i16, ptr %66, align 8
-  %215 = sext i16 %214 to i32
-  %216 = add nsw i32 %..i.i, %215
-  %217 = call i32 @llvm.smin.i32(i32 %216, i32 32767)
-  %218 = trunc nsw i32 %217 to i16
-  store i16 %218, ptr %66, align 8
-  %219 = sext i16 %213 to i32
-  %220 = add nsw i32 %..i.i, %219
-  %221 = call i32 @llvm.smin.i32(i32 %220, i32 32767)
-  %222 = trunc nsw i32 %221 to i16
-  store i16 %222, ptr %67, align 2
-  %223 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 4
-  br label %224
+  %197 = trunc i32 %194 to i16
+  %198 = lshr i32 %194, 16
+  %199 = trunc nuw i32 %198 to i16
+  %200 = call float @SDL_cosf_REAL(float noundef 0xBFD0C150A0000000) #9
+  %201 = sitofp i16 %197 to float
+  %202 = call float @SDL_sinf_REAL(float noundef 0xBFD0C150A0000000) #9
+  %203 = sitofp i16 %199 to float
+  %204 = fneg float %203
+  %205 = fmul float %202, %204
+  %206 = call float @llvm.fmuladd.f32(float %200, float %201, float %205)
+  %207 = fptosi float %206 to i16
+  store i16 %207, ptr %66, align 2
+  %208 = call float @SDL_sinf_REAL(float noundef 0xBFD0C150A0000000) #9
+  %209 = call float @SDL_cosf_REAL(float noundef 0xBFD0C150A0000000) #9
+  %210 = fmul float %209, %203
+  %211 = call float @llvm.fmuladd.f32(float %208, float %201, float %210)
+  %212 = fptosi float %211 to i16
+  %213 = load i16, ptr %66, align 8
+  %214 = sext i16 %213 to i32
+  %215 = add nsw i32 %..i.i, %214
+  %216 = call i32 @llvm.smin.i32(i32 %215, i32 32767)
+  %217 = trunc nsw i32 %216 to i16
+  store i16 %217, ptr %66, align 8
+  %218 = sext i16 %212 to i32
+  %219 = add nsw i32 %..i.i, %218
+  %220 = call i32 @llvm.smin.i32(i32 %219, i32 32767)
+  %221 = trunc nsw i32 %220 to i16
+  store i16 %221, ptr %67, align 2
+  %222 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 4
+  br label %223
 
-224:                                              ; preds = %194, %192
-  %.4.i.i = phi ptr [ %223, %194 ], [ %.3.i.i, %192 ]
-  %225 = and i32 %151, 2
-  %.not104.i.i = icmp eq i32 %225, 0
-  br i1 %.not104.i.i, label %256, label %226
+223:                                              ; preds = %193, %191
+  %.4.i.i = phi ptr [ %222, %193 ], [ %.3.i.i, %191 ]
+  %224 = and i32 %151, 2
+  %.not104.i.i = icmp eq i32 %224, 0
+  br i1 %.not104.i.i, label %255, label %225
 
-226:                                              ; preds = %224
-  %227 = load i32, ptr %.4.i.i, align 1
-  store i32 %227, ptr %68, align 4
-  %228 = load i64, ptr %58, align 8
-  %229 = and i64 %228, 1048576
-  %.not105.i.i = icmp eq i64 %229, 0
+225:                                              ; preds = %223
+  %226 = load i32, ptr %.4.i.i, align 1
+  store i32 %226, ptr %68, align 4
+  %227 = load i64, ptr %58, align 8
+  %228 = and i64 %227, 1048576
+  %.not105.i.i = icmp eq i64 %228, 0
   %.109.i.i = select i1 %.not105.i.i, i32 0, i32 1000
-  %230 = trunc i32 %227 to i16
-  %231 = lshr i32 %227, 16
-  %232 = trunc nuw i32 %231 to i16
-  %233 = call float @SDL_cosf_REAL(float noundef 0x3FD0C150A0000000) #9
-  %234 = sitofp i16 %230 to float
-  %235 = call float @SDL_sinf_REAL(float noundef 0x3FD0C150A0000000) #9
-  %236 = sitofp i16 %232 to float
-  %237 = fneg float %236
-  %238 = fmul float %235, %237
-  %239 = call float @llvm.fmuladd.f32(float %233, float %234, float %238)
-  %240 = fptosi float %239 to i16
-  store i16 %240, ptr %68, align 2
-  %241 = call float @SDL_sinf_REAL(float noundef 0x3FD0C150A0000000) #9
-  %242 = call float @SDL_cosf_REAL(float noundef 0x3FD0C150A0000000) #9
-  %243 = fmul float %242, %236
-  %244 = call float @llvm.fmuladd.f32(float %241, float %234, float %243)
-  %245 = fptosi float %244 to i16
-  %246 = load i16, ptr %68, align 4
-  %247 = sext i16 %246 to i32
-  %248 = add nsw i32 %.109.i.i, %247
-  %249 = call i32 @llvm.smin.i32(i32 %248, i32 32767)
-  %250 = trunc nsw i32 %249 to i16
-  store i16 %250, ptr %68, align 4
-  %251 = sext i16 %245 to i32
-  %252 = add nsw i32 %.109.i.i, %251
-  %253 = call i32 @llvm.smin.i32(i32 %252, i32 32767)
-  %254 = trunc nsw i32 %253 to i16
-  store i16 %254, ptr %69, align 2
-  %255 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 4
-  br label %256
+  %229 = trunc i32 %226 to i16
+  %230 = lshr i32 %226, 16
+  %231 = trunc nuw i32 %230 to i16
+  %232 = call float @SDL_cosf_REAL(float noundef 0x3FD0C150A0000000) #9
+  %233 = sitofp i16 %229 to float
+  %234 = call float @SDL_sinf_REAL(float noundef 0x3FD0C150A0000000) #9
+  %235 = sitofp i16 %231 to float
+  %236 = fneg float %235
+  %237 = fmul float %234, %236
+  %238 = call float @llvm.fmuladd.f32(float %232, float %233, float %237)
+  %239 = fptosi float %238 to i16
+  store i16 %239, ptr %68, align 2
+  %240 = call float @SDL_sinf_REAL(float noundef 0x3FD0C150A0000000) #9
+  %241 = call float @SDL_cosf_REAL(float noundef 0x3FD0C150A0000000) #9
+  %242 = fmul float %241, %235
+  %243 = call float @llvm.fmuladd.f32(float %240, float %233, float %242)
+  %244 = fptosi float %243 to i16
+  %245 = load i16, ptr %68, align 4
+  %246 = sext i16 %245 to i32
+  %247 = add nsw i32 %.109.i.i, %246
+  %248 = call i32 @llvm.smin.i32(i32 %247, i32 32767)
+  %249 = trunc nsw i32 %248 to i16
+  store i16 %249, ptr %68, align 4
+  %250 = sext i16 %244 to i32
+  %251 = add nsw i32 %.109.i.i, %250
+  %252 = call i32 @llvm.smin.i32(i32 %251, i32 32767)
+  %253 = trunc nsw i32 %252 to i16
+  store i16 %253, ptr %69, align 2
+  %254 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 4
+  br label %255
 
-256:                                              ; preds = %226, %224
-  %.5.i.i = phi ptr [ %255, %226 ], [ %.4.i.i, %224 ]
-  %257 = and i32 %151, 4
-  %.not106.i.i = icmp eq i32 %257, 0
-  br i1 %.not106.i.i, label %260, label %258
+255:                                              ; preds = %225, %223
+  %.5.i.i = phi ptr [ %254, %225 ], [ %.4.i.i, %223 ]
+  %256 = and i32 %151, 4
+  %.not106.i.i = icmp eq i32 %256, 0
+  br i1 %.not106.i.i, label %259, label %257
 
-258:                                              ; preds = %256
+257:                                              ; preds = %255
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %70, ptr noundef nonnull align 1 dereferenceable(6) %.5.i.i, i64 6, i1 false)
-  %259 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 6
-  br label %260
+  %258 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 6
+  br label %259
 
-260:                                              ; preds = %258, %256
-  %.6.i.i = phi ptr [ %259, %258 ], [ %.5.i.i, %256 ]
-  %261 = and i32 %151, 8
-  %.not107.i.i = icmp eq i32 %261, 0
-  br i1 %.not107.i.i, label %264, label %262
+259:                                              ; preds = %257, %255
+  %.6.i.i = phi ptr [ %258, %257 ], [ %.5.i.i, %255 ]
+  %260 = and i32 %151, 8
+  %.not107.i.i = icmp eq i32 %260, 0
+  br i1 %.not107.i.i, label %263, label %261
 
-262:                                              ; preds = %260
+261:                                              ; preds = %259
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %71, ptr noundef nonnull align 1 dereferenceable(6) %.6.i.i, i64 6, i1 false)
-  %263 = getelementptr inbounds nuw i8, ptr %.6.i.i, i64 6
-  br label %264
+  %262 = getelementptr inbounds nuw i8, ptr %.6.i.i, i64 6
+  br label %263
 
-264:                                              ; preds = %262, %260
-  %.7.i.i = phi ptr [ %263, %262 ], [ %.6.i.i, %260 ]
-  %265 = and i32 %151, 16
-  %.not108.i.i = icmp eq i32 %265, 0
-  br i1 %.not108.i.i, label %309, label %266
+263:                                              ; preds = %261, %259
+  %.7.i.i = phi ptr [ %262, %261 ], [ %.6.i.i, %259 ]
+  %264 = and i32 %151, 16
+  %.not108.i.i = icmp eq i32 %264, 0
+  br i1 %.not108.i.i, label %308, label %265
 
-266:                                              ; preds = %264
+265:                                              ; preds = %263
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %72, ptr noundef nonnull align 1 dereferenceable(16) %.7.i.i, i64 16, i1 false)
-  br label %309
+  br label %308
 
-267:                                              ; preds = %WriteSegmentToSteamControllerPacketAssembler.exit
-  %268 = load i8, ptr %57, align 1
-  switch i8 %268, label %UpdateSteamControllerState.exit.thread [
-    i8 1, label %269
-    i8 7, label %287
+266:                                              ; preds = %WriteSegmentToSteamControllerPacketAssembler.exit
+  %267 = load i8, ptr %57, align 1
+  switch i8 %267, label %UpdateSteamControllerState.exit.thread [
+    i8 1, label %268
+    i8 7, label %286
   ]
 
-269:                                              ; preds = %267
-  %270 = load i32, ptr %56, align 4
-  %271 = load i32, ptr %73, align 1
-  %.not72.i = icmp eq i32 %270, %271
-  br i1 %.not72.i, label %309, label %272
+268:                                              ; preds = %266
+  %269 = load i32, ptr %56, align 4
+  %270 = load i32, ptr %73, align 1
+  %.not72.i = icmp eq i32 %269, %270
+  br i1 %.not72.i, label %308, label %271
 
-272:                                              ; preds = %269
+271:                                              ; preds = %268
   call fastcc void @FormatStatePacketUntilGyro(ptr noundef nonnull %55, ptr noundef nonnull readonly %73)
-  %273 = load i16, ptr %86, align 1
-  store i16 %273, ptr %70, align 8
-  %274 = load i16, ptr %87, align 1
-  store i16 %274, ptr %80, align 2
-  %275 = load i16, ptr %88, align 1
-  store i16 %275, ptr %81, align 4
-  %276 = load i16, ptr %89, align 1
-  %277 = sitofp i16 %276 to float
-  store float %277, ptr %72, align 4
-  %278 = load i16, ptr %90, align 1
-  %279 = sitofp i16 %278 to float
-  store float %279, ptr %82, align 8
-  %280 = load i16, ptr %91, align 1
-  %281 = sitofp i16 %280 to float
-  store float %281, ptr %83, align 4
-  %282 = load i16, ptr %92, align 1
-  %283 = sitofp i16 %282 to float
-  store float %283, ptr %85, align 8
-  %284 = load i16, ptr %93, align 1
-  store i16 %284, ptr %71, align 2
-  %285 = load i16, ptr %94, align 1
-  store i16 %285, ptr %77, align 8
-  %286 = load i16, ptr %95, align 1
-  store i16 %286, ptr %79, align 2
-  br label %309
+  %272 = load i16, ptr %86, align 1
+  store i16 %272, ptr %70, align 8
+  %273 = load i16, ptr %87, align 1
+  store i16 %273, ptr %80, align 2
+  %274 = load i16, ptr %88, align 1
+  store i16 %274, ptr %81, align 4
+  %275 = load i16, ptr %89, align 1
+  %276 = sitofp i16 %275 to float
+  store float %276, ptr %72, align 4
+  %277 = load i16, ptr %90, align 1
+  %278 = sitofp i16 %277 to float
+  store float %278, ptr %82, align 8
+  %279 = load i16, ptr %91, align 1
+  %280 = sitofp i16 %279 to float
+  store float %280, ptr %83, align 4
+  %281 = load i16, ptr %92, align 1
+  %282 = sitofp i16 %281 to float
+  store float %282, ptr %85, align 8
+  %283 = load i16, ptr %93, align 1
+  store i16 %283, ptr %71, align 2
+  %284 = load i16, ptr %94, align 1
+  store i16 %284, ptr %77, align 8
+  %285 = load i16, ptr %95, align 1
+  store i16 %285, ptr %79, align 2
+  br label %308
 
-287:                                              ; preds = %267
-  %288 = load i32, ptr %56, align 4
-  %289 = load i32, ptr %73, align 1
-  %.not71.i = icmp eq i32 %288, %289
-  br i1 %.not71.i, label %309, label %290
+286:                                              ; preds = %266
+  %287 = load i32, ptr %56, align 4
+  %288 = load i32, ptr %73, align 1
+  %.not71.i = icmp eq i32 %287, %288
+  br i1 %.not71.i, label %308, label %289
 
-290:                                              ; preds = %287
+289:                                              ; preds = %286
   call fastcc void @FormatStatePacketUntilGyro(ptr noundef nonnull %55, ptr noundef nonnull readonly %73)
-  %291 = load i8, ptr %74, align 1
-  switch i8 %291, label %309 [
-    i8 1, label %292
-    i8 2, label %301
-    i8 3, label %305
+  %290 = load i8, ptr %74, align 1
+  switch i8 %290, label %308 [
+    i8 1, label %291
+    i8 2, label %300
+    i8 3, label %304
   ]
 
-292:                                              ; preds = %290
-  %293 = load i16, ptr %75, align 1
-  %294 = sitofp i16 %293 to float
-  store float %294, ptr %72, align 4
-  %295 = load i16, ptr %76, align 1
-  %296 = sitofp i16 %295 to float
-  store float %296, ptr %82, align 8
-  %297 = load i16, ptr %78, align 1
-  %298 = sitofp i16 %297 to float
-  store float %298, ptr %83, align 4
-  %299 = load i16, ptr %84, align 1
-  %300 = sitofp i16 %299 to float
-  store float %300, ptr %85, align 8
-  br label %309
+291:                                              ; preds = %289
+  %292 = load i16, ptr %75, align 1
+  %293 = sitofp i16 %292 to float
+  store float %293, ptr %72, align 4
+  %294 = load i16, ptr %76, align 1
+  %295 = sitofp i16 %294 to float
+  store float %295, ptr %82, align 8
+  %296 = load i16, ptr %78, align 1
+  %297 = sitofp i16 %296 to float
+  store float %297, ptr %83, align 4
+  %298 = load i16, ptr %84, align 1
+  %299 = sitofp i16 %298 to float
+  store float %299, ptr %85, align 8
+  br label %308
 
-301:                                              ; preds = %290
-  %302 = load i16, ptr %75, align 1
-  store i16 %302, ptr %70, align 8
-  %303 = load i16, ptr %76, align 1
-  store i16 %303, ptr %80, align 2
-  %304 = load i16, ptr %78, align 1
-  store i16 %304, ptr %81, align 4
-  br label %309
+300:                                              ; preds = %289
+  %301 = load i16, ptr %75, align 1
+  store i16 %301, ptr %70, align 8
+  %302 = load i16, ptr %76, align 1
+  store i16 %302, ptr %80, align 2
+  %303 = load i16, ptr %78, align 1
+  store i16 %303, ptr %81, align 4
+  br label %308
 
-305:                                              ; preds = %290
-  %306 = load i16, ptr %75, align 1
-  store i16 %306, ptr %71, align 2
-  %307 = load i16, ptr %76, align 1
-  store i16 %307, ptr %77, align 8
-  %308 = load i16, ptr %78, align 1
-  store i16 %308, ptr %79, align 2
-  br label %309
+304:                                              ; preds = %289
+  %305 = load i16, ptr %75, align 1
+  store i16 %305, ptr %71, align 2
+  %306 = load i16, ptr %76, align 1
+  store i16 %306, ptr %77, align 8
+  %307 = load i16, ptr %78, align 1
+  store i16 %307, ptr %79, align 2
+  br label %308
 
-309:                                              ; preds = %272, %269, %287, %292, %301, %305, %290, %264, %266
-  %310 = call i64 @SDL_GetTicksNS_REAL() #9
-  %311 = load i8, ptr %96, align 8, !range !3, !noundef !4
-  %312 = trunc nuw i8 %311 to i1
-  br i1 %312, label %314, label %313
+308:                                              ; preds = %271, %268, %286, %291, %300, %304, %289, %263, %265
+  %309 = call i64 @SDL_GetTicksNS_REAL() #9
+  %310 = load i8, ptr %96, align 8, !range !3, !noundef !4
+  %311 = trunc nuw i8 %310 to i1
+  br i1 %311, label %313, label %312
 
-313:                                              ; preds = %309
+312:                                              ; preds = %308
   call fastcc void @ControllerConnected(ptr noundef nonnull %0, ptr noundef %4)
-  br label %314
+  br label %313
 
-314:                                              ; preds = %313, %309
-  %315 = load ptr, ptr %4, align 8
-  %.not117.not = icmp eq ptr %315, null
-  br i1 %.not117.not, label %.thread, label %316
+313:                                              ; preds = %312, %308
+  %314 = load ptr, ptr %4, align 8
+  %.not117.not = icmp eq ptr %314, null
+  br i1 %.not117.not, label %.thread, label %315
 
-316:                                              ; preds = %314
-  %317 = load i64, ptr %58, align 8
-  %318 = load i64, ptr %98, align 8
-  %.not118 = icmp eq i64 %317, %318
-  br i1 %.not118, label %368, label %319
+315:                                              ; preds = %313
+  %316 = load i64, ptr %58, align 8
+  %317 = load i64, ptr %98, align 8
+  %.not118 = icmp eq i64 %316, %317
+  br i1 %.not118, label %367, label %318
 
-319:                                              ; preds = %316
-  %320 = and i64 %317, 128
-  %321 = icmp ne i64 %320, 0
-  call void @SDL_SendJoystickButton(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 0, i1 noundef zeroext %321) #9
-  %322 = load i64, ptr %58, align 8
-  %323 = and i64 %322, 32
-  %324 = icmp ne i64 %323, 0
-  call void @SDL_SendJoystickButton(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 1, i1 noundef zeroext %324) #9
-  %325 = load i64, ptr %58, align 8
-  %326 = and i64 %325, 64
-  %327 = icmp ne i64 %326, 0
-  call void @SDL_SendJoystickButton(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 2, i1 noundef zeroext %327) #9
-  %328 = load i64, ptr %58, align 8
-  %329 = and i64 %328, 16
-  %330 = icmp ne i64 %329, 0
-  call void @SDL_SendJoystickButton(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 3, i1 noundef zeroext %330) #9
-  %331 = load i64, ptr %58, align 8
-  %332 = and i64 %331, 8
-  %333 = icmp ne i64 %332, 0
-  call void @SDL_SendJoystickButton(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 9, i1 noundef zeroext %333) #9
-  %334 = load i64, ptr %58, align 8
-  %335 = and i64 %334, 4
-  %336 = icmp ne i64 %335, 0
-  call void @SDL_SendJoystickButton(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 10, i1 noundef zeroext %336) #9
-  %337 = load i64, ptr %58, align 8
-  %338 = and i64 %337, 4096
-  %339 = icmp ne i64 %338, 0
-  call void @SDL_SendJoystickButton(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 4, i1 noundef zeroext %339) #9
-  %340 = load i64, ptr %58, align 8
-  %341 = and i64 %340, 16384
-  %342 = icmp ne i64 %341, 0
-  call void @SDL_SendJoystickButton(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 6, i1 noundef zeroext %342) #9
-  %343 = load i64, ptr %58, align 8
-  %344 = and i64 %343, 8192
-  %345 = icmp ne i64 %344, 0
-  call void @SDL_SendJoystickButton(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 5, i1 noundef zeroext %345) #9
-  %346 = load i64, ptr %58, align 8
-  %347 = and i64 %346, 4194304
-  %348 = icmp ne i64 %347, 0
-  call void @SDL_SendJoystickButton(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 7, i1 noundef zeroext %348) #9
-  %349 = load i64, ptr %58, align 8
-  %350 = and i64 %349, 32768
-  %351 = icmp ne i64 %350, 0
-  call void @SDL_SendJoystickButton(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 12, i1 noundef zeroext %351) #9
-  %352 = load i64, ptr %58, align 8
-  %353 = and i64 %352, 65536
-  %354 = icmp ne i64 %353, 0
-  call void @SDL_SendJoystickButton(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 11, i1 noundef zeroext %354) #9
-  %355 = load i64, ptr %58, align 8
-  %356 = and i64 %355, 262144
-  %357 = icmp ne i64 %356, 0
-  call void @SDL_SendJoystickButton(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 8, i1 noundef zeroext %357) #9
-  %358 = load i64, ptr %58, align 8
-  %359 = lshr i64 %358, 8
-  %360 = trunc i64 %359 to i8
-  %spec.select = and i8 %360, 1
-  %361 = lshr i64 %358, 9
-  %362 = trunc i64 %361 to i8
-  %363 = and i8 %362, 4
-  %.1 = or disjoint i8 %spec.select, %363
-  %364 = lshr i64 %358, 7
-  %365 = trunc i64 %364 to i8
-  %366 = and i8 %365, 8
-  %.2 = or disjoint i8 %.1, %366
-  %367 = and i8 %360, 2
-  %.3 = or disjoint i8 %.2, %367
-  call void @SDL_SendJoystickHat(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 0, i8 noundef zeroext %.3) #9
-  br label %368
+318:                                              ; preds = %315
+  %319 = and i64 %316, 128
+  %320 = icmp ne i64 %319, 0
+  call void @SDL_SendJoystickButton(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 0, i1 noundef zeroext %320) #9
+  %321 = load i64, ptr %58, align 8
+  %322 = and i64 %321, 32
+  %323 = icmp ne i64 %322, 0
+  call void @SDL_SendJoystickButton(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 1, i1 noundef zeroext %323) #9
+  %324 = load i64, ptr %58, align 8
+  %325 = and i64 %324, 64
+  %326 = icmp ne i64 %325, 0
+  call void @SDL_SendJoystickButton(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 2, i1 noundef zeroext %326) #9
+  %327 = load i64, ptr %58, align 8
+  %328 = and i64 %327, 16
+  %329 = icmp ne i64 %328, 0
+  call void @SDL_SendJoystickButton(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 3, i1 noundef zeroext %329) #9
+  %330 = load i64, ptr %58, align 8
+  %331 = and i64 %330, 8
+  %332 = icmp ne i64 %331, 0
+  call void @SDL_SendJoystickButton(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 9, i1 noundef zeroext %332) #9
+  %333 = load i64, ptr %58, align 8
+  %334 = and i64 %333, 4
+  %335 = icmp ne i64 %334, 0
+  call void @SDL_SendJoystickButton(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 10, i1 noundef zeroext %335) #9
+  %336 = load i64, ptr %58, align 8
+  %337 = and i64 %336, 4096
+  %338 = icmp ne i64 %337, 0
+  call void @SDL_SendJoystickButton(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 4, i1 noundef zeroext %338) #9
+  %339 = load i64, ptr %58, align 8
+  %340 = and i64 %339, 16384
+  %341 = icmp ne i64 %340, 0
+  call void @SDL_SendJoystickButton(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 6, i1 noundef zeroext %341) #9
+  %342 = load i64, ptr %58, align 8
+  %343 = and i64 %342, 8192
+  %344 = icmp ne i64 %343, 0
+  call void @SDL_SendJoystickButton(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 5, i1 noundef zeroext %344) #9
+  %345 = load i64, ptr %58, align 8
+  %346 = and i64 %345, 4194304
+  %347 = icmp ne i64 %346, 0
+  call void @SDL_SendJoystickButton(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 7, i1 noundef zeroext %347) #9
+  %348 = load i64, ptr %58, align 8
+  %349 = and i64 %348, 32768
+  %350 = icmp ne i64 %349, 0
+  call void @SDL_SendJoystickButton(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 12, i1 noundef zeroext %350) #9
+  %351 = load i64, ptr %58, align 8
+  %352 = and i64 %351, 65536
+  %353 = icmp ne i64 %352, 0
+  call void @SDL_SendJoystickButton(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 11, i1 noundef zeroext %353) #9
+  %354 = load i64, ptr %58, align 8
+  %355 = and i64 %354, 262144
+  %356 = icmp ne i64 %355, 0
+  call void @SDL_SendJoystickButton(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 8, i1 noundef zeroext %356) #9
+  %357 = load i64, ptr %58, align 8
+  %358 = lshr i64 %357, 8
+  %359 = trunc i64 %358 to i8
+  %spec.select = and i8 %359, 1
+  %360 = lshr i64 %357, 9
+  %361 = trunc i64 %360 to i8
+  %362 = and i8 %361, 4
+  %.1 = or disjoint i8 %spec.select, %362
+  %363 = lshr i64 %357, 7
+  %364 = trunc i64 %363 to i8
+  %365 = and i8 %364, 8
+  %.2 = or disjoint i8 %.1, %365
+  %366 = and i8 %359, 2
+  %.3 = or disjoint i8 %.2, %366
+  call void @SDL_SendJoystickHat(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 0, i8 noundef zeroext %.3) #9
+  br label %367
 
-368:                                              ; preds = %319, %316
-  %369 = load i16, ptr %60, align 4
-  %370 = shl i16 %369, 1
-  %371 = xor i16 %370, -32768
-  call void @SDL_SendJoystickAxis(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 4, i16 noundef signext %371) #9
-  %372 = load i16, ptr %61, align 2
-  %373 = shl i16 %372, 1
-  %374 = xor i16 %373, -32768
-  call void @SDL_SendJoystickAxis(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 5, i16 noundef signext %374) #9
-  %375 = load i16, ptr %65, align 4
-  call void @SDL_SendJoystickAxis(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 0, i16 noundef signext %375) #9
-  %376 = load i16, ptr %99, align 2
-  %377 = xor i16 %376, -1
-  call void @SDL_SendJoystickAxis(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 1, i16 noundef signext %377) #9
-  %378 = load i16, ptr %68, align 4
-  call void @SDL_SendJoystickAxis(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 2, i16 noundef signext %378) #9
-  %379 = load i16, ptr %69, align 2
-  %380 = xor i16 %379, -1
-  call void @SDL_SendJoystickAxis(i64 noundef %310, ptr noundef nonnull %315, i8 noundef zeroext 3, i16 noundef signext %380) #9
-  %381 = load i8, ptr %100, align 1, !range !3, !noundef !4
-  %382 = trunc nuw i8 %381 to i1
-  br i1 %382, label %383, label %419
+367:                                              ; preds = %318, %315
+  %368 = load i16, ptr %60, align 4
+  %369 = shl i16 %368, 1
+  %370 = xor i16 %369, -32768
+  call void @SDL_SendJoystickAxis(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 4, i16 noundef signext %370) #9
+  %371 = load i16, ptr %61, align 2
+  %372 = shl i16 %371, 1
+  %373 = xor i16 %372, -32768
+  call void @SDL_SendJoystickAxis(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 5, i16 noundef signext %373) #9
+  %374 = load i16, ptr %65, align 4
+  call void @SDL_SendJoystickAxis(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 0, i16 noundef signext %374) #9
+  %375 = load i16, ptr %99, align 2
+  %376 = xor i16 %375, -1
+  call void @SDL_SendJoystickAxis(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 1, i16 noundef signext %376) #9
+  %377 = load i16, ptr %68, align 4
+  call void @SDL_SendJoystickAxis(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 2, i16 noundef signext %377) #9
+  %378 = load i16, ptr %69, align 2
+  %379 = xor i16 %378, -1
+  call void @SDL_SendJoystickAxis(i64 noundef %309, ptr noundef nonnull %314, i8 noundef zeroext 3, i16 noundef signext %379) #9
+  %380 = load i8, ptr %100, align 1, !range !3, !noundef !4
+  %381 = trunc nuw i8 %380 to i1
+  br i1 %381, label %382, label %418
 
-383:                                              ; preds = %368
+382:                                              ; preds = %367
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #9
-  %384 = load i32, ptr %101, align 4
-  %385 = zext i32 %384 to i64
-  %386 = mul nuw nsw i64 %385, 1000
-  %387 = load i64, ptr %102, align 8
-  %388 = add i64 %386, %387
-  store i64 %388, ptr %102, align 8
-  %389 = load i16, ptr %71, align 2
-  %390 = sitofp i16 %389 to float
-  %391 = fmul float %390, 0x3F00000000000000
-  %392 = fmul float %391, 0x4041740B00000000
-  store float %392, ptr %6, align 4
-  %393 = load i16, ptr %79, align 2
-  %394 = sitofp i16 %393 to float
-  %395 = fmul float %394, 0x3F00000000000000
-  %396 = fmul float %395, 0x4041740B00000000
-  store float %396, ptr %103, align 4
-  %397 = load i16, ptr %77, align 8
-  %398 = sitofp i16 %397 to float
-  %399 = fmul float %398, 0x3F00000000000000
-  %400 = fmul float %399, 0x4041740B00000000
-  store float %400, ptr %104, align 4
-  call void @SDL_SendJoystickSensor(i64 noundef %310, ptr noundef nonnull %315, i32 noundef 2, i64 noundef %388, ptr noundef nonnull %6, i32 noundef 3) #9
-  %401 = load i16, ptr %70, align 8
-  %402 = sitofp i16 %401 to float
-  %403 = fmul float %402, 0x3F00000000000000
-  %404 = fmul float %403, 2.000000e+00
-  %405 = fmul float %404, 0x40239D0140000000
-  store float %405, ptr %6, align 4
-  %406 = load i16, ptr %81, align 4
-  %407 = sitofp i16 %406 to float
-  %408 = fmul float %407, 0x3F00000000000000
-  %409 = fmul float %408, 2.000000e+00
-  %410 = fmul float %409, 0x40239D0140000000
-  store float %410, ptr %103, align 4
-  %411 = load i16, ptr %80, align 2
-  %412 = sext i16 %411 to i32
-  %413 = sub nsw i32 0, %412
-  %414 = sitofp i32 %413 to float
-  %415 = fmul float %414, 0x3F00000000000000
-  %416 = fmul float %415, 2.000000e+00
-  %417 = fmul float %416, 0x40239D0140000000
-  store float %417, ptr %104, align 4
-  %418 = load i64, ptr %102, align 8
-  call void @SDL_SendJoystickSensor(i64 noundef %310, ptr noundef nonnull %315, i32 noundef 1, i64 noundef %418, ptr noundef nonnull %6, i32 noundef 3) #9
+  %383 = load i32, ptr %101, align 4
+  %384 = zext i32 %383 to i64
+  %385 = mul nuw nsw i64 %384, 1000
+  %386 = load i64, ptr %102, align 8
+  %387 = add i64 %385, %386
+  store i64 %387, ptr %102, align 8
+  %388 = load i16, ptr %71, align 2
+  %389 = sitofp i16 %388 to float
+  %390 = fmul float %389, 0x3F00000000000000
+  %391 = fmul float %390, 0x4041740B00000000
+  store float %391, ptr %6, align 4
+  %392 = load i16, ptr %79, align 2
+  %393 = sitofp i16 %392 to float
+  %394 = fmul float %393, 0x3F00000000000000
+  %395 = fmul float %394, 0x4041740B00000000
+  store float %395, ptr %103, align 4
+  %396 = load i16, ptr %77, align 8
+  %397 = sitofp i16 %396 to float
+  %398 = fmul float %397, 0x3F00000000000000
+  %399 = fmul float %398, 0x4041740B00000000
+  store float %399, ptr %104, align 4
+  call void @SDL_SendJoystickSensor(i64 noundef %309, ptr noundef nonnull %314, i32 noundef 2, i64 noundef %387, ptr noundef nonnull %6, i32 noundef 3) #9
+  %400 = load i16, ptr %70, align 8
+  %401 = sitofp i16 %400 to float
+  %402 = fmul float %401, 0x3F00000000000000
+  %403 = fmul float %402, 2.000000e+00
+  %404 = fmul float %403, 0x40239D0140000000
+  store float %404, ptr %6, align 4
+  %405 = load i16, ptr %81, align 4
+  %406 = sitofp i16 %405 to float
+  %407 = fmul float %406, 0x3F00000000000000
+  %408 = fmul float %407, 2.000000e+00
+  %409 = fmul float %408, 0x40239D0140000000
+  store float %409, ptr %103, align 4
+  %410 = load i16, ptr %80, align 2
+  %411 = sext i16 %410 to i32
+  %412 = sub nsw i32 0, %411
+  %413 = sitofp i32 %412 to float
+  %414 = fmul float %413, 0x3F00000000000000
+  %415 = fmul float %414, 2.000000e+00
+  %416 = fmul float %415, 0x40239D0140000000
+  store float %416, ptr %104, align 4
+  %417 = load i64, ptr %102, align 8
+  call void @SDL_SendJoystickSensor(i64 noundef %309, ptr noundef nonnull %314, i32 noundef 1, i64 noundef %417, ptr noundef nonnull %6, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #9
-  br label %419
+  br label %418
 
-419:                                              ; preds = %368, %383
+418:                                              ; preds = %367, %382
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %97, ptr noundef nonnull align 8 dereferenceable(88) %55, i64 88, i1 false)
   br label %.thread
 
 UpdateSteamControllerState.exit:                  ; preds = %144
-  %420 = load i8, ptr %96, align 8, !range !3, !noundef !4
-  %421 = trunc nuw i8 %420 to i1
-  %.not = xor i1 %421, true
+  %419 = load i8, ptr %96, align 8, !range !3, !noundef !4
+  %420 = trunc nuw i8 %419 to i1
+  %.not = xor i1 %420, true
   %or.cond = and i1 %.1.i, %.not
-  %422 = icmp eq i8 %142, 1
-  %423 = icmp ult i16 %141, 256
-  %or.cond153 = and i1 %422, %423
-  br i1 %or.cond, label %426, label %434
+  %421 = icmp eq i8 %142, 1
+  %422 = icmp ult i16 %141, 256
+  %or.cond153 = and i1 %421, %422
+  br i1 %or.cond, label %425, label %433
 
-UpdateSteamControllerState.exit.thread:           ; preds = %267
-  %424 = load i8, ptr %96, align 8, !range !3, !noundef !4
-  %425 = trunc nuw i8 %424 to i1
-  %.not145 = xor i1 %425, true
+UpdateSteamControllerState.exit.thread:           ; preds = %266
+  %423 = load i8, ptr %96, align 8, !range !3, !noundef !4
+  %424 = trunc nuw i8 %423 to i1
+  %.not145 = xor i1 %424, true
   %or.cond146 = and i1 %.1.i, %.not145
   br i1 %or.cond146, label %.thread148, label %.thread149
 
-426:                                              ; preds = %UpdateSteamControllerState.exit
+425:                                              ; preds = %UpdateSteamControllerState.exit
   br i1 %or.cond153, label %.thread148, label %.thread
 
-.thread148:                                       ; preds = %426, %UpdateSteamControllerState.exit.thread
-  %427 = load i8, ptr %57, align 1
-  %428 = icmp eq i8 %427, 3
-  br i1 %428, label %429, label %.thread
+.thread148:                                       ; preds = %425, %UpdateSteamControllerState.exit.thread
+  %426 = load i8, ptr %57, align 1
+  %427 = icmp eq i8 %426, 3
+  br i1 %427, label %428, label %.thread
 
-429:                                              ; preds = %.thread148
-  %430 = load i8, ptr %105, align 1
-  %.not114 = icmp eq i8 %430, 0
-  br i1 %.not114, label %.thread, label %431
+428:                                              ; preds = %.thread148
+  %429 = load i8, ptr %105, align 1
+  %.not114 = icmp eq i8 %429, 0
+  br i1 %.not114, label %.thread, label %430
 
-431:                                              ; preds = %429
-  %432 = load i8, ptr %73, align 1
-  %.not115 = icmp eq i8 %432, 1
-  br i1 %.not115, label %.thread, label %433
+430:                                              ; preds = %428
+  %431 = load i8, ptr %73, align 1
+  %.not115 = icmp eq i8 %431, 1
+  br i1 %.not115, label %.thread, label %432
 
-433:                                              ; preds = %431
+432:                                              ; preds = %430
   call fastcc void @ControllerConnected(ptr noundef nonnull %0, ptr noundef %4)
   br label %.thread
 
-434:                                              ; preds = %UpdateSteamControllerState.exit
-  %435 = and i1 %or.cond153, %421
-  %or.cond155 = and i1 %435, %.1.i
+433:                                              ; preds = %UpdateSteamControllerState.exit
+  %434 = and i1 %or.cond153, %420
+  %or.cond155 = and i1 %434, %.1.i
   br i1 %or.cond155, label %.thread152, label %.thread
 
 .thread149:                                       ; preds = %UpdateSteamControllerState.exit.thread
-  %or.cond3150 = and i1 %.1.i, %425
+  %or.cond3150 = and i1 %.1.i, %424
   br i1 %or.cond3150, label %.thread152, label %.thread
 
-.thread152:                                       ; preds = %434, %.thread149
-  %436 = load i8, ptr %57, align 1
-  %437 = icmp eq i8 %436, 3
-  br i1 %437, label %438, label %.thread
+.thread152:                                       ; preds = %433, %.thread149
+  %435 = load i8, ptr %57, align 1
+  %436 = icmp eq i8 %435, 3
+  br i1 %436, label %437, label %.thread
 
-438:                                              ; preds = %.thread152
-  %439 = load i8, ptr %105, align 1
-  %.not116 = icmp eq i8 %439, 0
-  br i1 %.not116, label %.thread, label %440
+437:                                              ; preds = %.thread152
+  %438 = load i8, ptr %105, align 1
+  %.not116 = icmp eq i8 %438, 0
+  br i1 %.not116, label %.thread, label %439
 
-440:                                              ; preds = %438
-  %441 = load i8, ptr %73, align 1
-  %442 = icmp eq i8 %441, 1
-  br i1 %442, label %443, label %.thread
+439:                                              ; preds = %437
+  %440 = load i8, ptr %73, align 1
+  %441 = icmp eq i8 %440, 1
+  br i1 %441, label %442, label %.thread
 
-443:                                              ; preds = %440
-  %444 = load ptr, ptr %7, align 8
-  %445 = load ptr, ptr %106, align 8
-  %.not.i126 = icmp eq ptr %445, null
-  br i1 %.not.i126, label %ControllerDisconnected.exit127, label %446
+442:                                              ; preds = %439
+  %443 = load ptr, ptr %7, align 8
+  %444 = load ptr, ptr %106, align 8
+  %.not.i126 = icmp eq ptr %444, null
+  br i1 %.not.i126, label %ControllerDisconnected.exit127, label %445
 
-446:                                              ; preds = %443
-  %447 = load i32, ptr %445, align 4
-  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %447) #9
+445:                                              ; preds = %442
+  %446 = load i32, ptr %444, align 4
+  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %446) #9
   br label %ControllerDisconnected.exit127
 
-ControllerDisconnected.exit127:                   ; preds = %443, %446
-  %448 = getelementptr inbounds nuw i8, ptr %444, i64 8
-  store i8 0, ptr %448, align 8
+ControllerDisconnected.exit127:                   ; preds = %442, %445
+  %447 = getelementptr inbounds nuw i8, ptr %443, i64 8
+  store i8 0, ptr %447, align 8
   store ptr null, ptr %4, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread149, %136, %129, %126, %119, %125, %426, %.thread148, %429, %431, %314, %434, %.thread152, %438, %440, %ControllerDisconnected.exit127, %433, %419
+.thread:                                          ; preds = %.thread149, %136, %129, %126, %119, %125, %425, %.thread148, %428, %430, %313, %433, %.thread152, %437, %439, %ControllerDisconnected.exit127, %432, %418
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #9
-  %449 = load ptr, ptr %46, align 8
+  %448 = load ptr, ptr %46, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(127) %47, i8 0, i64 127, i1 false)
   store i8 3, ptr %5, align 16
-  %450 = call i32 @SDL_hid_read_REAL(ptr noundef %449, ptr noundef nonnull %5, i64 noundef 128) #9
-  %451 = icmp eq i32 %450, 0
-  br i1 %451, label %._crit_edge, label %107
+  %449 = call i32 @SDL_hid_read_REAL(ptr noundef %448, ptr noundef nonnull %5, i64 noundef 128) #9
+  %450 = icmp eq i32 %449, 0
+  br i1 %450, label %._crit_edge, label %107
 
 ._crit_edge:                                      ; preds = %.thread, %HIDAPI_DriverSteam_RenewPairingState.exit, %.thread139
-  %452 = phi i1 [ false, %.thread139 ], [ true, %HIDAPI_DriverSteam_RenewPairingState.exit ], [ true, %.thread ]
+  %451 = phi i1 [ false, %.thread139 ], [ true, %HIDAPI_DriverSteam_RenewPairingState.exit ], [ true, %.thread ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  ret i1 %452
+  ret i1 %451
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2173,103 +2173,103 @@ define internal fastcc void @FormatStatePacketUntilGyro(ptr noundef captures(non
   %56 = load i64, ptr %6, align 1
   %57 = and i64 %56, 8388608
   %.not77 = icmp eq i64 %57, 0
-  br i1 %.not77, label %60, label %58
+  br i1 %.not77, label %RemapValClamped.exit, label %58
 
 58:                                               ; preds = %52
   %59 = or i64 %55, 524288
   store i64 %59, ptr %5, align 8
-  br label %60
+  br label %RemapValClamped.exit
 
-60:                                               ; preds = %58, %52
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %62 = load i16, ptr %61, align 1
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %62, ptr %63, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  %65 = load i16, ptr %64, align 1
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i16 %65, ptr %66, align 2
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %69 = tail call float @SDL_cosf_REAL(float noundef 0xBFD0C150A0000000) #9
-  %70 = sitofp i16 %54 to float
-  %71 = tail call float @SDL_sinf_REAL(float noundef 0xBFD0C150A0000000) #9
-  %72 = sitofp i16 %53 to float
-  %73 = fneg float %72
-  %74 = fmul float %71, %73
-  %75 = tail call float @llvm.fmuladd.f32(float %69, float %70, float %74)
-  %76 = fptosi float %75 to i32
-  %77 = tail call float @SDL_sinf_REAL(float noundef 0xBFD0C150A0000000) #9
-  %78 = tail call float @SDL_cosf_REAL(float noundef 0xBFD0C150A0000000) #9
-  %79 = fmul float %78, %72
-  %80 = tail call float @llvm.fmuladd.f32(float %77, float %70, float %79)
-  %81 = fptosi float %80 to i32
-  %82 = tail call float @SDL_cosf_REAL(float noundef 0x3FD0C150A0000000) #9
-  %83 = sitofp i16 %62 to float
-  %84 = tail call float @SDL_sinf_REAL(float noundef 0x3FD0C150A0000000) #9
-  %85 = sitofp i16 %65 to float
-  %86 = fneg float %85
-  %87 = fmul float %84, %86
-  %88 = tail call float @llvm.fmuladd.f32(float %82, float %83, float %87)
-  %89 = fptosi float %88 to i32
-  %90 = tail call float @SDL_sinf_REAL(float noundef 0x3FD0C150A0000000) #9
-  %91 = tail call float @SDL_cosf_REAL(float noundef 0x3FD0C150A0000000) #9
-  %92 = fmul float %91, %85
-  %93 = tail call float @llvm.fmuladd.f32(float %90, float %83, float %92)
-  %94 = fptosi float %93 to i32
-  %95 = load i64, ptr %5, align 8
-  %96 = and i64 %95, 524288
-  %.not78 = icmp eq i64 %96, 0
+RemapValClamped.exit:                             ; preds = %58, %52
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %61 = load i16, ptr %60, align 1
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i16 %61, ptr %62, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 18
+  %64 = load i16, ptr %63, align 1
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  store i16 %64, ptr %65, align 2
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  %68 = tail call float @SDL_cosf_REAL(float noundef 0xBFD0C150A0000000) #9
+  %69 = sitofp i16 %54 to float
+  %70 = tail call float @SDL_sinf_REAL(float noundef 0xBFD0C150A0000000) #9
+  %71 = sitofp i16 %53 to float
+  %72 = fneg float %71
+  %73 = fmul float %70, %72
+  %74 = tail call float @llvm.fmuladd.f32(float %68, float %69, float %73)
+  %75 = fptosi float %74 to i32
+  %76 = tail call float @SDL_sinf_REAL(float noundef 0xBFD0C150A0000000) #9
+  %77 = tail call float @SDL_cosf_REAL(float noundef 0xBFD0C150A0000000) #9
+  %78 = fmul float %77, %71
+  %79 = tail call float @llvm.fmuladd.f32(float %76, float %69, float %78)
+  %80 = fptosi float %79 to i32
+  %81 = tail call float @SDL_cosf_REAL(float noundef 0x3FD0C150A0000000) #9
+  %82 = sitofp i16 %61 to float
+  %83 = tail call float @SDL_sinf_REAL(float noundef 0x3FD0C150A0000000) #9
+  %84 = sitofp i16 %64 to float
+  %85 = fneg float %84
+  %86 = fmul float %83, %85
+  %87 = tail call float @llvm.fmuladd.f32(float %81, float %82, float %86)
+  %88 = fptosi float %87 to i32
+  %89 = tail call float @SDL_sinf_REAL(float noundef 0x3FD0C150A0000000) #9
+  %90 = tail call float @SDL_cosf_REAL(float noundef 0x3FD0C150A0000000) #9
+  %91 = fmul float %90, %84
+  %92 = tail call float @llvm.fmuladd.f32(float %89, float %82, float %91)
+  %93 = fptosi float %92 to i32
+  %94 = load i64, ptr %5, align 8
+  %95 = and i64 %94, 524288
+  %.not78 = icmp eq i64 %95, 0
   %. = select i1 %.not78, i32 0, i32 1000
-  %97 = add nsw i32 %., %76
-  %98 = tail call i32 @llvm.smax.i32(i32 %97, i32 -32768)
-  %99 = tail call i32 @llvm.smin.i32(i32 %98, i32 32767)
-  %100 = trunc nsw i32 %99 to i16
-  store i16 %100, ptr %67, align 8
-  %101 = add nsw i32 %., %81
-  %102 = tail call i32 @llvm.smax.i32(i32 %101, i32 -32768)
-  %103 = tail call i32 @llvm.smin.i32(i32 %102, i32 32767)
-  %104 = trunc nsw i32 %103 to i16
-  store i16 %104, ptr %68, align 2
-  %105 = and i64 %95, 1048576
-  %.not79 = icmp eq i64 %105, 0
+  %96 = add nsw i32 %., %75
+  %97 = tail call i32 @llvm.smax.i32(i32 %96, i32 -32768)
+  %98 = tail call i32 @llvm.smin.i32(i32 %97, i32 32767)
+  %99 = trunc nsw i32 %98 to i16
+  store i16 %99, ptr %66, align 8
+  %100 = add nsw i32 %., %80
+  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 -32768)
+  %102 = tail call i32 @llvm.smin.i32(i32 %101, i32 32767)
+  %103 = trunc nsw i32 %102 to i16
+  store i16 %103, ptr %67, align 2
+  %104 = and i64 %94, 1048576
+  %.not79 = icmp eq i64 %104, 0
   %.1 = select i1 %.not79, i32 0, i32 1000
-  %106 = add nsw i32 %.1, %89
-  %107 = tail call i32 @llvm.smax.i32(i32 %106, i32 -32768)
-  %108 = tail call i32 @llvm.smin.i32(i32 %107, i32 32767)
-  %109 = trunc nsw i32 %108 to i16
-  store i16 %109, ptr %63, align 4
-  %110 = add nsw i32 %.1, %94
-  %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 -32768)
-  %112 = tail call i32 @llvm.smin.i32(i32 %111, i32 32767)
-  %113 = trunc nsw i32 %112 to i16
-  store i16 %113, ptr %66, align 2
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %115 = load i8, ptr %114, align 1
-  %116 = zext i8 %115 to i32
-  %117 = shl nuw nsw i32 %116, 7
-  %118 = or i32 %117, %116
-  %119 = uitofp nneg i32 %118 to float
-  %120 = fdiv float %119, 2.600000e+04
-  %121 = fcmp ogt float %120, 1.000000e+00
-  %122 = tail call float @llvm.fmuladd.f32(float %120, float 3.276700e+04, float 0.000000e+00)
-  %123 = select i1 %121, float 3.276700e+04, float %122
-  %124 = fptoui float %123 to i16
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i16 %124, ptr %125, align 4
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %127 = load i8, ptr %126, align 1
-  %128 = zext i8 %127 to i32
-  %129 = shl nuw nsw i32 %128, 7
-  %130 = or i32 %129, %128
-  %131 = uitofp nneg i32 %130 to float
-  %132 = fdiv float %131, 2.600000e+04
-  %133 = fcmp ogt float %132, 1.000000e+00
-  %134 = tail call float @llvm.fmuladd.f32(float %132, float 3.276700e+04, float 0.000000e+00)
-  %135 = select i1 %133, float 3.276700e+04, float %134
-  %136 = fptoui float %135 to i16
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 38
-  store i16 %136, ptr %137, align 2
+  %105 = add nsw i32 %.1, %88
+  %106 = tail call i32 @llvm.smax.i32(i32 %105, i32 -32768)
+  %107 = tail call i32 @llvm.smin.i32(i32 %106, i32 32767)
+  %108 = trunc nsw i32 %107 to i16
+  store i16 %108, ptr %62, align 4
+  %109 = add nsw i32 %.1, %93
+  %110 = tail call i32 @llvm.smax.i32(i32 %109, i32 -32768)
+  %111 = tail call i32 @llvm.smin.i32(i32 %110, i32 32767)
+  %112 = trunc nsw i32 %111 to i16
+  store i16 %112, ptr %65, align 2
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 7
+  %114 = load i8, ptr %113, align 1
+  %115 = zext i8 %114 to i32
+  %116 = shl nuw nsw i32 %115, 7
+  %117 = or i32 %116, %115
+  %118 = uitofp nneg i32 %117 to float
+  %119 = fdiv float %118, 2.600000e+04
+  %120 = fcmp ogt float %119, 1.000000e+00
+  %121 = tail call float @llvm.fmuladd.f32(float %119, float 3.276700e+04, float 0.000000e+00)
+  %122 = select i1 %120, float 3.276700e+04, float %121
+  %123 = fptoui float %122 to i16
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i16 %123, ptr %124, align 4
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %126 = load i8, ptr %125, align 1
+  %127 = zext i8 %126 to i32
+  %128 = shl nuw nsw i32 %127, 7
+  %129 = or i32 %128, %127
+  %130 = uitofp nneg i32 %129 to float
+  %131 = fdiv float %130, 2.600000e+04
+  %132 = fcmp ogt float %131, 1.000000e+00
+  %133 = tail call float @llvm.fmuladd.f32(float %131, float 3.276700e+04, float 0.000000e+00)
+  %134 = select i1 %132, float 3.276700e+04, float %133
+  %135 = fptoui float %134 to i16
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 38
+  store i16 %135, ptr %136, align 2
   ret void
 }
 

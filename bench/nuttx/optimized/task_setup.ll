@@ -36,31 +36,31 @@ define internal fastcc range(i32 -12, 1) i32 @nxthread_setup_scheduler(ptr nound
   br i1 %12, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %9
-  %13 = load ptr, ptr @g_pidhash, align 8
-  br label %18
+  %13 = call i32 @llvm.smax.i32(i32 %10, i32 0)
+  %14 = load ptr, ptr @g_pidhash, align 8
+  br label %19
 
-14:                                               ; preds = %18
-  %15 = add nuw nsw i32 %.02230.i, 1
-  %16 = load volatile i32, ptr @g_npidhash, align 4
-  %17 = icmp slt i32 %15, %16
-  br i1 %17, label %18, label %._crit_edge.i, !llvm.loop !8
+15:                                               ; preds = %19
+  %16 = add nuw nsw i32 %.02230.i, 1
+  %17 = load volatile i32, ptr @g_npidhash, align 4
+  %18 = icmp slt i32 %16, %17
+  br i1 %18, label %19, label %._crit_edge.i, !llvm.loop !8
 
-18:                                               ; preds = %14, %.lr.ph.i
-  %.02230.i = phi i32 [ 0, %.lr.ph.i ], [ %15, %14 ]
-  %.023.in29.i = phi i32 [ %10, %.lr.ph.i ], [ %spec.store.select.i, %14 ]
-  %19 = call i32 @llvm.smax.i32(i32 %.023.in29.i, i32 0)
-  %spec.store.select.i = add nuw nsw i32 %19, 1
+19:                                               ; preds = %15, %.lr.ph.i
+  %.02230.i = phi i32 [ 0, %.lr.ph.i ], [ %16, %15 ]
+  %.023.in29.i = phi i32 [ %13, %.lr.ph.i ], [ %spec.store.select.i, %15 ]
+  %spec.store.select.i = add nuw nsw i32 %.023.in29.i, 1
   %20 = load volatile i32, ptr @g_npidhash, align 4
   %21 = add i32 %20, 2147483647
   %22 = and i32 %21, %spec.store.select.i
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %14, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %26, label %14
+  br i1 %.not.i, label %26, label %15
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
+26:                                               ; preds = %19
+  %27 = getelementptr inbounds nuw ptr, ptr %14, i64 %23
   store ptr %0, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %spec.store.select.i, ptr %28, align 8
@@ -73,7 +73,7 @@ define internal fastcc range(i32 -12, 1) i32 @nxthread_setup_scheduler(ptr nound
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   br label %58
 
-._crit_edge.i:                                    ; preds = %14, %9
+._crit_edge.i:                                    ; preds = %15, %9
   %31 = load volatile i32, ptr @g_npidhash, align 4
   %32 = shl nsw i32 %31, 1
   %33 = sext i32 %32 to i64

@@ -2040,52 +2040,53 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread44:  ; preds = %_ZNK4llvm9StringRef
   %.pre = load ptr, ptr %4, align 8, !tbaa !175
   %25 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre, i64 %20, i32 1
   %26 = load i64, ptr %25, align 8, !tbaa !3
-  %. = select i1 %24, i64 %26, i64 %23
-  %27 = add i64 %19, 1
-  %28 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre, i64 %20
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load ptr, ptr %28, align 8, !tbaa !10
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %26, i64 %.)
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %32 = load ptr, ptr %31, align 8, !tbaa !175
-  %33 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %32, i64 %6
-  %34 = load ptr, ptr %33, align 8, !tbaa !10
-  %35 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre, i64 %6
-  %36 = load ptr, ptr %35, align 8, !tbaa !10
-  %37 = ptrtoint ptr %34 to i64
-  %38 = ptrtoint ptr %36 to i64
-  %39 = sub i64 %37, %38
-  %40 = sub i64 %27, %39
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !3
-  %.sroa.speculated4.i = tail call i64 @llvm.umin.i64(i64 %42, i64 %39)
-  %43 = getelementptr inbounds nuw i8, ptr %36, i64 %.sroa.speculated4.i
-  %44 = sub i64 %42, %.sroa.speculated4.i
-  %.sroa.speculated.i36 = tail call i64 @llvm.umin.i64(i64 %44, i64 %40)
-  store ptr %43, ptr %33, align 8, !tbaa !128
-  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %27 = tail call i64 @llvm.umin.i64(i64 %26, i64 %23)
+  %.sroa.speculated.i = select i1 %24, i64 %26, i64 %27
+  %.033 = select i1 %24, i64 %26, i64 %23
+  %28 = add i64 %19, 1
+  %29 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre, i64 %20
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %29, align 8, !tbaa !10
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %33 = load ptr, ptr %32, align 8, !tbaa !175
+  %34 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %33, i64 %6
+  %35 = load ptr, ptr %34, align 8, !tbaa !10
+  %36 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre, i64 %6
+  %37 = load ptr, ptr %36, align 8, !tbaa !10
+  %38 = ptrtoint ptr %35 to i64
+  %39 = ptrtoint ptr %37 to i64
+  %40 = sub i64 %38, %39
+  %41 = sub i64 %28, %40
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !3
+  %.sroa.speculated4.i = tail call i64 @llvm.umin.i64(i64 %43, i64 %40)
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 %.sroa.speculated4.i
+  %45 = sub i64 %43, %.sroa.speculated4.i
+  %.sroa.speculated.i36 = tail call i64 @llvm.umin.i64(i64 %45, i64 %41)
+  store ptr %44, ptr %34, align 8, !tbaa !128
+  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.speculated.i36, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !129
-  %45 = load i64, ptr %29, align 8, !tbaa !3
-  %.sroa.speculated4.i39 = tail call i64 @llvm.umin.i64(i64 %45, i64 %.)
-  %46 = load ptr, ptr %28, align 8, !tbaa !10
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.sroa.speculated4.i39
-  %48 = sub i64 %45, %.sroa.speculated4.i39
-  %49 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %32, i64 %20
-  store ptr %47, ptr %49, align 8, !tbaa !128
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 %48, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !129
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !19
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 860
-  %53 = load i32, ptr %52, align 4, !tbaa !20
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %55 = load i32, ptr %54, align 4, !tbaa !116
-  %56 = tail call noundef i32 @_ZN5clang6format8encoding19columnWidthWithTabsEN4llvm9StringRefEjjNS1_8EncodingE(ptr %30, i64 %.sroa.speculated.i, i32 noundef 0, i32 noundef %53, i32 noundef %55)
-  %57 = add i32 %56, %2
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %59 = load ptr, ptr %58, align 8, !tbaa !175
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %20
-  store i32 %57, ptr %60, align 4, !tbaa !205
+  %46 = load i64, ptr %30, align 8, !tbaa !3
+  %.sroa.speculated4.i39 = tail call i64 @llvm.umin.i64(i64 %46, i64 %.033)
+  %47 = load ptr, ptr %29, align 8, !tbaa !10
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.sroa.speculated4.i39
+  %49 = sub i64 %46, %.sroa.speculated4.i39
+  %50 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %33, i64 %20
+  store ptr %48, ptr %50, align 8, !tbaa !128
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i64 %49, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !129
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %52 = load ptr, ptr %51, align 8, !tbaa !19
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 860
+  %54 = load i32, ptr %53, align 4, !tbaa !20
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %56 = load i32, ptr %55, align 4, !tbaa !116
+  %57 = tail call noundef i32 @_ZN5clang6format8encoding19columnWidthWithTabsEN4llvm9StringRefEjjNS1_8EncodingE(ptr %31, i64 %.sroa.speculated.i, i32 noundef 0, i32 noundef %54, i32 noundef %56)
+  %58 = add i32 %57, %2
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %60 = load ptr, ptr %59, align 8, !tbaa !175
+  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %20
+  store i32 %58, ptr %61, align 4, !tbaa !205
   ret void
 }
 
@@ -3512,8 +3513,8 @@ _ZN4llvm15SmallVectorImplINS_9StringRefEE6resizeEm.exit121: ; preds = %_ZN4llvm1
   %179 = getelementptr inbounds nuw i8, ptr %.0342, i64 32
   br label %182
 
-._crit_edge:                                      ; preds = %636, %_ZN4llvm15SmallVectorImplINS_9StringRefEE6resizeEm.exit121
-  %.1.lcssa = phi i32 [ %.068341, %_ZN4llvm15SmallVectorImplINS_9StringRefEE6resizeEm.exit121 ], [ %.2, %636 ]
+._crit_edge:                                      ; preds = %637, %_ZN4llvm15SmallVectorImplINS_9StringRefEE6resizeEm.exit121
+  %.1.lcssa = phi i32 [ %.068341, %_ZN4llvm15SmallVectorImplINS_9StringRefEE6resizeEm.exit121 ], [ %.2, %637 ]
   %180 = getelementptr inbounds nuw i8, ptr %.069343, i64 216
   %181 = load ptr, ptr %180, align 8, !tbaa !238
   %.not81 = icmp eq ptr %181, null
@@ -3523,9 +3524,9 @@ _ZN4llvm15SmallVectorImplINS_9StringRefEE6resizeEm.exit121: ; preds = %_ZN4llvm1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #25
   br label %.critedge
 
-182:                                              ; preds = %.lr.ph, %636
-  %.1338 = phi i32 [ %.068341, %.lr.ph ], [ %.2, %636 ]
-  %.0303337 = phi i64 [ %81, %.lr.ph ], [ %640, %636 ]
+182:                                              ; preds = %.lr.ph, %637
+  %.1338 = phi i32 [ %.068341, %.lr.ph ], [ %.2, %637 ]
+  %.0303337 = phi i64 [ %81, %.lr.ph ], [ %640, %637 ]
   %183 = load ptr, ptr %22, align 8, !tbaa !175
   %184 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %183, i64 %.0303337
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
@@ -4690,21 +4691,20 @@ _ZN5clang6format8encoding19columnWidthWithTabsEN4llvm9StringRefEjjNS1_8EncodingE
   %631 = load ptr, ptr %26, align 8, !tbaa !175
   %632 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %631, i64 %.0303337, i32 1
   %633 = load i64, ptr %632, align 8, !tbaa !3
-  br label %636
+  br label %637
 
 634:                                              ; preds = %_ZN5clang6format8encoding19columnWidthWithTabsEN4llvm9StringRefEjjNS1_8EncodingE.exit
   %635 = add nuw i64 %628, 1
   %.pre373 = load ptr, ptr %26, align 8, !tbaa !175
   %.phi.trans.insert374 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre373, i64 %.0303337, i32 1
   %.pre375 = load i64, ptr %.phi.trans.insert374, align 8, !tbaa !3
-  br label %636
+  %636 = call i64 @llvm.umin.i64(i64 %.pre375, i64 %635)
+  br label %637
 
-636:                                              ; preds = %634, %630
-  %637 = phi i64 [ %633, %630 ], [ %.pre375, %634 ]
+637:                                              ; preds = %634, %630
+  %.sroa.speculated.i229 = phi i64 [ %633, %630 ], [ %636, %634 ]
   %638 = phi ptr [ %631, %630 ], [ %.pre373, %634 ]
-  %.071 = phi i64 [ %633, %630 ], [ %635, %634 ]
   %639 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %638, i64 %.0303337, i32 1
-  %.sroa.speculated.i229 = call i64 @llvm.umin.i64(i64 %637, i64 %.071)
   store i64 %.sroa.speculated.i229, ptr %639, align 8, !tbaa !129
   %640 = add nuw nsw i64 %.0303337, 1
   %exitcond.not = icmp eq i64 %640, %.pre-phi386

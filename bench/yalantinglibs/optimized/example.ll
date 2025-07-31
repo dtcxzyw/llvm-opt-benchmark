@@ -86550,8 +86550,8 @@ entry:
   %val = alloca %"class.std::basic_string_view", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %val, i8 0, i64 16, i1 false)
-  %cmp91.not = icmp eq i64 %str.coerce0, 0
-  br i1 %cmp91.not, label %if.end42, label %for.body.lr.ph
+  %cmp93.not = icmp eq i64 %str.coerce0, 0
+  br i1 %cmp93.not, label %if.end42, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %ref.tmp10.sroa.2.0.val.sroa_idx = getelementptr inbounds nuw i8, ptr %val, i64 8
@@ -86560,9 +86560,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %pos.093 = phi i64 [ 0, %for.body.lr.ph ], [ %pos.1, %for.inc ]
-  %i.092 = phi i64 [ 0, %for.body.lr.ph ], [ %inc.pre-phi, %for.inc ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %str.coerce1, i64 %i.092
+  %pos.095 = phi i64 [ 0, %for.body.lr.ph ], [ %pos.1, %for.inc ]
+  %i.094 = phi i64 [ 0, %for.body.lr.ph ], [ %inc.pre-phi, %for.inc ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %str.coerce1, i64 %i.094
   %0 = load i8, ptr %add.ptr.i, align 1
   switch i8 %0, label %for.body.for.inc_crit_edge [
     i8 61, label %if.then
@@ -86570,13 +86570,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   ]
 
 for.body.for.inc_crit_edge:                       ; preds = %for.body
-  %.pre = add nuw i64 %i.092, 1
+  %.pre = add nuw i64 %i.094, 1
   br label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %add.ptr.i20 = getelementptr inbounds i8, ptr %str.coerce1, i64 %pos.093
-  %sub = sub i64 %i.092, %pos.093
-  %cmp6.i.i.not.i = icmp eq i64 %i.092, %pos.093
+  %add.ptr.i20 = getelementptr inbounds i8, ptr %str.coerce1, i64 %pos.095
+  %sub = sub i64 %i.094, %pos.095
+  %cmp6.i.i.not.i = icmp eq i64 %i.094, %pos.095
   br i1 %cmp6.i.i.not.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.then, %for.inc.i.i.i
@@ -86584,18 +86584,22 @@ for.body.i.i.i:                                   ; preds = %if.then, %for.inc.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i20, i64 %__pos.addr.07.i.i.i
   %1 = load i8, ptr %arrayidx.i.i.i, align 1
   %memchr.char0cmp.not.i = icmp eq i8 %1, 32
-  br i1 %memchr.char0cmp.not.i, label %for.inc.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i
+  br i1 %memchr.char0cmp.not.i, label %for.inc.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   %inc.i.i.i = add nuw i64 %__pos.addr.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub
-  br i1 %exitcond.not.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i, label %for.body.i.i.i, !llvm.loop !981
+  br i1 %exitcond.not.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i, label %for.body.i.i.i, !llvm.loop !981
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i: ; preds = %for.inc.i.i.i, %for.body.i.i.i, %if.then
-  %retval.0.i.i.i = phi i64 [ -1, %if.then ], [ %__pos.addr.07.i.i.i, %for.body.i.i.i ], [ -1, %for.inc.i.i.i ]
-  %.sroa.speculated14.i = call i64 @llvm.umin.i64(i64 %sub, i64 %retval.0.i.i.i)
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i20, i64 %.sroa.speculated14.i
-  %sub.i.i = sub i64 %sub, %.sroa.speculated14.i
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i: ; preds = %for.inc.i.i.i, %for.body.i.i.i
+  %retval.0.i.i.ph.i = phi i64 [ %__pos.addr.07.i.i.i, %for.body.i.i.i ], [ -1, %for.inc.i.i.i ]
+  %2 = call i64 @llvm.umin.i64(i64 %sub, i64 %retval.0.i.i.ph.i)
+  br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i
+
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i, %if.then
+  %retval.0.i.i.i = phi i64 [ 0, %if.then ], [ %2, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i20, i64 %retval.0.i.i.i
+  %sub.i.i = sub i64 %sub, %retval.0.i.i.i
   %tobool.not.i.i2.i = icmp eq i64 %sub.i.i, 0
   br i1 %tobool.not.i.i2.i, label %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %do.body.i.i.i
 
@@ -86603,8 +86607,8 @@ do.body.i.i.i:                                    ; preds = %_ZNKSt17basic_strin
   %__size.1.i.i.in.i = phi i64 [ %__size.1.i.i.i, %do.cond.i.i.i ], [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i ]
   %__size.1.i.i.i = add i64 %__size.1.i.i.in.i, -1
   %arrayidx.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %__size.1.i.i.i
-  %2 = load i8, ptr %arrayidx.i.i5.i, align 1
-  %memchr.char0cmp.not40.i = icmp eq i8 %2, 32
+  %3 = load i8, ptr %arrayidx.i.i5.i, align 1
+  %memchr.char0cmp.not40.i = icmp eq i8 %3, 32
   br i1 %memchr.char0cmp.not40.i, label %do.cond.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i
 
 do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
@@ -86613,74 +86617,78 @@ do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i: ; preds = %do.cond.i.i.i, %do.body.i.i.i
   %retval.0.i.i8.ph.i = phi i64 [ %__size.1.i.i.i, %do.body.i.i.i ], [ -1, %do.cond.i.i.i ]
-  %3 = xor i64 %retval.0.i.i8.ph.i, -1
+  %4 = xor i64 %retval.0.i.i8.ph.i, -1
   br label %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i
-  %retval.0.i.i8.i = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i ], [ %3, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i ]
+  %retval.0.i.i8.i = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i ], [ %4, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i ]
   %sub8.i = add i64 %retval.0.i.i8.i, %sub.i.i
   %sub.i11.i = call i64 @llvm.usub.sat.i64(i64 %sub.i.i, i64 %sub8.i)
   store i64 %sub.i11.i, ptr %key, align 8
   store ptr %add.ptr.i.i, ptr %ref.tmp.sroa.2.0.key.sroa_idx, align 8
-  %add = add nuw i64 %i.092, 1
+  %add = add nuw i64 %i.094, 1
   br label %for.inc
 
 if.then9:                                         ; preds = %for.body
-  %add.ptr.i23 = getelementptr inbounds i8, ptr %str.coerce1, i64 %pos.093
-  %sub12 = sub i64 %i.092, %pos.093
-  %cmp6.i.i.not.i25 = icmp eq i64 %i.092, %pos.093
-  br i1 %cmp6.i.i.not.i25, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i30, label %for.body.i.i.i26
+  %add.ptr.i23 = getelementptr inbounds i8, ptr %str.coerce1, i64 %pos.095
+  %sub12 = sub i64 %i.094, %pos.095
+  %cmp6.i.i.not.i25 = icmp eq i64 %i.094, %pos.095
+  br i1 %cmp6.i.i.not.i25, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i32, label %for.body.i.i.i26
 
-for.body.i.i.i26:                                 ; preds = %if.then9, %for.inc.i.i.i50
-  %__pos.addr.07.i.i.i27 = phi i64 [ %inc.i.i.i51, %for.inc.i.i.i50 ], [ 0, %if.then9 ]
+for.body.i.i.i26:                                 ; preds = %if.then9, %for.inc.i.i.i51
+  %__pos.addr.07.i.i.i27 = phi i64 [ %inc.i.i.i52, %for.inc.i.i.i51 ], [ 0, %if.then9 ]
   %arrayidx.i.i.i28 = getelementptr inbounds i8, ptr %add.ptr.i23, i64 %__pos.addr.07.i.i.i27
-  %4 = load i8, ptr %arrayidx.i.i.i28, align 1
-  %memchr.char0cmp.not.i29 = icmp eq i8 %4, 32
-  br i1 %memchr.char0cmp.not.i29, label %for.inc.i.i.i50, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i30
+  %5 = load i8, ptr %arrayidx.i.i.i28, align 1
+  %memchr.char0cmp.not.i29 = icmp eq i8 %5, 32
+  br i1 %memchr.char0cmp.not.i29, label %for.inc.i.i.i51, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i30
 
-for.inc.i.i.i50:                                  ; preds = %for.body.i.i.i26
-  %inc.i.i.i51 = add nuw i64 %__pos.addr.07.i.i.i27, 1
-  %exitcond.not.i.i.i52 = icmp eq i64 %inc.i.i.i51, %sub12
-  br i1 %exitcond.not.i.i.i52, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i30, label %for.body.i.i.i26, !llvm.loop !981
+for.inc.i.i.i51:                                  ; preds = %for.body.i.i.i26
+  %inc.i.i.i52 = add nuw i64 %__pos.addr.07.i.i.i27, 1
+  %exitcond.not.i.i.i53 = icmp eq i64 %inc.i.i.i52, %sub12
+  br i1 %exitcond.not.i.i.i53, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i30, label %for.body.i.i.i26, !llvm.loop !981
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i30: ; preds = %for.inc.i.i.i50, %for.body.i.i.i26, %if.then9
-  %retval.0.i.i.i31 = phi i64 [ -1, %if.then9 ], [ %__pos.addr.07.i.i.i27, %for.body.i.i.i26 ], [ -1, %for.inc.i.i.i50 ]
-  %.sroa.speculated14.i32 = call i64 @llvm.umin.i64(i64 %sub12, i64 %retval.0.i.i.i31)
-  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %add.ptr.i23, i64 %.sroa.speculated14.i32
-  %sub.i.i34 = sub i64 %sub12, %.sroa.speculated14.i32
-  %tobool.not.i.i2.i35 = icmp eq i64 %sub.i.i34, 0
-  br i1 %tobool.not.i.i2.i35, label %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit53, label %do.body.i.i.i36
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i30: ; preds = %for.inc.i.i.i51, %for.body.i.i.i26
+  %retval.0.i.i.ph.i31 = phi i64 [ %__pos.addr.07.i.i.i27, %for.body.i.i.i26 ], [ -1, %for.inc.i.i.i51 ]
+  %6 = call i64 @llvm.umin.i64(i64 %sub12, i64 %retval.0.i.i.ph.i31)
+  br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i32
 
-do.body.i.i.i36:                                  ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i30, %do.cond.i.i.i48
-  %__size.1.i.i.in.i37 = phi i64 [ %__size.1.i.i.i38, %do.cond.i.i.i48 ], [ %sub.i.i34, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i30 ]
-  %__size.1.i.i.i38 = add i64 %__size.1.i.i.in.i37, -1
-  %arrayidx.i.i5.i39 = getelementptr inbounds i8, ptr %add.ptr.i.i33, i64 %__size.1.i.i.i38
-  %5 = load i8, ptr %arrayidx.i.i5.i39, align 1
-  %memchr.char0cmp.not40.i40 = icmp eq i8 %5, 32
-  br i1 %memchr.char0cmp.not40.i40, label %do.cond.i.i.i48, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i41
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i32: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i30, %if.then9
+  %retval.0.i.i.i33 = phi i64 [ 0, %if.then9 ], [ %6, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i30 ]
+  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %add.ptr.i23, i64 %retval.0.i.i.i33
+  %sub.i.i35 = sub i64 %sub12, %retval.0.i.i.i33
+  %tobool.not.i.i2.i36 = icmp eq i64 %sub.i.i35, 0
+  br i1 %tobool.not.i.i2.i36, label %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit54, label %do.body.i.i.i37
 
-do.cond.i.i.i48:                                  ; preds = %do.body.i.i.i36
-  %tobool7.not.i.i.i49 = icmp eq i64 %__size.1.i.i.i38, 0
-  br i1 %tobool7.not.i.i.i49, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i41, label %do.body.i.i.i36, !llvm.loop !982
+do.body.i.i.i37:                                  ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i32, %do.cond.i.i.i49
+  %__size.1.i.i.in.i38 = phi i64 [ %__size.1.i.i.i39, %do.cond.i.i.i49 ], [ %sub.i.i35, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i32 ]
+  %__size.1.i.i.i39 = add i64 %__size.1.i.i.in.i38, -1
+  %arrayidx.i.i5.i40 = getelementptr inbounds i8, ptr %add.ptr.i.i34, i64 %__size.1.i.i.i39
+  %7 = load i8, ptr %arrayidx.i.i5.i40, align 1
+  %memchr.char0cmp.not40.i41 = icmp eq i8 %7, 32
+  br i1 %memchr.char0cmp.not40.i41, label %do.cond.i.i.i49, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i42
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i41: ; preds = %do.cond.i.i.i48, %do.body.i.i.i36
-  %retval.0.i.i8.ph.i42 = phi i64 [ %__size.1.i.i.i38, %do.body.i.i.i36 ], [ -1, %do.cond.i.i.i48 ]
-  %6 = xor i64 %retval.0.i.i8.ph.i42, -1
-  br label %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit53
+do.cond.i.i.i49:                                  ; preds = %do.body.i.i.i37
+  %tobool7.not.i.i.i50 = icmp eq i64 %__size.1.i.i.i39, 0
+  br i1 %tobool7.not.i.i.i50, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i42, label %do.body.i.i.i37, !llvm.loop !982
 
-_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit53: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i30, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i41
-  %retval.0.i.i8.i43 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i30 ], [ %6, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i41 ]
-  %sub8.i44 = add i64 %retval.0.i.i8.i43, %sub.i.i34
-  %sub.i11.i45 = call i64 @llvm.usub.sat.i64(i64 %sub.i.i34, i64 %sub8.i44)
-  store i64 %sub.i11.i45, ptr %val, align 8
-  store ptr %add.ptr.i.i33, ptr %ref.tmp10.sroa.2.0.val.sroa_idx, align 8
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i42: ; preds = %do.cond.i.i.i49, %do.body.i.i.i37
+  %retval.0.i.i8.ph.i43 = phi i64 [ %__size.1.i.i.i39, %do.body.i.i.i37 ], [ -1, %do.cond.i.i.i49 ]
+  %8 = xor i64 %retval.0.i.i8.ph.i43, -1
+  br label %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit54
+
+_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit54: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i32, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i42
+  %retval.0.i.i8.i44 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i32 ], [ %8, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i42 ]
+  %sub8.i45 = add i64 %retval.0.i.i8.i44, %sub.i.i35
+  %sub.i11.i46 = call i64 @llvm.usub.sat.i64(i64 %sub.i.i35, i64 %sub8.i45)
+  store i64 %sub.i11.i46, ptr %val, align 8
+  store ptr %add.ptr.i.i34, ptr %ref.tmp10.sroa.2.0.val.sroa_idx, align 8
   %call.i.i = call { ptr, i8 } @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_SL_EEES4_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %queries_, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %val)
-  %add17 = add nuw i64 %i.092, 1
+  %add17 = add nuw i64 %i.094, 1
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body.for.inc_crit_edge, %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit53
-  %inc.pre-phi = phi i64 [ %.pre, %for.body.for.inc_crit_edge ], [ %add, %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %add17, %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit53 ]
-  %pos.1 = phi i64 [ %pos.093, %for.body.for.inc_crit_edge ], [ %add, %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %add17, %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit53 ]
+for.inc:                                          ; preds = %for.body.for.inc_crit_edge, %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit54
+  %inc.pre-phi = phi i64 [ %.pre, %for.body.for.inc_crit_edge ], [ %add, %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %add17, %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit54 ]
+  %pos.1 = phi i64 [ %pos.095, %for.body.for.inc_crit_edge ], [ %add, %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %add17, %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit54 ]
   %exitcond.not = icmp eq i64 %inc.pre-phi, %str.coerce0
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !983
 
@@ -86694,63 +86702,63 @@ if.end21:                                         ; preds = %for.end
 
 if.then24:                                        ; preds = %if.end21
   %sub22 = sub i64 %str.coerce0, %pos.1
-  %add.ptr.i55 = getelementptr inbounds i8, ptr %str.coerce1, i64 %pos.1
+  %add.ptr.i56 = getelementptr inbounds i8, ptr %str.coerce1, i64 %pos.1
   %ref.tmp25.sroa.2.0.val.sroa_idx = getelementptr inbounds nuw i8, ptr %val, i64 8
-  br label %for.body.i.i.i58
+  br label %for.body.i.i.i59
 
-for.body.i.i.i58:                                 ; preds = %if.then24, %for.inc.i.i.i82
-  %__pos.addr.07.i.i.i59 = phi i64 [ %inc.i.i.i83, %for.inc.i.i.i82 ], [ 0, %if.then24 ]
-  %arrayidx.i.i.i60 = getelementptr inbounds i8, ptr %add.ptr.i55, i64 %__pos.addr.07.i.i.i59
-  %7 = load i8, ptr %arrayidx.i.i.i60, align 1
-  %memchr.char0cmp.not.i61 = icmp eq i8 %7, 32
-  br i1 %memchr.char0cmp.not.i61, label %for.inc.i.i.i82, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i62
+for.body.i.i.i59:                                 ; preds = %if.then24, %for.inc.i.i.i84
+  %__pos.addr.07.i.i.i60 = phi i64 [ %inc.i.i.i85, %for.inc.i.i.i84 ], [ 0, %if.then24 ]
+  %arrayidx.i.i.i61 = getelementptr inbounds i8, ptr %add.ptr.i56, i64 %__pos.addr.07.i.i.i60
+  %9 = load i8, ptr %arrayidx.i.i.i61, align 1
+  %memchr.char0cmp.not.i62 = icmp eq i8 %9, 32
+  br i1 %memchr.char0cmp.not.i62, label %for.inc.i.i.i84, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i63
 
-for.inc.i.i.i82:                                  ; preds = %for.body.i.i.i58
-  %inc.i.i.i83 = add nuw i64 %__pos.addr.07.i.i.i59, 1
-  %exitcond.not.i.i.i84 = icmp eq i64 %inc.i.i.i83, %sub22
-  br i1 %exitcond.not.i.i.i84, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i62, label %for.body.i.i.i58, !llvm.loop !981
+for.inc.i.i.i84:                                  ; preds = %for.body.i.i.i59
+  %inc.i.i.i85 = add nuw i64 %__pos.addr.07.i.i.i60, 1
+  %exitcond.not.i.i.i86 = icmp eq i64 %inc.i.i.i85, %sub22
+  br i1 %exitcond.not.i.i.i86, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i63, label %for.body.i.i.i59, !llvm.loop !981
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i62: ; preds = %for.inc.i.i.i82, %for.body.i.i.i58
-  %retval.0.i.i.i63 = phi i64 [ -1, %for.inc.i.i.i82 ], [ %__pos.addr.07.i.i.i59, %for.body.i.i.i58 ]
-  %.sroa.speculated14.i64 = call i64 @llvm.umin.i64(i64 %sub22, i64 %retval.0.i.i.i63)
-  %add.ptr.i.i65 = getelementptr inbounds i8, ptr %add.ptr.i55, i64 %.sroa.speculated14.i64
-  %sub.i.i66 = sub i64 %sub22, %.sroa.speculated14.i64
-  %tobool.not.i.i2.i67 = icmp eq i64 %sub.i.i66, 0
-  br i1 %tobool.not.i.i2.i67, label %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit85, label %do.body.i.i.i68
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i63: ; preds = %for.inc.i.i.i84, %for.body.i.i.i59
+  %retval.0.i.i.ph.i64 = phi i64 [ %__pos.addr.07.i.i.i60, %for.body.i.i.i59 ], [ -1, %for.inc.i.i.i84 ]
+  %10 = call i64 @llvm.umin.i64(i64 %sub22, i64 %retval.0.i.i.ph.i64)
+  %add.ptr.i.i67 = getelementptr inbounds i8, ptr %add.ptr.i56, i64 %10
+  %sub.i.i68 = sub i64 %sub22, %10
+  %tobool.not.i.i2.i69 = icmp eq i64 %sub.i.i68, 0
+  br i1 %tobool.not.i.i2.i69, label %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit87, label %do.body.i.i.i70
 
-do.body.i.i.i68:                                  ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i62, %do.cond.i.i.i80
-  %__size.1.i.i.in.i69 = phi i64 [ %__size.1.i.i.i70, %do.cond.i.i.i80 ], [ %sub.i.i66, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i62 ]
-  %__size.1.i.i.i70 = add i64 %__size.1.i.i.in.i69, -1
-  %arrayidx.i.i5.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i65, i64 %__size.1.i.i.i70
-  %8 = load i8, ptr %arrayidx.i.i5.i71, align 1
-  %memchr.char0cmp.not40.i72 = icmp eq i8 %8, 32
-  br i1 %memchr.char0cmp.not40.i72, label %do.cond.i.i.i80, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i73
+do.body.i.i.i70:                                  ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i63, %do.cond.i.i.i82
+  %__size.1.i.i.in.i71 = phi i64 [ %__size.1.i.i.i72, %do.cond.i.i.i82 ], [ %sub.i.i68, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i63 ]
+  %__size.1.i.i.i72 = add i64 %__size.1.i.i.in.i71, -1
+  %arrayidx.i.i5.i73 = getelementptr inbounds i8, ptr %add.ptr.i.i67, i64 %__size.1.i.i.i72
+  %11 = load i8, ptr %arrayidx.i.i5.i73, align 1
+  %memchr.char0cmp.not40.i74 = icmp eq i8 %11, 32
+  br i1 %memchr.char0cmp.not40.i74, label %do.cond.i.i.i82, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i75
 
-do.cond.i.i.i80:                                  ; preds = %do.body.i.i.i68
-  %tobool7.not.i.i.i81 = icmp eq i64 %__size.1.i.i.i70, 0
-  br i1 %tobool7.not.i.i.i81, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i73, label %do.body.i.i.i68, !llvm.loop !982
+do.cond.i.i.i82:                                  ; preds = %do.body.i.i.i70
+  %tobool7.not.i.i.i83 = icmp eq i64 %__size.1.i.i.i72, 0
+  br i1 %tobool7.not.i.i.i83, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i75, label %do.body.i.i.i70, !llvm.loop !982
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i73: ; preds = %do.cond.i.i.i80, %do.body.i.i.i68
-  %retval.0.i.i8.ph.i74 = phi i64 [ %__size.1.i.i.i70, %do.body.i.i.i68 ], [ -1, %do.cond.i.i.i80 ]
-  %9 = xor i64 %retval.0.i.i8.ph.i74, -1
-  br label %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit85
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i75: ; preds = %do.cond.i.i.i82, %do.body.i.i.i70
+  %retval.0.i.i8.ph.i76 = phi i64 [ %__size.1.i.i.i72, %do.body.i.i.i70 ], [ -1, %do.cond.i.i.i82 ]
+  %12 = xor i64 %retval.0.i.i8.ph.i76, -1
+  br label %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit87
 
-_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit85: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i62, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i73
-  %retval.0.i.i8.i75 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.i62 ], [ %9, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i73 ]
-  %sub8.i76 = add i64 %retval.0.i.i8.i75, %sub.i.i66
-  %sub.i11.i77 = call i64 @llvm.usub.sat.i64(i64 %sub.i.i66, i64 %sub8.i76)
-  store i64 %sub.i11.i77, ptr %val, align 8
-  store ptr %add.ptr.i.i65, ptr %ref.tmp25.sroa.2.0.val.sroa_idx, align 8
+_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit87: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i63, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i75
+  %retval.0.i.i8.i77 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit.loopexit.i63 ], [ %12, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEPKcm.exit.loopexit.i75 ]
+  %sub8.i78 = add i64 %retval.0.i.i8.i77, %sub.i.i68
+  %sub.i11.i79 = call i64 @llvm.usub.sat.i64(i64 %sub.i.i68, i64 %sub8.i78)
+  store i64 %sub.i11.i79, ptr %val, align 8
+  store ptr %add.ptr.i.i67, ptr %ref.tmp25.sroa.2.0.val.sroa_idx, align 8
   %queries_31 = getelementptr inbounds nuw i8, ptr %this, i64 3272
-  %call.i.i86 = call { ptr, i8 } @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_SL_EEES4_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %queries_31, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %val)
+  %call.i.i88 = call { ptr, i8 } @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_SL_EEES4_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %queries_31, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %val)
   br label %if.end42
 
 if.then37:                                        ; preds = %if.end21
   %queries_38 = getelementptr inbounds nuw i8, ptr %this, i64 3272
-  %call.i.i87 = call { ptr, i8 } @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_RA1_KcEEES4_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %queries_38, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 1 dereferenceable(1) @.str.896)
+  %call.i.i89 = call { ptr, i8 } @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_RA1_KcEEES4_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %queries_38, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 1 dereferenceable(1) @.str.896)
   br label %if.end42
 
-if.end42:                                         ; preds = %entry, %if.then37, %for.end, %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit85
+if.end42:                                         ; preds = %entry, %if.then37, %for.end, %_ZN7cinatra11http_parser4trimESt17basic_string_viewIcSt11char_traitsIcEE.exit87
   ret void
 }
 

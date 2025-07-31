@@ -1861,21 +1861,21 @@ define dso_local void @sentinelPendingScriptsCommand(ptr noundef %0) local_unnam
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !94
   %.not39 = icmp eq i64 %38, 0
-  br i1 %.not39, label %42, label %39
+  br i1 %.not39, label %43, label %39
 
 39:                                               ; preds = %36
   %40 = call i64 @mstime() #30
   %41 = sub nsw i64 %38, %40
-  br label %42
+  %42 = call i64 @llvm.smax.i64(i64 %41, i64 0)
+  br label %43
 
-42:                                               ; preds = %36, %39
-  %43 = phi i64 [ %41, %39 ], [ 0, %36 ]
-  %spec.store.select = call i64 @llvm.smax.i64(i64 %43, i64 0)
+43:                                               ; preds = %36, %39
+  %spec.store.select = phi i64 [ %42, %39 ], [ 0, %36 ]
   call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.37) #30
   br label %44
 
-44:                                               ; preds = %42, %31
-  %spec.store.select.sink = phi i64 [ %spec.store.select, %42 ], [ %35, %31 ]
+44:                                               ; preds = %43, %31
+  %spec.store.select.sink = phi i64 [ %spec.store.select, %43 ], [ %35, %31 ]
   call void @addReplyBulkLongLong(ptr noundef %0, i64 noundef %spec.store.select.sink) #30
   call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.38) #30
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 4

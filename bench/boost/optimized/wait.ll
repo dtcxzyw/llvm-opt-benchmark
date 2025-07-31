@@ -158577,7 +158577,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost4asio6detail11timer_queueINS0_
 12:                                               ; preds = %8
   %13 = add i64 %9, -9223372036854775806
   %spec.select.i.i6.i.i.i.i = icmp ult i64 %13, 3
-  br i1 %spec.select.i.i6.i.i.i.i, label %.thread.i.i.i.i.i, label %24
+  br i1 %spec.select.i.i6.i.i.i.i, label %.thread.i.i.i.i.i, label %25
 
 14:                                               ; preds = %8
   %15 = icmp eq i64 %10, 9223372036854775806
@@ -158597,7 +158597,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost4asio6detail11timer_queueINS0_
 
 18:                                               ; preds = %17
   %19 = icmp eq i64 %9, 9223372036854775807
-  br i1 %19, label %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i.i.i, label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread.i
+  br i1 %19, label %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i.i.i, label %_ZNK5boost4asio6detail11timer_queueINS1_28forwarding_posix_time_traitsEE18wait_duration_usecEl.exit
 
 20:                                               ; preds = %17
   %21 = icmp eq i64 %9, -9223372036854775808
@@ -158614,30 +158614,29 @@ _ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i.i: ; preds =
   %switch.selectcmp.i.i.i.i = icmp eq i64 %23, -9223372036854775808
   %switch.select.i.i.i.i = select i1 %switch.selectcmp.i.i.i.i, i64 -9223372036854775808, i64 9223372036854775806
   %switch.selectcmp37.i.i.i.i = icmp eq i64 %23, 9223372036854775807
-  br i1 %switch.selectcmp37.i.i.i.i, label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread.i, label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.i
+  br i1 %switch.selectcmp37.i.i.i.i, label %_ZNK5boost4asio6detail11timer_queueINS1_28forwarding_posix_time_traitsEE18wait_duration_usecEl.exit, label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.i
 
 _ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i.i.i: ; preds = %20, %18, %.thread.i.i.i.i.i, %14
-  br label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread.i
-
-24:                                               ; preds = %12
-  %25 = sub nsw i64 %10, %9
-  br label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.i
-
-_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread.i: ; preds = %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i.i.i, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i.i, %22, %18
-  %.sroa.015.0.i.i.i.ph.i = phi i64 [ 9223372036854775807, %18 ], [ 9223372036854775806, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i.i.i ], [ 9223372036854775807, %22 ], [ 9223372036854775807, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i.i ]
-  %..i6.i = tail call i64 @llvm.smin.i64(i64 %.sroa.015.0.i.i.i.ph.i, i64 %1)
+  %24 = tail call i64 @llvm.smin.i64(i64 %1, i64 9223372036854775806)
   br label %_ZNK5boost4asio6detail11timer_queueINS1_28forwarding_posix_time_traitsEE18wait_duration_usecEl.exit
 
-_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.i: ; preds = %24, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i.i
-  %.sroa.015.0.i.i.i.i = phi i64 [ %switch.select.i.i.i.i, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i.i ], [ %25, %24 ]
+25:                                               ; preds = %12
+  %26 = sub nsw i64 %10, %9
+  br label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.i
+
+_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread.i: ; preds = %22
+  br label %_ZNK5boost4asio6detail11timer_queueINS1_28forwarding_posix_time_traitsEE18wait_duration_usecEl.exit
+
+_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.i: ; preds = %25, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i.i
+  %.sroa.015.0.i.i.i.i = phi i64 [ %switch.select.i.i.i.i, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i.i ], [ %26, %25 ]
   %.sroa.015.0.i.i.i.fr.i = freeze i64 %.sroa.015.0.i.i.i.i
   %..i.i = tail call i64 @llvm.smin.i64(i64 %.sroa.015.0.i.i.i.fr.i, i64 %1)
   %.inv.i.i = icmp sgt i64 %.sroa.015.0.i.i.i.fr.i, 0
   %spec.select.i = select i1 %.inv.i.i, i64 %..i.i, i64 0
   br label %_ZNK5boost4asio6detail11timer_queueINS1_28forwarding_posix_time_traitsEE18wait_duration_usecEl.exit
 
-_ZNK5boost4asio6detail11timer_queueINS1_28forwarding_posix_time_traitsEE18wait_duration_usecEl.exit: ; preds = %2, %20, %22, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread.i, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.i
-  %.0.i = phi i64 [ %1, %2 ], [ %..i6.i, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread.i ], [ 0, %22 ], [ 0, %20 ], [ %spec.select.i, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.i ]
+_ZNK5boost4asio6detail11timer_queueINS1_28forwarding_posix_time_traitsEE18wait_duration_usecEl.exit: ; preds = %2, %18, %20, %22, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i.i, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i.i.i, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread.i, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.i
+  %.0.i = phi i64 [ %1, %2 ], [ 0, %22 ], [ 0, %20 ], [ %spec.select.i, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.i ], [ %1, %18 ], [ %24, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i.i.i ], [ %1, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i.i ], [ %1, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread.i ]
   ret i64 %.0.i
 }
 
@@ -158918,7 +158917,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost4asio6detail11timer_queueINS1_
 12:                                               ; preds = %8
   %13 = add i64 %9, -9223372036854775806
   %spec.select.i.i6.i.i.i = icmp ult i64 %13, 3
-  br i1 %spec.select.i.i6.i.i.i, label %.thread.i.i.i.i, label %24
+  br i1 %spec.select.i.i6.i.i.i, label %.thread.i.i.i.i, label %25
 
 14:                                               ; preds = %8
   %15 = icmp eq i64 %10, 9223372036854775806
@@ -158938,7 +158937,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost4asio6detail11timer_queueINS1_
 
 18:                                               ; preds = %17
   %19 = icmp eq i64 %9, 9223372036854775807
-  br i1 %19, label %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i.i, label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread
+  br i1 %19, label %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i.i, label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread11
 
 20:                                               ; preds = %17
   %21 = icmp eq i64 %9, -9223372036854775808
@@ -158955,30 +158954,29 @@ _ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i: ; preds = %
   %switch.selectcmp.i.i.i = icmp eq i64 %23, -9223372036854775808
   %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, i64 -9223372036854775808, i64 9223372036854775806
   %switch.selectcmp37.i.i.i = icmp eq i64 %23, 9223372036854775807
-  br i1 %switch.selectcmp37.i.i.i, label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread, label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit
+  br i1 %switch.selectcmp37.i.i.i, label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread11, label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit
 
 _ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i.i: ; preds = %20, %18, %.thread.i.i.i.i, %14
-  br label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread
-
-24:                                               ; preds = %12
-  %25 = sub nsw i64 %10, %9
-  br label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit
-
-_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread: ; preds = %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i.i, %18, %22, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i
-  %.sroa.015.0.i.i.i.ph = phi i64 [ 9223372036854775807, %18 ], [ 9223372036854775806, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i.i ], [ 9223372036854775807, %22 ], [ 9223372036854775807, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i ]
-  %..i6 = tail call i64 @llvm.smin.i64(i64 %.sroa.015.0.i.i.i.ph, i64 %1)
+  %24 = tail call i64 @llvm.smin.i64(i64 %1, i64 9223372036854775806)
   br label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread11
 
-_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit: ; preds = %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i, %24
-  %.sroa.015.0.i.i.i = phi i64 [ %switch.select.i.i.i, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i ], [ %25, %24 ]
+25:                                               ; preds = %12
+  %26 = sub nsw i64 %10, %9
+  br label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit
+
+_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread: ; preds = %22
+  br label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread11
+
+_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit: ; preds = %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i, %25
+  %.sroa.015.0.i.i.i = phi i64 [ %switch.select.i.i.i, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i ], [ %26, %25 ]
   %.sroa.015.0.i.i.i.fr = freeze i64 %.sroa.015.0.i.i.i
   %..i = tail call i64 @llvm.smin.i64(i64 %.sroa.015.0.i.i.i.fr, i64 %1)
   %.inv.i = icmp sgt i64 %.sroa.015.0.i.i.i.fr, 0
   %spec.select = select i1 %.inv.i, i64 %..i, i64 0
   br label %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread11
 
-_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread11: ; preds = %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit, %20, %22, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread, %2
-  %.0 = phi i64 [ %1, %2 ], [ %..i6, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread ], [ 0, %22 ], [ 0, %20 ], [ %spec.select, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit ]
+_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread11: ; preds = %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i, %18, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i.i, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit, %20, %22, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread, %2
+  %.0 = phi i64 [ %1, %2 ], [ 0, %22 ], [ 0, %20 ], [ %spec.select, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit ], [ %1, %18 ], [ %24, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i.i ], [ %1, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i.i ], [ %1, %_ZN5boost4asio11time_traitsINS_10posix_time5ptimeEE8subtractERKS3_S6_.exit.thread ]
   ret i64 %.0
 }
 

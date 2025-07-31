@@ -6512,12 +6512,15 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h3875217e1fd7d9e
   %68 = mul i64 %67, 1452335207727870361
   %69 = add i64 %68, 4919460506697669435
   %70 = icmp eq ptr %9, %5
-  br i1 %70, label %_ZN4core4hash4Hash10hash_slice17haf4627896cd9a2f7E.exit, label %.lr.ph.i
+  br i1 %70, label %_ZN4core4hash4Hash10hash_slice17haf4627896cd9a2f7E.exit.loopexit, label %.lr.ph.i
 
-_ZN4core4hash4Hash10hash_slice17haf4627896cd9a2f7E.exit: ; preds = %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4hash17he149c6386c53263aE.exit.i", %2
-  %.sroa.04.0 = phi i64 [ 0, %2 ], [ %69, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4hash17he149c6386c53263aE.exit.i" ]
-  %71 = tail call noundef i64 @llvm.fshl.i64(i64 %.sroa.04.0, i64 %.sroa.04.0, i64 26)
-  ret i64 %71
+_ZN4core4hash4Hash10hash_slice17haf4627896cd9a2f7E.exit.loopexit: ; preds = %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4hash17he149c6386c53263aE.exit.i"
+  %71 = tail call i64 @llvm.fshl.i64(i64 %69, i64 %69, i64 26)
+  br label %_ZN4core4hash4Hash10hash_slice17haf4627896cd9a2f7E.exit
+
+_ZN4core4hash4Hash10hash_slice17haf4627896cd9a2f7E.exit: ; preds = %_ZN4core4hash4Hash10hash_slice17haf4627896cd9a2f7E.exit.loopexit, %2
+  %.sroa.04.0 = phi i64 [ 0, %2 ], [ %71, %_ZN4core4hash4Hash10hash_slice17haf4627896cd9a2f7E.exit.loopexit ]
+  ret i64 %.sroa.04.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -6640,12 +6643,15 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h7a5e0448498b0b0
   %67 = mul i64 %66, 1452335207727870361
   %68 = add i64 %67, 4919460506697669435
   %69 = icmp eq ptr %8, %4
-  br i1 %69, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h99b9e00dc9b2545fE.exit", label %.lr.ph.i.i.i
+  br i1 %69, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h99b9e00dc9b2545fE.exit.loopexit", label %.lr.ph.i.i.i
 
-"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h99b9e00dc9b2545fE.exit": ; preds = %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4hash17he149c6386c53263aE.exit.i.i.i", %3
-  %.sroa.04.0 = phi i64 [ 0, %3 ], [ %68, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4hash17he149c6386c53263aE.exit.i.i.i" ]
-  %70 = tail call noundef i64 @llvm.fshl.i64(i64 %.sroa.04.0, i64 %.sroa.04.0, i64 26)
-  ret i64 %70
+"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h99b9e00dc9b2545fE.exit.loopexit": ; preds = %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4hash17he149c6386c53263aE.exit.i.i.i"
+  %70 = tail call i64 @llvm.fshl.i64(i64 %68, i64 %68, i64 26)
+  br label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h99b9e00dc9b2545fE.exit"
+
+"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h99b9e00dc9b2545fE.exit": ; preds = %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h99b9e00dc9b2545fE.exit.loopexit", %3
+  %.sroa.04.0 = phi i64 [ 0, %3 ], [ %70, %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h99b9e00dc9b2545fE.exit.loopexit" ]
+  ret i64 %.sroa.04.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable

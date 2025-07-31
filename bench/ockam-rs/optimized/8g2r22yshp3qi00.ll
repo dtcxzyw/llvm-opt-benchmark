@@ -85444,15 +85444,15 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %.val.i.i.i = load ptr, ptr %36, align 8, !noalias !17211, !noundef !4
   %37 = getelementptr i8, ptr %35, i64 16
   %.val5.i.i.i = load i64, ptr %37, align 8, !noalias !17211, !noundef !4
+  %38 = call i64 @llvm.umin.i64(i64 %.val5.i.i.i, i64 %14)
   br label %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$5chunk17hdee82491e975d628E.llvm.6961039930124626028.exit"
 
 "_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$5chunk17hdee82491e975d628E.llvm.6961039930124626028.exit": ; preds = %25, %28
-  %.sroa.6.0.i.i.i = phi i64 [ %.val5.i.i.i, %28 ], [ undef, %25 ]
+  %.sroa.6.0.i.i.i = phi i64 [ %38, %28 ], [ 0, %25 ]
   %.sroa.01.0.i.i.i = phi ptr [ %.val.i.i.i, %28 ], [ null, %25 ]
-  %38 = icmp eq ptr %.sroa.01.0.i.i.i, null
-  %anon.a52d2cc049210bb5fe4320437cef3619.12.llvm.6961039930124626028..sroa.01.0.i.i.i = select i1 %38, ptr @anon.a52d2cc049210bb5fe4320437cef3619.12.llvm.6961039930124626028, ptr %.sroa.01.0.i.i.i
-  %39 = call i64 @llvm.umin.i64(i64 %.sroa.6.0.i.i.i, i64 %14)
-  %.0.sroa.speculated.i.i = select i1 %38, i64 0, i64 %39
+  %39 = icmp eq ptr %.sroa.01.0.i.i.i, null
+  %anon.a52d2cc049210bb5fe4320437cef3619.12.llvm.6961039930124626028..sroa.01.0.i.i.i = select i1 %39, ptr @anon.a52d2cc049210bb5fe4320437cef3619.12.llvm.6961039930124626028, ptr %.sroa.01.0.i.i.i
+  %.0.sroa.speculated.i.i = select i1 %39, i64 0, i64 %.sroa.6.0.i.i.i
   %40 = load i64, ptr %11, align 8, !alias.scope !17212, !noalias !17215, !noundef !4
   %41 = load i64, ptr %12, align 8, !alias.scope !17212, !noalias !17215, !noundef !4
   %42 = sub i64 %41, %40

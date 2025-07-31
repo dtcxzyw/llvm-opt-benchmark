@@ -809,26 +809,29 @@ bytestream2_put_byte.exit1213.i:                  ; preds = %273, %278, %300, %2
   %335 = add i32 %.010391557.us.i, -4
   %indvars.iv.next1770.i = add nuw nsw i64 %indvars.iv1769.i, 1
   %exitcond1773.not.i = icmp eq i64 %indvars.iv.next1770.i, %wide.trip.count1772.i
-  br i1 %exitcond1773.not.i, label %._crit_edge1559.i, label %.preheader1311.us.i, !llvm.loop !60
+  br i1 %exitcond1773.not.i, label %._crit_edge1559.loopexit.i, label %.preheader1311.us.i, !llvm.loop !60
 
-._crit_edge1559.i:                                ; preds = %._crit_edge1553.us.i, %316
-  %.01041.lcssa.i = phi i16 [ 0, %316 ], [ %333, %._crit_edge1553.us.i ]
+._crit_edge1559.loopexit.i:                       ; preds = %._crit_edge1553.us.i
+  %336 = call i16 @llvm.bswap.i16(i16 %333)
+  br label %._crit_edge1559.i
+
+._crit_edge1559.i:                                ; preds = %._crit_edge1559.loopexit.i, %316
+  %.01041.lcssa.i = phi i16 [ 0, %316 ], [ %336, %._crit_edge1559.loopexit.i ]
   %.not.i1254.i = icmp eq i32 %.sroa.125.23, 0
-  %336 = ptrtoint ptr %.sroa.0.28 to i64
-  %337 = sub i64 %93, %336
-  %338 = icmp sgt i64 %337, 1
-  %or.cond175 = select i1 %.not.i1254.i, i1 %338, i1 false
-  br i1 %or.cond175, label %339, label %bytestream2_put_be16.exit.i
+  %337 = ptrtoint ptr %.sroa.0.28 to i64
+  %338 = sub i64 %93, %337
+  %339 = icmp sgt i64 %338, 1
+  %or.cond175 = select i1 %.not.i1254.i, i1 %339, i1 false
+  br i1 %or.cond175, label %340, label %bytestream2_put_be16.exit.i
 
-339:                                              ; preds = %._crit_edge1559.i
-  %340 = call i16 @llvm.bswap.i16(i16 %.01041.lcssa.i)
-  store i16 %340, ptr %.sroa.0.28, align 1, !tbaa !40
+340:                                              ; preds = %._crit_edge1559.i
+  store i16 %.01041.lcssa.i, ptr %.sroa.0.28, align 1, !tbaa !40
   %341 = getelementptr inbounds nuw i8, ptr %.sroa.0.28, i64 2
   br label %bytestream2_put_be16.exit.i
 
-bytestream2_put_be16.exit.i:                      ; preds = %._crit_edge1559.i, %339
-  %.sroa.125.24 = phi i32 [ 0, %339 ], [ 1, %._crit_edge1559.i ]
-  %.sroa.0.29 = phi ptr [ %341, %339 ], [ %.sroa.0.28, %._crit_edge1559.i ]
+bytestream2_put_be16.exit.i:                      ; preds = %._crit_edge1559.i, %340
+  %.sroa.125.24 = phi i32 [ 0, %340 ], [ 1, %._crit_edge1559.i ]
+  %.sroa.0.29 = phi ptr [ %341, %340 ], [ %.sroa.0.28, %._crit_edge1559.i ]
   %342 = icmp ne ptr %.161576.i, null
   %343 = icmp ne ptr %.169401575.i, null
   %or.cond631562.i = select i1 %342, i1 %343, i1 false
@@ -1130,26 +1133,29 @@ bytestream2_put_byte.exit1221.i:                  ; preds = %417, %422, %444, %4
   %483 = add i32 %.neg1182.i, %.09901522.us.i
   %indvars.iv.next1751.i = add nuw nsw i64 %indvars.iv1750.i, 1
   %exitcond1755.not.i = icmp eq i64 %indvars.iv.next1751.i, %wide.trip.count1754.i
-  br i1 %exitcond1755.not.i, label %._crit_edge1524.i, label %.preheader1312.us.i, !llvm.loop !67
+  br i1 %exitcond1755.not.i, label %._crit_edge1524.loopexit.i, label %.preheader1312.us.i, !llvm.loop !67
 
-._crit_edge1524.i:                                ; preds = %._crit_edge1518.us.i, %.preheader1316.i
-  %.0992.lcssa.i = phi i32 [ 0, %.preheader1316.i ], [ %481, %._crit_edge1518.us.i ]
+._crit_edge1524.loopexit.i:                       ; preds = %._crit_edge1518.us.i
+  %484 = call i32 @llvm.bswap.i32(i32 %481)
+  br label %._crit_edge1524.i
+
+._crit_edge1524.i:                                ; preds = %._crit_edge1524.loopexit.i, %.preheader1316.i
+  %.0992.lcssa.i = phi i32 [ 0, %.preheader1316.i ], [ %484, %._crit_edge1524.loopexit.i ]
   %.not.i.i = icmp eq i32 %.sroa.125.17, 0
-  %484 = ptrtoint ptr %.sroa.0.21 to i64
-  %485 = sub i64 %93, %484
-  %486 = icmp sgt i64 %485, 3
-  %or.cond187 = select i1 %.not.i.i, i1 %486, i1 false
-  br i1 %or.cond187, label %487, label %bytestream2_put_be32.exit.i
+  %485 = ptrtoint ptr %.sroa.0.21 to i64
+  %486 = sub i64 %93, %485
+  %487 = icmp sgt i64 %486, 3
+  %or.cond187 = select i1 %.not.i.i, i1 %487, i1 false
+  br i1 %or.cond187, label %488, label %bytestream2_put_be32.exit.i
 
-487:                                              ; preds = %._crit_edge1524.i
-  %488 = call i32 @llvm.bswap.i32(i32 %.0992.lcssa.i)
-  store i32 %488, ptr %.sroa.0.21, align 1, !tbaa !40
+488:                                              ; preds = %._crit_edge1524.i
+  store i32 %.0992.lcssa.i, ptr %.sroa.0.21, align 1, !tbaa !40
   %489 = getelementptr inbounds nuw i8, ptr %.sroa.0.21, i64 4
   br label %bytestream2_put_be32.exit.i
 
-bytestream2_put_be32.exit.i:                      ; preds = %._crit_edge1524.i, %487
-  %.sroa.125.18 = phi i32 [ 0, %487 ], [ 1, %._crit_edge1524.i ]
-  %.sroa.0.22 = phi ptr [ %489, %487 ], [ %.sroa.0.21, %._crit_edge1524.i ]
+bytestream2_put_be32.exit.i:                      ; preds = %._crit_edge1524.i, %488
+  %.sroa.125.18 = phi i32 [ 0, %488 ], [ 1, %._crit_edge1524.i ]
+  %.sroa.0.22 = phi ptr [ %489, %488 ], [ %.sroa.0.21, %._crit_edge1524.i ]
   %490 = icmp ne ptr %.191541.i, null
   %491 = icmp ne ptr %.199431540.i, null
   %or.cond651527.i = select i1 %490, i1 %491, i1 false

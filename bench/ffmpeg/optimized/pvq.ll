@@ -49,12 +49,12 @@ define internal i32 @pvq_encode_band(ptr noundef %0, ptr noundef %1, ptr noundef
   %.pre369 = load i32, ptr %20, align 4, !tbaa !12
   br label %21
 
-21:                                               ; preds = %.preheader, %32
-  %22 = phi i32 [ %.pre369, %.preheader ], [ %33, %32 ]
-  %23 = phi i1 [ true, %.preheader ], [ false, %32 ]
-  %.0603.i288 = phi ptr [ %4, %.preheader ], [ %5, %32 ]
+21:                                               ; preds = %.preheader, %33
+  %22 = phi i32 [ %.pre369, %.preheader ], [ %34, %33 ]
+  %23 = phi i1 [ true, %.preheader ], [ false, %33 ]
+  %.0603.i288 = phi ptr [ %4, %.preheader ], [ %5, %33 ]
   %24 = icmp sgt i32 %22, 7
-  br i1 %24, label %25, label %32
+  br i1 %24, label %25, label %33
 
 25:                                               ; preds = %21
   %26 = load float, ptr %.0603.i288, align 4, !tbaa !19
@@ -65,17 +65,17 @@ define internal i32 @pvq_encode_band(ptr noundef %0, ptr noundef %1, ptr noundef
   %30 = add nsw i32 %29, -8
   store i32 %30, ptr %20, align 4, !tbaa !12
   %31 = uitofp i1 %27 to float
-  br label %32
+  %32 = tail call nsz float @llvm.fmuladd.f32(float %31, float -2.000000e+00, float 1.000000e+00)
+  br label %33
 
-32:                                               ; preds = %25, %21
-  %33 = phi i32 [ %30, %25 ], [ %22, %21 ]
-  %.0601.i = phi float [ %31, %25 ], [ 0.000000e+00, %21 ]
-  %34 = tail call nsz float @llvm.fmuladd.f32(float %.0601.i, float -2.000000e+00, float 1.000000e+00)
-  store float %34, ptr %.0603.i288, align 4, !tbaa !19
+33:                                               ; preds = %25, %21
+  %34 = phi i32 [ %30, %25 ], [ %22, %21 ]
+  %.0601.i = phi float [ %32, %25 ], [ 1.000000e+00, %21 ]
+  store float %.0601.i, ptr %.0603.i288, align 4, !tbaa !19
   %.not663.i.not = and i1 %23, %17
   br i1 %.not663.i.not, label %21, label %35, !llvm.loop !20
 
-35:                                               ; preds = %32
+35:                                               ; preds = %33
   %.not664.i = icmp eq ptr %11, null
   br i1 %.not664.i, label %quant_band_template.exit, label %36
 
@@ -1376,16 +1376,16 @@ celt_pulses2bits.exit.thread:                     ; preds = %.lr.ph243, %celt_bi
   %739 = tail call nsz float @llvm.fmuladd.f32(float %738, float %738, float %.0.i24254)
   %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
   %exitcond340.not = icmp eq i64 %indvars.iv.next337, %wide.trip.count339
-  br i1 %exitcond340.not, label %._crit_edge257, label %.lr.ph256, !llvm.loop !65
+  br i1 %exitcond340.not, label %.lr.ph261.preheader, label %.lr.ph256, !llvm.loop !65
 
-._crit_edge257:                                   ; preds = %.lr.ph256
+.lr.ph261.preheader:                              ; preds = %.lr.ph256
   %740 = tail call nsz float @llvm.sqrt.f32(float %739)
   %741 = fdiv nsz float %13, %740
   %wide.trip.count344 = zext nneg i32 %6 to i64
   br label %.lr.ph261
 
-.lr.ph261:                                        ; preds = %._crit_edge257, %.lr.ph261
-  %indvars.iv341 = phi i64 [ 0, %._crit_edge257 ], [ %indvars.iv.next342, %.lr.ph261 ]
+.lr.ph261:                                        ; preds = %.lr.ph261.preheader, %.lr.ph261
+  %indvars.iv341 = phi i64 [ 0, %.lr.ph261.preheader ], [ %indvars.iv.next342, %.lr.ph261 ]
   %742 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv341
   %743 = load float, ptr %742, align 4, !tbaa !19
   %744 = fmul nsz float %741, %743
@@ -1739,12 +1739,12 @@ define internal i32 @pvq_decode_band(ptr noundef %0, ptr noundef %1, ptr noundef
   %.pre332 = load i32, ptr %20, align 4, !tbaa !12
   br label %21
 
-21:                                               ; preds = %.preheader, %30
-  %22 = phi i32 [ %.pre332, %.preheader ], [ %31, %30 ]
-  %23 = phi i1 [ true, %.preheader ], [ false, %30 ]
-  %.0603.i258 = phi ptr [ %4, %.preheader ], [ %5, %30 ]
+21:                                               ; preds = %.preheader, %31
+  %22 = phi i32 [ %.pre332, %.preheader ], [ %32, %31 ]
+  %23 = phi i1 [ true, %.preheader ], [ false, %31 ]
+  %.0603.i258 = phi ptr [ %4, %.preheader ], [ %5, %31 ]
   %24 = icmp sgt i32 %22, 7
-  br i1 %24, label %25, label %30
+  br i1 %24, label %25, label %31
 
 25:                                               ; preds = %21
   %26 = tail call i32 @ff_opus_rc_get_raw(ptr noundef %2, i32 noundef 1) #10
@@ -1752,17 +1752,17 @@ define internal i32 @pvq_decode_band(ptr noundef %0, ptr noundef %1, ptr noundef
   %28 = add nsw i32 %27, -8
   store i32 %28, ptr %20, align 4, !tbaa !12
   %29 = sitofp i32 %26 to float
-  br label %30
+  %30 = tail call nsz float @llvm.fmuladd.f32(float %29, float -2.000000e+00, float 1.000000e+00)
+  br label %31
 
-30:                                               ; preds = %25, %21
-  %31 = phi i32 [ %28, %25 ], [ %22, %21 ]
-  %.0601.i = phi float [ %29, %25 ], [ 0.000000e+00, %21 ]
-  %32 = tail call nsz float @llvm.fmuladd.f32(float %.0601.i, float -2.000000e+00, float 1.000000e+00)
-  store float %32, ptr %.0603.i258, align 4, !tbaa !19
+31:                                               ; preds = %25, %21
+  %32 = phi i32 [ %28, %25 ], [ %22, %21 ]
+  %.0601.i = phi float [ %30, %25 ], [ 1.000000e+00, %21 ]
+  store float %.0601.i, ptr %.0603.i258, align 4, !tbaa !19
   %.not663.i.not = and i1 %23, %17
   br i1 %.not663.i.not, label %21, label %33, !llvm.loop !20
 
-33:                                               ; preds = %30
+33:                                               ; preds = %31
   %.not664.i = icmp eq ptr %11, null
   br i1 %.not664.i, label %quant_band_template.exit, label %34
 
@@ -3008,16 +3008,16 @@ celt_pulses2bits.exit.thread:                     ; preds = %.lr.ph215, %celt_bi
   %710 = tail call nsz float @llvm.fmuladd.f32(float %709, float %709, float %.0.i24226)
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %exitcond308.not = icmp eq i64 %indvars.iv.next305, %wide.trip.count307
-  br i1 %exitcond308.not, label %._crit_edge229, label %.lr.ph228, !llvm.loop !65
+  br i1 %exitcond308.not, label %.lr.ph233.preheader, label %.lr.ph228, !llvm.loop !65
 
-._crit_edge229:                                   ; preds = %.lr.ph228
+.lr.ph233.preheader:                              ; preds = %.lr.ph228
   %711 = tail call nsz float @llvm.sqrt.f32(float %710)
   %712 = fdiv nsz float %13, %711
   %wide.trip.count312 = zext nneg i32 %6 to i64
   br label %.lr.ph233
 
-.lr.ph233:                                        ; preds = %._crit_edge229, %.lr.ph233
-  %indvars.iv309 = phi i64 [ 0, %._crit_edge229 ], [ %indvars.iv.next310, %.lr.ph233 ]
+.lr.ph233:                                        ; preds = %.lr.ph233.preheader, %.lr.ph233
+  %indvars.iv309 = phi i64 [ 0, %.lr.ph233.preheader ], [ %indvars.iv.next310, %.lr.ph233 ]
   %713 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv309
   %714 = load float, ptr %713, align 4, !tbaa !19
   %715 = fmul nsz float %712, %714

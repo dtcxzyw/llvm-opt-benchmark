@@ -1480,21 +1480,21 @@ define internal fastcc void @transform_vect_recursive(ptr noundef %0, ptr nounde
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %19 = sext i16 %7 to i32
+  %19 = tail call i32 @llvm.umax.i32(i32 %15, i32 1)
+  %20 = tail call i32 @llvm.umax.i32(i32 %17, i32 1)
+  %21 = sext i16 %7 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.021.lcssa = phi i32 [ 256, %2 ], [ %17, %._crit_edge.loopexit ]
-  %.019.lcssa = phi i32 [ 256, %2 ], [ %15, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %19, %._crit_edge.loopexit ]
+  %.021.lcssa = phi i32 [ 256, %2 ], [ %20, %._crit_edge.loopexit ]
+  %.019.lcssa = phi i32 [ 256, %2 ], [ %19, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %21, %._crit_edge.loopexit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   store i64 0, ptr %3, align 8
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.019.lcssa, i32 1)
-  %spec.store.select1 = tail call i32 @llvm.umax.i32(i32 %.021.lcssa, i32 1)
-  %20 = udiv i32 65536, %spec.store.select
-  %21 = udiv i32 65536, %spec.store.select1
-  %22 = sub nsw i32 0, %.0.lcssa
-  call void @lv_point_transform(ptr noundef nonnull %1, i32 noundef %22, i32 noundef %20, i32 noundef %21, ptr noundef nonnull %3, i1 noundef zeroext false) #6
+  %22 = udiv i32 65536, %.019.lcssa
+  %23 = udiv i32 65536, %.021.lcssa
+  %24 = sub nsw i32 0, %.0.lcssa
+  call void @lv_point_transform(ptr noundef nonnull %1, i32 noundef %24, i32 noundef %22, i32 noundef %23, ptr noundef nonnull %3, i1 noundef zeroext false) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   ret void
 }

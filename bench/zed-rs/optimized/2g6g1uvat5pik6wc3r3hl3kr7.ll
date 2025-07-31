@@ -4618,7 +4618,7 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$task..Sh
   %389 = icmp ult i64 %388, 6
   call void @llvm.assume(i1 %389)
   %.not20.not.not.i.i = icmp eq i64 %388, 5
-  br i1 %.not20.not.not.i.i, label %393, label %404
+  br i1 %.not20.not.not.i.i, label %393, label %405
 
 390:                                              ; preds = %383
   %391 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !968
@@ -4669,15 +4669,15 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$task..Sh
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26), !noalias !968
   %.pre.i.i = load i32, ptr %29, align 4, !noalias !968
   %.pre26.i.i = load i32, ptr %28, align 4, !noalias !968
-  br label %404
+  %404 = call i32 @llvm.smin.i32(i32 %.pre26.i.i, i32 %387)
+  br label %405
 
-404:                                              ; preds = %.noexc220, %386
-  %405 = phi i32 [ %387, %386 ], [ %.pre26.i.i, %.noexc220 ]
+405:                                              ; preds = %.noexc220, %386
+  %.sroa.0.0.sroa.speculated.i25.i.i = phi i32 [ %387, %386 ], [ %404, %.noexc220 ]
   %406 = phi i32 [ 0, %386 ], [ %.pre.i.i, %.noexc220 ]
   %.sroa.0.0.sroa.speculated.i.i.i = call noundef i32 @llvm.smin.i32(i32 %406, i32 %387)
   %407 = getelementptr inbounds nuw i8, ptr %89, i64 632
   store i32 %.sroa.0.0.sroa.speculated.i.i.i, ptr %407, align 8, !alias.scope !968
-  %.sroa.0.0.sroa.speculated.i25.i.i = call noundef i32 @llvm.smin.i32(i32 %405, i32 %387)
   %408 = getelementptr inbounds nuw i8, ptr %89, i64 636
   store i32 %.sroa.0.0.sroa.speculated.i25.i.i, ptr %408, align 4, !alias.scope !968
   call void @llvm.experimental.noalias.scope.decl(metadata !969)
@@ -4691,7 +4691,7 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$task..Sh
   %.not.not.not.i.i.i = icmp eq i64 %409, 5
   br i1 %.not.not.not.i.i.i, label %411, label %422
 
-411:                                              ; preds = %404
+411:                                              ; preds = %405
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22), !noalias !972
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21), !noalias !972
   store ptr %24, ptr %21, align 8, !noalias !972
@@ -4733,7 +4733,7 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$task..Sh
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !972
   br label %422
 
-422:                                              ; preds = %.noexc222, %404
+422:                                              ; preds = %.noexc222, %405
   %423 = getelementptr inbounds nuw i8, ptr %89, i64 56
   %424 = load i32, ptr %423, align 8, !alias.scope !972, !noundef !4
   %425 = sext i32 %424 to i64

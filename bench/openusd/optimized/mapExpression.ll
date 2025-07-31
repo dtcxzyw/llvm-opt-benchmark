@@ -6121,7 +6121,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__6TfHash12_CombineImplINS_12Tf_HashStateERKN
   %78 = lshr i64 %77, 1
   %79 = add i64 %78, %74
   %80 = mul i64 %79, -7046029254386353067
-  %81 = tail call noundef i64 @llvm.bswap.i64(i64 %80)
+  %81 = tail call i64 @llvm.bswap.i64(i64 %80)
   ret i64 %81
 }
 

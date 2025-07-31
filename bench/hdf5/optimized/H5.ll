@@ -1663,13 +1663,16 @@ switch.early.test:                                ; preds = %6
   %35 = load i16, ptr %34, align 2, !tbaa !21
   %36 = and i16 %35, 1024
   %.not60 = icmp eq i16 %36, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %.not60, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %28, %14
-  %.049.lcssa = phi i64 [ 0, %14 ], [ %30, %28 ]
-  %.2.lcssa = phi ptr [ %.1, %14 ], [ %31, %28 ]
-  %37 = call i64 @llvm.umin.i64(i64 %.049.lcssa, i64 31)
-  %38 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %37
+._crit_edge.loopexit:                             ; preds = %28
+  %37 = call i64 @llvm.umin.i64(i64 %30, i64 31)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
+  %.049.lcssa = phi i64 [ 0, %14 ], [ %37, %._crit_edge.loopexit ]
+  %.2.lcssa = phi ptr [ %.1, %14 ], [ %31, %._crit_edge.loopexit ]
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %.049.lcssa
   store i8 0, ptr %38, align 1, !tbaa !20
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %2, ptr noundef nonnull dereferenceable(6) @.str.77, i64 6)
   %.not61 = icmp eq i32 %bcmp, 0

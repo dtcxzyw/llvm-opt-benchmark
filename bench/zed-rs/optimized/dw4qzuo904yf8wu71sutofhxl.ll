@@ -1852,43 +1852,43 @@ _ZN3std2io4Read10read_exact17h2aaf4d7d329403e5E.exit.i: ; preds = %"_ZN63_$LT$u8
   br i1 %433, label %434, label %435
 
 434:                                              ; preds = %429
-  br i1 %382, label %442, label %436
+  br i1 %382, label %441, label %436
 
 435:                                              ; preds = %429
   call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %432, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.57e5e1f439f9c7771713c2845affd91d.139) #45, !noalias !300
   unreachable
 
-436:                                              ; preds = %442, %434
-  %.sroa.01.0.i.i = phi i32 [ %380, %434 ], [ %spec.select1.i.i, %442 ]
-  %437 = call i32 @llvm.smax.i32(i32 %.sroa.01.0.i.i, i32 0)
-  %.sroa.0.0.in.sroa.speculated.i.i.i = call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %437, i32 63)
-  %438 = icmp eq i8 %.sroa.4205.0.copyload, 4
-  %439 = select i1 %438, i32 %383, i32 0
-  %.sroa.01.1.i.i = add i32 %.sroa.0.0.in.sroa.speculated.i.i.i, %439
-  %440 = call i32 @llvm.smax.i32(i32 %.sroa.01.1.i.i, i32 0)
-  %.sroa.0.0.in.sroa.speculated.i17.i.i = call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %440, i32 63)
-  %441 = trunc nuw nsw i32 %.sroa.0.0.in.sroa.speculated.i17.i.i to i8
+436:                                              ; preds = %441, %434
+  %.sroa.01.0.i.i = phi i32 [ %380, %434 ], [ %450, %441 ]
+  %.sroa.0.0.in.sroa.speculated.i.i.i = call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %.sroa.01.0.i.i, i32 63)
+  %437 = icmp eq i8 %.sroa.4205.0.copyload, 4
+  %438 = select i1 %437, i32 %383, i32 0
+  %.sroa.01.1.i.i = add i32 %438, %.sroa.0.0.in.sroa.speculated.i.i.i
+  %439 = call i32 @llvm.smax.i32(i32 %.sroa.01.1.i.i, i32 0)
+  %.sroa.0.0.in.sroa.speculated.i17.i.i = call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %439, i32 63)
+  %440 = trunc nuw nsw i32 %.sroa.0.0.in.sroa.speculated.i17.i.i to i8
   br i1 %.not.i.i, label %453, label %451
 
-442:                                              ; preds = %434
-  %443 = getelementptr inbounds nuw [4 x { i16, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }], ptr %356, i64 0, i64 %432
-  %444 = getelementptr inbounds nuw i8, ptr %443, i64 13
-  %445 = load i8, ptr %444, align 1, !alias.scope !302, !noalias !303, !noundef !16
-  %446 = getelementptr inbounds nuw i8, ptr %443, i64 14
-  %447 = load i8, ptr %446, align 2, !range !37, !alias.scope !302, !noalias !303, !noundef !16
-  %448 = trunc nuw i8 %447 to i1
-  %449 = sext i8 %445 to i32
-  %450 = select i1 %448, i32 %380, i32 0
-  %spec.select1.i.i = add nsw i32 %450, %449
+441:                                              ; preds = %434
+  %442 = getelementptr inbounds nuw [4 x { i16, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }], ptr %356, i64 0, i64 %432
+  %443 = getelementptr inbounds nuw i8, ptr %442, i64 13
+  %444 = load i8, ptr %443, align 1, !alias.scope !302, !noalias !303, !noundef !16
+  %445 = getelementptr inbounds nuw i8, ptr %442, i64 14
+  %446 = load i8, ptr %445, align 2, !range !37, !alias.scope !302, !noalias !303, !noundef !16
+  %447 = trunc nuw i8 %446 to i1
+  %448 = sext i8 %444 to i32
+  %449 = select i1 %447, i32 %380, i32 0
+  %spec.select1.i.i = add nsw i32 %449, %448
+  %450 = call i32 @llvm.smax.i32(i32 %spec.select1.i.i, i32 0)
   br label %436
 
 451:                                              ; preds = %436
-  %452 = lshr i8 %441, %..i.i
+  %452 = lshr i8 %440, %..i.i
   %spec.select16.i.i = call i8 @llvm.umin.i8(i8 %452, i8 %386)
   br label %453
 
 453:                                              ; preds = %451, %436
-  %.sroa.06.0.i.i = phi i8 [ %441, %436 ], [ %spec.select16.i.i, %451 ]
+  %.sroa.06.0.i.i = phi i8 [ %440, %436 ], [ %spec.select16.i.i, %451 ]
   %454 = icmp sgt i32 %.sroa.01.1.i.i, 39
   br i1 %388, label %456, label %455
 
@@ -1922,7 +1922,7 @@ _ZN3std2io4Read10read_exact17h2aaf4d7d329403e5E.exit.i: ; preds = %"_ZN63_$LT$u8
 461:                                              ; preds = %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17h737856393c473b71E.exit.i", %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17h737856393c473b71E.exit.thread.i"
   %spec.store.select.i289.i = phi i8 [ %spec.store.select.i286.i, %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17h737856393c473b71E.exit.thread.i" ], [ %spec.store.select.i.i, %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17h737856393c473b71E.exit.i" ]
   %.sroa.010.0.i288.i = phi i8 [ %.sroa.010.0.i.ph.i, %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17h737856393c473b71E.exit.thread.i" ], [ %.sroa.010.0.i.i, %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17h737856393c473b71E.exit.i" ]
-  %462 = shl nuw nsw i8 %441, 1
+  %462 = shl nuw nsw i8 %440, 1
   %463 = add nuw i8 %spec.store.select.i289.i, %462
   %464 = add nuw i8 %463, 4
   %465 = shl i64 %.sroa.050.01163, 4

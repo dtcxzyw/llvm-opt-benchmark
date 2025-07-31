@@ -535,16 +535,16 @@ define hidden range(i64 0, -1023) i64 @mi_option_get_size(i32 noundef %0) local_
 
 10:                                               ; preds = %9, %3
   %11 = load i64, ptr %5, align 16, !tbaa !14
+  %12 = tail call i64 @llvm.smax.i64(i64 %11, i64 0)
   br label %mi_option_get.exit
 
 mi_option_get.exit:                               ; preds = %1, %10
-  %.0.i = phi i64 [ %11, %10 ], [ 0, %1 ]
-  %12 = tail call i64 @llvm.smax.i64(i64 %.0.i, i64 0)
+  %.0.i = phi i64 [ %12, %10 ], [ 0, %1 ]
   %13 = icmp eq i32 %0, 9
   %14 = icmp eq i32 %0, 23
   %15 = or i1 %13, %14
-  %16 = shl i64 %12, 10
-  %spec.select = select i1 %15, i64 %16, i64 %12
+  %16 = shl i64 %.0.i, 10
+  %spec.select = select i1 %15, i64 %16, i64 %.0.i
   ret i64 %spec.select
 }
 

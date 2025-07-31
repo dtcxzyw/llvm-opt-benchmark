@@ -12033,14 +12033,17 @@ _ZN4core4hash6Hasher9write_str17h558c48fffac34f34E.exit.i.i.i.i.i: ; preds = %"_
   call void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0ff127f8b21ed2cE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %4), !noalias !1514
   %459 = load i8, ptr %3, align 8, !range !1515, !noalias !1506, !noundef !4
   %.not.i.i.i.i = icmp eq i8 %459, 10
-  br i1 %.not.i.i.i.i, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hc0176e2a971f1757E.exit", label %8
+  br i1 %.not.i.i.i.i, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hc0176e2a971f1757E.exit.loopexit", label %8
 
-"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hc0176e2a971f1757E.exit": ; preds = %"_ZN58_$LT$camino..Utf8Component$u20$as$u20$core..hash..Hash$GT$4hash17h6b422fe0e5c41805E.exit.i.i.i.i", %2
-  %.sroa.03.1 = phi i64 [ 0, %2 ], [ %.sroa.03.0, %"_ZN58_$LT$camino..Utf8Component$u20$as$u20$core..hash..Hash$GT$4hash17h6b422fe0e5c41805E.exit.i.i.i.i" ]
+"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hc0176e2a971f1757E.exit.loopexit": ; preds = %"_ZN58_$LT$camino..Utf8Component$u20$as$u20$core..hash..Hash$GT$4hash17h6b422fe0e5c41805E.exit.i.i.i.i"
+  %460 = call i64 @llvm.fshl.i64(i64 %.sroa.03.0, i64 %.sroa.03.0, i64 26)
+  br label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hc0176e2a971f1757E.exit"
+
+"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hc0176e2a971f1757E.exit": ; preds = %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hc0176e2a971f1757E.exit.loopexit", %2
+  %.sroa.03.1 = phi i64 [ 0, %2 ], [ %460, %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hc0176e2a971f1757E.exit.loopexit" ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !1506
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1506
-  %460 = call noundef i64 @llvm.fshl.i64(i64 %.sroa.03.1, i64 %.sroa.03.1, i64 26)
-  ret i64 %460
+  ret i64 %.sroa.03.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable

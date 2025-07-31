@@ -29717,13 +29717,13 @@ if.end:                                           ; preds = %_ZNK5boost11basic_r
 cond.true.i.i:                                    ; preds = %if.end
   %m_expression_len.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 56
   %7 = load i64, ptr %m_expression_len.i.i.i, align 8
+  %8 = tail call i64 @llvm.umax.i64(i64 %7, i64 1)
   br label %_ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4sizeEv.exit.i
 
 _ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4sizeEv.exit.i: ; preds = %cond.true.i.i, %if.end
-  %cond.i.i = phi i64 [ %7, %cond.true.i.i ], [ 0, %if.end ]
-  %spec.store.select2.i = tail call i64 @llvm.umax.i64(i64 %cond.i.i, i64 1)
-  %div.i = sdiv i64 9223372036854775807, %spec.store.select2.i
-  %cmp7.i = icmp slt i64 %div.i, %spec.store.select2.i
+  %cond.i.i = phi i64 [ %8, %cond.true.i.i ], [ 1, %if.end ]
+  %div.i = sdiv i64 9223372036854775807, %cond.i.i
+  %cmp7.i = icmp slt i64 %div.i, %cond.i.i
   br i1 %cmp7.i, label %if.then8.i, label %if.end12.i
 
 if.then8.i:                                       ; preds = %_ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4sizeEv.exit.i
@@ -29732,7 +29732,7 @@ if.then8.i:                                       ; preds = %_ZNK5boost11basic_r
   br label %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE24estimate_max_state_countEPSt26random_access_iterator_tag.exit
 
 if.end12.i:                                       ; preds = %_ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4sizeEv.exit.i
-  %mul.i = mul nsw i64 %spec.store.select2.i, %spec.store.select2.i
+  %mul.i = mul nsw i64 %cond.i.i, %cond.i.i
   %div14.i = sdiv i64 9223372036854775807, %spec.store.select.i
   %cmp15.i = icmp slt i64 %div14.i, %mul.i
   br i1 %cmp15.i, label %if.then16.i, label %if.end23.i
@@ -29773,31 +29773,31 @@ if.then52.i:                                      ; preds = %if.end47.i
   br label %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE24estimate_max_state_countEPSt26random_access_iterator_tag.exit
 
 if.end59.i:                                       ; preds = %if.end47.i
-  %8 = tail call i64 @llvm.umin.i64(i64 %mul48.i, i64 99900000)
-  %cmp65.i = icmp sgt i64 %8, %mul24.i
+  %9 = tail call i64 @llvm.umin.i64(i64 %mul48.i, i64 99900000)
+  %cmp65.i = icmp sgt i64 %9, %mul24.i
   br i1 %cmp65.i, label %if.then66.i, label %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE24estimate_max_state_countEPSt26random_access_iterator_tag.exit
 
 if.then66.i:                                      ; preds = %if.end59.i
-  %spec.store.select1.i = add nuw nsw i64 %8, 100000
+  %spec.store.select1.i = add nuw nsw i64 %9, 100000
   store i64 %spec.store.select1.i, ptr %max_state_count36.i, align 8
   br label %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE24estimate_max_state_countEPSt26random_access_iterator_tag.exit
 
 _ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE24estimate_max_state_countEPSt26random_access_iterator_tag.exit: ; preds = %if.then8.i, %if.then16.i, %if.then28.i, %if.then40.i, %if.then52.i, %if.end59.i, %if.then66.i
-  %9 = load ptr, ptr %5, align 8
-  %tobool.not.i7 = icmp eq ptr %9, null
+  %10 = load ptr, ptr %5, align 8
+  %tobool.not.i7 = icmp eq ptr %10, null
   br i1 %tobool.not.i7, label %_ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEv.exit, label %cond.true.i8
 
 cond.true.i8:                                     ; preds = %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE24estimate_max_state_countEPSt26random_access_iterator_tag.exit
-  %m_flags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %10 = load i32, ptr %m_flags.i.i, align 8
+  %m_flags.i.i = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %11 = load i32, ptr %m_flags.i.i, align 8
   br label %_ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEv.exit
 
 _ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEv.exit: ; preds = %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE24estimate_max_state_countEPSt26random_access_iterator_tag.exit, %cond.true.i8
-  %cond.i9 = phi i32 [ %10, %cond.true.i8 ], [ 0, %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE24estimate_max_state_countEPSt26random_access_iterator_tag.exit ]
+  %cond.i9 = phi i32 [ %11, %cond.true.i8 ], [ 0, %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE24estimate_max_state_countEPSt26random_access_iterator_tag.exit ]
   %icase = getelementptr inbounds nuw i8, ptr %this, i64 120
   %and = lshr i32 %cond.i9, 20
-  %11 = trunc i32 %and to i8
-  %frombool = and i8 %11, 1
+  %12 = trunc i32 %and to i8
+  %frombool = and i8 %12, 1
   store i8 %frombool, ptr %icase, align 8
   %and.i = and i32 %f, 196608
   %tobool6.not = icmp eq i32 %and.i, 0
@@ -29811,15 +29811,15 @@ if.then7:                                         ; preds = %_ZNK5boost11basic_r
   %or.cond = or i1 %cmp, %cmp13
   %and18 = and i32 %cond.i9, 3
   %cmp19 = icmp eq i32 %and18, 2
-  %12 = select i1 %or.cond, i1 true, i1 %cmp19
-  %.sink = select i1 %12, i32 65536, i32 131072
+  %13 = select i1 %or.cond, i1 true, i1 %cmp19
+  %.sink = select i1 %13, i32 65536, i32 131072
   %or.i.i = or disjoint i32 %f, %.sink
   store i32 %or.i.i, ptr %m_match_flags, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then7, %_ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEv.exit
-  %13 = phi i32 [ %f, %_ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEv.exit ], [ %or.i.i, %if.then7 ]
-  %and.i13 = and i32 %13, 131072
+  %14 = phi i32 [ %f, %_ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEv.exit ], [ %or.i.i, %if.then7 ]
+  %and.i13 = and i32 %14, 131072
   %tobool32.not = icmp eq i32 %and.i13, 0
   br i1 %tobool32.not, label %if.else39, label %invoke.cont36
 
@@ -29831,95 +29831,95 @@ invoke.cont36:                                    ; preds = %if.end29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_named_subs.i, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_is_singular.i, align 4
   %m_temp_match = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %14 = load ptr, ptr %m_temp_match, align 8
+  %15 = load ptr, ptr %m_temp_match, align 8
   store ptr %call34, ptr %m_temp_match, align 8
-  %isnull.i.i.i = icmp eq ptr %14, null
+  %isnull.i.i.i = icmp eq ptr %15, null
   br i1 %isnull.i.i.i, label %if.end41, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %invoke.cont36
-  %pn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %15 = load ptr, ptr %pn.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %15, null
+  %pn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %16 = load ptr, ptr %pn.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %delete.notnull.i.i.i
-  %use_count_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %16 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %16, 1
+  %use_count_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %17 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %17, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %16, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
-  %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  invoke void %17(ptr noundef nonnull align 8 dereferenceable(16) %15)
+  %18 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %16)
           to label %.noexc.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %18 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %18, 1
+  %weak_count_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %19 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %19, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %.noexc.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %16, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 24
-  %19 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(16) %15)
+  %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %16)
           to label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #26
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #26
   unreachable
 
 _ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %delete.notnull.i.i.i
-  %22 = load ptr, ptr %14, align 8
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %22, null
+  %23 = load ptr, ptr %15, align 8
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEED2Ev.exit.i.i.i, label %if.then.i.i.i1.i.i.i.i
 
 if.then.i.i.i1.i.i.i.i:                           ; preds = %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %22) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %23) #27
   br label %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEED2Ev.exit.i.i.i
 
 _ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i1.i.i.i.i, %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #27
   %.pre = load ptr, ptr %m_temp_match, align 8
   %.pre16.pre = load ptr, ptr %re.i, align 8
   br label %if.end41
 
 if.else39:                                        ; preds = %if.end29
-  %23 = load ptr, ptr %this, align 8
+  %24 = load ptr, ptr %this, align 8
   br label %if.end41
 
 if.end41:                                         ; preds = %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEED2Ev.exit.i.i.i, %invoke.cont36, %if.else39
-  %.sink18 = phi ptr [ %23, %if.else39 ], [ %call34, %invoke.cont36 ], [ %.pre, %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEED2Ev.exit.i.i.i ]
-  %24 = phi ptr [ %5, %if.else39 ], [ %5, %invoke.cont36 ], [ %.pre16.pre, %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEED2Ev.exit.i.i.i ]
+  %.sink18 = phi ptr [ %24, %if.else39 ], [ %call34, %invoke.cont36 ], [ %.pre, %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEED2Ev.exit.i.i.i ]
+  %25 = phi ptr [ %5, %if.else39 ], [ %5, %invoke.cont36 ], [ %.pre16.pre, %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEED2Ev.exit.i.i.i ]
   %m_presult40 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %.sink18, ptr %m_presult40, align 8
   %m_stack_base = getelementptr inbounds nuw i8, ptr %this, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_stack_base, i8 0, i64 16, i1 false)
-  %25 = load ptr, ptr %24, align 8
-  %m_word_mask = getelementptr inbounds nuw i8, ptr %25, i64 368
-  %26 = load i32, ptr %m_word_mask, align 8
+  %26 = load ptr, ptr %25, align 8
+  %m_word_mask = getelementptr inbounds nuw i8, ptr %26, i64 368
+  %27 = load i32, ptr %m_word_mask, align 8
   %m_word_mask44 = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store i32 %26, ptr %m_word_mask44, align 8
+  store i32 %27, ptr %m_word_mask44, align 8
   %and.i14 = and i32 %f, 64
   %tobool46.not = icmp eq i32 %and.i14, 0
   %conv = select i1 %tobool46.not, i8 3, i8 2
   %match_any_mask = getelementptr inbounds nuw i8, ptr %this, i64 180
   store i8 %conv, ptr %match_any_mask, align 4
-  %27 = load ptr, ptr %e, align 8
-  %m_disable_match_any = getelementptr inbounds nuw i8, ptr %27, i64 401
-  %28 = load i8, ptr %m_disable_match_any, align 1
-  %tobool48 = trunc i8 %28 to i1
+  %28 = load ptr, ptr %e, align 8
+  %m_disable_match_any = getelementptr inbounds nuw i8, ptr %28, i64 401
+  %29 = load i8, ptr %m_disable_match_any, align 1
+  %tobool48 = trunc i8 %29 to i1
   br i1 %tobool48, label %if.then49, label %if.end52
 
 if.then49:                                        ; preds = %if.end41
-  %29 = load i32, ptr %m_match_flags, align 8
-  %and.i.i = and i32 %29, 1073740799
+  %30 = load i32, ptr %m_match_flags, align 8
+  %and.i.i = and i32 %30, 1073740799
   store i32 %and.i.i, ptr %m_match_flags, align 8
   br label %if.end52
 

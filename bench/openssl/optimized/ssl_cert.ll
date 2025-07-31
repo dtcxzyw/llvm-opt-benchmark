@@ -2467,7 +2467,7 @@ define range(i32 0, 3) i32 @ssl_build_cert_chain(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 .thread:                                          ; preds = %65, %67, %68
-  %.1106 = phi i32 [ 0, %68 ], [ 2, %67 ], [ 2, %65 ]
+  %.1106 = phi i32 [ 1, %68 ], [ 2, %67 ], [ 2, %65 ]
   %73 = tail call ptr @X509_STORE_CTX_get1_chain(ptr noundef nonnull %50) #14
   %74 = tail call ptr @OPENSSL_sk_shift(ptr noundef %73) #14
   tail call void @X509_free(ptr noundef %74) #14
@@ -2525,14 +2525,13 @@ define range(i32 0, 3) i32 @ssl_build_cert_chain(ptr noundef %0, ptr noundef %1,
   %98 = load ptr, ptr %97, align 8, !tbaa !98
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %98) #14
   store ptr %73, ptr %97, align 8, !tbaa !98
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.2.lcssa, i32 1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge117, %96, %69, %56, %52, %15
   %.pre-phi = phi i32 [ %17, %._crit_edge117 ], [ %17, %96 ], [ %17, %69 ], [ %17, %56 ], [ %17, %52 ], [ %.pre, %15 ]
   %.077 = phi ptr [ %50, %._crit_edge117 ], [ %50, %96 ], [ %50, %69 ], [ %50, %56 ], [ null, %52 ], [ null, %15 ]
   %.072 = phi ptr [ %.173, %._crit_edge117 ], [ %.173, %96 ], [ %.173, %69 ], [ %.173, %56 ], [ %.173, %52 ], [ null, %15 ]
-  %.0 = phi i32 [ %spec.store.select, %._crit_edge117 ], [ 0, %96 ], [ 0, %69 ], [ 0, %56 ], [ 0, %52 ], [ 0, %15 ]
+  %.0 = phi i32 [ %.2.lcssa, %._crit_edge117 ], [ 0, %96 ], [ 0, %69 ], [ 0, %56 ], [ 0, %52 ], [ 0, %15 ]
   %.not100 = icmp eq i32 %.pre-phi, 0
   br i1 %.not100, label %99, label %.loopexit.thread
 
@@ -2925,9 +2924,6 @@ declare i32 @OSSL_STORE_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

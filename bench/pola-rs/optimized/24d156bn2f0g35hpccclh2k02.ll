@@ -5482,21 +5482,21 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hf82ab20
   %28 = load i64, ptr %5, align 8, !noalias !784, !noundef !12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !784
   %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %25, i64 %28)
+  %29 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.0.0.sroa.speculated.i.i, i64 1)
   %.pre4 = load i64, ptr %11, align 8, !alias.scope !785
   %.pre5 = load i64, ptr %0, align 8, !range !13, !alias.scope !785
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5d1abfbd47c567e1E.exit"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5d1abfbd47c567e1E.exit": ; preds = %24, %27
-  %29 = phi i64 [ %.pre5, %27 ], [ %20, %24 ]
-  %30 = phi i64 [ %.pre4, %27 ], [ %20, %24 ]
-  %.sroa.0.0.sroa.speculated.i.sink.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %27 ], [ 0, %24 ]
-  %31 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.0.0.sroa.speculated.i.sink.i, i64 1)
-  %32 = sub i64 %29, %30
-  %33 = icmp ugt i64 %31, %32
+  %30 = phi i64 [ %.pre5, %27 ], [ %20, %24 ]
+  %31 = phi i64 [ %.pre4, %27 ], [ %20, %24 ]
+  %.sroa.0.0.sroa.speculated.i.sink.i = phi i64 [ %29, %27 ], [ 1, %24 ]
+  %32 = sub i64 %30, %31
+  %33 = icmp ugt i64 %.sroa.0.0.sroa.speculated.i.sink.i, %32
   br i1 %33, label %34, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb2a3c5487c4929d2E.exit", !prof !14
 
 34:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5d1abfbd47c567e1E.exit"
-  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17hf40c0933d43eebf1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %30, i64 noundef %31, i64 noundef 8, i64 noundef 16)
+  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17hf40c0933d43eebf1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %31, i64 noundef %.sroa.0.0.sroa.speculated.i.sink.i, i64 noundef 8, i64 noundef 16)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb2a3c5487c4929d2E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb2a3c5487c4929d2E.exit": ; preds = %34, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5d1abfbd47c567e1E.exit", %17
@@ -18625,9 +18625,9 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17heb2b03420255f358E.exit.i": ; preds = %27
   %34 = load i64, ptr %4, align 8, !noalias !2136, !noundef !12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2136
+  %35 = tail call i64 @llvm.uadd.sat.i64(i64 %34, i64 1)
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !2142, !noalias !2124
   %.pre1.i = load i64, ptr %0, align 8, !range !13, !alias.scope !2142, !noalias !2124
-  %35 = tail call i64 @llvm.uadd.sat.i64(i64 %34, i64 1)
   %36 = sub i64 %.pre1.i, %.pre.i
   %37 = icmp ugt i64 %35, %36
   br i1 %37, label %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h68fc86c75362f74cE.exit.i", !prof !14

@@ -1449,11 +1449,14 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %242 = add i64 %241, %.3334447.i
   %indvars.iv.next552.i = add nuw nsw i64 %indvars.iv551.i, 1
   %exitcond556.not.i = icmp eq i64 %indvars.iv.next552.i, %wide.trip.count541.i
-  br i1 %exitcond556.not.i, label %._crit_edge451.i, label %.lr.ph450.i, !llvm.loop !52
+  br i1 %exitcond556.not.i, label %._crit_edge451.loopexit.i, label %.lr.ph450.i, !llvm.loop !52
 
-._crit_edge451.i:                                 ; preds = %.lr.ph450.i, %237
-  %.3334.lcssa.i = phi i64 [ 0, %237 ], [ %242, %.lr.ph450.i ]
-  %243 = call i64 @llvm.umax.i64(i64 %.3334.lcssa.i, i64 1)
+._crit_edge451.loopexit.i:                        ; preds = %.lr.ph450.i
+  %243 = call i64 @llvm.umax.i64(i64 %242, i64 1)
+  br label %._crit_edge451.i
+
+._crit_edge451.i:                                 ; preds = %._crit_edge451.loopexit.i, %237
+  %.3334.lcssa.i = phi i64 [ 1, %237 ], [ %243, %._crit_edge451.loopexit.i ]
   %244 = add nuw nsw i32 %.0335465.i, 1
   %245 = and i32 %244, 3
   %246 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
@@ -1462,14 +1465,14 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 
 248:                                              ; preds = %._crit_edge451.i
   %249 = uitofp i64 %.0328467.i to double
-  %250 = uitofp i64 %243 to double
+  %250 = uitofp i64 %.3334.lcssa.i to double
   %251 = fdiv double %249, %250
   %252 = load ptr, ptr @stdout, align 8, !tbaa !8
   %253 = zext nneg i32 %245 to i64
   %254 = getelementptr inbounds nuw [4 x ptr], ptr @__const.BMK_benchMem.marks, i64 0, i64 %253
   %255 = load ptr, ptr %254, align 8, !tbaa !19
   %256 = trunc i64 %.0328467.i to i32
-  %257 = trunc i64 %243 to i32
+  %257 = trunc i64 %.3334.lcssa.i to i32
   %258 = uitofp i64 %.4304.i to double
   %259 = fdiv double %249, %258
   %260 = fmul double %259, 1.000000e+03
@@ -1492,7 +1495,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 265:                                              ; preds = %.critedge.i, %262
   %.1340.i = phi i1 [ %239, %262 ], [ false, %.critedge.i ]
   %.1336.i = phi i32 [ %245, %262 ], [ %.0335465.i, %.critedge.i ]
-  %.2333.i = phi i64 [ %243, %262 ], [ %.0331466.i, %.critedge.i ]
+  %.2333.i = phi i64 [ %.3334.lcssa.i, %262 ], [ %.0331466.i, %.critedge.i ]
   %.1322.i = phi i64 [ %238, %262 ], [ %.0321469.i, %.critedge.i ]
   %.2313.i = phi i32 [ %.3314.i, %262 ], [ %.1312472.i, %.critedge.i ]
   %.2302.i = phi i64 [ %.4304.i, %262 ], [ %.0300476.i, %.critedge.i ]

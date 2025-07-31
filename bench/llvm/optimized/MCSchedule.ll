@@ -143,7 +143,7 @@ define linkonce_odr noundef i32 @_ZNK4llvm12MCSchedModel19computeInstrLatencyINS
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !41
   %.not32 = icmp eq ptr %9, null
-  br i1 %.not32, label %10, label %46
+  br i1 %.not32, label %10, label %47
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -188,13 +188,13 @@ define linkonce_odr noundef i32 @_ZNK4llvm12MCSchedModel19computeInstrLatencyINS
   br label %39
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit, %.lr.ph, %14
-  %.030.lcssa = phi i32 [ 0, %14 ], [ 0, %.lr.ph ], [ %.131, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit ]
+  %.030.lcssa = phi i32 [ 0, %14 ], [ 0, %.lr.ph ], [ %.sroa.2.0.i, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #9
   br label %_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit
 
 39:                                               ; preds = %.lr.ph.split, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit ]
-  %.03036 = phi i32 [ 0, %.lr.ph.split ], [ %.131, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit ]
+  %.03036 = phi i32 [ 0, %.lr.ph.split ], [ %.sroa.2.0.i, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit ]
   %40 = trunc nuw i64 %indvars.iv to i32
   %41 = add i32 %40, %35
   %.not.i = icmp ult i32 %41, %37
@@ -204,72 +204,71 @@ define linkonce_odr noundef i32 @_ZNK4llvm12MCSchedModel19computeInstrLatencyINS
   %43 = zext nneg i32 %41 to i64
   %44 = getelementptr inbounds nuw i32, ptr %23, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !79
+  %46 = call i32 @llvm.umax.i32(i32 %.03036, i32 %45)
   br label %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit
 
 _ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit: ; preds = %39, %42
-  %.sroa.0.0.i = phi i32 [ %45, %42 ], [ 0, %39 ]
-  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %.03036, i32 %.sroa.0.0.i)
-  %.131 = select i1 %.not.i, i32 %.sroa.speculated, i32 %.03036
+  %.sroa.2.0.i = phi i32 [ %46, %42 ], [ %.03036, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %38
   br i1 %.not, label %._crit_edge, label %39, !llvm.loop !80
 
-46:                                               ; preds = %6
-  %47 = load i32, ptr %3, align 8, !tbaa !66
-  %48 = load ptr, ptr %2, align 8, !tbaa !63
-  %49 = zext i32 %47 to i64
-  %50 = sub nsw i64 0, %49
-  %51 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %48, i64 %50, i32 4
-  %52 = load i16, ptr %51, align 2, !tbaa !74
-  %53 = zext i16 %52 to i64
-  %54 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %9, i64 %53
-  %55 = tail call noundef ptr %4(i64 noundef %5, ptr noundef nonnull %54) #9
-  %.not22 = icmp eq ptr %55, null
-  br i1 %.not22, label %_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit, label %56
+47:                                               ; preds = %6
+  %48 = load i32, ptr %3, align 8, !tbaa !66
+  %49 = load ptr, ptr %2, align 8, !tbaa !63
+  %50 = zext i32 %48 to i64
+  %51 = sub nsw i64 0, %50
+  %52 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %49, i64 %51, i32 4
+  %53 = load i16, ptr %52, align 2, !tbaa !74
+  %54 = zext i16 %53 to i64
+  %55 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %9, i64 %54
+  %56 = tail call noundef ptr %4(i64 noundef %5, ptr noundef nonnull %55) #9
+  %.not22 = icmp eq ptr %56, null
+  br i1 %.not22, label %_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit, label %57
 
-56:                                               ; preds = %46
-  %57 = load i16, ptr %55, align 2
-  %58 = and i16 %57, 8191
-  %.not33 = icmp eq i16 %58, 8191
-  br i1 %.not33, label %_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit, label %59
+57:                                               ; preds = %47
+  %58 = load i16, ptr %56, align 2
+  %59 = and i16 %58, 8191
+  %.not33 = icmp eq i16 %59, 8191
+  br i1 %.not33, label %_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit, label %60
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %61 = load i16, ptr %60, align 2, !tbaa !3
-  %.not29.i = icmp eq i16 %61, 0
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %62 = load i16, ptr %61, align 2, !tbaa !3
+  %.not29.i = icmp eq i16 %62, 0
   br i1 %.not29.i, label %_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %59
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %63 = load ptr, ptr %62, align 8, !tbaa !8
-  %64 = getelementptr inbounds nuw i8, ptr %55, i64 6
-  %65 = load i16, ptr %64, align 2, !tbaa !36
-  %66 = zext i16 %65 to i64
-  %67 = zext i16 %61 to i64
-  %invariant.gep.i = getelementptr inbounds nuw %"struct.llvm::MCWriteLatencyEntry", ptr %63, i64 %66
-  br label %68
+.lr.ph.i:                                         ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %64 = load ptr, ptr %63, align 8, !tbaa !8
+  %65 = getelementptr inbounds nuw i8, ptr %56, i64 6
+  %66 = load i16, ptr %65, align 2, !tbaa !36
+  %67 = zext i16 %66 to i64
+  %68 = zext i16 %62 to i64
+  %invariant.gep.i = getelementptr inbounds nuw %"struct.llvm::MCWriteLatencyEntry", ptr %64, i64 %67
+  br label %69
 
-68:                                               ; preds = %73, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %73 ]
-  %.02130.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.speculated.i, %73 ]
+69:                                               ; preds = %74, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %74 ]
+  %.02130.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.speculated.i, %74 ]
   %gep.i = getelementptr inbounds nuw %"struct.llvm::MCWriteLatencyEntry", ptr %invariant.gep.i, i64 %indvars.iv.i
-  %69 = load i16, ptr %gep.i, align 2, !tbaa !37
-  %70 = icmp sgt i16 %69, -1
-  br i1 %70, label %73, label %71
+  %70 = load i16, ptr %gep.i, align 2, !tbaa !37
+  %71 = icmp sgt i16 %70, -1
+  br i1 %71, label %74, label %72
 
-71:                                               ; preds = %68
-  %72 = sext i16 %69 to i32
+72:                                               ; preds = %69
+  %73 = sext i16 %70 to i32
   br label %_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit
 
-73:                                               ; preds = %68
-  %74 = zext nneg i16 %69 to i32
-  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %.02130.i, i32 %74)
+74:                                               ; preds = %69
+  %75 = zext nneg i16 %70 to i32
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %.02130.i, i32 %75)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not.i23 = icmp eq i64 %indvars.iv.next.i, %67
-  br i1 %.not.i23, label %_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit, label %68, !llvm.loop !39
+  %.not.i23 = icmp eq i64 %indvars.iv.next.i, %68
+  br i1 %.not.i23, label %_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit, label %69, !llvm.loop !39
 
-_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit: ; preds = %73, %71, %59, %._crit_edge, %10, %56, %46
-  %.1 = phi i32 [ -1, %56 ], [ -1, %46 ], [ %.030.lcssa, %._crit_edge ], [ -1, %10 ], [ %72, %71 ], [ 0, %59 ], [ %.sroa.speculated.i, %73 ]
+_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit: ; preds = %74, %72, %60, %._crit_edge, %10, %57, %47
+  %.1 = phi i32 [ -1, %57 ], [ -1, %47 ], [ %.030.lcssa, %._crit_edge ], [ -1, %10 ], [ %73, %72 ], [ 0, %60 ], [ %.sroa.speculated.i, %74 ]
   ret i32 %.1
 }
 

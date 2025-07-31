@@ -12783,11 +12783,11 @@ _ZN4llvm23SmallVectorTemplateBaseIZL25CalcNodeSethiUllmanNumberPKNS_5SUnitERSt6v
 
 ._crit_edge91.loopexit:                           ; preds = %66
   %47 = add i32 %.152, %.155
+  %48 = call i32 @llvm.umax.i32(i32 %47, i32 1)
   br label %._crit_edge91
 
 ._crit_edge91:                                    ; preds = %._crit_edge91.loopexit, %._crit_edge
-  %48 = phi i32 [ 0, %._crit_edge ], [ %47, %._crit_edge91.loopexit ]
-  %spec.store.select = call i32 @llvm.umax.i32(i32 %48, i32 1)
+  %spec.store.select = phi i32 [ 1, %._crit_edge ], [ %48, %._crit_edge91.loopexit ]
   %49 = getelementptr inbounds nuw i8, ptr %18, i64 200
   %50 = load i32, ptr %49, align 8, !tbaa !433
   %51 = zext i32 %50 to i64

@@ -996,17 +996,17 @@ define internal void @psy_3gpp_analyze(ptr noundef %0, i32 noundef %1, ptr nound
   %113 = uitofp i8 %135 to float
   %114 = fdiv nsz float %113, %130
   %115 = tail call nsz float @llvm.sqrt.f32(float %114)
+  %116 = tail call nsz float @llvm.sqrt.f32(float %115)
   br label %.thread.us.i.i
 
 .thread.us.i.i:                                   ; preds = %.preheader.us.i.i, %112, %._crit_edge.us.i.i, %107
   %.04149.us.i.i = phi float [ %134, %112 ], [ %134, %._crit_edge.us.i.i ], [ 0.000000e+00, %107 ], [ 0.000000e+00, %.preheader.us.i.i ]
-  %116 = phi float [ %130, %112 ], [ %130, %._crit_edge.us.i.i ], [ 0.000000e+00, %107 ], [ 0.000000e+00, %.preheader.us.i.i ]
-  %117 = phi nsz float [ %115, %112 ], [ 0.000000e+00, %._crit_edge.us.i.i ], [ 0.000000e+00, %107 ], [ 0.000000e+00, %.preheader.us.i.i ]
-  %118 = fmul nsz float %116, 0x3F54A05060000000
-  %119 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store float %118, ptr %119, align 4, !tbaa !92
-  %120 = tail call nsz float @llvm.sqrt.f32(float %117)
-  %121 = fmul nsz float %.04149.us.i.i, %120
+  %117 = phi float [ %130, %112 ], [ %130, %._crit_edge.us.i.i ], [ 0.000000e+00, %107 ], [ 0.000000e+00, %.preheader.us.i.i ]
+  %118 = phi float [ %116, %112 ], [ 0.000000e+00, %._crit_edge.us.i.i ], [ 0.000000e+00, %107 ], [ 0.000000e+00, %.preheader.us.i.i ]
+  %119 = fmul nsz float %117, 0x3F54A05060000000
+  %120 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  store float %119, ptr %120, align 4, !tbaa !92
+  %121 = fmul nsz float %.04149.us.i.i, %118
   %122 = getelementptr inbounds nuw i8, ptr %109, i64 12
   store float %121, ptr %122, align 4, !tbaa !93
   %123 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv65.i.i

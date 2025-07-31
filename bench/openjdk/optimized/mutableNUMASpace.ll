@@ -1049,7 +1049,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
 ._crit_edge104._crit_edge:                        ; preds = %._crit_edge, %._crit_edge104
   %.phi.trans.insert114 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre115 = load i64, ptr %.phi.trans.insert114, align 8
-  br label %75
+  br label %76
 
 59:                                               ; preds = %._crit_edge104
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1067,17 +1067,17 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %73 = load i64, ptr %72, align 8
   %74 = mul i64 %73, %71
-  br label %75
+  %75 = tail call i64 @llvm.umax.i64(i64 %74, i64 %73)
+  br label %76
 
-75:                                               ; preds = %._crit_edge104._crit_edge, %59
-  %76 = phi i64 [ %73, %59 ], [ %.pre115, %._crit_edge104._crit_edge ]
-  %.040 = phi i64 [ %74, %59 ], [ 0, %._crit_edge104._crit_edge ]
-  %77 = tail call noundef i64 @llvm.umax.i64(i64 %.040, i64 %76)
+76:                                               ; preds = %._crit_edge104._crit_edge, %59
+  %77 = phi i64 [ %73, %59 ], [ %.pre115, %._crit_edge104._crit_edge ]
+  %.040 = phi i64 [ %75, %59 ], [ %.pre115, %._crit_edge104._crit_edge ]
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %227, label %78
+  br i1 %.not, label %226, label %78
 
-78:                                               ; preds = %75
-  %79 = sub i64 0, %76
+78:                                               ; preds = %76
+  %79 = sub i64 0, %77
   %80 = and i64 %2, %79
   %81 = icmp eq i32 %1, 0
   br i1 %81, label %82, label %84
@@ -1124,11 +1124,11 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit61: ; preds = %94, %97
   %107 = ptrtoint ptr %.0.i54 to i64
   %108 = sub i64 %106, %107
   %.010.i58 = select i1 %105, i64 %108, i64 0
-  %109 = icmp ugt i64 %77, %.010.i58
+  %109 = icmp ugt i64 %.040, %.010.i58
   br i1 %109, label %110, label %170
 
 110:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit61
-  %111 = mul i64 %76, %46
+  %111 = mul i64 %77, %46
   %112 = icmp ugt i64 %111, %80
   br i1 %112, label %113, label %168
 
@@ -1227,8 +1227,8 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit79: ; preds = %154, %155
 
 168:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit79, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70, %110
   %.039 = phi i64 [ %167, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit79 ], [ %111, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70 ], [ %111, %110 ]
-  %169 = tail call noundef i64 @llvm.umin.i64(i64 %77, i64 %.039)
-  br label %227
+  %169 = tail call noundef i64 @llvm.umin.i64(i64 %.040, i64 %.039)
+  br label %226
 
 170:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit61
   br i1 %81, label %171, label %173
@@ -1274,7 +1274,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit88: ; preds = %183, %184
   %195 = sub i64 %193, %194
   %196 = icmp ugt i64 %195, %80
   %197 = select i1 %192, i1 %196, i1 false
-  br i1 %197, label %198, label %225
+  br i1 %197, label %198, label %226
 
 198:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88
   br i1 %81, label %199, label %201
@@ -1320,15 +1320,11 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit97: ; preds = %211, %212
   %223 = sub i64 %221, %222
   %.010.i94 = select i1 %220, i64 %223, i64 0
   %224 = sub i64 %.010.i94, %80
-  br label %225
+  %225 = tail call i64 @llvm.umax.i64(i64 %.040, i64 %224)
+  br label %226
 
-225:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88
-  %.0 = phi i64 [ %224, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97 ], [ %76, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88 ]
-  %226 = tail call noundef i64 @llvm.umax.i64(i64 %77, i64 %.0)
-  br label %227
-
-227:                                              ; preds = %168, %225, %75
-  %.1 = phi i64 [ %169, %168 ], [ %226, %225 ], [ %77, %75 ]
+226:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97, %168, %76
+  %.1 = phi i64 [ %169, %168 ], [ %.040, %76 ], [ %225, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97 ], [ %.040, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88 ]
   ret i64 %.1
 }
 

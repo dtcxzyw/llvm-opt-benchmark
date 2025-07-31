@@ -312,25 +312,25 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %.not268 = icmp eq i64 %145, 0
   br i1 %.not268, label %.thread240, label %.lr.ph259
 
-.lr.ph259:                                        ; preds = %.preheader, %154
-  %.0168258 = phi i64 [ %159, %154 ], [ 0, %.preheader ]
+.lr.ph259:                                        ; preds = %.preheader, %156
+  %.0168258 = phi i64 [ %159, %156 ], [ 0, %.preheader ]
   %147 = getelementptr inbounds nuw float, ptr %123, i64 %.0168258
   %148 = load float, ptr %147, align 4, !tbaa !53
   %149 = fcmp reassoc nsz arcp contract afn ult float %148, 0.000000e+00
-  br i1 %149, label %154, label %150
+  br i1 %149, label %156, label %150
 
 150:                                              ; preds = %.lr.ph259
   %151 = fcmp reassoc nsz arcp contract afn ugt float %148, 1.000000e+00
-  br i1 %151, label %154, label %152
+  br i1 %151, label %156, label %152
 
 152:                                              ; preds = %150
   %153 = fmul reassoc nsz arcp contract afn float %148, 2.550000e+02
-  br label %154
+  %154 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %153)
+  %155 = fptoui float %154 to i8
+  br label %156
 
-154:                                              ; preds = %.lr.ph259, %152, %150
-  %155 = phi float [ %153, %152 ], [ 2.550000e+02, %150 ], [ 0.000000e+00, %.lr.ph259 ]
-  %156 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %155)
-  %157 = fptoui float %156 to i8
+156:                                              ; preds = %.lr.ph259, %152, %150
+  %157 = phi i8 [ %155, %152 ], [ -1, %150 ], [ 0, %.lr.ph259 ]
   %158 = getelementptr inbounds nuw i8, ptr %146, i64 %.0168258
   store i8 %157, ptr %158, align 1, !tbaa !54
   %159 = add nuw i64 %.0168258, 1
@@ -353,25 +353,25 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %.not267 = icmp eq i64 %168, 0
   br i1 %.not267, label %.thread240, label %.lr.ph257
 
-.lr.ph257:                                        ; preds = %.preheader250, %176
-  %.0256 = phi i64 [ %181, %176 ], [ 0, %.preheader250 ]
+.lr.ph257:                                        ; preds = %.preheader250, %178
+  %.0256 = phi i64 [ %181, %178 ], [ 0, %.preheader250 ]
   %169 = getelementptr inbounds nuw float, ptr %123, i64 %.0256
   %170 = load float, ptr %169, align 4, !tbaa !53
   %171 = fcmp reassoc nsz arcp contract afn ult float %170, 0.000000e+00
-  br i1 %171, label %176, label %172
+  br i1 %171, label %178, label %172
 
 172:                                              ; preds = %.lr.ph257
   %173 = fcmp reassoc nsz arcp contract afn ugt float %170, 1.000000e+00
-  br i1 %173, label %176, label %174
+  br i1 %173, label %178, label %174
 
 174:                                              ; preds = %172
   %175 = fmul reassoc nsz arcp contract afn float %170, 6.553500e+04
-  br label %176
+  %176 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %175)
+  %177 = fptoui float %176 to i16
+  br label %178
 
-176:                                              ; preds = %.lr.ph257, %174, %172
-  %177 = phi float [ %175, %174 ], [ 6.553500e+04, %172 ], [ 0.000000e+00, %.lr.ph257 ]
-  %178 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %177)
-  %179 = fptoui float %178 to i16
+178:                                              ; preds = %.lr.ph257, %174, %172
+  %179 = phi i16 [ %177, %174 ], [ -1, %172 ], [ 0, %.lr.ph257 ]
   %180 = getelementptr inbounds nuw i16, ptr %167, i64 %.0256
   store i16 %179, ptr %180, align 2, !tbaa !55
   %181 = add nuw i64 %.0256, 1
@@ -382,8 +382,8 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %1) #17
   br label %185
 
-.thread240:                                       ; preds = %176, %154, %.preheader250, %.preheader
-  %.0171.ph = phi ptr [ %146, %.preheader ], [ %167, %.preheader250 ], [ %146, %154 ], [ %167, %176 ]
+.thread240:                                       ; preds = %178, %156, %.preheader250, %.preheader
+  %.0171.ph = phi ptr [ %146, %.preheader ], [ %167, %.preheader250 ], [ %146, %156 ], [ %167, %178 ]
   %182 = call i32 @xcf_add_data(ptr noundef nonnull %44, ptr noundef nonnull %.0171.ph, i32 noundef 1) #17
   br label %185
 

@@ -7955,7 +7955,7 @@ thread-pre-split:                                 ; preds = %79, %91, %95
   br i1 %153, label %154, label %.thread10.thread
 
 154:                                              ; preds = %152
-  br i1 %78, label %173, label %155
+  br i1 %78, label %174, label %155
 
 155:                                              ; preds = %154
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -7984,54 +7984,54 @@ thread-pre-split:                                 ; preds = %79, %91, %95
   %170 = add nuw i64 %166, 65535
   %171 = lshr i64 %170, 16
   %172 = trunc i64 %171 to i32
+  %173 = tail call i32 @llvm.umax.i32(i32 %172, i32 %116)
   br label %.thread10
 
-173:                                              ; preds = %154
-  %174 = add nuw nsw i32 %116, 9
-  %175 = udiv i32 %174, 10
-  %176 = add nuw nsw i32 %175, %116
+174:                                              ; preds = %154
+  %175 = add nuw nsw i32 %116, 9
+  %176 = udiv i32 %175, 10
+  %177 = add nuw nsw i32 %176, %116
   br label %.thread10
 
 .thread10.thread:                                 ; preds = %152, %144, %133, %123, %127
   %.ph15 = phi i32 [ %132, %127 ], [ %116, %123 ], [ %116, %133 ], [ %151, %144 ], [ %116, %152 ]
   %.ph16 = phi i32 [ %119, %127 ], [ %119, %123 ], [ %119, %133 ], [ %145, %144 ], [ %119, %152 ]
-  %177 = icmp samesign ugt i16 %.pre1113, 9
-  %178 = or i1 %29, %177
-  %179 = select i1 %178, i32 %.ph16, i32 0
-  br label %186
+  %178 = icmp samesign ugt i16 %.pre1113, 9
+  %179 = or i1 %29, %178
+  %180 = select i1 %179, i32 %.ph16, i32 0
+  br label %187
 
-.thread10:                                        ; preds = %173, %169
-  %180 = phi i16 [ %.pre11, %169 ], [ %.pre1113, %173 ]
-  %181 = phi i32 [ %172, %169 ], [ %176, %173 ]
-  %.fr = freeze i16 %180
-  %182 = icmp ugt i16 %.fr, 9
-  %183 = or i1 %29, %182
-  %184 = select i1 %183, i32 %119, i32 0
-  %185 = icmp ugt i16 %.fr, 12
-  %spec.select = select i1 %185, i32 255, i32 31
-  br label %186
+.thread10:                                        ; preds = %174, %169
+  %181 = phi i16 [ %.pre11, %169 ], [ %.pre1113, %174 ]
+  %182 = phi i32 [ %173, %169 ], [ %177, %174 ]
+  %.fr = freeze i16 %181
+  %183 = icmp ugt i16 %.fr, 9
+  %184 = or i1 %29, %183
+  %185 = select i1 %184, i32 %119, i32 0
+  %186 = icmp ugt i16 %.fr, 12
+  %spec.select = select i1 %186, i32 255, i32 31
+  br label %187
 
-186:                                              ; preds = %.thread10, %.thread10.thread
-  %187 = phi i32 [ %179, %.thread10.thread ], [ %184, %.thread10 ]
-  %188 = phi i32 [ 0, %.thread10.thread ], [ %181, %.thread10 ]
-  %189 = phi i32 [ %.ph15, %.thread10.thread ], [ %116, %.thread10 ]
-  %190 = phi i32 [ 31, %.thread10.thread ], [ %spec.select, %.thread10 ]
-  %191 = icmp ugt i32 %187, %190
-  br i1 %191, label %192, label %193
+187:                                              ; preds = %.thread10, %.thread10.thread
+  %188 = phi i32 [ %180, %.thread10.thread ], [ %185, %.thread10 ]
+  %189 = phi i32 [ %.ph15, %.thread10.thread ], [ %182, %.thread10 ]
+  %190 = phi i32 [ %.ph15, %.thread10.thread ], [ %116, %.thread10 ]
+  %191 = phi i32 [ 31, %.thread10.thread ], [ %spec.select, %.thread10 ]
+  %192 = icmp ugt i32 %188, %191
+  br i1 %192, label %193, label %194
 
-192:                                              ; preds = %186
+193:                                              ; preds = %187
   store i16 -1, ptr %6, align 2
   br label %212
 
-193:                                              ; preds = %186
-  %194 = trunc i32 %189 to i16
-  %195 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i16 %194, ptr %195, align 2
-  %196 = trunc nuw i32 %187 to i8
-  %197 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i8 %196, ptr %197, align 2
-  %198 = tail call i32 @llvm.umax.i32(i32 %188, i32 %189)
-  %199 = trunc i32 %198 to i16
+194:                                              ; preds = %187
+  %195 = trunc i32 %190 to i16
+  %196 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  store i16 %195, ptr %196, align 2
+  %197 = trunc nuw i32 %188 to i8
+  %198 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i8 %197, ptr %198, align 2
+  %199 = trunc i32 %189 to i16
   %200 = add i16 %199, 1
   store i16 %200, ptr %6, align 2
   %201 = getelementptr inbounds nuw i8, ptr %6, i64 5
@@ -8040,7 +8040,7 @@ thread-pre-split:                                 ; preds = %79, %91, %95
   %203 = icmp ult i16 %202, 12
   br i1 %203, label %204, label %212
 
-204:                                              ; preds = %193
+204:                                              ; preds = %194
   %205 = getelementptr inbounds nuw i8, ptr %9, i64 3420
   %206 = load i32, ptr %205, align 4
   %207 = icmp eq i32 %206, 0
@@ -8053,7 +8053,7 @@ thread-pre-split:                                 ; preds = %79, %91, %95
   store i8 %211, ptr %210, align 1
   br label %212
 
-212:                                              ; preds = %208, %204, %193, %192, %27
+212:                                              ; preds = %208, %204, %194, %193, %27
   ret void
 }
 

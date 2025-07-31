@@ -282,10 +282,13 @@ define hidden noundef i32 @_ZN4ncnn11Spectrogram10load_paramERKNS_9ParamDictE(pt
   %wide.trip.count = zext nneg i32 %31 to i64
   br label %.lr.ph72
 
-._crit_edge73:                                    ; preds = %.lr.ph72, %.preheader
-  %.032.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %85, %.lr.ph72 ]
-  %78 = tail call fast noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.032.lcssa)
-  %79 = fdiv fast float 1.000000e+00, %78
+._crit_edge73.loopexit:                           ; preds = %.lr.ph72
+  %78 = tail call fast float @llvm.sqrt.f32(float nofpclass(nan inf) %85)
+  br label %._crit_edge73
+
+._crit_edge73:                                    ; preds = %._crit_edge73.loopexit, %.preheader
+  %.032.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %78, %._crit_edge73.loopexit ]
+  %79 = fdiv fast float 1.000000e+00, %.032.lcssa
   %80 = sext i32 %31 to i64
   %81 = getelementptr inbounds nuw float, ptr %30, i64 %80
   store float %79, ptr %81, align 4, !tbaa !42
@@ -300,7 +303,7 @@ define hidden noundef i32 @_ZN4ncnn11Spectrogram10load_paramERKNS_9ParamDictE(pt
   %85 = fadd fast float %84, %.03270
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond84.not, label %._crit_edge73, label %.lr.ph72, !llvm.loop !48
+  br i1 %exitcond84.not, label %._crit_edge73.loopexit, label %.lr.ph72, !llvm.loop !48
 
 86:                                               ; preds = %._crit_edge73, %._crit_edge69
   ret i32 0

@@ -1376,7 +1376,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
 293:                                              ; preds = %282
   %294 = getelementptr inbounds nuw i8, ptr %9, i64 224
   %295 = icmp sgt i32 %285, 0
-  br i1 %295, label %.lr.ph447, label %305
+  br i1 %295, label %.lr.ph447, label %306
 
 .lr.ph447:                                        ; preds = %293
   %296 = load ptr, ptr %268, align 8, !tbaa !123
@@ -1397,11 +1397,11 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
 
 ._crit_edge448:                                   ; preds = %297
   %304 = fptrunc nsz double %303 to float
-  br label %305
+  %305 = call nsz float @llvm.sqrt.f32(float %304)
+  br label %306
 
-305:                                              ; preds = %._crit_edge448, %293
-  %306 = phi float [ %304, %._crit_edge448 ], [ 0.000000e+00, %293 ]
-  %307 = call nsz float @llvm.sqrt.f32(float %306)
+306:                                              ; preds = %._crit_edge448, %293
+  %307 = phi float [ %305, %._crit_edge448 ], [ 0.000000e+00, %293 ]
   %308 = fdiv nsz float 1.000000e+00, %307
   %309 = fpext nsz float %308 to double
   store double %309, ptr %294, align 8, !tbaa !127
@@ -1414,7 +1414,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   %.not347 = icmp eq ptr %313, null
   br i1 %.not347, label %.thread388, label %314
 
-314:                                              ; preds = %305
+314:                                              ; preds = %306
   %315 = getelementptr inbounds nuw i8, ptr %313, i64 124
   store i32 1, ptr %315, align 4, !tbaa !81
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %313, i64 128
@@ -1702,8 +1702,8 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   %.373 = select i1 %.not367, i32 -12, i32 0
   br label %.thread388
 
-.thread388:                                       ; preds = %.lr.ph432, %.lr.ph436, %.lr.ph439, %262, %256, %.lr.ph443, %305, %._crit_edge444, %240, %236, %._crit_edge440, %._crit_edge437, %._crit_edge433, %._crit_edge430, %291, %183, %454, %447, %436, %126, %116, %1, %430, %40
-  %.0 = phi i32 [ -22, %40 ], [ %431, %430 ], [ -558323010, %1 ], [ -12, %116 ], [ -12, %126 ], [ -12, %436 ], [ -12, %447 ], [ %.373, %454 ], [ -12, %305 ], [ -12, %._crit_edge444 ], [ -12, %240 ], [ -12, %236 ], [ -12, %._crit_edge440 ], [ -12, %._crit_edge437 ], [ -12, %._crit_edge433 ], [ -12, %._crit_edge430 ], [ -22, %291 ], [ %.3, %183 ], [ -12, %.lr.ph443 ], [ -12, %256 ], [ -12, %262 ], [ -12, %.lr.ph439 ], [ -12, %.lr.ph436 ], [ -12, %.lr.ph432 ]
+.thread388:                                       ; preds = %.lr.ph432, %.lr.ph436, %.lr.ph439, %262, %256, %.lr.ph443, %306, %._crit_edge444, %240, %236, %._crit_edge440, %._crit_edge437, %._crit_edge433, %._crit_edge430, %291, %183, %454, %447, %436, %126, %116, %1, %430, %40
+  %.0 = phi i32 [ -22, %40 ], [ %431, %430 ], [ -558323010, %1 ], [ -12, %116 ], [ -12, %126 ], [ -12, %436 ], [ -12, %447 ], [ %.373, %454 ], [ -12, %306 ], [ -12, %._crit_edge444 ], [ -12, %240 ], [ -12, %236 ], [ -12, %._crit_edge440 ], [ -12, %._crit_edge437 ], [ -12, %._crit_edge433 ], [ -12, %._crit_edge430 ], [ -22, %291 ], [ %.3, %183 ], [ -12, %.lr.ph443 ], [ -12, %256 ], [ -12, %262 ], [ -12, %.lr.ph439 ], [ -12, %.lr.ph436 ], [ -12, %.lr.ph432 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
   ret i32 %.0
 }

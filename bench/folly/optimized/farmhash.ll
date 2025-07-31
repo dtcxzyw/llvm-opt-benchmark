@@ -1118,22 +1118,22 @@ define noundef i32 @_ZN5folly8external8farmhash10farmhashmk6Hash32EPKcm(ptr noun
 
 _ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit.loopexit: ; preds = %.lr.ph.i
   %16 = mul i32 %13, -862048943
+  %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 15)
+  %18 = mul i32 %17, 461845907
   br label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit
 
 _ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit: ; preds = %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit.loopexit, %8
   %.013.lcssa.i = phi i32 [ 9, %8 ], [ %14, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit.loopexit ]
-  %.0.lcssa.i = phi i32 [ 0, %8 ], [ %16, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit.loopexit ]
-  %17 = trunc nuw nsw i64 %1 to i32
-  %18 = mul i32 %17, -862048943
-  %19 = tail call i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 15)
-  %20 = mul i32 %19, 461845907
-  %21 = xor i32 %.013.lcssa.i, %20
-  %22 = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 13)
-  %23 = mul i32 %22, 5
-  %24 = add i32 %23, -430675100
-  %25 = tail call i32 @llvm.fshl.i32(i32 %.0.lcssa.i, i32 %.0.lcssa.i, i32 15)
-  %26 = mul i32 %25, 461845907
-  %27 = xor i32 %26, %24
+  %.0.lcssa.i = phi i32 [ 0, %8 ], [ %18, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit.loopexit ]
+  %19 = trunc nuw nsw i64 %1 to i32
+  %20 = mul i32 %19, -862048943
+  %21 = tail call i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 15)
+  %22 = mul i32 %21, 461845907
+  %23 = xor i32 %.013.lcssa.i, %22
+  %24 = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 13)
+  %25 = mul i32 %24, 5
+  %26 = add i32 %25, -430675100
+  %27 = xor i32 %.0.lcssa.i, %26
   %28 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 13)
   %29 = mul i32 %28, 5
   %30 = add i32 %29, -430675100
@@ -1698,37 +1698,37 @@ define noundef i32 @_ZN5folly8external8farmhash10farmhashcc6Hash32EPKcm(ptr noun
   br i1 %.not.i, label %_ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %9 = mul i32 %14, -862048943
+  %9 = mul i32 %16, -862048943
+  %10 = tail call i32 @llvm.fshl.i32(i32 %9, i32 %9, i32 15)
+  %11 = mul i32 %10, 461845907
   br label %_ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
-  %.016.i = phi i32 [ %14, %.lr.ph.i ], [ 0, %8 ]
-  %.01115.i = phi i64 [ %16, %.lr.ph.i ], [ 0, %8 ]
-  %.01214.i = phi i32 [ %15, %.lr.ph.i ], [ 9, %8 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.01115.i
-  %11 = load i8, ptr %10, align 1, !tbaa !7
-  %12 = mul i32 %.016.i, -862048943
-  %13 = sext i8 %11 to i32
-  %14 = add i32 %12, %13
-  %15 = xor i32 %14, %.01214.i
-  %16 = add nuw nsw i64 %.01115.i, 1
-  %exitcond.not.i = icmp eq i64 %16, %1
+  %.016.i = phi i32 [ %16, %.lr.ph.i ], [ 0, %8 ]
+  %.01115.i = phi i64 [ %18, %.lr.ph.i ], [ 0, %8 ]
+  %.01214.i = phi i32 [ %17, %.lr.ph.i ], [ 9, %8 ]
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.01115.i
+  %13 = load i8, ptr %12, align 1, !tbaa !7
+  %14 = mul i32 %.016.i, -862048943
+  %15 = sext i8 %13 to i32
+  %16 = add i32 %14, %15
+  %17 = xor i32 %16, %.01214.i
+  %18 = add nuw nsw i64 %.01115.i, 1
+  %exitcond.not.i = icmp eq i64 %18, %1
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !19
 
 _ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit: ; preds = %8, %._crit_edge.loopexit.i
-  %.012.lcssa.i = phi i32 [ 9, %8 ], [ %15, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi i32 [ 0, %8 ], [ %9, %._crit_edge.loopexit.i ]
-  %17 = trunc nuw nsw i64 %1 to i32
-  %18 = mul i32 %17, -862048943
-  %19 = tail call i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 15)
-  %20 = mul i32 %19, 461845907
-  %21 = xor i32 %.012.lcssa.i, %20
-  %22 = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 13)
-  %23 = mul i32 %22, 5
-  %24 = add i32 %23, -430675100
-  %25 = tail call i32 @llvm.fshl.i32(i32 %.0.lcssa.i, i32 %.0.lcssa.i, i32 15)
-  %26 = mul i32 %25, 461845907
-  %27 = xor i32 %24, %26
+  %.012.lcssa.i = phi i32 [ 9, %8 ], [ %17, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi i32 [ 0, %8 ], [ %11, %._crit_edge.loopexit.i ]
+  %19 = trunc nuw nsw i64 %1 to i32
+  %20 = mul i32 %19, -862048943
+  %21 = tail call i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 15)
+  %22 = mul i32 %21, 461845907
+  %23 = xor i32 %.012.lcssa.i, %22
+  %24 = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 13)
+  %25 = mul i32 %24, 5
+  %26 = add i32 %25, -430675100
+  %27 = xor i32 %26, %.0.lcssa.i
   %28 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 13)
   %29 = mul i32 %28, 5
   %30 = add i32 %29, -430675100

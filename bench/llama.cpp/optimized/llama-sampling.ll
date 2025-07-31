@@ -5487,21 +5487,21 @@ define internal fastcc void @_ZL24llama_sampler_top_k_implP22llama_token_data_ar
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !22
   %8 = trunc i64 %7 to i32
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = tail call i32 @llvm.smin.i32(i32 %1, i32 %8)
-  %.sroa.speculated163 = select i1 %5, i32 %8, i32 %10
+  %9 = tail call i32 @llvm.smin.i32(i32 %1, i32 %8)
+  %.0174 = select i1 %5, i32 %8, i32 %9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i8, ptr %11, align 8, !tbaa !24, !range !50, !noundef !51
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %200, label %14
 
 14:                                               ; preds = %2
-  %15 = icmp slt i32 %.sroa.speculated163, 129
+  %15 = icmp slt i32 %.0174, 129
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr %0, align 8, !tbaa !17
-  %18 = sext i32 %.sroa.speculated163 to i64
+  %18 = sext i32 %.0174 to i64
   %19 = getelementptr inbounds %struct.llama_token_data, ptr %17, i64 %18
   %20 = getelementptr inbounds nuw %struct.llama_token_data, ptr %17, i64 %7
   tail call fastcc void @"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_"(ptr noundef %17, ptr noundef %19, ptr noundef readnone %20)
@@ -5582,7 +5582,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.lr.ph, %_ZNSt6vect
   %45 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv227
   %46 = load i32, ptr %45, align 4, !tbaa !27
   %47 = add nsw i32 %46, %.053199
-  %.not = icmp slt i32 %47, %.sroa.speculated163
+  %.not = icmp slt i32 %47, %.0174
   br i1 %.not, label %48, label %.split.loop.exit
 
 48:                                               ; preds = %.preheader191
@@ -5666,7 +5666,7 @@ _ZNSt12_Vector_baseIP16llama_token_dataSaIS1_EE11_M_allocateEm.exit.i: ; preds =
   br label %.lr.ph207
 
 .preheader190.loopexit:                           ; preds = %_ZNSt6vectorIP16llama_token_dataSaIS1_EE9push_backERKS1_.exit
-  %.pre240 = load i64, ptr %9, align 8, !tbaa !22
+  %.pre240 = load i64, ptr %10, align 8, !tbaa !22
   %.pre243 = trunc i64 %.pre240 to i32
   %72 = ptrtoint ptr %.sroa.16.3 to i64
   br label %.preheader190
@@ -5794,7 +5794,7 @@ _ZNSt6vectorIP16llama_token_dataSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 12
   store ptr %113, ptr %111, align 8, !tbaa !246
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %112, ptr noundef nonnull align 4 dereferenceable(12) %108, i64 12, i1 false), !tbaa.struct !212
-  %.pre241 = load i64, ptr %9, align 8, !tbaa !22
+  %.pre241 = load i64, ptr %10, align 8, !tbaa !22
   br label %114
 
 114:                                              ; preds = %106, %.lr.ph210
@@ -5999,7 +5999,7 @@ _ZNSt6vectorIP16llama_token_dataSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6
   %.pre-phi246 = phi i64 [ %.pre245, %.preheader.._crit_edge_crit_edge ], [ %102, %._crit_edge.loopexit ]
   %.1.lcssa = phi ptr [ %.sroa.0119.0, %.preheader.._crit_edge_crit_edge ], [ %165, %._crit_edge.loopexit ]
   %.048.lcssa = phi i64 [ 0, %.preheader.._crit_edge_crit_edge ], [ %168, %._crit_edge.loopexit ]
-  %169 = zext nneg i32 %.sroa.speculated163 to i64
+  %169 = zext nneg i32 %.0174 to i64
   %170 = getelementptr inbounds nuw %struct.llama_token_data, ptr %.1.lcssa, i64 %169
   %171 = sub nsw i64 0, %.048.lcssa
   %172 = getelementptr inbounds %struct.llama_token_data, ptr %170, i64 %171
@@ -6099,8 +6099,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit96:                  ; preds = %186, %_ZNSt6vectorI
   br label %200
 
 200:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit96, %2
-  %201 = sext i32 %.sroa.speculated163 to i64
-  store i64 %201, ptr %9, align 8, !tbaa !22
+  %201 = sext i32 %.0174 to i64
+  store i64 %201, ptr %10, align 8, !tbaa !22
   ret void
 }
 

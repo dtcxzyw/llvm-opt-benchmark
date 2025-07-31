@@ -4101,9 +4101,8 @@ select.unfold.i.i:                                ; preds = %51
   br label %GetASNHeader.exit
 
 GetASNHeader.exit:                                ; preds = %48, %4, %6, %.thread.i.i.i, %GetASNTag.exit.i.i, %26, %32, %.thread63.i.i.i, %._crit_edge.i.i.i, %51, %select.unfold.i.i
-  %.4.i.i = phi i32 [ %.240.i.i.i, %select.unfold.i.i ], [ -140, %51 ], [ -140, %.thread63.i.i.i ], [ -140, %26 ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %GetASNTag.exit.i.i ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ], [ -140, %48 ]
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %.4.i.i, i32 0)
-  ret i32 %spec.store.select
+  %.4.i.i = phi i32 [ 0, %select.unfold.i.i ], [ -140, %51 ], [ -140, %.thread63.i.i.i ], [ -140, %26 ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %GetASNTag.exit.i.i ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ], [ -140, %48 ]
+  ret i32 %.4.i.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
@@ -6220,99 +6219,100 @@ BytePrecision.exit.i346:                          ; preds = %245, %.preheader.i3
 .loopexit:                                        ; preds = %.lr.ph.i, %253
   %.025.lcssa.i = phi i32 [ %247, %253 ], [ %264, %.lr.ph.i ]
   %268 = sub i32 %.025.lcssa.i, %239
-  %269 = icmp sgt i32 %268, -1
-  br i1 %269, label %.thread.i.i350, label %.thread710
+  %269 = call i32 @llvm.smin.i32(i32 %268, i32 0)
+  %270 = icmp sgt i32 %268, -1
+  br i1 %270, label %.thread.i.i350, label %.thread710
 
 .thread.i.i350:                                   ; preds = %.loopexit
-  %270 = zext i32 %.025.lcssa.i to i64
-  %271 = getelementptr inbounds nuw i8, ptr %2, i64 %270
-  store i8 48, ptr %271, align 1, !tbaa !3
-  %272 = getelementptr inbounds nuw i8, ptr %271, i64 1
-  store i8 29, ptr %272, align 1, !tbaa !3
-  %273 = add i32 %.025.lcssa.i, 2
-  %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds nuw i8, ptr %2, i64 %274
-  store i8 6, ptr %275, align 1, !tbaa !3
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 1
-  store i8 9, ptr %276, align 1, !tbaa !3
-  %277 = add i32 %.025.lcssa.i, 4
-  %278 = zext i32 %277 to i64
-  %279 = getelementptr inbounds nuw i8, ptr %2, i64 %278
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %279, ptr noundef nonnull align 1 dereferenceable(9) %.0489534, i64 9, i1 false)
-  %280 = add i32 %.025.lcssa.i, 13
-  %281 = zext i32 %280 to i64
-  %282 = getelementptr inbounds nuw i8, ptr %2, i64 %281
-  store i8 4, ptr %282, align 1, !tbaa !3
-  %283 = getelementptr inbounds nuw i8, ptr %282, i64 1
-  store i8 16, ptr %283, align 1, !tbaa !3
-  %284 = add i32 %.025.lcssa.i, 15
-  %285 = zext i32 %284 to i64
-  %286 = getelementptr inbounds nuw i8, ptr %2, i64 %285
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %286, ptr noundef nonnull align 16 dereferenceable(16) %16, i64 16, i1 false)
-  %287 = add i32 %.025.lcssa.i, 31
-  %288 = zext i32 %287 to i64
-  %289 = getelementptr inbounds nuw i8, ptr %2, i64 %288
-  store i8 4, ptr %289, align 1, !tbaa !3
-  %290 = getelementptr inbounds nuw i8, ptr %289, i64 1
-  %291 = icmp ult i32 %.2128, 128
-  br i1 %291, label %292, label %.preheader.i.i.i.i422
+  %271 = zext i32 %.025.lcssa.i to i64
+  %272 = getelementptr inbounds nuw i8, ptr %2, i64 %271
+  store i8 48, ptr %272, align 1, !tbaa !3
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 1
+  store i8 29, ptr %273, align 1, !tbaa !3
+  %274 = add i32 %.025.lcssa.i, 2
+  %275 = zext i32 %274 to i64
+  %276 = getelementptr inbounds nuw i8, ptr %2, i64 %275
+  store i8 6, ptr %276, align 1, !tbaa !3
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 1
+  store i8 9, ptr %277, align 1, !tbaa !3
+  %278 = add i32 %.025.lcssa.i, 4
+  %279 = zext i32 %278 to i64
+  %280 = getelementptr inbounds nuw i8, ptr %2, i64 %279
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %280, ptr noundef nonnull align 1 dereferenceable(9) %.0489534, i64 9, i1 false)
+  %281 = add i32 %.025.lcssa.i, 13
+  %282 = zext i32 %281 to i64
+  %283 = getelementptr inbounds nuw i8, ptr %2, i64 %282
+  store i8 4, ptr %283, align 1, !tbaa !3
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 1
+  store i8 16, ptr %284, align 1, !tbaa !3
+  %285 = add i32 %.025.lcssa.i, 15
+  %286 = zext i32 %285 to i64
+  %287 = getelementptr inbounds nuw i8, ptr %2, i64 %286
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %287, ptr noundef nonnull align 16 dereferenceable(16) %16, i64 16, i1 false)
+  %288 = add i32 %.025.lcssa.i, 31
+  %289 = zext i32 %288 to i64
+  %290 = getelementptr inbounds nuw i8, ptr %2, i64 %289
+  store i8 4, ptr %290, align 1, !tbaa !3
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 1
+  %292 = icmp ult i32 %.2128, 128
+  br i1 %292, label %293, label %.preheader.i.i.i.i422
 
-292:                                              ; preds = %.thread.i.i350
-  %293 = trunc nuw nsw i32 %.2128 to i8
-  store i8 %293, ptr %290, align 1, !tbaa !3
+293:                                              ; preds = %.thread.i.i350
+  %294 = trunc nuw nsw i32 %.2128 to i8
+  store i8 %294, ptr %291, align 1, !tbaa !3
   br label %SetOctetString.exit440
 
-.preheader.i.i.i.i422:                            ; preds = %.thread.i.i350, %297
-  %.06.i.i.i.i.i423 = phi i32 [ %298, %297 ], [ 4, %.thread.i.i350 ]
-  %294 = shl i32 %.06.i.i.i.i.i423, 3
-  %295 = add nsw i32 %294, -8
-  %296 = lshr i32 %.2128, %295
-  %.not5.i.i.i.i.i424 = icmp eq i32 %296, 0
-  br i1 %.not5.i.i.i.i.i424, label %297, label %.thread.i.i.i.i427
+.preheader.i.i.i.i422:                            ; preds = %.thread.i.i350, %298
+  %.06.i.i.i.i.i423 = phi i32 [ %299, %298 ], [ 4, %.thread.i.i350 ]
+  %295 = shl i32 %.06.i.i.i.i.i423, 3
+  %296 = add nsw i32 %295, -8
+  %297 = lshr i32 %.2128, %296
+  %.not5.i.i.i.i.i424 = icmp eq i32 %297, 0
+  br i1 %.not5.i.i.i.i.i424, label %298, label %.thread.i.i.i.i427
 
-297:                                              ; preds = %.preheader.i.i.i.i422
-  %298 = add nsw i32 %.06.i.i.i.i.i423, -1
-  %.not.i.i.i.i.i439 = icmp eq i32 %298, 0
+298:                                              ; preds = %.preheader.i.i.i.i422
+  %299 = add nsw i32 %.06.i.i.i.i.i423, -1
+  %.not.i.i.i.i.i439 = icmp eq i32 %299, 0
   br i1 %.not.i.i.i.i.i439, label %.thread.i.i.i.i427.thread, label %.preheader.i.i.i.i422, !llvm.loop !6
 
-.thread.i.i.i.i427.thread:                        ; preds = %297
-  store i8 -128, ptr %290, align 1, !tbaa !3
+.thread.i.i.i.i427.thread:                        ; preds = %298
+  store i8 -128, ptr %291, align 1, !tbaa !3
   br label %SetOctetString.exit440
 
 .thread.i.i.i.i427:                               ; preds = %.preheader.i.i.i.i422
-  %299 = trunc i32 %.06.i.i.i.i.i423 to i8
-  %300 = or i8 %299, -128
-  store i8 %300, ptr %290, align 1, !tbaa !3
-  %.not262836.i.i.i.i428 = icmp eq i8 %299, 0
+  %300 = trunc i32 %.06.i.i.i.i.i423 to i8
+  %301 = or i8 %300, -128
+  store i8 %301, ptr %291, align 1, !tbaa !3
+  %.not262836.i.i.i.i428 = icmp eq i8 %300, 0
   br i1 %.not262836.i.i.i.i428, label %SetOctetString.exit440, label %.lr.ph.split.i.i.i.i429
 
 .lr.ph.split.i.i.i.i429:                          ; preds = %.thread.i.i.i.i427, %.lr.ph.split.i.i.i.i429
   %indvars.iv33.i.i.i.i430 = phi i64 [ %indvars.iv.next34.i.i.i.i432, %.lr.ph.split.i.i.i.i429 ], [ 1, %.thread.i.i.i.i427 ]
   %indvars.iv.i.i.i.i431 = phi i32 [ %indvars.iv.next.i.i.i.i433, %.lr.ph.split.i.i.i.i429 ], [ %.06.i.i.i.i.i423, %.thread.i.i.i.i427 ]
-  %301 = shl nuw nsw i32 %indvars.iv.i.i.i.i431, 3
-  %302 = add nsw i32 %301, -8
-  %303 = lshr i32 %.2128, %302
-  %304 = trunc i32 %303 to i8
-  %305 = getelementptr inbounds nuw i8, ptr %290, i64 %indvars.iv33.i.i.i.i430
-  store i8 %304, ptr %305, align 1, !tbaa !3
+  %302 = shl nuw nsw i32 %indvars.iv.i.i.i.i431, 3
+  %303 = add nsw i32 %302, -8
+  %304 = lshr i32 %.2128, %303
+  %305 = trunc i32 %304 to i8
+  %306 = getelementptr inbounds nuw i8, ptr %291, i64 %indvars.iv33.i.i.i.i430
+  store i8 %305, ptr %306, align 1, !tbaa !3
   %indvars.iv.next34.i.i.i.i432 = add nuw nsw i64 %indvars.iv33.i.i.i.i430, 1
   %indvars.iv.next.i.i.i.i433 = add nsw i32 %indvars.iv.i.i.i.i431, -1
   %.not26.wide.i.i.i.i434 = icmp eq i32 %indvars.iv.next.i.i.i.i433, 0
   br i1 %.not26.wide.i.i.i.i434, label %.loopexit.loopexit31.i.i.i.i435, label %.lr.ph.split.i.i.i.i429, !llvm.loop !48
 
 .loopexit.loopexit31.i.i.i.i435:                  ; preds = %.lr.ph.split.i.i.i.i429
-  %306 = trunc nuw nsw i64 %indvars.iv.next34.i.i.i.i432 to i32
-  %307 = add i32 %306, 1
+  %307 = trunc nuw nsw i64 %indvars.iv.next34.i.i.i.i432 to i32
+  %308 = add i32 %307, 1
   br label %SetOctetString.exit440
 
-SetOctetString.exit440:                           ; preds = %.thread.i.i.i.i427.thread, %292, %.thread.i.i.i.i427, %.loopexit.loopexit31.i.i.i.i435
-  %.0.i.i.i436 = phi i32 [ 2, %292 ], [ %307, %.loopexit.loopexit31.i.i.i.i435 ], [ 2, %.thread.i.i.i.i427 ], [ 2, %.thread.i.i.i.i427.thread ]
-  %308 = add i32 %287, %.2128
-  %309 = add i32 %308, %.0.i.i.i436
+SetOctetString.exit440:                           ; preds = %.thread.i.i.i.i427.thread, %293, %.thread.i.i.i.i427, %.loopexit.loopexit31.i.i.i.i435
+  %.0.i.i.i436 = phi i32 [ 2, %293 ], [ %308, %.loopexit.loopexit31.i.i.i.i435 ], [ 2, %.thread.i.i.i.i427 ], [ 2, %.thread.i.i.i.i427.thread ]
+  %309 = add i32 %288, %.2128
+  %310 = add i32 %309, %.0.i.i.i436
   br label %.thread710
 
 .thread710:                                       ; preds = %250, %BytePrecision.exit.i346, %14, %SetLength.exit153, %24, %21, %20, %22, %GetAlgoV2.exit.thread, %111, %.thread620, %SetLength.exit153.thread, %SetOctetString.exit440, %.loopexit
-  %.1125 = phi i32 [ %309, %SetOctetString.exit440 ], [ %268, %.loopexit ], [ -202, %SetLength.exit153 ], [ -202, %SetLength.exit153.thread ], [ %114, %.thread620 ], [ %112, %111 ], [ %37, %GetAlgoV2.exit.thread ], [ -133, %24 ], [ -133, %22 ], [ -133, %20 ], [ -154, %21 ], [ -173, %14 ], [ -140, %250 ], [ -132, %BytePrecision.exit.i346 ]
+  %.1125 = phi i32 [ %310, %SetOctetString.exit440 ], [ %269, %.loopexit ], [ -202, %SetLength.exit153 ], [ -202, %SetLength.exit153.thread ], [ %114, %.thread620 ], [ %112, %111 ], [ %37, %GetAlgoV2.exit.thread ], [ -133, %24 ], [ -133, %22 ], [ -133, %20 ], [ -154, %21 ], [ -173, %14 ], [ -140, %250 ], [ -132, %BytePrecision.exit.i346 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #23
   ret i32 %.1125

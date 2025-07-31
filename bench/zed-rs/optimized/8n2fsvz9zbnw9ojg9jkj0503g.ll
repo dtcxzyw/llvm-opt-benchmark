@@ -4211,43 +4211,43 @@ _ZN3std2io4Read10read_exact17h69fc1beb8c4a7c5dE.exit.i: ; preds = %"_ZN63_$LT$u8
   br i1 %434, label %435, label %436
 
 435:                                              ; preds = %430
-  br i1 %383, label %443, label %437
+  br i1 %383, label %442, label %437
 
 436:                                              ; preds = %430
   call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %433, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2f13f7ae31c46e97a8e87533050cbefc.137) #80, !noalias !807
   unreachable
 
-437:                                              ; preds = %443, %435
-  %.sroa.01.0.i.i = phi i32 [ %381, %435 ], [ %spec.select1.i.i, %443 ]
-  %438 = call i32 @llvm.smax.i32(i32 %.sroa.01.0.i.i, i32 0)
-  %.sroa.0.0.in.sroa.speculated.i.i.i = call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %438, i32 63)
-  %439 = icmp eq i8 %.sroa.4205.0.copyload, 4
-  %440 = select i1 %439, i32 %384, i32 0
-  %.sroa.01.1.i.i = add i32 %.sroa.0.0.in.sroa.speculated.i.i.i, %440
-  %441 = call i32 @llvm.smax.i32(i32 %.sroa.01.1.i.i, i32 0)
-  %.sroa.0.0.in.sroa.speculated.i17.i.i = call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %441, i32 63)
-  %442 = trunc nuw nsw i32 %.sroa.0.0.in.sroa.speculated.i17.i.i to i8
+437:                                              ; preds = %442, %435
+  %.sroa.01.0.i.i = phi i32 [ %381, %435 ], [ %451, %442 ]
+  %.sroa.0.0.in.sroa.speculated.i.i.i = call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %.sroa.01.0.i.i, i32 63)
+  %438 = icmp eq i8 %.sroa.4205.0.copyload, 4
+  %439 = select i1 %438, i32 %384, i32 0
+  %.sroa.01.1.i.i = add i32 %439, %.sroa.0.0.in.sroa.speculated.i.i.i
+  %440 = call i32 @llvm.smax.i32(i32 %.sroa.01.1.i.i, i32 0)
+  %.sroa.0.0.in.sroa.speculated.i17.i.i = call noundef range(i32 0, 64) i32 @llvm.umin.i32(i32 %440, i32 63)
+  %441 = trunc nuw nsw i32 %.sroa.0.0.in.sroa.speculated.i17.i.i to i8
   br i1 %.not.i.i, label %454, label %452
 
-443:                                              ; preds = %435
-  %444 = getelementptr inbounds nuw [4 x { i16, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }], ptr %357, i64 0, i64 %433
-  %445 = getelementptr inbounds nuw i8, ptr %444, i64 13
-  %446 = load i8, ptr %445, align 1, !alias.scope !809, !noalias !810, !noundef !4
-  %447 = getelementptr inbounds nuw i8, ptr %444, i64 14
-  %448 = load i8, ptr %447, align 2, !range !382, !alias.scope !809, !noalias !810, !noundef !4
-  %449 = trunc nuw i8 %448 to i1
-  %450 = sext i8 %446 to i32
-  %451 = select i1 %449, i32 %381, i32 0
-  %spec.select1.i.i = add nsw i32 %451, %450
+442:                                              ; preds = %435
+  %443 = getelementptr inbounds nuw [4 x { i16, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }], ptr %357, i64 0, i64 %433
+  %444 = getelementptr inbounds nuw i8, ptr %443, i64 13
+  %445 = load i8, ptr %444, align 1, !alias.scope !809, !noalias !810, !noundef !4
+  %446 = getelementptr inbounds nuw i8, ptr %443, i64 14
+  %447 = load i8, ptr %446, align 2, !range !382, !alias.scope !809, !noalias !810, !noundef !4
+  %448 = trunc nuw i8 %447 to i1
+  %449 = sext i8 %445 to i32
+  %450 = select i1 %448, i32 %381, i32 0
+  %spec.select1.i.i = add nsw i32 %450, %449
+  %451 = call i32 @llvm.smax.i32(i32 %spec.select1.i.i, i32 0)
   br label %437
 
 452:                                              ; preds = %437
-  %453 = lshr i8 %442, %..i.i
+  %453 = lshr i8 %441, %..i.i
   %spec.select16.i.i = call i8 @llvm.umin.i8(i8 %453, i8 %387)
   br label %454
 
 454:                                              ; preds = %452, %437
-  %.sroa.06.0.i.i = phi i8 [ %442, %437 ], [ %spec.select16.i.i, %452 ]
+  %.sroa.06.0.i.i = phi i8 [ %441, %437 ], [ %spec.select16.i.i, %452 ]
   %455 = icmp sgt i32 %.sroa.01.1.i.i, 39
   br i1 %389, label %457, label %456
 
@@ -4281,7 +4281,7 @@ _ZN3std2io4Read10read_exact17h69fc1beb8c4a7c5dE.exit.i: ; preds = %"_ZN63_$LT$u8
 462:                                              ; preds = %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hc69fa467dfe411b6E.exit.i", %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hc69fa467dfe411b6E.exit.thread.i"
   %spec.store.select.i289.i = phi i8 [ %spec.store.select.i286.i, %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hc69fa467dfe411b6E.exit.thread.i" ], [ %spec.store.select.i.i, %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hc69fa467dfe411b6E.exit.i" ]
   %.sroa.010.0.i288.i = phi i8 [ %.sroa.010.0.i.ph.i, %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hc69fa467dfe411b6E.exit.thread.i" ], [ %.sroa.010.0.i.i, %"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hc69fa467dfe411b6E.exit.i" ]
-  %463 = shl nuw nsw i8 %442, 1
+  %463 = shl nuw nsw i8 %441, 1
   %464 = add nuw i8 %spec.store.select.i289.i, %463
   %465 = add nuw i8 %464, 4
   %466 = shl i64 %.sroa.050.01163, 4
@@ -24956,16 +24956,16 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hc82c06f2c53d085
 
 "_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hcf98ea07eed67bdcE.llvm.9792776892897051010.exit.loopexit.i.i": ; preds = %.lr.ph.i.i.i.i.i
   %.pre.i.i = load i64, ptr %4, align 8, !alias.scope !5878, !noalias !5883
+  %13 = call i64 @llvm.fshl.i64(i64 %.pre.i.i, i64 %.pre.i.i, i64 5)
   br label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17he56b95f54e896d7bE.llvm.9792776892897051010.exit"
 
 "_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17he56b95f54e896d7bE.llvm.9792776892897051010.exit": ; preds = %2, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hcf98ea07eed67bdcE.llvm.9792776892897051010.exit.loopexit.i.i"
-  %13 = phi i64 [ %.pre.i.i, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hcf98ea07eed67bdcE.llvm.9792776892897051010.exit.loopexit.i.i" ], [ 0, %2 ]
+  %14 = phi i64 [ %13, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hcf98ea07eed67bdcE.llvm.9792776892897051010.exit.loopexit.i.i" ], [ 0, %2 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5885)
   call void @llvm.experimental.noalias.scope.decl(metadata !5886)
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1040
-  %15 = load i64, ptr %14, align 8, !alias.scope !5887, !noalias !5888, !noundef !4
-  %16 = call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 5)
-  %17 = xor i64 %15, %16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1040
+  %16 = load i64, ptr %15, align 8, !alias.scope !5887, !noalias !5888, !noundef !4
+  %17 = xor i64 %16, %14
   %18 = mul i64 %17, 5871781006564002453
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i64 %18

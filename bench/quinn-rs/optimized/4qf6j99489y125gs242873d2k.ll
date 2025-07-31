@@ -986,10 +986,9 @@ define hidden noundef i32 @"_ZN8lru_slab16LruSlab$LT$T$GT$6insert17hadba23f33704
   br label %27
 
 27:                                               ; preds = %26, %20
-  %.sroa.010.0 = phi i32 [ -1, %26 ], [ %24, %20 ]
-  %.sroa.0.0.sroa.speculated.i19 = tail call noundef range(i32 0, -1) i32 @llvm.umin.i32(i32 %.sroa.010.0, i32 -2)
-  store i32 %.sroa.0.0.sroa.speculated.i19, ptr %6, align 4
-  %28 = icmp eq i32 %.sroa.0.0.sroa.speculated.i19, %23
+  %.sroa.010.0 = phi i32 [ -2, %26 ], [ %24, %20 ]
+  store i32 %.sroa.010.0, ptr %6, align 4
+  %28 = icmp eq i32 %.sroa.010.0, %23
   br i1 %28, label %29, label %34, !prof !89
 
 29:                                               ; preds = %27
@@ -1018,7 +1017,7 @@ define hidden noundef i32 @"_ZN8lru_slab16LruSlab$LT$T$GT$6insert17hadba23f33704
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %23, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 28
-  store i32 %.sroa.0.0.sroa.speculated.i19, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.010.0, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 4
   %37 = invoke { ptr, i64 } @"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17h233def19ce15be37E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
           to label %38 unwind label %.thread35
 
@@ -6346,9 +6345,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #25
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #25
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

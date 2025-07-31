@@ -26239,11 +26239,11 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen14dominator_tree13Domina
 
 ._crit_edge.i:                                    ; preds = %19
   %37 = icmp eq i32 %12, %17
-  br i1 %37, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread64, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread
+  br i1 %37, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread63, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread
 
 ._crit_edge.i.thread:                             ; preds = %32
   %38 = icmp eq i32 %12, %45
-  br i1 %38, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread64, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread
+  br i1 %38, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread63, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread
 
 .lr.ph.i:                                         ; preds = %19, %32
   %39 = phi ptr [ %34, %32 ], [ %29, %19 ]
@@ -26267,7 +26267,7 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen14dominator_tree13Domina
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.b5a8f862ed486d2c5aaf296739ee8a16.194, i64 noundef 22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5a8f862ed486d2c5aaf296739ee8a16.195) #74, !noalias !7205
   unreachable
 
-_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread64: ; preds = %._crit_edge.i, %._crit_edge.i.thread
+_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread63: ; preds = %._crit_edge.i, %._crit_edge.i.thread
   %.0.i11.i.pre-phi = phi ptr [ %.0.i.i.i, %._crit_edge.i ], [ %.0.i.i27.i, %._crit_edge.i.thread ]
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %48 = load i32, ptr %47, align 4, !noundef !9
@@ -26276,8 +26276,8 @@ _ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b
   %51 = icmp ule i32 %48, %50
   br label %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread
 
-_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread: ; preds = %.lr.ph.i, %._crit_edge.i.thread, %._crit_edge.i, %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread64
-  %.1 = phi i1 [ %51, %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread64 ], [ false, %._crit_edge.i ], [ false, %._crit_edge.i.thread ], [ false, %.lr.ph.i ]
+_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread: ; preds = %.lr.ph.i, %._crit_edge.i.thread, %._crit_edge.i, %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread63
+  %.1 = phi i1 [ %51, %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit.thread63 ], [ false, %._crit_edge.i ], [ false, %._crit_edge.i.thread ], [ false, %.lr.ph.i ]
   ret i1 %.1
 }
 
@@ -26290,13 +26290,13 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen14dominator_tree13Domina
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %8 = load i64, ptr %7, align 8, !alias.scope !7216, !noalias !7211, !noundef !9
   %9 = zext i32 %2 to i64
-  %.not.i.i44 = icmp ugt i64 %8, %9
+  %.not.i.i43 = icmp ugt i64 %8, %9
   %10 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %.0.i.i.i45 = select i1 %.not.i.i44, ptr %10, ptr %11
-  %12 = load i32, ptr %.0.i.i.i45, align 4, !noalias !7211, !noundef !9
-  %.not.i46 = icmp eq i32 %12, -1
-  br i1 %.not.i46, label %13, label %14
+  %.0.i.i.i44 = select i1 %.not.i.i43, ptr %10, ptr %11
+  %12 = load i32, ptr %.0.i.i.i44, align 4, !noalias !7211, !noundef !9
+  %.not.i45 = icmp eq i32 %12, -1
+  br i1 %.not.i45, label %13, label %14
 
 13:                                               ; preds = %4
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.b5a8f862ed486d2c5aaf296739ee8a16.188, i64 noundef 26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5a8f862ed486d2c5aaf296739ee8a16.191) #74, !noalias !7221
@@ -26308,58 +26308,58 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen14dominator_tree13Domina
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !7222, !noalias !7214, !noundef !9
   %19 = zext i32 %1 to i64
-  %.not29.i23 = icmp ugt i64 %18, %19
+  %.not29.i22 = icmp ugt i64 %18, %19
   %20 = getelementptr inbounds nuw { i32, i32 }, ptr %16, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.0.i22.i24 = select i1 %.not29.i23, ptr %20, ptr %21
-  %22 = load i32, ptr %.0.i22.i24, align 4, !noalias !7214, !noundef !9
+  %.0.i22.i23 = select i1 %.not29.i22, ptr %20, ptr %21
+  %22 = load i32, ptr %.0.i22.i23, align 4, !noalias !7214, !noundef !9
   %23 = zext i32 %12 to i64
-  %.not3040.i25 = icmp ugt i64 %18, %23
+  %.not3040.i24 = icmp ugt i64 %18, %23
   %24 = getelementptr inbounds nuw { i32, i32 }, ptr %16, i64 %23
-  %.0.i41.i26 = select i1 %.not3040.i25, ptr %24, ptr %21
-  %25 = load i32, ptr %.0.i41.i26, align 4, !noalias !7214, !noundef !9
+  %.0.i41.i25 = select i1 %.not3040.i24, ptr %24, ptr %21
+  %25 = load i32, ptr %.0.i41.i25, align 4, !noalias !7214, !noundef !9
   %26 = icmp ult i32 %22, %25
-  br i1 %26, label %.lr.ph.i34, label %._crit_edge.i27
+  br i1 %26, label %.lr.ph.i33, label %._crit_edge.i26
 
 27:                                               ; preds = %36
   %28 = zext i32 %39 to i64
-  %.not30.i42 = icmp ugt i64 %18, %28
+  %.not30.i41 = icmp ugt i64 %18, %28
   %29 = getelementptr inbounds nuw { i32, i32 }, ptr %16, i64 %28
-  %.0.i.i43 = select i1 %.not30.i42, ptr %29, ptr %21
-  %30 = load i32, ptr %.0.i.i43, align 4, !noalias !7214, !noundef !9
+  %.0.i.i42 = select i1 %.not30.i41, ptr %29, ptr %21
+  %30 = load i32, ptr %.0.i.i42, align 4, !noalias !7214, !noundef !9
   %31 = icmp ult i32 %22, %30
-  br i1 %31, label %.lr.ph.i34, label %._crit_edge.i27
+  br i1 %31, label %.lr.ph.i33, label %._crit_edge.i26
 
-._crit_edge.i27:                                  ; preds = %27, %14
-  %.013.lcssa.i28 = phi i32 [ %12, %14 ], [ %39, %27 ]
-  %32 = icmp eq i32 %1, %.013.lcssa.i28
-  br label %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit47
+._crit_edge.i26:                                  ; preds = %27, %14
+  %.013.lcssa.i27 = phi i32 [ %12, %14 ], [ %39, %27 ]
+  %32 = icmp eq i32 %1, %.013.lcssa.i27
+  br label %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit46
 
-.lr.ph.i34:                                       ; preds = %14, %27
+.lr.ph.i33:                                       ; preds = %14, %27
   %33 = phi ptr [ %29, %27 ], [ %24, %14 ]
-  %.not3043.i35 = phi i1 [ %.not30.i42, %27 ], [ %.not3040.i25, %14 ]
-  %.0.i.i24.i37 = select i1 %.not3043.i35, ptr %33, ptr %21
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i24.i37, i64 4
+  %.not3043.i34 = phi i1 [ %.not30.i41, %27 ], [ %.not3040.i24, %14 ]
+  %.0.i.i24.i36 = select i1 %.not3043.i34, ptr %33, ptr %21
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i24.i36, i64 4
   %35 = load i32, ptr %34, align 4, !noalias !7214, !noundef !9
-  %.not31.i38 = icmp eq i32 %35, -1
-  br i1 %.not31.i38, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit47, label %36
+  %.not31.i37 = icmp eq i32 %35, -1
+  br i1 %.not31.i37, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit46, label %36
 
-36:                                               ; preds = %.lr.ph.i34
+36:                                               ; preds = %.lr.ph.i33
   %37 = zext i32 %35 to i64
-  %.not.i26.i39 = icmp ugt i64 %8, %37
+  %.not.i26.i38 = icmp ugt i64 %8, %37
   %38 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %6, i64 %37
-  %.0.i.i27.i40 = select i1 %.not.i26.i39, ptr %38, ptr %11
-  %39 = load i32, ptr %.0.i.i27.i40, align 4, !noalias !7211, !noundef !9
-  %.not32.i41 = icmp eq i32 %39, -1
-  br i1 %.not32.i41, label %40, label %27
+  %.0.i.i27.i39 = select i1 %.not.i26.i38, ptr %38, ptr %11
+  %39 = load i32, ptr %.0.i.i27.i39, align 4, !noalias !7211, !noundef !9
+  %.not32.i40 = icmp eq i32 %39, -1
+  br i1 %.not32.i40, label %40, label %27
 
 40:                                               ; preds = %36
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.b5a8f862ed486d2c5aaf296739ee8a16.194, i64 noundef 22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5a8f862ed486d2c5aaf296739ee8a16.195) #74, !noalias !7221
   unreachable
 
-_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit47: ; preds = %.lr.ph.i34, %._crit_edge.i27
-  %.sroa.0.3.i33 = phi i1 [ %32, %._crit_edge.i27 ], [ false, %.lr.ph.i34 ]
-  ret i1 %.sroa.0.3.i33
+_ZN17cranelift_codegen14dominator_tree13DominatorTree14last_dominator17h0686f38b5d491c43E.exit46: ; preds = %.lr.ph.i33, %._crit_edge.i26
+  %.sroa.0.3.i32 = phi i1 [ %32, %._crit_edge.i26 ], [ false, %.lr.ph.i33 ]
+  ret i1 %.sroa.0.3.i32
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26388,9 +26388,9 @@ define { i32, i32 } @_ZN17cranelift_codegen14dominator_tree13DominatorTree16comm
   %19 = load i32, ptr %.0.i.i, align 4, !noundef !9
   br label %20
 
-20:                                               ; preds = %.outer, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6expect17h22f07431c79e85ffE.exit26"
-  %.sroa.5.0 = phi i32 [ %45, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6expect17h22f07431c79e85ffE.exit26" ], [ %.sroa.5.0.ph, %.outer ]
-  %.sroa.0.0 = phi i32 [ %49, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6expect17h22f07431c79e85ffE.exit26" ], [ %.sroa.0.0.ph, %.outer ]
+20:                                               ; preds = %.outer, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6expect17h22f07431c79e85ffE.exit25"
+  %.sroa.5.0 = phi i32 [ %45, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6expect17h22f07431c79e85ffE.exit25" ], [ %.sroa.5.0.ph, %.outer ]
+  %.sroa.0.0 = phi i32 [ %49, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6expect17h22f07431c79e85ffE.exit25" ], [ %.sroa.0.0.ph, %.outer ]
   %21 = zext i32 %.sroa.0.0 to i64
   %.not.i.not = icmp ugt i64 %10, %21
   %22 = getelementptr inbounds nuw { i32, i32 }, ptr %8, i64 %21
@@ -26422,8 +26422,8 @@ default.unreachable:                              ; preds = %20
   %29 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %13, i64 %28
   %.0.i.i21 = select i1 %.not.i20, ptr %29, ptr %16
   %30 = load i32, ptr %.0.i.i21, align 4, !noundef !9
-  %.not30 = icmp eq i32 %30, -1
-  br i1 %.not30, label %50, label %.outer
+  %.not29 = icmp eq i32 %30, -1
+  br i1 %.not29, label %50, label %.outer
 
 31:                                               ; preds = %20
   %32 = zext i32 %.sroa.5.0 to i64
@@ -26448,19 +26448,19 @@ default.unreachable:                              ; preds = %20
 43:                                               ; preds = %20
   %44 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 4
   %45 = load i32, ptr %44, align 4, !noundef !9
-  %.not.i25 = icmp eq i32 %45, -1
-  br i1 %.not.i25, label %46, label %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6expect17h22f07431c79e85ffE.exit26"
+  %.not.i24 = icmp eq i32 %45, -1
+  br i1 %.not.i24, label %46, label %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6expect17h22f07431c79e85ffE.exit25"
 
 46:                                               ; preds = %43
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.b5a8f862ed486d2c5aaf296739ee8a16.197, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9d97581ae8ad496ddf7d0fbc6cf9f5f2.5.llvm.1710812290736639100) #74
   unreachable
 
-"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6expect17h22f07431c79e85ffE.exit26": ; preds = %43
+"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6expect17h22f07431c79e85ffE.exit25": ; preds = %43
   %47 = zext i32 %45 to i64
-  %.not.i27 = icmp ugt i64 %15, %47
+  %.not.i26 = icmp ugt i64 %15, %47
   %48 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %13, i64 %47
-  %.0.i.i28 = select i1 %.not.i27, ptr %48, ptr %16
-  %49 = load i32, ptr %.0.i.i28, align 4, !noundef !9
+  %.0.i.i27 = select i1 %.not.i26, ptr %48, ptr %16
+  %49 = load i32, ptr %.0.i.i27, align 4, !noundef !9
   %.not = icmp eq i32 %49, -1
   br i1 %.not, label %51, label %20
 
@@ -26468,7 +26468,7 @@ default.unreachable:                              ; preds = %20
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.b5a8f862ed486d2c5aaf296739ee8a16.198, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5a8f862ed486d2c5aaf296739ee8a16.199) #74
   unreachable
 
-51:                                               ; preds = %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6expect17h22f07431c79e85ffE.exit26"
+51:                                               ; preds = %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6expect17h22f07431c79e85ffE.exit25"
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.b5a8f862ed486d2c5aaf296739ee8a16.198, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5a8f862ed486d2c5aaf296739ee8a16.201) #74
   unreachable
 }
@@ -32613,9 +32613,9 @@ define hidden void @_ZN17cranelift_codegen13loop_analysis12LoopAnalysis17find_lo
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.2.0..sroa_idx, i8 0, i64 88, i1 false)
   store ptr %18, ptr %6, align 8
-  %.not29.i23.i = icmp ugt i64 %28, %38
+  %.not29.i22.i = icmp ugt i64 %28, %38
   %41 = getelementptr inbounds nuw { i32, i32 }, ptr %26, i64 %38
-  %.0.i22.i24.i = select i1 %.not29.i23.i, ptr %41, ptr %29
+  %.0.i22.i23.i = select i1 %.not29.i22.i, ptr %41, ptr %29
   br label %42
 
 42:                                               ; preds = %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit.thread, %35
@@ -32661,64 +32661,64 @@ define hidden void @_ZN17cranelift_codegen13loop_analysis12LoopAnalysis17find_lo
   %55 = phi i32 [ %.pre24, %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.i._crit_edge" ], [ %49, %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.thread.i" ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !8545
   %56 = zext i32 %55 to i64
-  %.not.i.i44.i = icmp ugt i64 %23, %56
+  %.not.i.i43.i = icmp ugt i64 %23, %56
   %57 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %21, i64 %56
-  %.0.i.i.i45.i = select i1 %.not.i.i44.i, ptr %57, ptr %24
-  %58 = load i32, ptr %.0.i.i.i45.i, align 4, !noalias !8559, !noundef !9
-  %.not.i46.i = icmp eq i32 %58, -1
-  br i1 %.not.i46.i, label %59, label %60
+  %.0.i.i.i44.i = select i1 %.not.i.i43.i, ptr %57, ptr %24
+  %58 = load i32, ptr %.0.i.i.i44.i, align 4, !noalias !8559, !noundef !9
+  %.not.i45.i = icmp eq i32 %58, -1
+  br i1 %.not.i45.i, label %59, label %60
 
 59:                                               ; preds = %54
   call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.b5a8f862ed486d2c5aaf296739ee8a16.188, i64 noundef 26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5a8f862ed486d2c5aaf296739ee8a16.191) #74, !noalias !8564
   unreachable
 
 60:                                               ; preds = %54
-  %61 = load i32, ptr %.0.i22.i24.i, align 4, !noalias !8567, !noundef !9
+  %61 = load i32, ptr %.0.i22.i23.i, align 4, !noalias !8567, !noundef !9
   %62 = zext i32 %58 to i64
-  %.not3040.i25.i = icmp ugt i64 %28, %62
+  %.not3040.i24.i = icmp ugt i64 %28, %62
   %63 = getelementptr inbounds nuw { i32, i32 }, ptr %26, i64 %62
-  %.0.i41.i26.i = select i1 %.not3040.i25.i, ptr %63, ptr %29
-  %64 = load i32, ptr %.0.i41.i26.i, align 4, !noalias !8567, !noundef !9
+  %.0.i41.i25.i = select i1 %.not3040.i24.i, ptr %63, ptr %29
+  %64 = load i32, ptr %.0.i41.i25.i, align 4, !noalias !8567, !noundef !9
   %65 = icmp ult i32 %61, %64
-  br i1 %65, label %.lr.ph.i34.i, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit
+  br i1 %65, label %.lr.ph.i33.i, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit
 
 66:                                               ; preds = %74
   %67 = zext i32 %77 to i64
-  %.not30.i42.i = icmp ugt i64 %28, %67
+  %.not30.i41.i = icmp ugt i64 %28, %67
   %68 = getelementptr inbounds nuw { i32, i32 }, ptr %26, i64 %67
-  %.0.i.i43.i = select i1 %.not30.i42.i, ptr %68, ptr %29
-  %69 = load i32, ptr %.0.i.i43.i, align 4, !noalias !8567, !noundef !9
+  %.0.i.i42.i = select i1 %.not30.i41.i, ptr %68, ptr %29
+  %69 = load i32, ptr %.0.i.i42.i, align 4, !noalias !8567, !noundef !9
   %70 = icmp ult i32 %61, %69
-  br i1 %70, label %.lr.ph.i34.i, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit
+  br i1 %70, label %.lr.ph.i33.i, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit
 
-.lr.ph.i34.i:                                     ; preds = %60, %66
+.lr.ph.i33.i:                                     ; preds = %60, %66
   %71 = phi ptr [ %68, %66 ], [ %63, %60 ]
-  %.not3043.i35.i = phi i1 [ %.not30.i42.i, %66 ], [ %.not3040.i25.i, %60 ]
-  %.0.i.i24.i37.i = select i1 %.not3043.i35.i, ptr %71, ptr %29
-  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i24.i37.i, i64 4
+  %.not3043.i34.i = phi i1 [ %.not30.i41.i, %66 ], [ %.not3040.i24.i, %60 ]
+  %.0.i.i24.i36.i = select i1 %.not3043.i34.i, ptr %71, ptr %29
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i24.i36.i, i64 4
   %73 = load i32, ptr %72, align 4, !noalias !8567, !noundef !9
-  %.not31.i38.i = icmp eq i32 %73, -1
-  br i1 %.not31.i38.i, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit.thread, label %74
+  %.not31.i37.i = icmp eq i32 %73, -1
+  br i1 %.not31.i37.i, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit.thread, label %74
 
-74:                                               ; preds = %.lr.ph.i34.i
+74:                                               ; preds = %.lr.ph.i33.i
   %75 = zext i32 %73 to i64
-  %.not.i26.i39.i = icmp ugt i64 %23, %75
+  %.not.i26.i38.i = icmp ugt i64 %23, %75
   %76 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %21, i64 %75
-  %.0.i.i27.i40.i = select i1 %.not.i26.i39.i, ptr %76, ptr %24
-  %77 = load i32, ptr %.0.i.i27.i40.i, align 4, !noalias !8559, !noundef !9
-  %.not32.i41.i = icmp eq i32 %77, -1
-  br i1 %.not32.i41.i, label %78, label %66
+  %.0.i.i27.i39.i = select i1 %.not.i26.i38.i, ptr %76, ptr %24
+  %77 = load i32, ptr %.0.i.i27.i39.i, align 4, !noalias !8559, !noundef !9
+  %.not32.i40.i = icmp eq i32 %77, -1
+  br i1 %.not32.i40.i, label %78, label %66
 
 78:                                               ; preds = %74
   call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.b5a8f862ed486d2c5aaf296739ee8a16.194, i64 noundef 22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5a8f862ed486d2c5aaf296739ee8a16.195) #74, !noalias !8564
   unreachable
 
 _ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit: ; preds = %66, %60
-  %.013.lcssa.i28.i = phi i32 [ %58, %60 ], [ %77, %66 ]
-  %79 = icmp eq i32 %37, %.013.lcssa.i28.i
+  %.013.lcssa.i27.i = phi i32 [ %58, %60 ], [ %77, %66 ]
+  %79 = icmp eq i32 %37, %.013.lcssa.i27.i
   br i1 %79, label %80, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit.thread
 
-_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit.thread: ; preds = %.lr.ph.i34.i, %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit
+_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit.thread: ; preds = %.lr.ph.i33.i, %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit
   %.pre = load i32, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !8553, !noalias !8554
   br label %42
 
@@ -33166,12 +33166,12 @@ define hidden void @_ZN17cranelift_codegen13loop_analysis12LoopAnalysis20discove
   %162 = getelementptr inbounds nuw [0 x { i32, i32, i8, [3 x i8] }], ptr %161, i64 0, i64 %59
   %163 = load i32, ptr %162, align 4, !noundef !9
   %164 = zext i32 %88 to i64
-  %.not.i.i44.i = icmp ugt i64 %28, %164
+  %.not.i.i43.i = icmp ugt i64 %28, %164
   %165 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %26, i64 %164
-  %.0.i.i.i45.i = select i1 %.not.i.i44.i, ptr %165, ptr %29
-  %166 = load i32, ptr %.0.i.i.i45.i, align 4, !noalias !8671, !noundef !9
-  %.not.i46.i = icmp eq i32 %166, -1
-  br i1 %.not.i46.i, label %.invoke304, label %170
+  %.0.i.i.i44.i = select i1 %.not.i.i43.i, ptr %165, ptr %29
+  %166 = load i32, ptr %.0.i.i.i44.i, align 4, !noalias !8671, !noundef !9
+  %.not.i45.i = icmp eq i32 %166, -1
+  br i1 %.not.i45.i, label %.invoke304, label %170
 
 .invoke304:                                       ; preds = %160, %186
   %167 = phi ptr [ @anon.b5a8f862ed486d2c5aaf296739ee8a16.194, %186 ], [ @anon.b5a8f862ed486d2c5aaf296739ee8a16.188, %160 ]
@@ -33185,48 +33185,48 @@ define hidden void @_ZN17cranelift_codegen13loop_analysis12LoopAnalysis20discove
 
 170:                                              ; preds = %160
   %171 = zext i32 %163 to i64
-  %.not29.i23.i = icmp ugt i64 %33, %171
+  %.not29.i22.i = icmp ugt i64 %33, %171
   %172 = getelementptr inbounds nuw { i32, i32 }, ptr %31, i64 %171
-  %.0.i22.i24.i = select i1 %.not29.i23.i, ptr %172, ptr %34
-  %173 = load i32, ptr %.0.i22.i24.i, align 4, !noalias !8676, !noundef !9
+  %.0.i22.i23.i = select i1 %.not29.i22.i, ptr %172, ptr %34
+  %173 = load i32, ptr %.0.i22.i23.i, align 4, !noalias !8676, !noundef !9
   %174 = zext i32 %166 to i64
-  %.not3040.i25.i = icmp ugt i64 %33, %174
+  %.not3040.i24.i = icmp ugt i64 %33, %174
   %175 = getelementptr inbounds nuw { i32, i32 }, ptr %31, i64 %174
-  %.0.i41.i26.i = select i1 %.not3040.i25.i, ptr %175, ptr %34
-  %176 = load i32, ptr %.0.i41.i26.i, align 4, !noalias !8676, !noundef !9
+  %.0.i41.i25.i = select i1 %.not3040.i24.i, ptr %175, ptr %34
+  %176 = load i32, ptr %.0.i41.i25.i, align 4, !noalias !8676, !noundef !9
   %177 = icmp ult i32 %173, %176
-  br i1 %177, label %.lr.ph.i34.i, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit
+  br i1 %177, label %.lr.ph.i33.i, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit
 
 178:                                              ; preds = %186
   %179 = zext i32 %189 to i64
-  %.not30.i42.i = icmp ugt i64 %33, %179
+  %.not30.i41.i = icmp ugt i64 %33, %179
   %180 = getelementptr inbounds nuw { i32, i32 }, ptr %31, i64 %179
-  %.0.i.i43.i = select i1 %.not30.i42.i, ptr %180, ptr %34
-  %181 = load i32, ptr %.0.i.i43.i, align 4, !noalias !8676, !noundef !9
+  %.0.i.i42.i = select i1 %.not30.i41.i, ptr %180, ptr %34
+  %181 = load i32, ptr %.0.i.i42.i, align 4, !noalias !8676, !noundef !9
   %182 = icmp ult i32 %173, %181
-  br i1 %182, label %.lr.ph.i34.i, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit
+  br i1 %182, label %.lr.ph.i33.i, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit
 
-.lr.ph.i34.i:                                     ; preds = %170, %178
+.lr.ph.i33.i:                                     ; preds = %170, %178
   %183 = phi ptr [ %180, %178 ], [ %175, %170 ]
-  %.not3043.i35.i = phi i1 [ %.not30.i42.i, %178 ], [ %.not3040.i25.i, %170 ]
-  %.0.i.i24.i37.i = select i1 %.not3043.i35.i, ptr %183, ptr %34
-  %184 = getelementptr inbounds nuw i8, ptr %.0.i.i24.i37.i, i64 4
+  %.not3043.i34.i = phi i1 [ %.not30.i41.i, %178 ], [ %.not3040.i24.i, %170 ]
+  %.0.i.i24.i36.i = select i1 %.not3043.i34.i, ptr %183, ptr %34
+  %184 = getelementptr inbounds nuw i8, ptr %.0.i.i24.i36.i, i64 4
   %185 = load i32, ptr %184, align 4, !noalias !8676, !noundef !9
-  %.not31.i38.i = icmp eq i32 %185, -1
-  br i1 %.not31.i38.i, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit.thread, label %186
+  %.not31.i37.i = icmp eq i32 %185, -1
+  br i1 %.not31.i37.i, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit.thread, label %186
 
-186:                                              ; preds = %.lr.ph.i34.i
+186:                                              ; preds = %.lr.ph.i33.i
   %187 = zext i32 %185 to i64
-  %.not.i26.i39.i = icmp ugt i64 %28, %187
+  %.not.i26.i38.i = icmp ugt i64 %28, %187
   %188 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %26, i64 %187
-  %.0.i.i27.i40.i = select i1 %.not.i26.i39.i, ptr %188, ptr %29
-  %189 = load i32, ptr %.0.i.i27.i40.i, align 4, !noalias !8671, !noundef !9
-  %.not32.i41.i = icmp eq i32 %189, -1
-  br i1 %.not32.i41.i, label %.invoke304, label %178
+  %.0.i.i27.i39.i = select i1 %.not.i26.i38.i, ptr %188, ptr %29
+  %189 = load i32, ptr %.0.i.i27.i39.i, align 4, !noalias !8671, !noundef !9
+  %.not32.i40.i = icmp eq i32 %189, -1
+  br i1 %.not32.i40.i, label %.invoke304, label %178
 
 _ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit: ; preds = %178, %170
-  %.013.lcssa.i28.i = phi i32 [ %166, %170 ], [ %189, %178 ]
-  %190 = icmp eq i32 %163, %.013.lcssa.i28.i
+  %.013.lcssa.i27.i = phi i32 [ %166, %170 ], [ %189, %178 ]
+  %190 = icmp eq i32 %163, %.013.lcssa.i27.i
   br i1 %190, label %191, label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit.thread
 
 191:                                              ; preds = %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit
@@ -33253,7 +33253,7 @@ _ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef7
   store i64 %200, ptr %13, align 8, !alias.scope !8679
   br label %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit.thread
 
-_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit.thread: ; preds = %.lr.ph.i34.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd156c6ac76a685e9E.exit87", %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit
+_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit.thread: ; preds = %.lr.ph.i33.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd156c6ac76a685e9E.exit87", %_ZN17cranelift_codegen14dominator_tree13DominatorTree9dominates17h63005f0ad75ef75cE.exit
   %.pre = load i32, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !8611, !noalias !8616
   br label %72
 

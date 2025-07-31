@@ -13090,40 +13090,40 @@ _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit: ; preds = %170, %_Z
   %.sroa.037.0.copyload.pre = load <2 x float>, ptr %99, align 4
   %.pre203 = fmul float %233, %233
   %235 = fmul float %126, 2.500000e-01
+  %236 = call float @llvm.fabs.f32(float %235)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
   %.pre-phi = phi float [ %.pre203, %.thread.loopexit ], [ %55, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
-  %236 = phi float [ %160, %.thread.loopexit ], [ %90, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
-  %237 = phi float [ %174, %.thread.loopexit ], [ %94, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
+  %237 = phi float [ %160, %.thread.loopexit ], [ %90, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
+  %238 = phi float [ %174, %.thread.loopexit ], [ %94, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
   %.sroa.238.0.copyload = phi float [ %233, %.thread.loopexit ], [ %51, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
   %.sroa.037.0.copyload = phi <2 x float> [ %.sroa.037.0.copyload.pre, %.thread.loopexit ], [ %.sroa.046.4.vec.insert.i.i, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
-  %.0.lcssa = phi float [ %235, %.thread.loopexit ], [ 0.000000e+00, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
+  %.0.lcssa = phi float [ %236, %.thread.loopexit ], [ 0.000000e+00, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
   %.sroa.01.0.vec.extract.i.i.i134 = extractelement <2 x float> %.sroa.037.0.copyload, i64 0
-  %238 = fmul <2 x float> %.sroa.037.0.copyload, %.sroa.037.0.copyload
-  %239 = extractelement <2 x float> %238, i64 0
+  %239 = fmul <2 x float> %.sroa.037.0.copyload, %.sroa.037.0.copyload
+  %240 = extractelement <2 x float> %239, i64 0
   %.sroa.01.4.vec.extract.i.i.i135 = extractelement <2 x float> %.sroa.037.0.copyload, i64 1
-  %240 = fmul float %.sroa.01.4.vec.extract.i.i.i135, %.sroa.01.4.vec.extract.i.i.i135
-  %241 = fadd float %239, %240
-  %242 = fadd float %.pre-phi, %241
-  %sqrt.i.i136 = call noundef float @llvm.sqrt.f32(float %242)
-  %243 = fdiv float %.sroa.01.0.vec.extract.i.i.i134, %sqrt.i.i136
-  %244 = fdiv float %.sroa.01.4.vec.extract.i.i.i135, %sqrt.i.i136
-  %245 = fdiv float %.sroa.238.0.copyload, %sqrt.i.i136
-  %.sroa.0.0.vec.insert.i.i137 = insertelement <2 x float> poison, float %243, i64 0
-  %.sroa.0.4.vec.insert.i.i138 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i137, float %244, i64 1
+  %241 = fmul float %.sroa.01.4.vec.extract.i.i.i135, %.sroa.01.4.vec.extract.i.i.i135
+  %242 = fadd float %240, %241
+  %243 = fadd float %.pre-phi, %242
+  %sqrt.i.i136 = call noundef float @llvm.sqrt.f32(float %243)
+  %244 = fdiv float %.sroa.01.0.vec.extract.i.i.i134, %sqrt.i.i136
+  %245 = fdiv float %.sroa.01.4.vec.extract.i.i.i135, %sqrt.i.i136
+  %246 = fdiv float %.sroa.238.0.copyload, %sqrt.i.i136
+  %.sroa.0.0.vec.insert.i.i137 = insertelement <2 x float> poison, float %244, i64 0
+  %.sroa.0.4.vec.insert.i.i138 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i137, float %245, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i138, ptr %99, align 4
-  store float %245, ptr %.sroa.23.0..sroa_idx.i.i, align 4
-  %246 = call noundef float @llvm.fabs.f32(float %.0.lcssa)
+  store float %246, ptr %.sroa.23.0..sroa_idx.i.i, align 4
   br i1 %3, label %247, label %257
 
 247:                                              ; preds = %.thread
-  %248 = fneg float %236
-  %249 = fdiv float %248, %243
-  %250 = fmul float %243, %249
-  %251 = fmul float %245, %249
-  %252 = fadd float %236, %250
-  %253 = fadd float %237, %251
+  %248 = fneg float %237
+  %249 = fdiv float %248, %244
+  %250 = fmul float %244, %249
+  %251 = fmul float %246, %249
+  %252 = fadd float %237, %250
+  %253 = fadd float %238, %251
   %254 = fpext float %253 to double
   %255 = fpext float %252 to double
   %256 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.62, double noundef %254, double noundef %255)
@@ -13134,11 +13134,11 @@ _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit: ; preds = %170, %_Z
   br label %257
 
 257:                                              ; preds = %247, %.thread
-  %258 = phi float [ %.pre202, %247 ], [ %245, %.thread ]
-  %259 = phi float [ %.pre201, %247 ], [ %243, %.thread ]
-  %260 = phi float [ %.pre200, %247 ], [ %236, %.thread ]
-  %261 = phi float [ %.pre, %247 ], [ %237, %.thread ]
-  %.0121 = phi float [ %249, %247 ], [ %246, %.thread ]
+  %258 = phi float [ %.pre202, %247 ], [ %246, %.thread ]
+  %259 = phi float [ %.pre201, %247 ], [ %244, %.thread ]
+  %260 = phi float [ %.pre200, %247 ], [ %237, %.thread ]
+  %261 = phi float [ %.pre, %247 ], [ %238, %.thread ]
+  %.0121 = phi float [ %249, %247 ], [ %.0.lcssa, %.thread ]
   %262 = select i1 %2, ptr @.str.64, ptr @.str.65
   %263 = fpext float %261 to double
   %264 = fpext float %260 to double

@@ -2771,8 +2771,8 @@ _ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i.i.i: ; preds = %_ZN8unscanny
   %98 = icmp eq i64 %97, 1943
   br i1 %98, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i, label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i.i.i.i
 
-_ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: ; preds = %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i.i.i, %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i.i.i.i, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit.i.i, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdb4ebf63695f88ffE.exit.i.i.i.i", %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i", %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i", %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i", %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i", %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i", %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i", %227, %.loopexit.i.i, %.critedge14.i.i
-  %.sroa.10.5.i.i = phi i64 [ %.sroa.10.720.i.i, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit.i.i ], [ %52, %.critedge14.i.i ], [ %.sroa.10.720.i.i, %227 ], [ %.sroa.10.720.i.i, %.loopexit.i.i ], [ %.sroa.10.720.i.i, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i" ], [ %.sroa.10.720.i.i, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i" ], [ %.sroa.10.720.i.i, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i" ], [ %.sroa.10.720.i.i, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i" ], [ %.sroa.10.720.i.i, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i" ], [ %.sroa.10.720.i.i, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i" ], [ %.sroa.10.720.i.i, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdb4ebf63695f88ffE.exit.i.i.i.i" ], [ %.sroa.10.2.i.i, %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i.i.i.i ], [ %.sroa.10.4.i.i, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i.i.i ]
+_ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: ; preds = %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i.i.i, %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i.i.i.i, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit.i.i, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdb4ebf63695f88ffE.exit.i.i.i.i", %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i", %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i", %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i", %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i", %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i", %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i", %227, %_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.exit.loopexit.i20.i.i, %.critedge14.i.i
+  %.sroa.10.5.i.i = phi i64 [ %.sroa.10.720.i.i, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit.i.i ], [ %52, %.critedge14.i.i ], [ %.sroa.10.720.i.i, %227 ], [ %.sroa.10.720.i.i, %_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.exit.loopexit.i20.i.i ], [ %.sroa.10.720.i.i, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i" ], [ %.sroa.10.720.i.i, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i" ], [ %.sroa.10.720.i.i, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i" ], [ %.sroa.10.720.i.i, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i" ], [ %.sroa.10.720.i.i, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i" ], [ %.sroa.10.720.i.i, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i" ], [ %.sroa.10.720.i.i, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdb4ebf63695f88ffE.exit.i.i.i.i" ], [ %.sroa.10.2.i.i, %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i.i.i.i ], [ %.sroa.10.4.i.i, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i.i.i ]
   %99 = getelementptr inbounds i8, ptr @anon.1b7987214e1788f2afe69ae5dc3ac248.100, i64 %.sroa.10.5.i.i
   %100 = icmp eq i64 %.sroa.10.5.i.i, 1943
   br i1 %100, label %_ZN9typst_pdf5color6minify17hd2d68e500e41a387E.exit.i, label %8
@@ -2831,7 +2831,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
 
 .critedge.i.i:                                    ; preds = %124, %101, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i.i
   %126 = icmp eq i64 %52, 1943
-  br i1 %126, label %.loopexit.i.i, label %.lr.ph.i.i.i
+  br i1 %126, label %_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.exit.loopexit.i20.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.critedge.i.i, %.thread7.i.i.i.i
   %.sroa.10.6.i.i = phi i64 [ %190, %.thread7.i.i.i.i ], [ %52, %.critedge.i.i ]
@@ -2853,13 +2853,13 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   %137 = zext nneg i8 %136 to i32
   %138 = or disjoint i32 %135, %137
   %139 = icmp samesign ugt i8 %128, -33
-  br i1 %139, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit15.i.i.i23.i.i", label %162
+  br i1 %139, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit15.i.i.i24.i.i", label %162
 
 140:                                              ; preds = %.lr.ph.i.i.i
   %141 = zext nneg i8 %128 to i32
   br label %162
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit15.i.i.i23.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit13.i.i.i16.i.i"
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit15.i.i.i24.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit13.i.i.i16.i.i"
   %142 = getelementptr inbounds nuw i8, ptr %127, i64 2
   %143 = icmp ne i64 %.sroa.10.6.i.i, 1941
   call void @llvm.assume(i1 %143)
@@ -2873,7 +2873,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   %151 = icmp samesign ugt i8 %128, -17
   br i1 %151, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit17.i.i.i.i.i", label %162
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit17.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit15.i.i.i23.i.i"
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit17.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit15.i.i.i24.i.i"
   %152 = getelementptr inbounds nuw i8, ptr %127, i64 3
   %153 = icmp ne i64 %.sroa.10.6.i.i, 1940
   call void @llvm.assume(i1 %153)
@@ -2887,10 +2887,10 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   %161 = or disjoint i32 %160, %156
   br label %162
 
-162:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit17.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit15.i.i.i23.i.i", %140, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit13.i.i.i16.i.i"
-  %.sroa.4.0.i.ph.i.i.i.i = phi i32 [ %138, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit13.i.i.i16.i.i" ], [ %150, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit15.i.i.i23.i.i" ], [ %161, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit17.i.i.i.i.i" ], [ %141, %140 ]
+162:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit17.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit15.i.i.i24.i.i", %140, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit13.i.i.i16.i.i"
+  %.sroa.4.0.i.ph.i.i.i.i = phi i32 [ %138, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit13.i.i.i16.i.i" ], [ %150, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit15.i.i.i24.i.i" ], [ %161, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit17.i.i.i.i.i" ], [ %141, %140 ]
   switch i32 %.sroa.4.0.i.ph.i.i.i.i, label %163 [
-    i32 1114112, label %.loopexit.i.i
+    i32 1114112, label %_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.exit.loopexit.i20.i.i
     i32 32, label %.thread7.i.i.i.i
     i32 13, label %.thread7.i.i.i.i
     i32 12, label %.thread7.i.i.i.i
@@ -2901,11 +2901,11 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
 
 163:                                              ; preds = %162
   %164 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i.i, 127
-  br i1 %164, label %165, label %.loopexit.i.i
+  br i1 %164, label %165, label %_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.exit.loopexit.i20.i.i
 
 165:                                              ; preds = %163
   %166 = lshr i32 %.sroa.4.0.i.ph.i.i.i.i, 8
-  switch i32 %166, label %.loopexit.i.i [
+  switch i32 %166, label %_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.exit.loopexit.i20.i.i [
     i32 0, label %173
     i32 22, label %167
     i32 32, label %178
@@ -2942,7 +2942,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   %184 = trunc i8 %.0.i.i.i.i.i.i.i.i.i to i1
   %185 = icmp ne i32 %.sroa.4.0.i.ph.i.i.i.i, 1114112
   %or.cond.not.i.i.i.i = and i1 %185, %184
-  br i1 %or.cond.not.i.i.i.i, label %186, label %.loopexit.i.i
+  br i1 %or.cond.not.i.i.i.i, label %186, label %_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.exit.loopexit.i20.i.i
 
 186:                                              ; preds = %"_ZN8unscanny68_$LT$impl$u20$unscanny..sealed..Sealed$LT$char$GT$$u20$for$u20$F$GT$7matches28_$u7b$$u7b$closure$u7d$$u7d$17haf512595689349b2E.exit.i.i.i.i.i"
   %187 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 2048
@@ -2957,9 +2957,9 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   %.sroa.3.0.i.i.i.i = phi i64 [ %..i.i.i.i.i.i, %188 ], [ 2, %186 ], [ 1, %162 ], [ 1, %162 ], [ 1, %162 ], [ 1, %162 ], [ 1, %162 ], [ 1, %162 ]
   %190 = add i64 %.sroa.3.0.i.i.i.i, %.sroa.10.6.i.i
   %191 = icmp eq i64 %190, 1943
-  br i1 %191, label %.loopexit.i.i, label %.lr.ph.i.i.i
+  br i1 %191, label %_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.exit.loopexit.i20.i.i, label %.lr.ph.i.i.i
 
-.loopexit.i.i:                                    ; preds = %.thread7.i.i.i.i, %"_ZN8unscanny68_$LT$impl$u20$unscanny..sealed..Sealed$LT$char$GT$$u20$for$u20$F$GT$7matches28_$u7b$$u7b$closure$u7d$$u7d$17haf512595689349b2E.exit.i.i.i.i.i", %165, %163, %162, %.critedge.i.i
+_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.exit.loopexit.i20.i.i: ; preds = %.thread7.i.i.i.i, %"_ZN8unscanny68_$LT$impl$u20$unscanny..sealed..Sealed$LT$char$GT$$u20$for$u20$F$GT$7matches28_$u7b$$u7b$closure$u7d$$u7d$17haf512595689349b2E.exit.i.i.i.i.i", %165, %163, %162, %.critedge.i.i
   %.sroa.10.720.i.i = phi i64 [ 1943, %.critedge.i.i ], [ %.sroa.10.6.i.i, %165 ], [ 1943, %.thread7.i.i.i.i ], [ %.sroa.10.6.i.i, %"_ZN8unscanny68_$LT$impl$u20$unscanny..sealed..Sealed$LT$char$GT$$u20$for$u20$F$GT$7matches28_$u7b$$u7b$closure$u7d$$u7d$17haf512595689349b2E.exit.i.i.i.i.i" ], [ %.sroa.10.6.i.i, %163 ], [ %.sroa.10.6.i.i, %162 ]
   %192 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !527, !nonnull !4, !noundef !4
   %193 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !527, !noundef !4
@@ -2968,7 +2968,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   %195 = icmp eq i64 %193, 0
   br i1 %195, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i, label %196
 
-196:                                              ; preds = %.loopexit.i.i
+196:                                              ; preds = %_ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.exit.loopexit.i20.i.i
   %197 = getelementptr inbounds i8, ptr %194, i64 -1
   %198 = load i8, ptr %197, align 1, !alias.scope !556, !noalias !559, !noundef !4
   %199 = icmp sgt i8 %198, -1

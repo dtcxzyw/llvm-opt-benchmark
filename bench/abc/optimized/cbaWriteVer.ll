@@ -2694,7 +2694,7 @@ define internal fastcc i32 @Cba_FonRangeSize(ptr noundef captures(none) %0, i32 
   %6 = tail call ptr @Abc_NamStr(ptr noundef %.val.val, i32 noundef range(i32 -2147483648, 2147483647) %5) #16
   %7 = tail call i64 @strtol(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 10) #16
   %8 = trunc i64 %7 to i32
-  br label %72
+  br label %Cba_NtkRangeSize.exit
 
 9:                                                ; preds = %2
   %10 = getelementptr i8, ptr %0, i64 284
@@ -2813,17 +2813,13 @@ Cba_FonRange.exit:                                ; preds = %12, %._crit_edge.i.
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !35
   %68 = sub nsw i32 %65, %67
+  %69 = tail call i32 @llvm.abs.i32(i32 %68, i1 true)
+  %70 = add nuw nsw i32 %69, 1
   br label %Cba_NtkRangeSize.exit
 
-Cba_NtkRangeSize.exit:                            ; preds = %9, %Cba_FonRange.exit, %54
-  %69 = phi i32 [ %68, %54 ], [ 0, %Cba_FonRange.exit ], [ 0, %9 ]
-  %70 = tail call i32 @llvm.abs.i32(i32 %69, i1 true)
-  %71 = add nuw nsw i32 %70, 1
-  br label %72
-
-72:                                               ; preds = %Cba_NtkRangeSize.exit, %3
-  %73 = phi i32 [ %8, %3 ], [ %71, %Cba_NtkRangeSize.exit ]
-  ret i32 %73
+Cba_NtkRangeSize.exit:                            ; preds = %9, %54, %Cba_FonRange.exit, %3
+  %71 = phi i32 [ %8, %3 ], [ %70, %54 ], [ 1, %Cba_FonRange.exit ], [ 1, %9 ]
+  ret i32 %71
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable

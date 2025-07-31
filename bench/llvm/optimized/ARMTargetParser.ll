@@ -3390,7 +3390,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit90.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %108 = and i64 %107, 16624895
   %109 = icmp ne i64 %108, 0
   %.0.i91 = select i1 %105, i1 true, i1 %109
-  br i1 %17, label %110, label %142
+  br i1 %17, label %110, label %143
 
 .thread:                                          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit90.thread
   br i1 %17, label %110, label %.thread124
@@ -3403,7 +3403,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit90.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 
 113:                                              ; preds = %110
   %or.cond.i = icmp ult i32 %101, 2
-  br i1 %or.cond.i, label %_ZL22findSinglePrecisionFPUN4llvm3ARM7FPUKindE.exit, label %114
+  br i1 %or.cond.i, label %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126, label %114
 
 114:                                              ; preds = %113
   %115 = zext i32 %101 to i64
@@ -3411,7 +3411,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit90.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 28
   %118 = load i32, ptr %117, align 4, !tbaa !24
   %.not29.i = icmp eq i32 %118, 2
-  br i1 %.not29.i, label %_ZL22findSinglePrecisionFPUN4llvm3ARM7FPUKindE.exit, label %.preheader.i
+  br i1 %.not29.i, label %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126, label %.preheader.i
 
 .preheader.i:                                     ; preds = %114
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 20
@@ -3420,20 +3420,20 @@ _ZN4llvmeqENS_9StringRefES0_.exit90.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %122 = icmp eq i32 %118, 0
   br label %123
 
-123:                                              ; preds = %141, %.preheader.i
-  %.023.idx31.i = phi i64 [ 0, %.preheader.i ], [ %.023.add.i, %141 ]
+123:                                              ; preds = %142, %.preheader.i
+  %.023.idx31.i = phi i64 [ 0, %.preheader.i ], [ %.023.add.i, %142 ]
   %.023.ptr32.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm3ARML8FPUNamesE, i64 %.023.idx31.i
   %124 = getelementptr inbounds nuw i8, ptr %.023.ptr32.i, i64 20
   %125 = load i32, ptr %124, align 4, !tbaa !16
   %126 = icmp eq i32 %125, %120
-  br i1 %126, label %127, label %141
+  br i1 %126, label %127, label %142
 
 127:                                              ; preds = %123
   %128 = getelementptr inbounds nuw i8, ptr %.023.ptr32.i, i64 24
   %129 = load i32, ptr %128, align 8, !tbaa !21
   %130 = load i32, ptr %121, align 8, !tbaa !21
   %131 = icmp eq i32 %129, %130
-  br i1 %131, label %132, label %141
+  br i1 %131, label %132, label %142
 
 132:                                              ; preds = %127
   %133 = getelementptr inbounds nuw i8, ptr %.023.ptr32.i, i64 28
@@ -3442,98 +3442,94 @@ _ZN4llvmeqENS_9StringRefES0_.exit90.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %136 = xor i1 %122, %135
   %137 = icmp ne i32 %134, 2
   %or.cond28.i = or i1 %137, %136
-  br i1 %or.cond28.i, label %141, label %138
+  br i1 %or.cond28.i, label %142, label %138
 
 138:                                              ; preds = %132
   %139 = getelementptr inbounds nuw i8, ptr %.023.ptr32.i, i64 16
   %140 = load i32, ptr %139, align 8, !tbaa !60
-  br label %_ZL22findSinglePrecisionFPUN4llvm3ARM7FPUKindE.exit
+  %141 = tail call i32 @llvm.umax.i32(i32 %140, i32 1)
+  br label %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126
 
-141:                                              ; preds = %132, %127, %123
+142:                                              ; preds = %132, %127, %123
   %.023.add.i = add nuw nsw i64 %.023.idx31.i, 32
   %.not.i92 = icmp eq i64 %.023.add.i, 768
-  br i1 %.not.i92, label %_ZL22findSinglePrecisionFPUN4llvm3ARM7FPUKindE.exit, label %123
+  br i1 %.not.i92, label %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126, label %123
 
-_ZL22findSinglePrecisionFPUN4llvm3ARM7FPUKindE.exit: ; preds = %141, %113, %114, %138
-  %.0.i93 = phi i32 [ 0, %113 ], [ %101, %114 ], [ %140, %138 ], [ 0, %141 ]
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.0.i93, i32 1)
-  br label %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126
-
-142:                                              ; preds = %104
+143:                                              ; preds = %104
   br i1 %.0.i91, label %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit.thread, label %.thread124
 
-.thread124:                                       ; preds = %.thread, %142
+.thread124:                                       ; preds = %.thread, %143
   %or.cond.i94 = icmp ult i32 %101, 2
-  br i1 %or.cond.i94, label %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit.thread, label %143
+  br i1 %or.cond.i94, label %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit.thread, label %144
 
-143:                                              ; preds = %.thread124
-  %144 = zext i32 %101 to i64
-  %145 = getelementptr inbounds nuw [24 x %"struct.llvm::ARM::FPUName"], ptr @_ZN4llvm3ARML8FPUNamesE, i64 0, i64 %144
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 28
-  %147 = load i32, ptr %146, align 4, !tbaa !24
-  %.not28.i = icmp eq i32 %147, 2
+144:                                              ; preds = %.thread124
+  %145 = zext i32 %101 to i64
+  %146 = getelementptr inbounds nuw [24 x %"struct.llvm::ARM::FPUName"], ptr @_ZN4llvm3ARML8FPUNamesE, i64 0, i64 %145
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 28
+  %148 = load i32, ptr %147, align 4, !tbaa !24
+  %.not28.i = icmp eq i32 %148, 2
   br i1 %.not28.i, label %.preheader.i96, label %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126
 
-.preheader.i96:                                   ; preds = %143
-  %148 = getelementptr inbounds nuw i8, ptr %145, i64 20
-  %149 = load i32, ptr %148, align 4, !tbaa !16
-  %150 = getelementptr inbounds nuw i8, ptr %145, i64 24
-  br label %151
+.preheader.i96:                                   ; preds = %144
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 20
+  %150 = load i32, ptr %149, align 4, !tbaa !16
+  %151 = getelementptr inbounds nuw i8, ptr %146, i64 24
+  br label %152
 
-151:                                              ; preds = %163, %.preheader.i96
-  %.023.idx30.i = phi i64 [ 0, %.preheader.i96 ], [ %.023.add.i97, %163 ]
+152:                                              ; preds = %164, %.preheader.i96
+  %.023.idx30.i = phi i64 [ 0, %.preheader.i96 ], [ %.023.add.i97, %164 ]
   %.023.ptr31.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm3ARML8FPUNamesE, i64 %.023.idx30.i
-  %152 = getelementptr inbounds nuw i8, ptr %.023.ptr31.i, i64 20
-  %153 = load i32, ptr %152, align 4, !tbaa !16
-  %154 = icmp eq i32 %153, %149
-  br i1 %154, label %155, label %163
+  %153 = getelementptr inbounds nuw i8, ptr %.023.ptr31.i, i64 20
+  %154 = load i32, ptr %153, align 4, !tbaa !16
+  %155 = icmp eq i32 %154, %150
+  br i1 %155, label %156, label %164
 
-155:                                              ; preds = %151
-  %156 = getelementptr inbounds nuw i8, ptr %.023.ptr31.i, i64 24
-  %157 = load i32, ptr %156, align 8, !tbaa !21
-  %158 = load i32, ptr %150, align 8, !tbaa !21
-  %159 = icmp eq i32 %157, %158
-  br i1 %159, label %160, label %163
+156:                                              ; preds = %152
+  %157 = getelementptr inbounds nuw i8, ptr %.023.ptr31.i, i64 24
+  %158 = load i32, ptr %157, align 8, !tbaa !21
+  %159 = load i32, ptr %151, align 8, !tbaa !21
+  %160 = icmp eq i32 %158, %159
+  br i1 %160, label %161, label %164
 
-160:                                              ; preds = %155
-  %161 = getelementptr inbounds nuw i8, ptr %.023.ptr31.i, i64 28
-  %162 = load i32, ptr %161, align 4, !tbaa !24
-  switch i32 %162, label %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit [
-    i32 0, label %163
-    i32 2, label %163
+161:                                              ; preds = %156
+  %162 = getelementptr inbounds nuw i8, ptr %.023.ptr31.i, i64 28
+  %163 = load i32, ptr %162, align 4, !tbaa !24
+  switch i32 %163, label %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit [
+    i32 0, label %164
+    i32 2, label %164
   ]
 
-163:                                              ; preds = %160, %160, %155, %151
+164:                                              ; preds = %161, %161, %156, %152
   %.023.add.i97 = add nuw nsw i64 %.023.idx30.i, 32
   %.not.i98 = icmp eq i64 %.023.add.i97, 768
-  br i1 %.not.i98, label %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit.thread, label %151
+  br i1 %.not.i98, label %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit.thread, label %152
 
-_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit: ; preds = %160
-  %164 = getelementptr inbounds nuw i8, ptr %.023.ptr31.i, i64 16
-  %165 = load i32, ptr %164, align 8, !tbaa !60
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit.thread, label %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126
+_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit: ; preds = %161
+  %165 = getelementptr inbounds nuw i8, ptr %.023.ptr31.i, i64 16
+  %166 = load i32, ptr %165, align 8, !tbaa !60
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit.thread, label %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126
 
 _ZN4llvmeqENS_9StringRefES0_.exit90.thread122:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit82.thread, %_ZN4llvmeqENS_9StringRefES0_.exit90
-  %167 = phi i32 [ %100, %_ZN4llvmeqENS_9StringRefES0_.exit82.thread ], [ %101, %_ZN4llvmeqENS_9StringRefES0_.exit90 ]
-  %. = select i1 %17, i32 1, i32 %167
+  %168 = phi i32 [ %100, %_ZN4llvmeqENS_9StringRefES0_.exit82.thread ], [ %101, %_ZN4llvmeqENS_9StringRefES0_.exit90 ]
+  %. = select i1 %17, i32 1, i32 %168
   br label %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126
 
-_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126: ; preds = %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit, %143, %_ZL22findSinglePrecisionFPUN4llvm3ARM7FPUKindE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit90.thread122
-  %.253 = phi i32 [ %., %_ZN4llvmeqENS_9StringRefES0_.exit90.thread122 ], [ %spec.store.select, %_ZL22findSinglePrecisionFPUN4llvm3ARM7FPUKindE.exit ], [ %101, %143 ], [ %165, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit ]
+_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126: ; preds = %142, %138, %114, %113, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit, %144, %_ZN4llvmeqENS_9StringRefES0_.exit90.thread122
+  %.253 = phi i32 [ %., %_ZN4llvmeqENS_9StringRefES0_.exit90.thread122 ], [ %101, %144 ], [ %166, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit ], [ 1, %113 ], [ %101, %114 ], [ %141, %138 ], [ 1, %142 ]
   store i32 %.253, ptr %6, align 4, !tbaa !101
   br label %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit86.thread119:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit82, %_ZN4llvmeqENS_9StringRefES0_.exit.thread113, %_ZN4llvmeqENS_9StringRefES0_.exit86
-  %168 = load ptr, ptr %5, align 8, !tbaa !33
-  %169 = ptrtoint ptr %61 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = icmp ne i64 %13, %171
+  %169 = load ptr, ptr %5, align 8, !tbaa !33
+  %170 = ptrtoint ptr %61 to i64
+  %171 = ptrtoint ptr %169 to i64
+  %172 = sub i64 %170, %171
+  %173 = icmp ne i64 %13, %172
   br label %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit.thread
 
-_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.us.i, %163, %.thread124, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit, %142, %110, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126, %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit86.thread119
-  %.0 = phi i1 [ %172, %_ZN4llvmeqENS_9StringRefES0_.exit86.thread119 ], [ false, %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit ], [ true, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126 ], [ false, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit ], [ true, %142 ], [ true, %110 ], [ false, %.thread124 ], [ false, %163 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.us.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ]
+_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.us.i, %164, %.thread124, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit, %143, %110, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126, %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit86.thread119
+  %.0 = phi i1 [ %173, %_ZN4llvmeqENS_9StringRefES0_.exit86.thread119 ], [ false, %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit ], [ true, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit.thread126 ], [ false, %_ZL22findDoublePrecisionFPUN4llvm3ARM7FPUKindE.exit ], [ true, %143 ], [ true, %110 ], [ false, %.thread124 ], [ false, %164 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.us.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ]
   ret i1 %.0
 }
 

@@ -28424,12 +28424,12 @@ _ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit16: ; preds = %_ZNK7
 
 _ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit19: ; preds = %27
   %33 = sub i32 %19, %14
-  %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw float, ptr %28, i64 %25
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !913
-  %38 = add nuw nsw i64 %34, %.sroa.0.0.insert.ext.i
-  %39 = load i64, ptr %37, align 8, !tbaa !914
+  %34 = getelementptr inbounds nuw float, ptr %28, i64 %25
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !913
+  %37 = zext i32 %33 to i64
+  %38 = add nuw nsw i64 %37, %.sroa.0.0.insert.ext.i
+  %39 = load i64, ptr %36, align 8, !tbaa !914
   %.not.i = icmp ugt i64 %38, %39
   br i1 %.not.i, label %40, label %41, !prof !57
 
@@ -28438,7 +28438,7 @@ _ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit19: ; preds = %27
   unreachable
 
 41:                                               ; preds = %_ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit19
-  %.in.i = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %.in.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   %42 = load ptr, ptr %.in.i, align 8, !tbaa !916
   %43 = icmp ne ptr %42, null
   %44 = icmp eq i32 %19, %14
@@ -28459,86 +28459,86 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit: ; preds = %
 51:                                               ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %53 = tail call noundef i32 @_ZNK7xgboost3ltr15LambdaRankParam7NumPairEv(ptr noundef nonnull align 8 dereferenceable(33) %52)
-  %54 = zext i32 %53 to i64
+  %54 = tail call i32 @llvm.umin.i32(i32 %33, i32 %53)
+  %.pre = zext i32 %54 to i64
   br label %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit
 
 _ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit:    ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit, %51
-  %.0.i = phi i64 [ %54, %51 ], [ 4294967295, %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit ]
-  %55 = tail call i64 @llvm.umin.i64(i64 %34, i64 %.0.i)
-  %.sroa.speculated = select i1 %30, i64 0, i64 %55
+  %.0.i.pre-phi = phi i64 [ %37, %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit ], [ %.pre, %51 ]
+  %.sroa.speculated = select i1 %30, i64 0, i64 %.0.i.pre-phi
   %.not = icmp eq i64 %.sroa.speculated, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  br label %70
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  br label %69
 
 ._crit_edge:                                      ; preds = %_ZNK7xgboost6common15OptionalWeightsixEm.exit, %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit
-  %.014.lcssa = phi double [ 0.000000e+00, %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit ], [ %87, %_ZNK7xgboost6common15OptionalWeightsixEm.exit ]
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %61 = load ptr, ptr %60, align 8, !tbaa !917
-  %62 = load i64, ptr %61, align 8, !tbaa !601
-  %63 = icmp ult i64 %1, %62
-  br i1 %63, label %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit, label %64, !prof !171
+  %.014.lcssa = phi double [ 0.000000e+00, %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit ], [ %86, %_ZNK7xgboost6common15OptionalWeightsixEm.exit ]
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %60 = load ptr, ptr %59, align 8, !tbaa !917
+  %61 = load i64, ptr %60, align 8, !tbaa !601
+  %62 = icmp ult i64 %1, %61
+  br i1 %62, label %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit, label %63, !prof !171
 
-64:                                               ; preds = %._crit_edge
+63:                                               ; preds = %._crit_edge
   tail call void @_ZSt9terminatev() #42
   unreachable
 
 _ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit: ; preds = %._crit_edge
-  %65 = uitofp nneg i64 %.sroa.speculated to double
-  %66 = fdiv double %.014.lcssa, %65
-  %67 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !605
-  %69 = getelementptr inbounds nuw double, ptr %68, i64 %1
-  store double %66, ptr %69, align 8, !tbaa !86
+  %64 = uitofp nneg i64 %.sroa.speculated to double
+  %65 = fdiv double %.014.lcssa, %64
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !605
+  %68 = getelementptr inbounds nuw double, ptr %67, i64 %1
+  store double %65, ptr %68, align 8, !tbaa !86
   ret void
 
-70:                                               ; preds = %.lr.ph, %_ZNK7xgboost6common15OptionalWeightsixEm.exit
-  %.031 = phi i64 [ 0, %.lr.ph ], [ %88, %_ZNK7xgboost6common15OptionalWeightsixEm.exit ]
-  %.01430 = phi double [ 0.000000e+00, %.lr.ph ], [ %87, %_ZNK7xgboost6common15OptionalWeightsixEm.exit ]
-  %exitcond.not = icmp eq i64 %.031, %34
-  br i1 %exitcond.not, label %71, label %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit, !prof !57
+69:                                               ; preds = %.lr.ph, %_ZNK7xgboost6common15OptionalWeightsixEm.exit
+  %.031 = phi i64 [ 0, %.lr.ph ], [ %87, %_ZNK7xgboost6common15OptionalWeightsixEm.exit ]
+  %.01430 = phi double [ 0.000000e+00, %.lr.ph ], [ %86, %_ZNK7xgboost6common15OptionalWeightsixEm.exit ]
+  %exitcond.not = icmp eq i64 %.031, %37
+  br i1 %exitcond.not, label %70, label %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit, !prof !57
 
-71:                                               ; preds = %70
+70:                                               ; preds = %69
   tail call void @_ZSt9terminatev() #42
   unreachable
 
-_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit: ; preds = %70
-  %72 = getelementptr inbounds nuw i64, ptr %47, i64 %.031
-  %73 = load i64, ptr %72, align 8, !tbaa !44
-  %74 = mul i64 %73, %20
-  %75 = getelementptr inbounds nuw float, ptr %35, i64 %74
-  %76 = load float, ptr %75, align 4, !tbaa !125
-  %77 = load i64, ptr %57, align 8, !tbaa !603
-  %78 = icmp eq i64 %77, 0
-  br i1 %78, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit, label %79
+_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit: ; preds = %69
+  %71 = getelementptr inbounds nuw i64, ptr %47, i64 %.031
+  %72 = load i64, ptr %71, align 8, !tbaa !44
+  %73 = mul i64 %72, %20
+  %74 = getelementptr inbounds nuw float, ptr %34, i64 %73
+  %75 = load float, ptr %74, align 4, !tbaa !125
+  %76 = load i64, ptr %56, align 8, !tbaa !603
+  %77 = icmp eq i64 %76, 0
+  br i1 %77, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit, label %78
 
-79:                                               ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit
-  %80 = icmp ult i64 %1, %77
-  br i1 %80, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %81, !prof !171
+78:                                               ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit
+  %79 = icmp ult i64 %1, %76
+  br i1 %79, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %80, !prof !171
 
-81:                                               ; preds = %79
+80:                                               ; preds = %78
   tail call void @_ZSt9terminatev() #42
   unreachable
 
-_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i: ; preds = %79
-  %82 = load ptr, ptr %58, align 8, !tbaa !912
-  %83 = getelementptr inbounds nuw float, ptr %82, i64 %1
+_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i: ; preds = %78
+  %81 = load ptr, ptr %57, align 8, !tbaa !912
+  %82 = getelementptr inbounds nuw float, ptr %81, i64 %1
   br label %_ZNK7xgboost6common15OptionalWeightsixEm.exit
 
 _ZNK7xgboost6common15OptionalWeightsixEm.exit:    ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i
-  %.in.i20 = phi ptr [ %83, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i ], [ %59, %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit ]
-  %84 = load float, ptr %.in.i20, align 4, !tbaa !125
-  %85 = fmul float %76, %84
-  %86 = fpext float %85 to double
-  %87 = fadd double %.01430, %86
-  %88 = add nuw nsw i64 %.031, 1
-  %exitcond32.not = icmp eq i64 %88, %.sroa.speculated
-  br i1 %exitcond32.not, label %._crit_edge, label %70, !llvm.loop !918
+  %.in.i20 = phi ptr [ %82, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i ], [ %58, %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit ]
+  %83 = load float, ptr %.in.i20, align 4, !tbaa !125
+  %84 = fmul float %75, %83
+  %85 = fpext float %84 to double
+  %86 = fadd double %.01430, %85
+  %87 = add nuw nsw i64 %.031, 1
+  %exitcond32.not = icmp eq i64 %87, %.sroa.speculated
+  br i1 %exitcond32.not, label %._crit_edge, label %69, !llvm.loop !918
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -36232,149 +36232,150 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit: ; preds = %
 52:                                               ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit
   %53 = tail call noundef i32 @_ZNK7xgboost3ltr15LambdaRankParam7NumPairEv(ptr noundef nonnull align 8 dereferenceable(33) %48)
   %54 = zext i32 %53 to i64
+  %55 = tail call i64 @llvm.umin.i64(i64 %.sink.i.i.i, i64 %54)
   br label %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit
 
 _ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit:    ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit, %52
-  %.0.i = phi i64 [ %54, %52 ], [ 4294967295, %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit ]
-  %.sroa.speculated35 = tail call i64 @llvm.umin.i64(i64 %.sink.i.i.i, i64 %.0.i)
-  %.not = icmp eq i64 %.sroa.speculated35, 0
+  %.0.i = phi i64 [ %55, %52 ], [ %.sink.i.i.i, %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit ]
+  %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  br label %62
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  br label %64
 
 .preheader:                                       ; preds = %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit, %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit
-  %.047.lcssa = phi double [ 0.000000e+00, %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit ], [ %73, %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit ]
-  %58 = icmp samesign ult i64 %.0.i, %.sink.i.i.i
-  br i1 %58, label %.lr.ph55.preheader, label %._crit_edge
+  %.047.lcssa = phi double [ 0.000000e+00, %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit ], [ %75, %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit ]
+  %59 = icmp ult i64 %.0.i, %.sink.i.i.i
+  br i1 %59, label %.lr.ph55.preheader, label %._crit_edge
 
 .lr.ph55.preheader:                               ; preds = %.preheader
-  %59 = tail call i64 @llvm.usub.sat.i64(i64 %34, i64 %.sroa.speculated35)
-  %60 = xor i64 %.sroa.speculated35, -1
-  %61 = add nsw i64 %.sink.i.i.i, %60
-  %.not60.not = icmp ugt i64 %59, %61
-  br i1 %.not60.not, label %.lr.ph55, label %90, !prof !171
+  %60 = tail call i64 @llvm.usub.sat.i64(i64 %34, i64 %.0.i)
+  %61 = xor i64 %.0.i, -1
+  %62 = add nsw i64 %.sink.i.i.i, %61
+  %63 = freeze i64 %62
+  %.not60.not = icmp ugt i64 %60, %63
+  br i1 %.not60.not, label %.lr.ph55, label %92, !prof !171
 
-62:                                               ; preds = %.lr.ph, %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit
-  %.01952 = phi i64 [ 0, %.lr.ph ], [ %74, %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit ]
-  %.04751 = phi double [ 0.000000e+00, %.lr.ph ], [ %73, %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit ]
+64:                                               ; preds = %.lr.ph, %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit
+  %.01952 = phi i64 [ 0, %.lr.ph ], [ %76, %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit ]
+  %.04751 = phi double [ 0.000000e+00, %.lr.ph ], [ %75, %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit ]
   %exitcond.not = icmp eq i64 %.01952, %34
-  br i1 %exitcond.not, label %63, label %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit, !prof !57
+  br i1 %exitcond.not, label %65, label %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit, !prof !57
 
-63:                                               ; preds = %62
+65:                                               ; preds = %64
   tail call void @_ZSt9terminatev() #42
   unreachable
 
-_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit: ; preds = %62
-  %64 = load i64, ptr %56, align 8, !tbaa !601
-  %65 = icmp ult i64 %1, %64
-  br i1 %65, label %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit, label %66, !prof !171
+_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit: ; preds = %64
+  %66 = load i64, ptr %57, align 8, !tbaa !601
+  %67 = icmp ult i64 %1, %66
+  br i1 %67, label %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit, label %68, !prof !171
 
-66:                                               ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit
+68:                                               ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit
   tail call void @_ZSt9terminatev() #42
   unreachable
 
 _ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit: ; preds = %_ZNK7xgboost6common4SpanIKmLm18446744073709551615EEixEm.exit
-  %67 = getelementptr inbounds nuw i64, ptr %47, i64 %.01952
-  %68 = load i64, ptr %67, align 8, !tbaa !44
-  %69 = mul i64 %68, %20
-  %70 = getelementptr inbounds nuw float, ptr %35, i64 %69
-  %71 = load float, ptr %70, align 4, !tbaa !125
-  %72 = fpext float %71 to double
-  %73 = fadd double %.04751, %72
-  %74 = add nuw nsw i64 %.01952, 1
-  %75 = uitofp nneg i64 %74 to double
-  %76 = fdiv double %73, %75
-  %77 = load ptr, ptr %57, align 8, !tbaa !605
-  %78 = getelementptr inbounds nuw double, ptr %77, i64 %1
-  %79 = load double, ptr %78, align 8, !tbaa !86
-  %80 = tail call double @llvm.fmuladd.f64(double %76, double %72, double %79)
-  store double %80, ptr %78, align 8, !tbaa !86
-  %exitcond58.not = icmp eq i64 %74, %.sroa.speculated35
-  br i1 %exitcond58.not, label %.preheader, label %62, !llvm.loop !1106
+  %69 = getelementptr inbounds nuw i64, ptr %47, i64 %.01952
+  %70 = load i64, ptr %69, align 8, !tbaa !44
+  %71 = mul i64 %70, %20
+  %72 = getelementptr inbounds nuw float, ptr %35, i64 %71
+  %73 = load float, ptr %72, align 4, !tbaa !125
+  %74 = fpext float %73 to double
+  %75 = fadd double %.04751, %74
+  %76 = add nuw nsw i64 %.01952, 1
+  %77 = uitofp nneg i64 %76 to double
+  %78 = fdiv double %75, %77
+  %79 = load ptr, ptr %58, align 8, !tbaa !605
+  %80 = getelementptr inbounds nuw double, ptr %79, i64 %1
+  %81 = load double, ptr %80, align 8, !tbaa !86
+  %82 = tail call double @llvm.fmuladd.f64(double %78, double %74, double %81)
+  store double %82, ptr %80, align 8, !tbaa !86
+  %exitcond58.not = icmp eq i64 %76, %.0.i
+  br i1 %exitcond58.not, label %.preheader, label %64, !llvm.loop !1106
 
 ._crit_edge:                                      ; preds = %.lr.ph55, %.preheader
-  %.1.lcssa = phi double [ %.047.lcssa, %.preheader ], [ %88, %.lr.ph55 ]
-  %81 = fcmp ogt double %.1.lcssa, 0.000000e+00
-  br i1 %81, label %91, label %108
+  %.1.lcssa = phi double [ %.047.lcssa, %.preheader ], [ %90, %.lr.ph55 ]
+  %83 = fcmp ogt double %.1.lcssa, 0.000000e+00
+  br i1 %83, label %93, label %110
 
 .lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55
-  %.054 = phi i64 [ %89, %.lr.ph55 ], [ %.sroa.speculated35, %.lr.ph55.preheader ]
-  %.153 = phi double [ %88, %.lr.ph55 ], [ %.047.lcssa, %.lr.ph55.preheader ]
-  %82 = getelementptr inbounds nuw i64, ptr %47, i64 %.054
-  %83 = load i64, ptr %82, align 8, !tbaa !44
-  %84 = mul i64 %83, %20
-  %85 = getelementptr inbounds nuw float, ptr %35, i64 %84
-  %86 = load float, ptr %85, align 4, !tbaa !125
-  %87 = fpext float %86 to double
-  %88 = fadd double %.153, %87
-  %89 = add nuw nsw i64 %.054, 1
-  %exitcond59.not = icmp eq i64 %89, %.sink.i.i.i
+  %.054 = phi i64 [ %91, %.lr.ph55 ], [ %.0.i, %.lr.ph55.preheader ]
+  %.153 = phi double [ %90, %.lr.ph55 ], [ %.047.lcssa, %.lr.ph55.preheader ]
+  %84 = getelementptr inbounds nuw i64, ptr %47, i64 %.054
+  %85 = load i64, ptr %84, align 8, !tbaa !44
+  %86 = mul i64 %85, %20
+  %87 = getelementptr inbounds nuw float, ptr %35, i64 %86
+  %88 = load float, ptr %87, align 4, !tbaa !125
+  %89 = fpext float %88 to double
+  %90 = fadd double %.153, %89
+  %91 = add nuw nsw i64 %.054, 1
+  %exitcond59.not = icmp eq i64 %91, %.sink.i.i.i
   br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph55, !llvm.loop !1107
 
-90:                                               ; preds = %.lr.ph55.preheader
+92:                                               ; preds = %.lr.ph55.preheader
   tail call void @_ZSt9terminatev() #42
   unreachable
 
-91:                                               ; preds = %._crit_edge
-  %92 = load i32, ptr %49, align 4, !tbaa !467
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit27
+93:                                               ; preds = %._crit_edge
+  %94 = load i32, ptr %49, align 4, !tbaa !467
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit27
 
-94:                                               ; preds = %91
-  %95 = tail call noundef i32 @_ZNK7xgboost3ltr15LambdaRankParam7NumPairEv(ptr noundef nonnull align 8 dereferenceable(33) %48)
-  %96 = uitofp i32 %95 to double
+96:                                               ; preds = %93
+  %97 = tail call noundef i32 @_ZNK7xgboost3ltr15LambdaRankParam7NumPairEv(ptr noundef nonnull align 8 dereferenceable(33) %48)
+  %98 = uitofp i32 %97 to double
   br label %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit27
 
-_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit27:  ; preds = %91, %94
-  %.0.i26 = phi double [ %96, %94 ], [ 0x41EFFFFFFFE00000, %91 ]
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %98 = load ptr, ptr %97, align 8, !tbaa !1108
-  %99 = load i64, ptr %98, align 8, !tbaa !601
-  %100 = icmp ult i64 %1, %99
-  br i1 %100, label %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit29, label %101, !prof !171
+_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit27:  ; preds = %93, %96
+  %.0.i26 = phi double [ %98, %96 ], [ 0x41EFFFFFFFE00000, %93 ]
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %100 = load ptr, ptr %99, align 8, !tbaa !1108
+  %101 = load i64, ptr %100, align 8, !tbaa !601
+  %102 = icmp ult i64 %1, %101
+  br i1 %102, label %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit29, label %103, !prof !171
 
-101:                                              ; preds = %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit27
+103:                                              ; preds = %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit27
   tail call void @_ZSt9terminatev() #42
   unreachable
 
 _ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit29: ; preds = %_ZNK7xgboost3ltr15LambdaRankParam4TopKEv.exit27
-  %102 = fcmp olt double %.0.i26, %.1.lcssa
-  %.sroa.speculated = select i1 %102, double %.0.i26, double %.1.lcssa
-  %103 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %104 = load ptr, ptr %103, align 8, !tbaa !605
-  %105 = getelementptr inbounds nuw double, ptr %104, i64 %1
-  %106 = load double, ptr %105, align 8, !tbaa !86
-  %107 = fdiv double %106, %.sroa.speculated
-  store double %107, ptr %105, align 8, !tbaa !86
-  br label %121
+  %104 = fcmp olt double %.0.i26, %.1.lcssa
+  %.sroa.speculated = select i1 %104, double %.0.i26, double %.1.lcssa
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %106 = load ptr, ptr %105, align 8, !tbaa !605
+  %107 = getelementptr inbounds nuw double, ptr %106, i64 %1
+  %108 = load double, ptr %107, align 8, !tbaa !86
+  %109 = fdiv double %108, %.sroa.speculated
+  store double %109, ptr %107, align 8, !tbaa !86
+  br label %123
 
-108:                                              ; preds = %._crit_edge
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %110 = load ptr, ptr %109, align 8, !tbaa !1108
-  %111 = load i64, ptr %110, align 8, !tbaa !601
-  %112 = icmp ult i64 %1, %111
-  br i1 %112, label %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30, label %113, !prof !171
+110:                                              ; preds = %._crit_edge
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %112 = load ptr, ptr %111, align 8, !tbaa !1108
+  %113 = load i64, ptr %112, align 8, !tbaa !601
+  %114 = icmp ult i64 %1, %113
+  br i1 %114, label %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30, label %115, !prof !171
 
-113:                                              ; preds = %108
+115:                                              ; preds = %110
   tail call void @_ZSt9terminatev() #42
   unreachable
 
-_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30: ; preds = %108
-  %114 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %115 = load i8, ptr %114, align 8, !tbaa !919, !range !440, !noundef !441
-  %116 = trunc nuw i8 %115 to i1
-  %117 = select i1 %116, double 0.000000e+00, double 1.000000e+00
-  %118 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %119 = load ptr, ptr %118, align 8, !tbaa !605
-  %120 = getelementptr inbounds nuw double, ptr %119, i64 %1
-  store double %117, ptr %120, align 8, !tbaa !86
-  br label %121
+_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30: ; preds = %110
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %117 = load i8, ptr %116, align 8, !tbaa !919, !range !440, !noundef !441
+  %118 = trunc nuw i8 %117 to i1
+  %119 = select i1 %118, double 0.000000e+00, double 1.000000e+00
+  %120 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %121 = load ptr, ptr %120, align 8, !tbaa !605
+  %122 = getelementptr inbounds nuw double, ptr %121, i64 %1
+  store double %119, ptr %122, align 8, !tbaa !86
+  br label %123
 
-121:                                              ; preds = %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30, %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit29
+123:                                              ; preds = %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit30, %_ZNK7xgboost6common4SpanIdLm18446744073709551615EEixEm.exit29
   ret void
 }
 

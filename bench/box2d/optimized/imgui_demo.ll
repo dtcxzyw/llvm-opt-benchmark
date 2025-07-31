@@ -21919,11 +21919,11 @@ _ZN8ImVectorIN12_GLOBAL__N_16MyItemEE7reserveEi.exit.i.thread: ; preds = %1457
 1461:                                             ; preds = %1460
   %1462 = sdiv i32 %1458, 2
   %1463 = add nsw i32 %1462, %1458
+  %1464 = call i32 @llvm.smax.i32(i32 %1463, i32 50)
   br label %_ZNK8ImVectorIN12_GLOBAL__N_16MyItemEE14_grow_capacityEi.exit.i
 
 _ZNK8ImVectorIN12_GLOBAL__N_16MyItemEE14_grow_capacityEi.exit.i: ; preds = %1461, %1460
-  %1464 = phi i32 [ %1463, %1461 ], [ 8, %1460 ]
-  %1465 = call noundef i32 @llvm.smax.i32(i32 %1464, i32 50)
+  %1465 = phi i32 [ %1464, %1461 ], [ 50, %1460 ]
   %1466 = zext nneg i32 %1465 to i64
   %1467 = mul nuw nsw i64 %1466, 24
   %1468 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %1467)

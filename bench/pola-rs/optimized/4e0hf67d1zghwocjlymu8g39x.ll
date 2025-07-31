@@ -6452,7 +6452,7 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17hadfe2b43ab
   %201 = icmp ne ptr %199, null
   call void @llvm.assume(i1 %201)
   %.sroa.03.0.copyload.i.i.i.i.i.i = load i16, ptr %199, align 1, !alias.scope !1191, !noalias !1194
-  %202 = call noundef i16 @llvm.bswap.i16(i16 %.sroa.03.0.copyload.i.i.i.i.i.i)
+  %202 = call i16 @llvm.bswap.i16(i16 %.sroa.03.0.copyload.i.i.i.i.i.i)
   store i16 %202, ptr %200, align 2, !noalias !1194
   %203 = load i64, ptr %187, align 8, !alias.scope !1180, !noalias !1187, !noundef !7
   %204 = load i64, ptr %188, align 8, !alias.scope !1180, !noalias !1187, !noundef !7
@@ -7244,7 +7244,7 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h6d8e5d986f
   %201 = icmp ne ptr %199, null
   call void @llvm.assume(i1 %201)
   %.sroa.03.0.copyload.i.i.i.i.i.i = load i32, ptr %199, align 1, !alias.scope !1369, !noalias !1372
-  %202 = call noundef i32 @llvm.bswap.i32(i32 %.sroa.03.0.copyload.i.i.i.i.i.i)
+  %202 = call i32 @llvm.bswap.i32(i32 %.sroa.03.0.copyload.i.i.i.i.i.i)
   store i32 %202, ptr %200, align 4, !noalias !1372
   %203 = load i64, ptr %187, align 8, !alias.scope !1358, !noalias !1365, !noundef !7
   %204 = load i64, ptr %188, align 8, !alias.scope !1358, !noalias !1365, !noundef !7
@@ -10381,7 +10381,7 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h408691c0ab
   %201 = icmp ne ptr %199, null
   call void @llvm.assume(i1 %201)
   %.sroa.03.0.copyload.i.i.i.i.i.i = load i32, ptr %199, align 1, !alias.scope !2069, !noalias !2072
-  %202 = call noundef i32 @llvm.bswap.i32(i32 %.sroa.03.0.copyload.i.i.i.i.i.i)
+  %202 = call i32 @llvm.bswap.i32(i32 %.sroa.03.0.copyload.i.i.i.i.i.i)
   store i32 %202, ptr %200, align 4, !noalias !2072
   %203 = load i64, ptr %187, align 8, !alias.scope !2058, !noalias !2065, !noundef !7
   %204 = load i64, ptr %188, align 8, !alias.scope !2058, !noalias !2065, !noundef !7
@@ -14091,7 +14091,7 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h43f38e3fba
   %201 = icmp ne ptr %199, null
   call void @llvm.assume(i1 %201)
   %.sroa.03.0.copyload.i.i.i.i.i.i = load i16, ptr %199, align 1, !alias.scope !2935, !noalias !2938
-  %202 = call noundef i16 @llvm.bswap.i16(i16 %.sroa.03.0.copyload.i.i.i.i.i.i)
+  %202 = call i16 @llvm.bswap.i16(i16 %.sroa.03.0.copyload.i.i.i.i.i.i)
   store i16 %202, ptr %200, align 2, !noalias !2938
   %203 = load i64, ptr %187, align 8, !alias.scope !2924, !noalias !2931, !noundef !7
   %204 = load i64, ptr %188, align 8, !alias.scope !2924, !noalias !2931, !noundef !7

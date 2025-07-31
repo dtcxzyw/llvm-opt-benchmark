@@ -976,18 +976,18 @@ cond.false80:                                     ; preds = %cond.end75
 
 cond.false84:                                     ; preds = %cond.false80
   %44 = fmul nsz float %add6.i1219, 1.000000e+04
+  %45 = call nsz float @llvm.trunc.f32(float %44)
   br label %invoke.cont93
 
 invoke.cont93:                                    ; preds = %cond.false84, %cond.false80, %cond.end75
-  %cond89 = phi float [ -5.000000e+07, %cond.end75 ], [ %44, %cond.false84 ], [ 5.000000e+07, %cond.false80 ]
-  %45 = insertelement <2 x float> poison, float %cond76, i64 0
-  %46 = insertelement <2 x float> %45, float %cond63, i64 1
-  %47 = fmul nsz <2 x float> %46, splat (float 1.000000e+04)
-  %48 = call nsz <2 x float> @llvm.trunc.v2f32(<2 x float> %47)
-  %49 = fdiv nsz <2 x float> %48, splat (float 1.000000e+04)
-  %50 = call nsz float @llvm.trunc.f32(float %cond89)
-  %div.i10.i = fdiv nsz float %50, 1.000000e+04
-  store <2 x float> %49, ptr %speed_f, align 4, !tbaa.struct !61
+  %cond89 = phi float [ -5.000000e+07, %cond.end75 ], [ %45, %cond.false84 ], [ 5.000000e+07, %cond.false80 ]
+  %46 = insertelement <2 x float> poison, float %cond76, i64 0
+  %47 = insertelement <2 x float> %46, float %cond63, i64 1
+  %48 = fmul nsz <2 x float> %47, splat (float 1.000000e+04)
+  %49 = call nsz <2 x float> @llvm.trunc.v2f32(<2 x float> %48)
+  %50 = fdiv nsz <2 x float> %49, splat (float 1.000000e+04)
+  %div.i10.i = fdiv nsz float %cond89, 1.000000e+04
+  store <2 x float> %50, ptr %speed_f, align 4, !tbaa.struct !61
   store float %div.i10.i, ptr %Z.i1179, align 4, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %cinfo) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cinfo, i8 0, i64 24, i1 false)
@@ -1386,13 +1386,13 @@ if.end.i:                                         ; preds = %land.rhs.i.i.i.i, %
   %retval.sroa.0.1.i = phi ptr [ %__p.0.us.i.i.i, %land.rhs.i.us.i.i.i ], [ %__p.0.i.i.i, %land.rhs.i.i.i.i.i.i.i ], [ %retval.sroa.0.036.i, %land.rhs.i.i.i.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i, i64 40
   %135 = load i32, ptr %second.i, align 8, !tbaa !110
+  %136 = call i32 @llvm.abs.i32(i32 %135, i1 true)
   br label %invoke.cont255
 
 invoke.cont255:                                   ; preds = %lor.lhs.false.i.i.i, %if.end3.i.i.i, %lor.lhs.false.us.i.i.i, %if.end3.us.i.i.i, %if.end.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit.i
-  %136 = phi ptr [ %134, %if.end.i ], [ %.pre, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit.i ], [ %.pre, %if.end3.us.i.i.i ], [ %.pre, %lor.lhs.false.us.i.i.i ], [ %.pre, %if.end3.i.i.i ], [ %.pre, %lor.lhs.false.i.i.i ]
-  %retval.0.i = phi i32 [ %135, %if.end.i ], [ 0, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit.i ], [ 0, %if.end3.us.i.i.i ], [ 0, %lor.lhs.false.us.i.i.i ], [ 0, %if.end3.i.i.i ], [ 0, %lor.lhs.false.i.i.i ]
-  %137 = call i32 @llvm.abs.i32(i32 %retval.0.i, i1 true)
-  %cmp.i.i.i1354 = icmp eq ptr %136, %91
+  %137 = phi ptr [ %134, %if.end.i ], [ %.pre, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit.i ], [ %.pre, %if.end3.us.i.i.i ], [ %.pre, %lor.lhs.false.us.i.i.i ], [ %.pre, %if.end3.i.i.i ], [ %.pre, %lor.lhs.false.i.i.i ]
+  %retval.0.i = phi i32 [ %136, %if.end.i ], [ 0, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit.i ], [ 0, %if.end3.us.i.i.i ], [ 0, %lor.lhs.false.us.i.i.i ], [ 0, %if.end3.i.i.i ], [ 0, %lor.lhs.false.i.i.i ]
+  %cmp.i.i.i1354 = icmp eq ptr %137, %91
   br i1 %cmp.i.i.i1354, label %invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge, label %if.then.i.i1355
 
 invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge: ; preds = %invoke.cont255
@@ -1402,16 +1402,16 @@ invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_loc
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356: ; preds = %for.inc.i, %invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge, %if.then.i1733
   %cmp3.i.i.i1358 = phi i1 [ %138, %invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge ], [ true, %if.then.i1733 ], [ true, %for.inc.i ]
-  %139 = phi i32 [ %137, %invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge ], [ 0, %if.then.i1733 ], [ 0, %for.inc.i ]
+  %139 = phi i32 [ %retval.0.i, %invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge ], [ 0, %if.then.i1733 ], [ 0, %for.inc.i ]
   call void @llvm.assume(i1 %cmp3.i.i.i1358)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1359
 
 if.then.i.i1355:                                  ; preds = %invoke.cont255
-  call void @_ZdlPv(ptr noundef %136) #24
+  call void @_ZdlPv(ptr noundef %137) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1359
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1359: ; preds = %if.then.i.i1355, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356
-  %140 = phi i32 [ %139, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356 ], [ %137, %if.then.i.i1355 ]
+  %140 = phi i32 [ %139, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356 ], [ %retval.0.i, %if.then.i.i1355 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp250) #25
   %drawtype = getelementptr inbounds nuw i8, ptr %cond-lvalue.i.i, i64 1538
   %141 = load i8, ptr %drawtype, align 2, !tbaa !112

@@ -83730,21 +83730,24 @@ _ZN4gpui8elements4text10TextLayout4lock17h8514f434ef9fa0e7E.llvm.120180527265527
   %60 = icmp sgt i32 %26, %59
   br i1 %60, label %65, label %74
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread": ; preds = %65, %33
-  %.sroa.09.0.lcssa = phi i64 [ 0, %33 ], [ %72, %65 ]
-  %61 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.09.0.lcssa, i64 1)
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread.loopexit": ; preds = %65
+  %61 = tail call i64 @llvm.usub.sat.i64(i64 %72, i64 1)
+  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread"
+
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread.loopexit", %33
+  %.sroa.09.0.lcssa = phi i64 [ 0, %33 ], [ %61, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread.loopexit" ]
   %62 = cmpxchg ptr %6, i8 1, i8 0 release monotonic, align 1, !noalias !16676
   %.sroa.18.0.in.i.i.i.i29 = extractvalue { i8, i1 } %62, 1
   br i1 %.sroa.18.0.in.i.i.i.i29, label %"_ZN4core3ptr156drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$gpui..elements..text..TextLayoutInner$GT$$GT$$GT$17ha987763c53969ab8E.llvm.12018052726552770354.exit28", label %"_ZN4core3ptr156drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$gpui..elements..text..TextLayoutInner$GT$$GT$$GT$17ha987763c53969ab8E.llvm.12018052726552770354.exit28.sink.split"
 
 "_ZN4core3ptr156drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$gpui..elements..text..TextLayoutInner$GT$$GT$$GT$17ha987763c53969ab8E.llvm.12018052726552770354.exit28.sink.split": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread", %31
-  %.sroa.5.1.ph = phi i64 [ %.sroa.5.0, %31 ], [ %61, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread" ]
+  %.sroa.5.1.ph = phi i64 [ %.sroa.5.0, %31 ], [ %.sroa.09.0.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread" ]
   %.sroa.0.1.ph = phi i64 [ %.sroa.0.0, %31 ], [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread" ]
   tail call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %6, i1 noundef zeroext false), !noalias !9
   br label %"_ZN4core3ptr156drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$gpui..elements..text..TextLayoutInner$GT$$GT$$GT$17ha987763c53969ab8E.llvm.12018052726552770354.exit28"
 
 "_ZN4core3ptr156drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$gpui..elements..text..TextLayoutInner$GT$$GT$$GT$17ha987763c53969ab8E.llvm.12018052726552770354.exit28": ; preds = %"_ZN4core3ptr156drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$gpui..elements..text..TextLayoutInner$GT$$GT$$GT$17ha987763c53969ab8E.llvm.12018052726552770354.exit28.sink.split", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread", %31
-  %.sroa.5.1 = phi i64 [ %.sroa.5.0, %31 ], [ %61, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread" ], [ %.sroa.5.1.ph, %"_ZN4core3ptr156drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$gpui..elements..text..TextLayoutInner$GT$$GT$$GT$17ha987763c53969ab8E.llvm.12018052726552770354.exit28.sink.split" ]
+  %.sroa.5.1 = phi i64 [ %.sroa.5.0, %31 ], [ %.sroa.09.0.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread" ], [ %.sroa.5.1.ph, %"_ZN4core3ptr156drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$gpui..elements..text..TextLayoutInner$GT$$GT$$GT$17ha987763c53969ab8E.llvm.12018052726552770354.exit28.sink.split" ]
   %.sroa.0.1 = phi i64 [ %.sroa.0.0, %31 ], [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread" ], [ %.sroa.0.1.ph, %"_ZN4core3ptr156drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$gpui..elements..text..TextLayoutInner$GT$$GT$$GT$17ha987763c53969ab8E.llvm.12018052726552770354.exit28.sink.split" ]
   %63 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
   %64 = insertvalue { i64, i64 } %63, i64 %.sroa.5.1, 1
@@ -83760,7 +83763,7 @@ _ZN4gpui8elements4text10TextLayout4lock17h8514f434ef9fa0e7E.llvm.120180527265527
   %71 = add i64 %.sroa.09.045, 1
   %72 = add i64 %71, %70
   %73 = icmp eq ptr %66, %43
-  br i1 %73, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit"
+  br i1 %73, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit.thread.loopexit", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit"
 
 74:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44822d95f1861147E.exit"
   %75 = getelementptr inbounds nuw i8, ptr %46, i64 16

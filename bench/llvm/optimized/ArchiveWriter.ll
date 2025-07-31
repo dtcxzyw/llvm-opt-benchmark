@@ -6162,18 +6162,19 @@ switch.lookup:
   br i1 %16, label %_ZL22computeSymbolTableSizeN4llvm6object7Archive4KindEmmmPj.exit, label %17
 
 17:                                               ; preds = %13, %.thread.i
-  %18 = phi i64 [ 8, %.thread.i ], [ 2, %13 ]
-  %19 = phi i64 [ %12, %.thread.i ], [ %15, %13 ]
-  %20 = add nuw nsw i64 %18, 4294967295
+  %.neg.i = phi i64 [ 3, %.thread.i ], [ 1, %13 ]
+  %18 = phi i64 [ %12, %.thread.i ], [ %15, %13 ]
+  %19 = shl nuw nsw i64 1, %.neg.i
+  %20 = add i64 %18, 4294967295
   %21 = add i64 %20, %19
-  %22 = sub nsw i64 0, %18
+  %22 = sub nsw i64 0, %19
   %23 = and i64 %21, %22
-  %24 = sub i64 %23, %19
+  %24 = sub i64 %23, %18
   %25 = and i64 %24, 4294967295
   br label %_ZL22computeSymbolTableSizeN4llvm6object7Archive4KindEmmmPj.exit
 
 _ZL22computeSymbolTableSizeN4llvm6object7Archive4KindEmmmPj.exit: ; preds = %13, %17
-  %26 = phi i64 [ %19, %17 ], [ %15, %13 ]
+  %26 = phi i64 [ %18, %17 ], [ %15, %13 ]
   %27 = phi i64 [ %25, %17 ], [ 0, %13 ]
   %28 = add i64 %27, %26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
@@ -6295,16 +6296,17 @@ _ZL11is64BitKindN4llvm6object7Archive4KindE.exit: ; preds = %24, %switch.lookup
   br label %58
 
 _ZL22computeSymbolTableSizeN4llvm6object7Archive4KindEmmmPj.exit: ; preds = %.thread.i, %34
-  %38 = phi i64 [ 8, %.thread.i ], [ 2, %34 ]
-  %39 = phi i64 [ %33, %.thread.i ], [ %36, %34 ]
-  %40 = add nuw nsw i64 %38, 4294967295
+  %.neg.i = phi i64 [ 3, %.thread.i ], [ 1, %34 ]
+  %38 = phi i64 [ %33, %.thread.i ], [ %36, %34 ]
+  %39 = shl nuw nsw i64 1, %.neg.i
+  %40 = add i64 %38, 4294967295
   %41 = add i64 %40, %39
-  %42 = sub nsw i64 0, %38
+  %42 = sub nsw i64 0, %39
   %43 = and i64 %41, %42
-  %44 = sub i64 %43, %39
+  %44 = sub i64 %43, %38
   %45 = trunc i64 %44 to i32
   %46 = and i64 %44, 4294967295
-  %47 = add i64 %46, %39
+  %47 = add i64 %46, %38
   tail call fastcc void @_ZL22writeSymbolTableHeaderRN4llvm11raw_ostreamENS_6object7Archive4KindEbmmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i1 noundef zeroext %2, i64 noundef %47, i64 noundef %7, i64 noundef %8)
   br i1 %switch.i.i, label %48, label %56
 

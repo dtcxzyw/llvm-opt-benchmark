@@ -195,12 +195,12 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
 22:                                               ; preds = %1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %23, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.virtblk_probe) #15
-  br label %366
+  br label %365
 
 24:                                               ; preds = %1
   %25 = tail call i32 @ida_alloc_range(ptr noundef nonnull @vd_index_ida, i32 noundef 0, i32 noundef 65535, i32 noundef 3264) #14
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %366, label %27
+  br i1 %26, label %365, label %27
 
 27:                                               ; preds = %24
   tail call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 2) #14
@@ -232,7 +232,7 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 792
   store ptr %44, ptr %45, align 8
   %46 = icmp eq ptr %44, null
-  br i1 %46, label %364, label %47
+  br i1 %46, label %363, label %47
 
 47:                                               ; preds = %37
   call void @__mutex_init(ptr noundef nonnull %44, ptr noundef nonnull @.str.3, ptr noundef nonnull @virtblk_probe.__key) #14
@@ -248,7 +248,7 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   store ptr @virtblk_config_changed_work, ptr %52, align 8
   %53 = call fastcc i32 @init_vq(ptr noundef nonnull %44)
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %362
+  br i1 %54, label %55, label %361
 
 55:                                               ; preds = %47
   %56 = load i32, ptr @virtblk_queue_depth, align 4
@@ -296,7 +296,7 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   store i32 %85, ptr %81, align 8
   %86 = call i32 @blk_mq_alloc_tag_set(ptr noundef nonnull %71) #14
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %355
+  br i1 %87, label %88, label %354
 
 88:                                               ; preds = %69
   %89 = call ptr @__blk_mq_alloc_disk(ptr noundef nonnull %71, ptr noundef nonnull %44, ptr noundef nonnull @virtblk_probe.__key.5) #14
@@ -308,7 +308,7 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
 92:                                               ; preds = %88
   %93 = ptrtoint ptr %89 to i64
   %94 = trunc i64 %93 to i32
-  br label %353
+  br label %352
 
 95:                                               ; preds = %88
   %96 = getelementptr inbounds nuw i8, ptr %89, i64 80
@@ -420,7 +420,7 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   %160 = load i64, ptr %28, align 8
   %161 = and i64 %160, 2
   %162 = icmp eq i64 %161, 0
-  br i1 %162, label %168, label %163
+  br i1 %162, label %169, label %163
 
 163:                                              ; preds = %155
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
@@ -431,408 +431,407 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   call void %166(ptr noundef %0, i32 noundef 8, ptr noundef nonnull %4, i32 noundef 4) #14
   %167 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
-  br label %168
+  %168 = call i32 @llvm.umin.i32(i32 %167, i32 %159)
+  br label %169
 
-168:                                              ; preds = %163, %155
-  %169 = phi i32 [ %167, %163 ], [ 0, %155 ]
-  %170 = call i32 @llvm.umin.i32(i32 %169, i32 %159)
-  %171 = select i1 %162, i32 %159, i32 %170
-  call void @blk_queue_max_segment_size(ptr noundef %97, i32 noundef %171) #14
+169:                                              ; preds = %163, %155
+  %170 = phi i32 [ %168, %163 ], [ %159, %155 ]
+  call void @blk_queue_max_segment_size(ptr noundef %97, i32 noundef %170) #14
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 6) #14
-  %172 = load i64, ptr %28, align 8
-  %173 = and i64 %172, 64
-  %174 = icmp eq i64 %173, 0
-  br i1 %174, label %187, label %175
+  %171 = load i64, ptr %28, align 8
+  %172 = and i64 %171, 64
+  %173 = icmp eq i64 %172, 0
+  br i1 %173, label %186, label %174
 
-175:                                              ; preds = %168
+174:                                              ; preds = %169
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
   store i32 0, ptr %5, align 4, !annotation !5
-  %176 = call i32 @__SCT__might_resched() #14
-  %177 = load ptr, ptr %18, align 8
-  %178 = load ptr, ptr %177, align 8
-  call void %178(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %5, i32 noundef 4) #14
-  %179 = load i32, ptr %5, align 4
+  %175 = call i32 @__SCT__might_resched() #14
+  %176 = load ptr, ptr %18, align 8
+  %177 = load ptr, ptr %176, align 8
+  call void %177(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %5, i32 noundef 4) #14
+  %178 = load i32, ptr %5, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  %180 = add i32 %179, -512
-  %181 = icmp ult i32 %180, 3585
-  %182 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %179)
-  %183 = icmp samesign ult i32 %182, 2
-  %or.cond = select i1 %181, i1 %183, i1 false
-  br i1 %or.cond, label %186, label %184
+  %179 = add i32 %178, -512
+  %180 = icmp ult i32 %179, 3585
+  %181 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %178)
+  %182 = icmp samesign ult i32 %181, 2
+  %or.cond = select i1 %180, i1 %182, i1 false
+  br i1 %or.cond, label %185, label %183
 
-184:                                              ; preds = %175
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %185, ptr noundef nonnull @.str.7, i32 noundef %179) #15
+183:                                              ; preds = %174
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %184, ptr noundef nonnull @.str.7, i32 noundef %178) #15
   br label %.thread25
 
-186:                                              ; preds = %175
-  call void @blk_queue_logical_block_size(ptr noundef %97, i32 noundef %179) #14
-  br label %194
+185:                                              ; preds = %174
+  call void @blk_queue_logical_block_size(ptr noundef %97, i32 noundef %178) #14
+  br label %193
 
-187:                                              ; preds = %168
-  %188 = icmp eq ptr %97, null
-  br i1 %188, label %194, label %189
+186:                                              ; preds = %169
+  %187 = icmp eq ptr %97, null
+  br i1 %187, label %193, label %188
 
-189:                                              ; preds = %187
-  %190 = getelementptr inbounds nuw i8, ptr %97, i64 172
-  %191 = load i32, ptr %190, align 4
-  %192 = icmp eq i32 %191, 0
-  %193 = select i1 %192, i32 512, i32 %191
-  br label %194
+188:                                              ; preds = %186
+  %189 = getelementptr inbounds nuw i8, ptr %97, i64 172
+  %190 = load i32, ptr %189, align 4
+  %191 = icmp eq i32 %190, 0
+  %192 = select i1 %191, i32 512, i32 %190
+  br label %193
 
-194:                                              ; preds = %189, %187, %186
-  %195 = phi i32 [ %179, %186 ], [ 512, %187 ], [ %193, %189 ]
+193:                                              ; preds = %188, %186, %185
+  %194 = phi i32 [ %178, %185 ], [ 512, %186 ], [ %192, %188 ]
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #14
-  %196 = load i64, ptr %28, align 8
-  %197 = and i64 %196, 1024
-  %.not = icmp eq i64 %197, 0
-  br i1 %.not, label %.thread20, label %198
+  %195 = load i64, ptr %28, align 8
+  %196 = and i64 %195, 1024
+  %.not = icmp eq i64 %196, 0
+  br i1 %.not, label %.thread20, label %197
 
-198:                                              ; preds = %194
+197:                                              ; preds = %193
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #14
   store i8 0, ptr %6, align 1, !annotation !5
-  %199 = call i32 @__SCT__might_resched() #14
-  %200 = load ptr, ptr %18, align 8
-  %201 = load ptr, ptr %200, align 8
-  call void %201(ptr noundef %0, i32 noundef 24, ptr noundef nonnull %6, i32 noundef 1) #14
-  %202 = load i8, ptr %6, align 1
+  %198 = call i32 @__SCT__might_resched() #14
+  %199 = load ptr, ptr %18, align 8
+  %200 = load ptr, ptr %199, align 8
+  call void %200(ptr noundef %0, i32 noundef 24, ptr noundef nonnull %6, i32 noundef 1) #14
+  %201 = load i8, ptr %6, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #14
-  %.not27 = icmp eq i8 %202, 0
-  br i1 %.not27, label %.thread20, label %203
+  %.not27 = icmp eq i8 %201, 0
+  br i1 %.not27, label %.thread20, label %202
 
-203:                                              ; preds = %198
-  %204 = zext nneg i8 %202 to i32
-  %205 = shl i32 %195, %204
-  call void @blk_queue_physical_block_size(ptr noundef %97, i32 noundef %205) #14
+202:                                              ; preds = %197
+  %203 = zext nneg i8 %201 to i32
+  %204 = shl i32 %194, %203
+  call void @blk_queue_physical_block_size(ptr noundef %97, i32 noundef %204) #14
   br label %.thread20
 
-.thread20:                                        ; preds = %194, %203, %198
+.thread20:                                        ; preds = %193, %202, %197
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #14
-  %206 = load i64, ptr %28, align 8
-  %207 = and i64 %206, 1024
-  %.not28 = icmp eq i64 %207, 0
-  br i1 %.not28, label %.thread21, label %208
+  %205 = load i64, ptr %28, align 8
+  %206 = and i64 %205, 1024
+  %.not28 = icmp eq i64 %206, 0
+  br i1 %.not28, label %.thread21, label %207
 
-208:                                              ; preds = %.thread20
+207:                                              ; preds = %.thread20
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #14
   store i8 0, ptr %7, align 1, !annotation !5
-  %209 = call i32 @__SCT__might_resched() #14
-  %210 = load ptr, ptr %18, align 8
-  %211 = load ptr, ptr %210, align 8
-  call void %211(ptr noundef %0, i32 noundef 25, ptr noundef nonnull %7, i32 noundef 1) #14
-  %212 = load i8, ptr %7, align 1
+  %208 = call i32 @__SCT__might_resched() #14
+  %209 = load ptr, ptr %18, align 8
+  %210 = load ptr, ptr %209, align 8
+  call void %210(ptr noundef %0, i32 noundef 25, ptr noundef nonnull %7, i32 noundef 1) #14
+  %211 = load i8, ptr %7, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #14
-  %.not29 = icmp eq i8 %212, 0
-  br i1 %.not29, label %.thread21, label %213
+  %.not29 = icmp eq i8 %211, 0
+  br i1 %.not29, label %.thread21, label %212
 
-213:                                              ; preds = %208
-  %214 = zext i8 %212 to i32
-  %215 = mul i32 %195, %214
-  call void @blk_queue_alignment_offset(ptr noundef %97, i32 noundef %215) #14
+212:                                              ; preds = %207
+  %213 = zext i8 %211 to i32
+  %214 = mul i32 %194, %213
+  call void @blk_queue_alignment_offset(ptr noundef %97, i32 noundef %214) #14
   br label %.thread21
 
-.thread21:                                        ; preds = %.thread20, %213, %208
+.thread21:                                        ; preds = %.thread20, %212, %207
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #14
-  %216 = load i64, ptr %28, align 8
-  %217 = and i64 %216, 1024
-  %.not30 = icmp eq i64 %217, 0
-  br i1 %.not30, label %.thread22, label %218
+  %215 = load i64, ptr %28, align 8
+  %216 = and i64 %215, 1024
+  %.not30 = icmp eq i64 %216, 0
+  br i1 %.not30, label %.thread22, label %217
 
-218:                                              ; preds = %.thread21
+217:                                              ; preds = %.thread21
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #14
   store i16 0, ptr %8, align 2, !annotation !5
-  %219 = call i32 @__SCT__might_resched() #14
-  %220 = load ptr, ptr %18, align 8
-  %221 = load ptr, ptr %220, align 8
-  call void %221(ptr noundef %0, i32 noundef 26, ptr noundef nonnull %8, i32 noundef 2) #14
-  %222 = load i16, ptr %8, align 2
+  %218 = call i32 @__SCT__might_resched() #14
+  %219 = load ptr, ptr %18, align 8
+  %220 = load ptr, ptr %219, align 8
+  call void %220(ptr noundef %0, i32 noundef 26, ptr noundef nonnull %8, i32 noundef 2) #14
+  %221 = load i16, ptr %8, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #14
-  %.not31 = icmp eq i16 %222, 0
-  br i1 %.not31, label %.thread22, label %223
+  %.not31 = icmp eq i16 %221, 0
+  br i1 %.not31, label %.thread22, label %222
 
-223:                                              ; preds = %218
-  %224 = zext i16 %222 to i32
-  %225 = mul i32 %195, %224
-  call void @blk_queue_io_min(ptr noundef %97, i32 noundef %225) #14
+222:                                              ; preds = %217
+  %223 = zext i16 %221 to i32
+  %224 = mul i32 %194, %223
+  call void @blk_queue_io_min(ptr noundef %97, i32 noundef %224) #14
   br label %.thread22
 
-.thread22:                                        ; preds = %.thread21, %223, %218
+.thread22:                                        ; preds = %.thread21, %222, %217
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #14
-  %226 = load i64, ptr %28, align 8
-  %227 = and i64 %226, 1024
-  %.not32 = icmp eq i64 %227, 0
-  br i1 %.not32, label %.thread23, label %228
+  %225 = load i64, ptr %28, align 8
+  %226 = and i64 %225, 1024
+  %.not32 = icmp eq i64 %226, 0
+  br i1 %.not32, label %.thread23, label %227
 
-228:                                              ; preds = %.thread22
+227:                                              ; preds = %.thread22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #14
   store i32 0, ptr %9, align 4, !annotation !5
-  %229 = call i32 @__SCT__might_resched() #14
-  %230 = load ptr, ptr %18, align 8
-  %231 = load ptr, ptr %230, align 8
-  call void %231(ptr noundef %0, i32 noundef 28, ptr noundef nonnull %9, i32 noundef 4) #14
-  %232 = load i32, ptr %9, align 4
+  %228 = call i32 @__SCT__might_resched() #14
+  %229 = load ptr, ptr %18, align 8
+  %230 = load ptr, ptr %229, align 8
+  call void %230(ptr noundef %0, i32 noundef 28, ptr noundef nonnull %9, i32 noundef 4) #14
+  %231 = load i32, ptr %9, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
-  %.not33 = icmp eq i32 %232, 0
-  br i1 %.not33, label %.thread23, label %233
+  %.not33 = icmp eq i32 %231, 0
+  br i1 %.not33, label %.thread23, label %232
 
-233:                                              ; preds = %228
-  %234 = mul i32 %232, %195
-  call void @blk_queue_io_opt(ptr noundef %97, i32 noundef %234) #14
+232:                                              ; preds = %227
+  %233 = mul i32 %231, %194
+  call void @blk_queue_io_opt(ptr noundef %97, i32 noundef %233) #14
   br label %.thread23
 
-.thread23:                                        ; preds = %.thread22, %233, %228
+.thread23:                                        ; preds = %.thread22, %232, %227
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 13) #14
-  %235 = load i64, ptr %28, align 8
-  %236 = and i64 %235, 8192
-  %237 = icmp eq i64 %236, 0
-  br i1 %237, label %253, label %238
+  %234 = load i64, ptr %28, align 8
+  %235 = and i64 %234, 8192
+  %236 = icmp eq i64 %235, 0
+  br i1 %236, label %252, label %237
 
-238:                                              ; preds = %.thread23
+237:                                              ; preds = %.thread23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
   store i32 0, ptr %10, align 4, !annotation !5
-  %239 = call i32 @__SCT__might_resched() #14
-  %240 = load ptr, ptr %18, align 8
-  %241 = load ptr, ptr %240, align 8
-  call void %241(ptr noundef %0, i32 noundef 44, ptr noundef nonnull %10, i32 noundef 4) #14
-  %242 = load i32, ptr %10, align 4
+  %238 = call i32 @__SCT__might_resched() #14
+  %239 = load ptr, ptr %18, align 8
+  %240 = load ptr, ptr %239, align 8
+  call void %240(ptr noundef %0, i32 noundef 44, ptr noundef nonnull %10, i32 noundef 4) #14
+  %241 = load i32, ptr %10, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
   store i32 0, ptr %11, align 4, !annotation !5
-  %243 = call i32 @__SCT__might_resched() #14
-  %244 = load ptr, ptr %18, align 8
-  %245 = load ptr, ptr %244, align 8
-  call void %245(ptr noundef %0, i32 noundef 36, ptr noundef nonnull %11, i32 noundef 4) #14
-  %246 = load i32, ptr %11, align 4
+  %242 = call i32 @__SCT__might_resched() #14
+  %243 = load ptr, ptr %18, align 8
+  %244 = load ptr, ptr %243, align 8
+  call void %244(ptr noundef %0, i32 noundef 36, ptr noundef nonnull %11, i32 noundef 4) #14
+  %245 = load i32, ptr %11, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
-  %247 = icmp eq i32 %246, 0
-  %248 = select i1 %247, i32 -1, i32 %246
-  call void @blk_queue_max_discard_sectors(ptr noundef %97, i32 noundef %248) #14
+  %246 = icmp eq i32 %245, 0
+  %247 = select i1 %246, i32 -1, i32 %245
+  call void @blk_queue_max_discard_sectors(ptr noundef %97, i32 noundef %247) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
   store i32 0, ptr %12, align 4, !annotation !5
-  %249 = call i32 @__SCT__might_resched() #14
-  %250 = load ptr, ptr %18, align 8
-  %251 = load ptr, ptr %250, align 8
-  call void %251(ptr noundef %0, i32 noundef 40, ptr noundef nonnull %12, i32 noundef 4) #14
-  %252 = load i32, ptr %12, align 4
+  %248 = call i32 @__SCT__might_resched() #14
+  %249 = load ptr, ptr %18, align 8
+  %250 = load ptr, ptr %249, align 8
+  call void %250(ptr noundef %0, i32 noundef 40, ptr noundef nonnull %12, i32 noundef 4) #14
+  %251 = load i32, ptr %12, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
-  br label %253
+  br label %252
 
-253:                                              ; preds = %238, %.thread23
-  %254 = phi i32 [ %242, %238 ], [ 0, %.thread23 ]
-  %255 = phi i32 [ %252, %238 ], [ 0, %.thread23 ]
+252:                                              ; preds = %237, %.thread23
+  %253 = phi i32 [ %241, %237 ], [ 0, %.thread23 ]
+  %254 = phi i32 [ %251, %237 ], [ 0, %.thread23 ]
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 14) #14
-  %256 = load i64, ptr %28, align 8
-  %257 = and i64 %256, 16384
-  %258 = icmp eq i64 %257, 0
-  br i1 %258, label %266, label %259
+  %255 = load i64, ptr %28, align 8
+  %256 = and i64 %255, 16384
+  %257 = icmp eq i64 %256, 0
+  br i1 %257, label %265, label %258
 
-259:                                              ; preds = %253
+258:                                              ; preds = %252
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #14
   store i32 0, ptr %13, align 4, !annotation !5
-  %260 = call i32 @__SCT__might_resched() #14
-  %261 = load ptr, ptr %18, align 8
-  %262 = load ptr, ptr %261, align 8
-  call void %262(ptr noundef %0, i32 noundef 48, ptr noundef nonnull %13, i32 noundef 4) #14
-  %263 = load i32, ptr %13, align 4
+  %259 = call i32 @__SCT__might_resched() #14
+  %260 = load ptr, ptr %18, align 8
+  %261 = load ptr, ptr %260, align 8
+  call void %261(ptr noundef %0, i32 noundef 48, ptr noundef nonnull %13, i32 noundef 4) #14
+  %262 = load i32, ptr %13, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
-  %264 = icmp eq i32 %263, 0
-  %265 = select i1 %264, i32 -1, i32 %263
-  call void @blk_queue_max_write_zeroes_sectors(ptr noundef %97, i32 noundef %265) #14
-  br label %266
+  %263 = icmp eq i32 %262, 0
+  %264 = select i1 %263, i32 -1, i32 %262
+  call void @blk_queue_max_write_zeroes_sectors(ptr noundef %97, i32 noundef %264) #14
+  br label %265
 
-266:                                              ; preds = %259, %253
+265:                                              ; preds = %258, %252
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 16) #14
-  %267 = load i64, ptr %28, align 8
-  %268 = and i64 %267, 65536
-  %269 = icmp eq i64 %268, 0
-  br i1 %269, label %301, label %270
+  %266 = load i64, ptr %28, align 8
+  %267 = and i64 %266, 65536
+  %268 = icmp eq i64 %267, 0
+  br i1 %268, label %300, label %269
 
-270:                                              ; preds = %266
+269:                                              ; preds = %265
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #14
   store i32 0, ptr %14, align 4, !annotation !5
-  %271 = call i32 @__SCT__might_resched() #14
-  %272 = load ptr, ptr %18, align 8
-  %273 = load ptr, ptr %272, align 8
-  call void %273(ptr noundef %0, i32 noundef 68, ptr noundef nonnull %14, i32 noundef 4) #14
-  %274 = load i32, ptr %14, align 4
+  %270 = call i32 @__SCT__might_resched() #14
+  %271 = load ptr, ptr %18, align 8
+  %272 = load ptr, ptr %271, align 8
+  call void %272(ptr noundef %0, i32 noundef 68, ptr noundef nonnull %14, i32 noundef 4) #14
+  %273 = load i32, ptr %14, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
-  %275 = icmp eq i32 %274, 0
-  br i1 %275, label %276, label %278
+  %274 = icmp eq i32 %273, 0
+  br i1 %274, label %275, label %277
 
-276:                                              ; preds = %270
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %277, ptr noundef nonnull @.str.8) #15
+275:                                              ; preds = %269
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %276, ptr noundef nonnull @.str.8) #15
   br label %.thread25
 
-278:                                              ; preds = %270
-  %279 = icmp eq i32 %254, 0
-  %280 = call i32 @llvm.umin.i32(i32 %254, i32 %274)
-  %281 = select i1 %279, i32 %274, i32 %280
+277:                                              ; preds = %269
+  %278 = icmp eq i32 %253, 0
+  %279 = call i32 @llvm.umin.i32(i32 %253, i32 %273)
+  %280 = select i1 %278, i32 %273, i32 %279
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #14
   store i32 0, ptr %15, align 4, !annotation !5
-  %282 = call i32 @__SCT__might_resched() #14
-  %283 = load ptr, ptr %18, align 8
-  %284 = load ptr, ptr %283, align 8
-  call void %284(ptr noundef %0, i32 noundef 60, ptr noundef nonnull %15, i32 noundef 4) #14
-  %285 = load i32, ptr %15, align 4
+  %281 = call i32 @__SCT__might_resched() #14
+  %282 = load ptr, ptr %18, align 8
+  %283 = load ptr, ptr %282, align 8
+  call void %283(ptr noundef %0, i32 noundef 60, ptr noundef nonnull %15, i32 noundef 4) #14
+  %284 = load i32, ptr %15, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #14
-  %286 = icmp eq i32 %285, 0
-  br i1 %286, label %287, label %289
+  %285 = icmp eq i32 %284, 0
+  br i1 %285, label %286, label %288
 
-287:                                              ; preds = %278
-  %288 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %288, ptr noundef nonnull @.str.9) #15
+286:                                              ; preds = %277
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %287, ptr noundef nonnull @.str.9) #15
   br label %.thread25
 
-289:                                              ; preds = %278
-  call void @blk_queue_max_secure_erase_sectors(ptr noundef %97, i32 noundef %285) #14
+288:                                              ; preds = %277
+  call void @blk_queue_max_secure_erase_sectors(ptr noundef %97, i32 noundef %284) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #14
   store i32 0, ptr %16, align 4, !annotation !5
-  %290 = call i32 @__SCT__might_resched() #14
-  %291 = load ptr, ptr %18, align 8
-  %292 = load ptr, ptr %291, align 8
-  call void %292(ptr noundef %0, i32 noundef 64, ptr noundef nonnull %16, i32 noundef 4) #14
-  %293 = load i32, ptr %16, align 4
+  %289 = call i32 @__SCT__might_resched() #14
+  %290 = load ptr, ptr %18, align 8
+  %291 = load ptr, ptr %290, align 8
+  call void %291(ptr noundef %0, i32 noundef 64, ptr noundef nonnull %16, i32 noundef 4) #14
+  %292 = load i32, ptr %16, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
-  %294 = icmp eq i32 %293, 0
-  br i1 %294, label %295, label %297
+  %293 = icmp eq i32 %292, 0
+  br i1 %293, label %294, label %296
 
-295:                                              ; preds = %289
-  %296 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %296, ptr noundef nonnull @.str.10) #15
+294:                                              ; preds = %288
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %295, ptr noundef nonnull @.str.10) #15
   br label %.thread25
 
-297:                                              ; preds = %289
-  %298 = icmp eq i32 %255, 0
-  %299 = call i32 @llvm.umin.i32(i32 %255, i32 %293)
-  %300 = select i1 %298, i32 %293, i32 %299
-  br label %301
+296:                                              ; preds = %288
+  %297 = icmp eq i32 %254, 0
+  %298 = call i32 @llvm.umin.i32(i32 %254, i32 %292)
+  %299 = select i1 %297, i32 %292, i32 %298
+  br label %300
 
-301:                                              ; preds = %297, %266
-  %302 = phi i32 [ %281, %297 ], [ %254, %266 ]
-  %303 = phi i32 [ %300, %297 ], [ %255, %266 ]
+300:                                              ; preds = %296, %265
+  %301 = phi i32 [ %280, %296 ], [ %253, %265 ]
+  %302 = phi i32 [ %299, %296 ], [ %254, %265 ]
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 13) #14
-  %304 = load i64, ptr %28, align 8
-  %305 = and i64 %304, 8192
-  %306 = icmp eq i64 %305, 0
-  br i1 %306, label %307, label %311
+  %303 = load i64, ptr %28, align 8
+  %304 = and i64 %303, 8192
+  %305 = icmp eq i64 %304, 0
+  br i1 %305, label %306, label %310
 
-307:                                              ; preds = %301
+306:                                              ; preds = %300
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 16) #14
-  %308 = load i64, ptr %28, align 8
-  %309 = and i64 %308, 65536
-  %310 = icmp eq i64 %309, 0
-  br i1 %310, label %320, label %311
+  %307 = load i64, ptr %28, align 8
+  %308 = and i64 %307, 65536
+  %309 = icmp eq i64 %308, 0
+  br i1 %309, label %319, label %310
 
-311:                                              ; preds = %307, %301
-  %312 = icmp eq i32 %303, 0
-  %313 = select i1 %312, i32 %42, i32 %303
-  %314 = call i32 @llvm.umin.i32(i32 %313, i32 256)
-  %315 = trunc nuw nsw i32 %314 to i16
-  call void @blk_queue_max_discard_segments(ptr noundef %97, i16 noundef zeroext %315) #14
-  %316 = icmp eq i32 %302, 0
-  %317 = shl i32 %302, 9
-  %318 = select i1 %316, i32 %195, i32 %317
-  %319 = getelementptr inbounds nuw i8, ptr %97, i64 208
-  store i32 %318, ptr %319, align 8
-  br label %320
+310:                                              ; preds = %306, %300
+  %311 = icmp eq i32 %302, 0
+  %312 = select i1 %311, i32 %42, i32 %302
+  %313 = call i32 @llvm.umin.i32(i32 %312, i32 256)
+  %314 = trunc nuw nsw i32 %313 to i16
+  call void @blk_queue_max_discard_segments(ptr noundef %97, i16 noundef zeroext %314) #14
+  %315 = icmp eq i32 %301, 0
+  %316 = shl i32 %301, 9
+  %317 = select i1 %315, i32 %194, i32 %316
+  %318 = getelementptr inbounds nuw i8, ptr %97, i64 208
+  store i32 %317, ptr %318, align 8
+  br label %319
 
-320:                                              ; preds = %311, %307
+319:                                              ; preds = %310, %306
   call fastcc void @virtblk_update_capacity(ptr noundef nonnull %44, i1 noundef zeroext false)
-  %321 = load ptr, ptr %18, align 8
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 24
-  %323 = load ptr, ptr %322, align 8
-  %324 = call zeroext i8 %323(ptr noundef %0) #14
-  %325 = and i8 %324, 4
-  %326 = icmp eq i8 %325, 0
-  br i1 %326, label %328, label %327, !prof !9
+  %320 = load ptr, ptr %18, align 8
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 24
+  %322 = load ptr, ptr %321, align 8
+  %323 = call zeroext i8 %322(ptr noundef %0) #14
+  %324 = and i8 %323, 4
+  %325 = icmp eq i8 %324, 0
+  br i1 %325, label %327, label %326, !prof !9
 
-327:                                              ; preds = %320
+326:                                              ; preds = %319
   call void asm sideeffect "418: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 418b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 418) #14, !srcloc !10
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.12, i32 278, i32 2305, i64 12) #14, !srcloc !11
   call void asm sideeffect "419: nop\0A\09.pushsection .discard.instr_end\0A\09.long 419b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 419) #14, !srcloc !12
-  br label %328
+  br label %327
 
-328:                                              ; preds = %327, %320
-  %329 = load ptr, ptr %18, align 8
-  %330 = getelementptr inbounds nuw i8, ptr %329, i64 32
-  %331 = load ptr, ptr %330, align 8
-  %332 = or i8 %324, 4
-  call void %331(ptr noundef %0, i8 noundef zeroext %332) #14
+327:                                              ; preds = %326, %319
+  %328 = load ptr, ptr %18, align 8
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 32
+  %330 = load ptr, ptr %329, align 8
+  %331 = or i8 %323, 4
+  call void %330(ptr noundef %0, i8 noundef zeroext %331) #14
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 17) #14
-  %333 = load i64, ptr %28, align 8
-  %334 = and i64 %333, 131072
-  %335 = icmp eq i64 %334, 0
-  br i1 %335, label %346, label %336
+  %332 = load i64, ptr %28, align 8
+  %333 = and i64 %332, 131072
+  %334 = icmp eq i64 %333, 0
+  br i1 %334, label %345, label %335
 
-336:                                              ; preds = %328
+335:                                              ; preds = %327
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #14
   store i8 0, ptr %17, align 1, !annotation !5
-  %337 = call i32 @__SCT__might_resched() #14
-  %338 = load ptr, ptr %18, align 8
-  %339 = load ptr, ptr %338, align 8
-  call void %339(ptr noundef %0, i32 noundef 92, ptr noundef nonnull %17, i32 noundef 1) #14
-  %340 = load i8, ptr %17, align 1
+  %336 = call i32 @__SCT__might_resched() #14
+  %337 = load ptr, ptr %18, align 8
+  %338 = load ptr, ptr %337, align 8
+  call void %338(ptr noundef %0, i32 noundef 92, ptr noundef nonnull %17, i32 noundef 1) #14
+  %339 = load i8, ptr %17, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #14
-  switch i8 %340, label %343 [
-    i8 0, label %346
-    i8 2, label %346
-    i8 1, label %341
+  switch i8 %339, label %342 [
+    i8 0, label %345
+    i8 2, label %345
+    i8 1, label %340
   ]
 
-341:                                              ; preds = %336
-  %342 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %342, ptr noundef nonnull @.str.23) #15
+340:                                              ; preds = %335
+  %341 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %341, ptr noundef nonnull @.str.23) #15
   br label %.thread25
 
-343:                                              ; preds = %336
-  %344 = zext i8 %340 to i32
-  %345 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %345, ptr noundef nonnull @.str.11, i32 noundef %344) #15
+342:                                              ; preds = %335
+  %343 = zext i8 %339 to i32
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %344, ptr noundef nonnull @.str.11, i32 noundef %343) #15
   br label %.thread25
 
-346:                                              ; preds = %336, %336, %328
-  %347 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %348 = load ptr, ptr %90, align 8
-  %349 = call i32 @device_add_disk(ptr noundef nonnull %347, ptr noundef %348, ptr noundef nonnull @virtblk_attr_groups) #14
-  %350 = icmp eq i32 %349, 0
-  br i1 %350, label %366, label %.thread25
+345:                                              ; preds = %335, %335, %327
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %347 = load ptr, ptr %90, align 8
+  %348 = call i32 @device_add_disk(ptr noundef nonnull %346, ptr noundef %347, ptr noundef nonnull @virtblk_attr_groups) #14
+  %349 = icmp eq i32 %348, 0
+  br i1 %349, label %365, label %.thread25
 
-.thread25:                                        ; preds = %341, %343, %346, %295, %287, %276, %184
-  %351 = phi i32 [ %349, %346 ], [ -22, %295 ], [ -22, %287 ], [ -22, %276 ], [ -22, %184 ], [ -95, %341 ], [ -22, %343 ]
-  %352 = load ptr, ptr %90, align 8
-  call void @put_disk(ptr noundef %352) #14
-  br label %353
+.thread25:                                        ; preds = %340, %342, %345, %294, %286, %275, %183
+  %350 = phi i32 [ %348, %345 ], [ -22, %294 ], [ -22, %286 ], [ -22, %275 ], [ -22, %183 ], [ -95, %340 ], [ -22, %342 ]
+  %351 = load ptr, ptr %90, align 8
+  call void @put_disk(ptr noundef %351) #14
+  br label %352
 
-353:                                              ; preds = %.thread25, %92
-  %354 = phi i32 [ %94, %92 ], [ %351, %.thread25 ]
+352:                                              ; preds = %.thread25, %92
+  %353 = phi i32 [ %94, %92 ], [ %350, %.thread25 ]
   call void @blk_mq_free_tag_set(ptr noundef nonnull %71) #14
-  br label %355
+  br label %354
 
-355:                                              ; preds = %353, %69
-  %356 = phi i32 [ %86, %69 ], [ %354, %353 ]
-  %357 = load ptr, ptr %18, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %357, i64 56
-  %359 = load ptr, ptr %358, align 8
-  call void %359(ptr noundef %0) #14
-  %360 = getelementptr inbounds nuw i8, ptr %44, i64 272
-  %361 = load ptr, ptr %360, align 8
-  call void @kfree(ptr noundef %361) #14
-  br label %362
+354:                                              ; preds = %352, %69
+  %355 = phi i32 [ %86, %69 ], [ %353, %352 ]
+  %356 = load ptr, ptr %18, align 8
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 56
+  %358 = load ptr, ptr %357, align 8
+  call void %358(ptr noundef %0) #14
+  %359 = getelementptr inbounds nuw i8, ptr %44, i64 272
+  %360 = load ptr, ptr %359, align 8
+  call void @kfree(ptr noundef %360) #14
+  br label %361
 
-362:                                              ; preds = %355, %47
-  %363 = phi i32 [ %53, %47 ], [ %356, %355 ]
+361:                                              ; preds = %354, %47
+  %362 = phi i32 [ %53, %47 ], [ %355, %354 ]
   call void @kfree(ptr noundef nonnull %44) #14
-  br label %364
+  br label %363
 
-364:                                              ; preds = %362, %37
-  %365 = phi i32 [ %363, %362 ], [ -12, %37 ]
+363:                                              ; preds = %361, %37
+  %364 = phi i32 [ %362, %361 ], [ -12, %37 ]
   call void @ida_free(ptr noundef nonnull @vd_index_ida, i32 noundef %25) #14
-  br label %366
+  br label %365
 
-366:                                              ; preds = %364, %346, %24, %22
-  %367 = phi i32 [ -22, %22 ], [ 0, %346 ], [ %25, %24 ], [ %365, %364 ]
-  ret i32 %367
+365:                                              ; preds = %363, %345, %24, %22
+  %366 = phi i32 [ -22, %22 ], [ 0, %345 ], [ %25, %24 ], [ %364, %363 ]
+  ret i32 %366
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

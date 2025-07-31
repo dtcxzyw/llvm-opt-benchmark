@@ -6438,11 +6438,11 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i: ; preds = %29, %23
   %41 = zext i32 %3 to i64
   %.idx25 = shl nuw nsw i64 %41, 2
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx25
-  %43 = ptrtoint ptr %40 to i64
-  %44 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %41, i1 true)
-  %45 = shl nuw nsw i64 %44, 1
-  %46 = xor i64 %45, 126
-  tail call void @_ZSt16__introsort_loopIPN3sat7literalElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_(ptr noundef %40, ptr noundef nonnull %42, i64 noundef %46)
+  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %41, i1 true)
+  %44 = shl nuw nsw i64 %43, 1
+  %45 = xor i64 %44, 126
+  %46 = ptrtoint ptr %40 to i64
+  tail call void @_ZSt16__introsort_loopIPN3sat7literalElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_(ptr noundef %40, ptr noundef nonnull %42, i64 noundef %45)
   %47 = icmp ugt i32 %3, 16
   %scevgep.i.i.i = getelementptr i8, ptr %40, i64 4
   br i1 %47, label %.preheader.i, label %69
@@ -6536,7 +6536,7 @@ _ZSt25__unguarded_linear_insertIPN3sat7literalEN9__gnu_cxx5__ops14_Val_less_iter
 73:                                               ; preds = %.lr.ph.i15.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %.pn19.i17.i.i.i, i64 8
   %75 = ptrtoint ptr %.020.i16.i.i.i to i64
-  %76 = sub i64 %75, %43
+  %76 = sub i64 %75, %46
   %77 = ashr exact i64 %76, 2
   %78 = sub nsw i64 0, %77
   %79 = getelementptr inbounds %"class.sat::literal", ptr %74, i64 %78

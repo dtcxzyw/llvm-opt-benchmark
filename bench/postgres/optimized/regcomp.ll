@@ -2333,7 +2333,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 248
   %175 = load i64, ptr %174, align 8
   %176 = icmp ugt i64 %175, 171999999
-  br i1 %176, label %181, label %189
+  br i1 %176, label %181, label %190
 
 .thread.i.i:                                      ; preds = %163
   %177 = load ptr, ptr %13, align 8
@@ -2356,11 +2356,11 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
 
 187:                                              ; preds = %.thread.i.i
   %188 = shl i64 %166, 1
-  br label %189
+  %189 = tail call i64 @llvm.umin.i64(i64 %188, i64 1024)
+  br label %190
 
-189:                                              ; preds = %187, %172
-  %190 = phi i64 [ %188, %187 ], [ 64, %172 ]
-  %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %190, i64 1024)
+190:                                              ; preds = %187, %172
+  %spec.store.select.i.i = phi i64 [ %189, %187 ], [ 64, %172 ]
   %191 = mul nuw nsw i64 %spec.store.select.i.i, 72
   %192 = add nuw nsw i64 %191, 16
   %193 = tail call ptr @palloc_extended(i64 noundef %192, i32 noundef 2) #20
@@ -2368,7 +2368,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   %195 = load ptr, ptr %13, align 8
   br i1 %194, label %196, label %201
 
-196:                                              ; preds = %189
+196:                                              ; preds = %190
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 36
   store i32 101, ptr %197, align 4
   %198 = load ptr, ptr %13, align 8
@@ -2379,7 +2379,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   store i32 %spec.select49.i.i, ptr %199, align 8
   br label %allocarc.exit.i
 
-201:                                              ; preds = %189
+201:                                              ; preds = %190
   %202 = getelementptr inbounds nuw i8, ptr %195, i64 248
   %203 = load i64, ptr %202, align 8
   %204 = add i64 %203, %192
@@ -4659,7 +4659,7 @@ freearc.exit.i.i:                                 ; preds = %538, %537
   %569 = getelementptr inbounds nuw i8, ptr %568, i64 248
   %570 = load i64, ptr %569, align 8
   %571 = icmp ugt i64 %570, 171999999
-  br i1 %571, label %576, label %584
+  br i1 %571, label %576, label %585
 
 .thread.i158.i:                                   ; preds = %558
   %572 = load ptr, ptr %55, align 8
@@ -4682,11 +4682,11 @@ freearc.exit.i.i:                                 ; preds = %538, %537
 
 582:                                              ; preds = %.thread.i158.i
   %583 = shl i64 %561, 1
-  br label %584
+  %584 = tail call i64 @llvm.umin.i64(i64 %583, i64 1024)
+  br label %585
 
-584:                                              ; preds = %582, %567
-  %585 = phi i64 [ %583, %582 ], [ 32, %567 ]
-  %spec.store.select.i159.i = tail call i64 @llvm.umin.i64(i64 %585, i64 1024)
+585:                                              ; preds = %582, %567
+  %spec.store.select.i159.i = phi i64 [ %584, %582 ], [ 32, %567 ]
   %586 = mul nuw nsw i64 %spec.store.select.i159.i, 56
   %587 = add nuw nsw i64 %586, 16
   %588 = tail call ptr @palloc_extended(i64 noundef %587, i32 noundef 2) #20
@@ -4694,7 +4694,7 @@ freearc.exit.i.i:                                 ; preds = %538, %537
   %590 = load ptr, ptr %55, align 8
   br i1 %589, label %591, label %596
 
-591:                                              ; preds = %584
+591:                                              ; preds = %585
   %592 = getelementptr inbounds nuw i8, ptr %590, i64 36
   store i32 101, ptr %592, align 4
   %593 = load ptr, ptr %55, align 8
@@ -4705,7 +4705,7 @@ freearc.exit.i.i:                                 ; preds = %538, %537
   store i32 %spec.select71.i161.i, ptr %594, align 8
   br label %newstate.exit164.i
 
-596:                                              ; preds = %584
+596:                                              ; preds = %585
   %597 = getelementptr inbounds nuw i8, ptr %590, i64 248
   %598 = load i64, ptr %597, align 8
   %599 = add i64 %598, %587
@@ -4820,7 +4820,7 @@ newstate.exit164.i:                               ; preds = %615, %591, %576
   %650 = getelementptr inbounds nuw i8, ptr %649, i64 248
   %651 = load i64, ptr %650, align 8
   %652 = icmp ugt i64 %651, 171999999
-  br i1 %652, label %657, label %665
+  br i1 %652, label %657, label %666
 
 .thread.i.i144.i:                                 ; preds = %639
   %653 = load ptr, ptr %55, align 8
@@ -4843,11 +4843,11 @@ newstate.exit164.i:                               ; preds = %615, %591, %576
 
 663:                                              ; preds = %.thread.i.i144.i
   %664 = shl i64 %642, 1
-  br label %665
+  %665 = tail call i64 @llvm.umin.i64(i64 %664, i64 1024)
+  br label %666
 
-665:                                              ; preds = %663, %648
-  %666 = phi i64 [ %664, %663 ], [ 64, %648 ]
-  %spec.store.select.i.i145.i = tail call i64 @llvm.umin.i64(i64 %666, i64 1024)
+666:                                              ; preds = %663, %648
+  %spec.store.select.i.i145.i = phi i64 [ %665, %663 ], [ 64, %648 ]
   %667 = mul nuw nsw i64 %spec.store.select.i.i145.i, 72
   %668 = add nuw nsw i64 %667, 16
   %669 = tail call ptr @palloc_extended(i64 noundef %668, i32 noundef 2) #20
@@ -4855,7 +4855,7 @@ newstate.exit164.i:                               ; preds = %615, %591, %576
   %671 = load ptr, ptr %55, align 8
   br i1 %670, label %672, label %677
 
-672:                                              ; preds = %665
+672:                                              ; preds = %666
   %673 = getelementptr inbounds nuw i8, ptr %671, i64 36
   store i32 101, ptr %673, align 4
   %674 = load ptr, ptr %55, align 8
@@ -4866,7 +4866,7 @@ newstate.exit164.i:                               ; preds = %615, %591, %576
   store i32 %spec.select49.i.i147.i, ptr %675, align 8
   br label %allocarc.exit.i134.i
 
-677:                                              ; preds = %665
+677:                                              ; preds = %666
   %678 = getelementptr inbounds nuw i8, ptr %671, i64 248
   %679 = load i64, ptr %678, align 8
   %680 = add i64 %679, %668
@@ -5099,7 +5099,7 @@ copyins.exit.i.i:                                 ; preds = %createarc.exit150.i
   %782 = getelementptr inbounds nuw i8, ptr %781, i64 248
   %783 = load i64, ptr %782, align 8
   %784 = icmp ugt i64 %783, 171999999
-  br i1 %784, label %789, label %797
+  br i1 %784, label %789, label %798
 
 .thread.i.i126.i:                                 ; preds = %771
   %785 = load ptr, ptr %55, align 8
@@ -5122,11 +5122,11 @@ copyins.exit.i.i:                                 ; preds = %createarc.exit150.i
 
 795:                                              ; preds = %.thread.i.i126.i
   %796 = shl i64 %774, 1
-  br label %797
+  %797 = tail call i64 @llvm.umin.i64(i64 %796, i64 1024)
+  br label %798
 
-797:                                              ; preds = %795, %780
-  %798 = phi i64 [ %796, %795 ], [ 64, %780 ]
-  %spec.store.select.i.i127.i = tail call i64 @llvm.umin.i64(i64 %798, i64 1024)
+798:                                              ; preds = %795, %780
+  %spec.store.select.i.i127.i = phi i64 [ %797, %795 ], [ 64, %780 ]
   %799 = mul nuw nsw i64 %spec.store.select.i.i127.i, 72
   %800 = add nuw nsw i64 %799, 16
   %801 = tail call ptr @palloc_extended(i64 noundef %800, i32 noundef 2) #20
@@ -5134,7 +5134,7 @@ copyins.exit.i.i:                                 ; preds = %createarc.exit150.i
   %803 = load ptr, ptr %55, align 8
   br i1 %802, label %804, label %809
 
-804:                                              ; preds = %797
+804:                                              ; preds = %798
   %805 = getelementptr inbounds nuw i8, ptr %803, i64 36
   store i32 101, ptr %805, align 4
   %806 = load ptr, ptr %55, align 8
@@ -5145,7 +5145,7 @@ copyins.exit.i.i:                                 ; preds = %createarc.exit150.i
   store i32 %spec.select49.i.i129.i, ptr %807, align 8
   br label %allocarc.exit.i116.i
 
-809:                                              ; preds = %797
+809:                                              ; preds = %798
   %810 = getelementptr inbounds nuw i8, ptr %803, i64 248
   %811 = load i64, ptr %810, align 8
   %812 = add i64 %811, %800
@@ -5725,7 +5725,7 @@ freearc.exit90.i.i:                               ; preds = %1060, %1059
   %1100 = getelementptr inbounds nuw i8, ptr %1099, i64 248
   %1101 = load i64, ptr %1100, align 8
   %1102 = icmp ugt i64 %1101, 171999999
-  br i1 %1102, label %1107, label %1115
+  br i1 %1102, label %1107, label %1116
 
 .thread.i.i:                                      ; preds = %1089
   %1103 = load ptr, ptr %55, align 8
@@ -5748,11 +5748,11 @@ freearc.exit90.i.i:                               ; preds = %1060, %1059
 
 1113:                                             ; preds = %.thread.i.i
   %1114 = shl i64 %1092, 1
-  br label %1115
+  %1115 = tail call i64 @llvm.umin.i64(i64 %1114, i64 1024)
+  br label %1116
 
-1115:                                             ; preds = %1113, %1098
-  %1116 = phi i64 [ %1114, %1113 ], [ 32, %1098 ]
-  %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %1116, i64 1024)
+1116:                                             ; preds = %1113, %1098
+  %spec.store.select.i.i = phi i64 [ %1115, %1113 ], [ 32, %1098 ]
   %1117 = mul nuw nsw i64 %spec.store.select.i.i, 56
   %1118 = add nuw nsw i64 %1117, 16
   %1119 = tail call ptr @palloc_extended(i64 noundef %1118, i32 noundef 2) #20
@@ -5760,7 +5760,7 @@ freearc.exit90.i.i:                               ; preds = %1060, %1059
   %1121 = load ptr, ptr %55, align 8
   br i1 %1120, label %1122, label %1127
 
-1122:                                             ; preds = %1115
+1122:                                             ; preds = %1116
   %1123 = getelementptr inbounds nuw i8, ptr %1121, i64 36
   store i32 101, ptr %1123, align 4
   %1124 = load ptr, ptr %55, align 8
@@ -5771,7 +5771,7 @@ freearc.exit90.i.i:                               ; preds = %1060, %1059
   store i32 %spec.select71.i.i, ptr %1125, align 8
   br label %newstate.exit.i
 
-1127:                                             ; preds = %1115
+1127:                                             ; preds = %1116
   %1128 = getelementptr inbounds nuw i8, ptr %1121, i64 248
   %1129 = load i64, ptr %1128, align 8
   %1130 = add i64 %1129, %1118
@@ -5955,7 +5955,7 @@ newstate.exit.i:                                  ; preds = %1146, %1122, %1107
   %1207 = getelementptr inbounds nuw i8, ptr %1206, i64 248
   %1208 = load i64, ptr %1207, align 8
   %1209 = icmp ugt i64 %1208, 171999999
-  br i1 %1209, label %1214, label %1222
+  br i1 %1209, label %1214, label %1223
 
 .thread.i.i99.i:                                  ; preds = %1196
   %1210 = load ptr, ptr %55, align 8
@@ -5978,11 +5978,11 @@ newstate.exit.i:                                  ; preds = %1146, %1122, %1107
 
 1220:                                             ; preds = %.thread.i.i99.i
   %1221 = shl i64 %1199, 1
-  br label %1222
+  %1222 = tail call i64 @llvm.umin.i64(i64 %1221, i64 1024)
+  br label %1223
 
-1222:                                             ; preds = %1220, %1205
-  %1223 = phi i64 [ %1221, %1220 ], [ 64, %1205 ]
-  %spec.store.select.i.i100.i = tail call i64 @llvm.umin.i64(i64 %1223, i64 1024)
+1223:                                             ; preds = %1220, %1205
+  %spec.store.select.i.i100.i = phi i64 [ %1222, %1220 ], [ 64, %1205 ]
   %1224 = mul nuw nsw i64 %spec.store.select.i.i100.i, 72
   %1225 = add nuw nsw i64 %1224, 16
   %1226 = tail call ptr @palloc_extended(i64 noundef %1225, i32 noundef 2) #20
@@ -5990,7 +5990,7 @@ newstate.exit.i:                                  ; preds = %1146, %1122, %1107
   %1228 = load ptr, ptr %55, align 8
   br i1 %1227, label %1229, label %1234
 
-1229:                                             ; preds = %1222
+1229:                                             ; preds = %1223
   %1230 = getelementptr inbounds nuw i8, ptr %1228, i64 36
   store i32 101, ptr %1230, align 4
   %1231 = load ptr, ptr %55, align 8
@@ -6001,7 +6001,7 @@ newstate.exit.i:                                  ; preds = %1146, %1122, %1107
   store i32 %spec.select49.i.i102.i, ptr %1232, align 8
   br label %allocarc.exit.i89.i
 
-1234:                                             ; preds = %1222
+1234:                                             ; preds = %1223
   %1235 = getelementptr inbounds nuw i8, ptr %1228, i64 248
   %1236 = load i64, ptr %1235, align 8
   %1237 = add i64 %1236, %1225
@@ -6226,7 +6226,7 @@ cparc.exit109.i.i:                                ; preds = %1172, %1185, %color
   %1336 = getelementptr inbounds nuw i8, ptr %1335, i64 248
   %1337 = load i64, ptr %1336, align 8
   %1338 = icmp ugt i64 %1337, 171999999
-  br i1 %1338, label %1343, label %1351
+  br i1 %1338, label %1343, label %1352
 
 .thread.i.i81.i:                                  ; preds = %1325
   %1339 = load ptr, ptr %55, align 8
@@ -6249,11 +6249,11 @@ cparc.exit109.i.i:                                ; preds = %1172, %1185, %color
 
 1349:                                             ; preds = %.thread.i.i81.i
   %1350 = shl i64 %1328, 1
-  br label %1351
+  %1351 = tail call i64 @llvm.umin.i64(i64 %1350, i64 1024)
+  br label %1352
 
-1351:                                             ; preds = %1349, %1334
-  %1352 = phi i64 [ %1350, %1349 ], [ 64, %1334 ]
-  %spec.store.select.i.i82.i = tail call i64 @llvm.umin.i64(i64 %1352, i64 1024)
+1352:                                             ; preds = %1349, %1334
+  %spec.store.select.i.i82.i = phi i64 [ %1351, %1349 ], [ 64, %1334 ]
   %1353 = mul nuw nsw i64 %spec.store.select.i.i82.i, 72
   %1354 = add nuw nsw i64 %1353, 16
   %1355 = tail call ptr @palloc_extended(i64 noundef %1354, i32 noundef 2) #20
@@ -6261,7 +6261,7 @@ cparc.exit109.i.i:                                ; preds = %1172, %1185, %color
   %1357 = load ptr, ptr %55, align 8
   br i1 %1356, label %1358, label %1363
 
-1358:                                             ; preds = %1351
+1358:                                             ; preds = %1352
   %1359 = getelementptr inbounds nuw i8, ptr %1357, i64 36
   store i32 101, ptr %1359, align 4
   %1360 = load ptr, ptr %55, align 8
@@ -6272,7 +6272,7 @@ cparc.exit109.i.i:                                ; preds = %1172, %1185, %color
   store i32 %spec.select49.i.i84.i, ptr %1361, align 8
   br label %allocarc.exit.i71.i
 
-1363:                                             ; preds = %1351
+1363:                                             ; preds = %1352
   %1364 = getelementptr inbounds nuw i8, ptr %1357, i64 248
   %1365 = load i64, ptr %1364, align 8
   %1366 = add i64 %1365, %1354
@@ -6614,7 +6614,7 @@ select.unfold.i:                                  ; preds = %989, %959
   %1523 = getelementptr inbounds nuw i8, ptr %1522, i64 248
   %1524 = load i64, ptr %1523, align 8
   %1525 = icmp ugt i64 %1524, 171999999
-  br i1 %1525, label %1530, label %1538
+  br i1 %1525, label %1530, label %1539
 
 .thread.i.i.i:                                    ; preds = %1512
   %1526 = load ptr, ptr %55, align 8
@@ -6637,11 +6637,11 @@ select.unfold.i:                                  ; preds = %989, %959
 
 1536:                                             ; preds = %.thread.i.i.i
   %1537 = shl i64 %1515, 1
-  br label %1538
+  %1538 = tail call i64 @llvm.umin.i64(i64 %1537, i64 1024)
+  br label %1539
 
-1538:                                             ; preds = %1536, %1521
-  %1539 = phi i64 [ %1537, %1536 ], [ 64, %1521 ]
-  %spec.store.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %1539, i64 1024)
+1539:                                             ; preds = %1536, %1521
+  %spec.store.select.i.i.i = phi i64 [ %1538, %1536 ], [ 64, %1521 ]
   %1540 = mul nuw nsw i64 %spec.store.select.i.i.i, 72
   %1541 = add nuw nsw i64 %1540, 16
   %1542 = tail call ptr @palloc_extended(i64 noundef %1541, i32 noundef 2) #20
@@ -6649,7 +6649,7 @@ select.unfold.i:                                  ; preds = %989, %959
   %1544 = load ptr, ptr %55, align 8
   br i1 %1543, label %1545, label %1550
 
-1545:                                             ; preds = %1538
+1545:                                             ; preds = %1539
   %1546 = getelementptr inbounds nuw i8, ptr %1544, i64 36
   store i32 101, ptr %1546, align 4
   %1547 = load ptr, ptr %55, align 8
@@ -6660,7 +6660,7 @@ select.unfold.i:                                  ; preds = %989, %959
   store i32 %spec.select49.i.i.i, ptr %1548, align 8
   br label %allocarc.exit.i.i
 
-1550:                                             ; preds = %1538
+1550:                                             ; preds = %1539
   %1551 = getelementptr inbounds nuw i8, ptr %1544, i64 248
   %1552 = load i64, ptr %1551, align 8
   %1553 = add i64 %1552, %1541
@@ -7563,7 +7563,7 @@ freearc.exit.i.i204:                              ; preds = %1944, %1943
   %1975 = getelementptr inbounds nuw i8, ptr %1974, i64 248
   %1976 = load i64, ptr %1975, align 8
   %1977 = icmp ugt i64 %1976, 171999999
-  br i1 %1977, label %1982, label %1990
+  br i1 %1977, label %1982, label %1991
 
 .thread.i134.i:                                   ; preds = %1964
   %1978 = load ptr, ptr %55, align 8
@@ -7586,11 +7586,11 @@ freearc.exit.i.i204:                              ; preds = %1944, %1943
 
 1988:                                             ; preds = %.thread.i134.i
   %1989 = shl i64 %1967, 1
-  br label %1990
+  %1990 = tail call i64 @llvm.umin.i64(i64 %1989, i64 1024)
+  br label %1991
 
-1990:                                             ; preds = %1988, %1973
-  %1991 = phi i64 [ %1989, %1988 ], [ 32, %1973 ]
-  %spec.store.select.i135.i = tail call i64 @llvm.umin.i64(i64 %1991, i64 1024)
+1991:                                             ; preds = %1988, %1973
+  %spec.store.select.i135.i = phi i64 [ %1990, %1988 ], [ 32, %1973 ]
   %1992 = mul nuw nsw i64 %spec.store.select.i135.i, 56
   %1993 = add nuw nsw i64 %1992, 16
   %1994 = tail call ptr @palloc_extended(i64 noundef %1993, i32 noundef 2) #20
@@ -7598,7 +7598,7 @@ freearc.exit.i.i204:                              ; preds = %1944, %1943
   %1996 = load ptr, ptr %55, align 8
   br i1 %1995, label %1997, label %2002
 
-1997:                                             ; preds = %1990
+1997:                                             ; preds = %1991
   %1998 = getelementptr inbounds nuw i8, ptr %1996, i64 36
   store i32 101, ptr %1998, align 4
   %1999 = load ptr, ptr %55, align 8
@@ -7609,7 +7609,7 @@ freearc.exit.i.i204:                              ; preds = %1944, %1943
   store i32 %spec.select71.i137.i, ptr %2000, align 8
   br label %newstate.exit140.i
 
-2002:                                             ; preds = %1990
+2002:                                             ; preds = %1991
   %2003 = getelementptr inbounds nuw i8, ptr %1996, i64 248
   %2004 = load i64, ptr %2003, align 8
   %2005 = add i64 %2004, %1993
@@ -7724,7 +7724,7 @@ newstate.exit140.i:                               ; preds = %2021, %1997, %1982
   %2054 = getelementptr inbounds nuw i8, ptr %2053, i64 248
   %2055 = load i64, ptr %2054, align 8
   %2056 = icmp ugt i64 %2055, 171999999
-  br i1 %2056, label %2061, label %2069
+  br i1 %2056, label %2061, label %2070
 
 .thread.i.i120.i:                                 ; preds = %2043
   %2057 = load ptr, ptr %55, align 8
@@ -7747,11 +7747,11 @@ newstate.exit140.i:                               ; preds = %2021, %1997, %1982
 
 2067:                                             ; preds = %.thread.i.i120.i
   %2068 = shl i64 %2046, 1
-  br label %2069
+  %2069 = tail call i64 @llvm.umin.i64(i64 %2068, i64 1024)
+  br label %2070
 
-2069:                                             ; preds = %2067, %2052
-  %2070 = phi i64 [ %2068, %2067 ], [ 64, %2052 ]
-  %spec.store.select.i.i121.i = tail call i64 @llvm.umin.i64(i64 %2070, i64 1024)
+2070:                                             ; preds = %2067, %2052
+  %spec.store.select.i.i121.i = phi i64 [ %2069, %2067 ], [ 64, %2052 ]
   %2071 = mul nuw nsw i64 %spec.store.select.i.i121.i, 72
   %2072 = add nuw nsw i64 %2071, 16
   %2073 = tail call ptr @palloc_extended(i64 noundef %2072, i32 noundef 2) #20
@@ -7759,7 +7759,7 @@ newstate.exit140.i:                               ; preds = %2021, %1997, %1982
   %2075 = load ptr, ptr %55, align 8
   br i1 %2074, label %2076, label %2081
 
-2076:                                             ; preds = %2069
+2076:                                             ; preds = %2070
   %2077 = getelementptr inbounds nuw i8, ptr %2075, i64 36
   store i32 101, ptr %2077, align 4
   %2078 = load ptr, ptr %55, align 8
@@ -7770,7 +7770,7 @@ newstate.exit140.i:                               ; preds = %2021, %1997, %1982
   store i32 %spec.select49.i.i123.i, ptr %2079, align 8
   br label %allocarc.exit.i110.i
 
-2081:                                             ; preds = %2069
+2081:                                             ; preds = %2070
   %2082 = getelementptr inbounds nuw i8, ptr %2075, i64 248
   %2083 = load i64, ptr %2082, align 8
   %2084 = add i64 %2083, %2072
@@ -8003,7 +8003,7 @@ copyouts.exit.i.i:                                ; preds = %createarc.exit126.i
   %2185 = getelementptr inbounds nuw i8, ptr %2184, i64 248
   %2186 = load i64, ptr %2185, align 8
   %2187 = icmp ugt i64 %2186, 171999999
-  br i1 %2187, label %2192, label %2200
+  br i1 %2187, label %2192, label %2201
 
 .thread.i.i102.i:                                 ; preds = %2174
   %2188 = load ptr, ptr %55, align 8
@@ -8026,11 +8026,11 @@ copyouts.exit.i.i:                                ; preds = %createarc.exit126.i
 
 2198:                                             ; preds = %.thread.i.i102.i
   %2199 = shl i64 %2177, 1
-  br label %2200
+  %2200 = tail call i64 @llvm.umin.i64(i64 %2199, i64 1024)
+  br label %2201
 
-2200:                                             ; preds = %2198, %2183
-  %2201 = phi i64 [ %2199, %2198 ], [ 64, %2183 ]
-  %spec.store.select.i.i103.i = tail call i64 @llvm.umin.i64(i64 %2201, i64 1024)
+2201:                                             ; preds = %2198, %2183
+  %spec.store.select.i.i103.i = phi i64 [ %2200, %2198 ], [ 64, %2183 ]
   %2202 = mul nuw nsw i64 %spec.store.select.i.i103.i, 72
   %2203 = add nuw nsw i64 %2202, 16
   %2204 = tail call ptr @palloc_extended(i64 noundef %2203, i32 noundef 2) #20
@@ -8038,7 +8038,7 @@ copyouts.exit.i.i:                                ; preds = %createarc.exit126.i
   %2206 = load ptr, ptr %55, align 8
   br i1 %2205, label %2207, label %2212
 
-2207:                                             ; preds = %2200
+2207:                                             ; preds = %2201
   %2208 = getelementptr inbounds nuw i8, ptr %2206, i64 36
   store i32 101, ptr %2208, align 4
   %2209 = load ptr, ptr %55, align 8
@@ -8049,7 +8049,7 @@ copyouts.exit.i.i:                                ; preds = %createarc.exit126.i
   store i32 %spec.select49.i.i105.i, ptr %2210, align 8
   br label %allocarc.exit.i92.i
 
-2212:                                             ; preds = %2200
+2212:                                             ; preds = %2201
   %2213 = getelementptr inbounds nuw i8, ptr %2206, i64 248
   %2214 = load i64, ptr %2213, align 8
   %2215 = add i64 %2214, %2203
@@ -8614,7 +8614,7 @@ uncolorchain.exit.i92.i.i:                        ; preds = %2433, %2431
   %2496 = getelementptr inbounds nuw i8, ptr %2495, i64 248
   %2497 = load i64, ptr %2496, align 8
   %2498 = icmp ugt i64 %2497, 171999999
-  br i1 %2498, label %2503, label %2511
+  br i1 %2498, label %2503, label %2512
 
 .thread.i90.i:                                    ; preds = %2485
   %2499 = load ptr, ptr %55, align 8
@@ -8637,11 +8637,11 @@ uncolorchain.exit.i92.i.i:                        ; preds = %2433, %2431
 
 2509:                                             ; preds = %.thread.i90.i
   %2510 = shl i64 %2488, 1
-  br label %2511
+  %2511 = tail call i64 @llvm.umin.i64(i64 %2510, i64 1024)
+  br label %2512
 
-2511:                                             ; preds = %2509, %2494
-  %2512 = phi i64 [ %2510, %2509 ], [ 32, %2494 ]
-  %spec.store.select.i.i146 = tail call i64 @llvm.umin.i64(i64 %2512, i64 1024)
+2512:                                             ; preds = %2509, %2494
+  %spec.store.select.i.i146 = phi i64 [ %2511, %2509 ], [ 32, %2494 ]
   %2513 = mul nuw nsw i64 %spec.store.select.i.i146, 56
   %2514 = add nuw nsw i64 %2513, 16
   %2515 = tail call ptr @palloc_extended(i64 noundef %2514, i32 noundef 2) #20
@@ -8649,7 +8649,7 @@ uncolorchain.exit.i92.i.i:                        ; preds = %2433, %2431
   %2517 = load ptr, ptr %55, align 8
   br i1 %2516, label %2518, label %2523
 
-2518:                                             ; preds = %2511
+2518:                                             ; preds = %2512
   %2519 = getelementptr inbounds nuw i8, ptr %2517, i64 36
   store i32 101, ptr %2519, align 4
   %2520 = load ptr, ptr %55, align 8
@@ -8660,7 +8660,7 @@ uncolorchain.exit.i92.i.i:                        ; preds = %2433, %2431
   store i32 %spec.select71.i.i148, ptr %2521, align 8
   br label %newstate.exit.i119
 
-2523:                                             ; preds = %2511
+2523:                                             ; preds = %2512
   %2524 = getelementptr inbounds nuw i8, ptr %2517, i64 248
   %2525 = load i64, ptr %2524, align 8
   %2526 = add i64 %2525, %2514
@@ -8844,7 +8844,7 @@ newstate.exit.i119:                               ; preds = %2542, %2518, %2503
   %2603 = getelementptr inbounds nuw i8, ptr %2602, i64 248
   %2604 = load i64, ptr %2603, align 8
   %2605 = icmp ugt i64 %2604, 171999999
-  br i1 %2605, label %2610, label %2618
+  br i1 %2605, label %2610, label %2619
 
 .thread.i.i80.i:                                  ; preds = %2592
   %2606 = load ptr, ptr %55, align 8
@@ -8867,11 +8867,11 @@ newstate.exit.i119:                               ; preds = %2542, %2518, %2503
 
 2616:                                             ; preds = %.thread.i.i80.i
   %2617 = shl i64 %2595, 1
-  br label %2618
+  %2618 = tail call i64 @llvm.umin.i64(i64 %2617, i64 1024)
+  br label %2619
 
-2618:                                             ; preds = %2616, %2601
-  %2619 = phi i64 [ %2617, %2616 ], [ 64, %2601 ]
-  %spec.store.select.i.i81.i = tail call i64 @llvm.umin.i64(i64 %2619, i64 1024)
+2619:                                             ; preds = %2616, %2601
+  %spec.store.select.i.i81.i = phi i64 [ %2618, %2616 ], [ 64, %2601 ]
   %2620 = mul nuw nsw i64 %spec.store.select.i.i81.i, 72
   %2621 = add nuw nsw i64 %2620, 16
   %2622 = tail call ptr @palloc_extended(i64 noundef %2621, i32 noundef 2) #20
@@ -8879,7 +8879,7 @@ newstate.exit.i119:                               ; preds = %2542, %2518, %2503
   %2624 = load ptr, ptr %55, align 8
   br i1 %2623, label %2625, label %2630
 
-2625:                                             ; preds = %2618
+2625:                                             ; preds = %2619
   %2626 = getelementptr inbounds nuw i8, ptr %2624, i64 36
   store i32 101, ptr %2626, align 4
   %2627 = load ptr, ptr %55, align 8
@@ -8890,7 +8890,7 @@ newstate.exit.i119:                               ; preds = %2542, %2518, %2503
   store i32 %spec.select49.i.i83.i, ptr %2628, align 8
   br label %allocarc.exit.i70.i
 
-2630:                                             ; preds = %2618
+2630:                                             ; preds = %2619
   %2631 = getelementptr inbounds nuw i8, ptr %2624, i64 248
   %2632 = load i64, ptr %2631, align 8
   %2633 = add i64 %2632, %2621
@@ -9115,7 +9115,7 @@ cparc.exit112.i.i:                                ; preds = %2568, %2581, %color
   %2733 = getelementptr inbounds nuw i8, ptr %2732, i64 248
   %2734 = load i64, ptr %2733, align 8
   %2735 = icmp ugt i64 %2734, 171999999
-  br i1 %2735, label %2740, label %2748
+  br i1 %2735, label %2740, label %2749
 
 .thread.i.i.i139:                                 ; preds = %2722
   %2736 = load ptr, ptr %55, align 8
@@ -9138,11 +9138,11 @@ cparc.exit112.i.i:                                ; preds = %2568, %2581, %color
 
 2746:                                             ; preds = %.thread.i.i.i139
   %2747 = shl i64 %2725, 1
-  br label %2748
+  %2748 = tail call i64 @llvm.umin.i64(i64 %2747, i64 1024)
+  br label %2749
 
-2748:                                             ; preds = %2746, %2731
-  %2749 = phi i64 [ %2747, %2746 ], [ 64, %2731 ]
-  %spec.store.select.i.i.i140 = tail call i64 @llvm.umin.i64(i64 %2749, i64 1024)
+2749:                                             ; preds = %2746, %2731
+  %spec.store.select.i.i.i140 = phi i64 [ %2748, %2746 ], [ 64, %2731 ]
   %2750 = mul nuw nsw i64 %spec.store.select.i.i.i140, 72
   %2751 = add nuw nsw i64 %2750, 16
   %2752 = tail call ptr @palloc_extended(i64 noundef %2751, i32 noundef 2) #20
@@ -9150,7 +9150,7 @@ cparc.exit112.i.i:                                ; preds = %2568, %2581, %color
   %2754 = load ptr, ptr %55, align 8
   br i1 %2753, label %2755, label %2760
 
-2755:                                             ; preds = %2748
+2755:                                             ; preds = %2749
   %2756 = getelementptr inbounds nuw i8, ptr %2754, i64 36
   store i32 101, ptr %2756, align 4
   %2757 = load ptr, ptr %55, align 8
@@ -9161,7 +9161,7 @@ cparc.exit112.i.i:                                ; preds = %2568, %2581, %color
   store i32 %spec.select49.i.i.i142, ptr %2758, align 8
   br label %allocarc.exit.i.i127
 
-2760:                                             ; preds = %2748
+2760:                                             ; preds = %2749
   %2761 = getelementptr inbounds nuw i8, ptr %2754, i64 248
   %2762 = load i64, ptr %2761, align 8
   %2763 = add i64 %2762, %2751
@@ -11133,7 +11133,7 @@ select.unfold.preheader:                          ; preds = %.critedge85
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 248
   %167 = load i64, ptr %166, align 8
   %168 = icmp ugt i64 %167, 171999999
-  br i1 %168, label %173, label %181
+  br i1 %168, label %173, label %182
 
 .thread.i.i:                                      ; preds = %155
   %169 = load ptr, ptr %119, align 8
@@ -11156,11 +11156,11 @@ select.unfold.preheader:                          ; preds = %.critedge85
 
 179:                                              ; preds = %.thread.i.i
   %180 = shl i64 %158, 1
-  br label %181
+  %181 = tail call i64 @llvm.umin.i64(i64 %180, i64 1024)
+  br label %182
 
-181:                                              ; preds = %179, %164
-  %182 = phi i64 [ %180, %179 ], [ 64, %164 ]
-  %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %182, i64 1024)
+182:                                              ; preds = %179, %164
+  %spec.store.select.i.i = phi i64 [ %181, %179 ], [ 64, %164 ]
   %183 = mul nuw nsw i64 %spec.store.select.i.i, 72
   %184 = add nuw nsw i64 %183, 16
   %185 = tail call ptr @palloc_extended(i64 noundef %184, i32 noundef 2) #20
@@ -11168,7 +11168,7 @@ select.unfold.preheader:                          ; preds = %.critedge85
   %187 = load ptr, ptr %119, align 8
   br i1 %186, label %188, label %193
 
-188:                                              ; preds = %181
+188:                                              ; preds = %182
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 36
   store i32 101, ptr %189, align 4
   %190 = load ptr, ptr %119, align 8
@@ -11179,7 +11179,7 @@ select.unfold.preheader:                          ; preds = %.critedge85
   store i32 %spec.select49.i.i, ptr %191, align 8
   br label %allocarc.exit.i
 
-193:                                              ; preds = %181
+193:                                              ; preds = %182
   %194 = getelementptr inbounds nuw i8, ptr %187, i64 248
   %195 = load i64, ptr %194, align 8
   %196 = add i64 %195, %184
@@ -11435,7 +11435,7 @@ copyouts.exit.thread:                             ; preds = %.preheader.i106, %1
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 248
   %307 = load i64, ptr %306, align 8
   %308 = icmp ugt i64 %307, 171999999
-  br i1 %308, label %313, label %321
+  br i1 %308, label %313, label %322
 
 .thread.i.i145:                                   ; preds = %295
   %309 = load ptr, ptr %119, align 8
@@ -11458,11 +11458,11 @@ copyouts.exit.thread:                             ; preds = %.preheader.i106, %1
 
 319:                                              ; preds = %.thread.i.i145
   %320 = shl i64 %298, 1
-  br label %321
+  %321 = tail call i64 @llvm.umin.i64(i64 %320, i64 1024)
+  br label %322
 
-321:                                              ; preds = %319, %304
-  %322 = phi i64 [ %320, %319 ], [ 64, %304 ]
-  %spec.store.select.i.i146 = tail call i64 @llvm.umin.i64(i64 %322, i64 1024)
+322:                                              ; preds = %319, %304
+  %spec.store.select.i.i146 = phi i64 [ %321, %319 ], [ 64, %304 ]
   %323 = mul nuw nsw i64 %spec.store.select.i.i146, 72
   %324 = add nuw nsw i64 %323, 16
   %325 = tail call ptr @palloc_extended(i64 noundef %324, i32 noundef 2) #20
@@ -11470,7 +11470,7 @@ copyouts.exit.thread:                             ; preds = %.preheader.i106, %1
   %327 = load ptr, ptr %119, align 8
   br i1 %326, label %328, label %333
 
-328:                                              ; preds = %321
+328:                                              ; preds = %322
   %329 = getelementptr inbounds nuw i8, ptr %327, i64 36
   store i32 101, ptr %329, align 4
   %330 = load ptr, ptr %119, align 8
@@ -11481,7 +11481,7 @@ copyouts.exit.thread:                             ; preds = %.preheader.i106, %1
   store i32 %spec.select49.i.i148, ptr %331, align 8
   br label %allocarc.exit.i135
 
-333:                                              ; preds = %321
+333:                                              ; preds = %322
   %334 = getelementptr inbounds nuw i8, ptr %327, i64 248
   %335 = load i64, ptr %334, align 8
   %336 = add i64 %335, %324
@@ -13645,7 +13645,7 @@ define internal fastcc noundef ptr @newstate(ptr noundef captures(none) %0) unna
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 248
   %27 = load i64, ptr %26, align 8
   %28 = icmp ugt i64 %27, 171999999
-  br i1 %28, label %34, label %43
+  br i1 %28, label %34, label %44
 
 .thread:                                          ; preds = %13
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -13670,23 +13670,23 @@ define internal fastcc noundef ptr @newstate(ptr noundef captures(none) %0) unna
 
 41:                                               ; preds = %.thread
   %42 = shl i64 %17, 1
-  br label %43
+  %43 = tail call i64 @llvm.umin.i64(i64 %42, i64 1024)
+  br label %44
 
-43:                                               ; preds = %23, %41
-  %44 = phi ptr [ %29, %41 ], [ %24, %23 ]
-  %45 = phi i64 [ %42, %41 ], [ 32, %23 ]
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %45, i64 1024)
+44:                                               ; preds = %23, %41
+  %45 = phi ptr [ %29, %41 ], [ %24, %23 ]
+  %spec.store.select = phi i64 [ %43, %41 ], [ 32, %23 ]
   %46 = mul nuw nsw i64 %spec.store.select, 56
   %47 = add nuw nsw i64 %46, 16
   %48 = tail call ptr @palloc_extended(i64 noundef %47, i32 noundef 2) #20
   %49 = icmp eq ptr %48, null
-  %50 = load ptr, ptr %44, align 8
+  %50 = load ptr, ptr %45, align 8
   br i1 %49, label %51, label %56
 
-51:                                               ; preds = %43
+51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 36
   store i32 101, ptr %52, align 4
-  %53 = load ptr, ptr %44, align 8
+  %53 = load ptr, ptr %45, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load i32, ptr %54, align 8
   %.not68 = icmp eq i32 %55, 0
@@ -13694,7 +13694,7 @@ define internal fastcc noundef ptr @newstate(ptr noundef captures(none) %0) unna
   store i32 %spec.select71, ptr %54, align 8
   br label %.thread73
 
-56:                                               ; preds = %43
+56:                                               ; preds = %44
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 248
   %58 = load i64, ptr %57, align 8
   %59 = add i64 %58, %47
@@ -13795,7 +13795,7 @@ define internal fastcc void @createarc(ptr noundef captures(none) %0, i32 nounde
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 248
   %28 = load i64, ptr %27, align 8
   %29 = icmp ugt i64 %28, 171999999
-  br i1 %29, label %35, label %44
+  br i1 %29, label %35, label %45
 
 .thread.i:                                        ; preds = %14
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -13820,23 +13820,23 @@ define internal fastcc void @createarc(ptr noundef captures(none) %0, i32 nounde
 
 42:                                               ; preds = %.thread.i
   %43 = shl i64 %18, 1
-  br label %44
+  %44 = tail call i64 @llvm.umin.i64(i64 %43, i64 1024)
+  br label %45
 
-44:                                               ; preds = %42, %24
-  %45 = phi ptr [ %30, %42 ], [ %25, %24 ]
-  %46 = phi i64 [ %43, %42 ], [ 64, %24 ]
-  %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %46, i64 1024)
+45:                                               ; preds = %42, %24
+  %46 = phi ptr [ %30, %42 ], [ %25, %24 ]
+  %spec.store.select.i = phi i64 [ %44, %42 ], [ 64, %24 ]
   %47 = mul nuw nsw i64 %spec.store.select.i, 72
   %48 = add nuw nsw i64 %47, 16
   %49 = tail call ptr @palloc_extended(i64 noundef %48, i32 noundef 2) #20
   %50 = icmp eq ptr %49, null
-  %51 = load ptr, ptr %45, align 8
+  %51 = load ptr, ptr %46, align 8
   br i1 %50, label %52, label %57
 
-52:                                               ; preds = %44
+52:                                               ; preds = %45
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 36
   store i32 101, ptr %53, align 4
-  %54 = load ptr, ptr %45, align 8
+  %54 = load ptr, ptr %46, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load i32, ptr %55, align 8
   %.not47.i = icmp eq i32 %56, 0
@@ -13844,7 +13844,7 @@ define internal fastcc void @createarc(ptr noundef captures(none) %0, i32 nounde
   store i32 %spec.select49.i, ptr %55, align 8
   br label %allocarc.exit
 
-57:                                               ; preds = %44
+57:                                               ; preds = %45
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 248
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %48

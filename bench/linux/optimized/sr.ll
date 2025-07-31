@@ -720,17 +720,17 @@ define internal i32 @sr_done(ptr noundef readonly captures(none) %0) #2 align 16
   %33 = getelementptr i8, ptr %0, i64 -192
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %40, label %36
+  br i1 %35, label %41, label %36
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %38 = load i32, ptr %37, align 8
   %39 = lshr i32 %38, 9
-  br label %40
+  %40 = tail call i32 @llvm.umax.i32(i32 %39, i32 4)
+  br label %41
 
-40:                                               ; preds = %36, %28
-  %41 = phi i32 [ %39, %36 ], [ 0, %28 ]
-  %42 = tail call i32 @llvm.umax.i32(i32 %41, i32 4)
+41:                                               ; preds = %36, %28
+  %42 = phi i32 [ %40, %36 ], [ 4, %28 ]
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 164
@@ -759,7 +759,7 @@ define internal i32 @sr_done(ptr noundef readonly captures(none) %0) #2 align 16
   %68 = icmp ult i64 %52, %67
   br i1 %68, label %69, label %76
 
-69:                                               ; preds = %40
+69:                                               ; preds = %41
   %70 = load i32, ptr %13, align 8
   %71 = zext i32 %70 to i64
   %72 = sub nsw i64 %71, %52
@@ -773,8 +773,8 @@ define internal i32 @sr_done(ptr noundef readonly captures(none) %0) #2 align 16
 75:                                               ; preds = %22
   br label %76
 
-76:                                               ; preds = %75, %74, %69, %40, %22, %16, %1
-  %77 = phi i32 [ %7, %22 ], [ %5, %75 ], [ %61, %74 ], [ %61, %69 ], [ %61, %40 ], [ %7, %16 ], [ %7, %1 ]
+76:                                               ; preds = %75, %74, %69, %41, %22, %16, %1
+  %77 = phi i32 [ %7, %22 ], [ %5, %75 ], [ %61, %74 ], [ %61, %69 ], [ %61, %41 ], [ %7, %16 ], [ %7, %1 ]
   ret i32 %77
 }
 

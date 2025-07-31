@@ -10439,7 +10439,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %9, %13
   %96 = load ptr, ptr %95, align 8, !tbaa !162
   %97 = load ptr, ptr %14, align 8, !tbaa !161
   %.not356 = icmp eq ptr %96, %97
-  br i1 %.not356, label %._crit_edge353, label %.lr.ph352
+  br i1 %.not356, label %.thread333, label %.lr.ph352
 
 .lr.ph352:                                        ; preds = %.preheader
   %98 = ptrtoint ptr %96 to i64
@@ -10449,10 +10449,8 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %9, %13
   %102 = load ptr, ptr %15, align 8, !tbaa !128
   br label %105
 
-._crit_edge353:                                   ; preds = %284, %.preheader
-  %.0246.lcssa = phi i64 [ 0, %.preheader ], [ %.1247, %284 ]
-  %.0233.lcssa = phi double [ 0x7FF0000000000000, %.preheader ], [ %.1234, %284 ]
-  %103 = tail call double @llvm.fabs.f64(double %.0233.lcssa)
+._crit_edge353:                                   ; preds = %284
+  %103 = tail call double @llvm.fabs.f64(double %.1234)
   %104 = fcmp oeq double %103, 0x7FF0000000000000
   br i1 %104, label %.thread333, label %286
 
@@ -10722,7 +10720,7 @@ _ZN12TestTINShiftL22distance_point_segmentEddddddd.exit276: ; preds = %248, %254
   br i1 %exitcond.not, label %._crit_edge353, label %105, !llvm.loop !252
 
 286:                                              ; preds = %._crit_edge353
-  %287 = getelementptr inbounds nuw %"struct.TestTINShift::TINShiftFile::VertexIndices", ptr %97, i64 %.0246.lcssa
+  %287 = getelementptr inbounds nuw %"struct.TestTINShift::TINShiftFile::VertexIndices", ptr %97, i64 %.1247
   %288 = load i32, ptr %287, align 4, !tbaa !222
   %289 = getelementptr inbounds nuw i8, ptr %287, i64 4
   %290 = load i32, ptr %289, align 4, !tbaa !224
@@ -10784,8 +10782,8 @@ _ZN12TestTINShiftL22distance_point_segmentEddddddd.exit276: ; preds = %248, %254
   store double %341, ptr %8, align 8, !tbaa !153
   br label %.thread333
 
-.thread333:                                       ; preds = %86, %._crit_edge353, %286, %329, %._crit_edge
-  %.3 = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge353 ], [ %287, %329 ], [ null, %286 ], [ %32, %86 ]
+.thread333:                                       ; preds = %86, %.preheader, %._crit_edge353, %286, %329, %._crit_edge
+  %.3 = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge353 ], [ %287, %329 ], [ null, %286 ], [ null, %.preheader ], [ %32, %86 ]
   ret ptr %.3
 }
 

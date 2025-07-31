@@ -753,10 +753,10 @@ bytestream2_init.exit:                            ; preds = %4
   %278 = icmp ult ptr %276, %51
   br i1 %278, label %260, label %.loopexit, !llvm.loop !68
 
-279:                                              ; preds = %.lr.ph, %299
-  %.0186260 = phi i32 [ 0, %.lr.ph ], [ %304, %299 ]
-  %.8259 = phi ptr [ %49, %.lr.ph ], [ %303, %299 ]
-  %.sroa.0.11258 = phi ptr [ %17, %.lr.ph ], [ %280, %299 ]
+279:                                              ; preds = %.lr.ph, %301
+  %.0186260 = phi i32 [ 0, %.lr.ph ], [ %304, %301 ]
+  %.8259 = phi ptr [ %49, %.lr.ph ], [ %303, %301 ]
+  %.sroa.0.11258 = phi ptr [ %17, %.lr.ph ], [ %280, %301 ]
   %280 = getelementptr inbounds nuw i8, ptr %.sroa.0.11258, i64 1
   %281 = load i8, ptr %.sroa.0.11258, align 1, !tbaa !47
   %.not205 = icmp sgt i8 %281, -1
@@ -769,7 +769,7 @@ bytestream2_init.exit:                            ; preds = %4
   %286 = sext i32 %.0186260 to i64
   %287 = getelementptr inbounds [2 x i32], ptr %55, i64 0, i64 %286
   store i32 %285, ptr %287, align 4, !tbaa !28
-  br label %299
+  br label %301
 
 288:                                              ; preds = %279
   %289 = load i32, ptr %56, align 8, !tbaa !48
@@ -783,12 +783,12 @@ bytestream2_init.exit:                            ; preds = %4
   %297 = load i32, ptr %296, align 4, !tbaa !28
   %298 = add i32 %294, %297
   store i32 %298, ptr %296, align 4, !tbaa !28
-  br label %299
+  %299 = tail call i32 @llvm.smax.i32(i32 %298, i32 -32768)
+  %300 = tail call i32 @llvm.smin.i32(i32 %299, i32 32767)
+  br label %301
 
-299:                                              ; preds = %288, %282
-  %300 = phi i32 [ %298, %288 ], [ %285, %282 ]
-  %301 = tail call i32 @llvm.smax.i32(i32 %300, i32 -32768)
-  %302 = tail call i32 @llvm.smin.i32(i32 %301, i32 32767)
+301:                                              ; preds = %288, %282
+  %302 = phi i32 [ %300, %288 ], [ %285, %282 ]
   %.0.i221 = trunc nsw i32 %302 to i16
   %303 = getelementptr inbounds nuw i8, ptr %.8259, i64 2
   store i16 %.0.i221, ptr %.8259, align 2, !tbaa !35
@@ -796,7 +796,7 @@ bytestream2_init.exit:                            ; preds = %4
   %305 = icmp ult ptr %303, %51
   br i1 %305, label %279, label %.loopexit, !llvm.loop !69
 
-.loopexit:                                        ; preds = %299, %260, %245, %232, %164, %215, %.lr.ph297, %.lr.ph302, %.preheader, %._crit_edge, %48
+.loopexit:                                        ; preds = %301, %260, %245, %232, %164, %215, %.lr.ph297, %.lr.ph302, %.preheader, %._crit_edge, %48
   store i32 1, ptr %2, align 4, !tbaa !28
   %306 = load i32, ptr %7, align 8, !tbaa !50
   br label %307

@@ -28905,7 +28905,7 @@ _ZN12MeshDocument17MeshRangeIterator3endEv.exit:  ; preds = %_ZN12MeshDocument17
   %48 = add i64 %47, %.03880
   %49 = load ptr, ptr %.sroa.066.079, align 8
   %.not71 = icmp eq ptr %49, %39
-  br i1 %.not71, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
+  br i1 %.not71, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge.loopexit, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
 
 .loopexit73:                                      ; preds = %60
   %lpad.loopexit75 = landingpad { ptr, i32 }
@@ -28923,25 +28923,28 @@ _ZN12MeshDocument17MeshRangeIterator3endEv.exit:  ; preds = %_ZN12MeshDocument17
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #28
   br label %94
 
-_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge: ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader
-  %.038.lcssa = phi i64 [ 0, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader ], [ %48, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ]
-  %52 = getelementptr inbounds nuw i8, ptr %16, i64 680
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %16, i64 688
-  %55 = load ptr, ptr %54, align 8
-  %.not7281 = icmp eq ptr %53, %55
+_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge.loopexit: ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
+  %52 = call i64 @llvm.umax.i64(i64 %48, i64 1)
+  br label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge
+
+_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge: ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge.loopexit, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader
+  %.038.lcssa = phi i64 [ 1, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader ], [ %52, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge.loopexit ]
+  %53 = getelementptr inbounds nuw i8, ptr %16, i64 680
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 688
+  %56 = load ptr, ptr %55, align 8
+  %.not7281 = icmp eq ptr %54, %56
   br i1 %.not7281, label %._crit_edge, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge
-  %56 = sext i32 %33 to i64
-  %57 = call i64 @llvm.umax.i64(i64 %.038.lcssa, i64 1)
-  %58 = udiv i64 %56, %57
+  %57 = sext i32 %33 to i64
+  %58 = udiv i64 %57, %.038.lcssa
   %sext = shl i64 %58, 32
   %59 = ashr exact i64 %sext, 32
   br label %60
 
 60:                                               ; preds = %.lr.ph83, %85
-  %.sroa.062.082 = phi ptr [ %53, %.lr.ph83 ], [ %86, %85 ]
+  %.sroa.062.082 = phi ptr [ %54, %.lr.ph83 ], [ %86, %85 ]
   invoke void @_ZNK9MeshModel10getTextureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %5, ptr noundef nonnull align 8 dereferenceable(1288) %16, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.062.082)
           to label %61 unwind label %.loopexit73
 
@@ -29031,7 +29034,7 @@ _ZN7QStringD2Ev.exit55:                           ; preds = %_ZN9QtPrivate8RefCo
 85:                                               ; preds = %77
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.062.082, i64 32
-  %.not72 = icmp eq ptr %86, %55
+  %.not72 = icmp eq ptr %86, %56
   br i1 %.not72, label %._crit_edge, label %60
 
 87:                                               ; preds = %.loopexit, %.loopexit.split-lp, %73

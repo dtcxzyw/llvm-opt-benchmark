@@ -9131,7 +9131,7 @@ Kit_DsdCofactoringGetVars.exit:                   ; preds = %.critedge.i
   br label %91
 
 86:                                               ; preds = %._crit_edge.us
-  %87 = icmp eq i32 %.0253.us, %127
+  %87 = icmp eq i32 %.0253.us, %.0.lcssa.i183.us
   %88 = icmp sgt i32 %.0150250.us, %131
   %or.cond.us = select i1 %87, i1 %88, i1 false
   br i1 %or.cond.us, label %89, label %90
@@ -9142,7 +9142,7 @@ Kit_DsdCofactoringGetVars.exit:                   ; preds = %.critedge.i
 90:                                               ; preds = %89, %86
   %.1151.us = phi i32 [ %131, %89 ], [ %.0150250.us, %86 ]
   %.1148.us = phi i32 [ %85, %89 ], [ %.0147251.us, %86 ]
-  %.1.us = phi i32 [ %127, %89 ], [ %.0253.us, %86 ]
+  %.1.us = phi i32 [ %.0.lcssa.i183.us, %89 ], [ %.0253.us, %86 ]
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %exitcond284.not = icmp eq i64 %indvars.iv.next280, %wide.trip.count283
   br i1 %exitcond284.not, label %._crit_edge254, label %.preheader238.us, !llvm.loop !140
@@ -9150,7 +9150,7 @@ Kit_DsdCofactoringGetVars.exit:                   ; preds = %.critedge.i
 91:                                               ; preds = %.preheader238.us, %Kit_DsdNtkFree.exit199.us
   %indvars.iv275 = phi i64 [ 0, %.preheader238.us ], [ %indvars.iv.next276, %Kit_DsdNtkFree.exit199.us ]
   %.0149247.us = phi i32 [ 0, %.preheader238.us ], [ %131, %Kit_DsdNtkFree.exit199.us ]
-  %.0152246.us = phi i32 [ 0, %.preheader238.us ], [ %127, %Kit_DsdNtkFree.exit199.us ]
+  %.0152246.us = phi i32 [ 0, %.preheader238.us ], [ %.0.lcssa.i183.us, %Kit_DsdNtkFree.exit199.us ]
   %92 = shl nuw nsw i64 %indvars.iv275, 1
   %93 = getelementptr inbounds nuw [16 x ptr], ptr %81, i64 0, i64 %92
   %94 = load ptr, ptr %93, align 16, !tbaa !61
@@ -9217,7 +9217,7 @@ Kit_DsdNonDsdSizeMax.exit.us:                     ; preds = %108, %111, %91
   %121 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv.i174.us
   %122 = load ptr, ptr %121, align 8, !tbaa !42
   %.not.i176.us = icmp eq ptr %122, null
-  br i1 %.not.i176.us, label %Kit_DsdNonDsdSizeMax.exit184.us, label %123
+  br i1 %.not.i176.us, label %Kit_DsdNonDsdSizeMax.exit184.us.loopexit, label %123
 
 123:                                              ; preds = %120
   %124 = load i32, ptr %122, align 4
@@ -9228,11 +9228,15 @@ Kit_DsdNonDsdSizeMax.exit.us:                     ; preds = %108, %111, %91
   %.1.i179.us = select i1 %.not12.i177.us, i32 %spec.select.i178.us, i32 %.014.i175.us
   %indvars.iv.next.i180.us = add nuw nsw i64 %indvars.iv.i174.us, 1
   %exitcond.not.i181.us = icmp eq i64 %indvars.iv.next.i180.us, %wide.trip.count.i173.us
-  br i1 %exitcond.not.i181.us, label %Kit_DsdNonDsdSizeMax.exit184.us, label %120, !llvm.loop !90
+  br i1 %exitcond.not.i181.us, label %Kit_DsdNonDsdSizeMax.exit184.us.loopexit, label %120, !llvm.loop !90
 
-Kit_DsdNonDsdSizeMax.exit184.us:                  ; preds = %120, %123, %Kit_DsdNonDsdSizeMax.exit.us
-  %.0.lcssa.i183.us = phi i32 [ 0, %Kit_DsdNonDsdSizeMax.exit.us ], [ %.014.i175.us, %120 ], [ %.1.i179.us, %123 ]
-  %127 = tail call i32 @llvm.umax.i32(i32 %115, i32 %.0.lcssa.i183.us)
+Kit_DsdNonDsdSizeMax.exit184.us.loopexit:         ; preds = %123, %120
+  %.0.lcssa.i183.us.ph = phi i32 [ %.1.i179.us, %123 ], [ %.014.i175.us, %120 ]
+  %127 = tail call i32 @llvm.umax.i32(i32 %115, i32 %.0.lcssa.i183.us.ph)
+  br label %Kit_DsdNonDsdSizeMax.exit184.us
+
+Kit_DsdNonDsdSizeMax.exit184.us:                  ; preds = %Kit_DsdNonDsdSizeMax.exit184.us.loopexit, %Kit_DsdNonDsdSizeMax.exit.us
+  %.0.lcssa.i183.us = phi i32 [ %115, %Kit_DsdNonDsdSizeMax.exit.us ], [ %127, %Kit_DsdNonDsdSizeMax.exit184.us.loopexit ]
   %128 = tail call i32 @Kit_TruthSupportSize(ptr noundef %94, i32 noundef %1) #27
   %129 = add nsw i32 %128, %.0149247.us
   %130 = tail call i32 @Kit_TruthSupportSize(ptr noundef %99, i32 noundef %1) #27
@@ -9350,7 +9354,7 @@ Kit_DsdNtkFree.exit199.us:                        ; preds = %169, %166
   br i1 %exitcond278.not, label %._crit_edge.us, label %91, !llvm.loop !141
 
 ._crit_edge.us:                                   ; preds = %Kit_DsdNtkFree.exit199.us
-  %170 = icmp sgt i32 %.0253.us, %127
+  %170 = icmp sgt i32 %.0253.us, %.0.lcssa.i183.us
   br i1 %170, label %89, label %86
 
 ._crit_edge254:                                   ; preds = %90, %.preheader239

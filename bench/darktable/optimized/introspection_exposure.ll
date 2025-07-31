@@ -1603,7 +1603,7 @@ dt_Lab_to_XYZ.exit62:                             ; preds = %.preheader.i59
   %300 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %301 = load i32, ptr %300, align 4, !tbaa !54
   %.not = icmp eq i32 %301, 0
-  br i1 %.not, label %315, label %302
+  br i1 %.not, label %316, label %302
 
 302:                                              ; preds = %dt_Lab_to_XYZ.exit62
   %303 = getelementptr i8, ptr %0, i64 664
@@ -1629,16 +1629,16 @@ _get_exposure_bias.exit66:                        ; preds = %302, %304, %308
   %313 = select reassoc nsz arcp contract afn i1 %310, float 5.000000e+00, float %312
   %.08.i65 = select nsz i1 %309, float %313, float 0.000000e+00
   %314 = fsub reassoc nsz arcp contract afn float %299, %.08.i65
-  br label %315
+  %315 = tail call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %314)
+  br label %316
 
-315:                                              ; preds = %_get_exposure_bias.exit66, %dt_Lab_to_XYZ.exit62
-  %.0 = phi nsz float [ %314, %_get_exposure_bias.exit66 ], [ %299, %dt_Lab_to_XYZ.exit62 ]
-  %316 = tail call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %.0)
-  tail call fastcc void @_exposure_set_white(ptr noundef nonnull %0, float noundef %316)
+316:                                              ; preds = %_get_exposure_bias.exit66, %dt_Lab_to_XYZ.exit62
+  %.0 = phi float [ %315, %_get_exposure_bias.exit66 ], [ %298, %dt_Lab_to_XYZ.exit62 ]
+  tail call fastcc void @_exposure_set_white(ptr noundef nonnull %0, float noundef %.0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #22
   br label %317
 
-317:                                              ; preds = %dt_Lab_to_XYZ.exit, %315, %dt_XYZ_to_Lab.exit54
+317:                                              ; preds = %dt_Lab_to_XYZ.exit, %316, %dt_XYZ_to_Lab.exit54
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #22
   br label %318

@@ -355,10 +355,10 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %175 = sub nuw nsw i32 32, %133
   br label %176
 
-176:                                              ; preds = %202, %.lr.ph.i
-  %.sroa.14.7 = phi i32 [ %167, %.lr.ph.i ], [ %.sroa.14.8, %202 ]
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %202 ]
-  %.0779.i = phi i32 [ %165, %.lr.ph.i ], [ %204, %202 ]
+176:                                              ; preds = %204, %.lr.ph.i
+  %.sroa.14.7 = phi i32 [ %167, %.lr.ph.i ], [ %.sroa.14.8, %204 ]
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %204 ]
+  %.0779.i = phi i32 [ %165, %.lr.ph.i ], [ %.1.i, %204 ]
   %177 = lshr i32 %.sroa.14.7, 3
   %178 = zext nneg i32 %177 to i64
   %179 = getelementptr inbounds nuw i8, ptr %70, i64 %178
@@ -383,19 +383,19 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %196 = lshr i32 %195, 26
   %197 = add nuw i32 %186, 6
   %198 = tail call i32 @llvm.umin.i32(i32 %75, i32 %197)
-  br label %202
+  br label %204
 
 199:                                              ; preds = %176
   %200 = sub nsw i32 %.0779.i, %174
   %201 = add nsw i32 %200, %184
-  br label %202
+  %202 = tail call i32 @llvm.smax.i32(i32 %201, i32 0)
+  %203 = tail call i32 @llvm.umin.i32(i32 %202, i32 63)
+  br label %204
 
-202:                                              ; preds = %199, %188
+204:                                              ; preds = %199, %188
   %.sroa.14.8 = phi i32 [ %198, %188 ], [ %186, %199 ]
-  %.1.i = phi i32 [ %196, %188 ], [ %201, %199 ]
-  %203 = tail call i32 @llvm.smax.i32(i32 %.1.i, i32 0)
-  %204 = tail call i32 @llvm.umin.i32(i32 %203, i32 63)
-  %205 = trunc nuw nsw i32 %204 to i8
+  %.1.i = phi i32 [ %196, %188 ], [ %203, %199 ]
+  %205 = trunc nuw nsw i32 %.1.i to i8
   %206 = getelementptr inbounds nuw [128 x i8], ptr %170, i64 0, i64 %indvars.iv.i
   store i8 %205, ptr %206, align 1, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -409,8 +409,8 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %211, i8 0, i64 128, i1 false)
   br label %.loopexit6.i
 
-.loopexit6.i:                                     ; preds = %202, %140, %210, %157, %.preheader5.i
-  %.sroa.14.3 = phi i32 [ %135, %.preheader5.i ], [ %135, %210 ], [ %167, %157 ], [ %150, %140 ], [ %.sroa.14.8, %202 ]
+.loopexit6.i:                                     ; preds = %204, %140, %210, %157, %.preheader5.i
+  %.sroa.14.3 = phi i32 [ %135, %.preheader5.i ], [ %135, %210 ], [ %167, %157 ], [ %150, %140 ], [ %.sroa.14.8, %204 ]
   %212 = getelementptr inbounds nuw i8, ptr %124, i64 2836
   %213 = load i32, ptr %212, align 4, !tbaa !59
   %214 = icmp eq i32 %213, 2

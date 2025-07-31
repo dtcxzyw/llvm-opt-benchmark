@@ -30103,7 +30103,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21getConstantStringInfoEPKNS_5Value
   %4 = alloca %"struct.llvm::ConstantDataArraySlice", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #27
   %5 = call noundef zeroext i1 @_ZN4llvm24getConstantDataArrayInfoEPKNS_5ValueERNS_22ConstantDataArraySliceEjm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 8, i64 noundef 0)
-  br i1 %5, label %6, label %29
+  br i1 %5, label %6, label %31
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %4, align 8, !tbaa !759
@@ -30115,19 +30115,19 @@ define dso_local noundef zeroext i1 @_ZN4llvm21getConstantStringInfoEPKNS_5Value
 
 10:                                               ; preds = %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  br label %29
+  br label %31
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !755
   %14 = icmp eq i64 %13, 1
-  br i1 %14, label %15, label %29
+  br i1 %14, label %15, label %31
 
 15:                                               ; preds = %11
   store ptr @.str.1, ptr %1, align 8, !tbaa !774
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !72
-  br label %29
+  br label %31
 
 16:                                               ; preds = %6
   %17 = tail call { ptr, i64 } @_ZNK4llvm22ConstantDataSequential16getRawDataValuesEv(ptr noundef nonnull align 8 dereferenceable(40) %7) #27
@@ -30141,7 +30141,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21getConstantStringInfoEPKNS_5Value
   %23 = sub i64 %19, %.sroa.speculated4.i
   store ptr %22, ptr %1, align 8, !tbaa !774
   store i64 %23, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !72
-  br i1 %2, label %24, label %29
+  br i1 %2, label %24, label %31
 
 24:                                               ; preds = %16
   %.not.not = icmp ugt i64 %19, %21
@@ -30153,16 +30153,16 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %24
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %22 to i64
   %28 = sub i64 %26, %27
-  %.1.i.i = select i1 %.not.i.i, i64 -1, i64 %28
+  %29 = tail call i64 @llvm.umin.i64(i64 %23, i64 %28)
+  %30 = select i1 %.not.i.i, i64 %23, i64 %29
   br label %_ZNK4llvm9StringRef4findEcm.exit
 
 _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %24, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
-  %.0.i.i = phi i64 [ %.1.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ -1, %24 ]
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %23, i64 %.0.i.i)
-  store i64 %.sroa.speculated.i, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !72
-  br label %29
+  %.0.i.i = phi i64 [ %30, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %23, %24 ]
+  store i64 %.0.i.i, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !72
+  br label %31
 
-29:                                               ; preds = %16, %_ZNK4llvm9StringRef4findEcm.exit, %11, %3, %15, %10
+31:                                               ; preds = %16, %_ZNK4llvm9StringRef4findEcm.exit, %11, %3, %15, %10
   %.0 = phi i1 [ true, %10 ], [ true, %15 ], [ false, %3 ], [ false, %11 ], [ true, %_ZNK4llvm9StringRef4findEcm.exit ], [ true, %16 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #27
   ret i1 %.0

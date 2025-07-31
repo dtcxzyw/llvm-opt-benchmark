@@ -11663,28 +11663,28 @@ dissect_nfs4_layoutreturn.exit:                   ; preds = %.lr.ph78.i, %593, %
   %wide.trip.count1000 = zext i32 %.0891.lcssa to i64
   br label %.lr.ph987
 
-.lr.ph991:                                        ; preds = %830
+.lr.ph991:                                        ; preds = %831
   %822 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count1005 = zext i32 %.0891.lcssa to i64
   br label %832
 
-.lr.ph987:                                        ; preds = %.lr.ph987.preheader, %830
-  %indvars.iv997 = phi i64 [ 0, %.lr.ph987.preheader ], [ %indvars.iv.next998, %830 ]
-  %.0886985 = phi i32 [ 5, %.lr.ph987.preheader ], [ %spec.select, %830 ]
+.lr.ph987:                                        ; preds = %.lr.ph987.preheader, %831
+  %indvars.iv997 = phi i64 [ 0, %.lr.ph987.preheader ], [ %indvars.iv.next998, %831 ]
+  %.0886985 = phi i32 [ 5, %.lr.ph987.preheader ], [ %spec.select, %831 ]
   %823 = getelementptr %struct._nfs4_operation_summary, ptr %29, i64 %indvars.iv997
   %824 = load i32, ptr %823, align 8
   %825 = icmp ult i32 %824, 76
-  br i1 %825, label %826, label %830
+  br i1 %825, label %826, label %831
 
 826:                                              ; preds = %.lr.ph987
   %827 = zext nneg i32 %824 to i64
   %828 = getelementptr [76 x i32], ptr @nfs4_operation_tiers, i64 0, i64 %827
   %829 = load i32, ptr %828, align 4
-  br label %830
+  %830 = call i32 @llvm.umin.i32(i32 %829, i32 %.0886985)
+  br label %831
 
-830:                                              ; preds = %.lr.ph987, %826
-  %831 = phi i32 [ %829, %826 ], [ 0, %.lr.ph987 ]
-  %spec.select = call i32 @llvm.umin.i32(i32 %831, i32 %.0886985)
+831:                                              ; preds = %.lr.ph987, %826
+  %spec.select = phi i32 [ %830, %826 ], [ 0, %.lr.ph987 ]
   %indvars.iv.next998 = add nuw nsw i64 %indvars.iv997, 1
   %exitcond1001.not = icmp eq i64 %indvars.iv.next998, %wide.trip.count1000
   br i1 %exitcond1001.not, label %.lr.ph991, label %.lr.ph987, !llvm.loop !24
@@ -15162,28 +15162,28 @@ dissect_nfsdata_reduced.exit:                     ; preds = %.loopexit.i, %522, 
   %wide.trip.count568 = zext i32 %.0463.lcssa to i64
   br label %.lr.ph541
 
-.lr.ph545:                                        ; preds = %766
+.lr.ph545:                                        ; preds = %767
   %758 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count573 = zext i32 %.0463.lcssa to i64
   br label %768
 
-.lr.ph541:                                        ; preds = %.lr.ph541.preheader, %766
-  %indvars.iv565 = phi i64 [ 0, %.lr.ph541.preheader ], [ %indvars.iv.next566, %766 ]
-  %.0458539 = phi i32 [ 5, %.lr.ph541.preheader ], [ %spec.select, %766 ]
+.lr.ph541:                                        ; preds = %.lr.ph541.preheader, %767
+  %indvars.iv565 = phi i64 [ 0, %.lr.ph541.preheader ], [ %indvars.iv.next566, %767 ]
+  %.0458539 = phi i32 [ 5, %.lr.ph541.preheader ], [ %spec.select, %767 ]
   %759 = getelementptr %struct._nfs4_operation_summary, ptr %40, i64 %indvars.iv565
   %760 = load i32, ptr %759, align 8
   %761 = icmp ult i32 %760, 76
-  br i1 %761, label %762, label %766
+  br i1 %761, label %762, label %767
 
 762:                                              ; preds = %.lr.ph541
   %763 = zext nneg i32 %760 to i64
   %764 = getelementptr [76 x i32], ptr @nfs4_operation_tiers, i64 0, i64 %763
   %765 = load i32, ptr %764, align 4
-  br label %766
+  %766 = call i32 @llvm.umin.i32(i32 %765, i32 %.0458539)
+  br label %767
 
-766:                                              ; preds = %.lr.ph541, %762
-  %767 = phi i32 [ %765, %762 ], [ 0, %.lr.ph541 ]
-  %spec.select = call i32 @llvm.umin.i32(i32 %767, i32 %.0458539)
+767:                                              ; preds = %.lr.ph541, %762
+  %spec.select = phi i32 [ %766, %762 ], [ 0, %.lr.ph541 ]
   %indvars.iv.next566 = add nuw nsw i64 %indvars.iv565, 1
   %exitcond569.not = icmp eq i64 %indvars.iv.next566, %wide.trip.count568
   br i1 %exitcond569.not, label %.lr.ph545, label %.lr.ph541, !llvm.loop !58

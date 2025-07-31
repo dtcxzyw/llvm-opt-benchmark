@@ -928,146 +928,146 @@ define range(i32 -1, 1) i32 @hwloc_linux_get_tid_cpubind(ptr noundef readonly ca
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %11 = load ptr, ptr %10, align 8, !tbaa !44
   %.not32.i = icmp eq ptr %11, null
-  br i1 %.not32.i, label %15, label %12
+  br i1 %.not32.i, label %16, label %12
 
 12:                                               ; preds = %5
   %13 = tail call i32 @hwloc_bitmap_last(ptr noundef nonnull %11) #31
-  %14 = add nsw i32 %13, 1
-  br label %15
+  %14 = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
+  %15 = add nuw nsw i32 %14, 1
+  br label %16
 
-15:                                               ; preds = %12, %5
-  %.022.i = phi i32 [ %14, %12 ], [ -1, %5 ]
-  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %.022.i, i32 1)
-  %16 = tail call noalias ptr @hwloc_bitmap_alloc_full() #28
-  %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %hwloc__alloc_read_path_as_cpulist.exit.thread.i, label %17
+16:                                               ; preds = %12, %5
+  %.022.i = phi i32 [ %15, %12 ], [ 1, %5 ]
+  %17 = tail call noalias ptr @hwloc_bitmap_alloc_full() #28
+  %.not.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i, label %hwloc__alloc_read_path_as_cpulist.exit.thread.i, label %18
 
-17:                                               ; preds = %15
-  %18 = tail call fastcc i32 @hwloc__read_path_as_cpulist(ptr noundef nonnull @.str.4, ptr noundef nonnull %16, i32 noundef -1)
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %hwloc__alloc_read_path_as_cpulist.exit.thread.sink.split.i, label %hwloc__alloc_read_path_as_cpulist.exit.i
+18:                                               ; preds = %16
+  %19 = tail call fastcc i32 @hwloc__read_path_as_cpulist(ptr noundef nonnull @.str.4, ptr noundef nonnull %17, i32 noundef -1)
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %hwloc__alloc_read_path_as_cpulist.exit.thread.sink.split.i, label %hwloc__alloc_read_path_as_cpulist.exit.i
 
-hwloc__alloc_read_path_as_cpulist.exit.i:         ; preds = %17
-  %20 = tail call i32 @hwloc_bitmap_last(ptr noundef nonnull %16) #31
-  %21 = add nsw i32 %20, 1
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 %21)
+hwloc__alloc_read_path_as_cpulist.exit.i:         ; preds = %18
+  %21 = tail call i32 @hwloc_bitmap_last(ptr noundef nonnull %17) #31
+  %22 = add nsw i32 %21, 1
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.022.i, i32 %22)
   br label %hwloc__alloc_read_path_as_cpulist.exit.thread.sink.split.i
 
-hwloc__alloc_read_path_as_cpulist.exit.thread.sink.split.i: ; preds = %hwloc__alloc_read_path_as_cpulist.exit.i, %17
-  %.123.ph.i = phi i32 [ %spec.select.i, %hwloc__alloc_read_path_as_cpulist.exit.i ], [ %spec.store.select.i, %17 ]
-  tail call void @hwloc_bitmap_free(ptr noundef nonnull %16) #28
+hwloc__alloc_read_path_as_cpulist.exit.thread.sink.split.i: ; preds = %hwloc__alloc_read_path_as_cpulist.exit.i, %18
+  %.123.ph.i = phi i32 [ %spec.select.i, %hwloc__alloc_read_path_as_cpulist.exit.i ], [ %.022.i, %18 ]
+  tail call void @hwloc_bitmap_free(ptr noundef nonnull %17) #28
   br label %hwloc__alloc_read_path_as_cpulist.exit.thread.i
 
-hwloc__alloc_read_path_as_cpulist.exit.thread.i:  ; preds = %hwloc__alloc_read_path_as_cpulist.exit.thread.sink.split.i, %15
-  %.123.i = phi i32 [ %spec.store.select.i, %15 ], [ %.123.ph.i, %hwloc__alloc_read_path_as_cpulist.exit.thread.sink.split.i ]
-  %22 = zext nneg i32 %.123.i to i64
-  %23 = tail call ptr @__sched_cpualloc(i64 noundef %22) #28
-  %.not3542.i = icmp eq ptr %23, null
+hwloc__alloc_read_path_as_cpulist.exit.thread.i:  ; preds = %hwloc__alloc_read_path_as_cpulist.exit.thread.sink.split.i, %16
+  %.123.i = phi i32 [ %.022.i, %16 ], [ %.123.ph.i, %hwloc__alloc_read_path_as_cpulist.exit.thread.sink.split.i ]
+  %23 = zext nneg i32 %.123.i to i64
+  %24 = tail call ptr @__sched_cpualloc(i64 noundef %23) #28
+  %.not3542.i = icmp eq ptr %24, null
   br i1 %.not3542.i, label %hwloc_linux_find_kernel_nr_cpus.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %hwloc__alloc_read_path_as_cpulist.exit.thread.i, %32
-  %24 = phi ptr [ %35, %32 ], [ %23, %hwloc__alloc_read_path_as_cpulist.exit.thread.i ]
-  %25 = phi i64 [ %34, %32 ], [ %22, %hwloc__alloc_read_path_as_cpulist.exit.thread.i ]
-  %26 = add nsw i64 %25, 63
-  %27 = lshr i64 %26, 3
-  %28 = and i64 %27, 2305843009213693944
-  %29 = tail call i32 @sched_getaffinity(i32 noundef 0, i64 noundef %28, ptr noundef nonnull %24) #28
-  tail call void @__sched_cpufree(ptr noundef nonnull %24) #28
-  %.tr.i = trunc i64 %28 to i32
-  %.not36.i = icmp eq i32 %29, 0
-  br i1 %.not36.i, label %30, label %32
+.lr.ph.i:                                         ; preds = %hwloc__alloc_read_path_as_cpulist.exit.thread.i, %33
+  %25 = phi ptr [ %36, %33 ], [ %24, %hwloc__alloc_read_path_as_cpulist.exit.thread.i ]
+  %26 = phi i64 [ %35, %33 ], [ %23, %hwloc__alloc_read_path_as_cpulist.exit.thread.i ]
+  %27 = add nsw i64 %26, 63
+  %28 = lshr i64 %27, 3
+  %29 = and i64 %28, 2305843009213693944
+  %30 = tail call i32 @sched_getaffinity(i32 noundef 0, i64 noundef %29, ptr noundef nonnull %25) #28
+  tail call void @__sched_cpufree(ptr noundef nonnull %25) #28
+  %.tr.i = trunc i64 %29 to i32
+  %.not36.i = icmp eq i32 %30, 0
+  br i1 %.not36.i, label %31, label %33
 
-30:                                               ; preds = %.lr.ph.i
-  %31 = shl i32 %.tr.i, 3
-  store i32 %31, ptr @hwloc_linux_find_kernel_nr_cpus._nr_cpus, align 4, !tbaa !3
+31:                                               ; preds = %.lr.ph.i
+  %32 = shl i32 %.tr.i, 3
+  store i32 %32, ptr @hwloc_linux_find_kernel_nr_cpus._nr_cpus, align 4, !tbaa !3
   br label %hwloc_linux_find_kernel_nr_cpus.exit
 
-32:                                               ; preds = %.lr.ph.i
-  %33 = shl i32 %.tr.i, 4
-  %34 = sext i32 %33 to i64
-  %35 = tail call ptr @__sched_cpualloc(i64 noundef %34) #28
-  %.not35.i = icmp eq ptr %35, null
+33:                                               ; preds = %.lr.ph.i
+  %34 = shl i32 %.tr.i, 4
+  %35 = sext i32 %34 to i64
+  %36 = tail call ptr @__sched_cpualloc(i64 noundef %35) #28
+  %.not35.i = icmp eq ptr %36, null
   br i1 %.not35.i, label %hwloc_linux_find_kernel_nr_cpus.exit.thread, label %.lr.ph.i
 
-hwloc_linux_find_kernel_nr_cpus.exit:             ; preds = %3, %30
-  %.0.i = phi i32 [ %4, %3 ], [ %31, %30 ]
-  %36 = icmp slt i32 %.0.i, 0
-  br i1 %36, label %hwloc_linux_find_kernel_nr_cpus.exit.thread, label %37
+hwloc_linux_find_kernel_nr_cpus.exit:             ; preds = %3, %31
+  %.0.i = phi i32 [ %4, %3 ], [ %32, %31 ]
+  %37 = icmp slt i32 %.0.i, 0
+  br i1 %37, label %hwloc_linux_find_kernel_nr_cpus.exit.thread, label %38
 
-37:                                               ; preds = %hwloc_linux_find_kernel_nr_cpus.exit
-  %38 = zext nneg i32 %.0.i to i64
-  %39 = add nuw nsw i64 %38, 63
-  %40 = lshr i64 %39, 3
-  %41 = and i64 %40, 536870904
-  %42 = tail call ptr @__sched_cpualloc(i64 noundef %38) #28
-  %.not = icmp eq ptr %42, null
-  br i1 %.not, label %hwloc_linux_find_kernel_nr_cpus.exit.thread, label %43
+38:                                               ; preds = %hwloc_linux_find_kernel_nr_cpus.exit
+  %39 = zext nneg i32 %.0.i to i64
+  %40 = add nuw nsw i64 %39, 63
+  %41 = lshr i64 %40, 3
+  %42 = and i64 %41, 536870904
+  %43 = tail call ptr @__sched_cpualloc(i64 noundef %39) #28
+  %.not = icmp eq ptr %43, null
+  br i1 %.not, label %hwloc_linux_find_kernel_nr_cpus.exit.thread, label %44
 
-43:                                               ; preds = %37
-  %44 = tail call i32 @sched_getaffinity(i32 noundef %1, i64 noundef %41, ptr noundef nonnull %42) #28
-  %45 = icmp slt i32 %44, 0
-  br i1 %45, label %hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split, label %46
+44:                                               ; preds = %38
+  %45 = tail call i32 @sched_getaffinity(i32 noundef %1, i64 noundef %42, ptr noundef nonnull %43) #28
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split, label %47
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !16
-  %49 = load ptr, ptr %48, align 8, !tbaa !40
-  %50 = load ptr, ptr %49, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 192
-  %52 = load ptr, ptr %51, align 8, !tbaa !44
-  %.not33 = icmp eq ptr %52, null
-  br i1 %.not33, label %.thread, label %54
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %49 = load ptr, ptr %48, align 8, !tbaa !16
+  %50 = load ptr, ptr %49, align 8, !tbaa !40
+  %51 = load ptr, ptr %50, align 8, !tbaa !42
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 192
+  %53 = load ptr, ptr %52, align 8, !tbaa !44
+  %.not33 = icmp eq ptr %53, null
+  br i1 %.not33, label %.thread, label %55
 
-.thread:                                          ; preds = %46
-  %53 = add nsw i32 %.0.i, -1
-  br label %58
+.thread:                                          ; preds = %47
+  %54 = add nsw i32 %.0.i, -1
+  br label %59
 
-54:                                               ; preds = %46
-  %55 = tail call i32 @hwloc_bitmap_last(ptr noundef nonnull %52) #31
-  %.fr = freeze i32 %55
-  %56 = icmp eq i32 %.fr, -1
-  %57 = add nsw i32 %.0.i, -1
-  %spec.select = select i1 %56, i32 %57, i32 %.fr
-  br label %58
+55:                                               ; preds = %47
+  %56 = tail call i32 @hwloc_bitmap_last(ptr noundef nonnull %53) #31
+  %.fr = freeze i32 %56
+  %57 = icmp eq i32 %.fr, -1
+  %58 = add nsw i32 %.0.i, -1
+  %spec.select = select i1 %57, i32 %58, i32 %.fr
+  br label %59
 
-58:                                               ; preds = %54, %.thread
-  %59 = phi i32 [ %53, %.thread ], [ %spec.select, %54 ]
+59:                                               ; preds = %55, %.thread
+  %60 = phi i32 [ %54, %.thread ], [ %spec.select, %55 ]
   tail call void @hwloc_bitmap_zero(ptr noundef %2) #28
-  br label %60
+  br label %61
 
-60:                                               ; preds = %58, %.critedge
-  %.02840 = phi i32 [ 0, %58 ], [ %74, %.critedge ]
-  %61 = zext i32 %.02840 to i64
-  %62 = lshr i64 %61, 3
-  %63 = icmp samesign ult i64 %62, %41
-  br i1 %63, label %64, label %.critedge
+61:                                               ; preds = %59, %.critedge
+  %.02840 = phi i32 [ 0, %59 ], [ %75, %.critedge ]
+  %62 = zext i32 %.02840 to i64
+  %63 = lshr i64 %62, 3
+  %64 = icmp samesign ult i64 %63, %42
+  br i1 %64, label %65, label %.critedge
 
-64:                                               ; preds = %60
-  %65 = lshr i64 %61, 6
-  %66 = getelementptr inbounds nuw i64, ptr %42, i64 %65
-  %67 = load i64, ptr %66, align 8, !tbaa !10
-  %68 = and i64 %61, 63
-  %69 = shl nuw i64 1, %68
-  %70 = and i64 %67, %69
-  %71 = icmp eq i64 %70, 0
-  br i1 %71, label %.critedge, label %72
+65:                                               ; preds = %61
+  %66 = lshr i64 %62, 6
+  %67 = getelementptr inbounds nuw i64, ptr %43, i64 %66
+  %68 = load i64, ptr %67, align 8, !tbaa !10
+  %69 = and i64 %62, 63
+  %70 = shl nuw i64 1, %69
+  %71 = and i64 %68, %70
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %.critedge, label %73
 
-72:                                               ; preds = %64
-  %73 = tail call i32 @hwloc_bitmap_set(ptr noundef %2, i32 noundef %.02840) #28
+73:                                               ; preds = %65
+  %74 = tail call i32 @hwloc_bitmap_set(ptr noundef %2, i32 noundef %.02840) #28
   br label %.critedge
 
-.critedge:                                        ; preds = %60, %64, %72
-  %74 = add i32 %.02840, 1
-  %.not34 = icmp ugt i32 %74, %59
-  br i1 %.not34, label %hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split, label %60, !llvm.loop !48
+.critedge:                                        ; preds = %61, %65, %73
+  %75 = add i32 %.02840, 1
+  %.not34 = icmp ugt i32 %75, %60
+  br i1 %.not34, label %hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split, label %61, !llvm.loop !48
 
-hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split: ; preds = %.critedge, %43
-  %.0.ph = phi i32 [ -1, %43 ], [ 0, %.critedge ]
-  tail call void @__sched_cpufree(ptr noundef nonnull %42) #28
+hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split: ; preds = %.critedge, %44
+  %.0.ph = phi i32 [ -1, %44 ], [ 0, %.critedge ]
+  tail call void @__sched_cpufree(ptr noundef nonnull %43) #28
   br label %hwloc_linux_find_kernel_nr_cpus.exit.thread
 
-hwloc_linux_find_kernel_nr_cpus.exit.thread:      ; preds = %32, %hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split, %hwloc__alloc_read_path_as_cpulist.exit.thread.i, %37, %hwloc_linux_find_kernel_nr_cpus.exit
-  %.0 = phi i32 [ -1, %hwloc_linux_find_kernel_nr_cpus.exit ], [ -1, %37 ], [ -1, %hwloc__alloc_read_path_as_cpulist.exit.thread.i ], [ %.0.ph, %hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split ], [ -1, %32 ]
+hwloc_linux_find_kernel_nr_cpus.exit.thread:      ; preds = %33, %hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split, %hwloc__alloc_read_path_as_cpulist.exit.thread.i, %38, %hwloc_linux_find_kernel_nr_cpus.exit
+  %.0 = phi i32 [ -1, %hwloc_linux_find_kernel_nr_cpus.exit ], [ -1, %38 ], [ -1, %hwloc__alloc_read_path_as_cpulist.exit.thread.i ], [ %.0.ph, %hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split ], [ -1, %33 ]
   ret i32 %.0
 }
 

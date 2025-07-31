@@ -4282,8 +4282,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit27.thread.i:       ; preds = %_ZNK6vectorIjLb0EjE
   %17 = zext i32 %spec.select.i to i64
   br label %.critedge.preheader.split.i
 
-.critedge.preheader.split.i:                      ; preds = %.critedge.preheader.split.i.loopexit, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit27.thread.i
-  %.0194951.i = phi i64 [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit27.thread.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %17, %.critedge.preheader.split.i.loopexit ]
+.critedge.preheader.split.i:                      ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %.critedge.preheader.split.i.loopexit, %_ZNK6vectorIjLb0EjE4sizeEv.exit27.thread.i
+  %.0194951.i = phi i64 [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit27.thread.i ], [ %17, %.critedge.preheader.split.i.loopexit ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %wide.trip.count45.i = zext i32 %.pre to i64
   br label %.critedge.i
 
@@ -4342,8 +4342,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit27.thread.i9:      ; preds = %_ZNK6vectorIjLb0EjE
   %34 = zext i32 %spec.select.i10 to i64
   br label %.critedge.preheader.split.i20
 
-.critedge.preheader.split.i20:                    ; preds = %.critedge.preheader.split.i20.loopexit, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i8, %_ZNK6vectorIjLb0EjE4sizeEv.exit27.thread.i9
-  %.0194951.i21 = phi i64 [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit27.thread.i9 ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i8 ], [ %34, %.critedge.preheader.split.i20.loopexit ]
+.critedge.preheader.split.i20:                    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i8, %.critedge.preheader.split.i20.loopexit, %_ZNK6vectorIjLb0EjE4sizeEv.exit27.thread.i9
+  %.0194951.i21 = phi i64 [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit27.thread.i9 ], [ %34, %.critedge.preheader.split.i20.loopexit ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i8 ]
   %wide.trip.count45.i23 = zext i32 %.pre42 to i64
   br label %.critedge.i24
 

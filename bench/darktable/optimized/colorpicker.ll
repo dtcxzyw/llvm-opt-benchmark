@@ -932,7 +932,7 @@ define internal noundef i32 @_sample_tooltip_callback(ptr readnone captures(none
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 160
   br label %53
 
-28:                                               ; preds = %83
+28:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %30 = load float, ptr %29, align 4, !tbaa !94
@@ -975,59 +975,59 @@ dt_Lab_2_LCH.exit:                                ; preds = %35, %37
   %.not = icmp eq ptr %52, null
   br i1 %.not, label %122, label %128
 
-53:                                               ; preds = %6, %83
-  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %83 ]
+53:                                               ; preds = %6, %85
+  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %85 ]
   %54 = getelementptr inbounds nuw [3 x [4 x float]], ptr %25, i64 0, i64 %indvars.iv
   %55 = load float, ptr %54, align 16, !tbaa !94
   %56 = fcmp reassoc nsz arcp contract afn ogt float %55, 1.000000e+00
-  br i1 %56, label %61, label %57
+  br i1 %56, label %63, label %57
 
 57:                                               ; preds = %53
   %58 = fcmp reassoc nsz arcp contract afn olt float %55, 0.000000e+00
-  br i1 %58, label %61, label %59
+  br i1 %58, label %63, label %59
 
 59:                                               ; preds = %57
   %60 = fmul reassoc nsz arcp contract afn float %55, 2.550000e+02
-  br label %61
+  %61 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %60)
+  %62 = fptosi float %61 to i32
+  br label %63
 
-61:                                               ; preds = %59, %57, %53
-  %62 = phi float [ 2.550000e+02, %53 ], [ %60, %59 ], [ 0.000000e+00, %57 ]
-  %63 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %62)
-  %64 = fptosi float %63 to i32
+63:                                               ; preds = %59, %57, %53
+  %64 = phi i32 [ 255, %53 ], [ %62, %59 ], [ 0, %57 ]
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %66 = load float, ptr %65, align 4, !tbaa !94
   %67 = fcmp reassoc nsz arcp contract afn ogt float %66, 1.000000e+00
-  br i1 %67, label %72, label %68
+  br i1 %67, label %74, label %68
 
-68:                                               ; preds = %61
+68:                                               ; preds = %63
   %69 = fcmp reassoc nsz arcp contract afn olt float %66, 0.000000e+00
-  br i1 %69, label %72, label %70
+  br i1 %69, label %74, label %70
 
 70:                                               ; preds = %68
   %71 = fmul reassoc nsz arcp contract afn float %66, 2.550000e+02
-  br label %72
+  %72 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %71)
+  %73 = fptosi float %72 to i32
+  br label %74
 
-72:                                               ; preds = %70, %68, %61
-  %73 = phi float [ 2.550000e+02, %61 ], [ %71, %70 ], [ 0.000000e+00, %68 ]
-  %74 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %73)
-  %75 = fptosi float %74 to i32
+74:                                               ; preds = %70, %68, %63
+  %75 = phi i32 [ 255, %63 ], [ %73, %70 ], [ 0, %68 ]
   %76 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %77 = load float, ptr %76, align 8, !tbaa !94
   %78 = fcmp reassoc nsz arcp contract afn ogt float %77, 1.000000e+00
-  br i1 %78, label %83, label %79
+  br i1 %78, label %85, label %79
 
-79:                                               ; preds = %72
+79:                                               ; preds = %74
   %80 = fcmp reassoc nsz arcp contract afn olt float %77, 0.000000e+00
-  br i1 %80, label %83, label %81
+  br i1 %80, label %85, label %81
 
 81:                                               ; preds = %79
   %82 = fmul reassoc nsz arcp contract afn float %77, 2.550000e+02
-  br label %83
+  %83 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %82)
+  %84 = fptosi float %83 to i32
+  br label %85
 
-83:                                               ; preds = %81, %79, %72
-  %84 = phi float [ 2.550000e+02, %72 ], [ %82, %81 ], [ 0.000000e+00, %79 ]
-  %85 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %84)
-  %86 = fptosi float %85 to i32
+85:                                               ; preds = %81, %79, %74
+  %86 = phi i32 [ 255, %74 ], [ %84, %81 ], [ 0, %79 ]
   %87 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.51, i32 noundef %64, i32 noundef %75, i32 noundef %86, ptr noundef nonnull @.str.49) #17
   %88 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   store ptr %87, ptr %88, align 8, !tbaa !75

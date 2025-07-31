@@ -3361,7 +3361,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %16, %_ZNKSt14defaul
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  br label %210
+  br label %211
 
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
@@ -3523,7 +3523,7 @@ _ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2E
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 3, ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull @.str.41, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.42, i64 93))
-          to label %175 unwind label %67
+          to label %176 unwind label %67
 
 90:                                               ; preds = %84, %82
   %91 = getelementptr inbounds nuw i8, ptr %.065, i64 16
@@ -3532,11 +3532,11 @@ _ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2E
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %95 = load ptr, ptr %94, align 8
   %96 = invoke noundef ptr %95(ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %97 unwind label %167
+          to label %97 unwind label %168
 
 97:                                               ; preds = %90
   %98 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #29
-          to label %99 unwind label %169
+          to label %99 unwind label %170
 
 99:                                               ; preds = %97
   %100 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3575,229 +3575,229 @@ _ZNSt10shared_ptrIN7rocksdb15ManagedSnapshotEEC2ERKS2_.exit: ; preds = %99, %104
   %118 = load i64, ptr %117, align 8, !tbaa !378
   %119 = add i64 %116, -1
   %120 = add i64 %119, %118
+  %121 = call i64 @llvm.umax.i64(i64 %120, i64 %75)
   br label %_ZN7rocksdb30WriteUnpreparedTxnReadCallbackC2EPNS_18WritePreparedTxnDBEmmRKSt3mapImmSt4lessImESaISt4pairIKmmEEENS_14SnapshotBackupE.exit.i
 
 _ZN7rocksdb30WriteUnpreparedTxnReadCallbackC2EPNS_18WritePreparedTxnDBEmmRKSt3mapImmSt4lessImESaISt4pairIKmmEEENS_14SnapshotBackupE.exit.i: ; preds = %112, %_ZNSt10shared_ptrIN7rocksdb15ManagedSnapshotEEC2ERKS2_.exit
-  %.0.i.i.i = phi i64 [ 0, %_ZNSt10shared_ptrIN7rocksdb15ManagedSnapshotEEC2ERKS2_.exit ], [ %120, %112 ]
-  %.sroa.speculated.i.i.i = call noundef i64 @llvm.umax.i64(i64 %.0.i.i.i, i64 %75)
-  %121 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store i64 %.sroa.speculated.i.i.i, ptr %121, align 8, !tbaa !139
-  %122 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  store i64 %92, ptr %122, align 8, !tbaa !140
+  %.0.i.i.i = phi i64 [ %75, %_ZNSt10shared_ptrIN7rocksdb15ManagedSnapshotEEC2ERKS2_.exit ], [ %121, %112 ]
+  %122 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  store i64 %.0.i.i.i, ptr %122, align 8, !tbaa !139
+  %123 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  store i64 %92, ptr %123, align 8, !tbaa !140
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7rocksdb30WriteUnpreparedTxnReadCallbackE, i64 16), ptr %98, align 8, !tbaa !105
-  %123 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  store ptr %0, ptr %123, align 8, !tbaa !399
-  %124 = getelementptr inbounds nuw i8, ptr %98, i64 32
-  store ptr %109, ptr %124, align 8, !tbaa !403
-  %125 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  store i64 %75, ptr %125, align 8, !tbaa !404
-  %126 = getelementptr inbounds nuw i8, ptr %98, i64 48
-  store i8 1, ptr %126, align 8, !tbaa !405
-  %127 = getelementptr inbounds nuw i8, ptr %98, i64 49
-  store i8 0, ptr %127, align 1, !tbaa !406
-  %128 = getelementptr inbounds nuw i8, ptr %98, i64 50
-  store i8 0, ptr %128, align 2, !tbaa !407
-  %129 = getelementptr inbounds nuw i8, ptr %98, i64 56
-  store ptr %72, ptr %129, align 8, !tbaa !408
-  %130 = getelementptr inbounds nuw i8, ptr %98, i64 64
-  store ptr %71, ptr %130, align 8, !tbaa !26
-  br i1 %.not.i.i.i43, label %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52, label %131
+  %124 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  store ptr %0, ptr %124, align 8, !tbaa !399
+  %125 = getelementptr inbounds nuw i8, ptr %98, i64 32
+  store ptr %109, ptr %125, align 8, !tbaa !403
+  %126 = getelementptr inbounds nuw i8, ptr %98, i64 40
+  store i64 %75, ptr %126, align 8, !tbaa !404
+  %127 = getelementptr inbounds nuw i8, ptr %98, i64 48
+  store i8 1, ptr %127, align 8, !tbaa !405
+  %128 = getelementptr inbounds nuw i8, ptr %98, i64 49
+  store i8 0, ptr %128, align 1, !tbaa !406
+  %129 = getelementptr inbounds nuw i8, ptr %98, i64 50
+  store i8 0, ptr %129, align 2, !tbaa !407
+  %130 = getelementptr inbounds nuw i8, ptr %98, i64 56
+  store ptr %72, ptr %130, align 8, !tbaa !408
+  %131 = getelementptr inbounds nuw i8, ptr %98, i64 64
+  store ptr %71, ptr %131, align 8, !tbaa !26
+  br i1 %.not.i.i.i43, label %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52, label %132
 
-131:                                              ; preds = %_ZN7rocksdb30WriteUnpreparedTxnReadCallbackC2EPNS_18WritePreparedTxnDBEmmRKSt3mapImmSt4lessImESaISt4pairIKmmEEENS_14SnapshotBackupE.exit.i
-  %132 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %133 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
-  %.not.i.i.i.i.i47 = icmp eq i8 %133, 0
-  br i1 %.not.i.i.i.i.i47, label %137, label %134
+132:                                              ; preds = %_ZN7rocksdb30WriteUnpreparedTxnReadCallbackC2EPNS_18WritePreparedTxnDBEmmRKSt3mapImmSt4lessImESaISt4pairIKmmEEENS_14SnapshotBackupE.exit.i
+  %133 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %134 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
+  %.not.i.i.i.i.i47 = icmp eq i8 %134, 0
+  br i1 %.not.i.i.i.i.i47, label %138, label %135
 
-134:                                              ; preds = %131
-  %135 = load i32, ptr %132, align 4, !tbaa !27
-  %136 = add nsw i32 %135, 1
-  store i32 %136, ptr %132, align 4, !tbaa !27
+135:                                              ; preds = %132
+  %136 = load i32, ptr %133, align 4, !tbaa !27
+  %137 = add nsw i32 %136, 1
+  store i32 %137, ptr %133, align 4, !tbaa !27
   br label %_ZN7rocksdb20WriteUnpreparedTxnDB13IteratorStateC2EPNS_18WritePreparedTxnDBEmSt10shared_ptrINS_15ManagedSnapshotEEmPNS_18WriteUnpreparedTxnE.exit
 
-137:                                              ; preds = %131
-  %138 = atomicrmw volatile add ptr %132, i32 1 acq_rel, align 4
+138:                                              ; preds = %132
+  %139 = atomicrmw volatile add ptr %133, i32 1 acq_rel, align 4
   br label %_ZN7rocksdb20WriteUnpreparedTxnDB13IteratorStateC2EPNS_18WritePreparedTxnDBEmSt10shared_ptrINS_15ManagedSnapshotEEmPNS_18WriteUnpreparedTxnE.exit
 
-_ZN7rocksdb20WriteUnpreparedTxnDB13IteratorStateC2EPNS_18WritePreparedTxnDBEmSt10shared_ptrINS_15ManagedSnapshotEEmPNS_18WriteUnpreparedTxnE.exit: ; preds = %134, %137
-  %139 = load atomic i64, ptr %132 acquire, align 8
-  %140 = icmp eq i64 %139, 4294967297
-  %141 = trunc i64 %139 to i32
-  br i1 %140, label %142, label %150
+_ZN7rocksdb20WriteUnpreparedTxnDB13IteratorStateC2EPNS_18WritePreparedTxnDBEmSt10shared_ptrINS_15ManagedSnapshotEEmPNS_18WriteUnpreparedTxnE.exit: ; preds = %135, %138
+  %140 = load atomic i64, ptr %133 acquire, align 8
+  %141 = icmp eq i64 %140, 4294967297
+  %142 = trunc i64 %140 to i32
+  br i1 %141, label %143, label %151
 
-142:                                              ; preds = %_ZN7rocksdb20WriteUnpreparedTxnDB13IteratorStateC2EPNS_18WritePreparedTxnDBEmSt10shared_ptrINS_15ManagedSnapshotEEmPNS_18WriteUnpreparedTxnE.exit
-  store i32 0, ptr %132, align 8, !tbaa !175
-  %143 = getelementptr inbounds nuw i8, ptr %71, i64 12
-  store i32 0, ptr %143, align 4, !tbaa !177
-  %144 = load ptr, ptr %71, align 8, !tbaa !105
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  %146 = load ptr, ptr %145, align 8
-  call void %146(ptr noundef nonnull align 8 dereferenceable(16) %71) #26
-  %147 = load ptr, ptr %71, align 8, !tbaa !105
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
-  %149 = load ptr, ptr %148, align 8
-  call void %149(ptr noundef nonnull align 8 dereferenceable(16) %71) #26
+143:                                              ; preds = %_ZN7rocksdb20WriteUnpreparedTxnDB13IteratorStateC2EPNS_18WritePreparedTxnDBEmSt10shared_ptrINS_15ManagedSnapshotEEmPNS_18WriteUnpreparedTxnE.exit
+  store i32 0, ptr %133, align 8, !tbaa !175
+  %144 = getelementptr inbounds nuw i8, ptr %71, i64 12
+  store i32 0, ptr %144, align 4, !tbaa !177
+  %145 = load ptr, ptr %71, align 8, !tbaa !105
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
+  %147 = load ptr, ptr %146, align 8
+  call void %147(ptr noundef nonnull align 8 dereferenceable(16) %71) #26
+  %148 = load ptr, ptr %71, align 8, !tbaa !105
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
+  %150 = load ptr, ptr %149, align 8
+  call void %150(ptr noundef nonnull align 8 dereferenceable(16) %71) #26
   br label %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52
 
-150:                                              ; preds = %_ZN7rocksdb20WriteUnpreparedTxnDB13IteratorStateC2EPNS_18WritePreparedTxnDBEmSt10shared_ptrINS_15ManagedSnapshotEEmPNS_18WriteUnpreparedTxnE.exit
-  %151 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
-  %.not.i.i.i49 = icmp eq i8 %151, 0
-  br i1 %.not.i.i.i49, label %154, label %152
+151:                                              ; preds = %_ZN7rocksdb20WriteUnpreparedTxnDB13IteratorStateC2EPNS_18WritePreparedTxnDBEmSt10shared_ptrINS_15ManagedSnapshotEEmPNS_18WriteUnpreparedTxnE.exit
+  %152 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
+  %.not.i.i.i49 = icmp eq i8 %152, 0
+  br i1 %.not.i.i.i49, label %155, label %153
 
-152:                                              ; preds = %150
-  %153 = add nsw i32 %141, -1
-  store i32 %153, ptr %132, align 4, !tbaa !27
+153:                                              ; preds = %151
+  %154 = add nsw i32 %142, -1
+  store i32 %154, ptr %133, align 4, !tbaa !27
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50
 
-154:                                              ; preds = %150
-  %155 = atomicrmw volatile add ptr %132, i32 -1 acq_rel, align 4
+155:                                              ; preds = %151
+  %156 = atomicrmw volatile add ptr %133, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50: ; preds = %154, %152
-  %.0.i.i.i.i51 = phi i32 [ %141, %152 ], [ %155, %154 ]
-  %156 = icmp eq i32 %.0.i.i.i.i51, 1
-  br i1 %156, label %157, label %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52, !prof !178
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50: ; preds = %155, %153
+  %.0.i.i.i.i51 = phi i32 [ %142, %153 ], [ %156, %155 ]
+  %157 = icmp eq i32 %.0.i.i.i.i51, 1
+  br i1 %157, label %158, label %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52, !prof !178
 
-157:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50
+158:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %71) #26
   br label %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52
 
-_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52: ; preds = %_ZN7rocksdb30WriteUnpreparedTxnReadCallbackC2EPNS_18WritePreparedTxnDBEmmRKSt3mapImmSt4lessImESaISt4pairIKmmEEENS_14SnapshotBackupE.exit.i, %142, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50, %157
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %159 = load ptr, ptr %158, align 8, !tbaa !56
-  %160 = invoke noundef ptr @_ZN7rocksdb16ColumnFamilyData25GetReferencedSuperVersionEPNS_6DBImplE(ptr noundef nonnull align 8 dereferenceable(2712) %96, ptr noundef %159)
-          to label %161 unwind label %171
+_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52: ; preds = %_ZN7rocksdb30WriteUnpreparedTxnReadCallbackC2EPNS_18WritePreparedTxnDBEmmRKSt3mapImmSt4lessImESaISt4pairIKmmEEENS_14SnapshotBackupE.exit.i, %143, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50, %158
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %160 = load ptr, ptr %159, align 8, !tbaa !56
+  %161 = invoke noundef ptr @_ZN7rocksdb16ColumnFamilyData25GetReferencedSuperVersionEPNS_6DBImplE(ptr noundef nonnull align 8 dereferenceable(2712) %96, ptr noundef %160)
+          to label %162 unwind label %172
 
-161:                                              ; preds = %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52
-  %162 = load ptr, ptr %158, align 8, !tbaa !56
-  %163 = load i64, ptr %121, align 8, !tbaa !139
-  %164 = invoke noundef ptr @_ZN7rocksdb6DBImpl15NewIteratorImplERKNS_11ReadOptionsEPNS_22ColumnFamilyHandleImplEPNS_12SuperVersionEmPNS_12ReadCallbackEbb(ptr noundef nonnull align 64 dereferenceable(6868) %162, ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull %2, ptr noundef %160, i64 noundef %163, ptr noundef nonnull %98, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %165 unwind label %173
+162:                                              ; preds = %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52
+  %163 = load ptr, ptr %159, align 8, !tbaa !56
+  %164 = load i64, ptr %122, align 8, !tbaa !139
+  %165 = invoke noundef ptr @_ZN7rocksdb6DBImpl15NewIteratorImplERKNS_11ReadOptionsEPNS_22ColumnFamilyHandleImplEPNS_12SuperVersionEmPNS_12ReadCallbackEbb(ptr noundef nonnull align 64 dereferenceable(6868) %163, ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull %2, ptr noundef %161, i64 noundef %164, ptr noundef nonnull %98, i1 noundef zeroext false, i1 noundef zeroext false)
+          to label %166 unwind label %174
 
-165:                                              ; preds = %161
-  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  invoke void @_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %166, ptr noundef nonnull @_ZN7rocksdb12_GLOBAL__N_135CleanupWriteUnpreparedTxnDBIteratorEPvS1_, ptr noundef nonnull %98, ptr noundef null)
-          to label %._crit_edge unwind label %173
+166:                                              ; preds = %162
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  invoke void @_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %167, ptr noundef nonnull @_ZN7rocksdb12_GLOBAL__N_135CleanupWriteUnpreparedTxnDBIteratorEPvS1_, ptr noundef nonnull %98, ptr noundef null)
+          to label %._crit_edge unwind label %174
 
-._crit_edge:                                      ; preds = %165
+._crit_edge:                                      ; preds = %166
   %.pre = load ptr, ptr %100, align 8, !tbaa !26
-  br label %175
+  br label %176
 
-167:                                              ; preds = %90
-  %168 = landingpad { ptr, i32 }
+168:                                              ; preds = %90
+  %169 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-169:                                              ; preds = %97
-  %170 = landingpad { ptr, i32 }
+170:                                              ; preds = %97
+  %171 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-171:                                              ; preds = %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52
-  %172 = landingpad { ptr, i32 }
+172:                                              ; preds = %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52
+  %173 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-173:                                              ; preds = %165, %161
-  %174 = landingpad { ptr, i32 }
+174:                                              ; preds = %166, %162
+  %175 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-175:                                              ; preds = %._crit_edge, %88
-  %176 = phi ptr [ %71, %88 ], [ %.pre, %._crit_edge ]
-  %.1 = phi ptr [ null, %88 ], [ %164, %._crit_edge ]
-  %.not.i.i53 = icmp eq ptr %176, null
-  br i1 %.not.i.i53, label %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit57, label %177
+176:                                              ; preds = %._crit_edge, %88
+  %177 = phi ptr [ %71, %88 ], [ %.pre, %._crit_edge ]
+  %.1 = phi ptr [ null, %88 ], [ %165, %._crit_edge ]
+  %.not.i.i53 = icmp eq ptr %177, null
+  br i1 %.not.i.i53, label %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit57, label %178
 
-177:                                              ; preds = %175
-  %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %179 = load atomic i64, ptr %178 acquire, align 8
-  %180 = icmp eq i64 %179, 4294967297
-  %181 = trunc i64 %179 to i32
-  br i1 %180, label %182, label %190
+178:                                              ; preds = %176
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %180 = load atomic i64, ptr %179 acquire, align 8
+  %181 = icmp eq i64 %180, 4294967297
+  %182 = trunc i64 %180 to i32
+  br i1 %181, label %183, label %191
 
-182:                                              ; preds = %177
-  store i32 0, ptr %178, align 8, !tbaa !175
-  %183 = getelementptr inbounds nuw i8, ptr %176, i64 12
-  store i32 0, ptr %183, align 4, !tbaa !177
-  %184 = load ptr, ptr %176, align 8, !tbaa !105
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 16
-  %186 = load ptr, ptr %185, align 8
-  call void %186(ptr noundef nonnull align 8 dereferenceable(16) %176) #26
-  %187 = load ptr, ptr %176, align 8, !tbaa !105
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
-  %189 = load ptr, ptr %188, align 8
-  call void %189(ptr noundef nonnull align 8 dereferenceable(16) %176) #26
+183:                                              ; preds = %178
+  store i32 0, ptr %179, align 8, !tbaa !175
+  %184 = getelementptr inbounds nuw i8, ptr %177, i64 12
+  store i32 0, ptr %184, align 4, !tbaa !177
+  %185 = load ptr, ptr %177, align 8, !tbaa !105
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 16
+  %187 = load ptr, ptr %186, align 8
+  call void %187(ptr noundef nonnull align 8 dereferenceable(16) %177) #26
+  %188 = load ptr, ptr %177, align 8, !tbaa !105
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 24
+  %190 = load ptr, ptr %189, align 8
+  call void %190(ptr noundef nonnull align 8 dereferenceable(16) %177) #26
   br label %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit57
 
-190:                                              ; preds = %177
-  %191 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
-  %.not.i.i.i54 = icmp eq i8 %191, 0
-  br i1 %.not.i.i.i54, label %194, label %192
+191:                                              ; preds = %178
+  %192 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
+  %.not.i.i.i54 = icmp eq i8 %192, 0
+  br i1 %.not.i.i.i54, label %195, label %193
 
-192:                                              ; preds = %190
-  %193 = add nsw i32 %181, -1
-  store i32 %193, ptr %178, align 4, !tbaa !27
+193:                                              ; preds = %191
+  %194 = add nsw i32 %182, -1
+  store i32 %194, ptr %179, align 4, !tbaa !27
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i55
 
-194:                                              ; preds = %190
-  %195 = atomicrmw volatile add ptr %178, i32 -1 acq_rel, align 4
+195:                                              ; preds = %191
+  %196 = atomicrmw volatile add ptr %179, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i55
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i55: ; preds = %194, %192
-  %.0.i.i.i.i56 = phi i32 [ %181, %192 ], [ %195, %194 ]
-  %196 = icmp eq i32 %.0.i.i.i.i56, 1
-  br i1 %196, label %197, label %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit57, !prof !178
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i55: ; preds = %195, %193
+  %.0.i.i.i.i56 = phi i32 [ %182, %193 ], [ %196, %195 ]
+  %197 = icmp eq i32 %.0.i.i.i.i56, 1
+  br i1 %197, label %198, label %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit57, !prof !178
 
-197:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i55
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %176) #26
+198:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i55
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %177) #26
   br label %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit57
 
-_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit57: ; preds = %175, %182, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i55, %197
+_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit57: ; preds = %176, %183, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i55, %198
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #26
-  %198 = load ptr, ptr %25, align 8, !tbaa !222
-  %.not.i.i58 = icmp eq ptr %198, null
-  br i1 %.not.i.i58, label %_ZN7rocksdb11ReadOptionsD2Ev.exit, label %199
+  %199 = load ptr, ptr %25, align 8, !tbaa !222
+  %.not.i.i58 = icmp eq ptr %199, null
+  br i1 %.not.i.i58, label %_ZN7rocksdb11ReadOptionsD2Ev.exit, label %200
 
-199:                                              ; preds = %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit57
-  %200 = invoke noundef zeroext i1 %198(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3)
-          to label %_ZN7rocksdb11ReadOptionsD2Ev.exit unwind label %201
+200:                                              ; preds = %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit57
+  %201 = invoke noundef zeroext i1 %199(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3)
+          to label %_ZN7rocksdb11ReadOptionsD2Ev.exit unwind label %202
 
-201:                                              ; preds = %199
-  %202 = landingpad { ptr, i32 }
+202:                                              ; preds = %200
+  %203 = landingpad { ptr, i32 }
           catch ptr null
-  %203 = extractvalue { ptr, i32 } %202, 0
-  call void @__clang_call_terminate(ptr %203) #28
+  %204 = extractvalue { ptr, i32 } %203, 0
+  call void @__clang_call_terminate(ptr %204) #28
   unreachable
 
-_ZN7rocksdb11ReadOptionsD2Ev.exit:                ; preds = %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit57, %199
+_ZN7rocksdb11ReadOptionsD2Ev.exit:                ; preds = %_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit57, %200
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %8) #26
-  br label %210
+  br label %211
 
-.body:                                            ; preds = %69, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb15ManagedSnapshotESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, %167, %171, %173, %169, %67
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %168, %167 ], [ %170, %169 ], [ %174, %173 ], [ %172, %171 ], [ %70, %69 ], [ %65, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb15ManagedSnapshotESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ]
+.body:                                            ; preds = %69, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb15ManagedSnapshotESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, %168, %172, %174, %170, %67
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %169, %168 ], [ %171, %170 ], [ %175, %174 ], [ %173, %172 ], [ %70, %69 ], [ %65, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb15ManagedSnapshotESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ]
   call void @_ZNSt12__shared_ptrIN7rocksdb15ManagedSnapshotELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #26
-  %204 = load ptr, ptr %25, align 8, !tbaa !222
-  %.not.i.i59 = icmp eq ptr %204, null
-  br i1 %.not.i.i59, label %_ZN7rocksdb11ReadOptionsD2Ev.exit60, label %205
+  %205 = load ptr, ptr %25, align 8, !tbaa !222
+  %.not.i.i59 = icmp eq ptr %205, null
+  br i1 %.not.i.i59, label %_ZN7rocksdb11ReadOptionsD2Ev.exit60, label %206
 
-205:                                              ; preds = %.body
-  %206 = invoke noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3)
-          to label %_ZN7rocksdb11ReadOptionsD2Ev.exit60 unwind label %207
+206:                                              ; preds = %.body
+  %207 = invoke noundef zeroext i1 %205(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3)
+          to label %_ZN7rocksdb11ReadOptionsD2Ev.exit60 unwind label %208
 
-207:                                              ; preds = %205
-  %208 = landingpad { ptr, i32 }
+208:                                              ; preds = %206
+  %209 = landingpad { ptr, i32 }
           catch ptr null
-  %209 = extractvalue { ptr, i32 } %208, 0
-  call void @__clang_call_terminate(ptr %209) #28
+  %210 = extractvalue { ptr, i32 } %209, 0
+  call void @__clang_call_terminate(ptr %210) #28
   unreachable
 
-_ZN7rocksdb11ReadOptionsD2Ev.exit60:              ; preds = %.body, %205
+_ZN7rocksdb11ReadOptionsD2Ev.exit60:              ; preds = %.body, %206
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %8) #26
   br label %common.resume
 
-210:                                              ; preds = %_ZN7rocksdb11ReadOptionsD2Ev.exit, %_ZN7rocksdb6StatusD2Ev.exit
+211:                                              ; preds = %_ZN7rocksdb11ReadOptionsD2Ev.exit, %_ZN7rocksdb6StatusD2Ev.exit
   %.0 = phi ptr [ %15, %_ZN7rocksdb6StatusD2Ev.exit ], [ %.1, %_ZN7rocksdb11ReadOptionsD2Ev.exit ]
   ret ptr %.0
 }

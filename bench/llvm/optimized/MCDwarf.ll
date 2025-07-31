@@ -5514,13 +5514,13 @@ _ZL15EmitPersonalityRN4llvm10MCStreamerERKNS_8MCSymbolEj.exit.i: ; preds = %411,
   %446 = getelementptr inbounds nuw i8, ptr %428, i64 8
   %447 = load i32, ptr %446, align 8, !tbaa !208
   %448 = zext i32 %447 to i64
+  %449 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %448, i1 false)
+  %450 = trunc nuw nsw i64 %449 to i8
+  %451 = sub nsw i8 63, %450
   br label %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit
 
 _ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit: ; preds = %440, %445
-  %449 = phi i64 [ %448, %445 ], [ 4, %440 ]
-  %450 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %449, i1 false)
-  %451 = trunc nuw nsw i64 %450 to i8
-  %452 = sub nsw i8 63, %451
+  %452 = phi i8 [ %451, %445 ], [ 2, %440 ]
   %453 = load ptr, ptr %442, align 8, !tbaa !204
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 664
   %455 = load ptr, ptr %454, align 8

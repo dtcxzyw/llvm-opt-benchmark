@@ -5342,144 +5342,143 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc37.i
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %89 = load ptr, ptr %88, align 8, !tbaa !63
   %90 = load ptr, ptr %87, align 8, !tbaa !60
-  br label %91
+  br label %92
 
 ._crit_edge54.i:                                  ; preds = %._crit_edge.i
   tail call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %82) #26
+  %91 = tail call float @llvm.fmuladd.f32(float %78, float -2.000000e+00, float %.1.lcssa.i)
   br label %_ZN5faiss12_GLOBAL__N_121compute_norm_from_LUTERKNS_17AdditiveQuantizerERNS_15BitstringReaderE.exit
 
-91:                                               ; preds = %._crit_edge.i, %.lr.ph53.i
+92:                                               ; preds = %._crit_edge.i, %.lr.ph53.i
   %indvars.iv61.i = phi i64 [ 0, %.lr.ph53.i ], [ %indvars.iv.next62.i, %._crit_edge.i ]
-  %92 = phi i64 [ 0, %.lr.ph53.i ], [ %132, %._crit_edge.i ]
+  %93 = phi i64 [ 0, %.lr.ph53.i ], [ %133, %._crit_edge.i ]
   %.052.i = phi float [ 0.000000e+00, %.lr.ph53.i ], [ %.1.lcssa.i, %._crit_edge.i ]
   %.03351.i = phi ptr [ %8, %.lr.ph53.i ], [ %.134.lcssa.i, %._crit_edge.i ]
-  %93 = getelementptr inbounds nuw i64, ptr %.val10, i64 %indvars.iv61.i
-  %94 = load i64, ptr %93, align 8, !tbaa !13
-  %95 = trunc i64 %94 to i32
-  %96 = trunc i64 %92 to i32
-  %97 = and i32 %96, 7
-  %98 = sub nuw nsw i32 8, %97
-  %99 = lshr i64 %92, 3
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 %99
-  %101 = load i8, ptr %100, align 1, !tbaa !51
-  %102 = zext i8 %101 to i32
-  %103 = lshr i32 %102, %97
-  %.not.i.i12 = icmp slt i32 %98, %95
-  br i1 %.not.i.i12, label %109, label %104
+  %94 = getelementptr inbounds nuw i64, ptr %.val10, i64 %indvars.iv61.i
+  %95 = load i64, ptr %94, align 8, !tbaa !13
+  %96 = trunc i64 %95 to i32
+  %97 = trunc i64 %93 to i32
+  %98 = and i32 %97, 7
+  %99 = sub nuw nsw i32 8, %98
+  %100 = lshr i64 %93, 3
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 %100
+  %102 = load i8, ptr %101, align 1, !tbaa !51
+  %103 = zext i8 %102 to i32
+  %104 = lshr i32 %103, %98
+  %.not.i.i12 = icmp slt i32 %99, %96
+  br i1 %.not.i.i12, label %110, label %105
 
-104:                                              ; preds = %91
-  %notmask30.i.i13 = shl nsw i32 -1, %95
-  %105 = xor i32 %notmask30.i.i13, -1
-  %106 = and i32 %103, %105
-  %107 = zext nneg i32 %106 to i64
-  %sext44.i = shl i64 %94, 32
-  %108 = ashr exact i64 %sext44.i, 32
+105:                                              ; preds = %92
+  %notmask30.i.i13 = shl nsw i32 -1, %96
+  %106 = xor i32 %notmask30.i.i13, -1
+  %107 = and i32 %104, %106
+  %108 = zext nneg i32 %107 to i64
+  %sext44.i = shl i64 %95, 32
+  %109 = ashr exact i64 %sext44.i, 32
   br label %_ZN5faiss15BitstringReader4readEi.exit.i14
 
-109:                                              ; preds = %91
-  %110 = zext nneg i32 %103 to i64
-  %111 = and i64 %94, 4294967295
-  %112 = sub nsw i32 %95, %98
-  %.02431.i.i21 = add nuw nsw i64 %99, 1
-  %113 = icmp samesign ugt i32 %112, 8
-  br i1 %113, label %.lr.ph.preheader.i.i28, label %._crit_edge.i.i22
+110:                                              ; preds = %92
+  %111 = zext nneg i32 %104 to i64
+  %112 = and i64 %95, 4294967295
+  %113 = sub nsw i32 %96, %99
+  %.02431.i.i21 = add nuw nsw i64 %100, 1
+  %114 = icmp samesign ugt i32 %113, 8
+  br i1 %114, label %.lr.ph.preheader.i.i28, label %._crit_edge.i.i22
 
-.lr.ph.preheader.i.i28:                           ; preds = %109
-  %114 = zext nneg i32 %98 to i64
+.lr.ph.preheader.i.i28:                           ; preds = %110
+  %115 = zext nneg i32 %99 to i64
   br label %.lr.ph.i.i29
 
 .lr.ph.i.i29:                                     ; preds = %.lr.ph.i.i29, %.lr.ph.preheader.i.i28
-  %indvars.iv.i.i30 = phi i64 [ %114, %.lr.ph.preheader.i.i28 ], [ %indvars.iv.next.i.i34, %.lr.ph.i.i29 ]
+  %indvars.iv.i.i30 = phi i64 [ %115, %.lr.ph.preheader.i.i28 ], [ %indvars.iv.next.i.i34, %.lr.ph.i.i29 ]
   %.02435.i.i31 = phi i64 [ %.02431.i.i21, %.lr.ph.preheader.i.i28 ], [ %.024.i.i35, %.lr.ph.i.i29 ]
-  %.02633.i.i32 = phi i64 [ %110, %.lr.ph.preheader.i.i28 ], [ %119, %.lr.ph.i.i29 ]
-  %.02732.i.i33 = phi i32 [ %112, %.lr.ph.preheader.i.i28 ], [ %120, %.lr.ph.i.i29 ]
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 %.02435.i.i31
-  %116 = load i8, ptr %115, align 1, !tbaa !51
-  %117 = zext i8 %116 to i64
-  %118 = shl i64 %117, %indvars.iv.i.i30
-  %119 = or i64 %118, %.02633.i.i32
+  %.02633.i.i32 = phi i64 [ %111, %.lr.ph.preheader.i.i28 ], [ %120, %.lr.ph.i.i29 ]
+  %.02732.i.i33 = phi i32 [ %113, %.lr.ph.preheader.i.i28 ], [ %121, %.lr.ph.i.i29 ]
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 %.02435.i.i31
+  %117 = load i8, ptr %116, align 1, !tbaa !51
+  %118 = zext i8 %117 to i64
+  %119 = shl i64 %118, %indvars.iv.i.i30
+  %120 = or i64 %119, %.02633.i.i32
   %indvars.iv.next.i.i34 = add nuw nsw i64 %indvars.iv.i.i30, 8
-  %120 = add nsw i32 %.02732.i.i33, -8
+  %121 = add nsw i32 %.02732.i.i33, -8
   %.024.i.i35 = add nuw nsw i64 %.02435.i.i31, 1
-  %121 = icmp samesign ugt i32 %120, 8
-  br i1 %121, label %.lr.ph.i.i29, label %._crit_edge.loopexit.i.i36, !llvm.loop !105
+  %122 = icmp samesign ugt i32 %121, 8
+  br i1 %122, label %.lr.ph.i.i29, label %._crit_edge.loopexit.i.i36, !llvm.loop !105
 
 ._crit_edge.loopexit.i.i36:                       ; preds = %.lr.ph.i.i29
-  %122 = trunc nuw i64 %indvars.iv.next.i.i34 to i32
+  %123 = trunc nuw i64 %indvars.iv.next.i.i34 to i32
   br label %._crit_edge.i.i22
 
-._crit_edge.i.i22:                                ; preds = %._crit_edge.loopexit.i.i36, %109
-  %.027.lcssa.i.i23 = phi i32 [ %112, %109 ], [ %120, %._crit_edge.loopexit.i.i36 ]
-  %.026.lcssa.i.i24 = phi i64 [ %110, %109 ], [ %119, %._crit_edge.loopexit.i.i36 ]
-  %.025.lcssa.i.i25 = phi i32 [ %98, %109 ], [ %122, %._crit_edge.loopexit.i.i36 ]
-  %.024.lcssa.i.i26 = phi i64 [ %.02431.i.i21, %109 ], [ %.024.i.i35, %._crit_edge.loopexit.i.i36 ]
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 %.024.lcssa.i.i26
-  %124 = load i8, ptr %123, align 1, !tbaa !51
+._crit_edge.i.i22:                                ; preds = %._crit_edge.loopexit.i.i36, %110
+  %.027.lcssa.i.i23 = phi i32 [ %113, %110 ], [ %121, %._crit_edge.loopexit.i.i36 ]
+  %.026.lcssa.i.i24 = phi i64 [ %111, %110 ], [ %120, %._crit_edge.loopexit.i.i36 ]
+  %.025.lcssa.i.i25 = phi i32 [ %99, %110 ], [ %123, %._crit_edge.loopexit.i.i36 ]
+  %.024.lcssa.i.i26 = phi i64 [ %.02431.i.i21, %110 ], [ %.024.i.i35, %._crit_edge.loopexit.i.i36 ]
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 %.024.lcssa.i.i26
+  %125 = load i8, ptr %124, align 1, !tbaa !51
   %notmask.i.i27 = shl nsw i32 -1, %.027.lcssa.i.i23
-  %125 = xor i32 %notmask.i.i27, -1
-  %126 = zext i8 %124 to i32
-  %127 = and i32 %126, %125
-  %128 = zext nneg i32 %127 to i64
-  %129 = zext nneg i32 %.025.lcssa.i.i25 to i64
-  %130 = shl i64 %128, %129
-  %131 = or i64 %130, %.026.lcssa.i.i24
+  %126 = xor i32 %notmask.i.i27, -1
+  %127 = zext i8 %125 to i32
+  %128 = and i32 %127, %126
+  %129 = zext nneg i32 %128 to i64
+  %130 = zext nneg i32 %.025.lcssa.i.i25 to i64
+  %131 = shl i64 %129, %130
+  %132 = or i64 %131, %.026.lcssa.i.i24
   br label %_ZN5faiss15BitstringReader4readEi.exit.i14
 
-_ZN5faiss15BitstringReader4readEi.exit.i14:       ; preds = %._crit_edge.i.i22, %104
-  %.pn51 = phi i64 [ %108, %104 ], [ %111, %._crit_edge.i.i22 ]
-  %.0.i.i15 = phi i64 [ %107, %104 ], [ %131, %._crit_edge.i.i22 ]
-  %132 = add i64 %.pn51, %92
-  %133 = trunc i64 %.0.i.i15 to i32
-  %134 = shl nuw i32 1, %95
-  %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv61.i
-  store i32 %133, ptr %136, align 4, !tbaa !53
-  %137 = getelementptr inbounds nuw i64, ptr %89, i64 %indvars.iv61.i
-  %138 = load i64, ptr %137, align 8, !tbaa !13
+_ZN5faiss15BitstringReader4readEi.exit.i14:       ; preds = %._crit_edge.i.i22, %105
+  %.pn51 = phi i64 [ %109, %105 ], [ %112, %._crit_edge.i.i22 ]
+  %.0.i.i15 = phi i64 [ %108, %105 ], [ %132, %._crit_edge.i.i22 ]
+  %133 = add i64 %.pn51, %93
+  %134 = trunc i64 %.0.i.i15 to i32
+  %135 = shl nuw i32 1, %96
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv61.i
+  store i32 %134, ptr %137, align 4, !tbaa !53
+  %138 = getelementptr inbounds nuw i64, ptr %89, i64 %indvars.iv61.i
+  %139 = load i64, ptr %138, align 8, !tbaa !13
   %sext.i16 = shl i64 %.0.i.i15, 32
-  %139 = ashr exact i64 %sext.i16, 32
-  %140 = getelementptr float, ptr %90, i64 %138
-  %141 = getelementptr float, ptr %140, i64 %139
-  %142 = load float, ptr %141, align 4, !tbaa !57
-  %143 = fadd float %.052.i, %142
+  %140 = ashr exact i64 %sext.i16, 32
+  %141 = getelementptr float, ptr %90, i64 %139
+  %142 = getelementptr float, ptr %141, i64 %140
+  %143 = load float, ptr %142, align 4, !tbaa !57
+  %144 = fadd float %.052.i, %143
   %.not56.i = icmp eq i64 %indvars.iv61.i, 0
   br i1 %.not56.i, label %._crit_edge.i, label %.lr.ph.i17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i17, %_ZN5faiss15BitstringReader4readEi.exit.i14
-  %.134.lcssa.i = phi ptr [ %.03351.i, %_ZN5faiss15BitstringReader4readEi.exit.i14 ], [ %158, %.lr.ph.i17 ]
-  %.1.lcssa.i = phi float [ %143, %_ZN5faiss15BitstringReader4readEi.exit.i14 ], [ %151, %.lr.ph.i17 ]
+  %.134.lcssa.i = phi ptr [ %.03351.i, %_ZN5faiss15BitstringReader4readEi.exit.i14 ], [ %159, %.lr.ph.i17 ]
+  %.1.lcssa.i = phi float [ %144, %_ZN5faiss15BitstringReader4readEi.exit.i14 ], [ %152, %.lr.ph.i17 ]
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next62.i, %.val
-  br i1 %exitcond64.not.i, label %._crit_edge54.i, label %91, !llvm.loop !127
+  br i1 %exitcond64.not.i, label %._crit_edge54.i, label %92, !llvm.loop !127
 
 .lr.ph.i17:                                       ; preds = %_ZN5faiss15BitstringReader4readEi.exit.i14, %.lr.ph.i17
   %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i19, %.lr.ph.i17 ], [ 0, %_ZN5faiss15BitstringReader4readEi.exit.i14 ]
-  %.148.i = phi float [ %151, %.lr.ph.i17 ], [ %143, %_ZN5faiss15BitstringReader4readEi.exit.i14 ]
-  %.13446.i = phi ptr [ %158, %.lr.ph.i17 ], [ %.03351.i, %_ZN5faiss15BitstringReader4readEi.exit.i14 ]
-  %144 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.i18
-  %145 = load i32, ptr %144, align 4, !tbaa !53
-  %146 = sext i32 %145 to i64
-  %147 = mul nsw i64 %146, %135
-  %148 = getelementptr float, ptr %.13446.i, i64 %147
-  %149 = getelementptr float, ptr %148, i64 %139
-  %150 = load float, ptr %149, align 4, !tbaa !57
-  %151 = tail call float @llvm.fmuladd.f32(float %150, float 2.000000e+00, float %.148.i)
-  %152 = getelementptr inbounds nuw i64, ptr %.val10, i64 %indvars.iv.i18
-  %153 = load i64, ptr %152, align 8, !tbaa !13
-  %154 = trunc i64 %153 to i32
-  %155 = shl nuw i32 1, %154
-  %156 = sext i32 %155 to i64
-  %157 = mul nsw i64 %156, %135
-  %158 = getelementptr inbounds nuw float, ptr %.13446.i, i64 %157
+  %.148.i = phi float [ %152, %.lr.ph.i17 ], [ %144, %_ZN5faiss15BitstringReader4readEi.exit.i14 ]
+  %.13446.i = phi ptr [ %159, %.lr.ph.i17 ], [ %.03351.i, %_ZN5faiss15BitstringReader4readEi.exit.i14 ]
+  %145 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.i18
+  %146 = load i32, ptr %145, align 4, !tbaa !53
+  %147 = sext i32 %146 to i64
+  %148 = mul nsw i64 %147, %136
+  %149 = getelementptr float, ptr %.13446.i, i64 %148
+  %150 = getelementptr float, ptr %149, i64 %140
+  %151 = load float, ptr %150, align 4, !tbaa !57
+  %152 = tail call float @llvm.fmuladd.f32(float %151, float 2.000000e+00, float %.148.i)
+  %153 = getelementptr inbounds nuw i64, ptr %.val10, i64 %indvars.iv.i18
+  %154 = load i64, ptr %153, align 8, !tbaa !13
+  %155 = trunc i64 %154 to i32
+  %156 = shl nuw i32 1, %155
+  %157 = sext i32 %156 to i64
+  %158 = mul nsw i64 %157, %136
+  %159 = getelementptr inbounds nuw float, ptr %.13446.i, i64 %158
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, %indvars.iv61.i
   br i1 %exitcond.not.i20, label %._crit_edge.i, label %.lr.ph.i17, !llvm.loop !128
 
 _ZN5faiss12_GLOBAL__N_121compute_norm_from_LUTERKNS_17AdditiveQuantizerERNS_15BitstringReaderE.exit: ; preds = %31, %._crit_edge54.i
-  %.012.lcssa.i4143 = phi float [ %78, %._crit_edge54.i ], [ 0.000000e+00, %31 ]
-  %.0.lcssa75.i = phi float [ %.1.lcssa.i, %._crit_edge54.i ], [ 0.000000e+00, %31 ]
-  %159 = tail call float @llvm.fmuladd.f32(float %.012.lcssa.i4143, float -2.000000e+00, float %.0.lcssa75.i)
-  ret float %159
+  %.012.lcssa.i4143 = phi float [ %91, %._crit_edge54.i ], [ 0.000000e+00, %31 ]
+  ret float %.012.lcssa.i4143
 
 160:                                              ; preds = %19
   unreachable

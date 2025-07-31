@@ -1076,17 +1076,20 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %208 = load i8, ptr %207, align 1, !tbaa !7
   %209 = add i8 %208, -48
   %210 = icmp ult i8 %209, 10
-  br i1 %210, label %.lr.ph1075, label %._crit_edge1076, !llvm.loop !41
+  br i1 %210, label %.lr.ph1075, label %._crit_edge1076.loopexit, !llvm.loop !41
 
-._crit_edge1076:                                  ; preds = %.lr.ph1075, %195
-  %.0571.lcssa = phi i32 [ %196, %195 ], [ %206, %.lr.ph1075 ]
-  %.lcssa990 = phi ptr [ %197, %195 ], [ %207, %.lr.ph1075 ]
-  %211 = ptrtoint ptr %.lcssa990 to i64
-  %212 = ptrtoint ptr %.26.lcssa to i64
-  %213 = sub i64 %211, %212
-  %214 = icmp sgt i64 %213, 8
-  %215 = tail call i32 @llvm.smin.i32(i32 %.0571.lcssa, i32 19999)
-  %..0571 = select i1 %214, i32 19999, i32 %215
+._crit_edge1076.loopexit:                         ; preds = %.lr.ph1075
+  %211 = tail call i32 @llvm.smin.i32(i32 %206, i32 19999)
+  br label %._crit_edge1076
+
+._crit_edge1076:                                  ; preds = %._crit_edge1076.loopexit, %195
+  %.0571.lcssa = phi i32 [ %196, %195 ], [ %211, %._crit_edge1076.loopexit ]
+  %.lcssa990 = phi ptr [ %197, %195 ], [ %207, %._crit_edge1076.loopexit ]
+  %212 = ptrtoint ptr %.lcssa990 to i64
+  %213 = ptrtoint ptr %.26.lcssa to i64
+  %214 = sub i64 %212, %213
+  %215 = icmp sgt i64 %214, 8
+  %..0571 = select i1 %215, i32 19999, i32 %.0571.lcssa
   %216 = sub i32 0, %..0571
   %spec.select758 = select i1 %.0632, i32 %..0571, i32 %216
   br label %217

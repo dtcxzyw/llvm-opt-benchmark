@@ -4451,12 +4451,12 @@ define internal fastcc void @compute_dense(ptr noundef readonly captures(none) %
   %51 = tail call nsz float @llvm.fmuladd.f32(float %49, float %50, float %46)
   %52 = fneg nsz float %51
   %53 = select nsz i1 %37, float %52, float %51
+  %54 = tail call nsz float @llvm.fmuladd.f32(float %53, float 5.000000e-01, float 5.000000e-01)
   br label %sigmoid_approx.exit
 
 sigmoid_approx.exit:                              ; preds = %.lr.ph68, %34, %36
-  %.0.i.i = phi nsz float [ %53, %36 ], [ 1.000000e+00, %.lr.ph68 ], [ -1.000000e+00, %34 ]
-  %54 = tail call nsz float @llvm.fmuladd.f32(float %.0.i.i, float 5.000000e-01, float 5.000000e-01)
-  store float %54, ptr %30, align 4, !tbaa !25
+  %.0.i.i = phi float [ %54, %36 ], [ 1.000000e+00, %.lr.ph68 ], [ 0.000000e+00, %34 ]
+  store float %.0.i.i, ptr %30, align 4, !tbaa !25
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
   br i1 %exitcond97.not, label %.loopexit, label %.lr.ph68, !llvm.loop !204
@@ -4611,13 +4611,13 @@ define internal fastcc void @compute_gru(ptr noundef readonly captures(none) %0,
   %72 = tail call nsz float @llvm.fmuladd.f32(float %70, float %71, float %67)
   %73 = fneg nsz float %72
   %74 = select nsz i1 %58, float %73, float %72
+  %75 = tail call nsz float @llvm.fmuladd.f32(float %74, float 5.000000e-01, float 5.000000e-01)
   br label %sigmoid_approx.exit
 
 sigmoid_approx.exit:                              ; preds = %32, %55, %57
-  %.0.i.i = phi nsz float [ %74, %57 ], [ 1.000000e+00, %32 ], [ -1.000000e+00, %55 ]
-  %75 = tail call nsz float @llvm.fmuladd.f32(float %.0.i.i, float 5.000000e-01, float 5.000000e-01)
+  %.0.i.i = phi float [ %75, %57 ], [ 1.000000e+00, %32 ], [ 0.000000e+00, %55 ]
   %76 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
-  store float %75, ptr %76, align 4, !tbaa !25
+  store float %.0.i.i, ptr %76, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph115, label %32, !llvm.loop !207
@@ -4690,18 +4690,18 @@ sigmoid_approx.exit:                              ; preds = %32, %55, %57
   %132 = tail call nsz float @llvm.fmuladd.f32(float %130, float %131, float %127)
   %133 = fneg nsz float %132
   %134 = select nsz i1 %118, float %133, float %132
+  %135 = tail call nsz float @llvm.fmuladd.f32(float %134, float 5.000000e-01, float 5.000000e-01)
   br label %sigmoid_approx.exit108
 
 sigmoid_approx.exit108:                           ; preds = %89, %115, %117
-  %.0.i.i106 = phi nsz float [ %134, %117 ], [ 1.000000e+00, %89 ], [ -1.000000e+00, %115 ]
-  %135 = tail call nsz float @llvm.fmuladd.f32(float %.0.i.i106, float 5.000000e-01, float 5.000000e-01)
+  %.0.i.i106 = phi float [ %135, %117 ], [ 1.000000e+00, %89 ], [ 0.000000e+00, %115 ]
   %136 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv123
-  store float %135, ptr %136, align 4, !tbaa !25
+  store float %.0.i.i106, ptr %136, align 4, !tbaa !25
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
   br i1 %exitcond127.not, label %.lr.ph120, label %89, !llvm.loop !208
 
-._crit_edge121:                                   ; preds = %tansig_approx.exit, %4
+._crit_edge121:                                   ; preds = %sigmoid_approx.exit111, %4
   %137 = sext i32 %11 to i64
   %138 = shl nsw i64 %137, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr nonnull align 16 %7, i64 %138, i1 false)
@@ -4710,8 +4710,8 @@ sigmoid_approx.exit108:                           ; preds = %89, %115, %117
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
   ret void
 
-.lr.ph118:                                        ; preds = %tansig_approx.exit, %.lr.ph120
-  %indvars.iv133 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next134, %tansig_approx.exit ]
+.lr.ph118:                                        ; preds = %sigmoid_approx.exit111, %.lr.ph120
+  %indvars.iv133 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next134, %sigmoid_approx.exit111 ]
   %139 = load ptr, ptr %1, align 8, !tbaa !109
   %140 = getelementptr inbounds nuw float, ptr %139, i64 %indvars.iv133
   %141 = getelementptr inbounds nuw float, ptr %140, i64 %85
@@ -4783,21 +4783,17 @@ sigmoid_approx.exit108:                           ; preds = %89, %115, %117
   %187 = tail call nsz float @llvm.fmuladd.f32(float %185, float %186, float %182)
   %188 = fneg nsz float %187
   %189 = select nsz i1 %173, float %188, float %187
+  %190 = tail call nsz float @llvm.fmuladd.f32(float %189, float 5.000000e-01, float 5.000000e-01)
   br label %sigmoid_approx.exit111
-
-sigmoid_approx.exit111:                           ; preds = %166, %170, %172
-  %.0.i.i109 = phi nsz float [ %189, %172 ], [ 1.000000e+00, %166 ], [ -1.000000e+00, %170 ]
-  %190 = tail call nsz float @llvm.fmuladd.f32(float %.0.i.i109, float 5.000000e-01, float 5.000000e-01)
-  br label %tansig_approx.exit
 
 191:                                              ; preds = %._crit_edge
   %192 = fmul nsz float %165, 3.906250e-03
   %193 = fcmp nsz olt float %192, 8.000000e+00
-  br i1 %193, label %194, label %tansig_approx.exit
+  br i1 %193, label %194, label %sigmoid_approx.exit111
 
 194:                                              ; preds = %191
   %195 = fcmp nsz ogt float %192, -8.000000e+00
-  br i1 %195, label %196, label %tansig_approx.exit
+  br i1 %195, label %196, label %sigmoid_approx.exit111
 
 196:                                              ; preds = %194
   %197 = fcmp nsz olt float %192, 0.000000e+00
@@ -4818,21 +4814,21 @@ sigmoid_approx.exit111:                           ; preds = %166, %170, %172
   %211 = tail call nsz float @llvm.fmuladd.f32(float %209, float %210, float %206)
   %212 = fneg nsz float %211
   %213 = select nsz i1 %197, float %212, float %211
-  br label %tansig_approx.exit
+  br label %sigmoid_approx.exit111
 
 214:                                              ; preds = %._crit_edge
   %215 = fmul nsz float %165, 3.906250e-03
   %216 = fcmp nsz olt float %215, 0.000000e+00
   %217 = select nsz i1 %216, float 0.000000e+00, float %215
-  br label %tansig_approx.exit
+  br label %sigmoid_approx.exit111
 
 218:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 1323) #11
   tail call void @abort() #13
   unreachable
 
-tansig_approx.exit:                               ; preds = %196, %194, %191, %214, %sigmoid_approx.exit111
-  %.1 = phi nsz float [ %190, %sigmoid_approx.exit111 ], [ %217, %214 ], [ %213, %196 ], [ 1.000000e+00, %191 ], [ -1.000000e+00, %194 ]
+sigmoid_approx.exit111:                           ; preds = %196, %194, %191, %172, %170, %166, %214
+  %.1 = phi nsz float [ %217, %214 ], [ %190, %172 ], [ 1.000000e+00, %166 ], [ 0.000000e+00, %170 ], [ %213, %196 ], [ 1.000000e+00, %191 ], [ -1.000000e+00, %194 ]
   %219 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv133
   %220 = load float, ptr %219, align 4, !tbaa !25
   %221 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv133

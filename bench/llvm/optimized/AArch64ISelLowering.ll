@@ -1767,7 +1767,7 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 @switch.table._ZNK4llvm21AArch64TargetLowering18ReplaceNodeResultsEPNS_6SDNodeERNS_15SmallVectorImplINS_7SDValueEEERNS_12SelectionDAGE.208 = private unnamed_addr constant [6 x i32] [i32 7549, i32 poison, i32 7550, i32 7552, i32 7551, i32 7551], align 4
 @switch.table._ZNK4llvm21AArch64TargetLowering14shouldLocalizeERKNS_12MachineInstrEPKNS_19TargetTransformInfoE = private unnamed_addr constant [5 x i16] [i16 11, i16 12, i16 poison, i16 13, i16 14], align 2
 @switch.table._ZL32getPredicateForFixedLengthVectorRN4llvm12SelectionDAGERNS_5SDLocENS_3EVTE = private unnamed_addr constant [9 x i16] [i16 142, i16 141, i16 140, i16 139, i16 poison, i16 141, i16 141, i16 140, i16 139], align 2
-@switch.table._ZNK4llvm21AArch64TargetLowering33SimplifyDemandedBitsForTargetNodeENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS_14TargetLowering17TargetLoweringOptEj = private unnamed_addr constant [9 x i32] [i32 8, i32 64, i32 16, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 32], align 4
+@switch.table._ZNK4llvm21AArch64TargetLowering33SimplifyDemandedBitsForTargetNodeENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS_14TargetLowering17TargetLoweringOptEj = private unnamed_addr constant [9 x i32] [i32 3, i32 6, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 5], align 4
 @switch.table._ZL17IsSVECntIntrinsicN4llvm7SDValueE = private unnamed_addr constant [9 x i64] [i64 8, i64 64, i64 16, i64 0, i64 0, i64 0, i64 0, i64 0, i64 32], align 8
 @switch.table._ZL17IsSVECntIntrinsicN4llvm7SDValueE.210 = private unnamed_addr constant [9 x i64] [i64 4294967296, i64 4294967296, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296], align 8
 @switch.table._ZL18emitConjunctionRecRN4llvm12SelectionDAGENS_7SDValueERNS_9AArch64CC8CondCodeEbS2_S4_ = private unnamed_addr constant [13 x i32] [i32 8, i32 2, i32 3, i32 9, i32 poison, i32 poison, i32 poison, i32 0, i32 12, i32 10, i32 11, i32 13, i32 1], align 4
@@ -150665,12 +150665,12 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.i.i: ; preds = %239, %237
 
 .thread.i.i.i:                                    ; preds = %235, %_ZNK4llvm3EVT16isScalableVectorEv.exit.i.i.i
   %246 = call noundef i32 @_ZNK4llvm3EVT28getExtendedVectorNumElementsEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #36
+  %247 = call i32 @llvm.smax.i32(i32 %246, i32 0)
   br label %_ZNK4llvm19ShuffleVectorSDNode7getMaskEv.exit.i
 
 _ZNK4llvm19ShuffleVectorSDNode7getMaskEv.exit.i:  ; preds = %.thread.i.i.i, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.i.i
-  %247 = phi i32 [ %245, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.i.i ], [ %246, %.thread.i.i.i ]
+  %smax.i = phi i32 [ %245, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.i.i ], [ %247, %.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #35
-  %smax.i = call i32 @llvm.smax.i32(i32 %247, i32 0)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
   br label %248
 
@@ -158884,41 +158884,40 @@ switch.lookup:                                    ; preds = %_ZL14getIntrinsicID
   %285 = load i32, ptr %284, align 8, !tbaa !1572
   %.not = icmp eq i32 %285, 0
   %spec.store.select = select i1 %.not, i32 2048, i32 %285
-  %286 = tail call range(i32 3, 33) i32 @llvm.cttz.i32(i32 %switch.load, i1 true)
-  %287 = lshr i32 %spec.store.select, %286
-  %288 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %287, i1 false)
-  %289 = sub nuw nsw i32 32, %288
-  %290 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %291 = load i32, ptr %290, align 8, !tbaa !345
-  %292 = icmp ult i32 %289, %291
-  br i1 %292, label %293, label %_ZN4llvm5APInt11setHighBitsEj.exit
+  %286 = lshr i32 %spec.store.select, %switch.load
+  %287 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %286, i1 false)
+  %288 = sub nuw nsw i32 32, %287
+  %289 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %290 = load i32, ptr %289, align 8, !tbaa !345
+  %291 = icmp ult i32 %288, %290
+  br i1 %291, label %292, label %_ZN4llvm5APInt11setHighBitsEj.exit
 
-293:                                              ; preds = %switch.lookup
-  %294 = icmp ult i32 %291, 65
-  br i1 %294, label %295, label %303
+292:                                              ; preds = %switch.lookup
+  %293 = icmp ult i32 %290, 65
+  br i1 %293, label %294, label %302
 
-295:                                              ; preds = %293
-  %reass.sub = sub nsw i32 %289, %291
-  %296 = add nsw i32 %reass.sub, 64
-  %297 = zext nneg i32 %296 to i64
-  %298 = lshr i64 -1, %297
-  %299 = zext nneg i32 %289 to i64
-  %300 = shl i64 %298, %299
-  %301 = load i64, ptr %5, align 8, !tbaa !254
-  %302 = or i64 %301, %300
-  store i64 %302, ptr %5, align 8, !tbaa !254
+294:                                              ; preds = %292
+  %reass.sub = sub nsw i32 %288, %290
+  %295 = add nsw i32 %reass.sub, 64
+  %296 = zext nneg i32 %295 to i64
+  %297 = lshr i64 -1, %296
+  %298 = zext nneg i32 %288 to i64
+  %299 = shl i64 %297, %298
+  %300 = load i64, ptr %5, align 8, !tbaa !254
+  %301 = or i64 %300, %299
+  store i64 %301, ptr %5, align 8, !tbaa !254
   br label %_ZN4llvm5APInt11setHighBitsEj.exit
 
-303:                                              ; preds = %293
-  tail call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %289, i32 noundef %291) #35
+302:                                              ; preds = %292
+  tail call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %288, i32 noundef %290) #35
   br label %_ZN4llvm5APInt11setHighBitsEj.exit
 
 .critedge:                                        ; preds = %_ZL14getIntrinsicIDPKN4llvm6SDNodeE.exit.i, %267, %8
-  %304 = tail call noundef zeroext i1 @_ZNK4llvm14TargetLowering33SimplifyDemandedBitsForTargetNodeENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS0_17TargetLoweringOptEj(ptr noundef nonnull align 8 dereferenceable(412423) %0, ptr nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %7) #35
+  %303 = tail call noundef zeroext i1 @_ZNK4llvm14TargetLowering33SimplifyDemandedBitsForTargetNodeENS_7SDValueERKNS_5APIntES4_RNS_9KnownBitsERNS0_17TargetLoweringOptEj(ptr noundef nonnull align 8 dereferenceable(412423) %0, ptr nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %7) #35
   br label %_ZN4llvm5APInt11setHighBitsEj.exit
 
-_ZN4llvm5APInt11setHighBitsEj.exit:               ; preds = %switch.lookup, %295, %303, %26, %33, %31, %35, %_ZN4llvm5APIntD2Ev.exit60, %.critedge, %_ZN4llvm9KnownBitsD2Ev.exit76
-  %.3 = phi i1 [ %304, %.critedge ], [ %.4, %_ZN4llvm9KnownBitsD2Ev.exit76 ], [ false, %26 ], [ false, %33 ], [ false, %31 ], [ %.2, %_ZN4llvm5APIntD2Ev.exit60 ], [ false, %35 ], [ false, %303 ], [ false, %295 ], [ false, %switch.lookup ]
+_ZN4llvm5APInt11setHighBitsEj.exit:               ; preds = %switch.lookup, %294, %302, %26, %33, %31, %35, %_ZN4llvm5APIntD2Ev.exit60, %.critedge, %_ZN4llvm9KnownBitsD2Ev.exit76
+  %.3 = phi i1 [ %303, %.critedge ], [ %.4, %_ZN4llvm9KnownBitsD2Ev.exit76 ], [ false, %26 ], [ false, %33 ], [ false, %31 ], [ %.2, %_ZN4llvm5APIntD2Ev.exit60 ], [ false, %35 ], [ false, %302 ], [ false, %294 ], [ false, %switch.lookup ]
   ret i1 %.3
 }
 

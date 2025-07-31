@@ -210,36 +210,36 @@ define void @modify_roi_out(ptr noundef readnone captures(none) %0, ptr noundef 
   %.val = load ptr, ptr %16, align 16, !tbaa !41
   %.val.val = load float, ptr %.val, align 4, !tbaa !50
   %17 = fcmp reassoc nsz arcp contract afn olt float %.val.val, 1.000000e+00
-  br i1 %17, label %18, label %21
+  br i1 %17, label %18, label %23
 
 18:                                               ; preds = %4
   %19 = fdiv reassoc nsz arcp contract afn float %9, %.val.val
   %20 = fdiv reassoc nsz arcp contract afn float %15, %.val.val
+  %21 = tail call reassoc nsz arcp contract afn float @llvm.floor.f32(float %19)
+  %22 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %20)
   br label %transform.exit21
 
-21:                                               ; preds = %4
-  %22 = fmul reassoc nsz arcp contract afn float %.val.val, %6
-  %23 = fmul reassoc nsz arcp contract afn float %.val.val, %12
+23:                                               ; preds = %4
+  %24 = fmul reassoc nsz arcp contract afn float %.val.val, %6
+  %25 = fmul reassoc nsz arcp contract afn float %.val.val, %12
+  %26 = tail call reassoc nsz arcp contract afn float @llvm.floor.f32(float %24)
+  %27 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %25)
   br label %transform.exit21
 
-transform.exit21:                                 ; preds = %18, %21
-  %.sroa.024.032 = phi float [ %6, %18 ], [ %22, %21 ]
-  %.sroa.626.030 = phi float [ %19, %18 ], [ %9, %21 ]
-  %.sroa.6.0 = phi nsz float [ %20, %18 ], [ %15, %21 ]
-  %.sroa.0.0 = phi nsz float [ %12, %18 ], [ %23, %21 ]
-  %24 = tail call reassoc nsz arcp contract afn float @llvm.floor.f32(float %.sroa.024.032)
-  %25 = fptosi float %24 to i32
-  store i32 %25, ptr %2, align 4, !tbaa !48
-  %26 = tail call reassoc nsz arcp contract afn float @llvm.floor.f32(float %.sroa.626.030)
-  %27 = fptosi float %26 to i32
-  store i32 %27, ptr %7, align 4, !tbaa !49
-  %28 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %.sroa.0.0)
-  %29 = fptosi float %28 to i32
-  store i32 %29, ptr %10, align 4, !tbaa !26
-  %30 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %.sroa.6.0)
-  %31 = fptosi float %30 to i32
+transform.exit21:                                 ; preds = %18, %23
+  %.sroa.024.032 = phi float [ %6, %18 ], [ %26, %23 ]
+  %.sroa.626.030 = phi float [ %21, %18 ], [ %9, %23 ]
+  %.sroa.6.0 = phi float [ %22, %18 ], [ %15, %23 ]
+  %.sroa.0.0 = phi float [ %12, %18 ], [ %27, %23 ]
+  %28 = fptosi float %.sroa.024.032 to i32
+  store i32 %28, ptr %2, align 4, !tbaa !48
+  %29 = fptosi float %.sroa.626.030 to i32
+  store i32 %29, ptr %7, align 4, !tbaa !49
+  %30 = fptosi float %.sroa.0.0 to i32
+  store i32 %30, ptr %10, align 4, !tbaa !26
+  %31 = fptosi float %.sroa.6.0 to i32
   store i32 %31, ptr %13, align 4, !tbaa !28
-  %32 = icmp slt i32 %25, 0
+  %32 = icmp slt i32 %28, 0
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %transform.exit21
@@ -247,7 +247,7 @@ transform.exit21:                                 ; preds = %18, %21
   br label %34
 
 34:                                               ; preds = %33, %transform.exit21
-  %35 = icmp slt i32 %27, 0
+  %35 = icmp slt i32 %29, 0
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %34
@@ -255,7 +255,7 @@ transform.exit21:                                 ; preds = %18, %21
   br label %37
 
 37:                                               ; preds = %36, %34
-  %38 = icmp slt i32 %29, 1
+  %38 = icmp slt i32 %30, 1
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %37

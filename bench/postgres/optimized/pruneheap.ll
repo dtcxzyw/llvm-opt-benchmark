@@ -76,7 +76,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %27 = load ptr, ptr %26, align 8
   %.not24 = icmp eq ptr %27, null
-  br i1 %.not24, label %35, label %28
+  br i1 %.not24, label %36, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -84,24 +84,24 @@ BufferGetPage.exit:                               ; preds = %6, %12
   %31 = shl i32 %30, 13
   %32 = sub i32 819200, %31
   %33 = sdiv i32 %32, 100
-  %34 = sext i32 %33 to i64
-  br label %35
+  %34 = tail call i32 @llvm.umax.i32(i32 %33, i32 819)
+  %35 = sext i32 %34 to i64
+  br label %36
 
-35:                                               ; preds = %25, %28
-  %36 = phi i64 [ %34, %28 ], [ 0, %25 ]
-  %37 = tail call i64 @llvm.umax.i64(i64 %36, i64 819)
+36:                                               ; preds = %25, %28
+  %37 = phi i64 [ %35, %28 ], [ 819, %25 ]
   %38 = getelementptr i8, ptr %.0.i.i, i64 10
   %.val = load i16, ptr %38, align 2
   %39 = and i16 %.val, 2
   %.not26 = icmp eq i16 %39, 0
   br i1 %.not26, label %40, label %43
 
-40:                                               ; preds = %35
+40:                                               ; preds = %36
   %41 = tail call i64 @PageGetHeapFreeSpace(ptr noundef nonnull %.0.i.i) #8
   %42 = icmp ult i64 %41, %37
   br i1 %42, label %43, label %59
 
-43:                                               ; preds = %40, %35
+43:                                               ; preds = %40, %36
   %44 = tail call zeroext i1 @ConditionalLockBufferForCleanup(i32 noundef %1) #8
   br i1 %44, label %45, label %59
 
@@ -2269,7 +2269,7 @@ define internal range(i32 -1, 2) i32 @heap_log_freeze_cmp(ptr noundef readonly c
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #7
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -88591,24 +88591,24 @@ define noundef zeroext i1 @"_ZN127_$LT$polars_stream..nodes..io_sources..multi_f
 define hidden noundef i32 @_ZN13polars_stream5nodes10io_sources17multi_file_reader16reader_interface29calc_row_position_after_slice17h9e0d6fefb5d8bd6eE(i32 noundef %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
-  %5 = zext i32 %0 to i64
-  %6 = load i64, ptr %1, align 8, !range !898, !noundef !6
-  %.not = icmp eq i64 %6, 2
-  br i1 %.not, label %9, label %7
+  %5 = load i64, ptr %1, align 8, !range !898, !noundef !6
+  %.not = icmp eq i64 %5, 2
+  br i1 %.not, label %11, label %6
 
-7:                                                ; preds = %2
+6:                                                ; preds = %2
+  %7 = zext i32 %0 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @_ZN12polars_utils10slice_enum5Slice18restrict_to_bounds17hce238f91729d588dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, i64 noundef %5)
+  call void @_ZN12polars_utils10slice_enum5Slice18restrict_to_bounds17hce238f91729d588dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, i64 noundef %7)
   %8 = call noundef i64 @_ZN12polars_utils10slice_enum5Slice12end_position17h912d208daa80622eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %9
+  %9 = call i64 @llvm.umin.i64(i64 %8, i64 4294967295)
+  %10 = trunc nuw i64 %9 to i32
+  br label %11
 
-9:                                                ; preds = %7, %2
-  %.sroa.04.0 = phi i64 [ %8, %7 ], [ %5, %2 ]
-  %.sroa.0.07 = call i64 @llvm.umin.i64(i64 %.sroa.04.0, i64 4294967295)
-  %.sroa.0.0 = trunc nuw i64 %.sroa.0.07 to i32
-  ret i32 %.sroa.0.0
+11:                                               ; preds = %6, %2
+  %.sroa.04.0 = phi i32 [ %10, %6 ], [ %0, %2 ]
+  ret i32 %.sroa.04.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

@@ -249,13 +249,13 @@ define hidden range(i64 0, 2147483648) i64 @SDL_GetResamplerInputFrames(i64 noun
   %14 = add i64 %9, 4294967296
   %15 = add i64 %14, %10
   %16 = ashr i64 %15, 32
-  %17 = select i1 %or.cond.i, i64 2147483647, i64 %16
+  %17 = tail call i64 @llvm.smax.i64(i64 %16, i64 0)
+  %18 = select i1 %or.cond.i, i64 2147483647, i64 %17
   br label %ResamplerMul.exit
 
 ResamplerMul.exit:                                ; preds = %8, %5
-  %.0 = phi i64 [ 2147483647, %5 ], [ %17, %8 ]
-  %18 = tail call i64 @llvm.smax.i64(i64 %.0, i64 0)
-  ret i64 %18
+  %.0 = phi i64 [ 2147483647, %5 ], [ %18, %8 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
